@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -42,6 +42,24 @@
       <h2>char[] vs string — două abordări</h2>
     </div>
     <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🔡 Ce este un șir de caractere?</div>
+        <p>Un șir de caractere este o <strong>secvență de litere, cifre sau simboluri</strong> stocate consecutiv în memorie. Fiecare caracter are un cod numeric în tabelul ASCII. De exemplu, litera <code>"A"</code> are codul <strong>65</strong>, <code>"a"</code> are <strong>97</strong>, iar <code>"0"</code> are <strong>48</strong>.</p>
+        <p>Această relație dintre caractere și numere permite comparații, conversii și operații matematice pe caractere!</p>
+      </div>
+      <h3 style="margin-top:14px;font-size:15px;">Tabela ASCII — caractere esențiale pentru BAC</h3>
+      <div style="overflow-x:auto;margin:10px 0;">
+        <table class="ascii-table">
+          <thead><tr><th>Caracter</th><th>Cod ASCII</th><th>Utilizare frecventă la BAC</th></tr></thead>
+          <tbody>
+            <tr><td class="char">A–Z</td><td class="dec">65–90</td><td>Litere mari → <code>ch - "A"</code> dă indexul (0–25)</td></tr>
+            <tr><td class="char">a–z</td><td class="dec">97–122</td><td>Litere mici → <code>ch - "a"</code> dă indexul (0–25)</td></tr>
+            <tr><td class="char">0–9</td><td class="dec">48–57</td><td>Cifre → <code>ch - "0"</code> dă cifra ca număr (0–9)</td></tr>
+            <tr><td class="char">Spațiu</td><td class="dec">32</td><td>Separator în <code>getline()</code></td></tr>
+            <tr><td class="char">\0</td><td class="dec">0</td><td>Terminator de șir (null char) în <code>char[]</code></td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:12px 0;">
         <div class="card red">
           <strong>char[] (C-style)</strong>
@@ -309,5 +327,6 @@ string w;
 </footer>
 
 <script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
 </body>
 </html>

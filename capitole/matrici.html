@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -31,6 +31,7 @@
   <a href="#rotire">Rotire</a>
   <a href="#speciale">Matrice Speciale</a>
   <a href="#spirala">Spirală</a>
+  <a href="#matrix-demo">Demo Zone</a>
   <a href="#bac">Probleme BAC</a>
 </nav>
 
@@ -283,6 +284,51 @@ cin &gt;&gt; n &gt;&gt; m;
 </section>
 
 <!-- ─── 8. PROBLEME BAC ─────────────────────────────── -->
+<!-- ─── DEMO INTERACTIV MATRICE ──────────────────── -->
+<section id="matrix-demo">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🔢</span>
+      <h2>Demo Interactiv — Zone Matrice 5×5</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🗺️ Cum recunosc zonele în matrice?</div>
+        <p>O matrice pătratică n×n are mai multe zone speciale. Elementul de pe linia <strong>i</strong> și coloana <strong>j</strong> aparține:</p>
+        <ul>
+          <li><strong>Diagonalei principale</strong> dacă <code>i == j</code></li>
+          <li><strong>Diagonalei secundare</strong> dacă <code>i + j == n + 1</code></li>
+          <li><strong>Triunghiului superior</strong> dacă <code>j &gt; i</code></li>
+          <li><strong>Triunghiului inferior</strong> dacă <code>j &lt; i</code></li>
+          <li><strong>Bordurii</strong> dacă <code>i==1 || i==n || j==1 || j==n</code></li>
+        </ul>
+      </div>
+      <p>Apasă butoanele de mai jos pentru a vedea evidențiată fiecare zonă:</p>
+      <div class="matrix-zone-btns">
+        <button class="btn btn-primary" data-zone="all">✨ Toate zonele</button>
+        <button class="btn" style="background:#1d4ed8;color:white;" data-zone="diag-main">▲ Diagonala Principală (i==j)</button>
+        <button class="btn" style="background:#7c3aed;color:white;" data-zone="diag-sec">◆ Diagonala Secundară (i+j==n+1)</button>
+        <button class="btn" style="background:#991b1b;color:white;" data-zone="both-diag">★ Ambele Diagonale</button>
+        <button class="btn" style="background:#0f766e;color:white;" data-zone="upper">△ Triunghi Superior (j&gt;i)</button>
+        <button class="btn" style="background:#b45309;color:white;" data-zone="lower">▽ Triunghi Inferior (j&lt;i)</button>
+        <button class="btn" style="background:#be185d;color:white;" data-zone="border">□ Bordură</button>
+      </div>
+      <div class="matrix-viz-wrap">
+        <div class="matrix-viz" style="grid-template-columns:repeat(5,46px)">
+          <!-- celulele sunt generate de JavaScript -->
+        </div>
+      </div>
+      <div class="matrix-legend">
+        <div class="mx-legend-item"><div class="mx-legend-color" style="background:#1d4ed8"></div> Diag. principală</div>
+        <div class="mx-legend-item"><div class="mx-legend-color" style="background:#7c3aed"></div> Diag. secundară</div>
+        <div class="mx-legend-item"><div class="mx-legend-color" style="background:#991b1b"></div> Ambele diagonale</div>
+        <div class="mx-legend-item"><div class="mx-legend-color" style="background:#0f766e"></div> Triunghi superior</div>
+        <div class="mx-legend-item"><div class="mx-legend-color" style="background:#b45309"></div> Triunghi inferior</div>
+        <div class="mx-legend-item"><div class="mx-legend-color" style="background:#be185d"></div> Bordură</div>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="bac">
   <div class="slide">
     <div class="slide-header">
@@ -334,5 +380,6 @@ cin &gt;&gt; n &gt;&gt; m;
 </footer>
 
 <script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -45,6 +45,16 @@
       <h2>Ce este Backtracking?</h2>
     </div>
     <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🌀 Analogie: Backtracking = Labirint</div>
+        <p>Imaginează-ți că ești într-un labirint și trebuie să găsești ieșirea:</p>
+        <ul>
+          <li>Mergi pe un drum → dacă ajungi la un <strong>blocaj</strong>, dai înapoi (backtrack)</li>
+          <li>Încerci altă direcție → dacă și aceea e blocată, dai înapoi din nou</li>
+          <li>Continui până găsești <strong>ieșirea</strong> sau ai încercat toate drumurile</li>
+        </ul>
+        <p>Backtracking-ul construiește soluția <strong>pas cu pas</strong>, și dacă o decizie duce la un eșec, se întoarce și încearcă altă variantă.</p>
+      </div>
       <p>Backtracking este o tehnică algoritmică de <strong>căutare exhaustivă sistematică</strong> cu posibilitatea de a <em>reveni</em> (backtrack) atunci când o soluție parțială nu poate fi extinsă la o soluție completă validă.</p>
       <div class="callout info">
         <strong>Idee:</strong> Construim soluția element cu element. La fiecare pas, verificăm dacă alegerea curentă respectă restricțiile. Dacă nu, revenim și încercăm altă valoare.
@@ -274,6 +284,12 @@
     <div class="slide-body">
       <p>Vizualizează cum algoritmul backtracking plasează reginele una câte una, detectează conflictele și revine pentru a încerca alte variante.</p>
       <div id="queens-demo">
+        <div class="speed-wrap" style="margin-bottom:10px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        
         <div class="bt-grid" id="queens-grid" style="display:inline-grid;grid-template-columns:repeat(4,56px);gap:3px;margin-bottom:14px;"></div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
           <button class="btn btn-primary" data-action="start-queens">▶ Start</button>
@@ -388,5 +404,6 @@
 </footer>
 
 <script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
 </body>
 </html>

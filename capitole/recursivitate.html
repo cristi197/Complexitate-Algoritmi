@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -46,6 +46,15 @@
       <h2>Ce este recursivitatea?</h2>
     </div>
     <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🪆 Analogie: Recursivitatea = Păpuși Matrioșka</div>
+        <p>Imaginează-ți că deschizi o păpușă Matrioșka: înăuntru găsești alta mai mică, înăuntru alta și mai mică, până la cea mai mică care nu mai are nimic înăuntru. Recursivitatea funcționează la fel:</p>
+        <ul>
+          <li>Fiecare apel al funcției <strong>rezolvă o problemă mai mică</strong></li>
+          <li>Cel mai mic caz se rezolvă direct (<strong>cazul de bază</strong>)</li>
+          <li>Rezultatele se <strong>întorc în lanț</strong> spre apelul inițial</li>
+        </ul>
+      </div>
       <p>O funcție este <strong>recursivă</strong> dacă se apelează pe sine însuși, direct sau indirect, pentru a rezolva o versiune mai mică a aceluiași subproblemă.</p>
       <div class="callout info">
         <strong>Structura oricărei funcții recursive:</strong><br>
@@ -261,6 +270,12 @@
     <div class="slide-body">
       <p>Introdu un număr și apasă <strong>Rulează</strong> pentru a vizualiza cum se construiește și se desfășoară stiva de apeluri.</p>
       <div id="factorial-demo">
+        <div class="speed-wrap" style="margin-bottom:10px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px;">
           <label style="font-size:14px;">n =
             <input type="number" data-action="fact-input" value="5" min="0" max="10"
@@ -414,5 +429,6 @@
 </footer>
 
 <script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
 </body>
 </html>

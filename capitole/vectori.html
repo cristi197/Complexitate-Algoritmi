@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -31,6 +31,7 @@
   <a href="#interclasare">Interclasare</a>
   <a href="#inserare">Inserare/Ștergere</a>
   <a href="#frecventa">Frecvență</a>
+  <a href="#vector-demo">Demo Interactiv</a>
   <a href="#bac">Probleme BAC</a>
 </nav>
 
@@ -43,8 +44,15 @@
       <span class="slide-icon icon-orange">📋</span>
       <h2>Declararea și inițializarea vectorilor</h2>
     </div>
-    <div class="slide-body">
-      <p>Un <strong>vector (tablou unidimensional)</strong> este o colecție de elemente de același tip, stocate consecutiv în memorie, accesate prin indice.</p>
+    <div class="slide-body">      <div class="beginner-box">
+        <div class="bb-title">🏠 Analogie: Vectorul = Bloc de apartamente</div>
+        <p>Gândeşte-te la un bloc cu N apartamente numerotate <strong>de la 1 la N</strong>. Fiecare apartament (element) are un <strong>număr de apartament</strong> (indicele) şi un <strong>chiriac</strong> (valoarea stocată). Calculatorul ştie exact unde e fiecare apartament fără să caute — acesta e accesul direct O(1).</p>
+        <ul>
+          <li>🔑 <code>v[3]</code> = apartamentul 3 &rarr; acces instant</li>
+          <li>👥 <em>Inserare</em> la mijloc = toți chiriasii de la poziția k în sus se mută un etaj mai sus</li>
+          <li>🗳 <em>Ștergere</em> = toți chiriasii de deasupra se coboară un etaj</li>
+        </ul>
+      </div>      <p>Un <strong>vector (tablou unidimensional)</strong> este o colecție de elemente de același tip, stocate consecutiv în memorie, accesate prin indice.</p>
 
       <pre><span class="cm">// Declarare vector de n elemente întregi (maxim 100000)</span>
 <span class="kw">int</span> v[<span class="nu">100001</span>];  <span class="cm">// indexat de la 0 la 100000</span>
@@ -300,6 +308,53 @@ sort(v + <span class="nu">1</span>, v + n + <span class="nu">1</span>, greater&l
 </section>
 
 <!-- ─── 8. PROBLEME BAC ─────────────────────────────── -->
+<!-- ─── DEMO INTERACTIV VECTORI ──────────────────── -->
+<section id="vector-demo">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">🧱</span>
+      <h2>Demo Interactiv — Inserare, Ștergere, Căutare</h2>
+    </div>
+    <div class="slide-body">
+      <p>Vectorul de mai jos are <strong>8 sloturi</strong> (capacitate maximă). Sloturile goale sunt gri. Apasă butoanele pentru a vedea operațiile pas cu pas.</p>
+      <div class="speed-wrap" style="margin-bottom:12px;">
+        <label>⚡ Viteză:</label>
+        <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+        <span class="speed-label">Normal</span>
+      </div>
+      <div class="vec-container">
+        <div class="vec-track"></div>
+      </div>
+      <div class="vec-status">Apasă un buton pentru a vedea operația în acțiune.</div>
+      <div class="vec-controls" style="margin-top:12px;">
+        <strong>Inserare:</strong>&nbsp;
+        Poziție: <input type="number" data-vec="ins-pos" value="3" min="1" max="9" style="width:60px">
+        Valoare: <input type="number" data-vec="ins-val" value="99" min="0" max="999" style="width:70px">
+        <button class="btn btn-primary" data-vec="insert">↓ Inserează</button>
+      </div>
+      <div class="vec-controls" style="margin-top:8px;">
+        <strong>Ștergere:</strong>&nbsp;
+        Poziție: <input type="number" data-vec="del-pos" value="2" min="1" max="8" style="width:60px">
+        <button class="btn btn-danger" data-vec="delete">🗑 Șterge</button>
+        &nbsp;&nbsp;
+        <strong>Căutare:</strong>&nbsp;
+        Valoare: <input type="number" data-vec="srch-val" value="8" min="0" max="999" style="width:70px">
+        <button class="btn btn-success" data-vec="search">🔍 Caută</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-secondary" data-vec="reset">↺ Reset</button>
+      </div>
+      <div class="callout info" style="margin-top:16px;">
+        <strong>Complexități de reținut:</strong>
+        <ul style="margin:8px 0 0;padding-left:18px;">
+          <li><strong>Inserare la poziția k</strong> → mută <code>n−k</code> elemente la dreapta → <span class="g-medium">O(n)</span></li>
+          <li><strong>Ștergere de la poziția k</strong> → mută <code>n−k</code> elemente la stânga → <span class="g-medium">O(n)</span></li>
+          <li><strong>Căutare secvențială</strong> → parcurge tot vectorul în cel mai rău caz → <span class="g-medium">O(n)</span></li>
+          <li><strong>Acces direct <code>v[i]</code></strong> → instant, nu depinde de n → <span class="g-great">O(1)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="bac">
   <div class="slide">
     <div class="slide-header">
@@ -363,5 +418,6 @@ cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>)
 </footer>
 
 <script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
 </body>
 </html>

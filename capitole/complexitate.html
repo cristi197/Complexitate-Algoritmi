@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -45,7 +45,16 @@
       <h2>Ce înseamnă eficiența unui algoritm?</h2>
     </div>
     <div class="slide-body">
-      <p>Un algoritm este o secvență finită, bine definită de pași care rezolvă o problemă. Două algoritme diferite pot rezolva același lucru, dar cu costuri diferite de <strong>timp</strong> și <strong>memorie</strong>.</p>
+      <p><div class="beginner-box">
+        <div class="bb-title">📚 Analogie: De ce contează eficiența?</div>
+        <p>Imaginează-ți că vrei să găsești un cuvânt într-un dicționar cu 1.000.000 de cuvinte:</p>
+        <ul>
+          <li>🐢 <strong>Verifici pagină cu pagină de la început</strong> → maxim 1.000.000 pași → O(n)</li>
+          <li>🚀 <strong>Cauți la mijloc, elimini jumătate</strong> (căutare binară) → maxim 20 pași → O(log n)</li>
+        </ul>
+        <p>Pe 1 miliard de elemente: O(n) = 1 miliard de operații, O(log n) = doar <strong>30</strong>. Eficiența contează enorm!</p>
+      </div>
+      Un algoritm este o secvență finită, bine definită de pași care rezolvă o problemă. Două algoritme diferite pot rezolva același lucru, dar cu costuri diferite de <strong>timp</strong> și <strong>memorie</strong>.</p>
       <div class="callout info">
         <strong>Definiție:</strong> <em>Complexitatea unui algoritm</em> este o funcție care descrie creșterea resurselor necesare (timp sau spațiu) în funcție de dimensiunea datelor de intrare <em>n</em>.
       </div>
@@ -493,5 +502,6 @@
 </footer>
 
 <script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
 </body>
 </html>

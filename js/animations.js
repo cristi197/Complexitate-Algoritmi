@@ -190,22 +190,23 @@ function initQueensDemo(containerId) {
     for (let col = 0; col < N; col++) {
       const hl = {};
       hl[`${row},${col}`] = 'try';
+      const spd = () => window.animSpeed !== undefined ? window.animSpeed : 420;
       renderBoard(hl); if (stepLog) stepLog.textContent = `Testăm regina pe linia ${row+1}, coloana ${col+1}...`;
-      await sleep(500);
+      await sleep(spd());
       if (isSafe(row, col)) {
         board[row] = col;
         const hl2 = {}; hl2[`${row},${col}`] = 'safe';
         renderBoard(hl2); if (stepLog) stepLog.textContent = `✅ Sigur! Plasăm regina pe (${row+1},${col+1})`;
-        await sleep(400);
+        await sleep(spd());
         if (await solve(row + 1)) return true;
         board[row] = -1;
         const hl3 = {}; hl3[`${row},${col}`] = 'fail';
         renderBoard(hl3); if (stepLog) stepLog.textContent = `🔴 Backtrack! Mutăm regina de pe (${row+1},${col+1})`;
-        await sleep(400);
+        await sleep(spd());
       } else {
         const hl4 = {}; hl4[`${row},${col}`] = 'fail';
         renderBoard(hl4); if (stepLog) stepLog.textContent = `❌ Conflict! (${row+1},${col+1}) nu e sigur`;
-        await sleep(400);
+        await sleep(spd());
       }
     }
     return false;
@@ -254,9 +255,9 @@ function initFactorialDemo(containerId) {
       frames.push(frame);
       await sleep(50);
       frame.style.opacity = '1'; frame.style.transform = 'translateX(0)';
-      await sleep(450);
+      await sleep(window.animSpeed !== undefined ? window.animSpeed : 400);
     }
-    await sleep(300);
+    await sleep(200);
     // Pop frames with results
     let acc = 1;
     for (let i = frames.length - 1; i >= 0; i--) {
@@ -264,9 +265,9 @@ function initFactorialDemo(containerId) {
       acc *= (val === 0 ? 1 : val);
       frames[i].style.background = 'var(--green)';
       frames[i].textContent = `factorial(${val}) = ${acc}`;
-      await sleep(450);
+      await sleep(window.animSpeed !== undefined ? window.animSpeed : 400);
       frames[i].style.opacity = '0'; frames[i].style.transform = 'translateX(20px)';
-      await sleep(300);
+      await sleep(200);
       frames[i].remove();
     }
     if (resultEl) { resultEl.textContent = `factorial(${n}) = ${acc}`; resultEl.style.color = 'var(--green)'; }
@@ -302,7 +303,187 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageTransitions();
 
   // page-specific demos (check by ID)
-  if (document.getElementById('bubble-demo'))   initBubbleSortDemo('bubble-demo');
-  if (document.getElementById('queens-demo'))   initQueensDemo('queens-demo');
+  if (document.getElementById('bubble-demo'))    initBubbleSortDemo('bubble-demo');
+  if (document.getElementById('queens-demo'))    initQueensDemo('queens-demo');
   if (document.getElementById('factorial-demo')) initFactorialDemo('factorial-demo');
+  if (document.getElementById('matrix-demo'))    initMatrixZoneDemo('matrix-demo');
+  if (document.getElementById('vector-demo'))    initVectorBlockDemo('vector-demo');
 });
+
+/* ── 11. Vizualizare zone matrice ────────────────────────────── */
+function initMatrixZoneDemo(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const N = 5;
+  const data = [
+    [1,  2,  3,  4,  5],
+    [6,  7,  8,  9, 10],
+    [11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20],
+    [21, 22, 23, 24, 25]
+  ];
+
+  function render(mode) {
+    const vizEl = container.querySelector('.matrix-viz');
+    if (!vizEl) return;
+    vizEl.innerHTML = '';
+    vizEl.style.gridTemplateColumns = `repeat(${N}, 46px)`;
+
+    for (let i = 1; i <= N; i++) {
+      for (let j = 1; j <= N; j++) {
+        const cell = document.createElement('div');
+        cell.className = 'mx-cell';
+        cell.textContent = data[i-1][j-1];
+
+        const isDiagMain = i === j;
+        const isDiagSec  = i + j === N + 1;
+        const isUpper    = j > i;
+        const isLower    = j < i;
+        const isBorder   = i === 1 || i === N || j === 1 || j === N;
+
+        switch (mode) {
+          case 'diag-main': if (isDiagMain) cell.classList.add('diag-main'); break;
+          case 'diag-sec':  if (isDiagSec)  cell.classList.add('diag-sec');  break;
+          case 'both-diag':
+            if (isDiagMain && isDiagSec) cell.classList.add('both-diag');
+            else if (isDiagMain) cell.classList.add('diag-main');
+            else if (isDiagSec)  cell.classList.add('diag-sec');
+            break;
+          case 'upper':  if (isUpper && !isDiagMain)  cell.classList.add('tri-upper'); break;
+          case 'lower':  if (isLower && !isDiagMain)  cell.classList.add('tri-lower'); break;
+          case 'border': if (isBorder) cell.classList.add('border-cell'); break;
+          case 'all':
+            if (isDiagMain && isDiagSec) cell.classList.add('both-diag');
+            else if (isDiagMain) cell.classList.add('diag-main');
+            else if (isDiagSec)  cell.classList.add('diag-sec');
+            else if (isUpper)    cell.classList.add('tri-upper');
+            else if (isLower)    cell.classList.add('tri-lower');
+            break;
+        }
+        vizEl.appendChild(cell);
+      }
+    }
+  }
+
+  render('all');
+
+  container.querySelectorAll('[data-zone]').forEach(btn => {
+    btn.addEventListener('click', function () {
+      container.querySelectorAll('[data-zone]').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      render(this.dataset.zone);
+    });
+  });
+}
+
+/* ── 12. Vizualizare vector (inserare / ștergere / căutare) ───── */
+function initVectorBlockDemo(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  let values  = [5, 12, 3, 8, 1, 7, null, null];
+  let size    = 6;
+  const CAP   = 8;
+  const track = container.querySelector('.vec-track');
+  const statusEl = container.querySelector('.vec-status');
+
+  function setStatus(html) { if (statusEl) statusEl.innerHTML = html; }
+
+  function render(hl = {}) {
+    if (!track) return;
+    track.innerHTML = '';
+    values.forEach((val, i) => {
+      const cell  = document.createElement('div'); cell.className  = 'vec-cell';
+      const block = document.createElement('div'); block.className = 'vec-block';
+      if (val === null) { block.classList.add('empty'); block.textContent = '—'; }
+      else              { block.textContent = val; }
+      if (hl.active  === i) block.classList.add('active');
+      if (hl.found   === i) block.classList.add('found');
+      if (hl.swapped && hl.swapped.includes(i)) block.classList.add('swapped');
+
+      const idx  = document.createElement('div'); idx.className = 'vec-index';
+      idx.textContent = `v[${i + 1}]`;
+      const addr = document.createElement('div'); addr.className = 'vec-addr';
+      addr.textContent = `0x${(0x1000 + i * 4).toString(16).toUpperCase()}`;
+
+      cell.appendChild(block); cell.appendChild(idx); cell.appendChild(addr);
+      track.appendChild(cell);
+    });
+  }
+
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  render();
+
+  /* Inserare */
+  container.querySelector('[data-vec="insert"]')?.addEventListener('click', async () => {
+    const posEl = container.querySelector('[data-vec="ins-pos"]');
+    const valEl = container.querySelector('[data-vec="ins-val"]');
+    const pos   = Math.max(1, Math.min(size + 1, parseInt(posEl?.value || 1)));
+    const val   = parseInt(valEl?.value ?? 0);
+    if (isNaN(val)) { setStatus('<span class="fail">⚠️ Valoare invalidă!</span>'); return; }
+    if (size >= CAP) { setStatus('<span class="fail">⚠️ Vector plin!</span>'); return; }
+
+    const idx = pos - 1;
+    setStatus(`<span class="info">Inserăm ${val} pe poziția ${pos} — mutăm elementele la dreapta...</span>`);
+    for (let i = size - 1; i >= idx; i--) {
+      render({ swapped: [i, i + 1] });
+      setStatus(`↔ Mutăm v[${i+1}] = ${values[i]} → v[${i+2}]`);
+      await sleep(window.animSpeed !== undefined ? window.animSpeed : 350);
+      values[i + 1] = values[i];
+    }
+    values[idx] = val; size++;
+    render({ found: idx });
+    setStatus(`<span class="ok">✅ Inserat ${val} pe poziția ${pos}. Dimensiune: n = ${size}</span>`);
+  });
+
+  /* Ștergere */
+  container.querySelector('[data-vec="delete"]')?.addEventListener('click', async () => {
+    const posEl = container.querySelector('[data-vec="del-pos"]');
+    const pos   = Math.max(1, Math.min(size, parseInt(posEl?.value || 1)));
+    if (size === 0) { setStatus('<span class="fail">⚠️ Vectorul este gol!</span>'); return; }
+
+    const idx = pos - 1;
+    const deleted = values[idx];
+    render({ active: idx });
+    setStatus(`🗑 Ștergem v[${pos}] = ${deleted}`);
+    await sleep(window.animSpeed !== undefined ? window.animSpeed : 350);
+
+    for (let i = idx; i < size - 1; i++) {
+      render({ swapped: [i, i + 1] });
+      setStatus(`← Mutăm v[${i+2}] = ${values[i+1]} → v[${i+1}]`);
+      await sleep(window.animSpeed !== undefined ? window.animSpeed : 350);
+      values[i] = values[i + 1];
+    }
+    values[size - 1] = null; size--;
+    render();
+    setStatus(`<span class="ok">✅ Șters ${deleted}. Dimensiune: n = ${size}</span>`);
+  });
+
+  /* Căutare */
+  container.querySelector('[data-vec="search"]')?.addEventListener('click', async () => {
+    const valEl  = container.querySelector('[data-vec="srch-val"]');
+    const target = parseInt(valEl?.value ?? 0);
+    if (isNaN(target)) { setStatus('<span class="fail">⚠️ Valoare invalidă!</span>'); return; }
+
+    for (let i = 0; i < size; i++) {
+      render({ active: i });
+      setStatus(`🔍 Comparăm v[${i+1}] = ${values[i]} cu ${target}...`);
+      await sleep(window.animSpeed !== undefined ? window.animSpeed : 350);
+      if (values[i] === target) {
+        render({ found: i });
+        setStatus(`<span class="ok">✅ Găsit! ${target} se află pe poziția ${i+1}</span>`);
+        return;
+      }
+    }
+    render();
+    setStatus(`<span class="fail">❌ ${target} nu există în vector.</span>`);
+  });
+
+  /* Reset */
+  container.querySelector('[data-vec="reset"]')?.addEventListener('click', () => {
+    values = [5, 12, 3, 8, 1, 7, null, null]; size = 6;
+    render(); setStatus('');
+  });
+}
