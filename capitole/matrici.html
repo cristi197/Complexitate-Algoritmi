@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrici — Informatică Liceu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="page-overlay"></div>
+
+<div class="page-cover" style="background:linear-gradient(135deg,#134e4a 0%,#0f766e 50%,#14b8a6 100%);">
+  <div class="page-cover-inner">
+    <a href="../index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;">← Înapoi la pagina principală</a>
+    <h1>🔢 Matrici (Tablouri 2D)</h1>
+    <p>Capitolul 5 — Parcurgere, diagonale, transpusă, rotire, matrice pătratice speciale și probleme BAC</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+      <span class="hero-badge">BAC Informatică</span>
+      <span class="hero-badge">Diagonale</span>
+      <span class="hero-badge">Transpusă</span>
+      <span class="hero-badge">Matrice speciale</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-bar">
+  <a href="#declarare">Declarare</a>
+  <a href="#parcurgere">Parcurgere</a>
+  <a href="#diagonale">Diagonale</a>
+  <a href="#transpusa">Transpusă</a>
+  <a href="#rotire">Rotire</a>
+  <a href="#speciale">Matrice Speciale</a>
+  <a href="#spirala">Spirală</a>
+  <a href="#bac">Probleme BAC</a>
+</nav>
+
+<div class="wrapper">
+
+<!-- ─── 1. DECLARARE ─────────────────────────────────── -->
+<section id="declarare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">📋</span>
+      <h2>Declararea și citirea matricelor</h2>
+    </div>
+    <div class="slide-body">
+      <p>O <strong>matrice</strong> (tablou bidimensional) stochează date în rânduri și coloane, accesate prin doi indici: <code>a[linie][coloana]</code>.</p>
+
+      <pre><span class="kw">int</span> a[<span class="nu">101</span>][<span class="nu">101</span>];  <span class="cm">// matrice de maxim 100×100</span>
+<span class="kw">int</span> n, m;       <span class="cm">// n linii, m coloane</span>
+
+<span class="cm">// Citire</span>
+cin &gt;&gt; n &gt;&gt; m;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++)
+        cin &gt;&gt; a[i][j];
+
+<span class="cm">// Afișare</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) {
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++)
+        cout &lt;&lt; a[i][j] &lt;&lt; <span class="st">" "</span>;
+    cout &lt;&lt; endl;
+}</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card teal">
+          <strong>Memorie:</strong> O(n×m)
+          <p>Stocată pe linii în RAM (row-major order)</p>
+        </div>
+        <div class="card blue">
+          <strong>Acces element:</strong> O(1)
+          <p><code>a[i][j]</code> — acces direct prin indici</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. PARCURGERE ────────────────────────────────── -->
+<section id="parcurgere">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🔁</span>
+      <h2>Parcurgere — sumă, minim, maxim</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Suma elementelor pe linii și coloane</h3>
+      <pre><span class="cm">// Suma tuturor elementelor</span>
+<span class="kw">int</span> suma = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++)
+        suma += a[i][j];
+
+<span class="cm">// Suma pe fiecare linie</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) {
+    <span class="kw">int</span> sumaLinie = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++)
+        sumaLinie += a[i][j];
+    cout &lt;&lt; <span class="st">"Suma linia "</span> &lt;&lt; i &lt;&lt; <span class="st">": "</span> &lt;&lt; sumaLinie &lt;&lt; endl;
+}</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Minimul și poziția sa</h3>
+      <pre><span class="kw">int</span> minim = a[<span class="nu">1</span>][<span class="nu">1</span>], linMin = <span class="nu">1</span>, colMin = <span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++)
+        <span class="kw">if</span> (a[i][j] &lt; minim) {
+            minim = a[i][j];
+            linMin = i; colMin = j;
+        }</pre>
+
+      <div class="callout info">
+        <strong>Complexitate parcurgere completă:</strong> O(n×m) — sau O(n²) pentru matrice pătratică n×n.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. DIAGONALE ─────────────────────────────────── -->
+<section id="diagonale">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">╲</span>
+      <h2>Diagonalele matricei pătratice</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        Pentru matrice pătratică n×n (indexată de la 1):
+        <br>• <strong>Diagonala principală:</strong> elemente unde <code>i == j</code>
+        <br>• <strong>Diagonala secundară:</strong> elemente unde <code>i + j == n + 1</code>
+      </div>
+
+      <pre><span class="cm">// Suma diagonalei principale</span>
+<span class="kw">int</span> sumaDiagP = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    sumaDiagP += a[i][i];
+
+<span class="cm">// Suma diagonalei secundare</span>
+<span class="kw">int</span> sumaDiagS = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    sumaDiagS += a[i][n-i+<span class="nu">1</span>];</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Triunghiul superior și inferior</h3>
+      <pre><span class="cm">// Suma elementelor DEASUPRA diagonalei principale (triunghi superior)</span>
+<span class="kw">int</span> sumaSup = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = i+<span class="nu">1</span>; j &lt;= n; j++)  <span class="cm">// j > i</span>
+        sumaSup += a[i][j];
+
+<span class="cm">// Suma elementelor SUB diagonala principală (triunghi inferior)</span>
+<span class="kw">int</span> sumaInf = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt; i; j++)  <span class="cm">// j < i</span>
+        sumaInf += a[i][j];</pre>
+
+      <div class="callout success">
+        <strong>Proprietate:</strong> Suma totală = sumaDiagP + sumaSup + sumaInf (dacă diagonalele nu se suprapun)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. TRANSPUSA ─────────────────────────────────── -->
+<section id="transpusa">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">Aᵀ</span>
+      <h2>Transpusa matricei</h2>
+    </div>
+    <div class="slide-body">
+      <p>Transpusa matricei A este matricea B unde <code>B[i][j] = A[j][i]</code> — liniile devin coloane și viceversa.</p>
+
+      <pre><span class="cm">// Transpusa în matrice separată (funcționează și pentru dreptunghice)</span>
+<span class="kw">int</span> t[<span class="nu">101</span>][<span class="nu">101</span>];  <span class="cm">// t are m linii și n coloane</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++)
+        t[j][i] = a[i][j];</pre>
+
+      <pre><span class="cm">// Transpusa IN-PLACE pentru matrice PĂTRATICĂ (n×n)</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = i+<span class="nu">1</span>; j &lt;= n; j++)
+        swap(a[i][j], a[j][i]);  <span class="cm">// interschimbăm deasupra diagonalei</span></pre>
+
+      <div class="callout info">
+        <strong>Exemplu:</strong><br>
+        A = [[1,2,3],[4,5,6]] → Aᵀ = [[1,4],[2,5],[3,6]]
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. ROTIRE ────────────────────────────────────── -->
+<section id="rotire">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">🔄</span>
+      <h2>Rotirea matricei cu 90°</h2>
+    </div>
+    <div class="slide-body">
+      <p>Rotirea unei matrice n×n cu 90° în sens orar: <code>b[j][n-i+1] = a[i][j]</code></p>
+
+      <pre><span class="cm">// Rotire 90° sens orar (Clockwise)</span>
+<span class="kw">int</span> b[<span class="nu">101</span>][<span class="nu">101</span>];
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n; j++)
+        b[j][n-i+<span class="nu">1</span>] = a[i][j];
+
+<span class="cm">// Rotire 90° sens antiorar (Counter-Clockwise)</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n; j++)
+        b[n-j+<span class="nu">1</span>][i] = a[i][j];</pre>
+
+      <div class="callout info">
+        <strong>Rotire 180°</strong> = rotire 90° aplicată de două ori, sau direct: <code>b[n-i+1][n-j+1] = a[i][j]</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. MATRICE SPECIALE ───────────────────────────── -->
+<section id="speciale">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">★</span>
+      <h2>Matrice pătratice speciale</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Matrice simetrică față de diagonala principală</h3>
+      <pre><span class="kw">bool</span> esteSimetrica = <span class="kw">true</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n &amp;&amp; esteSimetrica; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt; i; j++)
+        <span class="kw">if</span> (a[i][j] != a[j][i]) esteSimetrica = <span class="kw">false</span>;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Matrice cu borduri (cadru)</h3>
+      <pre><span class="cm">// Suma elementelor de pe bordul matricei</span>
+<span class="kw">int</span> sumaBord = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++) sumaBord += a[<span class="nu">1</span>][j] + a[n][j];  <span class="cm">// liniile 1 și n</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt; n; i++)  sumaBord += a[i][<span class="nu">1</span>] + a[i][m];   <span class="cm">// coloanele 1 și m</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Umplere cu 0 a bordurilor</h3>
+      <pre><span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++) a[<span class="nu">1</span>][j] = a[n][j] = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) a[i][<span class="nu">1</span>] = a[i][m] = <span class="nu">0</span>;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Matrice identitate</h3>
+      <pre><span class="cm">// Creare matrice identitate n×n</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n; j++)
+        a[i][j] = (i == j) ? <span class="nu">1</span> : <span class="nu">0</span>;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. SPIRALĂ ───────────────────────────────────── -->
+<section id="spirala">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🌀</span>
+      <h2>Parcurgere în spirală</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Problemă clasică:</strong> Parcurgeți și afișați elementele matricei în ordine spirală (exterior → interior, sens orar).
+      </div>
+      <pre><span class="kw">void</span> <span class="fn">spirala</span>(<span class="kw">int</span> a[][<span class="nu">101</span>], <span class="kw">int</span> n, <span class="kw">int</span> m) {
+    <span class="kw">int</span> top = <span class="nu">1</span>, bot = n, left = <span class="nu">1</span>, right = m;
+
+    <span class="kw">while</span> (top &lt;= bot &amp;&amp; left &lt;= right) {
+        <span class="kw">for</span> (<span class="kw">int</span> j = left; j &lt;= right; j++)  cout &lt;&lt; a[top][j] &lt;&lt; <span class="st">" "</span>;  top++;
+        <span class="kw">for</span> (<span class="kw">int</span> i = top; i &lt;= bot; i++)    cout &lt;&lt; a[i][right] &lt;&lt; <span class="st">" "</span>;  right--;
+        <span class="kw">if</span> (top &lt;= bot) {
+            <span class="kw">for</span> (<span class="kw">int</span> j = right; j &gt;= left; j--) cout &lt;&lt; a[bot][j] &lt;&lt; <span class="st">" "</span>;  bot--;
+        }
+        <span class="kw">if</span> (left &lt;= right) {
+            <span class="kw">for</span> (<span class="kw">int</span> i = bot; i &gt;= top; i--)   cout &lt;&lt; a[i][left] &lt;&lt; <span class="st">" "</span>;   left++;
+        }
+    }
+}</pre>
+
+      <div class="callout success">
+        <strong>Exemplu n=3:</strong> [[1,2,3],[4,5,6],[7,8,9]] → 1 2 3 6 9 8 7 4 5
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. PROBLEME BAC ─────────────────────────────── -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — matrici</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1 (BAC 2023):</strong> Dată o matrice pătratică n×n, verificați dacă este matrice magică (suma pe orice linie, coloană sau diagonală este aceeași).
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">bool</span> <span class="fn">esteMagica</span>(<span class="kw">int</span> a[][<span class="nu">101</span>], <span class="kw">int</span> n) {
+    <span class="kw">int</span> suma = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=n; i++) suma += a[<span class="nu">1</span>][i];  <span class="cm">// suma primei linii</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">2</span>; i&lt;=n; i++) {
+        <span class="kw">int</span> s=<span class="nu">0</span>; <span class="kw">for</span> (<span class="kw">int</span> j=<span class="nu">1</span>;j&lt;=n;j++) s+=a[i][j];
+        <span class="kw">if</span>(s!=suma) <span class="kw">return false</span>;
+    }
+    <span class="kw">for</span> (<span class="kw">int</span> j=<span class="nu">1</span>; j&lt;=n; j++) {
+        <span class="kw">int</span> s=<span class="nu">0</span>; <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>;i&lt;=n;i++) s+=a[i][j];
+        <span class="kw">if</span>(s!=suma) <span class="kw">return false</span>;
+    }
+    <span class="kw">int</span> d1=<span class="nu">0</span>, d2=<span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>;i&lt;=n;i++) { d1+=a[i][i]; d2+=a[i][n-i+<span class="nu">1</span>]; }
+    <span class="kw">return</span> (d1==suma &amp;&amp; d2==suma);
+}</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Dată o matrice n×m, rotiți toate elementele de pe borduri cu o poziție în sens orar (fără elementele interioare).
+      </div>
+      <div class="callout warning">
+        <strong>Indiciu:</strong> Salvați elementul din colțul stânga-sus, deplasați liniile și coloanele de margine pe rând, restaurați elementul salvat.
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end .wrapper -->
+
+<footer>
+  <a href="vectori.html">← Cap. 4: Vectori</a>
+  &nbsp;·&nbsp;
+  <a href="../index.html">Pagina principală</a>
+  &nbsp;·&nbsp;
+  <a href="siruri.html">Cap. 6: Șiruri de Caractere →</a>
+</footer>
+
+<script src="../js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursivitate — Informatică Liceu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="page-overlay"></div>
+
+<div class="page-cover" style="background:linear-gradient(135deg,#064e3b 0%,#065f46 50%,#059669 100%);">
+  <div class="page-cover-inner">
+    <a href="../index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;">← Înapoi la pagina principală</a>
+    <h1>🔁 Recursivitate</h1>
+    <p>Capitolul 2 — Funcții recursive, stiva de apeluri, exemple clasice și probleme BAC</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+      <span class="hero-badge">BAC Informatică</span>
+      <span class="hero-badge">Factorial · Fibonacci</span>
+      <span class="hero-badge">Stiva de apeluri</span>
+      <span class="hero-badge">Animație interactivă</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-bar">
+  <a href="#definitie">Definiție</a>
+  <a href="#stiva">Stiva de Apeluri</a>
+  <a href="#factorial">Factorial</a>
+  <a href="#fibonacci">Fibonacci</a>
+  <a href="#hanoi">Hanoi</a>
+  <a href="#cautare">Căutare Binară</a>
+  <a href="#demo">Demo Interactiv</a>
+  <a href="#recvsiter">Recursiv vs Iterativ</a>
+  <a href="#memoizare">Memoizare</a>
+  <a href="#bac">Probleme BAC</a>
+</nav>
+
+<div class="wrapper">
+
+<!-- ─── 1. DEFINIȚIE ─────────────────────────────────── -->
+<section id="definitie">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🔄</span>
+      <h2>Ce este recursivitatea?</h2>
+    </div>
+    <div class="slide-body">
+      <p>O funcție este <strong>recursivă</strong> dacă se apelează pe sine însuși, direct sau indirect, pentru a rezolva o versiune mai mică a aceluiași subproblemă.</p>
+      <div class="callout info">
+        <strong>Structura oricărei funcții recursive:</strong><br>
+        1. <strong>Cazul de bază</strong> (baza recursiei) — condiție de oprire, returnează direct un rezultat<br>
+        2. <strong>Pasul recursiv</strong> — apel recurent pe o versiune mai mică a problemei
+      </div>
+      <div class="callout warning">
+        <strong>Atenție:</strong> Fără caz de bază → recursie infinită → stack overflow!
+      </div>
+      <pre><span class="cm">// Structura generală</span>
+<span class="ty">tip_returnat</span> <span class="fn">functie</span>(<span class="ty">parametri</span>) {
+    <span class="kw">if</span> (caz_de_baza)
+        <span class="kw">return</span> valoare_directa;    <span class="cm">// oprim recursivitatea</span>
+    <span class="kw">return</span> <span class="fn">functie</span>(parametri_mai_mici);  <span class="cm">// pasul recursiv</span>
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. STIVA DE APELURI ─────────────────────────── -->
+<section id="stiva">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📚</span>
+      <h2>Stiva de apeluri (Call Stack)</h2>
+    </div>
+    <div class="slide-body">
+      <p>La fiecare apel de funcție, sistemul creează un <strong>cadru (frame)</strong> pe stivă care reține: parametrii, variabilele locale și adresa de întoarcere. La revenire, cadrul este scos de pe stivă.</p>
+
+      <div class="callout info">
+        Apelul <code>factorial(4)</code> generează 5 frame-uri pe stivă. La revenire, valorile se calculează de jos în sus.
+      </div>
+
+      <div class="tree-container" style="text-align:center;font-size:13px;">
+        <div class="tree-node" style="display:inline-block;background:#fef3c7;border:2px solid #f59e0b;padding:8px 18px;border-radius:8px;margin:4px;">factorial(4) → 4 × factorial(3)</div><br>
+        <div style="color:#9ca3af;font-size:18px;">↓</div>
+        <div class="tree-node" style="display:inline-block;background:#fef3c7;border:2px solid #f59e0b;padding:8px 18px;border-radius:8px;margin:4px;">factorial(3) → 3 × factorial(2)</div><br>
+        <div style="color:#9ca3af;font-size:18px;">↓</div>
+        <div class="tree-node" style="display:inline-block;background:#fef3c7;border:2px solid #f59e0b;padding:8px 18px;border-radius:8px;margin:4px;">factorial(2) → 2 × factorial(1)</div><br>
+        <div style="color:#9ca3af;font-size:18px;">↓</div>
+        <div class="tree-node" style="display:inline-block;background:#fef3c7;border:2px solid #f59e0b;padding:8px 18px;border-radius:8px;margin:4px;">factorial(1) → 1 × factorial(0)</div><br>
+        <div style="color:#9ca3af;font-size:18px;">↓</div>
+        <div class="tree-node" style="display:inline-block;background:#dcfce7;border:2px solid #16a34a;padding:8px 18px;border-radius:8px;margin:4px;"><strong>factorial(0) → 1</strong> ← caz de bază!</div>
+      </div>
+
+      <p style="margin-top:14px;">Revenire: 1 → 1×1=1 → 2×1=2 → 3×2=6 → 4×6=<strong>24</strong></p>
+      <div class="callout success">
+        factorial(4) = 4 × 3 × 2 × 1 × 1 = <strong>24</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. FACTORIAL ─────────────────────────────────── -->
+<section id="factorial">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">n!</span>
+      <h2>Factorial — implementare C++</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">long long</span> <span class="fn">factorial</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n == <span class="nu">0</span> || n == <span class="nu">1</span>)
+        <span class="kw">return</span> <span class="nu">1</span>;         <span class="cm">// cazul de bază</span>
+    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="nu">1</span>);  <span class="cm">// pasul recursiv</span>
+}</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card green">
+          <strong>Complexitate timp:</strong> O(n)
+          <p>Se execută n apeluri recursive</p>
+        </div>
+        <div class="card orange">
+          <strong>Complexitate spațiu:</strong> O(n)
+          <p>n cadre pe stivă simultan</p>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>n</th><th>n!</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>1</td></tr>
+          <tr><td>1</td><td>1</td></tr>
+          <tr><td>5</td><td>120</td></tr>
+          <tr><td>10</td><td>3 628 800</td></tr>
+          <tr><td>20</td><td>2 432 902 008 176 640 000</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warning" style="margin-top:14px;">
+        Pentru n &gt; 20 rezultatul depășește <code>long long</code>. Folosiți <code>unsigned long long</code> sau tipuri de precizie arbitrară pentru valori mai mari.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. FIBONACCI ─────────────────────────────────── -->
+<section id="fibonacci">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">Fib</span>
+      <h2>Fibonacci — recursiv simplu și memoizat</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Varianta recursivă simplă — O(2ⁿ)</h3>
+      <pre><span class="kw">int</span> <span class="fn">fib</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n &lt;= <span class="nu">1</span>) <span class="kw">return</span> n;  <span class="cm">// fib(0)=0, fib(1)=1</span>
+    <span class="kw">return</span> <span class="fn">fib</span>(n-<span class="nu">1</span>) + <span class="fn">fib</span>(n-<span class="nu">2</span>);
+    <span class="cm">// PROBLEMA: recalculează aceleași subprobleme!</span>
+}</pre>
+
+      <div class="callout warning">
+        <strong>Problemă:</strong> fib(50) execută miliarde de apeluri! fib(5) calculează fib(3) de 2 ori, fib(2) de 3 ori etc.
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Arborele de recursie pentru fib(5)</h3>
+      <div class="callout info" style="font-family:monospace;font-size:12px;line-height:1.8;">
+        fib(5)<br>
+        ├── fib(4)<br>
+        │   ├── fib(3)<br>
+        │   │   ├── fib(2) → fib(1)+fib(0)<br>
+        │   │   └── fib(1)<br>
+        │   └── fib(2) → fib(1)+fib(0)  ← RECALCULAT<br>
+        └── fib(3) ← RECALCULAT COMPLET<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;├── fib(2) → ...<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;└── fib(1)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. HANOI ─────────────────────────────────────── -->
+<section id="hanoi">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">🗼</span>
+      <h2>Turnurile din Hanoi</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Problema:</strong> Mută n discuri de pe tija A pe tija C folosind tija B ca intermediar. Regulă: nu se poate pune un disc mai mare pe unul mai mic.
+      </div>
+
+      <pre><span class="kw">void</span> <span class="fn">hanoi</span>(<span class="kw">int</span> n, <span class="kw">char</span> sursa, <span class="kw">char</span> dest, <span class="kw">char</span> intermediar) {
+    <span class="kw">if</span> (n == <span class="nu">1</span>) {
+        cout &lt;&lt; <span class="st">"Mută disc 1 de pe "</span> &lt;&lt; sursa &lt;&lt; <span class="st">" pe "</span> &lt;&lt; dest &lt;&lt; endl;
+        <span class="kw">return</span>;  <span class="cm">// caz de bază</span>
+    }
+    <span class="fn">hanoi</span>(n-<span class="nu">1</span>, sursa, intermediar, dest);  <span class="cm">// mută n-1 discuri pe B</span>
+    cout &lt;&lt; <span class="st">"Mută disc "</span> &lt;&lt; n &lt;&lt; <span class="st">" de pe "</span> &lt;&lt; sursa &lt;&lt; <span class="st">" pe "</span> &lt;&lt; dest &lt;&lt; endl;
+    <span class="fn">hanoi</span>(n-<span class="nu">1</span>, intermediar, dest, sursa);  <span class="cm">// mută n-1 discuri pe C</span>
+}</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card red">
+          <strong>Complexitate timp:</strong> O(2ⁿ)
+          <p>Numărul de mutări = 2ⁿ - 1</p>
+        </div>
+        <div class="card orange">
+          <strong>Complexitate spațiu:</strong> O(n)
+          <p>Adâncimea stivei de apeluri</p>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>n discuri</th><th>Mutări necesare</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>1</td></tr>
+          <tr><td>3</td><td>7</td></tr>
+          <tr><td>10</td><td>1 023</td></tr>
+          <tr><td>20</td><td>1 048 575</td></tr>
+          <tr><td>64</td><td>18 446 744 073 709 551 615</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. CĂUTARE BINARĂ RECURSIVĂ ─────────────────── -->
+<section id="cautare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🔍</span>
+      <h2>Căutare binară — variantă recursivă</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">int</span> <span class="fn">cautareBinaraRec</span>(<span class="kw">int</span> v[], <span class="kw">int</span> st, <span class="kw">int</span> dr, <span class="kw">int</span> x) {
+    <span class="kw">if</span> (st &gt; dr) <span class="kw">return</span> -<span class="nu">1</span>;  <span class="cm">// caz de bază: nu am găsit</span>
+
+    <span class="kw">int</span> mij = (st + dr) / <span class="nu">2</span>;
+
+    <span class="kw">if</span> (v[mij] == x) <span class="kw">return</span> mij;  <span class="cm">// caz de bază: am găsit</span>
+    <span class="kw">if</span> (v[mij] &lt; x)
+        <span class="kw">return</span> <span class="fn">cautareBinaraRec</span>(v, mij+<span class="nu">1</span>, dr, x);   <span class="cm">// jumătatea dreaptă</span>
+    <span class="kw">return</span> <span class="fn">cautareBinaraRec</span>(v, st, mij-<span class="nu">1</span>, x);  <span class="cm">// jumătatea stângă</span>
+}
+
+<span class="cm">// Apel: cautareBinaraRec(v, 0, n-1, valoare_cautata)</span></pre>
+
+      <div class="callout success">
+        <strong>Complexitate:</strong> O(log n) timp, O(log n) spațiu (adâncimea recursiei = log₂n)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. DEMO INTERACTIV ─────────────────────────── -->
+<section id="demo">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🎬</span>
+      <h2>Demo — Stiva de apeluri Factorial</h2>
+    </div>
+    <div class="slide-body">
+      <p>Introdu un număr și apasă <strong>Rulează</strong> pentru a vizualiza cum se construiește și se desfășoară stiva de apeluri.</p>
+      <div id="factorial-demo">
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px;">
+          <label style="font-size:14px;">n =
+            <input type="number" data-action="fact-input" value="5" min="0" max="10"
+              style="width:60px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;font-size:14px;margin-left:6px;">
+          </label>
+          <button class="btn btn-primary" data-action="run-factorial">▶ Rulează</button>
+        </div>
+        <div class="call-stack" style="min-height:200px;display:flex;flex-direction:column-reverse;gap:6px;padding:16px;background:#f8fafc;border:2px solid #e5e7eb;border-radius:12px;"></div>
+        <div class="fact-result" style="margin-top:12px;font-size:15px;font-weight:700;color:#16a34a;min-height:26px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. RECURSIV VS ITERATIV ─────────────────────── -->
+<section id="recvsiter">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">⚖️</span>
+      <h2>Recursiv vs. Iterativ</h2>
+    </div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>Criteriu</th><th>Recursiv</th><th>Iterativ</th></tr></thead>
+        <tbody>
+          <tr><td>Lizibilitate</td><td>✅ Mai clar pentru probleme de tip divide-et-impera</td><td>Poate fi mai greu de urmărit</td></tr>
+          <tr><td>Memorie</td><td>❌ Stiva de apeluri consumă O(adâncime) extra</td><td>✅ De obicei O(1) extra</td></tr>
+          <tr><td>Viteză</td><td>Overhead la fiecare apel de funcție</td><td>✅ Mai rapid în practică</td></tr>
+          <tr><td>Stack overflow</td><td>❌ Risc pentru n mare</td><td>✅ Fără risc</td></tr>
+          <tr><td>Potrivit pentru</td><td>Arbori, backtracking, divide-et-impera</td><td>Bucle simple, iterare lineară</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">Factorial iterativ — O(1) spațiu</h3>
+      <pre><span class="kw">long long</span> <span class="fn">factorialIterativ</span>(<span class="kw">int</span> n) {
+    <span class="kw">long long</span> rez = <span class="nu">1</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+        rez *= i;
+    <span class="kw">return</span> rez;
+    <span class="cm">// O(n) timp, O(1) spațiu — fără stivă de apeluri</span>
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 9. MEMOIZARE ─────────────────────────────────── -->
+<section id="memoizare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🧠</span>
+      <h2>Memoizare — optimizarea recursivității</h2>
+    </div>
+    <div class="slide-body">
+      <p>Memoizarea înseamnă <strong>salvarea rezultatelor calculate</strong> pentru a evita recalcularea lor. Este primul pas spre <em>programare dinamică</em>.</p>
+
+      <h3 style="margin-bottom:10px;font-size:15px;">Fibonacci memoizat — O(n)</h3>
+      <pre><span class="kw">int</span> memo[<span class="nu">100</span>];  <span class="cm">// memo[i] = -1 (necalculat) sau valoarea fib(i)</span>
+
+<span class="kw">void</span> <span class="fn">initMemo</span>() {
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; <span class="nu">100</span>; i++) memo[i] = -<span class="nu">1</span>;
+}
+
+<span class="kw">int</span> <span class="fn">fibMemo</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n &lt;= <span class="nu">1</span>) <span class="kw">return</span> n;
+    <span class="kw">if</span> (memo[n] != -<span class="nu">1</span>) <span class="kw">return</span> memo[n];  <span class="cm">// deja calculat!</span>
+    memo[n] = <span class="fn">fibMemo</span>(n-<span class="nu">1</span>) + <span class="fn">fibMemo</span>(n-<span class="nu">2</span>);
+    <span class="kw">return</span> memo[n];
+    <span class="cm">// O(n) timp — fiecare valoare calculată o singură dată</span>
+}</pre>
+
+      <div class="callout success">
+        <strong>Comparație:</strong> fib(40) recursiv simplu = ~330 milioane apeluri. fib(40) cu memoizare = 79 apeluri!
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Fibonacci iterativ — O(1) spațiu</h3>
+      <pre><span class="kw">long long</span> <span class="fn">fibIterativ</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n &lt;= <span class="nu">1</span>) <span class="kw">return</span> n;
+    <span class="kw">long long</span> a = <span class="nu">0</span>, b = <span class="nu">1</span>, c;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    <span class="kw">return</span> b;
+    <span class="cm">// O(n) timp, O(1) spațiu — cel mai eficient</span>
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 10. PROBLEME BAC ─────────────────────────────── -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — recursivitate</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1:</strong> Scrieți o funcție recursivă care calculează suma cifrelor unui număr natural n.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> <span class="fn">sumaCifre</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n &lt; <span class="nu">10</span>) <span class="kw">return</span> n;   <span class="cm">// caz de bază: număr de o cifră</span>
+    <span class="kw">return</span> n % <span class="nu">10</span> + <span class="fn">sumaCifre</span>(n / <span class="nu">10</span>);
+}
+<span class="cm">// sumaCifre(1234) = 4 + sumaCifre(123) = 4+3+sumaCifre(12) = 4+3+2+1 = 10</span></pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Scrieți o funcție recursivă care calculează c.m.m.d.c. a două numere (algoritmul lui Euclid).
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> <span class="fn">cmmdc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+    <span class="kw">if</span> (b == <span class="nu">0</span>) <span class="kw">return</span> a;  <span class="cm">// caz de bază</span>
+    <span class="kw">return</span> <span class="fn">cmmdc</span>(b, a % b);
+    <span class="cm">// cmmdc(48,18) → cmmdc(18,12) → cmmdc(12,6) → cmmdc(6,0) → 6</span>
+}</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 3:</strong> Scrieți o funcție recursivă care calculează aⁿ (putere) eficient în O(log n).
+      </div>
+      <div class="callout success">
+        <strong>Soluție (exponentiere rapidă):</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">long long</span> <span class="fn">putere</span>(<span class="kw">long long</span> a, <span class="kw">int</span> n) {
+    <span class="kw">if</span> (n == <span class="nu">0</span>) <span class="kw">return</span> <span class="nu">1</span>;
+    <span class="kw">if</span> (n % <span class="nu">2</span> == <span class="nu">0</span>) {
+        <span class="kw">long long</span> jum = <span class="fn">putere</span>(a, n/<span class="nu">2</span>);
+        <span class="kw">return</span> jum * jum;  <span class="cm">// aⁿ = (aⁿ/²)²</span>
+    }
+    <span class="kw">return</span> a * <span class="fn">putere</span>(a, n-<span class="nu">1</span>);
+    <span class="cm">// O(log n) în loc de O(n)</span>
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end .wrapper -->
+
+<footer>
+  <a href="complexitate.html">← Cap. 1: Eficiența Algoritmilor</a>
+  &nbsp;·&nbsp;
+  <a href="../index.html">Pagina principală</a>
+  &nbsp;·&nbsp;
+  <a href="backtracking.html">Cap. 3: Backtracking →</a>
+</footer>
+
+<script src="../js/animations.js"></script>
+</body>
+</html>

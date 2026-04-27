@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fișiere — Informatică Liceu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="page-overlay"></div>
+
+<div class="page-cover" style="background:linear-gradient(135deg,#831843 0%,#be185d 50%,#ec4899 100%);">
+  <div class="page-cover-inner">
+    <a href="../index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;">← Înapoi la pagina principală</a>
+    <h1>📁 Fișiere în C++</h1>
+    <p>Capitolul 7 — ifstream, ofstream, fstream, freopen, citire/scriere, prelucrare fișiere și probleme BAC</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+      <span class="hero-badge">BAC Informatică</span>
+      <span class="hero-badge">ifstream / ofstream</span>
+      <span class="hero-badge">freopen</span>
+      <span class="hero-badge">getline</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-bar">
+  <a href="#deschidere">Deschidere</a>
+  <a href="#citire">Citire</a>
+  <a href="#scriere">Scriere</a>
+  <a href="#freopen">freopen</a>
+  <a href="#prelucrare">Prelucrare</a>
+  <a href="#bac">Probleme BAC</a>
+</nav>
+
+<div class="wrapper">
+
+<!-- ─── 1. DESCHIDERE FIȘIERE ────────────────────────── -->
+<section id="deschidere">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-pink">📂</span>
+      <h2>Deschiderea și închiderea fișierelor</h2>
+    </div>
+    <div class="slide-body">
+      <p>În C++ folosim fluxuri din antetul <code>&lt;fstream&gt;</code> pentru a lucra cu fișiere text.</p>
+
+      <pre><span class="kw">#include</span> <span class="st">&lt;fstream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="cm">// ifstream — doar citire</span>
+ifstream fin(<span class="st">"date.in"</span>);
+<span class="kw">if</span> (!fin) { cout &lt;&lt; <span class="st">"Eroare: fisierul nu exista!"</span>; <span class="kw">return</span> <span class="nu">1</span>; }
+
+<span class="cm">// ofstream — doar scriere (creează sau suprascrie fișierul)</span>
+ofstream fout(<span class="st">"date.out"</span>);
+
+<span class="cm">// ofstream cu append (adaugă la final)</span>
+ofstream fapp(<span class="st">"log.txt"</span>, ios::app);
+
+<span class="cm">// fstream — citire și scriere</span>
+fstream fs(<span class="st">"date.txt"</span>, ios::in | ios::out);
+
+<span class="cm">// Închiderea explicită (opțional — se face și automat la ieșire din funcție)</span>
+fin.close();
+fout.close();</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;margin:14px 0;">
+        <div class="card pink">
+          <strong>ifstream</strong>
+          <p>Input File Stream — citire din fișier</p>
+        </div>
+        <div class="card blue">
+          <strong>ofstream</strong>
+          <p>Output File Stream — scriere în fișier</p>
+        </div>
+        <div class="card teal">
+          <strong>fstream</strong>
+          <p>File Stream — citire și scriere</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. CITIRE DIN FIȘIER ─────────────────────────── -->
+<section id="citire">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">📥</span>
+      <h2>Citire din fișier</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Citire token cu token (numere, cuvinte)</h3>
+      <pre>ifstream fin(<span class="st">"date.in"</span>);
+<span class="kw">int</span> n, x;
+fin &gt;&gt; n;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) {
+    fin &gt;&gt; x;
+    <span class="cm">// procesare x</span>
+}
+fin.close();</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Citire linie cu linie</h3>
+      <pre>ifstream fin(<span class="st">"text.txt"</span>);
+string linie;
+<span class="kw">while</span> (getline(fin, linie)) {
+    <span class="cm">// procesare linie</span>
+    cout &lt;&lt; linie &lt;&lt; endl;
+}</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Citire până la EOF (fără a ști numărul de elemente)</h3>
+      <pre>ifstream fin(<span class="st">"numere.in"</span>);
+<span class="kw">int</span> x;
+<span class="kw">while</span> (fin &gt;&gt; x) {
+    <span class="cm">// procesare x până la capătul fișierului</span>
+}</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Citire matrice din fișier</h3>
+      <pre>ifstream fin(<span class="st">"matrice.in"</span>);
+<span class="kw">int</span> n, m, a[<span class="nu">101</span>][<span class="nu">101</span>];
+fin &gt;&gt; n &gt;&gt; m;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j=<span class="nu">1</span>; j&lt;=m; j++)
+        fin &gt;&gt; a[i][j];</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. SCRIERE ───────────────────────────────────── -->
+<section id="scriere">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">📤</span>
+      <h2>Scriere în fișier</h2>
+    </div>
+    <div class="slide-body">
+      <pre>ofstream fout(<span class="st">"rezultat.out"</span>);
+
+<span class="cm">// Scriere numere</span>
+fout &lt;&lt; n &lt;&lt; endl;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=n; i++)
+    fout &lt;&lt; v[i] &lt;&lt; <span class="st">" "</span>;
+fout &lt;&lt; endl;
+
+<span class="cm">// Scriere formatată — aliniere la câmpuri fixe</span>
+<span class="kw">#include</span> <span class="st">&lt;iomanip&gt;</span>
+fout &lt;&lt; setw(<span class="nu">10</span>) &lt;&lt; setfill(<span class="st">'0'</span>) &lt;&lt; nr;   <span class="cm">// ex: 0000000042</span>
+fout &lt;&lt; fixed &lt;&lt; setprecision(<span class="nu">2</span>) &lt;&lt; <span class="nu">3.14159</span>;  <span class="cm">// 3.14</span>
+
+fout.close();</pre>
+
+      <div class="callout success">
+        <strong>Buna practică:</strong> Apelați întotdeauna <code>fout.close()</code> sau lăsați obiectul să iasă din scope — asigurați că datele sunt scrise pe disc (flush).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. FREOPEN ───────────────────────────────────── -->
+<section id="freopen">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">🔀</span>
+      <h2>freopen — redirectare I/O (stil BAC olimpiadă)</h2>
+    </div>
+    <div class="slide-body">
+      <p>La olimpiadele de informatică, problemele cer citire din <code>problema.in</code> și scriere în <code>problema.out</code>. Cel mai simplu mod: <strong>redirectăm stdin/stdout</strong> cu <code>freopen</code>.</p>
+
+      <pre><span class="kw">#include</span> <span class="st">&lt;cstdio&gt;</span>   <span class="cm">// freopen</span>
+<span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    freopen(<span class="st">"suma.in"</span>,  <span class="st">"r"</span>, stdin);   <span class="cm">// cin va citi din suma.in</span>
+    freopen(<span class="st">"suma.out"</span>, <span class="st">"w"</span>, stdout);  <span class="cm">// cout va scrie în suma.out</span>
+
+    <span class="kw">int</span> n, s = <span class="nu">0</span>, x;
+    cin &gt;&gt; n;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=n; i++) { cin &gt;&gt; x; s += x; }
+    cout &lt;&lt; s;
+
+    <span class="kw">return</span> <span class="nu">0</span>;
+}</pre>
+
+      <div class="callout info">
+        <strong>Avantaj freopen:</strong> Puteți folosi <code>cin</code>/<code>cout</code> exact ca la citirea de la tastatură. Nu trebuie să schimbați restul codului.
+      </div>
+      <div class="callout warning">
+        <strong>Alternativă cu ifstream/ofstream:</strong> Înlocuiți <code>cin</code> cu <code>fin</code> și <code>cout</code> cu <code>fout</code>. Ambele variante sunt acceptate la BAC.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. PRELUCRARE ────────────────────────────────── -->
+<section id="prelucrare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🔧</span>
+      <h2>Prelucrarea fișierelor — exemple complete</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Exemplu complet: citire din fișier, prelucrare, scriere</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;fstream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    ifstream fin(<span class="st">"maxim.in"</span>);
+    ofstream fout(<span class="st">"maxim.out"</span>);
+
+    <span class="kw">int</span> n; fin &gt;&gt; n;
+    <span class="kw">int</span> maxim, x;
+    fin &gt;&gt; maxim;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">2</span>; i&lt;=n; i++) {
+        fin &gt;&gt; x;
+        <span class="kw">if</span> (x &gt; maxim) maxim = x;
+    }
+    fout &lt;&lt; maxim;
+
+    fin.close(); fout.close();
+    <span class="kw">return</span> <span class="nu">0</span>;
+}</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Copiere fișier text (linie cu linie)</h3>
+      <pre>ifstream fin(<span class="st">"sursa.txt"</span>);
+ofstream fout(<span class="st">"copie.txt"</span>);
+string linie;
+<span class="kw">while</span> (getline(fin, linie))
+    fout &lt;&lt; linie &lt;&lt; <span class="st">"\n"</span>;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Numărarea liniilor și cuvintelor dintr-un fișier</h3>
+      <pre>ifstream fin(<span class="st">"text.txt"</span>);
+<span class="kw">int</span> nrLinii = <span class="nu">0</span>, nrCuvinte = <span class="nu">0</span>;
+string linie, cuvant;
+<span class="kw">while</span> (getline(fin, linie)) {
+    nrLinii++;
+    stringstream ss(linie);
+    <span class="kw">while</span> (ss &gt;&gt; cuvant) nrCuvinte++;
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. PROBLEME BAC ─────────────────────────────── -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — fișiere</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1 (BAC clasic):</strong> Fișierul <code>sir.in</code> conține pe prima linie un număr natural n, iar pe a doua linie n numere întregi separate prin spații. Scrieți în <code>sir.out</code> suma elementelor pare și produsul elementelor impare.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">#include</span> <span class="st">&lt;fstream&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() {
+    ifstream fin(<span class="st">"sir.in"</span>);
+    ofstream fout(<span class="st">"sir.out"</span>);
+    <span class="kw">int</span> n, x, sumPar = <span class="nu">0</span>, prodImpar = <span class="nu">1</span>;
+    fin &gt;&gt; n;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=n; i++) {
+        fin &gt;&gt; x;
+        <span class="kw">if</span> (x % <span class="nu">2</span> == <span class="nu">0</span>) sumPar += x;
+        <span class="kw">else</span> prodImpar *= x;
+    }
+    fout &lt;&lt; <span class="st">"Suma pare: "</span>  &lt;&lt; sumPar &lt;&lt; endl;
+    fout &lt;&lt; <span class="st">"Prod impar: "</span> &lt;&lt; prodImpar;
+    <span class="kw">return</span> <span class="nu">0</span>;
+}</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Fișierul <code>text.in</code> conține un text pe mai multe linii. Scrieți în <code>text.out</code> fiecare cuvânt de lungime maximă din text (câte unul pe linie).
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">#include</span> <span class="st">&lt;fstream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;vector&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;sstream&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() {
+    ifstream fin(<span class="st">"text.in"</span>);
+    ofstream fout(<span class="st">"text.out"</span>);
+    vector&lt;string&gt; toate;
+    string linie, cuvant;
+    <span class="kw">int</span> lenMax = <span class="nu">0</span>;
+    <span class="kw">while</span> (getline(fin, linie)) {
+        stringstream ss(linie);
+        <span class="kw">while</span> (ss &gt;&gt; cuvant) {
+            toate.push_back(cuvant);
+            <span class="kw">if</span> ((<span class="kw">int</span>)cuvant.size() &gt; lenMax) lenMax = cuvant.size();
+        }
+    }
+    <span class="kw">for</span> (<span class="kw">auto</span> &amp;w : toate)
+        <span class="kw">if</span> ((<span class="kw">int</span>)w.size() == lenMax) fout &lt;&lt; w &lt;&lt; endl;
+    <span class="kw">return</span> <span class="nu">0</span>;
+}</pre>
+      </div>
+
+      <div class="callout info" style="margin-top:20px;">
+        <strong>Resurse utile BAC informatică:</strong><br>
+        <a href="https://pbinfo.ro" target="_blank" rel="noopener">pbinfo.ro</a> — probleme și soluții BAC •
+        <a href="https://infoarena.ro" target="_blank" rel="noopener">infoarena.ro</a> — arhivă olimpiadă •
+        <a href="https://cplusplus.com/reference/fstream/" target="_blank" rel="noopener">cplusplus.com/reference/fstream</a> — referință fstream
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end .wrapper -->
+
+<footer>
+  <a href="siruri.html">← Cap. 6: Șiruri de Caractere</a>
+  &nbsp;·&nbsp;
+  <a href="../index.html">Pagina principală</a>
+  &nbsp;·&nbsp;
+  <a href="../index.html">Început ↑</a>
+</footer>
+
+<script src="../js/animations.js"></script>
+</body>
+</html>

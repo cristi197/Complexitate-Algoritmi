@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Șiruri de caractere — Informatică Liceu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="page-overlay"></div>
+
+<div class="page-cover" style="background:linear-gradient(135deg,#7f1d1d 0%,#b91c1c 50%,#ef4444 100%);">
+  <div class="page-cover-inner">
+    <a href="../index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;">← Înapoi la pagina principală</a>
+    <h1>🔤 Șiruri de Caractere</h1>
+    <p>Capitolul 6 — char[], string, funcții de prelucrare, palindrom, anagramă, cifru Caesar și probleme BAC</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+      <span class="hero-badge">BAC Informatică</span>
+      <span class="hero-badge">char[] vs string</span>
+      <span class="hero-badge">Palindrom</span>
+      <span class="hero-badge">Anagramă</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-bar">
+  <a href="#tipuri">char[] vs string</a>
+  <a href="#functii">Funcții C-string</a>
+  <a href="#citire">Citire</a>
+  <a href="#prelucrare">Prelucrare</a>
+  <a href="#conversii">Conversii</a>
+  <a href="#bac">Probleme BAC</a>
+</nav>
+
+<div class="wrapper">
+
+<!-- ─── 1. char[] vs string ──────────────────────────── -->
+<section id="tipuri">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">📝</span>
+      <h2>char[] vs string — două abordări</h2>
+    </div>
+    <div class="slide-body">
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:12px 0;">
+        <div class="card red">
+          <strong>char[] (C-style)</strong>
+          <p>Vector de caractere terminat cu <code>'\0'</code>. Funcții din <code>&lt;cstring&gt;</code>: strlen, strcpy, strcat, strcmp, strchr, strstr.</p>
+          <code>char s[201] = "salut";</code>
+        </div>
+        <div class="card blue">
+          <strong>string (C++)</strong>
+          <p>Clasă C++, dimensiune dinamică. Include operatori: <code>+</code>, <code>==</code>, <code>[]</code>. Metodele: .length(), .substr(), .find(), .erase().</p>
+          <code>string s = "salut";</code>
+        </div>
+      </div>
+
+      <pre><span class="cm">// char[] — declarare și inițializare</span>
+<span class="kw">char</span> s[<span class="nu">201</span>];                  <span class="cm">// maxim 200 caractere + '\0'</span>
+<span class="kw">char</span> t[] = <span class="st">"informatica"</span>;     <span class="cm">// dimensiune dedusă: 12</span>
+
+<span class="cm">// string — declarare și inițializare</span>
+<span class="kw">#include</span> <span class="st">&lt;string&gt;</span>
+string str = <span class="st">"informatica"</span>;
+string str2(<span class="nu">5</span>, <span class="st">'a'</span>);            <span class="cm">// "aaaaa"</span></pre>
+
+      <div class="callout warning">
+        <strong>La BAC</strong>, ambele variante sunt acceptate. Dacă se cere explicit „șir de caractere" sau lucrați cu char[]-uri, folosiți funcțiile din &lt;cstring&gt;.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. FUNCȚII C-STRING ───────────────────────────── -->
+<section id="functii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">⚙️</span>
+      <h2>Funcții din &lt;cstring&gt;</h2>
+    </div>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr><th>Funcție</th><th>Descriere</th><th>Exemplu</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>strlen(s)</code></td><td>Lungimea șirului (fără '\0')</td><td><code>strlen("abc") → 3</code></td></tr>
+          <tr><td><code>strcpy(dest, src)</code></td><td>Copiază src în dest</td><td><code>strcpy(a, "bac")</code></td></tr>
+          <tr><td><code>strcat(dest, src)</code></td><td>Concatenează src la dest</td><td><code>strcat(a, "2024")</code></td></tr>
+          <tr><td><code>strcmp(s1, s2)</code></td><td>Compară lexicografic: &lt;0, 0, &gt;0</td><td><code>strcmp("ab","ac") &lt; 0</code></td></tr>
+          <tr><td><code>strchr(s, c)</code></td><td>Prima apariție a caracterului c</td><td><code>strchr("bac",'a')</code></td></tr>
+          <tr><td><code>strstr(s1, s2)</code></td><td>Prima apariție a subșirului s2 în s1</td><td><code>strstr("informatica","atic")</code></td></tr>
+        </tbody>
+      </table>
+
+      <pre><span class="cm">// Exemplu complet</span>
+<span class="kw">#include</span> <span class="st">&lt;cstring&gt;</span>
+<span class="kw">char</span> a[<span class="nu">100</span>] = <span class="st">"bac"</span>;
+<span class="kw">char</span> b[] = <span class="st">"2024"</span>;
+
+cout &lt;&lt; strlen(a);         <span class="cm">// 3</span>
+strcat(a, b);
+cout &lt;&lt; a;                 <span class="cm">// "bac2024"</span>
+cout &lt;&lt; strcmp(a, b);      <span class="cm">// negativ (b<a lexicografic → comparare ASCII)</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. CITIRE ────────────────────────────────────── -->
+<section id="citire">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">📥</span>
+      <h2>Citirea șirurilor de caractere</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">char</span> s[<span class="nu">201</span>];
+string str;
+
+<span class="cm">// cin >> — citește până la primul spațiu/newline</span>
+cin &gt;&gt; s;         <span class="cm">// "bac" (fără spații)</span>
+cin &gt;&gt; str;
+
+<span class="cm">// cin.getline — citește o linie întreagă (cu spații) — pentru char[]</span>
+cin.getline(s, <span class="nu">201</span>);
+
+<span class="cm">// getline — citește o linie întreagă — pentru string</span>
+getline(cin, str);
+
+<span class="cm">// Atenție: dacă aveți cin >> n înainte de getline, consumați newline-ul!</span>
+<span class="kw">int</span> n;
+cin &gt;&gt; n;
+cin.ignore();          <span class="cm">// sau cin.ignore(INT_MAX, '\n');</span>
+getline(cin, str);     <span class="cm">// acum funcționează corect</span></pre>
+
+      <div class="callout warning">
+        <strong>Eroare frecventă la BAC:</strong> Dacă citiți un număr cu <code>cin &gt;&gt; n</code> și apoi un șir cu <code>getline</code>, fără <code>cin.ignore()</code>, <code>getline</code> citește linia goală rămasă!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. PRELUCRARE ────────────────────────────────── -->
+<section id="prelucrare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🔧</span>
+      <h2>Prelucrarea șirurilor — algoritmi frecvenți</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="margin-bottom:10px;font-size:15px;">Verificare palindrom</h3>
+      <pre><span class="kw">bool</span> <span class="fn">estePalindrom</span>(string s) {
+    <span class="kw">int</span> n = s.length();
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n/<span class="nu">2</span>; i++)
+        <span class="kw">if</span> (s[i] != s[n-<span class="nu">1</span>-i]) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+}
+<span class="cm">// "radar" → true, "bac" → false</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Verificare anagramă</h3>
+      <pre><span class="kw">bool</span> <span class="fn">esteAnagrama</span>(string a, string b) {
+    <span class="kw">if</span> (a.length() != b.length()) <span class="kw">return false</span>;
+    <span class="kw">int</span> freq[<span class="nu">256</span>] = {<span class="nu">0</span>};
+    <span class="kw">for</span> (<span class="kw">char</span> c : a) freq[(<span class="kw">unsigned char</span>)c]++;
+    <span class="kw">for</span> (<span class="kw">char</span> c : b) freq[(<span class="kw">unsigned char</span>)c]--;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; <span class="nu">256</span>; i++)
+        <span class="kw">if</span> (freq[i] != <span class="nu">0</span>) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+}
+<span class="cm">// "listen" și "silent" → true</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Cifru Caesar (cifru cu deplasare)</h3>
+      <pre><span class="kw">string</span> <span class="fn">criptCaesar</span>(string s, <span class="kw">int</span> k) {
+    <span class="kw">for</span> (<span class="kw">char</span> &amp;c : s) {
+        <span class="kw">if</span> (c &gt;= <span class="st">'a'</span> &amp;&amp; c &lt;= <span class="st">'z'</span>)
+            c = <span class="st">'a'</span> + (c - <span class="st">'a'</span> + k) % <span class="nu">26</span>;
+        <span class="kw">else if</span> (c &gt;= <span class="st">'A'</span> &amp;&amp; c &lt;= <span class="st">'Z'</span>)
+            c = <span class="st">'A'</span> + (c - <span class="st">'A'</span> + k) % <span class="nu">26</span>;
+    }
+    <span class="kw">return</span> s;
+}
+<span class="cm">// criptCaesar("abc", 3) → "def"</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Numărarea cuvintelor, vocalelor, consoanelor</h3>
+      <pre><span class="kw">int</span> nrCuvinte = <span class="nu">0</span>, nrVocale = <span class="nu">0</span>;
+string vocale = <span class="st">"aeiouAEIOU"</span>;
+<span class="kw">bool</span> inCuvant = <span class="kw">false</span>;
+
+<span class="kw">for</span> (<span class="kw">char</span> c : str) {
+    <span class="kw">if</span> (c != <span class="st">' '</span>) {
+        <span class="kw">if</span> (!inCuvant) { nrCuvinte++; inCuvant = <span class="kw">true</span>; }
+        <span class="kw">if</span> (vocale.find(c) != string::npos) nrVocale++;
+    } <span class="kw">else</span> inCuvant = <span class="kw">false</span>;
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. CONVERSII ─────────────────────────────────── -->
+<section id="conversii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🔀</span>
+      <h2>Conversii număr ↔ șir</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">#include</span> <span class="st">&lt;string&gt;</span>   <span class="cm">// to_string</span>
+<span class="kw">#include</span> <span class="st">&lt;cstdlib&gt;</span>  <span class="cm">// atoi, atof</span>
+
+<span class="cm">// Număr → șir</span>
+string s = to_string(<span class="nu">42</span>);      <span class="cm">// "42"</span>
+string pi = to_string(<span class="nu">3.14</span>);   <span class="cm">// "3.140000"</span>
+
+<span class="cm">// Șir → număr</span>
+<span class="kw">int</span>    n = stoi(<span class="st">"123"</span>);        <span class="cm">// 123</span>
+<span class="kw">long</span>   l = stol(<span class="st">"999999"</span>);    <span class="cm">// 999999</span>
+<span class="kw">double</span> d = stod(<span class="st">"3.14"</span>);      <span class="cm">// 3.14</span>
+
+<span class="cm">// C-style: char[] → număr</span>
+<span class="kw">int</span> x = atoi(<span class="st">"456"</span>);           <span class="cm">// 456</span>
+<span class="kw">double</span> y = atof(<span class="st">"3.14"</span>);       <span class="cm">// 3.14</span></pre>
+
+      <div class="callout info">
+        <strong>Sfat BAC:</strong> <code>to_string()</code> și <code>stoi()</code> funcționează pe compilatoare moderne C++11 și mai noi. La olimpiade se pot folosi și soluțiile manuale cu cifre.
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Extragere cifre dintr-un număr (manual)</h3>
+      <pre><span class="kw">int</span> nr = <span class="nu">12345</span>;
+<span class="kw">char</span> cifre[<span class="nu">20</span>];
+<span class="kw">int</span> len = <span class="nu">0</span>;
+<span class="kw">while</span> (nr &gt; <span class="nu">0</span>) {
+    cifre[len++] = <span class="st">'0'</span> + nr % <span class="nu">10</span>;
+    nr /= <span class="nu">10</span>;
+}
+cifre[len] = <span class="st">'\0'</span>;
+<span class="cm">// Inversăm: "54321" → "12345"</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i&lt;len/<span class="nu">2</span>; i++) swap(cifre[i], cifre[len-<span class="nu">1</span>-i]);</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. PROBLEME BAC ─────────────────────────────── -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — șiruri de caractere</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1 (BAC 2022):</strong> Citiți un șir de caractere și afișați cel mai lung cuvânt.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;">string linie, cuvantCurent, maxCuvant;
+getline(cin, linie);
+<span class="kw">for</span> (<span class="kw">char</span> c : linie) {
+    <span class="kw">if</span> (c != <span class="st">' '</span>) cuvantCurent += c;
+    <span class="kw">else</span> {
+        <span class="kw">if</span> (cuvantCurent.size() &gt; maxCuvant.size())
+            maxCuvant = cuvantCurent;
+        cuvantCurent.clear();
+    }
+}
+<span class="kw">if</span> (cuvantCurent.size() &gt; maxCuvant.size()) maxCuvant = cuvantCurent;
+cout &lt;&lt; maxCuvant;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Dați un șir de caractere format din litere mici. Înlocuiți toate vocalele cu '*'.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;">string vocale = <span class="st">"aeiou"</span>;
+<span class="kw">for</span> (<span class="kw">char</span> &amp;c : s)
+    <span class="kw">if</span> (vocale.find(c) != string::npos)
+        c = <span class="st">'*'</span>;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 3:</strong> Dată o propoziție, afișați cuvintele în ordine inversă.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">#include</span> <span class="st">&lt;sstream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;vector&gt;</span>
+string linie; getline(cin, linie);
+stringstream ss(linie);
+vector&lt;string&gt; cuvinte;
+string w;
+<span class="kw">while</span> (ss &gt;&gt; w) cuvinte.push_back(w);
+<span class="kw">for</span> (<span class="kw">int</span> i = cuvinte.size()-<span class="nu">1</span>; i &gt;= <span class="nu">0</span>; i--)
+    cout &lt;&lt; cuvinte[i] &lt;&lt; <span class="st">" "</span>;</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end .wrapper -->
+
+<footer>
+  <a href="matrici.html">← Cap. 5: Matrici</a>
+  &nbsp;·&nbsp;
+  <a href="../index.html">Pagina principală</a>
+  &nbsp;·&nbsp;
+  <a href="fisiere.html">Cap. 7: Fișiere →</a>
+</footer>
+
+<script src="../js/animations.js"></script>
+</body>
+</html>
