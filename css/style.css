@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════════════════════
    INFORMATICĂ LICEU — Global Stylesheet
    Toate paginile importă acest fișier.
 ═══════════════════════════════════════════════════════════════ */
@@ -749,4 +749,120 @@ footer a { color: #93c5fd; text-decoration: none; }
   .back-home-fab { bottom: 18px; left: 18px; }
   .mx-cell { width: 38px; height: 38px; font-size: 12px; }
   .vec-block { width: 42px; height: 42px; font-size: 14px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AUDIO PLAYER
+═══════════════════════════════════════════════════════════════ */
+.audio-toggle-btn {
+  position: fixed; bottom: 90px; right: 28px;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg,#1d4ed8,#7c3aed);
+  color: #fff; border: none; cursor: pointer; font-size: 20px;
+  box-shadow: 0 4px 14px rgba(29,78,216,.45);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s, box-shadow .2s; z-index: 1100;
+}
+.audio-toggle-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(29,78,216,.6); }
+
+.audio-player {
+  position: fixed; bottom: 86px; right: 28px;
+  width: 320px; background: #0f172a;
+  border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  color: #e2e8f0; z-index: 1099; padding: 16px 18px;
+  font-size: 13px; transition: opacity .25s, transform .25s;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.audio-player.hidden { opacity: 0; pointer-events: none; transform: translateY(12px); }
+.ap-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.ap-title { font-weight: 800; font-size: 14px; flex: 1; }
+.ap-time { font-size: 11px; color: #94a3b8; background: rgba(255,255,255,.08); padding: 2px 8px; border-radius: 999px; }
+.ap-close { background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 16px; padding: 2px 6px; border-radius: 6px; }
+.ap-close:hover { background: rgba(255,255,255,.1); color: #fff; }
+.ap-section-name { font-size: 12px; color: #93c5fd; margin-bottom: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 6px 10px; background: rgba(255,255,255,.06); border-radius: 8px; border-left: 3px solid #1d4ed8; }
+.ap-progress-wrap { margin-bottom: 12px; }
+.ap-progress-bar { height: 5px; background: rgba(255,255,255,.12); border-radius: 999px; margin-bottom: 5px; overflow: hidden; }
+.ap-progress-fill { height: 100%; background: linear-gradient(90deg,#1d4ed8,#7c3aed); border-radius: 999px; transition: width .4s ease; }
+.ap-progress-label { font-size: 11px; color: #64748b; }
+.ap-controls { display: flex; align-items: center; gap: 10px; }
+.ap-btn { background: rgba(255,255,255,.1); border: none; color: #e2e8f0; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.ap-btn:hover { background: rgba(255,255,255,.2); }
+.ap-btn.ap-play { background: linear-gradient(135deg,#1d4ed8,#7c3aed); width: 42px; height: 42px; font-size: 18px; }
+.ap-btn.ap-play:hover { opacity: .85; }
+.ap-speed { margin-left: auto; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); color: #e2e8f0; border-radius: 8px; padding: 4px 8px; font-size: 12px; cursor: pointer; }
+.ap-speed option { background: #1e293b; color: #e2e8f0; }
+
+/* ═══════════════════════════════════════════════════════════════
+   QUIZ ENGINE
+═══════════════════════════════════════════════════════════════ */
+.quiz-section { background: linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%); border-radius: 16px; padding: 24px; margin-top: 20px; }
+.quiz-section-title { color: #e2e8f0; font-size: 17px; font-weight: 800; margin-bottom: 16px; }
+.quiz-wrap { max-width: 640px; margin: 0 auto; }
+.quiz-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.quiz-lbl { background: linear-gradient(135deg,#7c3aed,#1d4ed8); color: #fff; font-size: 12px; font-weight: 800; padding: 3px 12px; border-radius: 999px; }
+.quiz-prog { flex: 1; font-size: 13px; color: #94a3b8; }
+.quiz-sc { font-size: 13px; font-weight: 700; color: #4ade80; }
+.quiz-q { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 16px; line-height: 1.55; }
+.quiz-opts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.quiz-opt { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.12); border-radius: 10px; padding: 12px 16px; cursor: pointer; text-align: left; color: #e2e8f0; font-size: 14px; transition: background .2s, border-color .2s; }
+.quiz-opt:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.3); }
+.quiz-opt.correct { background: rgba(74,222,128,.15); border-color: #4ade80; color: #bbf7d0; pointer-events: none; }
+.quiz-opt.wrong   { background: rgba(248,113,113,.15); border-color: #f87171; color: #fecaca; pointer-events: none; }
+.quiz-opt.disabled{ opacity: .35; pointer-events: none; }
+.quiz-opt-letter { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+.quiz-opt.correct .quiz-opt-letter { background: #4ade80; color: #064e3b; }
+.quiz-opt.wrong   .quiz-opt-letter { background: #f87171; color: #7f1d1d; }
+.quiz-exp { padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 12px; line-height: 1.55; }
+.quiz-exp-ok   { background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.3); color: #bbf7d0; }
+.quiz-exp-fail { background: rgba(248,113,113,.12); border: 1px solid rgba(248,113,113,.3); color: #fecaca; }
+.quiz-nav { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.quiz-btn-nav { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); color: #e2e8f0; padding: 9px 20px; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600; transition: background .2s; }
+.quiz-btn-nav:hover { background: rgba(255,255,255,.2); }
+.quiz-btn-nav.primary { background: linear-gradient(135deg,#1d4ed8,#7c3aed); border-color: transparent; }
+.quiz-btn-nav.primary:hover { opacity: .88; }
+/* Finish screen */
+.quiz-finish { text-align: center; padding: 20px 0; }
+.qf-emoji { font-size: 56px; margin-bottom: 12px; }
+.qf-score { font-size: 36px; font-weight: 900; color: #f1f5f9; }
+.qf-pct   { font-size: 20px; color: #93c5fd; margin-bottom: 12px; }
+.qf-msg   { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   DEMO INTERACTIV SIRURI (Caesar cipher + character ops)
+═══════════════════════════════════════════════════════════════ */
+.str-demo-wrap { display: flex; flex-direction: column; gap: 16px; margin-top: 14px; }
+.str-demo-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.str-demo-input { flex: 1; min-width: 200px; padding: 10px 14px; border-radius: 10px; border: 2px solid rgba(255,255,255,.2); background: rgba(255,255,255,.07); color: #e2e8f0; font-size: 14px; }
+.str-demo-input:focus { outline: none; border-color: #1d4ed8; }
+.str-demo-btn { padding: 10px 18px; border-radius: 10px; background: linear-gradient(135deg,#1d4ed8,#7c3aed); color: #fff; border: none; cursor: pointer; font-size: 13px; font-weight: 700; transition: opacity .2s; }
+.str-demo-btn:hover { opacity: .85; }
+.str-demo-output { padding: 12px 16px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #93c5fd; font-size: 14px; font-family: monospace; min-height: 38px; word-break: break-all; }
+.str-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.str-tab { padding: 7px 16px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06); color: #94a3b8; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; }
+.str-tab.active, .str-tab:hover { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+
+/* ─── Funcții cctype (card-uri colorate) ──────────────────────── */
+.fn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 12px; margin-top: 14px; }
+.fn-card { background: var(--gray5); border-radius: 12px; padding: 14px 16px; border-left: 4px solid; }
+.fn-card.blue  { border-color: var(--blue); }
+.fn-card.green { border-color: var(--green); }
+.fn-card.orange{ border-color: var(--orange); }
+.fn-card.purple{ border-color: var(--purple); }
+.fn-card.teal  { border-color: var(--teal); }
+.fn-card .fn-name { font-family: monospace; font-size: 15px; font-weight: 800; color: var(--gray1); }
+.fn-card .fn-header { font-size: 11px; font-weight: 700; color: var(--gray3); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+.fn-card .fn-desc { font-size: 13px; color: var(--gray2); margin: 4px 0; }
+.fn-card .fn-ex { font-size: 12px; font-family: monospace; background: rgba(0,0,0,.06); padding: 3px 8px; border-radius: 6px; color: var(--blue); margin-top: 6px; }
+
+/* ─── Subcapitol tabs (Teorie / Practică / Exerciții) ─────────── */
+.subcap-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--gray4); margin-bottom: 20px; overflow-x: auto; }
+.subcap-tab { padding: 10px 22px; font-size: 14px; font-weight: 700; color: var(--gray3); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: color .2s, border-color .2s; }
+.subcap-tab.active, .subcap-tab:hover { color: var(--blue); border-bottom-color: var(--blue); }
+.subcap-panel { display: none; }
+.subcap-panel.active { display: block; }
+
+@media (max-width: 480px) {
+  .audio-player { width: calc(100vw - 32px); right: 16px; }
+  .audio-toggle-btn { right: 16px; bottom: 82px; }
+  .fn-grid { grid-template-columns: 1fr; }
 }

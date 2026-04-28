@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducere &icirc;n Informatic&#259; &mdash; Informatic&#259; Liceu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="page-overlay"></div>
+
+<div class="page-cover" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1d4ed8 100%);">
+  <div class="page-cover-inner">
+    <a href="../index.html" style="color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;">&larr; &Icirc;napoi la pagina principal&#259;</a>
+    <h1>&#128187; Introducere &icirc;n Informatic&#259;</h1>
+    <p>Capitol 0 &mdash; Ce este informatica, cum func&#355;ioneaz&#259; un calculator, primul program C++, tipuri de date, structuri de control &#351;i programa BAC 2026</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+      <span class="hero-badge">Programa BAC 2026</span>
+      <span class="hero-badge">Ce este informatica</span>
+      <span class="hero-badge">Primul program C++</span>
+      <span class="hero-badge">Tipuri de date</span>
+      <span class="hero-badge">Structuri de control</span>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-bar">
+  <a href="#ce-este">Ce este informatica</a>
+  <a href="#calculator">Calculatorul</a>
+  <a href="#algoritm">Ce e un algoritm</a>
+  <a href="#primul-program">Primul program</a>
+  <a href="#tipuri">Tipuri de date</a>
+  <a href="#operatori">Operatori</a>
+  <a href="#structuri">Structuri de control</a>
+  <a href="#programa-bac">Programa BAC 2026</a>
+  <a href="#exercitii">Exerci&#355;ii</a>
+</nav>
+
+<div class="wrapper">
+
+<!-- 1. CE ESTE INFORMATICA -->
+<section id="ce-este">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">&#128161;</span>
+      <h2>Ce este Informatica?</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">&#127760; Informatica &mdash; &#351;tiin&#355;a rezolv&#259;rii problemelor</div>
+        <p><strong>Informatica</strong> este &#351;tiin&#355;a care studiaz&#259; <em>prelucrarea automat&#259; a informa&#355;iei</em> cu ajutorul calculatoarelor. Dac&#259; matematica se ocup&#259; de numere &#351;i rela&#355;ii, informatica se ocup&#259; de <strong>cum</strong> rezolv&#259;m problemele sistematic, pas cu pas.</p>
+        <p>Imagineaz&#259;-&#355;i c&#259; e&#351;ti un bucatar. O <strong>re&#355;et&#259; de g&#259;tit</strong> este practic un algoritm: o list&#259; de pa&#351;i clari &#351;i ordona&#355;i care transform&#259; ingredientele (date de intrare) &icirc;ntr-un fel de m&acirc;ncare (date de ie&#351;ire).</p>
+      </div>
+
+      <div class="card-grid" style="margin:16px 0;">
+        <div class="card blue">
+          <strong>&#128200; Informa&#355;ie</strong>
+          <p>Date cu sens &#351;i context. Calculatoarele stocheaz&#259; informa&#355;ia &icirc;n binar (0 &#351;i 1), dar o organizeaz&#259; &icirc;n structuri mai complexe.</p>
+        </div>
+        <div class="card teal">
+          <strong>&#9881; Algoritm</strong>
+          <p>O secven&#355;&#259; finit&#259; de pa&#351;i bine defini&#355;i pentru rezolvarea unei probleme. Orice program este un algoritm transformat &icirc;n cod.</p>
+        </div>
+        <div class="card purple">
+          <strong>&#128187; Program</strong>
+          <p>Un algoritm scris &icirc;ntr-un limbaj de programare pe care calculatorul &icirc;l poate executa. Noi vom folosi <strong>C++</strong>.</p>
+        </div>
+        <div class="card orange">
+          <strong>&#128301; Date</strong>
+          <p>Informa&#355;iile cu care lucreaz&#259; un program: numere, text, imagini, sunete. Datele se citesc, se prelucreaz&#259; &#351;i se afi&#351;eaz&#259;.</p>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <strong>De ce studiem informatica?</strong> &Icirc;n lumea modern&#259;, orice domeniu (medicin&#259;, economie, arte, biologie) utilizeaz&#259; software. Abilitatea de a programa &icirc;&#355;i permite s&#259; automatizezi sarcini repetitive, s&#259; analizezi date mari &#351;i s&#259; construie&#351;ti solu&#355;ii digitale.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CUM FUNCTIONEAZA UN CALCULATOR -->
+<section id="calculator">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">&#128187;</span>
+      <h2>Cum func&#355;ioneaz&#259; un calculator?</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">&#129504; Analogie: Calculatorul ca un birou</div>
+        <p>Imagineaz&#259;-&#355;i calculatorul ca un <strong>birou de lucru</strong>:
+          <br>&bull; <strong>CPU</strong> (Procesorul) = angajatul care face calculele &mdash; extrem de rapid
+          <br>&bull; <strong>RAM</strong> (Memoria) = biroul de lucru &mdash; &#355;ine datele la &icirc;ndem&acirc;n&#259;, dar se goale&#351;te c&acirc;nd &icirc;nchi&#355;i calculatorul
+          <br>&bull; <strong>HDD/SSD</strong> (Stocarea) = un dulap cu dosare &mdash; p&#259;streaz&#259; datele permanent
+          <br>&bull; <strong>SO</strong> (Sistemul de operare) = managerul &mdash; coordoneaz&#259; toate resursele
+        </p>
+      </div>
+
+      <div class="card-grid" style="margin:16px 0;">
+        <div class="card red">
+          <strong>&#129704; CPU (Procesor)</strong>
+          <p>Execut&#259; instruc&#355;iunile programului. Viteza se m&#259;soar&#259; &icirc;n GHz (miliarde de opera&#355;ii/secund&#259;). Programe moderne ruleaz&#259; pe mai multe nuclee simultan.</p>
+          <small>Ex: Intel i7, AMD Ryzen 9</small>
+        </div>
+        <div class="card blue">
+          <strong>&#128190; RAM (Memorie)</strong>
+          <p>Stocheaz&#259; datele &#351;i programele &icirc;n execu&#355;ie. Volatil&#259; (se &#351;terge la &icirc;nchidere). Variabilele din programul nostru stau &icirc;n RAM.</p>
+          <small>Ex: 8GB, 16GB, 32GB DDR5</small>
+        </div>
+        <div class="card teal">
+          <strong>&#128281; HDD/SSD</strong>
+          <p>Stocare permanent&#259;. Fi&#351;ierele &#351;i programele sunt salvate aici. SSD-urile sunt mult mai rapide dec&acirc;t HDD-urile.</p>
+          <small>Ex: SSD 512GB NVMe</small>
+        </div>
+        <div class="card purple">
+          <strong>&#129518; Sistemul de Operare</strong>
+          <p>Gestioneaz&#259; resursele hardware &#351;i ofer&#259; o interfa&#355;&#259; utilizatorului. Windows, Linux, macOS sunt sisteme de operare.</p>
+          <small>Ex: Windows 11, Ubuntu 24</small>
+        </div>
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Cum ruleaz&#259; un program C++?</h3>
+      <pre><span class="cm">// Pasii de la codul sursa la executie:</span>
+
+<span class="cm">// 1. Scriem codul sursa (.cpp)</span>
+<span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> main() { cout &lt;&lt; <span class="st">"Salut!"</span>; <span class="kw">return</span> <span class="nu">0</span>; }
+
+<span class="cm">// 2. Compilatorul (g++, MinGW) traduce in cod masina (.exe/.out)</span>
+<span class="cm">// 3. SO incarca .exe in RAM</span>
+<span class="cm">// 4. CPU executa instructiunile una cate una</span>
+<span class="cm">// 5. Rezultatele apar pe ecran</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Medii de lucru recomandate</h3>
+      <div class="card-grid" style="margin:8px 0;">
+        <div class="card blue">
+          <strong>&#127760; OnlineGDB</strong>
+          <p>Ruleaz&#259; direct &icirc;n browser, f&#259;r&#259; instalare. Perfect pentru &icirc;nceput.</p>
+          <small>onlinegdb.com</small>
+        </div>
+        <div class="card teal">
+          <strong>&#128187; Code::Blocks</strong>
+          <p>IDE gratuit, complet, cu compilator MinGW inclus. Recomandat pentru BAC.</p>
+          <small>codeblocks.org</small>
+        </div>
+        <div class="card orange">
+          <strong>&#127963; Dev-C++</strong>
+          <p>IDE clasic, simplu &#351;i u&#351;or de instalat. Foarte popular &icirc;n licee rom&acirc;ne&#351;ti.</p>
+          <small>sourceforge.net/p/orwelldevcpp</small>
+        </div>
+        <div class="card purple">
+          <strong>&#128295; VS Code</strong>
+          <p>Editor modern, extensibil. Necesit&#259; configurare manual&#259; a compilatorului g++.</p>
+          <small>code.visualstudio.com</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CE E UN ALGORITM -->
+<section id="algoritm">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">&#9881;&#65039;</span>
+      <h2>Ce este un algoritm?</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">&#127859; Algoritm = re&#355;et&#259; de g&#259;tit</div>
+        <p>Un algoritm este o <strong>secven&#355;&#259; finit&#259; de pa&#351;i precis defini&#355;i</strong> care rezolv&#259; o clas&#259; de probleme &icirc;ntr-un timp finit.</p>
+        <p>Propriet&#259;&#355;ile unui algoritm bun:</p>
+        <ul style="margin-top:8px;line-height:1.8;">
+          <li><strong>Finitudine</strong>: se termein&#259; dup&#259; un num&#259;r finit de pa&#351;i</li>
+          <li><strong>Claritate</strong>: fiecare pas este precis &#351;i f&#259;r&#259; ambiguit&#259;&#355;i</li>
+          <li><strong>Generalitate</strong>: rezolv&#259; o clas&#259; de probleme, nu doar un caz</li>
+          <li><strong>Eficien&#355;&#259;</strong>: folose&#351;te resurse rezonabile (timp &#351;i memorie)</li>
+        </ul>
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Exemplu: Algoritm pentru maximul a 3 numere</h3>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:8px 0;">
+        <div class="card blue">
+          <strong>Pseudocod</strong>
+          <pre style="margin:8px 0;font-size:12px;">CITESTE a, b, c
+max &larr; a
+DACA b &gt; max ATUNCI max &larr; b
+DACA c &gt; max ATUNCI max &larr; c
+SCRIE max</pre>
+        </div>
+        <div class="card teal">
+          <strong>Cod C++</strong>
+          <pre style="margin:8px 0;font-size:12px;"><span class="kw">int</span> a, b, c;
+cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+<span class="kw">int</span> mx = a;
+<span class="kw">if</span> (b &gt; mx) mx = b;
+<span class="kw">if</span> (c &gt; mx) mx = c;
+cout &lt;&lt; mx;</pre>
+        </div>
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Complexitatea algoritmilor &mdash; pe scurt</h3>
+      <p>Complexitatea m&#259;soar&#259; <strong>c&acirc;t de rapid cre&#351;te timpul de execu&#355;ie</strong> cu dimensiunea datelor de intrare. Se exprim&#259; cu nota&#355;ia Big-O.</p>
+      <table>
+        <thead><tr><th>Complexitate</th><th>Exemplu</th><th>n=1000</th><th>n=1.000.000</th></tr></thead>
+        <tbody>
+          <tr><td><code>O(1)</code></td><td>Accesare element vector</td><td>1 op.</td><td>1 op.</td></tr>
+          <tr><td><code>O(log n)</code></td><td>C&#259;utare binar&#259;</td><td>10 op.</td><td>20 op.</td></tr>
+          <tr><td><code>O(n)</code></td><td>Parcurgere vector</td><td>1.000 op.</td><td>1.000.000 op.</td></tr>
+          <tr><td><code>O(n log n)</code></td><td>Sortare eficient&#259;</td><td>10.000 op.</td><td>20.000.000 op.</td></tr>
+          <tr><td><code>O(n&#178;)</code></td><td>Sortare bul&#259;, 2 bucle</td><td>1.000.000 op.</td><td>10&#185;&#178; op. (prea lent!)</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px;font-size:13px;color:#94a3b8;">La BAC, limitele tipice sunt: <strong>n &le; 1000</strong> permite O(n&#178;), <strong>n &le; 100.000</strong> necesit&#259; O(n log n) sau O(n).</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PRIMUL PROGRAM C++ -->
+<section id="primul-program">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">&#128195;</span>
+      <h2>Structura unui program C++</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="cm">// Programul minim C++ &mdash; "Salut, lume!"</span>
+<span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>    <span class="cm">// biblioteca pentru cin/cout</span>
+<span class="kw">using namespace</span> std;  <span class="cm">// evita scrierea "std::" inainte de cin, cout, etc.</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {           <span class="cm">// functia principala &mdash; executia incepe INTOTDEAUNA de aici</span>
+    cout &lt;&lt; <span class="st">"Salut, lume!"</span> &lt;&lt; endl;  <span class="cm">// afisare pe ecran</span>
+    <span class="kw">return</span> <span class="nu">0</span>;           <span class="cm">// semnaleaza ca programul s-a terminat cu succes</span>
+}
+<span class="cm">// Output: Salut, lume!</span></pre>
+
+      <h3 style="margin:18px 0 10px;font-size:15px;">Biblioteci standard esentiale la BAC</h3>
+      <table>
+        <thead><tr><th>Library</th><th>Con&#355;ine</th><th>Utilizare</th></tr></thead>
+        <tbody>
+          <tr><td><code>&lt;iostream&gt;</code></td><td>cin, cout, cerr, endl</td><td>Intrare/ie&#351;ire standard</td></tr>
+          <tr><td><code>&lt;fstream&gt;</code></td><td>ifstream, ofstream</td><td>Citire/scriere fi&#351;iere</td></tr>
+          <tr><td><code>&lt;cmath&gt;</code></td><td>sqrt, pow, abs, floor, ceil</td><td>Func&#355;ii matematice</td></tr>
+          <tr><td><code>&lt;algorithm&gt;</code></td><td>sort, min, max, reverse, find</td><td>Algoritmi standard</td></tr>
+          <tr><td><code>&lt;string&gt;</code></td><td>string, getline</td><td>&#350;iruri de caractere C++</td></tr>
+          <tr><td><code>&lt;cstring&gt;</code></td><td>strlen, strcpy, strcmp, strcat</td><td>&#350;iruri de caractere C</td></tr>
+          <tr><td><code>&lt;cctype&gt;</code></td><td>isalpha, isdigit, toupper, tolower</td><td>Opera&#355;ii pe caractere</td></tr>
+          <tr><td><code>&lt;vector&gt;</code></td><td>vector&lt;T&gt;</td><td>Vectori dinamici</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 10px;font-size:15px;">Citire &#351;i afi&#351;are</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="cm">// Citire o variabila</span>
+    <span class="kw">int</span> n;
+    cout &lt;&lt; <span class="st">"Introduceti un numar: "</span>;
+    cin &gt;&gt; n;
+
+    <span class="cm">// Citire mai multe variabile pe o linie</span>
+    <span class="kw">int</span> a, b;
+    cin &gt;&gt; a &gt;&gt; b;         <span class="cm">// a si b separate de spatiu sau Enter</span>
+
+    <span class="cm">// Afisare formatata</span>
+    cout &lt;&lt; <span class="st">"Suma: "</span> &lt;&lt; a+b &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">"Max: "</span> &lt;&lt; (a &gt; b ? a : b) &lt;&lt; endl;
+
+    <span class="cm">// Citire/scriere fisiere</span>
+    <span class="kw">#include</span> <span class="st">&lt;fstream&gt;</span>
+    ifstream fin(<span class="st">"date.in"</span>);
+    ofstream fout(<span class="st">"date.out"</span>);
+    fin &gt;&gt; a &gt;&gt; b;
+    fout &lt;&lt; a + b;
+    <span class="kw">return</span> <span class="nu">0</span>;
+}</pre>
+
+      <div class="callout warning">
+        <strong>La BAC</strong>, datele sunt &icirc;ntotdeauna citite din fi&#351;ier (<code>date.in</code> sau similar) &#351;i scrise &icirc;n fi&#351;ier (<code>date.out</code>). Antrenati-v&#259; cu <code>ifstream</code>/<code>ofstream</code>!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TIPURI DE DATE -->
+<section id="tipuri">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">&#128202;</span>
+      <h2>Tipuri de date fundamentale &icirc;n C++</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">&#128220; Tipuri de date &mdash; &ldquo;cutii&rdquo; pentru informa&#355;ie</div>
+        <p>O <strong>variabil&#259;</strong> este o &ldquo;cutie&rdquo; &icirc;n memorie cu un <em>nume</em>, un <em>tip</em> &#351;i o <em>valoare</em>. Tipul decide c&acirc;t&#259; memorie ocup&#259; &#351;i ce valori poate stoca.</p>
+      </div>
+
+      <table>
+        <thead><tr><th>Tip</th><th>Dimensiune</th><th>Domeniu</th><th>Exemplu</th><th>Utilizare BAC</th></tr></thead>
+        <tbody>
+          <tr><td><code>int</code></td><td>4 bytes</td><td>-2.147.483.648 la 2.147.483.647</td><td><code>int n = 42;</code></td><td>Contoare, indici, numere &icirc;ntregi</td></tr>
+          <tr><td><code>long long</code></td><td>8 bytes</td><td>&plusmn;9.2 &times; 10&#185;&#8313;</td><td><code>long long x = 1e18;</code></td><td>Numere mari, sume de vectori mari</td></tr>
+          <tr><td><code>double</code></td><td>8 bytes</td><td>&plusmn;1.7 &times; 10&#179;&#8304;&#8312;</td><td><code>double pi = 3.14;</code></td><td>Calcule reale, geometrie</td></tr>
+          <tr><td><code>float</code></td><td>4 bytes</td><td>&plusmn;3.4 &times; 10&#179;&#8312;</td><td><code>float x = 3.14f;</code></td><td>Mai pu&#355;in precis ca double &mdash; evitati la BAC</td></tr>
+          <tr><td><code>char</code></td><td>1 byte</td><td>-128 la 127 (cod ASCII)</td><td><code>char c = 'A';</code></td><td>Caractere, procesare texte</td></tr>
+          <tr><td><code>bool</code></td><td>1 byte</td><td>true / false</td><td><code>bool ok = true;</code></td><td>Condi&#355;ii, flaguri</td></tr>
+          <tr><td><code>string</code></td><td>dinamic</td><td>orice text</td><td><code>string s = "bac";</code></td><td>Texte, &#351;iruri de caractere</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 10px;font-size:15px;">Constante &#351;i conver&#351;ii</h3>
+      <pre><span class="cm">// Constante &mdash; valori care nu se modifica</span>
+<span class="kw">const int</span> MAX = <span class="nu">100000</span>;
+<span class="kw">const double</span> PI = <span class="nu">3.14159265</span>;
+
+<span class="cm">// Conversii intre tipuri</span>
+<span class="kw">int</span> a = <span class="nu">7</span>, b = <span class="nu">2</span>;
+<span class="kw">double</span> rez1 = a / b;              <span class="cm">// 3.0 (impartire intreaga!)</span>
+<span class="kw">double</span> rez2 = (<span class="kw">double</span>)a / b;      <span class="cm">// 3.5 (conversie explicita)</span>
+<span class="kw">double</span> rez3 = (<span class="kw">double</span>)a / (<span class="kw">double</span>)b; <span class="cm">// 3.5</span>
+
+<span class="cm">// Dimensiunile tipurilor</span>
+cout &lt;&lt; <span class="kw">sizeof</span>(<span class="kw">int</span>);       <span class="cm">// 4</span>
+cout &lt;&lt; <span class="kw">sizeof</span>(<span class="kw">double</span>);    <span class="cm">// 8</span>
+cout &lt;&lt; <span class="kw">sizeof</span>(<span class="kw">char</span>);      <span class="cm">// 1</span>
+
+<span class="cm">// INT_MAX si INT_MIN (din &lt;climits&gt;)</span>
+cout &lt;&lt; INT_MAX;  <span class="cm">// 2147483647</span>
+cout &lt;&lt; INT_MIN;  <span class="cm">// -2147483648</span></pre>
+
+      <div class="callout warning">
+        <strong>Atentie la overflow!</strong> <code>int</code> poate stoca maxim ~2 miliarde. Dac&#259; suma sau produsul dep&#259;&#351;e&#351;te, folosi&#355;i <code>long long</code>. Exemplu: 100.000 * 100.000 = 10&#185;&#8304; &gt; INT_MAX!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. OPERATORI -->
+<section id="operatori">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">&#10133;</span>
+      <h2>Operatori &icirc;n C++</h2>
+    </div>
+    <div class="slide-body">
+      <div class="card-grid" style="margin:8px 0 20px;">
+        <div class="card blue">
+          <strong>Aritmetici</strong>
+          <table style="font-size:13px;margin-top:8px;">
+            <tr><td><code>+</code></td><td>Adunare</td></tr>
+            <tr><td><code>-</code></td><td>Sc&#259;dere</td></tr>
+            <tr><td><code>*</code></td><td>&Icirc;nmul&#355;ire</td></tr>
+            <tr><td><code>/</code></td><td>&Icirc;mp&#259;r&#355;ire (c&acirc;t)</td></tr>
+            <tr><td><code>%</code></td><td>Rest (modulo)</td></tr>
+          </table>
+        </div>
+        <div class="card teal">
+          <strong>Rela&#355;ionali (compar&#259;)</strong>
+          <table style="font-size:13px;margin-top:8px;">
+            <tr><td><code>==</code></td><td>Egal</td></tr>
+            <tr><td><code>!=</code></td><td>Diferit</td></tr>
+            <tr><td><code>&lt;</code></td><td>Mai mic</td></tr>
+            <tr><td><code>&gt;</code></td><td>Mai mare</td></tr>
+            <tr><td><code>&lt;=</code></td><td>Mai mic sau egal</td></tr>
+            <tr><td><code>&gt;=</code></td><td>Mai mare sau egal</td></tr>
+          </table>
+        </div>
+        <div class="card purple">
+          <strong>Logici</strong>
+          <table style="font-size:13px;margin-top:8px;">
+            <tr><td><code>&amp;&amp;</code></td><td>&#350;I logic (AND)</td></tr>
+            <tr><td><code>||</code></td><td>SAU logic (OR)</td></tr>
+            <tr><td><code>!</code></td><td>NEGATIE (NOT)</td></tr>
+          </table>
+        </div>
+        <div class="card orange">
+          <strong>Atribuire &#351;i prescurtat</strong>
+          <table style="font-size:13px;margin-top:8px;">
+            <tr><td><code>=</code></td><td>Atribuire</td></tr>
+            <tr><td><code>+=</code></td><td>a += b &hArr; a = a+b</td></tr>
+            <tr><td><code>-=</code></td><td>a -= b &hArr; a = a-b</td></tr>
+            <tr><td><code>++</code></td><td>Incrementare (+1)</td></tr>
+            <tr><td><code>--</code></td><td>Decrementare (-1)</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom:10px;font-size:15px;">Exemple practice cu operatorul %</h3>
+      <pre><span class="cm">// Modulul (%) &mdash; cel mai util operator la BAC</span>
+<span class="nu">7</span> % <span class="nu">3</span>   <span class="cm">// = 1  (restul impartirii 7 la 3)</span>
+<span class="nu">10</span> % <span class="nu">2</span>  <span class="cm">// = 0  (10 este par)</span>
+<span class="nu">15</span> % <span class="nu">5</span>  <span class="cm">// = 0  (15 este multiplu de 5)</span>
+
+<span class="cm">// Verificare par/impar</span>
+<span class="kw">if</span> (n % <span class="nu">2</span> == <span class="nu">0</span>) cout &lt;&lt; <span class="st">"par"</span>;
+<span class="kw">else</span> cout &lt;&lt; <span class="st">"impar"</span>;
+
+<span class="cm">// Ultima cifra a unui numar</span>
+<span class="kw">int</span> ultimaCifra = n % <span class="nu">10</span>;
+
+<span class="cm">// Verificare divisibilitate</span>
+<span class="kw">if</span> (n % k == <span class="nu">0</span>) cout &lt;&lt; <span class="st">"n este divizibil cu k"</span>;
+
+<span class="cm">// Operatorul ternar (? :)</span>
+<span class="kw">int</span> maxim = (a &gt; b) ? a : b;     <span class="cm">// echivalent cu if(a>b) maxim=a; else maxim=b;</span>
+string tip = (n%<span class="nu">2</span>==<span class="nu">0</span>) ? <span class="st">"par"</span> : <span class="st">"impar"</span>;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- 7. STRUCTURI DE CONTROL -->
+<section id="structuri">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">&#128256;</span>
+      <h2>Structuri de control &mdash; fluxul programului</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="margin-bottom:10px;font-size:15px;">if / else if / else &mdash; Structuri decizionale</h3>
+      <pre><span class="cm">// if simplu</span>
+<span class="kw">if</span> (x &gt; <span class="nu">0</span>)
+    cout &lt;&lt; <span class="st">"pozitiv"</span>;
+
+<span class="cm">// if-else</span>
+<span class="kw">if</span> (n % <span class="nu">2</span> == <span class="nu">0</span>)
+    cout &lt;&lt; <span class="st">"par"</span>;
+<span class="kw">else</span>
+    cout &lt;&lt; <span class="st">"impar"</span>;
+
+<span class="cm">// Lant if-else if-else</span>
+<span class="kw">if</span>      (nota &gt;= <span class="nu">9</span>) cout &lt;&lt; <span class="st">"Excelent"</span>;
+<span class="kw">else if</span> (nota &gt;= <span class="nu">7</span>) cout &lt;&lt; <span class="st">"Bine"</span>;
+<span class="kw">else if</span> (nota &gt;= <span class="nu">5</span>) cout &lt;&lt; <span class="st">"Suficient"</span>;
+<span class="kw">else</span>                 cout &lt;&lt; <span class="st">"Insuficient"</span>;</pre>
+
+      <h3 style="margin:18px 0 10px;font-size:15px;">switch &mdash; mai clar pentru valori discrete</h3>
+      <pre><span class="kw">switch</span> (ziua) {
+    <span class="kw">case</span> <span class="nu">1</span>: cout &lt;&lt; <span class="st">"Luni"</span>;     <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="nu">2</span>: cout &lt;&lt; <span class="st">"Marti"</span>;    <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="nu">3</span>: cout &lt;&lt; <span class="st">"Miercuri"</span>; <span class="kw">break</span>;
+    <span class="kw">default</span>: cout &lt;&lt; <span class="st">"Alta zi"</span>; <span class="kw">break</span>;
+}
+<span class="cm">// ATENTIE: fara break, executia "cade" in case-ul urmator!</span></pre>
+
+      <h3 style="margin:18px 0 10px;font-size:15px;">Bucle &mdash; repetitie</h3>
+      <pre><span class="cm">// for &mdash; cand stim numarul de iteratii</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=<span class="nu">10</span>; i++)
+    cout &lt;&lt; i &lt;&lt; <span class="st">" "</span>;        <span class="cm">// 1 2 3 4 5 6 7 8 9 10</span>
+
+<span class="cm">// for descendent</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">10</span>; i&gt;=<span class="nu">1</span>; i--)
+    cout &lt;&lt; i &lt;&lt; <span class="st">" "</span>;        <span class="cm">// 10 9 8 ... 1</span>
+
+<span class="cm">// while &mdash; cand conditia e verificata inainte</span>
+<span class="kw">int</span> n;
+cin &gt;&gt; n;
+<span class="kw">while</span> (n &gt; <span class="nu">0</span>) {
+    cout &lt;&lt; n % <span class="nu">10</span>;          <span class="cm">// afiseaza cifrele invers</span>
+    n /= <span class="nu">10</span>;
+}
+
+<span class="cm">// do-while &mdash; executat cel putin o data</span>
+<span class="kw">int</span> suma = <span class="nu">0</span>;
+<span class="kw">do</span> {
+    <span class="kw">int</span> x; cin &gt;&gt; x;
+    suma += x;
+} <span class="kw">while</span> (x != <span class="nu">0</span>);         <span class="cm">// citeste pana la 0</span>
+
+<span class="cm">// break si continue</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=<span class="nu">100</span>; i++) {
+    <span class="kw">if</span> (i % <span class="nu">2</span> == <span class="nu">0</span>) <span class="kw">continue</span>;  <span class="cm">// sare numerele pare</span>
+    <span class="kw">if</span> (i &gt; <span class="nu">20</span>) <span class="kw">break</span>;           <span class="cm">// iese din bucla</span>
+    cout &lt;&lt; i &lt;&lt; <span class="st">" "</span>;             <span class="cm">// 1 3 5 ... 19</span>
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PROGRAMA BAC 2026 -->
+<section id="programa-bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">&#128218;</span>
+      <h2>Programa BAC 2026 &mdash; Informatic&#259;</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">&#127891; Ce se examineaz&#259; la BAC Informatic&#259;?</div>
+        <p>Examenul de Bacalaureat la Informatic&#259; testeaz&#259; &icirc;n&#355;elegerea algoritmilor, capacitatea de a rezolva probleme &#351;i abilit&#259;&#355;ile de programare &icirc;n C++. Structura examenului: <strong>3 probleme</strong> din capitolele de mai jos &icirc;n 3 ore.</p>
+      </div>
+
+      <h3 style="margin:16px 0 12px;font-size:15px;">Capitolele din programa de Informatic&#259;</h3>
+      <div class="card-grid" style="margin:8px 0;">
+        <div class="card blue">
+          <strong><a href="complexitate.html" style="color:inherit;">&#9201;&#65039; Cap 1: Complexitatea algoritmilor</a></strong>
+          <p>Notatie Big-O, analiza timpului de executie, compararea eficientei algoritmilor. Recursivitate vs iteratie.</p>
+          <small style="color:#4ade80;">Include: O(1), O(log n), O(n), O(n log n), O(n&sup2;)</small>
+        </div>
+        <div class="card teal">
+          <strong><a href="recursivitate.html" style="color:inherit;">&#128260; Cap 2: Recursivitate</a></strong>
+          <p>Func&#355;ii recursive, cazuri de baz&#259; &#351;i recursiv, stiva de apeluri. Factoria, Fibonacci, turnurile Hanoi.</p>
+          <small style="color:#4ade80;">Include: factorial, combinari, Fibonacci, Hanoi</small>
+        </div>
+        <div class="card purple">
+          <strong><a href="backtracking.html" style="color:inherit;">&#128296; Cap 3: Backtracking</a></strong>
+          <p>Generare sistematic&#259; a solutiilor, explorare &#351;i revenire. Permut&#259;ri, combina&#355;ii, generare subset.</p>
+          <small style="color:#4ade80;">Include: permutari, dame, subsets, combinari</small>
+        </div>
+        <div class="card orange">
+          <strong><a href="vectori.html" style="color:inherit;">&#128202; Cap 4: Vectori</a></strong>
+          <p>Array-uri 1D, sortare, c&#259;utare, algoritmi clasici pe vectori.</p>
+          <small style="color:#4ade80;">Include: sortare, cautare binara, interclasare, deduplicare</small>
+        </div>
+        <div class="card red">
+          <strong><a href="matrici.html" style="color:inherit;">&#129529; Cap 5: Matrici</a></strong>
+          <p>Array-uri 2D, parcurgeri, diagonale, rotatie, operatii pe coloane/linii.</p>
+          <small style="color:#4ade80;">Include: parcurgere, diagonale, spirala, inmultire matrici</small>
+        </div>
+        <div class="card blue">
+          <strong><a href="siruri.html" style="color:inherit;">&#128292; Cap 6: &#350;iruri de caractere</a></strong>
+          <p>Prelucrarea textelor: palindrom, anagram&#259;, c&#259;utare, funcţii cctype &#351;i cstring.</p>
+          <small style="color:#4ade80;">Include: strlen, toupper, palindrom, anagrama, Caesar</small>
+        </div>
+        <div class="card teal">
+          <strong><a href="fisiere.html" style="color:inherit;">&#128194; Cap 7: Fi&#351;iere</a></strong>
+          <p>Citire/scriere fi&#351;iere text &#351;i binare. Toate problemele BAC cer date din fi&#351;iere!</p>
+          <small style="color:#4ade80;">Include: ifstream, ofstream, getline cu fisiere</small>
+        </div>
+      </div>
+
+      <h3 style="margin:20px 0 12px;font-size:15px;">Ce trebuie s&#259; &#351;tii &icirc;nainte de BAC &mdash; checklist</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;">
+        <div>
+          <p style="font-weight:700;margin-bottom:8px;color:#4ade80;">&#9989; Elemente de baz&#259; (obligatoriu)</p>
+          <ul style="font-size:13px;line-height:2;color:#94a3b8;list-style:none;padding:0;">
+            <li>&#9745; Tipuri de date: int, double, char, string, bool</li>
+            <li>&#9745; Operatori: aritmetici, logici, rela&#355;ionali, %</li>
+            <li>&#9745; if/else, switch, for, while, do-while</li>
+            <li>&#9745; Func&#355;ii cu parametri &#351;i valoare returnata</li>
+            <li>&#9745; Vectori 1D: declarare, parcurgere, sortare</li>
+            <li>&#9745; Matrici 2D: declarare, parcurgere, diagonale</li>
+            <li>&#9745; &#350;iruri char[], strlen, strcpy, strcmp</li>
+            <li>&#9745; Citire/scriere fi&#351;iere (ifstream/ofstream)</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:700;margin-bottom:8px;color:#fb923c;">&#128293; Subiecte dificile (pct. 5-10)</p>
+          <ul style="font-size:13px;line-height:2;color:#94a3b8;list-style:none;padding:0;">
+            <li>&#9744; Recursivitate: factorial, Fibonacci, Hanoi</li>
+            <li>&#9744; Backtracking: permut&#259;ri, combina&#355;ii</li>
+            <li>&#9744; Complexitate: Big-O, analiza buclelor</li>
+            <li>&#9744; C&#259;utare binar&#259; &#351;i interclasare</li>
+            <li>&#9744; Algoritmi pe &#351;iruri: palindrom, anagram&#259;</li>
+            <li>&#9744; Sortare manual&#259;: bubble, insert, select</li>
+            <li>&#9744; Parcurgere spirala a matricii</li>
+            <li>&#9744; Func&#355;ii din &lt;cctype&gt;: toupper, isdigit</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">Structura subiectului BAC Informatic&#259;</h3>
+      <table>
+        <thead><tr><th>Subiect</th><th>Con&#355;inut</th><th>Punctaj</th></tr></thead>
+        <tbody>
+          <tr><td><strong>I</strong></td><td>5 cerin&#355;e cu r&#259;spuns scurt: complexitate, trasare algoritm, completare cod, analiz&#259; boolean&#259;</td><td>30 puncte</td></tr>
+          <tr><td><strong>II</strong></td><td>Rezolvarea complet&#259; a 1-2 probleme de programare (cod C++ complet + testare)</td><td>30 puncte</td></tr>
+          <tr><td><strong>III</strong></td><td>Problem&#259; mai complex&#259; cu mai multe cerin&#355;e (recursivitate / backtracking / matrici)</td><td>30 puncte</td></tr>
+          <tr><td colspan="2" style="text-align:right;"><strong>Total + 10 puncte din oficiu</strong></td><td><strong>100 puncte</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout info">
+        <strong>Sfat strategic:</strong> Subiectul I este mai &ldquo;teoretic&rdquo; &mdash; studiaz&#259; complexitate &#351;i trasare algoritm. Subiectele II &#351;i III cer cod C++ complet, compilabil &#351;i corect. Exerseaz&#259; zilnic probleme de pe pbinfo.ro sau infoarena.ro!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. EXERCITII -->
+<section id="exercitii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">&#127918;</span>
+      <h2>Exerci&#355;ii interactive &mdash; testeaz&#259; cuno&#351;tin&#355;ele de baz&#259;</h2>
+    </div>
+    <div class="slide-body">
+      <div class="quiz-section" data-quiz="intro-quiz"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <a href="../index.html">&#8592; Pagina principal&#259;</a>
+  &nbsp;&middot;&nbsp;
+  <a href="complexitate.html">Cap. 1: Complexitate &rarr;</a>
+</footer>
+
+<script>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['intro-quiz'] = [
+  {q:"Ce face #include &lt;iostream&gt; in C++?",opts:["Creeaza un fisier nou","Include biblioteca pentru cin si cout","Declara functia main","Aloca memorie"],ans:1,exp:"#include &lt;iostream&gt; include biblioteca de intrare/iesire standard care contine cin (citire), cout (afisare) si endl (newline)."},
+  {q:"Care este diferenta dintre = si == in C++?",opts:["Nu exista diferenta","= atribuie o valoare, == compara doua valori","== atribuie, = compara","Ambele compara"],ans:1,exp:"= este operatorul de ATRIBUIRE: a = 5 pune valoarea 5 in variabila a. == este operatorul de COMPARARE: if(a == 5) verifica daca a este egal cu 5."},
+  {q:"Ce valoare are expresia 10 % 3 in C++?",opts:["3","1","0.33","10"],ans:1,exp:"Operatorul % calculeaza RESTUL impartirii. 10 impartit la 3 = 3 rest 1. Deci 10 % 3 = 1. Este util pentru verificarea parimonitatii: n%2==0 inseamna ca n este par."},
+  {q:"Care buclă se executa cel putin o data, chiar daca conditia e falsa?",opts:["for","while","do-while","if"],ans:2,exp:"do-while verifica conditia DUPA executarea corpului. Spre deosebire de while care verifica INAINTE. Deci do-while se executa mereu cel putin o data."},
+  {q:"Cat octeți (bytes) ocupa un int in C++?",opts:["1","2","4","8"],ans:2,exp:"Un int ocupa 4 bytes (32 biti) pe sisteme moderne. Poate stoca valori de la -2.147.483.648 la 2.147.483.647. Pentru valori mai mari se foloseste long long (8 bytes)."},
+  {q:"Ce face instructiunea break intr-o bucla for?",opts:["Sare peste iteratia curenta","Iese complet din bucla","Resetează contorul","Pauzeza executia"],ans:1,exp:"break iese complet din bucla (for, while, do-while) sau switch. continue sare la urmatoarea iteratie. Ambele sunt utile dar break termina complet bucla curenta."},
+  {q:"Care este ordinea corecta de executie a unui program C++?",opts:["Cod sursa → executie directa","Cod sursa → compilare → executie","Compilare → cod sursa → executie","Executie → compilare → cod sursa"],ans:1,exp:"1. Scriem codul sursa (.cpp), 2. Compilatorul (g++/MinGW) il transforma in cod masina (.exe), 3. Sistemul de operare incarca si executa .exe-ul."},
+  {q:"Ce este RAM-ul in contextul executiei unui program?",opts:["Unde se salveaza programul permanent","Memoria de lucru unde stau variabilele si datele in timpul executiei","Procesorul care executa instructiunile","Sistemul de operare"],ans:1,exp:"RAM (Random Access Memory) este memoria volatila de lucru. Variabilele din programul tau sunt stocate in RAM in timpul executiei. Cand inchizi calculatorul, RAM-ul se goleseste."},
+  {q:"Cum se citeste o linie intreaga (cu spatii) in C++?",opts:["cin >> s","scanf(\"%s\", s)","getline(cin, s)","cin.get(s)"],ans:2,exp:"getline(cin, s) citeste toata linia inclusiv spatiile pana la newline. cin >> s se opreste la primul spatiu. Atentie: dupa cin >> n, adauga cin.ignore() inainte de getline!"},
+  {q:"Ce inseamna O(n²) ca complexitate a unui algoritm?",opts:["Algoritmul face intotdeauna n² operatii","Timpul de executie creste patratic cu marimea datelor","Algoritmul foloseste n² memorie","n este intotdeauna un patrat perfect"],ans:1,exp:"O(n²) inseamna ca daca dublez n, timpul creste de 4 ori. Exemplu: doua bucle imbricate for i=1..n; for j=1..n fac n*n=n² operatii total. Evitati pentru n > 5000!"}
+];
+</script>
+
+<script src="../js/animations.js"></script>
+<script src="../js/platform.js"></script>
+<script src="../js/quiz.js"></script>
+</body>
+</html>
