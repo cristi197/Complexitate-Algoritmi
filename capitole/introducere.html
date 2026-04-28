@@ -602,16 +602,210 @@ cin &gt;&gt; n;
 <script>
 window.QUIZ_DATA = window.QUIZ_DATA || {};
 window.QUIZ_DATA['intro-quiz'] = [
-  {q:"Ce face #include &lt;iostream&gt; in C++?",opts:["Creeaza un fisier nou","Include biblioteca pentru cin si cout","Declara functia main","Aloca memorie"],ans:1,exp:"#include &lt;iostream&gt; include biblioteca de intrare/iesire standard care contine cin (citire), cout (afisare) si endl (newline)."},
-  {q:"Care este diferenta dintre = si == in C++?",opts:["Nu exista diferenta","= atribuie o valoare, == compara doua valori","== atribuie, = compara","Ambele compara"],ans:1,exp:"= este operatorul de ATRIBUIRE: a = 5 pune valoarea 5 in variabila a. == este operatorul de COMPARARE: if(a == 5) verifica daca a este egal cu 5."},
-  {q:"Ce valoare are expresia 10 % 3 in C++?",opts:["3","1","0.33","10"],ans:1,exp:"Operatorul % calculeaza RESTUL impartirii. 10 impartit la 3 = 3 rest 1. Deci 10 % 3 = 1. Este util pentru verificarea parimonitatii: n%2==0 inseamna ca n este par."},
-  {q:"Care buclă se executa cel putin o data, chiar daca conditia e falsa?",opts:["for","while","do-while","if"],ans:2,exp:"do-while verifica conditia DUPA executarea corpului. Spre deosebire de while care verifica INAINTE. Deci do-while se executa mereu cel putin o data."},
-  {q:"Cat octeți (bytes) ocupa un int in C++?",opts:["1","2","4","8"],ans:2,exp:"Un int ocupa 4 bytes (32 biti) pe sisteme moderne. Poate stoca valori de la -2.147.483.648 la 2.147.483.647. Pentru valori mai mari se foloseste long long (8 bytes)."},
-  {q:"Ce face instructiunea break intr-o bucla for?",opts:["Sare peste iteratia curenta","Iese complet din bucla","Resetează contorul","Pauzeza executia"],ans:1,exp:"break iese complet din bucla (for, while, do-while) sau switch. continue sare la urmatoarea iteratie. Ambele sunt utile dar break termina complet bucla curenta."},
-  {q:"Care este ordinea corecta de executie a unui program C++?",opts:["Cod sursa → executie directa","Cod sursa → compilare → executie","Compilare → cod sursa → executie","Executie → compilare → cod sursa"],ans:1,exp:"1. Scriem codul sursa (.cpp), 2. Compilatorul (g++/MinGW) il transforma in cod masina (.exe), 3. Sistemul de operare incarca si executa .exe-ul."},
-  {q:"Ce este RAM-ul in contextul executiei unui program?",opts:["Unde se salveaza programul permanent","Memoria de lucru unde stau variabilele si datele in timpul executiei","Procesorul care executa instructiunile","Sistemul de operare"],ans:1,exp:"RAM (Random Access Memory) este memoria volatila de lucru. Variabilele din programul tau sunt stocate in RAM in timpul executiei. Cand inchizi calculatorul, RAM-ul se goleseste."},
-  {q:"Cum se citeste o linie intreaga (cu spatii) in C++?",opts:["cin >> s","scanf(\"%s\", s)","getline(cin, s)","cin.get(s)"],ans:2,exp:"getline(cin, s) citeste toata linia inclusiv spatiile pana la newline. cin >> s se opreste la primul spatiu. Atentie: dupa cin >> n, adauga cin.ignore() inainte de getline!"},
-  {q:"Ce inseamna O(n²) ca complexitate a unui algoritm?",opts:["Algoritmul face intotdeauna n² operatii","Timpul de executie creste patratic cu marimea datelor","Algoritmul foloseste n² memorie","n este intotdeauna un patrat perfect"],ans:1,exp:"O(n²) inseamna ca daca dublez n, timpul creste de 4 ori. Exemplu: doua bucle imbricate for i=1..n; for j=1..n fac n*n=n² operatii total. Evitati pentru n > 5000!"}
+  {
+    "q": "Ce face #include &lt;iostream&gt; in C++?",
+    "opts": [
+      "Creeaza un fisier nou",
+      "Include biblioteca pentru cin si cout",
+      "Declara functia main",
+      "Aloca memorie"
+    ],
+    "ans": 1,
+    "exp": "#include &lt;iostream&gt; include biblioteca de intrare/iesire standard care contine cin (citire), cout (afisare) si endl (newline).",
+    "diff": 1
+  },
+  {
+    "q": "Care este diferenta dintre = si == in C++?",
+    "opts": [
+      "Nu exista diferenta",
+      "= atribuie o valoare, == compara doua valori",
+      "== atribuie, = compara",
+      "Ambele compara"
+    ],
+    "ans": 1,
+    "exp": "= este operatorul de ATRIBUIRE: a = 5 pune valoarea 5 in variabila a. == este operatorul de COMPARARE: if(a == 5) verifica daca a este egal cu 5.",
+    "diff": 1
+  },
+  {
+    "q": "Ce valoare are expresia 10 % 3 in C++?",
+    "opts": [
+      "3",
+      "1",
+      "0.33",
+      "10"
+    ],
+    "ans": 1,
+    "exp": "Operatorul % calculeaza RESTUL impartirii. 10 impartit la 3 = 3 rest 1. Deci 10 % 3 = 1. Este util pentru verificarea parimonitatii: n%2==0 inseamna ca n este par.",
+    "diff": 1
+  },
+  {
+    "q": "Care buclă se executa cel putin o data, chiar daca conditia e falsa?",
+    "opts": [
+      "for",
+      "while",
+      "do-while",
+      "if"
+    ],
+    "ans": 2,
+    "exp": "do-while verifica conditia DUPA executarea corpului. Spre deosebire de while care verifica INAINTE. Deci do-while se executa mereu cel putin o data.",
+    "diff": 2
+  },
+  {
+    "q": "Cat octeți (bytes) ocupa un int in C++?",
+    "opts": [
+      "1",
+      "2",
+      "4",
+      "8"
+    ],
+    "ans": 2,
+    "exp": "Un int ocupa 4 bytes (32 biti) pe sisteme moderne. Poate stoca valori de la -2.147.483.648 la 2.147.483.647. Pentru valori mai mari se foloseste long long (8 bytes).",
+    "diff": 1
+  },
+  {
+    "q": "Ce face instructiunea break intr-o bucla for?",
+    "opts": [
+      "Sare peste iteratia curenta",
+      "Iese complet din bucla",
+      "Resetează contorul",
+      "Pauzeza executia"
+    ],
+    "ans": 1,
+    "exp": "break iese complet din bucla (for, while, do-while) sau switch. continue sare la urmatoarea iteratie. Ambele sunt utile dar break termina complet bucla curenta.",
+    "diff": 2
+  },
+  {
+    "q": "Care este ordinea corecta de executie a unui program C++?",
+    "opts": [
+      "Cod sursa → executie directa",
+      "Cod sursa → compilare → executie",
+      "Compilare → cod sursa → executie",
+      "Executie → compilare → cod sursa"
+    ],
+    "ans": 1,
+    "exp": "1. Scriem codul sursa (.cpp), 2. Compilatorul (g++/MinGW) il transforma in cod masina (.exe), 3. Sistemul de operare incarca si executa .exe-ul.",
+    "diff": 3
+  },
+  {
+    "q": "Ce este RAM-ul in contextul executiei unui program?",
+    "opts": [
+      "Unde se salveaza programul permanent",
+      "Memoria de lucru unde stau variabilele si datele in timpul executiei",
+      "Procesorul care executa instructiunile",
+      "Sistemul de operare"
+    ],
+    "ans": 1,
+    "exp": "RAM (Random Access Memory) este memoria volatila de lucru. Variabilele din programul tau sunt stocate in RAM in timpul executiei. Cand inchizi calculatorul, RAM-ul se goleseste.",
+    "diff": 2
+  },
+  {
+    "q": "Cum se citeste o linie intreaga (cu spatii) in C++?",
+    "opts": [
+      "cin >> s",
+      "scanf(\"%s\", s)",
+      "getline(cin, s)",
+      "cin.get(s)"
+    ],
+    "ans": 2,
+    "exp": "getline(cin, s) citeste toata linia inclusiv spatiile pana la newline. cin >> s se opreste la primul spatiu. Atentie: dupa cin >> n, adauga cin.ignore() inainte de getline!",
+    "diff": 3
+  },
+  {
+    "q": "Ce inseamna O(n²) ca complexitate a unui algoritm?",
+    "opts": [
+      "Algoritmul face intotdeauna n² operatii",
+      "Timpul de executie creste patratic cu marimea datelor",
+      "Algoritmul foloseste n² memorie",
+      "n este intotdeauna un patrat perfect"
+    ],
+    "ans": 1,
+    "exp": "O(n²) inseamna ca daca dublez n, timpul creste de 4 ori. Exemplu: doua bucle imbricate for i=1..n; for j=1..n fac n*n=n² operatii total. Evitati pentru n > 5000!",
+    "diff": 3
+  },
+  {
+    "q": "Ce tip de date din C++ stochează o singură literă?",
+    "opts": [
+      "int",
+      "string",
+      "char",
+      "bool"
+    ],
+    "ans": 2,
+    "exp": "char stochează un singur caracter (1 byte), de ex. char c = 'A';",
+    "diff": 1
+  },
+  {
+    "q": "(BAC) Operatorul % (modulo) cu operanzii 17 și 5 returnează:",
+    "opts": [
+      "3",
+      "2",
+      "3.4",
+      "1"
+    ],
+    "ans": 1,
+    "exp": "17 = 5×3 + 2 → restul împărțirii 17%5 = 2.",
+    "diff": 1
+  },
+  {
+    "q": "Structura de control 'while' execută corpul:",
+    "opts": [
+      "Exact n ori",
+      "Cât timp condiția este adevărată",
+      "O singură dată",
+      "Cel puțin o dată"
+    ],
+    "ans": 1,
+    "exp": "while verifică condiția înainte de fiecare iterație; dacă e falsă de la început, corpul nu se execută niciodată.",
+    "diff": 1
+  },
+  {
+    "q": "(BAC 2022) Ce afișează: int x=7; if(x%2==0) cout<<'par'; else cout<<'impar';?",
+    "opts": [
+      "par",
+      "impar",
+      "7",
+      "0"
+    ],
+    "ans": 1,
+    "exp": "7%2=1≠0 → se execută ramura else → 'impar'.",
+    "diff": 1
+  },
+  {
+    "q": "Câți bytes ocupă un int pe arhitecturi pe 32/64 biți (standard)?",
+    "opts": [
+      "1",
+      "2",
+      "4",
+      "8"
+    ],
+    "ans": 2,
+    "exp": "Pe majoritatea arhitecturilor moderne, int are 4 bytes (32 biți), indiferent de 32/64 biți.",
+    "diff": 2
+  },
+  {
+    "q": "(BAC) Valoarea maximă stocabilă într-un int pe 32 biți cu semn:",
+    "opts": [
+      "2³²",
+      "2³¹",
+      "2³¹-1",
+      "2³²-1"
+    ],
+    "ans": 2,
+    "exp": "int pe 32 biți cu semn: de la -2³¹ la 2³¹-1 = 2147483647.",
+    "diff": 3
+  },
+  {
+    "q": "Diferența dintre '=' și '==' în C++:",
+    "opts": [
+      "Nu există diferență",
+      "= atribuire, == comparare",
+      "== atribuire, = comparare",
+      "= pentru int, == pentru double"
+    ],
+    "ans": 1,
+    "exp": "= atribuire (a=5 pune 5 în a); == comparare logică (a==5 testează dacă a e egal cu 5).",
+    "diff": 1
+  }
 ];
 </script>
 

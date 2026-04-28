@@ -452,7 +452,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Compilatorul dă eroare"
     ],
     "ans": 1,
-    "exp": "Fără caz de bază stiva de apeluri se umple → stack overflow (crash)."
+    "exp": "Fără caz de bază stiva de apeluri se umple → stack overflow (crash).",
+    "diff": 1
   },
   {
     "q": "factorial(0) definit corect returnează:",
@@ -463,7 +464,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Eroare"
     ],
     "ans": 1,
-    "exp": "0! = 1 prin definiție matematică — acesta este cazul de bază."
+    "exp": "0! = 1 prin definiție matematică — acesta este cazul de bază.",
+    "diff": 2
   },
   {
     "q": "Câți pași face Turnul din Hanoi pentru n discuri?",
@@ -474,7 +476,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "n·log n pași"
     ],
     "ans": 2,
-    "exp": "T(n)=2T(n-1)+1 → T(n)=2ⁿ-1. Pentru 64 discuri: ~1.8×10¹⁹ mișcări!"
+    "exp": "T(n)=2T(n-1)+1 → T(n)=2ⁿ-1. Pentru 64 discuri: ~1.8×10¹⁹ mișcări!",
+    "diff": 1
   },
   {
     "q": "Memoizarea în recursivitate servește la:",
@@ -485,7 +488,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Conversia la iterativ"
     ],
     "ans": 1,
-    "exp": "Memoizarea stochează rezultate deja calculate → transformă O(2ⁿ) în O(n) la Fibonacci."
+    "exp": "Memoizarea stochează rezultate deja calculate → transformă O(2ⁿ) în O(n) la Fibonacci.",
+    "diff": 2
   },
   {
     "q": "Care este avantajul principal al recursivității față de iterație?",
@@ -496,7 +500,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Nu poate produce stack overflow"
     ],
     "ans": 1,
-    "exp": "Problemele ca arbori, fractaluri, backtracking se exprimă natural recursiv."
+    "exp": "Problemele ca arbori, fractaluri, backtracking se exprimă natural recursiv.",
+    "diff": 3
   },
   {
     "q": "Recursivitate coadă (tail recursion) înseamnă că:",
@@ -507,7 +512,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Funcția nu are caz de bază"
     ],
     "ans": 1,
-    "exp": "Tail recursion poate fi optimizat de compilator în buclă → fără overhead de stivă."
+    "exp": "Tail recursion poate fi optimizat de compilator în buclă → fără overhead de stivă.",
+    "diff": 2
   },
   {
     "q": "fib(5) cu formula fib(n)=fib(n-1)+fib(n-2), fib(0)=0, fib(1)=1:",
@@ -518,7 +524,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "13"
     ],
     "ans": 1,
-    "exp": "fib(5)=fib(4)+fib(3)=3+2=5."
+    "exp": "fib(5)=fib(4)+fib(3)=3+2=5.",
+    "diff": 1
   },
   {
     "q": "Ce structură de date simulează intern recursivitatea?",
@@ -529,7 +536,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Hash map"
     ],
     "ans": 2,
-    "exp": "Fiecare apel recursiv adaugă un frame pe stiva de execuție (call stack)."
+    "exp": "Fiecare apel recursiv adaugă un frame pe stiva de execuție (call stack).",
+    "diff": 3
   },
   {
     "q": "Cel mai mare divizor comun prin algoritmul lui Euclid recursiv: cmmdc(48, 18)=?",
@@ -540,7 +548,8 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "18"
     ],
     "ans": 0,
-    "exp": "cmmdc(48,18)→cmmdc(18,12)→cmmdc(12,6)→cmmdc(6,0)=6."
+    "exp": "cmmdc(48,18)→cmmdc(18,12)→cmmdc(12,6)→cmmdc(6,0)=6.",
+    "diff": 2
   },
   {
     "q": "Adâncimea maximă a recursivității pentru n=1.000.000 poate cauza probleme deoarece:",
@@ -551,7 +560,92 @@ window.QUIZ_DATA['recursivitate-quiz'] = [
       "Variabilele locale dispar"
     ],
     "ans": 0,
-    "exp": "Stack-ul implicit este ~1-8 MB → fiecare frame ocupă câteva sute de bytes → limită reală."
+    "exp": "Stack-ul implicit este ~1-8 MB → fiecare frame ocupă câteva sute de bytes → limită reală.",
+    "diff": 3
+  },
+  {
+    "q": "Ce se întâmplă dacă o funcție recursivă nu are condiție de oprire?",
+    "opts": [
+      "Returnează 0",
+      "Se execută O(n) ori",
+      "Stack overflow",
+      "Compilatorul avertizează"
+    ],
+    "ans": 2,
+    "exp": "Fără caz de bază, stiva de apeluri se umple → stack overflow (eroare de execuție).",
+    "diff": 1
+  },
+  {
+    "q": "Câte apeluri recursive face factorial(5) (fără a număra apelul inițial)?",
+    "opts": [
+      "4",
+      "5",
+      "6",
+      "10"
+    ],
+    "ans": 0,
+    "exp": "factorial(5)→(4)→(3)→(2)→(1) — 4 apeluri recursive, apoi cazul de bază.",
+    "diff": 2
+  },
+  {
+    "q": "Care implementare a Fibonacci este mai eficientă pentru n=40?",
+    "opts": [
+      "Recursivă simplă",
+      "Iterativă",
+      "Amândouă la fel",
+      "Depinde de compilator"
+    ],
+    "ans": 1,
+    "exp": "Fibonacci recursiv fără memoizare are O(2ⁿ); varianta iterativă este O(n).",
+    "diff": 2
+  },
+  {
+    "q": "(BAC 2022) void f(int n){if(n>0){f(n-1);cout<<n<<' ';}} apelat cu f(4) afișează:",
+    "opts": [
+      "4 3 2 1",
+      "1 2 3 4",
+      "4 4 4 4",
+      "1 1 1 1"
+    ],
+    "ans": 1,
+    "exp": "Apelurile se fac până n=0, apoi la revenire se afișează 1,2,3,4.",
+    "diff": 3
+  },
+  {
+    "q": "Memoizarea transformă Fibonacci recursiv din O(2ⁿ) în:",
+    "opts": [
+      "O(n²)",
+      "O(n log n)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "ans": 2,
+    "exp": "Cu memoizare, fiecare subproblemă se calculează o singură dată → O(n).",
+    "diff": 2
+  },
+  {
+    "q": "(BAC) Adâncimea stivei pentru f(n)=f(n/2) (n>1) este:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "ans": 2,
+    "exp": "n se înjumătățește la fiecare apel → O(log n) apeluri pe stivă.",
+    "diff": 3
+  },
+  {
+    "q": "O problemă poate fi rezolvată recursiv dacă:",
+    "opts": [
+      "Are soluție unică",
+      "Se descompune în subprobleme de același tip",
+      "Este NP-completă",
+      "Folosește vectori"
+    ],
+    "ans": 1,
+    "exp": "Recursivitatea necesită structura 'problemă mare = caz mic + subproblemă similară mai mică'.",
+    "diff": 1
   }
 ];
 </script>

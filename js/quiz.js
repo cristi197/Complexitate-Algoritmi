@@ -1,9 +1,18 @@
 /* ═══════════════════════════════════════════════════════════════
    quiz.js — Motor de quiz interactiv per capitol
    Folosire: <div data-quiz="ID" class="quiz-section"></div>
-             window.QUIZ_DATA['ID'] = [{q,opts,ans,exp}, ...]
+             window.QUIZ_DATA['ID'] = [{q,opts,ans,exp,diff}, ...]
+             diff: 1=Facil, 2=Mediu, 3=Dificil
 ═══════════════════════════════════════════════════════════════ */
 (function () {
+
+var DIFF_LABEL = ['', 'Facil', 'Mediu', 'Dificil'];
+var DIFF_CLS   = ['', 'quiz-diff-facil', 'quiz-diff-mediu', 'quiz-diff-dificil'];
+
+function diffBadge(q) {
+  if (!q.diff) return '';
+  return '<span class="quiz-diff-badge ' + DIFF_CLS[q.diff] + '">' + DIFF_LABEL[q.diff] + '</span>';
+}
 
 function renderQuiz(container, questions) {
   var total     = questions.length;
@@ -63,7 +72,7 @@ function renderQuiz(container, questions) {
           '<span class="quiz-prog">Întrebarea ' + (idx + 1) + ' / ' + total + '</span>' +
           '<span class="quiz-sc">&#x2713; ' + score + ' / ' + total + '</span>' +
         '</div>' +
-        '<div class="quiz-q">' + q.q + '</div>' +
+        '<div class="quiz-q">' + diffBadge(q) + q.q + '</div>' +
         '<div class="quiz-opts">' + optsHtml + '</div>' +
         expHtml +
         navHtml +

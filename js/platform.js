@@ -25,27 +25,54 @@ function initGoToTop() {
   });
 }
 
-/* ── 2. FAB "Înapoi la pagina principală" ────────────────────── */
-function initBackHomeButton() {
-  var path = window.location.pathname;
-  var isIndex = path.endsWith('index.html') ||
-                path.endsWith('/') ||
-                path === '' ||
-                path.endsWith('Complexitate-Algoritmi/');
-  if (isIndex) return;
+/* ── 2. Navigare capitole — footer fix ───────────────────────── */
+var CHAPTERS = [
+  { file: 'introducere.html',  num: 0, title: 'Introducere în Informatică' },
+  { file: 'complexitate.html', num: 1, title: 'Eficiența Algoritmilor' },
+  { file: 'recursivitate.html',num: 2, title: 'Recursivitate' },
+  { file: 'backtracking.html', num: 3, title: 'Backtracking' },
+  { file: 'vectori.html',      num: 4, title: 'Vectori' },
+  { file: 'matrici.html',      num: 5, title: 'Matrici' },
+  { file: 'siruri.html',       num: 6, title: 'Șiruri de Caractere' },
+  { file: 'fisiere.html',      num: 7, title: 'Fișiere' }
+];
 
-  var isInCapitole = path.indexOf('/capitole/') !== -1 ||
-                     path.indexOf('\\capitole\\') !== -1;
-  var href = isInCapitole ? '../index.html' : 'index.html';
+function initChapterNav() {
+  var path = window.location.pathname.replace(/\\/g, '/');
+  var curFile = path.split('/').pop();
+  var curIdx  = CHAPTERS.findIndex(function (c) { return c.file === curFile; });
+  if (curIdx === -1) return; /* not a chapter page (e.g. index.html) */
 
-  var fab = document.createElement('a');
-  fab.className = 'back-home-fab';
-  fab.href = href;
-  fab.title = 'Înapoi la pagina principală';
-  fab.innerHTML =
-    '<span class="back-home-icon">&#127968;</span>' +
-    '<span class="back-home-text">Pagina principală</span>';
-  document.body.appendChild(fab);
+  /* Body needs padding so content isn't hidden behind the footer */
+  document.body.classList.add('has-chapter-nav');
+  document.body.style.paddingBottom = '56px';
+
+  var prev = curIdx > 0 ? CHAPTERS[curIdx - 1] : null;
+  var next = curIdx < CHAPTERS.length - 1 ? CHAPTERS[curIdx + 1] : null;
+
+  var prevHtml = prev
+    ? '<a class="cfn-btn cfn-prev" href="' + prev.file + '" title="Capitol anterior">' +
+        '<span class="cfn-arrow">&#8592;</span>' +
+        '<span class="cfn-label"><small>Cap. ' + prev.num + '</small><strong>' + prev.title + '</strong></span>' +
+      '</a>'
+    : '<span class="cfn-btn cfn-prev cfn-disabled"></span>';
+
+  var nextHtml = next
+    ? '<a class="cfn-btn cfn-next" href="' + next.file + '" title="Capitol următor">' +
+        '<span class="cfn-label"><small>Cap. ' + next.num + '</small><strong>' + next.title + '</strong></span>' +
+        '<span class="cfn-arrow">&#8594;</span>' +
+      '</a>'
+    : '<span class="cfn-btn cfn-next cfn-disabled"></span>';
+
+  var bar = document.createElement('nav');
+  bar.id  = 'chapter-footer-nav';
+  bar.className = 'chapter-footer-nav';
+  bar.setAttribute('aria-label', 'Navigare capitole');
+  bar.innerHTML =
+    prevHtml +
+    '<a class="cfn-btn cfn-home" href="../index.html" title="Pagina principală">&#127968;</a>' +
+    nextHtml;
+  document.body.appendChild(bar);
 }
 
 /* ── 3. Injectare statistici (Like + Vizualizări) ────────────── */
@@ -143,7 +170,7 @@ function upgradeBackLinks() {
 document.addEventListener('DOMContentLoaded', function () {
   upgradeBackLinks();
   initGoToTop();
-  initBackHomeButton();
+  initChapterNav();
   injectPageStats();
   initViewCounter();
   initLikeButton();
@@ -239,6 +266,11 @@ function initAudioPlayer() {
       '<span class="ap-time">~' + estMin + ' min</span>' +
       '<button class="ap-close" title="Ascunde">&#x2715;</button>' +
     '</div>' +
+    '<div id="ap-voice-warn" class="ap-voice-warn" style="display:none">' +
+      '&#x26A0;&#xFE0F; Voce român&#x103; negăsit&#x103;. ' +
+      '<a href="ms-settings:speech" class="ap-voice-link">Instaleaz&#x103; din Windows Settings</a>' +
+      ' sau instalează vocea &ldquo;Romanian&rdquo; din Setări &rsaquo; Timp și limbă &rsaquo; Vorbire.' +
+    '</div>' +
     '<div class="ap-section-name">&#8212;</div>' +
     '<div class="ap-progress-wrap">' +
       '<div class="ap-progress-bar"><div class="ap-progress-fill" id="ap-fill" style="width:0%"></div></div>' +
@@ -258,6 +290,17 @@ function initAudioPlayer() {
       '</select>' +
     '</div>';
   document.body.appendChild(player);
+
+  /* Show warning if no Romanian voice found after voices load */
+  function checkVoiceWarning() {
+    var warn = document.getElementById('ap-voice-warn');
+    if (warn) warn.style.display = roVoice ? 'none' : '';
+  }
+  var origLoad = loadVoice;
+  loadVoice = function () { origLoad(); checkVoiceWarning(); };
+  window.speechSynthesis.onvoiceschanged = loadVoice;
+  /* Also check after a short delay (Edge/Chrome can be slow) */
+  setTimeout(checkVoiceWarning, 1500);
 
   var cur = 0;
   var playing = false;

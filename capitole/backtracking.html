@@ -427,7 +427,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "Sortează, apoi caută"
     ],
     "ans": 1,
-    "exp": "Backtracking = generare + testare + revenire. Dacă o alegere e greșită, anulăm și încercăm alta."
+    "exp": "Backtracking = generare + testare + revenire. Dacă o alegere e greșită, anulăm și încercăm alta.",
+    "diff": 1
   },
   {
     "q": "Problema N-Regine cere să plasăm N regine pe tablă NxN astfel încât:",
@@ -438,7 +439,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "Să ocupe toată tabla"
     ],
     "ans": 1,
-    "exp": "Reginele atacă pe linii, coloane și diagonale — trebuie ca nicio pereche să nu se atace."
+    "exp": "Reginele atacă pe linii, coloane și diagonale — trebuie ca nicio pereche să nu se atace.",
+    "diff": 1
   },
   {
     "q": "Câte permutări are un set de n elemente?",
@@ -449,7 +451,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "2ⁿ"
     ],
     "ans": 2,
-    "exp": "n! = n × (n-1) × ... × 1. Pentru n=10: 3.628.800 permutări."
+    "exp": "n! = n × (n-1) × ... × 1. Pentru n=10: 3.628.800 permutări.",
+    "diff": 2
   },
   {
     "q": "Tehnica de 'tăiere' (pruning) în backtracking servește la:",
@@ -460,7 +463,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "Paralelizarea algoritmului"
     ],
     "ans": 1,
-    "exp": "Pruning elimină ramuri care NU pot duce la soluție → reducere dramatică a timpului."
+    "exp": "Pruning elimină ramuri care NU pot duce la soluție → reducere dramatică a timpului.",
+    "diff": 2
   },
   {
     "q": "Diferența principală dintre backtracking și forța brută:",
@@ -471,7 +475,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "Nu există diferență"
     ],
     "ans": 1,
-    "exp": "Forța brută generează TOATE combinațiile; backtracking abandonează o ramură imediat ce devine invalidă."
+    "exp": "Forța brută generează TOATE combinațiile; backtracking abandonează o ramură imediat ce devine invalidă.",
+    "diff": 1
   },
   {
     "q": "Starea în backtracking se stochează de obicei în:",
@@ -482,7 +487,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "Un arbore binar"
     ],
     "ans": 1,
-    "exp": "sol[] ține soluția parțială curentă; la revenire se 'anulează' ultima alegere."
+    "exp": "sol[] ține soluția parțială curentă; la revenire se 'anulează' ultima alegere.",
+    "diff": 3
   },
   {
     "q": "Labirintul (găsit drum ieșire) prin backtracking marchează celulele vizitate pentru:",
@@ -493,7 +499,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "A reduce memoria"
     ],
     "ans": 1,
-    "exp": "Fără marcare, algoritmul ar putea reveni la celule deja vizitate → ciclu infinit."
+    "exp": "Fără marcare, algoritmul ar putea reveni la celule deja vizitate → ciclu infinit.",
+    "diff": 2
   },
   {
     "q": "Backtracking față de programarea dinamică este preferat când:",
@@ -504,7 +511,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "n este mic și nu există suprapuneri"
     ],
     "ans": 1,
-    "exp": "DP optimizează (găsește o soluție optimă); backtracking enumerează (găsește toate soluțiile)."
+    "exp": "DP optimizează (găsește o soluție optimă); backtracking enumerează (găsește toate soluțiile).",
+    "diff": 3
   },
   {
     "q": "Generarea tuturor submulțimilor unui set de n elemente produce:",
@@ -515,7 +523,8 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "n×(n-1) submulțimi"
     ],
     "ans": 2,
-    "exp": "Fiecare element poate fi inclus (1) sau nu (0) → 2 opțiuni^n = 2ⁿ submulțimi."
+    "exp": "Fiecare element poate fi inclus (1) sau nu (0) → 2 opțiuni^n = 2ⁿ submulțimi.",
+    "diff": 2
   },
   {
     "q": "Pentru problema sumei unui subset (subset sum), backtracking are complexitatea:",
@@ -526,7 +535,92 @@ window.QUIZ_DATA['backtracking-quiz'] = [
       "O(2ⁿ) în cazul cel mai rău"
     ],
     "ans": 3,
-    "exp": "Worst case: explorăm toate submulțimile → 2ⁿ. Pruning reduce practic timpul considerabil."
+    "exp": "Worst case: explorăm toate submulțimile → 2ⁿ. Pruning reduce practic timpul considerabil.",
+    "diff": 3
+  },
+  {
+    "q": "Care este principiul de bază al backtracking?",
+    "opts": [
+      "Divide et impera",
+      "Încearcă toate variantele, renunță când condițiile nu sunt satisfăcute",
+      "Programare dinamică",
+      "Căutare binară"
+    ],
+    "ans": 1,
+    "exp": "Backtracking = generare sistematică + verificare condiții + revenire (undo) când soluția parțială nu e promițătoare.",
+    "diff": 1
+  },
+  {
+    "q": "Problema celor N-regine pe o tablă 4x4 are câte soluții distincte?",
+    "opts": [
+      "1",
+      "2",
+      "4",
+      "8"
+    ],
+    "ans": 1,
+    "exp": "N=4 are exact 2 soluții distincte (simetrice una față de alta).",
+    "diff": 2
+  },
+  {
+    "q": "(BAC) Câte permutări are mulțimea {1,2,3,4}?",
+    "opts": [
+      "4",
+      "12",
+      "24",
+      "48"
+    ],
+    "ans": 2,
+    "exp": "4! = 4×3×2×1 = 24. Backtracking-ul generează toate cele 24 permutări.",
+    "diff": 1
+  },
+  {
+    "q": "Complexitatea generării tuturor submulțimilor pentru n elemente:",
+    "opts": [
+      "O(n)",
+      "O(n²)",
+      "O(2ⁿ)",
+      "O(n!)"
+    ],
+    "ans": 2,
+    "exp": "Există 2ⁿ submulțimi (fiecare element poate fi inclus sau nu).",
+    "diff": 2
+  },
+  {
+    "q": "(BAC 2021) Backtracking pentru labirint: condiția de validare verifică:",
+    "opts": [
+      "Că soluția e completă",
+      "Că poziția e în matrice și nu e perete",
+      "Că am ajuns la ieșire",
+      "Lungimea vectorului soluție"
+    ],
+    "ans": 1,
+    "exp": "La fiecare pas, verificăm că noua poziție este validă (în matrice, nu obstacol, nevizitată).",
+    "diff": 2
+  },
+  {
+    "q": "Backtracking față de brute-force: backtracking abandonează:",
+    "opts": [
+      "Toate ramurile",
+      "Ramuri nepromițătoare (pruning)",
+      "Primele n/2 ramuri",
+      "Ramurile cu cost maxim"
+    ],
+    "ans": 1,
+    "exp": "Backtracking taie ramuri care nu pot duce la soluție → mai eficient decât brute-force.",
+    "diff": 2
+  },
+  {
+    "q": "(BAC) Generarea C(5,2) prin backtracking produce câte soluții?",
+    "opts": [
+      "5",
+      "10",
+      "15",
+      "20"
+    ],
+    "ans": 1,
+    "exp": "C(5,2) = 5!/(2!×3!) = 10 combinări.",
+    "diff": 3
   }
 ];
 </script>
