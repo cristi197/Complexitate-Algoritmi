@@ -420,6 +420,15 @@
 
 </div><!-- end .wrapper -->
 
+
+<section id="exercitii">
+  <div class="section-header">
+    <h2>&#x1F3AE; Recursivitate &mdash; Testează-ți cunoștințele</h2>
+    <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
+  </div>
+  <div class="quiz-section" data-quiz="recursivitate-quiz"></div>
+</section>
+
 <footer>
   <a href="complexitate.html">← Cap. 1: Eficiența Algoritmilor</a>
   &nbsp;·&nbsp;
@@ -431,5 +440,120 @@
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
+<script>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['recursivitate-quiz'] = [
+  {
+    "q": "Ce se întâmplă dacă o funcție recursivă nu are caz de bază?",
+    "opts": [
+      "Returnează 0",
+      "Produce stack overflow",
+      "Rulează la infinit și se oprește singură",
+      "Compilatorul dă eroare"
+    ],
+    "ans": 1,
+    "exp": "Fără caz de bază stiva de apeluri se umple → stack overflow (crash)."
+  },
+  {
+    "q": "factorial(0) definit corect returnează:",
+    "opts": [
+      "0",
+      "1",
+      "-1",
+      "Eroare"
+    ],
+    "ans": 1,
+    "exp": "0! = 1 prin definiție matematică — acesta este cazul de bază."
+  },
+  {
+    "q": "Câți pași face Turnul din Hanoi pentru n discuri?",
+    "opts": [
+      "n pași",
+      "n² pași",
+      "2ⁿ - 1 pași",
+      "n·log n pași"
+    ],
+    "ans": 2,
+    "exp": "T(n)=2T(n-1)+1 → T(n)=2ⁿ-1. Pentru 64 discuri: ~1.8×10¹⁹ mișcări!"
+  },
+  {
+    "q": "Memoizarea în recursivitate servește la:",
+    "opts": [
+      "Reducerea spațiului",
+      "Evitarea recalculării sub-problemelor",
+      "Creșterea adâncimii stivei",
+      "Conversia la iterativ"
+    ],
+    "ans": 1,
+    "exp": "Memoizarea stochează rezultate deja calculate → transformă O(2ⁿ) în O(n) la Fibonacci."
+  },
+  {
+    "q": "Care este avantajul principal al recursivității față de iterație?",
+    "opts": [
+      "Este întotdeauna mai rapid",
+      "Codul este mai scurt și mai clar pentru probleme cu structură recursivă",
+      "Folosește mai puțin memorie",
+      "Nu poate produce stack overflow"
+    ],
+    "ans": 1,
+    "exp": "Problemele ca arbori, fractaluri, backtracking se exprimă natural recursiv."
+  },
+  {
+    "q": "Recursivitate coadă (tail recursion) înseamnă că:",
+    "opts": [
+      "Funcția apelează alta la final",
+      "Apelul recursiv este ultima instrucțiune din funcție",
+      "Funcția returnează void",
+      "Funcția nu are caz de bază"
+    ],
+    "ans": 1,
+    "exp": "Tail recursion poate fi optimizat de compilator în buclă → fără overhead de stivă."
+  },
+  {
+    "q": "fib(5) cu formula fib(n)=fib(n-1)+fib(n-2), fib(0)=0, fib(1)=1:",
+    "opts": [
+      "3",
+      "5",
+      "8",
+      "13"
+    ],
+    "ans": 1,
+    "exp": "fib(5)=fib(4)+fib(3)=3+2=5."
+  },
+  {
+    "q": "Ce structură de date simulează intern recursivitatea?",
+    "opts": [
+      "Coada (queue)",
+      "Vectorul",
+      "Stiva (stack)",
+      "Hash map"
+    ],
+    "ans": 2,
+    "exp": "Fiecare apel recursiv adaugă un frame pe stiva de execuție (call stack)."
+  },
+  {
+    "q": "Cel mai mare divizor comun prin algoritmul lui Euclid recursiv: cmmdc(48, 18)=?",
+    "opts": [
+      "6",
+      "3",
+      "9",
+      "18"
+    ],
+    "ans": 0,
+    "exp": "cmmdc(48,18)→cmmdc(18,12)→cmmdc(12,6)→cmmdc(6,0)=6."
+  },
+  {
+    "q": "Adâncimea maximă a recursivității pentru n=1.000.000 poate cauza probleme deoarece:",
+    "opts": [
+      "Stiva are dimensiune limitată (~1-8 MB implicit)",
+      "CPU nu poate calcula atât de adânc",
+      "Compilatorul limitează la 1000 niveluri",
+      "Variabilele locale dispar"
+    ],
+    "ans": 0,
+    "exp": "Stack-ul implicit este ~1-8 MB → fiecare frame ocupă câteva sute de bytes → limită reală."
+  }
+];
+</script>
 </body>
 </html>

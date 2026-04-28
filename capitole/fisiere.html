@@ -317,6 +317,15 @@ string linie, cuvant;
 
 </div><!-- end .wrapper -->
 
+
+<section id="exercitii">
+  <div class="section-header">
+    <h2>&#x1F3AE; Fișiere &mdash; Testează-ți cunoștințele</h2>
+    <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
+  </div>
+  <div class="quiz-section" data-quiz="fisiere-quiz"></div>
+</section>
+
 <footer>
   <a href="siruri.html">← Cap. 6: Șiruri de Caractere</a>
   &nbsp;·&nbsp;
@@ -328,5 +337,120 @@ string linie, cuvant;
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
+<script>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['fisiere-quiz'] = [
+  {
+    "q": "Ce header trebuie inclus pentru lucrul cu fișiere în C++?",
+    "opts": [
+      "<stdio.h>",
+      "<fstream>",
+      "<files.h>",
+      "<io.h>"
+    ],
+    "ans": 1,
+    "exp": "#include <fstream> oferă ifstream (citire), ofstream (scriere) și fstream (ambele)."
+  },
+  {
+    "q": "Cum deschidem un fișier 'date.in' doar pentru citire?",
+    "opts": [
+      "ofstream f('date.in');",
+      "ifstream f('date.in');",
+      "fstream f('date.in', ios::out);",
+      "FILE* f = fwrite('date.in');"
+    ],
+    "ans": 1,
+    "exp": "ifstream = input file stream. Implicit se deschide în modul citire."
+  },
+  {
+    "q": "Cum verificăm dacă fișierul s-a deschis cu succes?",
+    "opts": [
+      "if (f == true)",
+      "if (f.is_open())",
+      "if (f != NULL)",
+      "if (f.good() == 1)"
+    ],
+    "ans": 1,
+    "exp": "f.is_open() returnează true dacă fișierul a fost deschis corect — esențial pentru robustețe."
+  },
+  {
+    "q": "freopen('date.in', 'r', stdin) face ca:",
+    "opts": [
+      "stdin să fie redirectat la fișier (cin citește din fișier)",
+      "Fișierul să fie creat gol",
+      "Date să fie copiate în stdin",
+      "freopen nu există în C++"
+    ],
+    "ans": 0,
+    "exp": "freopen redirectează stdin → tot codul care citește cu cin sau scanf va citi din fișier."
+  },
+  {
+    "q": "Ce se întâmplă cu datele existente dacă deschidem un fișier cu ofstream fara ios::app?",
+    "opts": [
+      "Se păstrează",
+      "Se șterg (fișierul e trunchiat)",
+      "Se adaugă la final",
+      "Apare eroare"
+    ],
+    "ans": 1,
+    "exp": "ofstream deschide implicit în ios::trunc → conținutul anterior este șters. Folosiți ios::app pentru adăugare."
+  },
+  {
+    "q": "Cum citim o linie întreagă (inclusiv spații) dintr-un fișier f?",
+    "opts": [
+      "f >> linie;",
+      "getline(f, linie);",
+      "f.read(linie, 100);",
+      "fscanf(f, '%s', linie);"
+    ],
+    "ans": 1,
+    "exp": "f >> linie; se oprește la spații. getline(f, linie) citește până la newline inclusiv spații."
+  },
+  {
+    "q": "Funcția f.eof() returnează true când:",
+    "opts": [
+      "Fișierul este gol",
+      "Am citit dincolo de ultimul caracter",
+      "Fișierul este deschis",
+      "Scrierile au eșuat"
+    ],
+    "ans": 1,
+    "exp": "eof() (end of file) devine true după ce s-a încercat o citire DINCOLO de finalul fișierului."
+  },
+  {
+    "q": "La ce se folosește ios::app la deschiderea unui fișier?",
+    "opts": [
+      "Să citim de la final",
+      "Să adăugăm date fără a șterge conținutul existent",
+      "Să deschidem în mod binar",
+      "Să citim și scriem simultan"
+    ],
+    "ans": 1,
+    "exp": "ios::app (append) mută cursorul la final înainte de fiecare scriere → conținutul vechi e păstrat."
+  },
+  {
+    "q": "Care este ordinea corectă la lucrul cu fișiere?",
+    "opts": [
+      "Deschide → Verifică → Prelucrează → Închide",
+      "Prelucrează → Deschide → Închide",
+      "Verifică → Deschide → Prelucrează",
+      "Deschide → Prelucrează → Verifică → Închide"
+    ],
+    "ans": 0,
+    "exp": "Buna practică: deschide, verifică dacă s-a deschis, prelucrează datele, închide fișierul."
+  },
+  {
+    "q": "În C++, ifstream și ofstream se închid automat când:",
+    "opts": [
+      "Apelăm explicit close()",
+      "Obiectul iese din scope (destructorul se apelează)",
+      "Ambele variante de mai sus sunt corecte",
+      "Fișierul este gol"
+    ],
+    "ans": 2,
+    "exp": "Obiectele fstream au destructori RAII care închid fișierul, DAR este bună practică să apelăm .close() explicit."
+  }
+];
+</script>
 </body>
 </html>

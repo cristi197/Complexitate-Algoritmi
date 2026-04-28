@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initViewCounter();
   initLikeButton();
   initGlobalSpeedSlider();
+  initAudioPlayer();
 });
 
 /* ── 8. Audio Player (Web Speech API) ──────────────────────────── */

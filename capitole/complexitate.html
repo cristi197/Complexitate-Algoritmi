@@ -496,6 +496,15 @@
 
 </div><!-- end .wrapper -->
 
+
+<section id="exercitii">
+  <div class="section-header">
+    <h2>&#x1F3AE; Complexitate &mdash; Testează-ți cunoștințele</h2>
+    <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
+  </div>
+  <div class="quiz-section" data-quiz="complexitate-quiz"></div>
+</section>
+
 <footer>
   <a href="../index.html">← Pagina principală</a> &nbsp;·&nbsp;
   <a href="recursivitate.html">Capitolul 2: Recursivitate →</a>
@@ -504,5 +513,120 @@
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
+<script>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['complexitate-quiz'] = [
+  {
+    "q": "Ce înseamnă O(n²) pentru un algoritm?",
+    "opts": [
+      "Algoritmul folosește n² memorie",
+      "Timpul de execuție crește pătratic cu n",
+      "Algoritmul face exact n² pași",
+      "Algoritmul funcționează corect doar pentru n²"
+    ],
+    "ans": 1,
+    "exp": "Big-O descrie comportamentul în cel mai rău caz — dublând n, timpul de 4 ori."
+  },
+  {
+    "q": "Care algoritm de sortare are complexitatea medie O(n log n)?",
+    "opts": [
+      "Bubble Sort",
+      "Selection Sort",
+      "Merge Sort",
+      "Insertion Sort"
+    ],
+    "ans": 2,
+    "exp": "Merge Sort divide și recombină — T(n)=2T(n/2)+n → O(n log n)."
+  },
+  {
+    "q": "Care este complexitatea spațială a unui apel recursiv Fibonacci fără memoizare?",
+    "opts": [
+      "O(1)",
+      "O(n)",
+      "O(n²)",
+      "O(2ⁿ)"
+    ],
+    "ans": 1,
+    "exp": "Adâncimea stivei de apeluri este n → O(n) spațiu."
+  },
+  {
+    "q": "Ce reprezintă notația Ω (Omega)?",
+    "opts": [
+      "Limita superioară a timpului",
+      "Limita inferioară a timpului",
+      "Limita exactă (strânsă)",
+      "Cel mai bun caz garantat"
+    ],
+    "ans": 1,
+    "exp": "Ω descrie cel mai bun scenariu posibil — algoritmul nu poate fi MAI rapid decât Ω."
+  },
+  {
+    "q": "T(n) = 2·T(n/2) + n are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "ans": 1,
+    "exp": "Prin Master Theorem (caz 2): log₂2 = 1 = grad lui n → O(n log n)."
+  },
+  {
+    "q": "Căutarea binară are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(log n)",
+      "O(1)"
+    ],
+    "ans": 2,
+    "exp": "La fiecare pas înjumătățim spațiul de căutare → log₂n pași."
+  },
+  {
+    "q": "Bubble Sort în cel mai rău caz (vector invers sortat) face:",
+    "opts": [
+      "O(n) comparații",
+      "O(n log n) comparații",
+      "O(n²) comparații",
+      "O(1) comparații"
+    ],
+    "ans": 2,
+    "exp": "Fiecare element parcurge toți ceilalți → n(n-1)/2 comparații → O(n²)."
+  },
+  {
+    "q": "Care este complexitatea spațială a sortării prin interclasare (Merge Sort)?",
+    "opts": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n log n)"
+    ],
+    "ans": 2,
+    "exp": "Merge Sort necesită un vector auxiliar de n elemente → O(n) spațiu suplimentar."
+  },
+  {
+    "q": "Dacă O(f(n)) = O(g(n)) și O(g(n)) = O(h(n)), atunci:",
+    "opts": [
+      "O(f(n)) = O(h(n))",
+      "Nu putem deduce nimic",
+      "O(f(n)) < O(h(n))",
+      "Depinde de constante"
+    ],
+    "ans": 0,
+    "exp": "Big-O este o relație tranzitivă — dacă f≤g și g≤h, atunci f≤h."
+  },
+  {
+    "q": "Un algoritm O(1) înseamnă că:",
+    "opts": [
+      "Face un singur pas",
+      "Timpul nu depinde de dimensiunea datelor",
+      "Este cel mai rapid posibil",
+      "Folosește memorie constantă"
+    ],
+    "ans": 1,
+    "exp": "O(1) = timp constant — indiferent de n, numărul de operații rămâne fix."
+  }
+];
+</script>
 </body>
 </html>

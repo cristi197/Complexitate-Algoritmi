@@ -395,6 +395,15 @@
 
 </div><!-- end .wrapper -->
 
+
+<section id="exercitii">
+  <div class="section-header">
+    <h2>&#x1F3AE; Backtracking &mdash; Testează-ți cunoștințele</h2>
+    <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
+  </div>
+  <div class="quiz-section" data-quiz="backtracking-quiz"></div>
+</section>
+
 <footer>
   <a href="recursivitate.html">← Cap. 2: Recursivitate</a>
   &nbsp;·&nbsp;
@@ -406,5 +415,120 @@
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
+<script>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['backtracking-quiz'] = [
+  {
+    "q": "Care este principiul de bază al backtracking-ului?",
+    "opts": [
+      "Divide et impera",
+      "Încearcă și revino dacă nu merge",
+      "Calculează optimal și avansează",
+      "Sortează, apoi caută"
+    ],
+    "ans": 1,
+    "exp": "Backtracking = generare + testare + revenire. Dacă o alegere e greșită, anulăm și încercăm alta."
+  },
+  {
+    "q": "Problema N-Regine cere să plasăm N regine pe tablă NxN astfel încât:",
+    "opts": [
+      "Să fie pe aceeași linie",
+      "Nicio regină să nu atace altă regină",
+      "Toate să fie pe diagonală",
+      "Să ocupe toată tabla"
+    ],
+    "ans": 1,
+    "exp": "Reginele atacă pe linii, coloane și diagonale — trebuie ca nicio pereche să nu se atace."
+  },
+  {
+    "q": "Câte permutări are un set de n elemente?",
+    "opts": [
+      "n",
+      "n²",
+      "n!",
+      "2ⁿ"
+    ],
+    "ans": 2,
+    "exp": "n! = n × (n-1) × ... × 1. Pentru n=10: 3.628.800 permutări."
+  },
+  {
+    "q": "Tehnica de 'tăiere' (pruning) în backtracking servește la:",
+    "opts": [
+      "Reducerea memoriei",
+      "Renunțarea anticipată la ramuri imposibile",
+      "Sortarea soluțiilor",
+      "Paralelizarea algoritmului"
+    ],
+    "ans": 1,
+    "exp": "Pruning elimină ramuri care NU pot duce la soluție → reducere dramatică a timpului."
+  },
+  {
+    "q": "Diferența principală dintre backtracking și forța brută:",
+    "opts": [
+      "Backtracking e mai lent",
+      "Backtracking taie ramuri invalide devreme",
+      "Forța brută verifică mai puțin",
+      "Nu există diferență"
+    ],
+    "ans": 1,
+    "exp": "Forța brută generează TOATE combinațiile; backtracking abandonează o ramură imediat ce devine invalidă."
+  },
+  {
+    "q": "Starea în backtracking se stochează de obicei în:",
+    "opts": [
+      "O variabilă globală ștearsă la final",
+      "Un vector de soluție parțială (sol[])",
+      "O coadă FIFO",
+      "Un arbore binar"
+    ],
+    "ans": 1,
+    "exp": "sol[] ține soluția parțială curentă; la revenire se 'anulează' ultima alegere."
+  },
+  {
+    "q": "Labirintul (găsit drum ieșire) prin backtracking marchează celulele vizitate pentru:",
+    "opts": [
+      "A număra pașii",
+      "A evita ciclurile infinite",
+      "A memora drumul final",
+      "A reduce memoria"
+    ],
+    "ans": 1,
+    "exp": "Fără marcare, algoritmul ar putea reveni la celule deja vizitate → ciclu infinit."
+  },
+  {
+    "q": "Backtracking față de programarea dinamică este preferat când:",
+    "opts": [
+      "Avem sub-probleme suprapuse",
+      "Vrem toate soluțiile, nu doar una optimă",
+      "Datele sunt sortate",
+      "n este mic și nu există suprapuneri"
+    ],
+    "ans": 1,
+    "exp": "DP optimizează (găsește o soluție optimă); backtracking enumerează (găsește toate soluțiile)."
+  },
+  {
+    "q": "Generarea tuturor submulțimilor unui set de n elemente produce:",
+    "opts": [
+      "n! submulțimi",
+      "n² submulțimi",
+      "2ⁿ submulțimi",
+      "n×(n-1) submulțimi"
+    ],
+    "ans": 2,
+    "exp": "Fiecare element poate fi inclus (1) sau nu (0) → 2 opțiuni^n = 2ⁿ submulțimi."
+  },
+  {
+    "q": "Pentru problema sumei unui subset (subset sum), backtracking are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(n²)",
+      "O(2ⁿ) în cazul cel mai rău"
+    ],
+    "ans": 3,
+    "exp": "Worst case: explorăm toate submulțimile → 2ⁿ. Pruning reduce practic timpul considerabil."
+  }
+];
+</script>
 </body>
 </html>

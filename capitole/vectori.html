@@ -409,6 +409,15 @@ cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>)
 
 </div><!-- end .wrapper -->
 
+
+<section id="exercitii">
+  <div class="section-header">
+    <h2>&#x1F3AE; Vectori &mdash; Testează-ți cunoștințele</h2>
+    <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
+  </div>
+  <div class="quiz-section" data-quiz="vectori-quiz"></div>
+</section>
+
 <footer>
   <a href="backtracking.html">← Cap. 3: Backtracking</a>
   &nbsp;·&nbsp;
@@ -420,5 +429,120 @@ cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>)
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
+<script>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['vectori-quiz'] = [
+  {
+    "q": "În C++, elementele unui vector (tablou) sunt indexate de la:",
+    "opts": [
+      "1",
+      "0",
+      "-1",
+      "Depinde de compilator"
+    ],
+    "ans": 1,
+    "exp": "C++ folosește indexare de la 0. Un vector de n elemente are indici 0, 1, ..., n-1."
+  },
+  {
+    "q": "Pentru a aplica căutarea binară, vectorul trebuie să fie:",
+    "opts": [
+      "Sortat",
+      "Fără duplicate",
+      "De dimensiune pară",
+      "Inițializat cu 0"
+    ],
+    "ans": 0,
+    "exp": "Căutarea binară compară cu mijlocul și elimină jumătate — funcționează DOAR pe vectori sortați."
+  },
+  {
+    "q": "Câte comparații face Selection Sort pe un vector de n elemente?",
+    "opts": [
+      "n",
+      "n log n",
+      "n(n-1)/2",
+      "n²"
+    ],
+    "ans": 2,
+    "exp": "Selection Sort face n-1 + n-2 + ... + 1 = n(n-1)/2 comparații → O(n²)."
+  },
+  {
+    "q": "Un vector de frecvență v[x]++ se folosește pentru:",
+    "opts": [
+      "Sortare rapidă",
+      "Numărarea aparițiilor fiecărei valori",
+      "Căutarea unui element",
+      "Inversarea vectorului"
+    ],
+    "ans": 1,
+    "exp": "v[x]++ incrementează contorul pentru valoarea x → numărăm câte ori apare fiecare valoare."
+  },
+  {
+    "q": "Cel mai rău caz pentru căutarea liniară (secvențială):",
+    "opts": [
+      "Elementul e primul",
+      "Elementul e la mijloc",
+      "Elementul nu există (parcurgem tot)",
+      "Vectorul e sortat"
+    ],
+    "ans": 2,
+    "exp": "Dacă elementul nu există, comparăm cu TOȚI cei n → O(n) comparații."
+  },
+  {
+    "q": "Interclasarea a doi vectori sortați de dimensiuni m și n are complexitatea:",
+    "opts": [
+      "O(m·n)",
+      "O(m+n)",
+      "O(m log n)",
+      "O((m+n)²)"
+    ],
+    "ans": 1,
+    "exp": "Parcurgem fiecare vector o singură dată, avansând un pointer → O(m+n)."
+  },
+  {
+    "q": "Insertion Sort are complexitate O(n) în cel mai bun caz deoarece:",
+    "opts": [
+      "Face n/2 swap-uri",
+      "Pe un vector deja sortat face doar n-1 comparații și 0 swap-uri",
+      "Folosește binary search",
+      "Sortează de la mijloc"
+    ],
+    "ans": 1,
+    "exp": "Vector sortat: fiecare element este deja în poziția corectă → o comparație per element."
+  },
+  {
+    "q": "Algoritmul lui Kadane găsește:",
+    "opts": [
+      "Elementul maxim",
+      "Subșirul de sumă maximă",
+      "Mediana vectorului",
+      "Cel mai lung subșir crescător"
+    ],
+    "ans": 1,
+    "exp": "Kadane: maxCurent = max(v[i], maxCurent+v[i]) → O(n), cel mai eficient algoritm pentru subarraySumMax."
+  },
+  {
+    "q": "Rotirea la stânga a unui vector cu o poziție: ce se întâmplă cu primul element?",
+    "opts": [
+      "Se pierde",
+      "Merge la final",
+      "Devine 0",
+      "Rămâne pe loc"
+    ],
+    "ans": 1,
+    "exp": "La rotire ciclică stânga: v[0] merge la v[n-1], restul se mută cu o poziție la stânga."
+  },
+  {
+    "q": "Eliminarea unui element de la mijlocul unui vector de n elemente necesită:",
+    "opts": [
+      "O(1) operații",
+      "O(log n) operații",
+      "O(n) operații (deplasare)",
+      "O(n²) operații"
+    ],
+    "ans": 2,
+    "exp": "Trebuie să deplasăm toate elementele de după poziția ștearsă cu o poziție la stânga → O(n)."
+  }
+];
+</script>
 </body>
 </html>
