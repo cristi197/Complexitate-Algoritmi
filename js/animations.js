@@ -23,7 +23,7 @@ function initBarCharts() {
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0 });
   bars.forEach(b => io.observe(b));
 }
 
