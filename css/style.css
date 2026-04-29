@@ -968,3 +968,199 @@ body.has-chapter-nav .quiz-float-btn      { bottom: 220px; }
   .cfn-btn { padding: 0 12px; }
   .cfn-home { padding: 0 16px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   AUDIOBOOK PLAYER — audiobook.js
+   Player sticky la baza paginii cu sincronizare highlight text.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Highlight secțiune activă în pagină ─────────────────────── */
+.ab-sec-target {
+  transition: box-shadow 0.45s ease, background 0.45s ease;
+  border-radius: var(--radius);
+}
+.ab-sec-target.ab-active {
+  box-shadow: inset 4px 0 0 var(--blue2), inset 0 0 0 1px rgba(37,99,235,.1);
+  background: rgba(37,99,235,.035);
+  animation: abSecFade 0.55s ease forwards;
+}
+@keyframes abSecFade {
+  from { background: rgba(37,99,235,.12); }
+  to   { background: rgba(37,99,235,.035); }
+}
+
+/* ── Player bar ──────────────────────────────────────────────── */
+.ab-player {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 56px; /* deasupra chapter-footer-nav */
+  z-index: 995;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: var(--font);
+  box-shadow: 0 -4px 30px rgba(0,0,0,.5);
+  border-top: 1px solid rgba(255,255,255,.07);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ab-player.ab-hidden { display: none; }
+
+/* ── Info row ────────────────────────────────────────────────── */
+.ab-info-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 14px 3px;
+}
+.ab-track-info { flex: 1; min-width: 0; overflow: hidden; }
+.ab-lesson-lbl {
+  font-size: 9.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: #475569;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ab-sec-name {
+  font-size: 13px; font-weight: 600; color: #cbd5e1; margin-top: 1px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ab-top-btns { display: flex; gap: 5px; flex-shrink: 0; }
+.ab-icon-btn {
+  width: 28px; height: 28px; border-radius: 7px; cursor: pointer;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  color: #64748b; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, color .15s;
+}
+.ab-icon-btn:hover { background: rgba(255,255,255,.14); color: #e2e8f0; }
+.ab-icon-on {
+  background: rgba(37,99,235,.3) !important;
+  border-color: var(--blue2) !important;
+  color: #93c5fd !important;
+}
+
+/* ── Progress row ────────────────────────────────────────────── */
+.ab-prog-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 3px 14px;
+}
+.ab-time {
+  font-size: 10.5px; font-weight: 700; color: #475569;
+  font-family: var(--mono); min-width: 32px; flex-shrink: 0;
+}
+.ab-prog-track {
+  flex: 1; height: 4px; background: rgba(255,255,255,.1);
+  border-radius: 999px; cursor: pointer; position: relative;
+  transition: height .15s, margin .15s;
+}
+.ab-prog-track:hover { height: 6px; }
+.ab-prog-fill {
+  height: 100%; background: linear-gradient(90deg, #2563eb, #818cf8);
+  border-radius: 999px; pointer-events: none;
+  transition: width .12s linear;
+}
+.ab-prog-thumb {
+  position: absolute; top: 50%; left: 0;
+  transform: translate(-50%, -50%);
+  width: 13px; height: 13px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.5);
+  pointer-events: none; opacity: 0; transition: opacity .15s;
+}
+.ab-prog-track:hover .ab-prog-thumb { opacity: 1; }
+
+/* ── Controls row ────────────────────────────────────────────── */
+.ab-ctrl-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px; padding: 3px 14px 9px;
+}
+.ab-btn {
+  background: none; border: none; color: #64748b; cursor: pointer;
+  font-size: 17px; width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, color .15s, transform .1s;
+  font-family: var(--font); flex-shrink: 0;
+}
+.ab-btn:hover { background: rgba(255,255,255,.09); color: #e2e8f0; }
+.ab-btn:active { transform: scale(0.9); }
+
+.ab-play-btn {
+  width: 44px !important; height: 44px !important;
+  background: var(--blue2) !important; color: white !important;
+  font-size: 18px !important;
+  box-shadow: 0 2px 12px rgba(37,99,235,.4);
+}
+.ab-play-btn:hover {
+  background: #1d4ed8 !important; transform: scale(1.07) !important;
+}
+
+.ab-skip-btn { font-size: 12px !important; font-weight: 800; width: 42px !important; }
+
+/* Speed buttons */
+.ab-speeds { display: flex; gap: 3px; margin-left: 8px; }
+.ab-spd {
+  background: none; border: 1px solid rgba(255,255,255,.12);
+  color: #475569; font-size: 10px; font-weight: 700;
+  padding: 3px 6px; border-radius: 5px; cursor: pointer;
+  font-family: var(--font); transition: all .15s; white-space: nowrap;
+}
+.ab-spd:hover { color: #e2e8f0; border-color: rgba(255,255,255,.3); }
+.ab-spd-on {
+  background: rgba(37,99,235,.35) !important;
+  border-color: var(--blue2) !important;
+  color: #93c5fd !important;
+}
+
+/* ── Section list (collapsible) ──────────────────────────────── */
+.ab-sec-list {
+  max-height: 0; overflow: hidden;
+  border-top: 1px solid transparent;
+  transition: max-height .35s cubic-bezier(.4,0,.2,1);
+}
+.ab-sec-list.ab-sec-list-open {
+  max-height: 220px; overflow-y: auto;
+  border-top-color: rgba(255,255,255,.07);
+}
+.ab-sec-list::-webkit-scrollbar { width: 4px; }
+.ab-sec-list::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+.ab-li {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 14px; cursor: pointer; font-size: 12.5px;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  transition: background .15s;
+}
+.ab-li:hover  { background: rgba(255,255,255,.06); }
+.ab-li-on     { background: rgba(37,99,235,.18) !important; }
+.ab-li-n      { font-size: 10px; font-weight: 700; color: #334155; min-width: 18px; font-family: var(--mono); }
+.ab-li-on .ab-li-n { color: #818cf8; }
+.ab-li-title  { flex: 1; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ab-li-on .ab-li-title { color: #e2e8f0; font-weight: 600; }
+.ab-li-t      { font-size: 10px; color: #334155; font-family: var(--mono); }
+.ab-li-on .ab-li-t { color: #818cf8; }
+
+/* ── Reopen FAB (când player-ul e ascuns) ────────────────────── */
+.ab-reopen-fab {
+  position: fixed; bottom: 84px; left: 28px; z-index: 994;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--blue2); color: white; border: none; font-size: 22px;
+  cursor: pointer; box-shadow: 0 4px 20px rgba(37,99,235,.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.ab-reopen-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,99,235,.7); }
+
+/* ── Ajustare butoane flotante când player-ul e activ ────────── */
+/* Player: bottom 56px, înălțime ~105px → ocupă 56-161px de jos */
+body.has-audiobook.has-chapter-nav .go-top-btn      { bottom: 184px; }
+body.has-audiobook.has-chapter-nav .quiz-float-btn  { bottom: 250px; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 620px) {
+  .ab-lesson-lbl { display: none; }
+  .ab-speeds     { display: none; }
+}
+@media (max-width: 480px) {
+  .ab-player     { bottom: 56px; }
+  .ab-info-row   { padding: 6px 10px 2px; }
+  .ab-prog-row   { padding: 2px 10px; }
+  .ab-ctrl-row   { padding: 3px 10px 7px; gap: 2px; }
+  .ab-prev-btn, .ab-next-btn { display: none; }
+  body.has-audiobook.has-chapter-nav .go-top-btn     { bottom: 180px; }
+  body.has-audiobook.has-chapter-nav .quiz-float-btn { bottom: 240px; }
+}
