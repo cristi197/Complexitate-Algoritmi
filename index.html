@@ -1,144 +1,442 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Informatică Liceu — Algoritmi & Structuri de Date</title>
+  <title>Informatică Liceu — Algoritmi &amp; Structuri de Date</title>
+  <meta name="description" content="Ghid complet de informatică pentru liceu și bacalaureat: algoritmi, complexitate, recursivitate, backtracking, vectori, matrici, șiruri, fișiere." />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1a4fba 50%, #1d4ed8 100%);
-      color: white; text-align: center;
-      padding: 80px 40px 60px; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-logo { font-size: 56px; margin-bottom: 14px; animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)} }
-    .hero h1 { font-size: clamp(30px,6vw,52px); font-weight: 900; margin-bottom: 14px; }
-    .hero h1 span { color: #93c5fd; }
-    .hero p { font-size: 18px; opacity: .88; max-width: 600px; margin: 0 auto 32px; }
-    .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .hero-badge { background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 5px 16px; font-size: 13px; font-weight: 600; }
-    .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 32px; }
-    .chapter-card { background: white; border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; text-decoration: none; color: inherit; display: block; transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .chapter-card:hover { transform: translateY(-5px); box-shadow: var(--shadow2); }
-    .chapter-card-header { padding: 22px 22px 16px; display: flex; align-items: center; gap: 14px; }
-    .chapter-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 15px; color: white; flex-shrink: 0; }
-    .chapter-card-header h2 { font-size: 17px; font-weight: 800; color: var(--gray1); }
-    .chapter-card-header p  { font-size: 13px; color: var(--gray3); margin: 0; }
-    .chapter-card-body { padding: 0 22px 18px; border-top: 2px solid var(--gray4); }
-    .chapter-topics { list-style: none; padding: 12px 0 0; }
-    .chapter-topics li { font-size: 13px; color: var(--gray2); padding: 3px 0; display: flex; align-items: center; gap: 7px; }
-    .chapter-topics li::before { content: '→'; color: var(--gray3); font-weight: 700; }
-    .chapter-card-footer { padding: 10px 22px; background: var(--gray5); display: flex; align-items: center; justify-content: space-between; font-size: 12.5px; color: var(--gray3); }
-    .chapter-card-footer .go { color: var(--blue2); font-weight: 700; }
-    .ch-blue   .chapter-num { background: var(--blue); }
-    .ch-green  .chapter-num { background: var(--green); }
-    .ch-orange .chapter-num { background: var(--orange); }
-    .ch-purple .chapter-num { background: var(--purple); }
-    .ch-teal   .chapter-num { background: var(--teal); }
-    .ch-red    .chapter-num { background: var(--red); }
-    .ch-pink   .chapter-num { background: var(--pink); }
-    .ch-blue   .chapter-card-header { border-left: 4px solid var(--blue); }
-    .ch-green  .chapter-card-header { border-left: 4px solid var(--green); }
-    .ch-orange .chapter-card-header { border-left: 4px solid var(--orange); }
-    .ch-purple .chapter-card-header { border-left: 4px solid var(--purple); }
-    .ch-teal   .chapter-card-header { border-left: 4px solid var(--teal); }
-    .ch-red    .chapter-card-header { border-left: 4px solid var(--red); }
-    .ch-pink   .chapter-card-header { border-left: 4px solid var(--pink); }
-    .progress-section { background: white; border-radius: 14px; box-shadow: var(--shadow); padding: 24px 28px; margin-top: 28px; }
-    .progress-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 16px; color: var(--gray1); }
-    .prog-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-    .prog-label { width: 160px; font-size: 13px; font-weight: 600; color: var(--gray2); }
-    .prog-outer { flex: 1; height: 10px; background: var(--gray4); border-radius: 999px; overflow: hidden; }
-    .prog-inner { height: 100%; border-radius: 999px; width: 0; transition: width 1.4s cubic-bezier(.4,0,.2,1); }
-    .prog-pct { width: 70px; font-size: 12px; font-weight: 700; color: var(--gray3); }
-  </style>
 </head>
 <body>
 <div id="page-overlay"></div>
-<div class="hero">
-  <div class="hero-logo">💻</div>
-  <h1>Informatică Liceu<br><span>Algoritmi &amp; Structuri de Date</span></h1>
-  <p>Ghid complet pas cu pas pentru bacalaureat. De la noțiuni fundamentale la probleme rezolvate, cu animații interactive și exemple din practică.</p>
-  <div class="hero-badges">
-    <span class="hero-badge">🎓 Nivel liceu · BAC România</span>
-    <span class="hero-badge">📊 8 capitole</span>
-    <span class="hero-badge">🎬 Animații interactive</span>
-    <span class="hero-badge">⏱ Complexitate timp &amp; spațiu</span>
-    <span class="hero-badge">📝 Probleme rezolvate</span>
+
+<!-- ── Scroll progress bar (umplut dinamic de JS) ── -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ── Header sticky ─────────────────────────────── -->
+<header class="site-header" id="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="site-logo" aria-label="InfoLiceu — pagina principală">
+      <span class="site-logo-icon" aria-hidden="true">💻</span>
+      <span class="site-logo-name">Info<strong>Liceu</strong></span>
+    </a>
+    <nav class="site-nav" aria-label="Navigare principală">
+      <a href="#capitole"    class="site-nav-link">Capitole</a>
+      <a href="#complexitate" class="site-nav-link">Complexitate</a>
+      <a href="#about"       class="site-nav-link">Resurse</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ──────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <!-- Text (coloana stângă) -->
+    <span class="hero-eyebrow">🎓 BAC Informatică · România · C++</span>
+    <h1>Informatică Liceu<br><span>Algoritmi &amp; Structuri de Date</span></h1>
+    <p class="hero-desc">Ghid complet pas cu pas pentru bacalaureat. De la noțiuni fundamentale la probleme rezolvate, cu animații interactive și exemple din practică.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">📊 8 capitole</span>
+      <span class="hero-badge">🎬 Animații interactive</span>
+      <span class="hero-badge">⏱ Complexitate timp &amp; spațiu</span>
+      <span class="hero-badge">📝 Probleme rezolvate</span>
+      <span class="hero-badge">🔊 Audio lecții</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#capitole"     class="btn-hero-primary">Începe să înveți →</a>
+      <a href="#complexitate" class="btn-hero-secondary">Big-O Referință</a>
+    </div>
+
+    <!-- Cod decorativ (coloana dreaptă) -->
+    <div class="hero-graphic" aria-hidden="true">
+      <div class="hero-code-preview">
+        <div class="hcp-bar">
+          <span class="hcp-dot r"></span>
+          <span class="hcp-dot y"></span>
+          <span class="hcp-dot g"></span>
+          <span class="hcp-title">cautare_binara.cpp</span>
+        </div>
+        <pre class="hcp-code"><span class="kw">int</span> cautareBinara(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> x) {
+  <span class="kw">int</span> st = <span class="nu">0</span>, dr = n - <span class="nu">1</span>;
+  <span class="kw">while</span> (st &lt;= dr) {
+    <span class="kw">int</span> mij = (st + dr) / <span class="nu">2</span>;
+    <span class="kw">if</span> (v[mij] == x) <span class="kw">return</span> mij;
+    <span class="kw">if</span> (v[mij] &lt; x) st = mij + <span class="nu">1</span>;
+    <span class="kw">else</span>            dr = mij - <span class="nu">1</span>;
+  }
+  <span class="kw">return</span> -<span class="nu">1</span>; <span class="cm">// O(log n) ✓</span>
+}
+
+<span class="cm">// Complexitate: O(log n) timp · O(1) spațiu</span>
+<span class="cm">// vs. căutare liniară: O(n) — de 1000x mai rapid</span>
+<span class="cm">//    pentru n = 1.000.000 elemente</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats strip ────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-num">8</span>
+    <span class="stat-lbl">Capitole</span>
+  </div>
+  <div class="stat-sep" aria-hidden="true"></div>
+  <div class="stat-item">
+    <span class="stat-num">100+</span>
+    <span class="stat-lbl">Quiz-uri BAC</span>
+  </div>
+  <div class="stat-sep" aria-hidden="true"></div>
+  <div class="stat-item">
+    <span class="stat-num">5+</span>
+    <span class="stat-lbl">Animații</span>
+  </div>
+  <div class="stat-sep" aria-hidden="true"></div>
+  <div class="stat-item">
+    <span class="stat-num">~5h</span>
+    <span class="stat-lbl">Conținut total</span>
   </div>
 </div>
-<div class="wrapper">
+
+<!-- ── Capitole ───────────────────────────────────── -->
+<div id="capitole" class="wrapper">
+  <div class="section-heading">
+    <h2 class="section-title">📚 Capitolele cursului</h2>
+    <p class="section-subtitle">Parcurge lecțiile în ordine sau sari direct la capitolul care te interesează.</p>
+  </div>
+
   <div class="chapters-grid">
+
+    <!-- Cap 0 — Introducere -->
     <a href="capitole/introducere.html" class="chapter-card ch-blue slide">
-      <div class="chapter-card-header"><div class="chapter-num">0</div><div><h2>Introducere &icirc;n Informatic&#259;</h2><p>Bazele absolute, program C++, programa BAC 2026</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>Ce este informatica &#351;i algoritmul</li><li>Structura unui program C++</li><li>Tipuri de date: int, double, char, bool</li><li>Operatori &#351;i structuri de control</li><li>Programa complet&#259; BAC 2026</li></ul></div>
-      <div class="chapter-card-footer"><span>&#9201;&#65039; ~25 min lectur&#259;</span><span class="go">Deschide &rarr;</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">0</div>
+        <div>
+          <h2>Introducere în Informatică</h2>
+          <p>Bazele absolute, program C++, programa BAC 2026</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>Ce este informatica și algoritmul</li>
+          <li>Structura unui program C++</li>
+          <li>Tipuri de date: int, double, char, bool</li>
+          <li>Operatori și structuri de control</li>
+          <li>Programa completă BAC 2026</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~25 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 1 — Complexitate -->
     <a href="capitole/complexitate.html" class="chapter-card ch-blue slide">
-      <div class="chapter-card-header"><div class="chapter-num">1</div><div><h2>Eficiența Algoritmilor</h2><p>Complexitate timp &amp; spațiu</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>Notația Big-O, Ω, Θ</li><li>Clase de complexitate</li><li>Algoritmi de sortare comparați</li><li>Probleme tip BAC rezolvate</li><li>Animație Bubble Sort</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~45 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">1</div>
+        <div>
+          <h2>Eficiența Algoritmilor</h2>
+          <p>Complexitate timp &amp; spațiu, notații Big-O</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>Notația Big-O, Ω, Θ</li>
+          <li>Clase de complexitate comparate</li>
+          <li>Algoritmi de sortare analizați</li>
+          <li>Animație Bubble Sort interactivă</li>
+          <li>Probleme tip BAC rezolvate</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~45 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 2 — Recursivitate -->
     <a href="capitole/recursivitate.html" class="chapter-card ch-green slide">
-      <div class="chapter-card-header"><div class="chapter-num">2</div><div><h2>Recursivitate</h2><p>Funcții recursive și stiva de apeluri</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>Cum funcționează recursivitatea</li><li>Stiva de apeluri vizualizată</li><li>Factorial, Fibonacci, putere</li><li>Recursiv vs. iterativ</li><li>Memoizare / DP intro</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~35 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">2</div>
+        <div>
+          <h2>Recursivitate</h2>
+          <p>Funcții recursive și stiva de apeluri</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>Cum funcționează recursivitatea</li>
+          <li>Stiva de apeluri vizualizată</li>
+          <li>Factorial, Fibonacci, putere</li>
+          <li>Recursiv vs. iterativ — comparație</li>
+          <li>Memoizare și introducere DP</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~35 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 3 — Backtracking -->
     <a href="capitole/backtracking.html" class="chapter-card ch-purple slide">
-      <div class="chapter-card-header"><div class="chapter-num">3</div><div><h2>Backtracking</h2><p>Căutare exhaustivă cu revenire</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>Șablonul general backtracking</li><li>N-Regine animat</li><li>Permutări și combinări</li><li>Labirint — cale de ieșire</li><li>Probleme BAC rezolvate</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~40 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">3</div>
+        <div>
+          <h2>Backtracking</h2>
+          <p>Căutare exhaustivă cu revenire</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>Șablonul general backtracking</li>
+          <li>Animație N-Regine pas cu pas</li>
+          <li>Permutări și combinări</li>
+          <li>Labirint — căutarea ieșirii</li>
+          <li>Probleme BAC complete</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~40 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 4 — Vectori -->
     <a href="capitole/vectori.html" class="chapter-card ch-orange slide">
-      <div class="chapter-card-header"><div class="chapter-num">4</div><div><h2>Vectori (Tablouri 1D)</h2><p>Operații, algoritmi, aplicații</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>Declarare, inițializare, citire</li><li>Parcurgere, căutare, sortare</li><li>Interclasare, ștergere, inserare</li><li>Vectori de frecvență</li><li>Probleme clasice BAC</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~35 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">4</div>
+        <div>
+          <h2>Vectori (Tablouri 1D)</h2>
+          <p>Operații, algoritmi, aplicații clasice</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>Declarare, inițializare, citire</li>
+          <li>Parcurgere, căutare, sortare</li>
+          <li>Interclasare, ștergere, inserare</li>
+          <li>Vectori de frecvență și counting sort</li>
+          <li>Probleme clasice BAC cu vectori</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~35 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 5 — Matrici -->
     <a href="capitole/matrici.html" class="chapter-card ch-teal slide">
-      <div class="chapter-card-header"><div class="chapter-num">5</div><div><h2>Matrici (Tablouri 2D)</h2><p>Operații pe matrice</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>Declarare și parcurgere</li><li>Diagonale, triunghi sup/inf</li><li>Transpusa, rotire matrice</li><li>Matrice pătratice speciale</li><li>Spirală, borduri, probleme BAC</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~35 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">5</div>
+        <div>
+          <h2>Matrici (Tablouri 2D)</h2>
+          <p>Operații pe tablouri bidimensionale</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>Declarare și parcurgere completă</li>
+          <li>Diagonale, triunghi sup/inf</li>
+          <li>Transpusa și rotirea matricei</li>
+          <li>Matrice pătratice speciale</li>
+          <li>Spirală, borduri, probleme BAC</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~35 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 6 — Șiruri de caractere -->
     <a href="capitole/siruri.html" class="chapter-card ch-red slide">
-      <div class="chapter-card-header"><div class="chapter-num">6</div><div><h2>Șiruri de Caractere</h2><p>Prelucrarea textelor în C++</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>char[] vs. string în C++</li><li>Funcții standard strlen, strcpy</li><li>Palindrom, anagramă, cifru Caesar</li><li>Numărare caractere/cuvinte</li><li>Probleme BAC rezolvate</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~30 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">6</div>
+        <div>
+          <h2>Șiruri de Caractere</h2>
+          <p>Prelucrarea textelor în C++</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>char[] vs. string în C++</li>
+          <li>Funcții standard strlen, strcpy, strcat</li>
+          <li>Palindrom, anagramă, cifru Caesar</li>
+          <li>Numărare caractere și cuvinte</li>
+          <li>Probleme BAC cu șiruri</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~30 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+    <!-- Cap 7 — Fișiere -->
     <a href="capitole/fisiere.html" class="chapter-card ch-pink slide">
-      <div class="chapter-card-header"><div class="chapter-num">7</div><div><h2>Fișiere</h2><p>Citire/scriere fișiere în C++</p></div></div>
-      <div class="chapter-card-body"><ul class="chapter-topics"><li>fstream, ifstream, ofstream</li><li>Citire/scriere text și binar</li><li>freopen — redirectare I/O</li><li>Prelucrare fișiere text</li><li>Probleme BAC cu fișiere</li></ul></div>
-      <div class="chapter-card-footer"><span>⏱ ~25 min lectură</span><span class="go">Deschide →</span></div>
+      <div class="chapter-card-stripe"></div>
+      <div class="chapter-card-header">
+        <div class="chapter-num">7</div>
+        <div>
+          <h2>Fișiere</h2>
+          <p>Citire/scriere fișiere text în C++</p>
+        </div>
+      </div>
+      <div class="chapter-card-body">
+        <ul class="chapter-topics">
+          <li>fstream, ifstream, ofstream</li>
+          <li>Citire/scriere text și format binar</li>
+          <li>freopen — redirectare I/O pentru BAC</li>
+          <li>Prelucrare conținut fișier text</li>
+          <li>Probleme BAC cu fișiere rezolvate</li>
+        </ul>
+      </div>
+      <div class="chapter-card-footer">
+        <span>⏱ ~25 min lectură</span>
+        <span class="go">Deschide →</span>
+      </div>
     </a>
+
+  </div>
+</div>
+
+<!-- ── Complexitate — Referință rapidă ───────────────── -->
+<div id="complexitate" class="wrapper">
+  <div class="section-heading">
+    <h2 class="section-title">📊 Referință rapidă — Complexități</h2>
+    <p class="section-subtitle">Clasele de complexitate comparate pentru valori mari ale lui n.</p>
   </div>
   <div class="progress-section slide">
-    <h3>📊 Referință rapidă — Complexități comparate</h3>
-    <div class="prog-bar-row"><span class="prog-label">O(1) — Constant</span><div class="prog-outer"><div class="prog-inner" style="background:#16a34a;" data-width="3%"></div></div><span class="prog-pct">Ideal</span></div>
-    <div class="prog-bar-row"><span class="prog-label">O(log n) — Logaritmic</span><div class="prog-outer"><div class="prog-inner" style="background:#0891b2;" data-width="10%"></div></div><span class="prog-pct">Excelent</span></div>
-    <div class="prog-bar-row"><span class="prog-label">O(n) — Linear</span><div class="prog-outer"><div class="prog-inner" style="background:#2563eb;" data-width="22%"></div></div><span class="prog-pct">Bun</span></div>
-    <div class="prog-bar-row"><span class="prog-label">O(n log n)</span><div class="prog-outer"><div class="prog-inner" style="background:#ca8a04;" data-width="40%"></div></div><span class="prog-pct">Acceptabil</span></div>
-    <div class="prog-bar-row"><span class="prog-label">O(n²) — Pătratic</span><div class="prog-outer"><div class="prog-inner" style="background:#ea580c;" data-width="65%"></div></div><span class="prog-pct">Slab</span></div>
-    <div class="prog-bar-row"><span class="prog-label">O(2ⁿ) — Exponențial</span><div class="prog-outer"><div class="prog-inner" style="background:#dc2626;" data-width="90%"></div></div><span class="prog-pct">Rău</span></div>
+    <div class="prog-bar-row">
+      <span class="prog-label">O(1) — Constant</span>
+      <div class="prog-outer"><div class="prog-inner" style="background:#16a34a;" data-width="3%"></div></div>
+      <span class="prog-pct">Ideal</span>
+    </div>
+    <div class="prog-bar-row">
+      <span class="prog-label">O(log n) — Logaritmic</span>
+      <div class="prog-outer"><div class="prog-inner" style="background:#0891b2;" data-width="10%"></div></div>
+      <span class="prog-pct">Excelent</span>
+    </div>
+    <div class="prog-bar-row">
+      <span class="prog-label">O(n) — Linear</span>
+      <div class="prog-outer"><div class="prog-inner" style="background:#2563eb;" data-width="22%"></div></div>
+      <span class="prog-pct">Bun</span>
+    </div>
+    <div class="prog-bar-row">
+      <span class="prog-label">O(n log n)</span>
+      <div class="prog-outer"><div class="prog-inner" style="background:#ca8a04;" data-width="40%"></div></div>
+      <span class="prog-pct">Acceptabil</span>
+    </div>
+    <div class="prog-bar-row">
+      <span class="prog-label">O(n²) — Pătratic</span>
+      <div class="prog-outer"><div class="prog-inner" style="background:#ea580c;" data-width="65%"></div></div>
+      <span class="prog-pct">Slab</span>
+    </div>
+    <div class="prog-bar-row">
+      <span class="prog-label">O(2ⁿ) — Exponențial</span>
+      <div class="prog-outer"><div class="prog-inner" style="background:#dc2626;" data-width="90%"></div></div>
+      <span class="prog-pct">Rău</span>
+    </div>
   </div>
 </div>
+
+<!-- ── Despre + Resurse ───────────────────────────────── -->
+<div id="about" class="wrapper">
+  <div class="section-heading">
+    <h2 class="section-title">ℹ️ Despre platformă</h2>
+    <p class="section-subtitle">De ce InfoLiceu și ce resurse externe recomandăm.</p>
+  </div>
+  <div class="about-section slide">
+    <div class="about-col">
+      <h2 class="about-title">De ce InfoLiceu?</h2>
+      <p>Platforma este creată special pentru elevii de liceu care se pregătesc pentru <strong>Bacalaureat la Informatică</strong>. Fiecare lecție conține teorie clară, exemple pas cu pas și probleme rezolvate, toate gratuit.</p>
+      <div class="about-features">
+        <div class="about-feat">
+          <span class="about-feat-icon">🎬</span>
+          <div>
+            <strong>Animații interactive</strong>
+            <p>Vizualizează algoritmii în acțiune: Bubble Sort, N-Regine, factorial recursiv și altele.</p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <span class="about-feat-icon">🧠</span>
+          <div>
+            <strong>Quiz-uri BAC</strong>
+            <p>Exersează cu 100+ întrebări din tematica de bacalaureat, cu dificultate graduată.</p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <span class="about-feat-icon">📱</span>
+          <div>
+            <strong>Mobile-friendly</strong>
+            <p>Înveți de pe orice dispozitiv: telefon, tabletă sau laptop, fără instalări.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-refs-col">
+      <h3 class="about-refs-title">Resurse recomandate</h3>
+      <div class="about-refs-grid">
+        <a href="https://pbinfo.ro"        target="_blank" rel="noopener" class="about-ref-chip">📚 pbinfo.ro</a>
+        <a href="https://infoarena.ro"     target="_blank" rel="noopener" class="about-ref-chip">🏆 infoarena.ro</a>
+        <a href="https://leetcode.com"     target="_blank" rel="noopener" class="about-ref-chip">💻 LeetCode</a>
+        <a href="https://hackerrank.com"   target="_blank" rel="noopener" class="about-ref-chip">🎯 HackerRank</a>
+        <a href="https://cs.pub.ro"        target="_blank" rel="noopener" class="about-ref-chip">🎓 UPB</a>
+        <a href="https://fmi.unibuc.ro"    target="_blank" rel="noopener" class="about-ref-chip">🎓 UniBuc</a>
+        <a href="https://www.cs.ubbcluj.ro" target="_blank" rel="noopener" class="about-ref-chip">🎓 UBB Cluj</a>
+        <a href="https://www.cs.upt.ro"    target="_blank" rel="noopener" class="about-ref-chip">🎓 UPT Timișoara</a>
+        <a href="https://iit.tuiasi.ro"    target="_blank" rel="noopener" class="about-ref-chip">🎓 TUIASI Iași</a>
+        <a href="https://unitbv.ro"        target="_blank" rel="noopener" class="about-ref-chip">🎓 UTBv Brașov</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────── -->
 <footer>
-  <strong>Informatică Liceu — Algoritmi &amp; Structuri de Date</strong><br>
-  <span style="font-size:12px;margin-top:4px;display:block;">
-    Referințe: <a href="https://cs.pub.ro">UPB</a> · <a href="https://fmi.unibuc.ro">UniBuc</a> · <a href="https://www.cs.ubbcluj.ro">UBB Cluj</a> · <a href="https://www.cs.upt.ro">UPT Timișoara</a> · <a href="https://iit.tuiasi.ro">TUIASI Iași</a> · <a href="https://unitbv.ro">UTBv Brașov</a> · <a href="https://pbinfo.ro">pbinfo.ro</a> · <a href="https://infoarena.ro">infoarena.ro</a> · <a href="https://leetcode.com">LeetCode</a> · <a href="https://hackerrank.com">HackerRank</a>
-  </span>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo" aria-hidden="true">💻</span>
+      <strong>InfoLiceu</strong>
+      <span class="footer-tagline">Algoritmi &amp; Structuri de Date</span>
+    </div>
+    <p class="footer-desc">
+      Referințe universitare:
+      <a href="https://cs.pub.ro"         target="_blank" rel="noopener">UPB</a> ·
+      <a href="https://fmi.unibuc.ro"     target="_blank" rel="noopener">UniBuc</a> ·
+      <a href="https://www.cs.ubbcluj.ro" target="_blank" rel="noopener">UBB Cluj</a> ·
+      <a href="https://www.cs.upt.ro"     target="_blank" rel="noopener">UPT Timișoara</a> ·
+      <a href="https://iit.tuiasi.ro"     target="_blank" rel="noopener">TUIASI Iași</a> ·
+      <a href="https://unitbv.ro"         target="_blank" rel="noopener">UTBv Brașov</a> ·
+      <a href="https://pbinfo.ro"         target="_blank" rel="noopener">pbinfo.ro</a> ·
+      <a href="https://infoarena.ro"      target="_blank" rel="noopener">infoarena.ro</a>
+    </p>
+  </div>
 </footer>
+
 <script src="js/animations.js"></script>
 <script src="js/platform.js"></script>
 <script src="js/quiz.js"></script>
 <script>
+  /* Animare bare de complexitate la scroll-in */
   const progBars = document.querySelectorAll('.prog-inner[data-width]');
   const io2 = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.width; io2.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.width;
+        io2.unobserve(e.target);
+      }
+    });
   }, { threshold: 0.5 });
   progBars.forEach(b => io2.observe(b));
 </script>

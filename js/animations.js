@@ -487,3 +487,23 @@ function initVectorBlockDemo(containerId) {
     render(); setStatus('');
   });
 }
+
+/* ── 9. Scroll Progress Bar ──────────────────────────────────── */
+/**
+ * Umple bara #scroll-progress pe baza poziției de scroll.
+ * Se apelează din platform.js DOMContentLoaded.
+ */
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+
+  function update() {
+    const scrolled = window.scrollY;
+    const total    = document.documentElement.scrollHeight - window.innerHeight;
+    const pct      = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+    bar.style.width = pct.toFixed(1) + '%';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update(); /* stare inițială */
+}

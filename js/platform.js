@@ -177,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initGlobalSpeedSlider();
   initAudioPlayer();
   initQuizModal();
+  initScrollProgress(); /* bara de progres la scroll */
 });
 
 /* ── 8. Audio Player (Web Speech API) ──────────────────────────── */
