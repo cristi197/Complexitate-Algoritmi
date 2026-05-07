@@ -75,7 +75,7 @@ function initChapterNav() {
   document.body.appendChild(bar);
 }
 
-/* ── 3. Injectare statistici (Like + Vizualizări) ────────────── */
+/* ── 3. Injectare statistici (Like + Vizualizări) — uses InfoDB ─ */
 function injectPageStats() {
   /* Caută .page-cover-inner sau .hero */
   var target = document.querySelector('.page-cover-inner') ||
@@ -96,24 +96,43 @@ function injectPageStats() {
   target.appendChild(stats);
 }
 
-/* ── 4. Contor vizualizări ────────────────────────────────────── */
+/* ── 4. Contor vizualizări — integrated with InfoDB ──────────── */
 function initViewCounter() {
-  var key = 'pv_' + window.location.pathname;
-  var n = (parseInt(localStorage.getItem(key)) || 0) + 1;
-  try { localStorage.setItem(key, n); } catch (e) { /* incognito */ }
   var el = document.getElementById('view-num');
-  if (el) el.textContent = '\u00a0' + n.toLocaleString() + ' vizualizări';
+  if (!el) return;
+
+  var count;
+  if (window.InfoDB) {
+    count = window.InfoDB.analytics.getViews();
+  } else {
+    var key = 'pv_' + window.location.pathname;
+    count = (parseInt(localStorage.getItem(key)) || 0) + 1;
+    try { localStorage.setItem(key, count); } catch (e) {}
+  }
+  el.textContent = '\u00a0' + count.toLocaleString() + ' vizualizări';
+
+  /* Update footer total */
+  var footerViews = document.getElementById('footer-total-views');
+  if (footerViews && window.InfoDB) {
+    footerViews.textContent = '👁 ' + window.InfoDB.analytics.getTotalViews().toLocaleString() + ' vizualizări';
+  }
 }
 
-/* ── 5. Buton Like ───────────────────────────────────────────── */
+/* ── 5. Buton Like — integrated with InfoDB ──────────────────── */
 function initLikeButton() {
   var btn = document.getElementById('like-btn');
   if (!btn) return;
 
-  var kLikes = 'lk_' + window.location.pathname;
-  var kDid   = 'ld_' + window.location.pathname;
-  var likes  = parseInt(localStorage.getItem(kLikes)) || 0;
-  var liked  = localStorage.getItem(kDid) === '1';
+  var liked, likes;
+  if (window.InfoDB) {
+    liked = window.InfoDB.analytics.isLiked();
+    likes = window.InfoDB.analytics.getTotalLikes();
+  } else {
+    var kLikes = 'lk_' + window.location.pathname;
+    var kDid = 'ld_' + window.location.pathname;
+    likes = parseInt(localStorage.getItem(kLikes)) || 0;
+    liked = localStorage.getItem(kDid) === '1';
+  }
 
   function render() {
     btn.querySelector('.like-icon').textContent = liked ? '❤️' : '🤍';
@@ -123,16 +142,24 @@ function initLikeButton() {
   render();
 
   btn.addEventListener('click', function () {
-    if (liked) { likes = Math.max(0, likes - 1); liked = false; }
-    else        { likes++; liked = true; }
-    try {
-      localStorage.setItem(kLikes, likes);
-      localStorage.setItem(kDid, liked ? '1' : '0');
-    } catch (e) {}
+    if (window.InfoDB) {
+      var result = window.InfoDB.analytics.trackLike();
+      liked = result.liked;
+      likes = result.total;
+    } else {
+      if (liked) { likes = Math.max(0, likes - 1); liked = false; }
+      else { likes++; liked = true; }
+    }
     render();
     btn.classList.remove('burst');
-    void btn.offsetWidth; /* forțează reflow pentru animație */
+    void btn.offsetWidth;
     if (liked) btn.classList.add('burst');
+
+    /* Update footer */
+    var footerLikes = document.getElementById('footer-total-likes');
+    if (footerLikes && window.InfoDB) {
+      footerLikes.textContent = '❤️ ' + window.InfoDB.analytics.getTotalLikes() + ' aprecieri';
+    }
   });
 }
 
@@ -177,302 +204,150 @@ document.addEventListener('DOMContentLoaded', function () {
   initGlobalSpeedSlider();
   initAudioPlayer();
   initQuizModal();
-  initScrollProgress(); /* bara de progres la scroll */
+  initScrollProgress();
+  initChapterTracking();
 });
 
-/* ── 8. Audio Player (Web Speech API) ──────────────────────────── */
+/* ── 8. Audio Player — Now uses InfoTTS (Romanian Polly Ioana) ── */
 function initAudioPlayer() {
-  if (!window.speechSynthesis) return;
+  /* Wait for InfoTTS to be available */
+  if (!window.InfoTTS) return;
 
-  /* ── Chromium detection (Chrome + Edge use online voices → ro-RO works natively) ── */
-  var IS_CHROMIUM = /Chrome|Chromium/.test(navigator.userAgent);
+  var sectionCount = window.InfoTTS.init();
+  if (sectionCount === 0) return;
 
-  /* ── Cached Romanian voice ── */
-  var roVoice = null;
-  function loadVoice() {
-    var voices = window.speechSynthesis.getVoices();
-    var ro = voices.find(function (v) { return v.lang.indexOf('ro') === 0; });
-    if (ro) roVoice = ro;
-  }
-  loadVoice(); /* Firefox has voices synchronously */
-  window.speechSynthesis.onvoiceschanged = loadVoice; /* Chrome needs this */
-
-  /* Returns true when Web Speech API can speak Romanian without extra setup:
-     – a Romanian voice is installed on the OS, OR
-     – we're on a Chromium browser (uses Google's online TTS for any lang) */
-  function canUseWebSpeech() {
-    return !!roVoice || IS_CHROMIUM;
-  }
-
-  /* ── Online TTS fallback: StreamElements (Amazon Polly Ioana — Romanian) ──
-     Free, no API key, no installation. Text is chunked because the endpoint
-     has a ~400-char limit per request.                                       */
-  var olAudio   = null;   /* current HTMLAudioElement for online TTS */
-  var olChunks  = [];     /* text chunks queued for playback */
-  var olIdx     = 0;      /* current chunk index */
-  var olOnEnd   = null;   /* callback when all chunks finish */
-
-  function chunkText(text, maxLen) {
-    var chunks = [];
-    var remaining = text.trim();
-    while (remaining.length > maxLen) {
-      var slice = remaining.substring(0, maxLen);
-      /* Prefer breaking at sentence boundaries, then commas */
-      var cut = -1;
-      ['. ', '! ', '? ', ', '].forEach(function (sep) {
-        var pos = slice.lastIndexOf(sep);
-        if (pos > maxLen * 0.45 && pos > cut) cut = pos + sep.length - 1;
-      });
-      if (cut < 0) cut = maxLen;
-      chunks.push(remaining.substring(0, cut).trim());
-      remaining = remaining.substring(cut).trim();
-    }
-    if (remaining.length > 0) chunks.push(remaining);
-    return chunks;
-  }
-
-  function playNextChunk() {
-    if (olIdx >= olChunks.length) {
-      olAudio = null;
-      if (olOnEnd) olOnEnd();
-      return;
-    }
-    var chunk = olChunks[olIdx++];
-    var url = 'https://api.streamelements.com/kappa/v2/speech?voice=Ioana&text=' +
-              encodeURIComponent(chunk);
-    var a = new Audio(url);
-    olAudio = a;
-    a.playbackRate = rate;
-    a.onended  = playNextChunk;
-    a.onerror  = playNextChunk; /* skip failed chunk, keep going */
-    a.play().catch(playNextChunk);
-  }
-
-  function speakOnline(text, onEnd) {
-    stopOnline();
-    olChunks = chunkText(text, 380);
-    olIdx    = 0;
-    olOnEnd  = onEnd;
-    playNextChunk();
-  }
-
-  function stopOnline() {
-    if (olAudio) { olAudio.pause(); olAudio.src = ''; olAudio = null; }
-    olChunks = []; olIdx = 0;
-  }
-
-  /* ── Clean extracted text for Romanian TTS ── */
-  function cleanForSpeech(text) {
-    return text
-      /* Romanian-friendly rewrites of notation */
-      .replace(/O\(1\)/g, 'O de 1')
-      .replace(/O\(n²\)/g, 'O de n la pătrat')
-      .replace(/O\(n³\)/g, 'O de n la cub')
-      .replace(/O\(2ⁿ\)/g, 'O de 2 la puterea n')
-      .replace(/O\(n log n\)/g, 'O de n log n')
-      .replace(/O\(log n\)/g, 'O de log n')
-      .replace(/O\(n\)/g, 'O de n')
-      .replace(/O\(([^)]+)\)/g, 'O de $1')
-      /* symbols → words */
-      .replace(/[→←↑↓⇒⇐▶◀►◄⏭⏮⏸]/g, ' ')
-      .replace(/[✅✓☑]/g, 'corect. ')
-      .replace(/[❌✗☒]/g, 'greșit. ')
-      .replace(/[⚠⚠️]/g, 'atenție. ')
-      /* strip emoji (surrogate pairs U+1F000–U+1FFFF) */
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
-      /* strip remaining BMP emoji / dingbats */
-      .replace(/[\u2600-\u27BF\u2300-\u23FF]/g, ' ')
-      /* HTML entities that survived cloneNode */
-      .replace(/&[a-z]+;/gi, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
-
-  /* ── Extract readable text from a section ── */
-  function sectionText(sec) {
-    var clone = sec.cloneNode(true);
-    clone.querySelectorAll(
-      'pre, code, table, script, style, svg, ' +
-      '.vec-container, .matrix-viz, [data-role], ' +
-      '.quiz-section, footer, .page-stats, ' +
-      '.sort-controls, .copy-btn'
-    ).forEach(function (el) {
-      el.parentNode && el.parentNode.removeChild(el);
-    });
-    var raw = clone.textContent.replace(/\s+/g, ' ').trim().substring(0, 2500);
-    return cleanForSpeech(raw);
-  }
-
-  var sections = [];
-  document.querySelectorAll('section').forEach(function (sec) {
-    if (sec.id === 'exercitii' || sec.id === 'refs') return;
-    var h = sec.querySelector('h2, h3');
-    var title = h ? cleanForSpeech(h.textContent) : 'Secțiune';
-    var text = sectionText(sec);
-    if (text.length > 80) sections.push({ title: title, text: text });
-  });
-  if (sections.length === 0) return;
-
-  /* ── Estimate reading time ── */
-  var totalWords = sections.reduce(function (s, sc) { return s + sc.text.split(' ').length; }, 0);
-  var estMin = Math.max(1, Math.ceil(totalWords / 140));
+  var sections = window.InfoTTS.getSections();
+  var totalWords = 0; /* estimate */
+  var estMin = Math.max(1, Math.ceil(sectionCount * 2.5));
 
   /* ── Toggle button ── */
   var toggleBtn = document.createElement('button');
-  toggleBtn.className = 'audio-toggle-btn';
-  toggleBtn.title = 'Player audio (~' + estMin + ' min, voce română)';
-  toggleBtn.innerHTML = '&#x1F50A;';
+  toggleBtn.className = 'tts-toggle-btn';
+  toggleBtn.title = 'Ascultă lecția (~' + estMin + ' min, voce română Ioana)';
+  toggleBtn.innerHTML = '🔊';
   document.body.appendChild(toggleBtn);
 
   /* ── Player panel ── */
   var player = document.createElement('div');
-  player.id = 'audio-player';
-  player.className = 'audio-player hidden';
+  player.className = 'tts-player hidden';
   player.innerHTML =
-    '<div class="ap-header">' +
-      '<span class="ap-title">&#x1F50A; Audio ROM</span>' +
-      '<span class="ap-time">~' + estMin + ' min</span>' +
-      '<button class="ap-close" title="Ascunde">&#x2715;</button>' +
+    '<div class="tts-header">' +
+      '<span class="tts-title">🔊 Audio Lecție</span>' +
+      '<span class="tts-voice-badge">🇷🇴 Ioana</span>' +
+      '<button class="tts-close" title="Ascunde">✕</button>' +
     '</div>' +
-    '<div class="ap-section-name">&#8212;</div>' +
-    '<div class="ap-progress-wrap">' +
-      '<div class="ap-progress-bar"><div class="ap-progress-fill" id="ap-fill" style="width:0%"></div></div>' +
-      '<span class="ap-progress-label" id="ap-lbl">0 / ' + sections.length + ' secțiuni</span>' +
+    '<div class="tts-section-name" id="tts-sec-name">Apasă ▶ pentru a începe</div>' +
+    '<div class="tts-progress">' +
+      '<div class="tts-progress-fill" id="tts-fill" style="width:0%"></div>' +
     '</div>' +
-    '<div class="ap-controls">' +
-      '<button class="ap-btn" id="ap-prev" title="Secțiunea anterioară">&#x23EE;</button>' +
-      '<button class="ap-btn ap-play" id="ap-play">&#x25B6;</button>' +
-      '<button class="ap-btn" id="ap-next" title="Secțiunea următoare">&#x23ED;</button>' +
-      '<select class="ap-speed" id="ap-speed" title="Viteză">' +
-        '<option value="0.5">0.5×</option>' +
+    '<span class="tts-progress-label" id="tts-label">0 / ' + sectionCount + ' secțiuni</span>' +
+    '<div class="tts-controls">' +
+      '<button class="tts-btn" id="tts-prev" title="Secțiunea anterioară">⏮</button>' +
+      '<button class="tts-btn play" id="tts-play" title="Redă (Spațiu)">▶</button>' +
+      '<button class="tts-btn" id="tts-next" title="Secțiunea următoare">⏭</button>' +
+      '<select class="tts-speed" id="tts-speed" title="Viteză">' +
         '<option value="0.75">0.75×</option>' +
         '<option value="1" selected>1×</option>' +
         '<option value="1.25">1.25×</option>' +
         '<option value="1.5">1.5×</option>' +
-        '<option value="2">2×</option>' +
       '</select>' +
     '</div>';
   document.body.appendChild(player);
 
-  var cur = 0;
-  var playing = false;
-  var rate = 1.0;
-  var resumeTimer = null;
-
-  function ui() {
-    player.querySelector('.ap-section-name').textContent = sections[cur].title;
-    var pct = Math.round((cur / sections.length) * 100);
-    document.getElementById('ap-fill').style.width = pct + '%';
-    document.getElementById('ap-lbl').textContent = (cur + 1) + ' / ' + sections.length + ' secțiuni';
-    document.getElementById('ap-play').innerHTML = playing ? '&#x23F8;' : '&#x25B6;';
+  function updateUI() {
+    var st = window.InfoTTS.getState();
+    var secName = sections[st.sectionIndex] ? sections[st.sectionIndex].title : '—';
+    document.getElementById('tts-sec-name').textContent = secName;
+    var pct = Math.round(((st.sectionIndex + (st.isPlaying ? 0.5 : 0)) / sectionCount) * 100);
+    document.getElementById('tts-fill').style.width = pct + '%';
+    document.getElementById('tts-label').textContent = (st.sectionIndex + 1) + ' / ' + sectionCount + ' secțiuni';
+    document.getElementById('tts-play').innerHTML = (st.isPlaying && !st.isPaused) ? '⏸' : '▶';
   }
 
-  /* Chrome SpeechSynthesis bug: pauses after ~15s — fix with periodic pause/resume */
-  function startResumeFix() {
-    if (resumeTimer) clearInterval(resumeTimer);
-    resumeTimer = setInterval(function () {
-      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
-        window.speechSynthesis.pause();
-        window.speechSynthesis.resume();
-      }
-    }, 10000);
-  }
-  function stopResumeFix() {
-    if (resumeTimer) { clearInterval(resumeTimer); resumeTimer = null; }
-  }
+  /* Events */
+  window.InfoTTS.onSectionChange(updateUI);
+  window.InfoTTS.onEnd(updateUI);
 
-  function speak(idx) {
-    window.speechSynthesis.cancel();
-    stopResumeFix();
-    stopOnline();
-    cur = idx;
-    playing = true;
-    ui();
-
-    function onSectionEnd() {
-      if (cur < sections.length - 1) speak(cur + 1);
-      else { playing = false; ui(); }
-    }
-
-    if (canUseWebSpeech()) {
-      /* ── Web Speech API path (works on Chrome/Edge + OS with Romanian voice) ── */
-      var utt = new SpeechSynthesisUtterance(sections[idx].text);
-      utt.lang = 'ro-RO';
-      utt.rate = rate;
-      if (!roVoice) loadVoice();
-      if (roVoice) utt.voice = roVoice;
-      utt.onend  = function () { stopResumeFix(); onSectionEnd(); };
-      utt.onerror = function () { stopResumeFix(); playing = false; ui(); };
-      window.speechSynthesis.speak(utt);
-      startResumeFix();
-    } else {
-      /* ── Online TTS fallback: StreamElements / Amazon Polly Ioana (Romanian) ── */
-      speakOnline(sections[idx].text, onSectionEnd);
-    }
-  }
-
-  document.getElementById('ap-play').addEventListener('click', function () {
-    if (playing) {
-      if (canUseWebSpeech()) {
-        window.speechSynthesis.pause();
-        stopResumeFix();
-      } else if (olAudio) {
-        olAudio.pause();
-      }
-      playing = false;
-    } else if (canUseWebSpeech() && window.speechSynthesis.paused) {
-      window.speechSynthesis.resume();
-      startResumeFix();
-      playing = true;
-    } else if (!canUseWebSpeech() && olAudio && olAudio.paused && olAudio.src) {
-      olAudio.play().catch(noop);
-      playing = true;
-    } else {
-      speak(cur);
-    }
-    ui();
+  document.getElementById('tts-play').addEventListener('click', function () {
+    window.InfoTTS.toggle();
+    updateUI();
   });
 
-  document.getElementById('ap-prev').addEventListener('click', function () {
-    var t = Math.max(0, cur - 1);
-    if (playing) speak(t); else { cur = t; ui(); }
+  document.getElementById('tts-prev').addEventListener('click', function () {
+    window.InfoTTS.prev();
+    updateUI();
   });
 
-  document.getElementById('ap-next').addEventListener('click', function () {
-    var t = Math.min(sections.length - 1, cur + 1);
-    if (playing) speak(t); else { cur = t; ui(); }
+  document.getElementById('tts-next').addEventListener('click', function () {
+    window.InfoTTS.next();
+    updateUI();
   });
 
-  document.getElementById('ap-speed').addEventListener('change', function () {
-    rate = parseFloat(this.value);
-    if (playing) {
-      speak(cur); /* restart current section at new rate for both paths */
-    } else if (olAudio) {
-      olAudio.playbackRate = rate; /* apply to queued audio even while paused */
-    }
+  document.getElementById('tts-speed').addEventListener('change', function () {
+    window.InfoTTS.setRate(parseFloat(this.value));
   });
 
-  player.querySelector('.ap-close').addEventListener('click', function () {
-    window.speechSynthesis.cancel(); stopResumeFix();
-    stopOnline();
-    playing = false;
+  player.querySelector('.tts-close').addEventListener('click', function () {
+    window.InfoTTS.stop();
     player.classList.add('hidden');
+    updateUI();
   });
 
   toggleBtn.addEventListener('click', function () {
     player.classList.toggle('hidden');
-    ui();
+    updateUI();
   });
 
-  window.addEventListener('beforeunload', function () {
-    window.speechSynthesis.cancel(); stopResumeFix();
-    stopOnline();
-  });
+  updateUI();
+}
+/* ── noop helper ── */
+function noop() {}
 
-  ui();
+/* ── 9. Scroll Progress Bar ──────────────────────────────────── */
+function initScrollProgress() {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
 }
 
-/* ── 9. Quiz Modal (floating button → overlay) ───────────────── */
+/* ── 10. Chapter completion tracking ─────────────────────────── */
+function initChapterTracking() {
+  if (!window.InfoDB) return;
+  var path = window.location.pathname.replace(/\\/g, '/');
+  var curFile = path.split('/').pop();
+  
+  /* Only on chapter pages */
+  var chapterMap = {
+    'introducere.html': 'introducere',
+    'complexitate.html': 'complexitate',
+    'recursivitate.html': 'recursivitate',
+    'backtracking.html': 'backtracking',
+    'vectori.html': 'vectori',
+    'matrici.html': 'matrici',
+    'siruri.html': 'siruri',
+    'fisiere.html': 'fisiere'
+  };
+
+  var chapterId = chapterMap[curFile];
+  if (!chapterId) return;
+
+  /* Mark chapter as read after scrolling 80% */
+  var marked = false;
+  window.addEventListener('scroll', function () {
+    if (marked) return;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0 && (window.scrollY / h) > 0.8) {
+      marked = true;
+      window.InfoDB.chapters.markRead(chapterId);
+    }
+  }, { passive: true });
+}
+
+/* ── 11. Quiz Modal (floating button → overlay) ──────────────── */
 function initQuizModal() {
   var quizEl = document.querySelector('.quiz-section[data-quiz]');
   if (!quizEl) return;
