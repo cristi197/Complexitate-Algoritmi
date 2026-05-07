@@ -190,6 +190,7 @@ const base = import.meta.env.BASE_URL;
   <Header />
 
   <!-- Hero -->
+  <div style="padding-top: var(--header-h);">
   <div class="chapter-hero" style="background: linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1d4ed8 100%);">
     <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
     <h1>🤖 Analiză Variantă BAC</h1>
@@ -200,6 +201,7 @@ const base = import.meta.env.BASE_URL;
       <span class="chapter-hero-tag">🔒 Fișierul nu se încarcă pe niciun server</span>
       <span class="chapter-hero-tag">✨ Powered by AI</span>
     </div>
+  </div>
   </div>
 
   <!-- Main -->
@@ -308,6 +310,8 @@ const base = import.meta.env.BASE_URL;
 
   <!-- PDF.js -->
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script is:inline src={`${base}/js/animations.js`}></script>
+  <script is:inline>document.addEventListener('DOMContentLoaded', function() { if (typeof initScrollReveal === 'function') initScrollReveal(); });</script>
 
   <script is:inline define:vars={{ base }}>
   (function () {
@@ -337,14 +341,14 @@ const base = import.meta.env.BASE_URL;
     var currentFile = null;
 
     var CHAPTERS = [
-      { url: base + '/capitole/introducere',  label: '📘 Introducere în Informatică',  keywords: ['introducere','tipuri de date','structuri de control','if','for','while','bac 2026','algoritm'] },
-      { url: base + '/capitole/complexitate', label: '⏱ Complexitatea Algoritmilor',   keywords: ['complexitate','big-o','timp','spatiu','eficienta','o(n)','o(log']  },
-      { url: base + '/capitole/vectori',      label: '📊 Vectori',                     keywords: ['vector','tablou','array','sortare','cautare binara','suma','maxim','minim','frecventa','inversare'] },
-      { url: base + '/capitole/matrici',      label: '🔢 Matrici',                     keywords: ['matrice','matric','bidimensional','tablou 2d','transpusa','spirala','diagonala'] },
-      { url: base + '/capitole/siruri',       label: '🔤 Șiruri de Caractere',         keywords: ['sir','string','caracter','palindrom','anagram','litera','cuvant','text'] },
-      { url: base + '/capitole/recursivitate',label: '🔁 Recursivitate',               keywords: ['recursiv','recursivitate','divide','impera','memoizare','hanoi','fibonacci','factorial'] },
-      { url: base + '/capitole/backtracking', label: '🔀 Backtracking',                keywords: ['backtracking','permutari','combinari','submultime','subset','generare','aranjamente'] },
-      { url: base + '/capitole/fisiere',      label: '💾 Fișiere',                     keywords: ['fisier','fstream','ifstream','ofstream','citire','scriere','txt'] }
+      { url: base + '/capitole/introducere.html',  label: '📘 Introducere în Informatică',  keywords: ['introducere','tipuri de date','structuri de control','if','for','while','bac 2026','algoritm'] },
+      { url: base + '/capitole/complexitate.html', label: '⏱ Complexitatea Algoritmilor',   keywords: ['complexitate','big-o','timp','spatiu','eficienta','o(n)','o(log']  },
+      { url: base + '/capitole/vectori.html',      label: '📊 Vectori',                     keywords: ['vector','tablou','array','sortare','cautare binara','suma','maxim','minim','frecventa','inversare'] },
+      { url: base + '/capitole/matrici.html',      label: '🔢 Matrici',                     keywords: ['matrice','matric','bidimensional','tablou 2d','transpusa','spirala','diagonala'] },
+      { url: base + '/capitole/siruri.html',       label: '🔤 Șiruri de Caractere',         keywords: ['sir','string','caracter','palindrom','anagram','litera','cuvant','text'] },
+      { url: base + '/capitole/recursivitate.html',label: '🔁 Recursivitate',               keywords: ['recursiv','recursivitate','divide','impera','memoizare','hanoi','fibonacci','factorial'] },
+      { url: base + '/capitole/backtracking.html', label: '🔀 Backtracking',                keywords: ['backtracking','permutari','combinari','submultime','subset','generare','aranjamente'] },
+      { url: base + '/capitole/fisiere.html',      label: '💾 Fișiere',                     keywords: ['fisier','fstream','ifstream','ofstream','citire','scriere','txt'] }
     ];
 
     var SYSTEM_PROMPT = 'Ești un profesor expert de informatică pentru liceu din România.\nElevul ți-a trimis o variantă de bacalaureat la informatică (C++).\n\nSarcina ta: identifică TOATE exercițiile/subiectele din varianta de BAC și pentru fiecare generează o explicație completă.\n\nReguli:\n- Răspunde EXCLUSIV cu un JSON valid, fără niciun text în afara JSON-ului.\n- Dacă nu poți identifica exercițiile, returnează {"eroare": "Nu am putut identifica exercițiile"}.\n- Teoria trebuie să fie clară, în română, potrivită pentru un elev de liceu.\n- capitol_cheie: introducere, complexitate, vectori, matrici, siruri, recursivitate, backtracking sau fisiere.\n\nFormat JSON obligatoriu:\n{\n  "varianta": "Varianta XX / identificare",\n  "exercitii": [\n    {\n      "numar": "I.1",\n      "enunt": "Textul exact",\n      "ce_cere": "Explicație simplă",\n      "teorie": "Teoria necesară (2-4 paragrafe)",\n      "pasi_rezolvare": "Abordare pas cu pas cu cod C++",\n      "capitol_cheie": "vectori",\n      "dificultate": "Ușor"\n    }\n  ]\n}';
