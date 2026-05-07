@@ -1,0 +1,595 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [{"id":"declarare","label":"Declarare"},{"id":"parcurgere","label":"Parcurgere"},{"id":"cautare","label":"Căutare"},{"id":"sortare","label":"Sortare"},{"id":"interclasare","label":"Interclasare"},{"id":"inserare","label":"Inserare/Ștergere"},{"id":"frecventa","label":"Frecvență"},{"id":"vector-demo","label":"Demo Interactiv"},{"id":"bac","label":"Probleme BAC"}];
+---
+<ChapterLayout
+  title="Vectori"
+  subtitle="Capitolul 4 — Declarare, parcurgere, căutare, sortare, interclasare și probleme BAC"
+  icon="📦"
+  gradient="linear-gradient(135deg,#7c2d12 0%,#c2410c 50%,#f97316 100%)"
+  tags={["Vectori","Sortare","Căutare binară","Interclasare","Counting sort"]}
+  sections={sections}
+  chapterNum={4}
+  description="Vectori — informatică pentru liceu și bacalaureat"
+>
+<!-- ─── 1. DECLARARE ─────────────────────────────────── -->
+<section id="declarare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📋</span>
+      <h2>Declararea și inițializarea vectorilor</h2>
+    </div>
+    <div class="slide-body">      <div class="beginner-box">
+        <div class="bb-title">🏠 Analogie: Vectorul = Bloc de apartamente</div>
+        <p>Gândeşte-te la un bloc cu N apartamente numerotate <strong>de la 1 la N</strong>. Fiecare apartament (element) are un <strong>număr de apartament</strong> (indicele) şi un <strong>chiriac</strong> (valoarea stocată). Calculatorul ştie exact unde e fiecare apartament fără să caute — acesta e accesul direct O(1).</p>
+        <ul>
+          <li>🔑 <code>v[3]</code> = apartamentul 3 → acces instant</li>
+          <li>👥 <em>Inserare</em> la mijloc = toți chiriasii de la poziția k în sus se mută un etaj mai sus</li>
+          <li>🗳 <em>Ștergere</em> = toți chiriasii de deasupra se coboară un etaj</li>
+        </ul>
+      </div>      <p>Un <strong>vector (tablou unidimensional)</strong> este o colecție de elemente de același tip, stocate consecutiv în memorie, accesate prin indice.</p>
+
+      <pre><span class="cm">// Declarare vector de n elemente întregi (maxim 100000)</span>
+<span class="kw">int</span> v[<span class="nu">100001</span>];  <span class="cm">// indexat de la 0 la 100000</span>
+<span class="kw">int</span> n;          <span class="cm">// numărul de elemente folosite efectiv</span>
+
+<span class="cm">// Citire din tastatură</span>
+cin >> n;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)  <span class="cm">// indexare de la 1 (stil BAC)</span>
+    cin >> v[i];
+
+<span class="cm">// Inițializare cu 0 a întregului tablou</span>
+<span class="kw">int</span> a[<span class="nu">100</span>] = &#123;<span class="nu">0</span>&#125;;       <span class="cm">// toți cu 0</span>
+<span class="kw">int</span> b[] = &#123;<span class="nu">3</span>, <span class="nu">1</span>, <span class="nu">4</span>, <span class="nu">1</span>, <span class="nu">5</span>&#125;;  <span class="cm">// dimensiune dedusă automat: 5</span></pre>
+
+      <div class="callout warning">
+        <strong>La BAC</strong>, indexarea începe de obicei de la 1: <code>v[1], v[2], ..., v[n]</code>. Tabloul trebuie declarat cu dimensiunea <code>n+1</code> cel puțin.
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card orange">
+          <strong>Acces: O(1)</strong>
+          <p><code>v[i]</code> — acces direct la elementul i, indiferent de n</p>
+        </div>
+        <div class="card blue">
+          <strong>Memorie: O(n)</strong>
+          <p>n elemente × sizeof(tip) octeți consecutiv în RAM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. PARCURGERE ────────────────────────────────── -->
+<section id="parcurgere">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🔁</span>
+      <h2>Parcurgerea vectorilor — operații frecvente</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Sumă, minim, maxim — O(n)</h3>
+      <pre><span class="kw">int</span> suma = <span class="nu">0</span>, minim = v[<span class="nu">1</span>], maxim = v[<span class="nu">1</span>];
+<span class="kw">int</span> pozMin = <span class="nu">1</span>, pozMax = <span class="nu">1</span>;
+
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+    suma += v[i];
+    <span class="kw">if</span> (v[i] &lt; minim) &#123; minim = v[i]; pozMin = i; &#125;
+    <span class="kw">if</span> (v[i] > maxim) &#123; maxim = v[i]; pozMax = i; &#125;
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Afișare în ordine inversă</h3>
+      <pre><span class="kw">for</span> (<span class="kw">int</span> i = n; i >= <span class="nu">1</span>; i--)
+    cout &lt;&lt; v[i] &lt;&lt; <span class="st">" "</span>;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Număr de elemente pare</h3>
+      <pre><span class="kw">int</span> nrPare = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">if</span> (v[i] % <span class="nu">2</span> == <span class="nu">0</span>) nrPare++;
+cout &lt;&lt; <span class="st">"Elemente pare: "</span> &lt;&lt; nrPare;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Verificare dacă vectorul este sortat crescător</h3>
+      <pre><span class="kw">bool</span> sortat = <span class="kw">true</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt; n; i++)
+    <span class="kw">if</span> (v[i] > v[i+<span class="nu">1</span>]) &#123; sortat = <span class="kw">false</span>; <span class="kw">break</span>; &#125;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. CĂUTARE ───────────────────────────────────── -->
+<section id="cautare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🔍</span>
+      <h2>Căutare secvențială și binară</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Căutare secvențială — O(n)</h3>
+      <pre><span class="kw">int</span> <span class="fn">cautareSecventiala</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> x) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        <span class="kw">if</span> (v[i] == x) <span class="kw">return</span> i;  <span class="cm">// returnează poziția</span>
+    <span class="kw">return</span> -<span class="nu">1</span>;  <span class="cm">// nu a fost găsit</span>
+&#125;
+<span class="cm">// Funcționează pe vector NESORTAT sau SORTAT</span>
+<span class="cm">// Best: O(1)  Average: O(n/2)  Worst: O(n)</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Căutare binară — O(log n) — doar pe vector SORTAT</h3>
+      <pre><span class="kw">int</span> <span class="fn">cautareBinara</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> x) &#123;
+    <span class="kw">int</span> st = <span class="nu">1</span>, dr = n;
+    <span class="kw">while</span> (st &lt;= dr) &#123;
+        <span class="kw">int</span> mij = (st + dr) / <span class="nu">2</span>;
+        <span class="kw">if</span> (v[mij] == x) <span class="kw">return</span> mij;  <span class="cm">// găsit!</span>
+        <span class="kw">else if</span> (v[mij] &lt; x) st = mij + <span class="nu">1</span>;  <span class="cm">// x e în dreapta</span>
+        <span class="kw">else</span> dr = mij - <span class="nu">1</span>;              <span class="cm">// x e în stânga</span>
+    &#125;
+    <span class="kw">return</span> -<span class="nu">1</span>;
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>Trasare căutare binară — x=7, v=[1,3,5,7,9,11,13]:</strong><br>
+        Pas 1: st=1, dr=7, mij=4 → v[4]=7 → GĂSIT la poziția 4
+      </div>
+
+      <div class="callout warning">
+        <strong>Atenție la BAC:</strong> Dacă problema spune "vector sortat" → folosiți căutare binară O(log n). Pe vector nesortat → căutare secvențială O(n).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. SORTARE ───────────────────────────────────── -->
+<section id="sortare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">🔀</span>
+      <h2>Sortarea vectorilor</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Bubble Sort — cel mai cerut la BAC</h3>
+      <pre><span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n-<span class="nu">1</span>; i++)
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n-i; j++)
+            <span class="kw">if</span> (v[j] > v[j+<span class="nu">1</span>])
+                swap(v[j], v[j+<span class="nu">1</span>]);
+    <span class="cm">// O(n²) — bun pentru demonstrații, mai lent în practică</span>
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Selection Sort — explicat pas cu pas</h3>
+      <pre><span class="kw">void</span> <span class="fn">selectionSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n-<span class="nu">1</span>; i++) &#123;
+        <span class="kw">int</span> pozMin = i;
+        <span class="kw">for</span> (<span class="kw">int</span> j = i+<span class="nu">1</span>; j &lt;= n; j++)
+            <span class="kw">if</span> (v[j] &lt; v[pozMin]) pozMin = j;
+        <span class="kw">if</span> (pozMin != i) swap(v[i], v[pozMin]);
+    &#125;
+    <span class="cm">// O(n²) în toate cazurile, O(1) spațiu</span>
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Insertion Sort — eficient pe date aproape sortate</h3>
+      <pre><span class="kw">void</span> <span class="fn">insertionSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++) &#123;
+        <span class="kw">int</span> cheie = v[i], j = i - <span class="nu">1</span>;
+        <span class="kw">while</span> (j >= <span class="nu">1</span> && v[j] > cheie) &#123;
+            v[j+<span class="nu">1</span>] = v[j];
+            j--;
+        &#125;
+        v[j+<span class="nu">1</span>] = cheie;
+    &#125;
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">sort() din STL — O(n log n)</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;algorithm></span>
+sort(v + <span class="nu">1</span>, v + n + <span class="nu">1</span>);              <span class="cm">// crescător (v indexat de la 1)</span>
+sort(v + <span class="nu">1</span>, v + n + <span class="nu">1</span>, greater&lt;<span class="kw">int</span>>());  <span class="cm">// descrescător</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. INTERCLASARE ──────────────────────────────── -->
+<section id="interclasare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">⋈</span>
+      <h2>Interclasarea (Merge) a doi vectori sortați</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Problemă:</strong> Dați doi vectori sortați A[1..m] și B[1..n]. Construiți vectorul C[1..m+n] care conține toate elementele, sortat.
+      </div>
+      <pre><span class="kw">void</span> <span class="fn">interclasare</span>(<span class="kw">int</span> a[], <span class="kw">int</span> m, <span class="kw">int</span> b[], <span class="kw">int</span> n, <span class="kw">int</span> c[]) &#123;
+    <span class="kw">int</span> i = <span class="nu">1</span>, j = <span class="nu">1</span>, k = <span class="nu">0</span>;
+
+    <span class="kw">while</span> (i &lt;= m && j &lt;= n) &#123;
+        <span class="kw">if</span> (a[i] &lt;= b[j]) c[++k] = a[i++];
+        <span class="kw">else</span>              c[++k] = b[j++];
+    &#125;
+    <span class="cm">// Copiem restul din A sau B</span>
+    <span class="kw">while</span> (i &lt;= m) c[++k] = a[i++];
+    <span class="kw">while</span> (j &lt;= n) c[++k] = b[j++];
+    <span class="cm">// Complexitate: O(m+n) timp și spațiu</span>
+&#125;</pre>
+
+      <div class="callout success">
+        <strong>Exemplu:</strong><br>
+        A = [1, 3, 5, 7], B = [2, 4, 6]<br>
+        C = [1, 2, 3, 4, 5, 6, 7] ✅
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. INSERARE / ȘTERGERE ───────────────────────── -->
+<section id="inserare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">✏️</span>
+      <h2>Inserare și ștergere elemente</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Inserare pe poziția p — O(n)</h3>
+      <pre><span class="kw">void</span> <span class="fn">insereaza</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n, <span class="kw">int</span> p, <span class="kw">int</span> val) &#123;
+    <span class="cm">// Deplasăm elementele de la p la n cu o poziție la dreapta</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = n; i >= p; i--)
+        v[i+<span class="nu">1</span>] = v[i];
+    v[p] = val;
+    n++;
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Ștergere de pe poziția p — O(n)</h3>
+      <pre><span class="kw">void</span> <span class="fn">sterge</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n, <span class="kw">int</span> p) &#123;
+    <span class="cm">// Deplasăm elementele de la p+1 la n cu o poziție la stânga</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = p; i &lt; n; i++)
+        v[i] = v[i+<span class="nu">1</span>];
+    n--;
+&#125;</pre>
+
+      <div class="callout warning">
+        <strong>Complexitate:</strong> Inserarea/ștergerea la mijloc = O(n) din cauza deplasărilor. La capăt (stânga sau dreapta) poate fi O(1) dacă ne permitem structuri mai avansate.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. VECTORI DE FRECVENȚĂ ──────────────────────── -->
+<section id="frecventa">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">📊</span>
+      <h2>Vectori de frecvență (Counting Sort)</h2>
+    </div>
+    <div class="slide-body">
+      <p>Când valorile sunt din domeniu mic [0, K], putem număra aparițiile în O(n+K).</p>
+      <pre><span class="kw">int</span> freq[<span class="nu">1001</span>] = &#123;<span class="nu">0</span>&#125;;  <span class="cm">// domeniu valori 0..1000</span>
+
+<span class="cm">// Numărăm aparițiile</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    freq[v[i]]++;
+
+<span class="cm">// Afișăm valorile sortate (Counting Sort)</span>
+<span class="kw">for</span> (<span class="kw">int</span> val = <span class="nu">0</span>; val &lt;= <span class="nu">1000</span>; val++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">0</span>; j &lt; freq[val]; j++)
+        cout &lt;&lt; val &lt;&lt; <span class="st">" "</span>;
+
+<span class="cm">// Cel mai frecvent element</span>
+<span class="kw">int</span> maxFreq = <span class="nu">0</span>, elMaxFreq = -<span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt;= <span class="nu">1000</span>; i++)
+    <span class="kw">if</span> (freq[i] > maxFreq) &#123; maxFreq = freq[i]; elMaxFreq = i; &#125;</pre>
+
+      <div class="callout success">
+        <strong>Avantaj:</strong> Sortare în O(n+K) — mult mai rapid decât O(n log n) când K este mic. Ideal pentru note, cifre, vârste etc.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. PROBLEME BAC ─────────────────────────────── -->
+<!-- ─── DEMO INTERACTIV VECTORI ──────────────────── -->
+<section id="vector-demo">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">🧱</span>
+      <h2>Demo Interactiv — Inserare, Ștergere, Căutare</h2>
+    </div>
+    <div class="slide-body">
+      <p>Vectorul de mai jos are <strong>8 sloturi</strong> (capacitate maximă). Sloturile goale sunt gri. Apasă butoanele pentru a vedea operațiile pas cu pas.</p>
+      <div class="speed-wrap" style="margin-bottom:12px;">
+        <label>⚡ Viteză:</label>
+        <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+        <span class="speed-label">Normal</span>
+      </div>
+      <div class="vec-container">
+        <div class="vec-track"></div>
+      </div>
+      <div class="vec-status">Apasă un buton pentru a vedea operația în acțiune.</div>
+      <div class="vec-controls" style="margin-top:12px;">
+        <strong>Inserare:</strong> 
+        Poziție: <input type="number" data-vec="ins-pos" value="3" min="1" max="9" style="width:60px">
+        Valoare: <input type="number" data-vec="ins-val" value="99" min="0" max="999" style="width:70px">
+        <button class="btn btn-primary" data-vec="insert">↓ Inserează</button>
+      </div>
+      <div class="vec-controls" style="margin-top:8px;">
+        <strong>Ștergere:</strong> 
+        Poziție: <input type="number" data-vec="del-pos" value="2" min="1" max="8" style="width:60px">
+        <button class="btn btn-danger" data-vec="delete">🗑 Șterge</button>
+          
+        <strong>Căutare:</strong> 
+        Valoare: <input type="number" data-vec="srch-val" value="8" min="0" max="999" style="width:70px">
+        <button class="btn btn-success" data-vec="search">🔍 Caută</button>
+          
+        <button class="btn btn-secondary" data-vec="reset">↺ Reset</button>
+      </div>
+      <div class="callout info" style="margin-top:16px;">
+        <strong>Complexități de reținut:</strong>
+        <ul style="margin:8px 0 0;padding-left:18px;">
+          <li><strong>Inserare la poziția k</strong> → mută <code>n−k</code> elemente la dreapta → <span class="g-medium">O(n)</span></li>
+          <li><strong>Ștergere de la poziția k</strong> → mută <code>n−k</code> elemente la stânga → <span class="g-medium">O(n)</span></li>
+          <li><strong>Căutare secvențială</strong> → parcurge tot vectorul în cel mai rău caz → <span class="g-medium">O(n)</span></li>
+          <li><strong>Acces direct <code>v[i]</code></strong> → instant, nu depinde de n → <span class="g-great">O(1)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — vectori</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1 (BAC 2022):</strong> Se dă un vector cu n elemente întregi. Afișați elementele distincte în ordinea primei apariții.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">bool</span> aparut[<span class="nu">1001</span>] = &#123;<span class="kw">false</span>&#125;;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+    <span class="kw">if</span> (!aparut[v[i]]) &#123;
+        cout &lt;&lt; v[i] &lt;&lt; <span class="st">" "</span>;
+        aparut[v[i]] = <span class="kw">true</span>;
+    &#125;
+&#125;
+<span class="cm">// O(n) timp, O(K) spațiu</span></pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Dați un vector sortat cu n elemente. Eliminați duplicatele (păstrați câte una din fiecare valoare).
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> m = <span class="nu">1</span>;  <span class="cm">// noul n după eliminare</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+    <span class="kw">if</span> (v[i] != v[i-<span class="nu">1</span>])
+        v[++m] = v[i];
+n = m;  <span class="cm">// actualizăm dimensiunea</span></pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 3:</strong> Dați n și un vector v[1..n]. Verificați dacă vectorul este o permutare a lui &#123;1, 2, ..., n&#125;.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> freq[<span class="nu">100001</span>] = &#123;<span class="nu">0</span>&#125;;
+<span class="kw">bool</span> ok = <span class="kw">true</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+    <span class="kw">if</span> (v[i] &lt; <span class="nu">1</span> || v[i] > n || freq[v[i]] > <span class="nu">0</span>) &#123; ok = <span class="kw">false</span>; <span class="kw">break</span>; &#125;
+    freq[v[i]]++;
+&#125;
+cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>);</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['vectori-quiz'] = [
+  {
+    "q": "În C++, elementele unui vector (tablou) sunt indexate de la:",
+    "opts": [
+      "1",
+      "0",
+      "-1",
+      "Depinde de compilator"
+    ],
+    "ans": 1,
+    "exp": "C++ folosește indexare de la 0. Un vector de n elemente are indici 0, 1, ..., n-1.",
+    "diff": 1
+  },
+  {
+    "q": "Pentru a aplica căutarea binară, vectorul trebuie să fie:",
+    "opts": [
+      "Sortat",
+      "Fără duplicate",
+      "De dimensiune pară",
+      "Inițializat cu 0"
+    ],
+    "ans": 0,
+    "exp": "Căutarea binară compară cu mijlocul și elimină jumătate — funcționează DOAR pe vectori sortați.",
+    "diff": 1
+  },
+  {
+    "q": "Câte comparații face Selection Sort pe un vector de n elemente?",
+    "opts": [
+      "n",
+      "n log n",
+      "n(n-1)/2",
+      "n²"
+    ],
+    "ans": 2,
+    "exp": "Selection Sort face n-1 + n-2 + ... + 1 = n(n-1)/2 comparații → O(n²).",
+    "diff": 2
+  },
+  {
+    "q": "Un vector de frecvență v[x]++ se folosește pentru:",
+    "opts": [
+      "Sortare rapidă",
+      "Numărarea aparițiilor fiecărei valori",
+      "Căutarea unui element",
+      "Inversarea vectorului"
+    ],
+    "ans": 1,
+    "exp": "v[x]++ incrementează contorul pentru valoarea x → numărăm câte ori apare fiecare valoare.",
+    "diff": 2
+  },
+  {
+    "q": "Cel mai rău caz pentru căutarea liniară (secvențială):",
+    "opts": [
+      "Elementul e primul",
+      "Elementul e la mijloc",
+      "Elementul nu există (parcurgem tot)",
+      "Vectorul e sortat"
+    ],
+    "ans": 2,
+    "exp": "Dacă elementul nu există, comparăm cu TOȚI cei n → O(n) comparații.",
+    "diff": 1
+  },
+  {
+    "q": "Interclasarea a doi vectori sortați de dimensiuni m și n are complexitatea:",
+    "opts": [
+      "O(m·n)",
+      "O(m+n)",
+      "O(m log n)",
+      "O((m+n)²)"
+    ],
+    "ans": 1,
+    "exp": "Parcurgem fiecare vector o singură dată, avansând un pointer → O(m+n).",
+    "diff": 2
+  },
+  {
+    "q": "Insertion Sort are complexitate O(n) în cel mai bun caz deoarece:",
+    "opts": [
+      "Face n/2 swap-uri",
+      "Pe un vector deja sortat face doar n-1 comparații și 0 swap-uri",
+      "Folosește binary search",
+      "Sortează de la mijloc"
+    ],
+    "ans": 1,
+    "exp": "Vector sortat: fiecare element este deja în poziția corectă → o comparație per element.",
+    "diff": 3
+  },
+  {
+    "q": "Algoritmul lui Kadane găsește:",
+    "opts": [
+      "Elementul maxim",
+      "Subșirul de sumă maximă",
+      "Mediana vectorului",
+      "Cel mai lung subșir crescător"
+    ],
+    "ans": 1,
+    "exp": "Kadane: maxCurent = max(v[i], maxCurent+v[i]) → O(n), cel mai eficient algoritm pentru subarraySumMax.",
+    "diff": 2
+  },
+  {
+    "q": "Rotirea la stânga a unui vector cu o poziție: ce se întâmplă cu primul element?",
+    "opts": [
+      "Se pierde",
+      "Merge la final",
+      "Devine 0",
+      "Rămâne pe loc"
+    ],
+    "ans": 1,
+    "exp": "La rotire ciclică stânga: v[0] merge la v[n-1], restul se mută cu o poziție la stânga.",
+    "diff": 3
+  },
+  {
+    "q": "Eliminarea unui element de la mijlocul unui vector de n elemente necesită:",
+    "opts": [
+      "O(1) operații",
+      "O(log n) operații",
+      "O(n) operații (deplasare)",
+      "O(n²) operații"
+    ],
+    "ans": 2,
+    "exp": "Trebuie să deplasăm toate elementele de după poziția ștearsă cu o poziție la stânga → O(n).",
+    "diff": 3
+  },
+  {
+    "q": "(BAC) int v[]={3,1,4,1,5}; cout<<v[2]; afișează:",
+    "opts": [
+      "1",
+      "4",
+      "3",
+      "5"
+    ],
+    "ans": 1,
+    "exp": "Indexarea începe de la 0: v[0]=3, v[1]=1, v[2]=4.",
+    "diff": 1
+  },
+  {
+    "q": "Complexitatea căutării liniare într-un vector nesortat de n elemente:",
+    "opts": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n²)"
+    ],
+    "ans": 2,
+    "exp": "În cel mai rău caz, parcurgem toți n pași → O(n).",
+    "diff": 1
+  },
+  {
+    "q": "(BAC 2020) Numărul maxim de interschimbări Bubble Sort pentru n=5 este:",
+    "opts": [
+      "4",
+      "8",
+      "10",
+      "5"
+    ],
+    "ans": 2,
+    "exp": "n*(n-1)/2 = 5*4/2 = 10 pentru vectorul complet inversat.",
+    "diff": 3
+  },
+  {
+    "q": "Un vector de frecvență pentru elemente în [1,100] are dimensiunea minimă:",
+    "opts": [
+      "n",
+      "100",
+      "101",
+      "n+1"
+    ],
+    "ans": 2,
+    "exp": "Avem nevoie de 101 poziții (indexurile 0..100).",
+    "diff": 2
+  },
+  {
+    "q": "Complexitatea interclasării a doi vectori sortați de dimensiuni n și m:",
+    "opts": [
+      "O(n)",
+      "O(m)",
+      "O(n+m)",
+      "O(n*m)"
+    ],
+    "ans": 2,
+    "exp": "Parcurgem ambii vectori o singură dată → O(n+m).",
+    "diff": 2
+  },
+  {
+    "q": "(BAC 2022) Ștergerea unui element dintr-un vector de n elemente necesită:",
+    "opts": [
+      "Setarea la 0",
+      "Mutarea elementelor de după el la stânga, decrementarea n",
+      "Mutarea la dreapta",
+      "Inversarea vectorului"
+    ],
+    "ans": 1,
+    "exp": "Ștergerea necesită deplasarea la stânga a tuturor elementelor de după poziția ștearsă.",
+    "diff": 2
+  },
+  {
+    "q": "(BAC) Minimul vectorului {7,2,9,1,5} se află la indexul:",
+    "opts": [
+      "0",
+      "1",
+      "3",
+      "4"
+    ],
+    "ans": 2,
+    "exp": "v[3]=1 este minimul — indexul 3.",
+    "diff": 1
+  }
+];
+</script>
+</ChapterLayout>

@@ -1,0 +1,682 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [{"id":"definitie","label":"Definiție"},{"id":"notatii","label":"Notații"},{"id":"clase","label":"Clase"},{"id":"timp","label":"Complexitate Timp"},{"id":"spatiu","label":"Complexitate Spațiu"},{"id":"sortare","label":"Sortare"},{"id":"demo","label":"Demo Bubble Sort"},{"id":"bac","label":"Probleme BAC"},{"id":"refs","label":"Referințe"}];
+---
+<ChapterLayout
+  title="Eficiența și Complexitatea Algoritmilor"
+  subtitle="Capitolul 1 — Notații asimptotice, clase de complexitate, analiza algoritmilor de sortare"
+  icon="📊"
+  gradient="linear-gradient(135deg,#0c4a6e 0%,#0369a1 50%,#0ea5e9 100%)"
+  tags={["Big-O","Bubble Sort","Căutare binară","Sortare","Complexitate spațiu"]}
+  sections={sections}
+  chapterNum={1}
+  description="Eficiența și Complexitatea Algoritmilor — informatică pentru liceu și bacalaureat"
+>
+<!-- ─── 1. DEFINIȚIE ─────────────────────────────────── -->
+<section id="definitie">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">📏</span>
+      <h2>Ce înseamnă eficiența unui algoritm?</h2>
+    </div>
+    <div class="slide-body">
+      <p><div class="beginner-box">
+        <div class="bb-title">📚 Analogie: De ce contează eficiența?</div>
+        <p>Imaginează-ți că vrei să găsești un cuvânt într-un dicționar cu 1.000.000 de cuvinte:</p>
+        <ul>
+          <li>🐢 <strong>Verifici pagină cu pagină de la început</strong> → maxim 1.000.000 pași → O(n)</li>
+          <li>🚀 <strong>Cauți la mijloc, elimini jumătate</strong> (căutare binară) → maxim 20 pași → O(log n)</li>
+        </ul>
+        <p>Pe 1 miliard de elemente: O(n) = 1 miliard de operații, O(log n) = doar <strong>30</strong>. Eficiența contează enorm!</p>
+      </div>
+      Un algoritm este o secvență finită, bine definită de pași care rezolvă o problemă. Două algoritme diferite pot rezolva același lucru, dar cu costuri diferite de <strong>timp</strong> și <strong>memorie</strong>.</p>
+      <div class="callout info">
+        <strong>Definiție:</strong> <em>Complexitatea unui algoritm</em> este o funcție care descrie creșterea resurselor necesare (timp sau spațiu) în funcție de dimensiunea datelor de intrare <em>n</em>.
+      </div>
+      <p>Analizăm două tipuri:</p>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin-top:14px;">
+        <div class="card blue">
+          <strong>Complexitate timp</strong>
+          <p>Numărul de operații elementare executate</p>
+        </div>
+        <div class="card green">
+          <strong>Complexitate spațiu</strong>
+          <p>Memoria suplimentară utilizată de algoritm</p>
+        </div>
+      </div>
+      <div class="callout warning" style="margin-top:16px;">
+        <strong>De reținut:</strong> La BAC se analizează de obicei <em>cazul cel mai defavorabil</em> (worst case) și complexitatea timp.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. NOTAȚII ─────────────────────────────────── -->
+<section id="notatii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">Ο</span>
+      <h2>Notații asimptotice: O, Ω, Θ</h2>
+    </div>
+    <div class="slide-body">
+      <p>Notațiile asimptotice descriu <strong>comportamentul unui algoritm pentru n → ∞</strong>, ignorând constantele și termenii de ordin inferior.</p>
+
+      <div class="notation-row">
+        <div class="notation-box nb-blue">
+          <strong>O(g(n))</strong> — Big-O<br>
+          <small>Limita superioară (worst case)<br>f(n) ≤ c · g(n) pentru n ≥ n₀</small>
+        </div>
+        <div class="notation-box nb-green">
+          <strong>Ω(g(n))</strong> — Omega<br>
+          <small>Limita inferioară (best case)<br>f(n) ≥ c · g(n) pentru n ≥ n₀</small>
+        </div>
+        <div class="notation-box nb-purple">
+          <strong>Θ(g(n))</strong> — Theta<br>
+          <small>Limita exactă (tight bound)<br>c₁·g(n) ≤ f(n) ≤ c₂·g(n)</small>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <strong>Exemplu concret:</strong> Dacă avem T(n) = 5n² + 3n + 12, atunci:
+        T(n) = O(n²)  —  T(n) = Ω(n²)  —  T(n) = Θ(n²)
+      </div>
+
+      <h3 style="margin:20px 0 12px;font-size:15px;">Reguli de simplificare</h3>
+      <div class="steps">
+        <div>Elimină <strong>constantele multiplicative</strong>: O(5n) = O(n)</div>
+        <div>Elimină <strong>termenii de ordin inferior</strong>: O(n² + n) = O(n²)</div>
+        <div>Suma: max(O(f), O(g)) = O(max(f, g))</div>
+        <div>Produs: O(f) · O(g) = O(f · g)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. CLASE DE COMPLEXITATE ─────────────────────── -->
+<section id="clase">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📊</span>
+      <h2>Clase de complexitate</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(1)</span>
+        <div class="bar-outer"><div class="bar-inner g-great" data-width="3%"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag green">Ideal</span>
+      </div>
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(log n)</span>
+        <div class="bar-outer"><div class="bar-inner g-great" data-width="10%" style="background:#0891b2;"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag blue">Excelent</span>
+      </div>
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(n)</span>
+        <div class="bar-outer"><div class="bar-inner g-good" data-width="22%"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag blue">Bun</span>
+      </div>
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(n log n)</span>
+        <div class="bar-outer"><div class="bar-inner g-medium" data-width="40%"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag orange">Acceptabil</span>
+      </div>
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(n²)</span>
+        <div class="bar-outer"><div class="bar-inner g-bad" data-width="65%"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag orange">Slab</span>
+      </div>
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(n³)</span>
+        <div class="bar-outer"><div class="bar-inner g-worst" data-width="80%"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag red">Rău</span>
+      </div>
+      <div class="bar-row" style="margin-bottom:6px;">
+        <span style="width:140px;font-size:13px;font-weight:700;">O(2ⁿ)</span>
+        <div class="bar-outer"><div class="bar-inner g-worst" data-width="95%"></div></div>
+        <span style="margin-left:10px;font-size:12px;" class="tag red">Impracticabil</span>
+      </div>
+
+      <div class="callout success" style="margin-top:20px;">
+        <strong>Ierarhie:</strong> O(1) &lt; O(log n) &lt; O(√n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; O(n!)
+      </div>
+
+      <table style="margin-top:20px;">
+        <thead><tr><th>Clasă</th><th>n = 10</th><th>n = 100</th><th>n = 1000</th><th>n = 10⁶</th></tr></thead>
+        <tbody>
+          <tr><td><strong>O(1)</strong></td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td><strong>O(log n)</strong></td><td>~3</td><td>~7</td><td>~10</td><td>~20</td></tr>
+          <tr><td><strong>O(n)</strong></td><td>10</td><td>100</td><td>1 000</td><td>1 000 000</td></tr>
+          <tr><td><strong>O(n log n)</strong></td><td>~33</td><td>~664</td><td>~10 000</td><td>~2×10⁷</td></tr>
+          <tr><td><strong>O(n²)</strong></td><td>100</td><td>10 000</td><td>10⁶</td><td>10¹²</td></tr>
+          <tr><td><strong>O(2ⁿ)</strong></td><td>1 024</td><td>10³⁰</td><td>10³⁰⁰</td><td>∞</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. COMPLEXITATE TIMP ─────────────────────────── -->
+<section id="timp">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🔁</span>
+      <h2>Complexitate timp — exemple practice</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="margin-bottom:10px;font-size:15px;">O(1) — Acces la element în tablou</h3>
+      <pre><span class="kw">int</span> x = v[<span class="nu">5</span>];   <span class="cm">// O(1) — acces direct, indiferent de n</span>
+<span class="kw">int</span> suma = a + b;  <span class="cm">// O(1) — operație aritmetică</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">O(n) — Parcurgere simplă</h3>
+      <pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) &#123;
+    cout &lt;&lt; v[i];  <span class="cm">// executat de n ori → O(n)</span>
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">O(n²) — Bucle imbricate</h3>
+      <pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">0</span>; j &lt; n; j++)
+        suma += v[i] * v[j];  <span class="cm">// n × n = n² operații</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">O(log n) — Căutare binară</h3>
+      <pre><span class="kw">int</span> <span class="fn">cautareBinara</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> x) &#123;
+    <span class="kw">int</span> st = <span class="nu">0</span>, dr = n - <span class="nu">1</span>;
+    <span class="kw">while</span> (st &lt;= dr) &#123;
+        <span class="kw">int</span> mij = (st + dr) / <span class="nu">2</span>;
+        <span class="kw">if</span> (v[mij] == x) <span class="kw">return</span> mij;
+        <span class="kw">else if</span> (v[mij] &lt; x) st = mij + <span class="nu">1</span>;
+        <span class="kw">else</span> dr = mij - <span class="nu">1</span>;
+    &#125;
+    <span class="kw">return</span> -<span class="nu">1</span>;
+    <span class="cm">// la fiecare pas intervalul se înjumătățește → O(log n)</span>
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>Regulă practică:</strong> Numărul de bucle imbricate de câte <em>n</em> ori determină gradul: 1 buclă → O(n), 2 bucle → O(n²), 3 bucle → O(n³).
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Analiza corectă — cazuri speciale</h3>
+      <pre><span class="cm">// Două bucle SEPARATE (nu imbricate) → O(n) + O(n) = O(n)</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) suma1 += v[i];
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) suma2 += v[i];
+<span class="cm">// Total: O(n), nu O(n²)</span></pre>
+
+      <pre><span class="cm">// Jumătate din n la fiecare pas → log₂n pași → O(log n)</span>
+<span class="kw">while</span> (n > <span class="nu">1</span>) n /= <span class="nu">2</span>;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. COMPLEXITATE SPAȚIU ─────────────────────────── -->
+<section id="spatiu">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">💾</span>
+      <h2>Complexitate spațiu</h2>
+    </div>
+    <div class="slide-body">
+      <p>Complexitatea spațiu se referă la <strong>memoria suplimentară</strong> folosită de algoritm (nu se numără inputul în sine).</p>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card green">
+          <strong>O(1) — spațiu constant</strong>
+          <p>Algoritmul folosește doar câteva variabile auxiliare, indiferent de n</p>
+          <small>Exemplu: bubble sort in-place</small>
+        </div>
+        <div class="card orange">
+          <strong>O(n) — spațiu liniar</strong>
+          <p>Se alocă un tablou auxiliar de dimensiune n</p>
+          <small>Exemplu: merge sort (tablou temp)</small>
+        </div>
+      </div>
+
+      <pre><span class="cm">// O(1) spațiu — sortare prin selecție, in-place</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n-<span class="nu">1</span>; i++) &#123;
+    <span class="kw">int</span> minIdx = i;
+    <span class="kw">for</span> (<span class="kw">int</span> j = i+<span class="nu">1</span>; j &lt; n; j++)
+        <span class="kw">if</span> (v[j] &lt; v[minIdx]) minIdx = j;
+    swap(v[i], v[minIdx]);  <span class="cm">// O(1) memorie extra</span>
+&#125;</pre>
+
+      <pre><span class="cm">// O(n) spațiu — copiere tablou</span>
+<span class="kw">int</span> copie[<span class="nu">100001</span>];
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) copie[i] = v[i];  <span class="cm">// n elemente suplimentare</span></pre>
+
+      <div class="callout warning">
+        <strong>Recursivitatea</strong> consumă spațiu pe stivă: O(adâncimea recursiei). Factorial(n) → O(n) spațiu pe stivă.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. ALGORITMI DE SORTARE ─────────────────────── -->
+<section id="sortare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">🔀</span>
+      <h2>Algoritmi de sortare — comparație</h2>
+    </div>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Algoritm</th>
+            <th>Best</th>
+            <th>Average</th>
+            <th>Worst</th>
+            <th>Spațiu</th>
+            <th>Stabil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bubble Sort</strong></td>
+            <td><span class="tag green">O(n)</span></td>
+            <td><span class="tag orange">O(n²)</span></td>
+            <td><span class="tag red">O(n²)</span></td>
+            <td>O(1)</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td><strong>Selection Sort</strong></td>
+            <td><span class="tag orange">O(n²)</span></td>
+            <td><span class="tag orange">O(n²)</span></td>
+            <td><span class="tag red">O(n²)</span></td>
+            <td>O(1)</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td><strong>Insertion Sort</strong></td>
+            <td><span class="tag green">O(n)</span></td>
+            <td><span class="tag orange">O(n²)</span></td>
+            <td><span class="tag red">O(n²)</span></td>
+            <td>O(1)</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td><strong>Merge Sort</strong></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td>O(n)</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td><strong>Quick Sort</strong></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td><span class="tag red">O(n²)</span></td>
+            <td>O(log n)</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td><strong>Heap Sort</strong></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td><span class="tag blue">O(n log n)</span></td>
+            <td>O(1)</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td><strong>Counting Sort</strong></td>
+            <td><span class="tag green">O(n+k)</span></td>
+            <td><span class="tag green">O(n+k)</span></td>
+            <td><span class="tag green">O(n+k)</span></td>
+            <td>O(k)</td>
+            <td>✅</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout info" style="margin-top:18px;">
+        <strong>La BAC</strong> se cer de obicei Bubble Sort și Selection Sort. Cunoaște codul și complexitatea O(n²) pentru ambele.
+      </div>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">Bubble Sort — implementare C++</h3>
+      <pre><span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n-<span class="nu">1</span>; i++) &#123;
+        <span class="kw">bool</span> swap_facut = <span class="kw">false</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">0</span>; j &lt; n-i-<span class="nu">1</span>; j++) &#123;
+            <span class="kw">if</span> (v[j] > v[j+<span class="nu">1</span>]) &#123;
+                swap(v[j], v[j+<span class="nu">1</span>]);
+                swap_facut = <span class="kw">true</span>;
+            &#125;
+        &#125;
+        <span class="kw">if</span> (!swap_facut) <span class="kw">break</span>;  <span class="cm">// optimizare: șirul deja sortat</span>
+    &#125;
+    <span class="cm">// Complexitate: O(n²) worst/average, O(n) best</span>
+&#125;</pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">Selection Sort — implementare C++</h3>
+      <pre><span class="kw">void</span> <span class="fn">selectionSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n-<span class="nu">1</span>; i++) &#123;
+        <span class="kw">int</span> minIdx = i;
+        <span class="kw">for</span> (<span class="kw">int</span> j = i+<span class="nu">1</span>; j &lt; n; j++)
+            <span class="kw">if</span> (v[j] &lt; v[minIdx]) minIdx = j;
+        <span class="kw">if</span> (minIdx != i) swap(v[i], v[minIdx]);
+    &#125;
+    <span class="cm">// Complexitate: O(n²) în toate cazurile</span>
+&#125;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. DEMO BUBBLE SORT ─────────────────────────── -->
+<section id="demo">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🎬</span>
+      <h2>Animație — Bubble Sort</h2>
+    </div>
+    <div class="slide-body">
+      <p>Apasă <strong>Start</strong> pentru a vedea cum funcționează Bubble Sort pas cu pas. Barele de culoare <span style="color:#f97316">portocalie</span> sunt comparate, cele <span style="color:#16a34a">verzi</span> sunt la locul final.</p>
+      <div id="bubble-demo">
+        <div class="sort-demo" id="sort-bars"></div>
+        <div style="margin:14px 0 8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-primary" data-action="start">▶ Start</button>
+          <button class="btn btn-secondary" data-action="reset">↺ Reset</button>
+          <button class="btn btn-secondary" data-action="shuffle">🔀 Amestecare</button>
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;">
+            Viteză:
+            <input type="range" min="1" max="5" value="3" data-action="speed" style="width:90px;">
+          </label>
+        </div>
+        <div class="anim-status" style="font-size:13px;color:#6b7280;min-height:22px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. PROBLEME BAC ─────────────────────────────── -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — rezolvate</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1 (BAC 2023):</strong> Determina complexitatea timp a algoritmului următor:
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">for</span>(i=<span class="nu">1</span>; i&lt;=n; i++)
+  <span class="kw">for</span>(j=<span class="nu">1</span>; j&lt;=i; j++)
+    s = s + i*j;</pre>
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong> Bucla exterioară rulează n ori. Bucla interioară rulează 1, 2, 3, ... n ori.
+        Total operații = 1 + 2 + ... + n = n(n+1)/2 ≈ n²/2. Deci complexitatea este <strong>O(n²)</strong>.
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Care este complexitatea algoritmului următor?
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;">i = n;
+<span class="kw">while</span>(i > <span class="nu">1</span>) i = i / <span class="nu">2</span>;</pre>
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong> La fiecare pas i se înjumătățește. Numărul de pași ≈ log₂(n). Complexitatea este <strong>O(log n)</strong>.
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 3:</strong> Se dă un vector cu n elemente. Scrie un algoritm O(n) care verifică dacă există duplicate.
+      </div>
+      <div class="callout success">
+        <strong>Soluție (vector de frecvență):</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> freq[<span class="nu">1001</span>] = &#123;<span class="nu">0</span>&#125;;
+<span class="kw">bool</span> duplicat = <span class="kw">false</span>;
+<span class="kw">for</span>(<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) &#123;
+    freq[v[i]]++;
+    <span class="kw">if</span>(freq[v[i]] > <span class="nu">1</span>) &#123; duplicat = <span class="kw">true</span>; <span class="kw">break</span>; &#125;
+&#125;
+<span class="cm">// O(n) timp, O(k) spațiu unde k = domeniu valori</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REFS ─────────────────────────────────────────── -->
+<section id="refs">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">📚</span>
+      <h2>Referințe și resurse</h2>
+    </div>
+    <div class="slide-body">
+      <div class="card-grid">
+        <div class="card teal">
+          <strong>Universități RO</strong>
+          <p><a href="https://cs.pub.ro">UPB — cs.pub.ro</a><br>
+             <a href="https://fmi.unibuc.ro">UniBuc — fmi.unibuc.ro</a><br>
+             <a href="https://www.cs.ubbcluj.ro">UBB Cluj</a><br>
+             <a href="https://iit.tuiasi.ro">TUIASI Iași</a></p>
+        </div>
+        <div class="card blue">
+          <strong>Practică & Probleme</strong>
+          <p><a href="https://pbinfo.ro">pbinfo.ro</a><br>
+             <a href="https://infoarena.ro">infoarena.ro</a><br>
+             <a href="https://leetcode.com">LeetCode</a><br>
+             <a href="https://hackerrank.com">HackerRank</a></p>
+        </div>
+        <div class="card green">
+          <strong>Resurse internaționale</strong>
+          <p><a href="https://visualgo.net">VisuAlgo — animații</a><br>
+             <a href="https://bigocheatsheet.com">bigocheatsheet.com</a><br>
+             <a href="https://ocw.mit.edu/6-006">MIT OCW 6.006</a><br>
+             <a href="https://www.khanacademy.org">Khan Academy</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+window.QUIZ_DATA = window.QUIZ_DATA || {};
+window.QUIZ_DATA['complexitate-quiz'] = [
+  {
+    "q": "Ce înseamnă O(n²) pentru un algoritm?",
+    "opts": [
+      "Algoritmul folosește n² memorie",
+      "Timpul de execuție crește pătratic cu n",
+      "Algoritmul face exact n² pași",
+      "Algoritmul funcționează corect doar pentru n²"
+    ],
+    "ans": 1,
+    "exp": "Big-O descrie comportamentul în cel mai rău caz — dublând n, timpul de 4 ori.",
+    "diff": 1
+  },
+  {
+    "q": "Care algoritm de sortare are complexitatea medie O(n log n)?",
+    "opts": [
+      "Bubble Sort",
+      "Selection Sort",
+      "Merge Sort",
+      "Insertion Sort"
+    ],
+    "ans": 2,
+    "exp": "Merge Sort divide și recombină — T(n)=2T(n/2)+n → O(n log n).",
+    "diff": 1
+  },
+  {
+    "q": "Care este complexitatea spațială a unui apel recursiv Fibonacci fără memoizare?",
+    "opts": [
+      "O(1)",
+      "O(n)",
+      "O(n²)",
+      "O(2ⁿ)"
+    ],
+    "ans": 1,
+    "exp": "Adâncimea stivei de apeluri este n → O(n) spațiu.",
+    "diff": 2
+  },
+  {
+    "q": "Ce reprezintă notația Ω (Omega)?",
+    "opts": [
+      "Limita superioară a timpului",
+      "Limita inferioară a timpului",
+      "Limita exactă (strânsă)",
+      "Cel mai bun caz garantat"
+    ],
+    "ans": 1,
+    "exp": "Ω descrie cel mai bun scenariu posibil — algoritmul nu poate fi MAI rapid decât Ω.",
+    "diff": 1
+  },
+  {
+    "q": "T(n) = 2·T(n/2) + n are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "ans": 1,
+    "exp": "Prin Master Theorem (caz 2): log₂2 = 1 = grad lui n → O(n log n).",
+    "diff": 2
+  },
+  {
+    "q": "Căutarea binară are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(log n)",
+      "O(1)"
+    ],
+    "ans": 2,
+    "exp": "La fiecare pas înjumătățim spațiul de căutare → log₂n pași.",
+    "diff": 3
+  },
+  {
+    "q": "Bubble Sort în cel mai rău caz (vector invers sortat) face:",
+    "opts": [
+      "O(n) comparații",
+      "O(n log n) comparații",
+      "O(n²) comparații",
+      "O(1) comparații"
+    ],
+    "ans": 2,
+    "exp": "Fiecare element parcurge toți ceilalți → n(n-1)/2 comparații → O(n²).",
+    "diff": 2
+  },
+  {
+    "q": "Care este complexitatea spațială a sortării prin interclasare (Merge Sort)?",
+    "opts": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n log n)"
+    ],
+    "ans": 2,
+    "exp": "Merge Sort necesită un vector auxiliar de n elemente → O(n) spațiu suplimentar.",
+    "diff": 3
+  },
+  {
+    "q": "Dacă O(f(n)) = O(g(n)) și O(g(n)) = O(h(n)), atunci:",
+    "opts": [
+      "O(f(n)) = O(h(n))",
+      "Nu putem deduce nimic",
+      "O(f(n)) < O(h(n))",
+      "Depinde de constante"
+    ],
+    "ans": 0,
+    "exp": "Big-O este o relație tranzitivă — dacă f≤g și g≤h, atunci f≤h.",
+    "diff": 2
+  },
+  {
+    "q": "Un algoritm O(1) înseamnă că:",
+    "opts": [
+      "Face un singur pas",
+      "Timpul nu depinde de dimensiunea datelor",
+      "Este cel mai rapid posibil",
+      "Folosește memorie constantă"
+    ],
+    "ans": 1,
+    "exp": "O(1) = timp constant — indiferent de n, numărul de operații rămâne fix.",
+    "diff": 3
+  },
+  {
+    "q": "Care este complexitatea algoritmului de căutare binară?",
+    "opts": [
+      "O(n)",
+      "O(log n)",
+      "O(n log n)",
+      "O(1)"
+    ],
+    "ans": 1,
+    "exp": "Căutarea binară înjumătățește intervalul la fiecare pas → O(log n).",
+    "diff": 1
+  },
+  {
+    "q": "Un algoritm cu T(n)=5n²+3n+100 are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n²)",
+      "O(n³)",
+      "O(5n²)"
+    ],
+    "ans": 1,
+    "exp": "Constantele și termenii de ordin inferior se ignoră în notația Big-O.",
+    "diff": 2
+  },
+  {
+    "q": "Care sortare este stabilă (preservă ordinea elementelor egale)?",
+    "opts": [
+      "Selection Sort",
+      "Quick Sort",
+      "Merge Sort",
+      "Heap Sort"
+    ],
+    "ans": 2,
+    "exp": "Merge Sort este stabil: elementele egale păstrează ordinea relativă din input.",
+    "diff": 2
+  },
+  {
+    "q": "Dacă T(n)=T(n-1)+1 cu T(1)=1, atunci T(n) este:",
+    "opts": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n²)"
+    ],
+    "ans": 2,
+    "exp": "Recurența se extinde: T(n)=n → complexitate liniară O(n).",
+    "diff": 3
+  },
+  {
+    "q": "(BAC 2023) Bucla for(i=1;i<=n;i++) for(j=1;j<=i;j++) are complexitatea:",
+    "opts": [
+      "O(n)",
+      "O(n log n)",
+      "O(n²)",
+      "O(2ⁿ)"
+    ],
+    "ans": 2,
+    "exp": "Suma 1+2+...+n = n(n+1)/2 → O(n²). Tipic la BAC!",
+    "diff": 3
+  },
+  {
+    "q": "Complexitatea spațială a algoritmului Merge Sort este:",
+    "opts": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n²)"
+    ],
+    "ans": 2,
+    "exp": "Merge Sort folosește un tablou auxiliar de n elemente → O(n) spațiu suplimentar.",
+    "diff": 3
+  },
+  {
+    "q": "Care algoritm este cel mai rapid în practică pentru seturi mari de date?",
+    "opts": [
+      "Bubble Sort",
+      "Insertion Sort",
+      "Quick Sort",
+      "Selection Sort"
+    ],
+    "ans": 2,
+    "exp": "Quick Sort are O(n log n) cazul mediu și constante mici — preferat în practică.",
+    "diff": 2
+  }
+];
+</script>
+</ChapterLayout>

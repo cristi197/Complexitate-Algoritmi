@@ -1,0 +1,26 @@
+---
+// Plain Astro component — no framework needed
+---
+<button id="theme-toggle" class="theme-toggle" aria-label="Comută tema">
+  <span id="theme-icon">🌙</span>
+</button>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+
+  function updateIcon() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+  }
+
+  btn?.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon();
+  });
+
+  updateIcon();
+</script>

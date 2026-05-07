@@ -1,0 +1,660 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [{"id":"tipuri","label":"char[] vs string"},{"id":"caractere","label":"Funcii Caractere"},{"id":"cstring","label":"Funcii cstring"},{"id":"citire","label":"Citire"},{"id":"algoritmi","label":"Algoritmi"},{"id":"conversii","label":"Conversii"},{"id":"demo","label":"Demo Interactiv"},{"id":"exercitii","label":"Exerciii"},{"id":"bac","label":"Probleme BAC"}];
+---
+<ChapterLayout
+  title="&#350;iruri de Caractere"
+  subtitle="Capitolul 6 &mdash; char[], string, <cctype> (toupper/tolower/isalpha), <cstring>, algoritmi &#351;i probleme BAC"
+  icon="🔤"
+  gradient="linear-gradient(135deg,#7f1d1d 0%,#b91c1c 50%,#ef4444 100%)"
+  tags={["Șiruri de caractere","Palindrom","Anagramă","strlen / strcpy","Caesar"]}
+  sections={sections}
+  chapterNum={6}
+  description="&#350;iruri de Caractere — informatică pentru liceu și bacalaureat"
+>
+<!-- 1. char[] vs string -->
+<section id="tipuri">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red"></span>
+      <h2>char[] vs string — două abordări</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title"> Ce este un şir de caractere?</div>
+        <p>Un şir de caractere este o <strong>secvenţă de litere, cifre sau simboluri</strong> stocate consecutiv în memorie. Fiecare caracter are un cod numeric în tabelul ASCII. De exemplu, <code>'A'</code> = 65, <code>'a'</code> = 97, <code>'0'</code> = 48.</p>
+        <p>Imaginează-ţi un şir ca o <strong>cutie cu sertare numerotate</strong> — fiecare sertar ţine câte un caracter. Ultimul sertar special conţine <code>'\0'</code> (zero), semn că şirul s-a terminat.</p>
+        <p>Relaţia dintre caractere şi numere permite comparaţii, conversii şi operaţii matematice pe caractere!</p>
+      </div>
+
+      <h3 style="margin-top:18px;font-size:15px;">Tabela ASCII — caractere esenţiale pentru BAC</h3>
+      <div style="overflow-x:auto;margin:10px 0;">
+        <table class="ascii-table">
+          <thead><tr><th>Caracter</th><th>Cod ASCII</th><th>Utilizare la BAC</th><th>Exemplu</th></tr></thead>
+          <tbody>
+            <tr><td class="char">A–Z</td><td class="dec">65–90</td><td>Litere mari → <code>ch - 'A'</code> = index 0–25</td><td><code>'C'-'A' = 2</code></td></tr>
+            <tr><td class="char">a–z</td><td class="dec">97–122</td><td>Litere mici → <code>ch - 'a'</code> = index 0–25</td><td><code>'c'-'a' = 2</code></td></tr>
+            <tr><td class="char">0–9</td><td class="dec">48–57</td><td>Cifre → <code>ch - '0'</code> = cifra (0–9)</td><td><code>'7'-'0' = 7</code></td></tr>
+            <tr><td class="char">Spaţiu</td><td class="dec">32</td><td>Delimitator cuvânte în getline()</td><td><code>c == ' '</code></td></tr>
+            <tr><td class="char">\0</td><td class="dec">0</td><td>Terminator de şir (null char)</td><td><code>s[n] = '\0'</code></td></tr>
+            <tr><td class="char">A vs a</td><td class="dec">65 vs 97</td><td>Diferenţa: 32 → conversie mare/mică</td><td><code>'a'-'A' = 32</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:16px 0;">
+        <div class="card red">
+          <strong>char[] (C-style)</strong>
+          <p>Vector de caractere terminat cu <code>'\0'</code>. Funcţii din <code>&lt;cstring></code>: strlen, strcpy, strcat, strcmp, strchr, strstr.</p>
+          <code>char s[201] = "salut";</code><br>
+          <small style="color:#888;font-size:12px;">Accesare: s[0]='s', s[1]='a', ..., s[5]='\0'</small>
+        </div>
+        <div class="card blue">
+          <strong>string (C++)</strong>
+          <p>Clasă C++, dimensiune dinamică. Operatori: <code>+</code>, <code>==</code>, <code>[]</code>. Metode: .length(), .substr(), .find(), .erase().</p>
+          <code>string s = "salut";</code><br>
+          <small style="color:#888;font-size:12px;">Accesare: s[0]='s', s.length()=5</small>
+        </div>
+      </div>
+
+      <pre><span class="cm">// char[] — declarare si initializare</span>
+<span class="kw">char</span> s[<span class="nu">201</span>];                  <span class="cm">// maxim 200 caractere + '\0'</span>
+<span class="kw">char</span> t[] = <span class="st">"informatica"</span>;     <span class="cm">// dimensiune dedusa: 12 (11 + '\0')</span>
+<span class="kw">char</span> r[<span class="nu">10</span>] = &#123;<span class="st">'b'</span>,<span class="st">'a'</span>,<span class="st">'c'</span>,<span class="st">'\0'</span>&#125;;
+
+<span class="cm">// string — declarare si initializare</span>
+<span class="kw">#include</span> <span class="st">&lt;string></span>
+string str = <span class="st">"informatica"</span>;
+string str2(<span class="nu">5</span>, <span class="st">'a'</span>);            <span class="cm">// "aaaaa" — 5 de 'a'</span>
+string str3(str, <span class="nu">2</span>, <span class="nu">4</span>);         <span class="cm">// "form" — substr din pozitia 2, lung 4</span></pre>
+
+      <div class="callout warning">
+        <strong>La BAC</strong>, ambele variante sunt acceptate. Dacă se cere &ldquo;şir de caractere&rdquo; sau vectori char[], folosiţi funcţiile din &lt;cstring>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FUNCTII CARACTERE (cctype) -->
+<section id="caractere">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple"></span>
+      <h2>Funcţii pentru caractere — &lt;cctype></h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title"> De ce avem nevoie de funcţii pentru caractere?</div>
+        <p>La BAC, foarte des trebuie să verificăm: &ldquo;e literă? e cifră? e spaţiu?&rdquo; sau să convertăm litere mari în mici. Biblioteca <code>&lt;cctype></code> oferă funcţii gata făcute pentru asta. În loc să compari cu coduri ASCII direct, poţi folosi aceste funcţii clare.</p>
+      </div>
+
+      <h3 style="margin:16px 0 12px;font-size:15px;"> Funcţii de verificare (returnează 0 sau non-zero)</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Returnează adevărat când...</th><th>Exemplu adevărat</th><th>Exemplu fals</th></tr></thead>
+        <tbody>
+          <tr><td><code>isalpha(c)</code></td><td>c este literă (A-Z sau a-z)</td><td><code>isalpha('A')</code></td><td><code>isalpha('3')</code></td></tr>
+          <tr><td><code>isdigit(c)</code></td><td>c este cifră (0-9)</td><td><code>isdigit('7')</code></td><td><code>isdigit('a')</code></td></tr>
+          <tr><td><code>isalnum(c)</code></td><td>c este literă SAU cifră</td><td><code>isalnum('a')</code></td><td><code>isalnum('!')</code></td></tr>
+          <tr><td><code>isupper(c)</code></td><td>c este literă MARE (A-Z)</td><td><code>isupper('A')</code></td><td><code>isupper('a')</code></td></tr>
+          <tr><td><code>islower(c)</code></td><td>c este literă MICĂ (a-z)</td><td><code>islower('a')</code></td><td><code>islower('A')</code></td></tr>
+          <tr><td><code>isspace(c)</code></td><td>c este spaţiu, tab, newline etc.</td><td><code>isspace(' ')</code></td><td><code>isspace('a')</code></td></tr>
+          <tr><td><code>ispunct(c)</code></td><td>c este semn de punctuaţie</td><td><code>ispunct('.')</code></td><td><code>ispunct('a')</code></td></tr>
+          <tr><td><code>isprint(c)</code></td><td>c este caracter afişabil</td><td><code>isprint('A')</code></td><td><code>isprint('\0')</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:20px 0 12px;font-size:15px;"> Funcţii de conversie (returnează char convertit)</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Descriere</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
+        <tbody>
+          <tr><td><code>toupper(c)</code></td><td>Convertşte litera mică în MARE. Dacă c nu e literă, returnează c neschimbat.</td><td><code>toupper('a')</code></td><td><code>'A'</code></td></tr>
+          <tr><td><code>tolower(c)</code></td><td>Convertşte litera MARE în mică. Dacă c nu e literă, returnează c neschimbat.</td><td><code>tolower('A')</code></td><td><code>'a'</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout info">
+        <strong>Truc BAC:</strong> Conversia manuală fără funcţii: <code>tolower(c)</code> echivalent cu <code>c + 32</code> (dacă c este literă mare). <code>toupper(c)</code> = <code>c - 32</code> (dacă c este literă mică). Funcţiile din &lt;cctype> sunt mai sigure — nu necesită verificarea tipului!
+      </div>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">Exemple practice</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;cctype></span>
+<span class="kw">#include</span> <span class="st">&lt;iostream></span>
+<span class="kw">using namespace</span> std;
+
+<span class="cm">// 1. Numarare vocale, consoane, cifre, spatii</span>
+<span class="kw">char</span> s[] = <span class="st">"BAC 2024 informatica!"</span>;
+<span class="kw">int</span> vocale=<span class="nu">0</span>, cifre=<span class="nu">0</span>, spatii=<span class="nu">0</span>, consoane=<span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; s[i] != <span class="st">'\0'</span>; i++) &#123;
+    <span class="kw">char</span> c = tolower(s[i]);          <span class="cm">// normalizam la minuscule</span>
+    <span class="kw">if</span> (c==<span class="st">'a'</span>||c==<span class="st">'e'</span>||c==<span class="st">'i'</span>||c==<span class="st">'o'</span>||c==<span class="st">'u'</span>) vocale++;
+    <span class="kw">else if</span> (isdigit(s[i])) cifre++;
+    <span class="kw">else if</span> (isspace(s[i])) spatii++;
+    <span class="kw">else if</span> (isalpha(s[i])) consoane++;
+&#125;
+<span class="cm">// Rezultat: vocale=8 cifre=4 spatii=2 consoane=6</span>
+
+<span class="cm">// 2. Conversie string la MAJUSCULE</span>
+string str = <span class="st">"informatica"</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; str.length(); i++)
+    str[i] = toupper(str[i]);
+<span class="cm">// str = "INFORMATICA"</span>
+
+<span class="cm">// 3. Numarare litere mari vs mici</span>
+<span class="kw">int</span> mari=<span class="nu">0</span>, mici=<span class="nu">0</span>;
+<span class="kw">char</span> s2[] = <span class="st">"BaC2024"</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; s2[i]; i++) &#123;
+    <span class="kw">if</span> (isupper(s2[i])) mari++;
+    <span class="kw">else if</span> (islower(s2[i])) mici++;
+&#125;
+<span class="cm">// mari=2 mici=1</span>
+
+<span class="cm">// 4. Verificare daca un sir contine doar litere si cifre</span>
+<span class="kw">bool</span> esteAlphanumeric(<span class="kw">char</span> s[]) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; s[i]; i++)
+        <span class="kw">if</span> (!isalnum(s[i])) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- 3. FUNCTII CSTRING -->
+<section id="cstring">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">⚙️</span>
+      <h2>Funcţii din &lt;cstring> — referinţă completă</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="margin-bottom:12px;font-size:15px;"> Lungime şi copiere</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Descriere</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
+        <tbody>
+          <tr><td><code>strlen(s)</code></td><td>Lungimea şirului (fără '\0')</td><td><code>strlen("abc")</code></td><td><code>3</code></td></tr>
+          <tr><td><code>strcpy(dest, src)</code></td><td>Copiază src în dest (include '\0')</td><td><code>strcpy(a, "bac")</code></td><td>a = "bac"</td></tr>
+          <tr><td><code>strncpy(dest, src, n)</code></td><td>Copiază maxim n caractere din src</td><td><code>strncpy(a, "bacalaureat", 3)</code></td><td>a = "bac"</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 12px;font-size:15px;"> Concatenare</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Descriere</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
+        <tbody>
+          <tr><td><code>strcat(dest, src)</code></td><td>Concatenează src la finalul dest</td><td><code>strcat(a, "2024")</code></td><td>a+="2024"</td></tr>
+          <tr><td><code>strncat(dest, src, n)</code></td><td>Concatenează maxim n caractere din src</td><td><code>strncat(a, "20245678", 4)</code></td><td>a+="2024"</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 12px;font-size:15px;">⚖️ Comparare</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Returnează</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
+        <tbody>
+          <tr><td><code>strcmp(s1, s2)</code></td><td>&lt;0 dacă s1&lt;s2, 0 dacă egale, >0 dacă s1>s2</td><td><code>strcmp("ab","ac")</code></td><td>negativ</td></tr>
+          <tr><td><code>strncmp(s1, s2, n)</code></td><td>Compară primele n caractere</td><td><code>strncmp("abc","abx",2)</code></td><td>0 (egale)</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 12px;font-size:15px;"> Căutare în şir</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Returnează</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
+        <tbody>
+          <tr><td><code>strchr(s, c)</code></td><td>Pointer la prima apariţie a lui c (sau NULL)</td><td><code>strchr("bac",'a')</code></td><td>pointer la 'a'</td></tr>
+          <tr><td><code>strrchr(s, c)</code></td><td>Pointer la ULTIMA apariţie a lui c</td><td><code>strrchr("abcabc",'b')</code></td><td>pointer la al 2-lea 'b'</td></tr>
+          <tr><td><code>strstr(s, sub)</code></td><td>Pointer la prima apariţie a subşirului (sau NULL)</td><td><code>strstr("informatica","atic")</code></td><td>pointer la "atic"</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 12px;font-size:15px;">✂️ Tokenizare şi alte funcţii</h3>
+      <table>
+        <thead><tr><th>Funcţie</th><th>Descriere</th><th>Observaţii</th></tr></thead>
+        <tbody>
+          <tr><td><code>strtok(s, delim)</code></td><td>Împarte şirul în cuvânte (tokens) după delimitatori</td><td>Modifică şirul original! Apeluri ulterioare: <code>strtok(NULL, delim)</code></td></tr>
+          <tr><td><code>memset(s, c, n)</code></td><td>Umple n octeţi din s cu valoarea c</td><td><code>memset(s, 0, sizeof(s))</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:18px 0 10px;font-size:15px;">Exemple complete</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;cstring></span>
+<span class="kw">#include</span> <span class="st">&lt;iostream></span>
+<span class="kw">using namespace</span> std;
+
+<span class="cm">// Exemplu 1: strtok — imparte propozitia in cuvinte</span>
+<span class="kw">char</span> prop[] = <span class="st">"Astazi este o zi frumoasa"</span>;
+<span class="kw">char</span> *token = strtok(prop, <span class="st">" "</span>);
+<span class="kw">while</span> (token != NULL) &#123;
+    cout &lt;&lt; token &lt;&lt; endl;
+    token = strtok(NULL, <span class="st">" "</span>);
+&#125;
+<span class="cm">// Afiseaza: Astazi / este / o / zi / frumoasa</span>
+
+<span class="cm">// Exemplu 2: strchr — gaseste prima aparitie</span>
+<span class="kw">char</span> s[] = <span class="st">"bac"</span>;
+<span class="kw">char</span> *p = strchr(s, <span class="st">'a'</span>);
+<span class="kw">if</span> (p != NULL)
+    cout &lt;&lt; <span class="st">"Gasit la pozitia: "</span> &lt;&lt; (p - s) &lt;&lt; endl;  <span class="cm">// 1</span>
+
+<span class="cm">// Exemplu 3: strstr — verifica aparitia unui cuvant</span>
+<span class="kw">char</span> text[] = <span class="st">"Examenul de informatica este maine"</span>;
+<span class="kw">if</span> (strstr(text, <span class="st">"informatica"</span>) != NULL)
+    cout &lt;&lt; <span class="st">"Cuvantul a fost gasit!"</span> &lt;&lt; endl;</pre>
+
+      <div class="callout warning">
+        <strong>Atentie la buffer overflow!</strong> Asigurati-vă că destinatia (dest) are suficient spaţiu. Preferati <code>strncpy</code> cu verificare explicită.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. METODE STRING C++ -->
+<section id="string-methods">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal"></span>
+      <h2>Metode ale clasei string (C++)</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="cm">// Referinta completa metode string</span>
+string s = <span class="st">"informatica"</span>;
+
+<span class="cm">// Lungime si acces</span>
+s.length()           <span class="cm">// 11</span>
+s.size()             <span class="cm">// 11 (identic cu length())</span>
+s.empty()            <span class="cm">// false</span>
+s[<span class="nu">0</span>]                 <span class="cm">// 'i'</span>
+s.at(<span class="nu">0</span>)             <span class="cm">// 'i' (cu verificare bounds)</span>
+s.front()            <span class="cm">// 'i' (primul caracter)</span>
+s.back()             <span class="cm">// 'a' (ultimul caracter)</span>
+
+<span class="cm">// Subsirul si cautare</span>
+s.substr(<span class="nu">3</span>, <span class="nu">4</span>)       <span class="cm">// "orma" (de la poz 3, lungime 4)</span>
+s.find(<span class="st">"tica"</span>)       <span class="cm">// 7 (poz prima aparitie)</span>
+s.find(<span class="st">"xyz"</span>)        <span class="cm">// string::npos (nu exista)</span>
+s.rfind(<span class="st">"a"</span>)         <span class="cm">// 10 (ultima aparitie)</span>
+
+<span class="cm">// Modificare</span>
+s.replace(<span class="nu">0</span>, <span class="nu">4</span>, <span class="st">"XX"</span>) <span class="cm">// "XXrmatica" (inlocuieste 4 char de la poz 0)</span>
+s.erase(<span class="nu">2</span>, <span class="nu">3</span>)         <span class="cm">// sterge 3 char de la poz 2</span>
+s.insert(<span class="nu">2</span>, <span class="st">"XY"</span>)      <span class="cm">// insereaza "XY" la poz 2</span>
+s.clear()             <span class="cm">// golesste sirul</span>
+
+<span class="cm">// Conversie</span>
+s.c_str()             <span class="cm">// const char* (pt functii C)</span>
+
+<span class="cm">// Verificare existenta</span>
+<span class="kw">if</span> (s.find(<span class="st">"info"</span>) != string::npos)
+    cout &lt;&lt; <span class="st">"Gasit!"</span>;
+
+<span class="cm">// Concatenare cu +=</span>
+string a = <span class="st">"bac"</span>, b = <span class="st">"2024"</span>;
+a += b;               <span class="cm">// a = "bac2024"</span>
+a += <span class="st">'!'</span>;            <span class="cm">// a = "bac2024!"</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CITIRE -->
+<section id="citire">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue"></span>
+      <h2>Citirea sirurilor de caractere</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">char</span> s[<span class="nu">201</span>];
+string str;
+
+<span class="cm">// cin >> — citeste pana la primul spatiu/newline</span>
+cin >> s;         <span class="cm">// "bac" (fara spatii)</span>
+cin >> str;       <span class="cm">// identic pentru string</span>
+
+<span class="cm">// cin.getline — linie intreaga (cu spatii) — char[]</span>
+cin.getline(s, <span class="nu">201</span>);          <span class="cm">// citeste maxim 200 caractere + '\0'</span>
+cin.getline(s, <span class="nu">201</span>, <span class="st">','</span>);     <span class="cm">// citeste pana la ',' sau maxim 200</span>
+
+<span class="cm">// getline — linie intreaga — string</span>
+getline(cin, str);
+
+<span class="cm">// ATENTIE: daca cititi un numar inainte de un sir!</span>
+<span class="kw">int</span> n;
+cin >> n;
+cin.ignore();        <span class="cm">// consuma newline-ul ramas</span>
+getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
+
+      <div class="callout warning">
+        <strong>Eroare frecventa la BAC:</strong> Daca cititi un numar cu <code>cin >> n</code> si apoi un sir cu <code>getline</code>, fara <code>cin.ignore()</code>, <code>getline</code> citeste linia goala ramasa!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ALGORITMI -->
+<section id="algoritmi">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal"></span>
+      <h2>Algoritmi clasici pe siruri</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="margin-bottom:10px;font-size:15px;">1. Verificare palindrom</h3>
+      <pre><span class="kw">bool</span> <span class="fn">estePalindrom</span>(string s) &#123;
+    <span class="kw">int</span> n = s.length();
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; n/<span class="nu">2</span>; i++)
+        <span class="kw">if</span> (s[i] != s[n-<span class="nu">1</span>-i]) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;
+<span class="cm">// "radar" → true | "madam" → true | "bac" → false</span></pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">2. Verificare anagrama (cu tablou frecvente)</h3>
+      <pre><span class="kw">bool</span> <span class="fn">esteAnagrama</span>(string a, string b) &#123;
+    <span class="kw">if</span> (a.length() != b.length()) <span class="kw">return false</span>;
+    <span class="kw">int</span> freq[<span class="nu">26</span>] = &#123;<span class="nu">0</span>&#125;;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; a.length(); i++) &#123;
+        freq[tolower(a[i]) - <span class="st">'a'</span>]++;
+        freq[tolower(b[i]) - <span class="st">'a'</span>]--;
+    &#125;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; <span class="nu">26</span>; i++)
+        <span class="kw">if</span> (freq[i] != <span class="nu">0</span>) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;
+<span class="cm">// "listen" si "silent" → true | "race" si "care" → true</span></pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">3. Cifru Caesar</h3>
+      <pre><span class="kw">string</span> <span class="fn">criptCaesar</span>(string s, <span class="kw">int</span> k) &#123;
+    k = ((k % <span class="nu">26</span>) + <span class="nu">26</span>) % <span class="nu">26</span>;   <span class="cm">// k poate fi negativ</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; s.length(); i++) &#123;
+        <span class="kw">if</span> (s[i] >= <span class="st">'a'</span> && s[i] &lt;= <span class="st">'z'</span>)
+            s[i] = <span class="st">'a'</span> + (s[i]-<span class="st">'a'</span>+k) % <span class="nu">26</span>;
+        <span class="kw">else if</span> (s[i] >= <span class="st">'A'</span> && s[i] &lt;= <span class="st">'Z'</span>)
+            s[i] = <span class="st">'A'</span> + (s[i]-<span class="st">'A'</span>+k) % <span class="nu">26</span>;
+    &#125;
+    <span class="kw">return</span> s;
+&#125;
+<span class="cm">// decriptare = criptCaesar(s, 26-k)</span>
+<span class="cm">// criptCaesar("abc", 3) → "def"</span></pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">4. Cel mai lung cuvant din propozitie</h3>
+      <pre>string linie, cuvCurent, maxCuv;
+getline(cin, linie);
+linie += <span class="st">" "</span>;  <span class="cm">// adaugam spatiu la final</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; linie.length(); i++) &#123;
+    <span class="kw">if</span> (linie[i] != <span class="st">' '</span>) cuvCurent += linie[i];
+    <span class="kw">else</span> &#123;
+        <span class="kw">if</span> (cuvCurent.length() > maxCuv.length())
+            maxCuv = cuvCurent;
+        cuvCurent = <span class="st">""</span>;
+    &#125;
+&#125;
+cout &lt;&lt; maxCuv;</pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">5. Inversarea unui sir (in-place)</h3>
+      <pre><span class="kw">void</span> <span class="fn">inverseaza</span>(string &s) &#123;
+    <span class="kw">int</span> st=<span class="nu">0</span>, dr=s.length()-<span class="nu">1</span>;
+    <span class="kw">while</span> (st &lt; dr) &#123; swap(s[st], s[dr]); st++; dr--; &#125;
+&#125;
+<span class="cm">// inverseaza("bac") → "cab"</span></pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">6. Eliminare duplicate consecutive</h3>
+      <pre><span class="kw">string</span> <span class="fn">elimDup</span>(string s) &#123;
+    string rez = <span class="st">""</span>;
+    <span class="kw">if</span> (s.empty()) <span class="kw">return</span> rez;
+    rez += s[<span class="nu">0</span>];
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i &lt; s.length(); i++)
+        <span class="kw">if</span> (s[i] != s[i-<span class="nu">1</span>]) rez += s[i];
+    <span class="kw">return</span> rez;
+&#125;
+<span class="cm">// "aaabbc" → "abc" | "mississippi" → "misisipi"</span></pre>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">7. Numara cuvintele dintr-o propozitie</h3>
+      <pre><span class="kw">int</span> <span class="fn">nrCuvinte</span>(string s) &#123;
+    <span class="kw">int</span> cnt = <span class="nu">0</span>;
+    <span class="kw">bool</span> inCuv = <span class="kw">false</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; s.length(); i++) &#123;
+        <span class="kw">if</span> (!isspace(s[i])) &#123; <span class="kw">if</span> (!inCuv) &#123; cnt++; inCuv=<span class="kw">true</span>; &#125; &#125;
+        <span class="kw">else</span> inCuv = <span class="kw">false</span>;
+    &#125;
+    <span class="kw">return</span> cnt;
+&#125;
+<span class="cm">// "Bac 2024 info" → 3</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONVERSII -->
+<section id="conversii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple"></span>
+      <h2>Conversii numar &harr; sir</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">#include</span> <span class="st">&lt;cstdlib></span>   <span class="cm">// atoi, atof, atol</span>
+<span class="kw">#include</span> <span class="st">&lt;cstdio></span>    <span class="cm">// sprintf</span>
+
+<span class="cm">// C-style: numar → sir cu sprintf</span>
+<span class="kw">char</span> buf[<span class="nu">50</span>];
+sprintf(buf, <span class="st">"%d"</span>, <span class="nu">42</span>);          <span class="cm">// buf = "42"</span>
+sprintf(buf, <span class="st">"%.2f"</span>, <span class="nu">3.14</span>);     <span class="cm">// buf = "3.14"</span>
+sprintf(buf, <span class="st">"%05d"</span>, <span class="nu">7</span>);         <span class="cm">// buf = "00007"</span>
+
+<span class="cm">// C-style: sir → numar</span>
+<span class="kw">int</span>    n = atoi(<span class="st">"123"</span>);           <span class="cm">// 123</span>
+<span class="kw">double</span> d = atof(<span class="st">"3.14"</span>);          <span class="cm">// 3.14</span>
+
+<span class="cm">// Manual: cifre din numar → sir</span>
+<span class="kw">int</span> nr = <span class="nu">12345</span>;
+<span class="kw">char</span> cifre[<span class="nu">20</span>];
+<span class="kw">int</span> len = <span class="nu">0</span>;
+<span class="kw">while</span> (nr > <span class="nu">0</span>) &#123;
+    cifre[len++] = <span class="st">'0'</span> + nr % <span class="nu">10</span>;
+    nr /= <span class="nu">10</span>;
+&#125;
+cifre[len] = <span class="st">'\0'</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; len/<span class="nu">2</span>; i++) swap(cifre[i], cifre[len-<span class="nu">1</span>-i]);
+<span class="cm">// cifre = "12345"</span>
+
+<span class="cm">// Manual: sir de cifre → numar</span>
+<span class="kw">char</span> str[] = <span class="st">"12345"</span>;
+<span class="kw">int</span> val = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; str[i] != <span class="st">'\0'</span>; i++)
+    val = val * <span class="nu">10</span> + (str[i] - <span class="st">'0'</span>);
+<span class="cm">// val = 12345</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 8. DEMO INTERACTIV -->
+<section id="demo">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red"></span>
+      <h2>Demo Interactiv — Operatii pe siruri</h2>
+    </div>
+    <div class="slide-body">
+      <p>Experimentează cu operaţiile pe siruri direct în browser!</p>
+
+      <div id="str-tabs" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        <button class="str-tab active" data-tab="caesar"> Cifru Caesar</button>
+        <button class="str-tab" data-tab="case"> Majuscule/Minuscule</button>
+        <button class="str-tab" data-tab="palindrome"> Palindrom</button>
+        <button class="str-tab" data-tab="stats"> Statistici</button>
+        <button class="str-tab" data-tab="reverse">↩ Inversare</button>
+      </div>
+
+      <div id="str-panel-caesar" class="str-panel" style="display:block;">
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-caesar-in" class="str-demo-input" placeholder="Text de criptat..." value="salut bac 2024" style="flex:1;min-width:160px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <input type="number" id="sd-caesar-k" class="str-demo-input" value="3" min="1" max="25" style="width:70px;padding:8px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button id="sd-caesar-enc" class="str-demo-btn"> Criptează</button>
+          <button id="sd-caesar-dec" class="str-demo-btn"> Decriptează</button>
+        </div>
+        <div id="sd-caesar-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă un buton...</div>
+      </div>
+
+      <div id="str-panel-case" class="str-panel" style="display:none;">
+        <div style="margin-bottom:12px;">
+          <input type="text" id="sd-case-in" class="str-demo-input" value="InFoRmAtIcA BAC 2024" style="width:100%;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;box-sizing:border-box;" />
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button id="sd-toupper" class="str-demo-btn">MAJUSCULE</button>
+          <button id="sd-tolower" class="str-demo-btn">minuscule</button>
+          <button id="sd-togglecase" class="str-demo-btn">AlTeRnAt</button>
+        </div>
+        <div id="sd-case-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă un buton...</div>
+      </div>
+
+      <div id="str-panel-palindrome" class="str-panel" style="display:none;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-pal-in" class="str-demo-input" value="radar" style="flex:1;min-width:160px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <button id="sd-pal-check" class="str-demo-btn">Verifică</button>
+        </div>
+        <div id="sd-pal-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă butonul...</div>
+      </div>
+
+      <div id="str-panel-stats" class="str-panel" style="display:none;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-stat-in" class="str-demo-input" value="Examenul de informatica este important!" style="flex:1;min-width:200px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <button id="sd-stat-btn" class="str-demo-btn">Analizează</button>
+        </div>
+        <div id="sd-stat-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:80px;white-space:pre-line;">Apasă butonul...</div>
+      </div>
+
+      <div id="str-panel-reverse" class="str-panel" style="display:none;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-rev-in" class="str-demo-input" value="informatica" style="flex:1;min-width:160px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <button id="sd-rev-btn" class="str-demo-btn">Inversează</button>
+        </div>
+        <div id="sd-rev-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă butonul...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. EXERCITII INTERACTIVE -->
+<section id="exercitii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple"></span>
+      <h2>Exerciţii interactive — testează cunoştinţele</h2>
+    </div>
+    <div class="slide-body">
+      <div class="quiz-section" data-quiz="siruri-quiz"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. PROBLEME BAC -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange"></span>
+      <h2>Probleme tip BAC — siruri de caractere</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problema 1 (BAC 2022):</strong> Cititi un sir de caractere si afisati cel mai lung cuvant.
+      </div>
+      <div class="callout success">
+        <strong>Solutie:</strong>
+        <pre style="margin:8px 0 0;">string linie, cuvantCurent, maxCuvant;
+getline(cin, linie);
+linie += <span class="st">" "</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; linie.length(); i++) &#123;
+    <span class="kw">if</span> (linie[i] != <span class="st">' '</span>) cuvantCurent += linie[i];
+    <span class="kw">else</span> &#123;
+        <span class="kw">if</span> (cuvantCurent.size() > maxCuvant.size())
+            maxCuvant = cuvantCurent;
+        cuvantCurent = <span class="st">""</span>;
+    &#125;
+&#125;
+cout &lt;&lt; maxCuvant;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problema 2:</strong> Dat un sir de caractere format din litere mici. Inlocuiti toate vocalele cu '*'.
+      </div>
+      <div class="callout success">
+        <strong>Solutie:</strong>
+        <pre style="margin:8px 0 0;">string vocale = <span class="st">"aeiou"</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; s.length(); i++)
+    <span class="kw">if</span> (vocale.find(s[i]) != string::npos)
+        s[i] = <span class="st">'*'</span>;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problema 3:</strong> Data o propozitie, afisati cuvintele in ordine inversa.
+      </div>
+      <div class="callout success">
+        <strong>Solutie:</strong>
+        <pre style="margin:8px 0 0;"><span class="kw">char</span> s[<span class="nu">501</span>], cuv[<span class="nu">50</span>][<span class="nu">50</span>];
+<span class="kw">int</span> nc = <span class="nu">0</span>;
+cin.getline(s, <span class="nu">501</span>);
+<span class="kw">char</span> *p = strtok(s, <span class="st">" "</span>);
+<span class="kw">while</span> (p != NULL) &#123; strcpy(cuv[nc++], p); p = strtok(NULL, <span class="st">" "</span>); &#125;
+<span class="kw">for</span> (<span class="kw">int</span> i=nc-<span class="nu">1</span>; i >= <span class="nu">0</span>; i--) cout &lt;&lt; cuv[i] &lt;&lt; <span class="st">" "</span>;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problema 4:</strong> Verificati daca doua siruri sunt anagrame.
+      </div>
+      <div class="callout success">
+        <strong>Solutie cu tablou frecvente:</strong>
+        <pre style="margin:8px 0 0;"><span class="kw">char</span> a[<span class="nu">101</span>], b[<span class="nu">101</span>];
+cin.getline(a, <span class="nu">101</span>); cin.getline(b, <span class="nu">101</span>);
+<span class="kw">if</span> (strlen(a) != strlen(b)) &#123; cout &lt;&lt; <span class="st">"NU"</span>; <span class="kw">return 0</span>; &#125;
+<span class="kw">int</span> freq[<span class="nu">256</span>] = &#123;<span class="nu">0</span>&#125;;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; a[i]; i++) freq[(<span class="kw">unsigned char</span>)a[i]]++;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; b[i]; i++) freq[(<span class="kw">unsigned char</span>)b[i]]--;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; <span class="nu">256</span>; i++)
+    <span class="kw">if</span> (freq[i] != <span class="nu">0</span>) &#123; cout &lt;&lt; <span class="st">"NU"</span>; <span class="kw">return 0</span>; &#125;
+cout &lt;&lt; <span class="st">"DA"</span>;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problema 5:</strong> Numarati cate cuvinte dintr-o propozitie incep cu litera mare.
+      </div>
+      <div class="callout success">
+        <strong>Solutie:</strong>
+        <pre style="margin:8px 0 0;"><span class="kw">char</span> s[<span class="nu">501</span>];
+cin.getline(s, <span class="nu">501</span>);
+<span class="kw">int</span> cnt = <span class="nu">0</span>;
+<span class="kw">bool</span> inCuv = <span class="kw">false</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; s[i]; i++) &#123;
+    <span class="kw">if</span> (!isspace(s[i])) &#123;
+        <span class="kw">if</span> (!inCuv && isupper(s[i])) cnt++;
+        inCuv = <span class="kw">true</span>;
+    &#125; <span class="kw">else</span> inCuv = <span class="kw">false</span>;
+&#125;
+cout &lt;&lt; cnt;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problema 6:</strong> Cititi un sir si afisati toate cuvintele care sunt palindroame.
+      </div>
+      <div class="callout success">
+        <strong>Solutie:</strong>
+        <pre style="margin:8px 0 0;"><span class="kw">auto</span> isPal = [](string w) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; w.size()/<span class="nu">2</span>; i++)
+        <span class="kw">if</span> (w[i] != w[w.size()-<span class="nu">1</span>-i]) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;;
+string linie; getline(cin, linie); linie += <span class="st">" "</span>;
+string cuvant = <span class="st">""</span>;
+<span class="kw">for</span> (<span class="kw">char</span> c : linie) &#123;
+    <span class="kw">if</span> (c != <span class="st">' '</span>) cuvant += c;
+    <span class="kw">else</span> &#123;
+        <span class="kw">if</span> (!cuvant.empty() && isPal(cuvant)) cout &lt;&lt; cuvant &lt;&lt; <span class="st">" "</span>;
+        cuvant = <span class="st">""</span>;
+    &#125;
+&#125;</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</ChapterLayout>

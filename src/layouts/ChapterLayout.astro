@@ -1,0 +1,92 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+interface Section {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  icon: string;
+  gradient: string;
+  tags?: string[];
+  sections?: Section[];
+  chapterNum: number;
+  description?: string;
+}
+
+const {
+  title, subtitle, icon, gradient,
+  tags = [], sections = [],
+  chapterNum,
+  description,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const readingTime = 12; // fallback; scripts will update dynamically
+---
+<BaseLayout title={`${title} — Informatică Liceu`} description={description} bodyClass="has-sidebar">
+  <Header />
+  <Sidebar activeChapter={chapterNum} />
+
+  <div class="app-shell">
+    <div class="app-content">
+      <!-- Chapter Hero -->
+      <div class="chapter-hero" style={`background: ${gradient};`}>
+        <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
+        <h1>{icon} {title}</h1>
+        <p>{subtitle}</p>
+        {tags.length > 0 && (
+          <div class="chapter-hero-tags">
+            {tags.map(t => <span class="chapter-hero-tag">{t}</span>)}
+          </div>
+        )}
+        <div class="reading-badge" id="reading-badge">
+          📖 <span id="reading-time">{readingTime}</span> min
+        </div>
+        <div class="page-stats">
+          <button id="like-btn" class="like-btn" title="Îmi place!">
+            <span class="like-icon">🤍</span>
+            <span class="like-count">0</span>
+          </button>
+          <span class="view-counter">
+            <span>👁</span>
+            <span id="view-num"> —</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Section sticky nav -->
+      {sections.length > 0 && (
+        <nav class="nav-bar" aria-label="Secțiuni capitol">
+          {sections.map(s => (
+            <a href={`#${s.id}`}>{s.label}</a>
+          ))}
+        </nav>
+      )}
+
+      <!-- Chapter content (injected by page) -->
+      <div class="wrapper">
+        <slot />
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script is:inline src={`${import.meta.env.BASE_URL}/js/animations.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/js/quiz.js`}></script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/js/platform.js`}></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      initScrollReveal();
+      initBarCharts();
+      initTreeReveal();
+      initCopyButtons();
+      initNavHighlight();
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const chapters = [
+  {
+    num: 0, file: 'introducere', color: 'ch-blue', 
+    title: 'Introducere în Informatică', subtitle: 'Bazele absolute, program C++, programa BAC 2026',
+    topics: ['Ce este informatica și algoritmul','Structura unui program C++','Tipuri de date: int, double, char, bool','Operatori și structuri de control','Programa completă BAC 2026'],
+    time: '~25 min'
+  },
+  {
+    num: 1, file: 'complexitate', color: 'ch-blue',
+    title: 'Eficiența Algoritmilor', subtitle: 'Complexitate timp & spațiu, notații Big-O',
+    topics: ['Notația Big-O, Ω, Θ','Clase de complexitate comparate','Algoritmi de sortare analizați','Animație Bubble Sort interactivă','Probleme tip BAC rezolvate'],
+    time: '~45 min'
+  },
+  {
+    num: 2, file: 'recursivitate', color: 'ch-green',
+    title: 'Recursivitate', subtitle: 'Funcții recursive și stiva de apeluri',
+    topics: ['Cum funcționează recursivitatea','Stiva de apeluri vizualizată','Factorial, Fibonacci, putere','Recursiv vs. iterativ — comparație','Memoizare și introducere DP'],
+    time: '~35 min'
+  },
+  {
+    num: 3, file: 'backtracking', color: 'ch-purple',
+    title: 'Backtracking', subtitle: 'Căutare exhaustivă cu revenire',
+    topics: ['Șablonul general backtracking','Animație N-Regine pas cu pas','Permutări și combinări','Labirint — căutarea ieșirii','Probleme BAC complete'],
+    time: '~40 min'
+  },
+  {
+    num: 4, file: 'vectori', color: 'ch-orange',
+    title: 'Vectori (Tablouri 1D)', subtitle: 'Operații, algoritmi, aplicații clasice',
+    topics: ['Declarare, inițializare, citire','Parcurgere, căutare, sortare','Interclasare, ștergere, inserare','Vectori de frecvență și counting sort','Probleme clasice BAC cu vectori'],
+    time: '~35 min'
+  },
+  {
+    num: 5, file: 'matrici', color: 'ch-teal',
+    title: 'Matrici (Tablouri 2D)', subtitle: 'Operații pe tablouri bidimensionale',
+    topics: ['Declarare și parcurgere completă','Diagonale, triunghi sup/inf','Transpusa și rotirea matricei','Matrice pătratice speciale','Spirală, borduri, probleme BAC'],
+    time: '~35 min'
+  },
+  {
+    num: 6, file: 'siruri', color: 'ch-red',
+    title: 'Șiruri de Caractere', subtitle: 'Prelucrarea textelor în C++',
+    topics: ['char[] vs. string în C++','Funcții standard strlen, strcpy, strcat','Palindrom, anagramă, cifru Caesar','Numărare caractere și cuvinte','Probleme BAC cu șiruri'],
+    time: '~35 min'
+  },
+  {
+    num: 7, file: 'fisiere', color: 'ch-pink',
+    title: 'Fișiere', subtitle: 'Citire și scriere din/în fișiere C++',
+    topics: ['Deschidere, citire, scriere, închidere','fstream, ifstream, ofstream','Citire până la EOF','Procesare date din fișiere','Probleme BAC cu fișiere'],
+    time: '~30 min'
+  },
+];
+---
+<BaseLayout
+  title="Informatică Liceu — Algoritmi & Structuri de Date"
+  description="Ghid complet de informatică pentru liceu și bacalaureat: algoritmi, complexitate, recursivitate, backtracking, vectori, matrici, șiruri, fișiere."
+>
+  <Header />
+  <Sidebar />
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">🎓 BAC Informatică · România · C++</span>
+      <h1>Informatică Liceu<br /><span>Algoritmi &amp; Structuri de Date</span></h1>
+      <p class="hero-desc">
+        Ghid complet pas cu pas pentru bacalaureat. De la noțiuni fundamentale
+        la probleme rezolvate, cu animații interactive și exemple din practică.
+      </p>
+      <div class="hero-badges">
+        <span class="hero-badge">📊 8 capitole</span>
+        <span class="hero-badge">🎬 Animații interactive</span>
+        <span class="hero-badge">⏱ Complexitate timp &amp; spațiu</span>
+        <span class="hero-badge">📝 Probleme rezolvate</span>
+        <span class="hero-badge">🔊 Audio lecții</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#capitole"     class="btn-hero-primary">Începe să înveți →</a>
+        <a href="#complexitate" class="btn-hero-secondary">Big-O Referință</a>
+        <a href={`${base}/analiza-bac`} class="btn-hero-secondary" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.4);">
+          🤖 Analizează-ți varianta BAC
+        </a>
+      </div>
+
+      <!-- Decorative code preview -->
+      <div class="hero-graphic" aria-hidden="true">
+        <div class="hero-code-preview">
+          <div class="hcp-bar">
+            <span class="hcp-dot r"></span>
+            <span class="hcp-dot y"></span>
+            <span class="hcp-dot g"></span>
+            <span class="hcp-title">cautare_binara.cpp</span>
+          </div>
+          <pre class="hcp-code"><span class="kw">int</span> cautareBinara(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> x) {"{"}
+  <span class="kw">int</span> st = <span class="nu">0</span>, dr = n - <span class="nu">1</span>;
+  <span class="kw">while</span> (st &lt;= dr) {"{"}
+    <span class="kw">int</span> mij = (st + dr) / <span class="nu">2</span>;
+    <span class="kw">if</span> (v[mij] == x) <span class="kw">return</span> mij;
+    <span class="kw">if</span> (v[mij] &lt; x) st = mij + <span class="nu">1</span>;
+    <span class="kw">else</span>            dr = mij - <span class="nu">1</span>;
+  {"}"}
+  <span class="kw">return</span> -<span class="nu">1</span>; <span class="cm">// O(log n) ✓</span>
+{"}"}
+
+<span class="cm">// Complexitate: O(log n) timp · O(1) spațiu</span>
+<span class="cm">// vs. căutare liniară: O(n) — de 1000x mai rapid</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num">8</span>
+      <span class="stat-lbl">Capitole</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item">
+      <span class="stat-num">100+</span>
+      <span class="stat-lbl">Quiz-uri BAC</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item">
+      <span class="stat-num">5+</span>
+      <span class="stat-lbl">Animații</span>
+    </div>
+    <div class="stat-sep" aria-hidden="true"></div>
+    <div class="stat-item">
+      <span class="stat-num">~5h</span>
+      <span class="stat-lbl">Conținut total</span>
+    </div>
+  </div>
+
+  <!-- Chapters grid -->
+  <div id="capitole" class="wrapper">
+    <div class="section-heading">
+      <h2 class="section-title">📚 Capitolele cursului</h2>
+      <p class="section-subtitle">Parcurge lecțiile în ordine sau sari direct la capitolul care te interesează.</p>
+    </div>
+
+    <div class="chapters-grid">
+      {chapters.map(ch => (
+        <a href={`${base}/capitole/${ch.file}`} class={`chapter-card ${ch.color} slide`}>
+          <div class="chapter-card-stripe"></div>
+          <div class="chapter-card-header">
+            <div class="chapter-num">{ch.num}</div>
+            <div>
+              <h2>{ch.title}</h2>
+              <p>{ch.subtitle}</p>
+            </div>
+          </div>
+          <div class="chapter-card-body">
+            <ul class="chapter-topics">
+              {ch.topics.map(t => <li>{t}</li>)}
+            </ul>
+          </div>
+          <div class="chapter-card-footer">
+            <span>⏱ {ch.time} lectură</span>
+            <span class="go">Deschide →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- BAC AI CTA -->
+  <div class="bac-cta">
+    <div class="bac-cta-inner">
+      <div class="bac-cta-text">
+        <h2>🤖 Analiză BAC cu AI</h2>
+        <p>
+          Încarcă subiectul tău de BAC în format PDF și primește o analiză completă,
+          cu teorie, pași de rezolvare și link-uri directe la capitolele relevante.
+        </p>
+      </div>
+      <a href={`${base}/analiza-bac`} class="bac-cta-btn">
+        Încearcă gratuit →
+      </a>
+    </div>
+  </div>
+
+  <!-- Big-O reference section -->
+  <div id="complexitate" class="wrapper">
+    <div class="section-heading">
+      <h2 class="section-title">📊 Referință Big-O</h2>
+      <p class="section-subtitle">Complexitățile cele mai întâlnite la examen.</p>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="o-table">
+        <thead>
+          <tr><th>Notație</th><th>Nume</th><th>Exemplu</th><th>n=1000</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-green"><td>O(1)</td><td>Constant</td><td>Accesare element array</td><td>1 op</td></tr>
+          <tr class="row-green"><td>O(log n)</td><td>Logaritmic</td><td>Căutare binară</td><td>10 op</td></tr>
+          <tr class="row-yellow"><td>O(n)</td><td>Liniar</td><td>Parcurgere array</td><td>1 000 op</td></tr>
+          <tr class="row-yellow"><td>O(n log n)</td><td>Liniar-log</td><td>Merge sort, Quick sort</td><td>10 000 op</td></tr>
+          <tr class="row-red"><td>O(n²)</td><td>Pătratic</td><td>Bubble sort, selecție</td><td>1 000 000 op</td></tr>
+          <tr class="row-red"><td>O(2ⁿ)</td><td>Exponențial</td><td>Backtracking naiv</td><td>~ ∞</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="about">
+    <p>💻 <strong>InfoLiceu</strong> — Resurse gratuite pentru BAC Informatică România</p>
+    <p>
+      <a href={`${base}/`}>Acasă</a>
+      {' · '}
+      <a href={`${base}/analiza-bac`}>Analiză BAC AI</a>
+    </p>
+  </footer>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Scroll reveal for chapter cards
+      if (typeof initScrollReveal === 'function') initScrollReveal();
+      if (typeof initCopyButtons === 'function') initCopyButtons();
+    });
+  </script>
+  <script is:inline src={`${import.meta.env.BASE_URL}/js/animations.js`}></script>
+</BaseLayout>

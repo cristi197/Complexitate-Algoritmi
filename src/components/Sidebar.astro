@@ -1,0 +1,75 @@
+---
+interface Props {
+  activeChapter?: number;
+}
+
+const { activeChapter = -1 } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const chapters = [
+  { num: 0, file: 'introducere',    title: 'Introducere în Informatică', icon: '🖥️',  color: '#2563eb' },
+  { num: 1, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  color: '#0891b2' },
+  { num: 2, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  color: '#16a34a' },
+  { num: 3, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  color: '#7c3aed' },
+  { num: 4, file: 'vectori',        title: 'Vectori',                    icon: '📦',  color: '#ea580c' },
+  { num: 5, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  color: '#0f766e' },
+  { num: 6, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  color: '#b91c1c' },
+  { num: 7, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  color: '#be185d' },
+];
+---
+<nav class="sidebar" id="sidebar" aria-label="Navigare capitole">
+  <!-- XP Bar -->
+  <div class="sidebar-xp">
+    <div class="xp-label">
+      <span>⚡ XP</span>
+      <span id="xp-value">0</span>
+    </div>
+    <div class="xp-bar">
+      <div class="xp-fill" id="xp-fill" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="sidebar-nav">
+    <div class="sidebar-section-label">Capitole</div>
+
+    {chapters.map(ch => (
+      <a
+        href={`${base}/capitole/${ch.file}`}
+        class={`sidebar-link${activeChapter === ch.num ? ' active' : ''}`}
+        data-chapter={ch.num}
+      >
+        <span class="ch-icon" style={`background: ${ch.color}22; color: ${ch.color};`}>
+          {ch.icon}
+        </span>
+        <span>{ch.title}</span>
+        <span class="sidebar-progress-dot" id={`dot-${ch.num}`} aria-hidden="true"></span>
+      </a>
+    ))}
+
+    <div class="sidebar-section-label" style="margin-top: 12px;">Instrumente</div>
+    <a href={`${base}/analiza-bac`} class="sidebar-link" style="color: var(--primary); font-weight: 700;">
+      <span class="ch-icon" style="background: var(--primary-dim); color: var(--primary);">🤖</span>
+      <span>Analiză BAC cu AI</span>
+    </a>
+  </div>
+</nav>
+
+<script is:inline>
+  (function() {
+    // Mark completed chapters
+    for (var i = 0; i < 8; i++) {
+      var done = localStorage.getItem('ch_done_' + i) === '1';
+      var dot  = document.getElementById('dot-' + i);
+      if (dot && done) dot.classList.add('done');
+    }
+
+    // XP system
+    var xp     = parseInt(localStorage.getItem('xp') || '0');
+    var xpGoal = 800;
+    var xpEl   = document.getElementById('xp-value');
+    var xpFill = document.getElementById('xp-fill');
+    if (xpEl)   xpEl.textContent   = xp;
+    if (xpFill) xpFill.style.width = Math.min(100, Math.round(xp / xpGoal * 100)) + '%';
+  })();
+</script>
