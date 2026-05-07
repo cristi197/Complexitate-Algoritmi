@@ -1,0 +1,46 @@
+---
+/**
+ * Badge — inline label for difficulty, topic, or status.
+ *
+ * variant: 'blue' | 'green' | 'orange' | 'red' | 'purple' | 'teal' | 'pink' | 'default'
+ * size:    'sm' | 'md'
+ */
+interface Props {
+  variant?: 'blue' | 'green' | 'orange' | 'red' | 'purple' | 'teal' | 'pink' | 'default';
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { variant = 'default', size = 'md', class: cls = '' } = Astro.props;
+---
+
+<span class:list={['badge', `badge-${variant}`, `badge-${size}`, cls]}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    border-radius: 6px;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+  }
+
+  /* Sizes */
+  .badge-sm { font-size: 11px; padding: 2px 7px; }
+  .badge-md { font-size: 12px; padding: 3px 10px; }
+
+  /* Variants */
+  .badge-default { background: var(--surface2); color: var(--text-muted); border-color: var(--border); }
+  .badge-blue    { background: var(--blue3);    color: var(--blue2);      border-color: var(--blue3); }
+  .badge-green   { background: var(--green2);   color: var(--green);      border-color: var(--green2); }
+  .badge-orange  { background: var(--orange2);  color: var(--orange);     border-color: var(--orange2); }
+  .badge-red     { background: var(--red2);     color: var(--red);        border-color: var(--red2); }
+  .badge-purple  { background: var(--purple2);  color: var(--purple);     border-color: var(--purple2); }
+  .badge-teal    { background: var(--teal2);    color: var(--teal);       border-color: var(--teal2); }
+  .badge-pink    { background: var(--pink2);    color: var(--pink);       border-color: var(--pink2); }
+</style>

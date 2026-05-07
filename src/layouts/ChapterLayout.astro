@@ -36,7 +36,7 @@ const readingTime = 12; // fallback; scripts will update dynamically
   <div class="app-shell">
     <div class="app-content">
       <!-- Chapter Hero -->
-      <div class="chapter-hero" style={`background: ${gradient};`}>
+      <div class="chapter-hero" style={`--hero-gradient: ${gradient};`}>
         <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
         <h1>{icon} {title}</h1>
         <p>{subtitle}</p>
@@ -49,12 +49,12 @@ const readingTime = 12; // fallback; scripts will update dynamically
           📖 <span id="reading-time">{readingTime}</span> min
         </div>
         <div class="page-stats">
-          <button id="like-btn" class="like-btn" title="Îmi place!">
+          <button id="like-btn" class="like-btn" title="Îmi place!" aria-label="Like">
             <span class="like-icon">🤍</span>
             <span class="like-count">0</span>
           </button>
-          <span class="view-counter">
-            <span>👁</span>
+          <span class="view-counter" aria-label="Vizualizări">
+            <span aria-hidden="true">👁</span>
             <span id="view-num"> —</span>
           </span>
         </div>

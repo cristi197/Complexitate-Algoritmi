@@ -1,0 +1,81 @@
+---
+/**
+ * BeginnerNote — highlighted callout for beginner-friendly explanations.
+ * AdvancedNote — callout for advanced/deep-dive content.
+ *
+ * type: 'beginner' | 'advanced' | 'warning' | 'info' | 'tip'
+ */
+interface Props {
+  type?: 'beginner' | 'advanced' | 'warning' | 'info' | 'tip';
+  title?: string;
+}
+
+const ICONS: Record<string, string> = {
+  beginner: '🌱',
+  advanced: '⚡',
+  warning:  '⚠️',
+  info:     'ℹ️',
+  tip:      '💡',
+};
+const TITLES: Record<string, string> = {
+  beginner: 'Notă pentru începători',
+  advanced: 'Notă avansată',
+  warning:  'Atenție',
+  info:     'Informație',
+  tip:      'Sfat util',
+};
+
+const { type = 'info', title } = Astro.props;
+---
+
+<aside class:list={['callout', `callout-${type}`]} role="note">
+  <div class="callout-header">
+    <span class="callout-icon" aria-hidden="true">{ICONS[type]}</span>
+    <span class="callout-title">{title ?? TITLES[type]}</span>
+  </div>
+  <div class="callout-body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    border-radius: 10px;
+    border: 1px solid transparent;
+    border-left-width: 3px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .callout-icon { font-size: 15px; }
+  .callout-body {
+    padding: 4px 16px 14px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  /* Variants */
+  .callout-beginner { background: var(--green2); border-color: var(--green); }
+  .callout-beginner .callout-header { color: var(--green); }
+
+  .callout-advanced { background: var(--purple2); border-color: var(--purple); }
+  .callout-advanced .callout-header { color: var(--purple); }
+
+  .callout-warning { background: var(--orange2); border-color: var(--orange); }
+  .callout-warning .callout-header { color: var(--orange); }
+
+  .callout-info { background: var(--blue4); border-color: var(--blue2); }
+  .callout-info .callout-header { color: var(--blue2); }
+
+  .callout-tip { background: var(--teal2); border-color: var(--teal); }
+  .callout-tip .callout-header { color: var(--teal); }
+</style>

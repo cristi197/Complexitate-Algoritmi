@@ -1,0 +1,139 @@
+---
+/**
+ * ProblemCard — card for displaying a programming problem summary.
+ *
+ * Props:
+ *   title      — problem title
+ *   difficulty — 'usor' | 'mediu' | 'greu'
+ *   tags       — topic tag strings
+ *   href       — link to problem page
+ *   xp         — XP reward
+ *   source     — e.g. 'BAC 2024', 'Infoarena'
+ *   solved     — whether current user solved it (client-side state)
+ */
+interface Props {
+  title: string;
+  difficulty: 'usor' | 'mediu' | 'greu';
+  tags?: string[];
+  href?: string;
+  xp?: number;
+  source?: string;
+  solved?: boolean;
+}
+
+const {
+  title,
+  difficulty,
+  tags = [],
+  href = '#',
+  xp,
+  source,
+  solved = false,
+} = Astro.props;
+
+const DIFF_LABELS = { usor: 'Ușor', mediu: 'Mediu', greu: 'Greu' };
+---
+
+<a href={href} class:list={['prob-card', `prob-${difficulty}`, solved && 'prob-solved']}>
+  <div class="prob-top">
+    <span class:list={['prob-diff', `pd-${difficulty}`]}>{DIFF_LABELS[difficulty]}</span>
+    {solved && <span class="prob-check" aria-label="Rezolvată">✓</span>}
+    {xp && <span class="prob-xp">+{xp} XP</span>}
+  </div>
+
+  <h3 class="prob-title">{title}</h3>
+
+  <div class="prob-meta">
+    {source && <span class="prob-source">{source}</span>}
+    {tags.map(tag => <span class="prob-tag">{tag}</span>)}
+  </div>
+</a>
+
+<style>
+  .prob-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all var(--transition);
+    box-shadow: var(--shadow);
+  }
+  .prob-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow2);
+    border-color: var(--primary);
+  }
+  .prob-solved { border-color: var(--green) !important; }
+  .prob-solved .prob-title { color: var(--green); }
+
+  .prob-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .prob-diff {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+  .pd-usor  { background: var(--green2);  color: var(--green); }
+  .pd-mediu { background: var(--orange2); color: var(--orange); }
+  .pd-greu  { background: var(--red2);    color: var(--red); }
+
+  .prob-check {
+    width: 20px; height: 20px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .prob-xp {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-dim);
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+
+  .prob-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  .prob-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .prob-source {
+    font-size: 11px;
+    color: var(--text-faint);
+    background: var(--surface2);
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .prob-tag {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--surface2);
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+</style>

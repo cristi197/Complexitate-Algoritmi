@@ -6,54 +6,97 @@ interface Props {
 const { activeChapter = -1 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
+// color maps to one of the semantic CSS variables
 const chapters = [
-  { num: 0, file: 'introducere',    title: 'Introducere în Informatică', icon: '🖥️',  color: '#2563eb' },
-  { num: 1, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  color: '#0891b2' },
-  { num: 2, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  color: '#16a34a' },
-  { num: 3, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  color: '#7c3aed' },
-  { num: 4, file: 'vectori',        title: 'Vectori',                    icon: '📦',  color: '#ea580c' },
-  { num: 5, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  color: '#0f766e' },
-  { num: 6, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  color: '#b91c1c' },
-  { num: 7, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  color: '#be185d' },
+  { num: 0, file: 'introducere',    title: 'Introducere în Informatică', icon: '🖥️',  colorVar: 'blue'   },
+  { num: 1, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  colorVar: 'teal'   },
+  { num: 2, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  colorVar: 'green'  },
+  { num: 3, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  colorVar: 'purple' },
+  { num: 4, file: 'vectori',        title: 'Vectori',                    icon: '📦',  colorVar: 'orange' },
+  { num: 5, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  colorVar: 'teal'   },
+  { num: 6, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  colorVar: 'red'    },
+  { num: 7, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  colorVar: 'pink'   },
 ];
 ---
 <nav class="sidebar" id="sidebar" aria-label="Navigare capitole">
+
   <!-- XP Bar -->
   <div class="sidebar-xp">
     <div class="xp-label">
-      <span>⚡ XP</span>
-      <span id="xp-value">0</span>
+      <span class="xp-label-text">⚡ Progres</span>
+      <span class="xp-value-text"><span id="xp-value">0</span> XP</span>
     </div>
-    <div class="xp-bar">
-      <div class="xp-fill" id="xp-fill" style="width: 0%"></div>
+    <div class="xp-bar" role="progressbar" aria-label="XP" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="xp-fill" id="xp-fill"></div>
     </div>
+    <div class="xp-level" id="xp-level">Nivel 1</div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Chapter Navigation -->
   <div class="sidebar-nav">
     <div class="sidebar-section-label">Capitole</div>
 
     {chapters.map(ch => (
       <a
         href={`${base}/capitole/${ch.file}`}
-        class={`sidebar-link${activeChapter === ch.num ? ' active' : ''}`}
+        class:list={['sidebar-link', activeChapter === ch.num && 'active']}
         data-chapter={ch.num}
+        aria-current={activeChapter === ch.num ? 'page' : undefined}
       >
-        <span class="ch-icon" style={`background: ${ch.color}22; color: ${ch.color};`}>
+        <span class:list={['ch-icon', `ch-icon-${ch.colorVar}`]} aria-hidden="true">
           {ch.icon}
         </span>
-        <span>{ch.title}</span>
+        <span class="ch-title">{ch.title}</span>
         <span class="sidebar-progress-dot" id={`dot-${ch.num}`} aria-hidden="true"></span>
       </a>
     ))}
 
-    <div class="sidebar-section-label" style="margin-top: 12px;">Instrumente</div>
-    <a href={`${base}/analiza-bac`} class="sidebar-link" style="color: var(--primary); font-weight: 700;">
-      <span class="ch-icon" style="background: var(--primary-dim); color: var(--primary);">🤖</span>
-      <span>Analiză BAC cu AI</span>
+    <div class="sidebar-section-label sidebar-section-label--tools">Instrumente</div>
+    <a href={`${base}/analiza-bac`} class="sidebar-link sidebar-link--ai">
+      <span class="ch-icon ch-icon--ai" aria-hidden="true">🤖</span>
+      <span class="ch-title">Analiză BAC cu AI</span>
+      <span class="sidebar-link-badge">AI</span>
     </a>
   </div>
 </nav>
+
+<style>
+  /* Icon color variants using CSS variables — no inline styles needed */
+  .ch-icon-blue   { background: var(--blue3);   color: var(--blue2); }
+  .ch-icon-teal   { background: var(--teal2);   color: var(--teal); }
+  .ch-icon-green  { background: var(--green2);  color: var(--green); }
+  .ch-icon-purple { background: var(--purple2); color: var(--purple); }
+  .ch-icon-orange { background: var(--orange2); color: var(--orange); }
+  .ch-icon-red    { background: var(--red2);    color: var(--red); }
+  .ch-icon-pink   { background: var(--pink2);   color: var(--pink); }
+  .ch-icon--ai    { background: var(--primary-dim); color: var(--primary); }
+
+  .sidebar-link--ai {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .sidebar-section-label--tools { margin-top: 12px; }
+
+  /* XP enhancements */
+  .xp-value-text { font-size: 12px; font-weight: 700; color: var(--primary); }
+  .xp-label-text { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .xp-level      { font-size: 10px; font-weight: 700; color: var(--text-faint); margin-top: 4px; text-align: right; }
+
+  /* AI badge pill */
+  .sidebar-link-badge {
+    margin-left: auto;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: var(--primary-dim);
+    color: var(--primary);
+    border: 1px solid rgba(99,102,241,0.2);
+    flex-shrink: 0;
+  }
+</style>
 
 <script is:inline>
   (function() {
@@ -67,9 +110,15 @@ const chapters = [
     // XP system
     var xp     = parseInt(localStorage.getItem('xp') || '0');
     var xpGoal = 800;
+    var level  = Math.floor(Math.sqrt(xp / 100)) + 1;
     var xpEl   = document.getElementById('xp-value');
     var xpFill = document.getElementById('xp-fill');
+    var xpLvl  = document.getElementById('xp-level');
+    var xpBar  = xpFill && xpFill.parentElement;
+
     if (xpEl)   xpEl.textContent   = xp;
     if (xpFill) xpFill.style.width = Math.min(100, Math.round(xp / xpGoal * 100)) + '%';
+    if (xpLvl)  xpLvl.textContent  = 'Nivel ' + level;
+    if (xpBar)  xpBar.setAttribute('aria-valuenow', Math.round(xp / xpGoal * 100));
   })();
 </script>

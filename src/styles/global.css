@@ -68,6 +68,17 @@
   --font:    'Inter', 'Segoe UI', system-ui, Arial, sans-serif;
   --mono:    'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
   --transition: 0.22s cubic-bezier(.4,0,.2,1);
+
+  /* Light-mode: cyber vars are subtle / transparent */
+  --neon-blue:   #6366f1;
+  --neon-purple: #7c3aed;
+  --neon-green:  #16a34a;
+  --neon-pink:   #db2777;
+  --glow-blue:   none;
+  --glow-purple: none;
+  --glow-green:  none;
+  --glass-bg:    rgba(255,255,255,0.8);
+  --glass-border:rgba(99,102,241,0.15);
 }
 
 /* ─── Dark mode tokens ───────────────────────────────────────── */
@@ -117,6 +128,74 @@
 
   --shadow:  0 2px 16px rgba(0,0,0,0.4);
   --shadow2: 0 8px 40px rgba(0,0,0,0.5);
+
+  /* ── Cyber/neon extras (dark-mode only) ─── */
+  --neon-blue:   #00d4ff;
+  --neon-purple: #a855f7;
+  --neon-green:  #00ff88;
+  --neon-pink:   #ff007a;
+  --glow-blue:   0 0 18px rgba(0,212,255,0.35), 0 0 40px rgba(0,212,255,0.15);
+  --glow-purple: 0 0 18px rgba(168,85,247,0.35), 0 0 40px rgba(168,85,247,0.15);
+  --glow-green:  0 0 18px rgba(0,255,136,0.35), 0 0 40px rgba(0,255,136,0.15);
+  --glass-bg:    rgba(22,27,34,0.75);
+  --glass-border:rgba(255,255,255,0.08);
+}
+
+/* ─── Utility: glassmorphism ─────────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .glass {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+[data-theme="dark"] .glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: var(--glass-border);
+}
+
+/* ─── Utility: neon glows ────────────────────────────────────── */
+[data-theme="dark"] .neon-blue   { box-shadow: var(--glow-blue);   border-color: rgba(0,212,255,0.3) !important; }
+[data-theme="dark"] .neon-purple { box-shadow: var(--glow-purple); border-color: rgba(168,85,247,0.3) !important; }
+[data-theme="dark"] .neon-green  { box-shadow: var(--glow-green);  border-color: rgba(0,255,136,0.3) !important; }
+[data-theme="dark"] .neon-text   { color: var(--neon-blue); }
+[data-theme="dark"] .neon-text-purple { color: var(--neon-purple); }
+
+/* ─── Utility: cyber grid background ────────────────────────── */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+[data-theme="dark"] .cyber-grid {
+  background-image:
+    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+}
+
+/* ─── Utility: animated gradient text ───────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, #a855f7 60%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="dark"] .gradient-text {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 60%, var(--neon-green) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* ─── Reset ──────────────────────────────────────────────────── */
@@ -382,6 +461,7 @@ body {
   padding: 52px 40px 44px;
   color: white;
   position: relative; overflow: hidden;
+  background: var(--hero-gradient, linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%));
 }
 .chapter-hero::before {
   content: '';
@@ -948,6 +1028,13 @@ tr:nth-child(even) td { background: var(--border-faint); }
   transition: background 0.2s;
 }
 .btn-hero-secondary:hover { background: rgba(255,255,255,0.18); }
+.btn-hero-ghost {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* Scrollable table wrapper */
+.table-scroll { overflow-x: auto; }
 
 /* Hero code preview */
 .hero-graphic { display: flex; justify-content: flex-end; align-items: center; }

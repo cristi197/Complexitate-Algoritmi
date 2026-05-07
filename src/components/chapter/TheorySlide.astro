@@ -1,0 +1,84 @@
+---
+/**
+ * TheorySlide — animated content card used inside chapter pages.
+ * Replaces repetitive `<div class="slide"><div class="slide-header">...` pattern.
+ *
+ * Props:
+ *   icon    — emoji or icon string shown in the header badge
+ *   title   — section heading
+ *   color   — 'blue' | 'green' | 'orange' | 'red' | 'purple' | 'teal' | 'pink'
+ *   level   — heading level (2 or 3)
+ */
+interface Props {
+  icon?: string;
+  title: string;
+  color?: 'blue' | 'green' | 'orange' | 'red' | 'purple' | 'teal' | 'pink';
+  level?: 2 | 3;
+}
+
+const { icon, title, color = 'blue', level = 2 } = Astro.props;
+const HeadingTag = `h${level}`;
+---
+
+<div class:list={['theory-slide', 'slide']}>
+  <div class="theory-slide-header">
+    {icon && <span class:list={['theory-slide-icon', `icon-${color}`]} aria-hidden="true">{icon}</span>}
+    <HeadingTag class="theory-slide-title">{title}</HeadingTag>
+  </div>
+  <div class="theory-slide-body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .theory-slide {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    transition: box-shadow var(--transition);
+  }
+  .theory-slide:hover {
+    box-shadow: var(--shadow2);
+  }
+
+  .theory-slide-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .theory-slide-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Icon color variants — map to existing CSS variables */
+  .icon-blue   { background: var(--blue3);    color: var(--blue2); }
+  .icon-green  { background: var(--green2);   color: var(--green); }
+  .icon-orange { background: var(--orange2);  color: var(--orange); }
+  .icon-red    { background: var(--red2);     color: var(--red); }
+  .icon-purple { background: var(--purple2);  color: var(--purple); }
+  .icon-teal   { background: var(--teal2);    color: var(--teal); }
+  .icon-pink   { background: var(--pink2);    color: var(--pink); }
+
+  .theory-slide-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .theory-slide-body {
+    padding: 20px;
+  }
+</style>

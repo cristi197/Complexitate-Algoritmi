@@ -82,7 +82,7 @@ const chapters = [
       <div class="hero-actions">
         <a href="#capitole"     class="btn-hero-primary">Începe să înveți →</a>
         <a href="#complexitate" class="btn-hero-secondary">Big-O Referință</a>
-        <a href={`${base}/analiza-bac`} class="btn-hero-secondary" style="background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.4);">
+        <a href={`${base}/analiza-bac`} class="btn-hero-secondary btn-hero-ghost">
           🤖 Analizează-ți varianta BAC
         </a>
       </div>
@@ -191,7 +191,7 @@ const chapters = [
       <h2 class="section-title">📊 Referință Big-O</h2>
       <p class="section-subtitle">Complexitățile cele mai întâlnite la examen.</p>
     </div>
-    <div style="overflow-x:auto;">
+    <div class="table-scroll">
       <table class="o-table">
         <thead>
           <tr><th>Notație</th><th>Nume</th><th>Exemplu</th><th>n=1000</th></tr>

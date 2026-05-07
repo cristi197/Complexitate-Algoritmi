@@ -1,0 +1,94 @@
+---
+/**
+ * Button — themed CTA button.
+ *
+ * variant: 'primary' | 'ghost' | 'danger'
+ * size:    'sm' | 'md' | 'lg'
+ * href:    optional — renders as <a> when provided
+ */
+interface Props {
+  variant?: 'primary' | 'ghost' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  disabled?: boolean;
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+  'aria-label'?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  disabled = false,
+  class: cls = '',
+  type = 'button',
+  'aria-label': ariaLabel,
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+---
+
+{href
+  ? <a href={href} class:list={['btn', `btn-${variant}`, `btn-${size}`, cls]} aria-label={ariaLabel}><slot /></a>
+  : <button type={type} disabled={disabled} class:list={['btn', `btn-${variant}`, `btn-${size}`, cls]} aria-label={ariaLabel}><slot /></button>
+}
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition);
+    user-select: none;
+    white-space: nowrap;
+    font-family: var(--font);
+  }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+
+  /* Sizes */
+  .btn-sm { font-size: 13px; padding: 6px 14px; }
+  .btn-md { font-size: 14px; padding: 9px 20px; }
+  .btn-lg { font-size: 15px; padding: 12px 28px; }
+
+  /* Variants */
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 1px 6px rgba(99,102,241,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(99,102,241,0.45);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border-color: var(--border);
+  }
+  .btn-ghost:hover {
+    background: var(--surface2);
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .btn-danger {
+    background: var(--red2);
+    color: var(--red);
+    border-color: var(--red2);
+  }
+  .btn-danger:hover {
+    background: var(--red);
+    color: #fff;
+  }
+</style>

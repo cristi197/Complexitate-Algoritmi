@@ -1,0 +1,35 @@
+---
+/**
+ * GlowDot — pulsing status indicator.
+ * color: 'green' | 'blue' | 'purple' | 'orange'
+ */
+interface Props {
+  color?: 'green' | 'blue' | 'purple' | 'orange';
+  label?: string;
+}
+const { color = 'green', label } = Astro.props;
+---
+<span class:list={['glow-dot-wrap']} aria-label={label}>
+  <span class:list={['glow-dot', `glow-${color}`]}></span>
+  {label && <span class="glow-label">{label}</span>}
+</span>
+
+<style>
+  .glow-dot-wrap { display: inline-flex; align-items: center; gap: 6px; }
+  .glow-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  .glow-green  { background: var(--green);  box-shadow: 0 0 6px var(--green); }
+  .glow-blue   { background: var(--blue2);  box-shadow: 0 0 6px var(--blue2); }
+  .glow-purple { background: var(--purple); box-shadow: 0 0 6px var(--purple); }
+  .glow-orange { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+
+  .glow-label { font-size: 12px; font-weight: 600; color: var(--text-muted); }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+</style>
