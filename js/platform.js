@@ -184,7 +184,10 @@ document.addEventListener('DOMContentLoaded', function () {
 function initAudioPlayer() {
   if (!window.speechSynthesis) return;
 
-  /* ── Cached Romanian voice (loaded async on Chrome) ── */
+  /* ── Chromium detection (Chrome + Edge use online voices → ro-RO works natively) ── */
+  var IS_CHROMIUM = /Chrome|Chromium/.test(navigator.userAgent);
+
+  /* ── Cached Romanian voice ── */
   var roVoice = null;
   function loadVoice() {
     var voices = window.speechSynthesis.getVoices();
@@ -193,6 +196,70 @@ function initAudioPlayer() {
   }
   loadVoice(); /* Firefox has voices synchronously */
   window.speechSynthesis.onvoiceschanged = loadVoice; /* Chrome needs this */
+
+  /* Returns true when Web Speech API can speak Romanian without extra setup:
+     – a Romanian voice is installed on the OS, OR
+     – we're on a Chromium browser (uses Google's online TTS for any lang) */
+  function canUseWebSpeech() {
+    return !!roVoice || IS_CHROMIUM;
+  }
+
+  /* ── Online TTS fallback: StreamElements (Amazon Polly Ioana — Romanian) ──
+     Free, no API key, no installation. Text is chunked because the endpoint
+     has a ~400-char limit per request.                                       */
+  var olAudio   = null;   /* current HTMLAudioElement for online TTS */
+  var olChunks  = [];     /* text chunks queued for playback */
+  var olIdx     = 0;      /* current chunk index */
+  var olOnEnd   = null;   /* callback when all chunks finish */
+
+  function chunkText(text, maxLen) {
+    var chunks = [];
+    var remaining = text.trim();
+    while (remaining.length > maxLen) {
+      var slice = remaining.substring(0, maxLen);
+      /* Prefer breaking at sentence boundaries, then commas */
+      var cut = -1;
+      ['. ', '! ', '? ', ', '].forEach(function (sep) {
+        var pos = slice.lastIndexOf(sep);
+        if (pos > maxLen * 0.45 && pos > cut) cut = pos + sep.length - 1;
+      });
+      if (cut < 0) cut = maxLen;
+      chunks.push(remaining.substring(0, cut).trim());
+      remaining = remaining.substring(cut).trim();
+    }
+    if (remaining.length > 0) chunks.push(remaining);
+    return chunks;
+  }
+
+  function playNextChunk() {
+    if (olIdx >= olChunks.length) {
+      olAudio = null;
+      if (olOnEnd) olOnEnd();
+      return;
+    }
+    var chunk = olChunks[olIdx++];
+    var url = 'https://api.streamelements.com/kappa/v2/speech?voice=Ioana&text=' +
+              encodeURIComponent(chunk);
+    var a = new Audio(url);
+    olAudio = a;
+    a.playbackRate = rate;
+    a.onended  = playNextChunk;
+    a.onerror  = playNextChunk; /* skip failed chunk, keep going */
+    a.play().catch(playNextChunk);
+  }
+
+  function speakOnline(text, onEnd) {
+    stopOnline();
+    olChunks = chunkText(text, 380);
+    olIdx    = 0;
+    olOnEnd  = onEnd;
+    playNextChunk();
+  }
+
+  function stopOnline() {
+    if (olAudio) { olAudio.pause(); olAudio.src = ''; olAudio = null; }
+    olChunks = []; olIdx = 0;
+  }
 
   /* ── Clean extracted text for Romanian TTS ── */
   function cleanForSpeech(text) {
@@ -267,11 +334,6 @@ function initAudioPlayer() {
       '<span class="ap-time">~' + estMin + ' min</span>' +
       '<button class="ap-close" title="Ascunde">&#x2715;</button>' +
     '</div>' +
-    '<div id="ap-voice-warn" class="ap-voice-warn" style="display:none">' +
-      '&#x26A0;&#xFE0F; Voce român&#x103; negăsit&#x103;. ' +
-      '<a href="ms-settings:speech" class="ap-voice-link">Instaleaz&#x103; din Windows Settings</a>' +
-      ' sau instalează vocea &ldquo;Romanian&rdquo; din Setări &rsaquo; Timp și limbă &rsaquo; Vorbire.' +
-    '</div>' +
     '<div class="ap-section-name">&#8212;</div>' +
     '<div class="ap-progress-wrap">' +
       '<div class="ap-progress-bar"><div class="ap-progress-fill" id="ap-fill" style="width:0%"></div></div>' +
@@ -291,17 +353,6 @@ function initAudioPlayer() {
       '</select>' +
     '</div>';
   document.body.appendChild(player);
-
-  /* Show warning if no Romanian voice found after voices load */
-  function checkVoiceWarning() {
-    var warn = document.getElementById('ap-voice-warn');
-    if (warn) warn.style.display = roVoice ? 'none' : '';
-  }
-  var origLoad = loadVoice;
-  loadVoice = function () { origLoad(); checkVoiceWarning(); };
-  window.speechSynthesis.onvoiceschanged = loadVoice;
-  /* Also check after a short delay (Edge/Chrome can be slow) */
-  setTimeout(checkVoiceWarning, 1500);
 
   var cur = 0;
   var playing = false;
@@ -333,40 +384,48 @@ function initAudioPlayer() {
   function speak(idx) {
     window.speechSynthesis.cancel();
     stopResumeFix();
+    stopOnline();
     cur = idx;
     playing = true;
     ui();
 
-    var utt = new SpeechSynthesisUtterance(sections[idx].text);
-    utt.lang = 'ro-RO';
-    utt.rate = rate;
-    /* Use cached Romanian voice; reload in case it arrived after init */
-    if (!roVoice) loadVoice();
-    if (roVoice) utt.voice = roVoice;
+    function onSectionEnd() {
+      if (cur < sections.length - 1) speak(cur + 1);
+      else { playing = false; ui(); }
+    }
 
-    utt.onend = function () {
-      stopResumeFix();
-      if (cur < sections.length - 1) {
-        speak(cur + 1);
-      } else {
-        playing = false;
-        ui();
-      }
-    };
-    utt.onerror = function () { stopResumeFix(); playing = false; ui(); };
-
-    window.speechSynthesis.speak(utt);
-    startResumeFix();
+    if (canUseWebSpeech()) {
+      /* ── Web Speech API path (works on Chrome/Edge + OS with Romanian voice) ── */
+      var utt = new SpeechSynthesisUtterance(sections[idx].text);
+      utt.lang = 'ro-RO';
+      utt.rate = rate;
+      if (!roVoice) loadVoice();
+      if (roVoice) utt.voice = roVoice;
+      utt.onend  = function () { stopResumeFix(); onSectionEnd(); };
+      utt.onerror = function () { stopResumeFix(); playing = false; ui(); };
+      window.speechSynthesis.speak(utt);
+      startResumeFix();
+    } else {
+      /* ── Online TTS fallback: StreamElements / Amazon Polly Ioana (Romanian) ── */
+      speakOnline(sections[idx].text, onSectionEnd);
+    }
   }
 
   document.getElementById('ap-play').addEventListener('click', function () {
     if (playing) {
-      window.speechSynthesis.pause();
-      stopResumeFix();
+      if (canUseWebSpeech()) {
+        window.speechSynthesis.pause();
+        stopResumeFix();
+      } else if (olAudio) {
+        olAudio.pause();
+      }
       playing = false;
-    } else if (window.speechSynthesis.paused) {
+    } else if (canUseWebSpeech() && window.speechSynthesis.paused) {
       window.speechSynthesis.resume();
       startResumeFix();
+      playing = true;
+    } else if (!canUseWebSpeech() && olAudio && olAudio.paused && olAudio.src) {
+      olAudio.play().catch(noop);
       playing = true;
     } else {
       speak(cur);
@@ -386,11 +445,17 @@ function initAudioPlayer() {
 
   document.getElementById('ap-speed').addEventListener('change', function () {
     rate = parseFloat(this.value);
-    if (playing) speak(cur);
+    if (playing) {
+      speak(cur); /* restart current section at new rate for both paths */
+    } else if (olAudio) {
+      olAudio.playbackRate = rate; /* apply to queued audio even while paused */
+    }
   });
 
   player.querySelector('.ap-close').addEventListener('click', function () {
-    window.speechSynthesis.cancel(); stopResumeFix(); playing = false;
+    window.speechSynthesis.cancel(); stopResumeFix();
+    stopOnline();
+    playing = false;
     player.classList.add('hidden');
   });
 
@@ -401,6 +466,7 @@ function initAudioPlayer() {
 
   window.addEventListener('beforeunload', function () {
     window.speechSynthesis.cancel(); stopResumeFix();
+    stopOnline();
   });
 
   ui();

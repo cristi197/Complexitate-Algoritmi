@@ -574,14 +574,6 @@ body.has-chapter-nav .audio-toggle-btn    { bottom: 146px; }
 body.has-chapter-nav .quiz-float-btn      { bottom: 220px; }
 
 /* ── Audio voice warning ─────────────────────────────────── */
-.ap-voice-warn {
-  background: #fef3c7; color: #92400e;
-  font-size: 12px; padding: 8px 12px; border-radius: 6px; margin: 6px 10px;
-  line-height: 1.5;
-}
-.ap-voice-link { color: #b45309; font-weight: 700; }
-.ap-voice-link:hover { text-decoration: underline; }
-
 /* ── Quiz difficulty badges ──────────────────────────────── */
 .quiz-diff-badge {
   display: inline-block; font-size: 10px; font-weight: 700;
