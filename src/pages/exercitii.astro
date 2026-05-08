@@ -1,0 +1,450 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const chapters = [
+  { id: 'introducere',   label: 'Introducere',    color: 'blue'   },
+  { id: 'complexitate',  label: 'Complexitate',   color: 'teal'   },
+  { id: 'recursivitate', label: 'Recursivitate',  color: 'green'  },
+  { id: 'backtracking',  label: 'Backtracking',   color: 'purple' },
+  { id: 'vectori',       label: 'Vectori',        color: 'orange' },
+  { id: 'matrici',       label: 'Matrici',        color: 'teal'   },
+  { id: 'siruri',        label: 'Șiruri',         color: 'red'    },
+  { id: 'fisiere',       label: 'Fișiere',        color: 'pink'   },
+];
+---
+<BaseLayout
+  title="Exerciții — Informatică Liceu"
+  description="Exersează cu filtrare după capitol, dificultate și număr de întrebări. Exportă ca PDF."
+  bodyClass="has-sidebar"
+>
+  <Header />
+  <Sidebar />
+
+  <div class="app-shell">
+    <div class="app-content">
+      <!-- Hero -->
+      <div class="chapter-hero" style="--hero-gradient: linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 50%,#7c3aed 100%);">
+        <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
+        <h1>📝 Exerciții Interactive</h1>
+        <p>Selectează capitolele, dificultatea și numărul de întrebări. Exersează sau exportă ca PDF.</p>
+        <div class="chapter-hero-tags">
+          <span class="chapter-hero-tag">800 întrebări</span>
+          <span class="chapter-hero-tag">8 capitole</span>
+          <span class="chapter-hero-tag">3 niveluri</span>
+          <span class="chapter-hero-tag">Export PDF</span>
+        </div>
+      </div>
+
+      <div class="wrapper">
+
+        <!-- ── Filters ─────────────────────────────────────── -->
+        <section class="ex-filters-card slide" id="filtreSection">
+          <div class="slide-header">
+            <span class="slide-icon icon-blue">⚙️</span>
+            <h2>Configurează setul de exerciții</h2>
+          </div>
+          <div class="slide-body">
+
+            <!-- Chapter selector -->
+            <div class="filter-group">
+              <div class="filter-label">📚 Capitole</div>
+              <div class="chapter-chips" id="chapterChips">
+                <button class="chip chip-all active" data-all="true">Toate</button>
+                {chapters.map(ch => (
+                  <button class={`chip chip-${ch.color}`} data-chapter={ch.id}>{ch.label}</button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Difficulty selector -->
+            <div class="filter-group">
+              <div class="filter-label">🎯 Dificultate</div>
+              <div class="diff-chips" id="diffChips">
+                <button class="chip chip-diff active" data-diff="all">Toate</button>
+                <button class="chip chip-diff chip-facil" data-diff="1">Facil</button>
+                <button class="chip chip-diff chip-mediu" data-diff="2">Mediu</button>
+                <button class="chip chip-diff chip-dificil" data-diff="3">Dificil</button>
+              </div>
+            </div>
+
+            <!-- Count selector -->
+            <div class="filter-group">
+              <div class="filter-label">🔢 Număr de întrebări</div>
+              <div class="count-chips" id="countChips">
+                <button class="chip chip-count active" data-count="10">10</button>
+                <button class="chip chip-count" data-count="20">20</button>
+                <button class="chip chip-count" data-count="50">50</button>
+                <button class="chip chip-count" data-count="100">100</button>
+                <button class="chip chip-count" data-count="all">Toate</button>
+              </div>
+            </div>
+
+            <div class="filter-actions">
+              <button id="btnGenerate" class="btn-generate">
+                ▶ Generează exerciții
+              </button>
+              <button id="btnPDF" class="btn-pdf" style="display:none">
+                🖨 Exportă PDF
+              </button>
+              <span id="loadingSpinner" style="display:none;opacity:.6;font-size:13px">Se încarcă…</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Results ─────────────────────────────────────── -->
+        <section id="exResults" style="display:none">
+          <div class="ex-results-header">
+            <span id="exCount" class="ex-count-badge"></span>
+            <span id="exSubtitle" class="ex-subtitle"></span>
+          </div>
+          <div id="exList" class="ex-list"></div>
+        </section>
+
+      </div><!-- /wrapper -->
+    </div>
+  </div>
+
+  <!-- ── Inline styles for this page ── -->
+  <style is:inline>
+    /* Filter chips */
+    .filter-group { margin-bottom: 20px; }
+    .filter-label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+    .chapter-chips, .diff-chips, .count-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 6px 14px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.06); color: #94a3b8; cursor: pointer;
+      font-size: 13px; font-weight: 600; transition: all .18s; white-space: nowrap;
+    }
+    .chip:hover { background: rgba(255,255,255,.12); }
+    .chip.active { border-color: transparent; color: #fff; }
+    .chip-all.active    { background: linear-gradient(135deg,#1d4ed8,#7c3aed); }
+    .chip-blue.active   { background: #1d4ed8; }
+    .chip-teal.active   { background: #0d9488; }
+    .chip-green.active  { background: #16a34a; }
+    .chip-purple.active { background: #7c3aed; }
+    .chip-orange.active { background: #c2410c; }
+    .chip-red.active    { background: #dc2626; }
+    .chip-pink.active   { background: #db2777; }
+    .chip-facil.active  { background: #16a34a; }
+    .chip-mediu.active  { background: #d97706; }
+    .chip-dificil.active{ background: #dc2626; }
+    .chip-count.active  { background: linear-gradient(135deg,#1d4ed8,#7c3aed); }
+    .chip-diff.active   { background: #1d4ed8; }
+
+    /* Action buttons */
+    .filter-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .btn-generate {
+      padding: 11px 28px; border-radius: 12px; border: none; cursor: pointer;
+      background: linear-gradient(135deg,#1d4ed8,#7c3aed); color: #fff;
+      font-size: 14px; font-weight: 700; transition: opacity .2s;
+    }
+    .btn-generate:hover { opacity: .88; }
+    .btn-pdf {
+      padding: 11px 22px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.07); color: #e2e8f0; cursor: pointer;
+      font-size: 13px; font-weight: 600; transition: background .2s;
+    }
+    .btn-pdf:hover { background: rgba(255,255,255,.14); }
+
+    /* Results header */
+    .ex-results-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
+    .ex-count-badge {
+      padding: 5px 16px; border-radius: 999px; font-size: 13px; font-weight: 800;
+      background: linear-gradient(135deg,#1d4ed8,#7c3aed); color: #fff;
+    }
+    .ex-subtitle { font-size: 13px; color: #94a3b8; }
+
+    /* Exercise cards */
+    .ex-list { display: flex; flex-direction: column; gap: 16px; }
+    .ex-card {
+      background: var(--gray5, #1e293b); border-radius: 14px; padding: 18px 20px;
+      border: 1.5px solid rgba(255,255,255,.08);
+    }
+    .ex-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .ex-num { font-size: 11px; font-weight: 800; color: #64748b; min-width: 28px; }
+    .ex-chapter-badge {
+      font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 6px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .ex-q { font-size: 15px; color: #e2e8f0; line-height: 1.5; margin-bottom: 14px; font-weight: 600; }
+    .ex-opts { display: flex; flex-direction: column; gap: 7px; }
+    .ex-opt {
+      display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px;
+      border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      font-size: 13px; color: #94a3b8;
+    }
+    .ex-opt-letter {
+      font-size: 11px; font-weight: 800; min-width: 20px; height: 20px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.1); color: #e2e8f0; flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* Difficulty badges inside cards */
+    .ex-diff { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+    .ex-diff-facil   { background: rgba(74,222,128,.15); color: #4ade80; }
+    .ex-diff-mediu   { background: rgba(251,191,36,.15);  color: #fbbf24; }
+    .ex-diff-dificil { background: rgba(248,113,113,.15); color: #f87171; }
+
+    /* Chapter badge colors */
+    .cb-introducere   { background: rgba(59,130,246,.15); color: #60a5fa; }
+    .cb-complexitate  { background: rgba(13,148,136,.15); color: #2dd4bf; }
+    .cb-recursivitate { background: rgba(22,163,74,.15);  color: #4ade80; }
+    .cb-backtracking  { background: rgba(124,58,237,.15); color: #a78bfa; }
+    .cb-vectori       { background: rgba(194,65,12,.15);  color: #fb923c; }
+    .cb-matrici       { background: rgba(13,148,136,.15); color: #2dd4bf; }
+    .cb-siruri        { background: rgba(220,38,38,.15);  color: #f87171; }
+    .cb-fisiere       { background: rgba(219,39,119,.15); color: #f472b6; }
+
+    /* Print / PDF styles */
+    @media print {
+      .sidebar, .header, #filtreSection, .ex-results-header, .chapter-hero { display: none !important; }
+      .app-shell { padding: 0 !important; }
+      .app-content { padding: 0 !important; }
+      .wrapper { padding: 0 !important; margin: 0 !important; }
+      body, html { background: #fff !important; color: #111 !important; }
+      .ex-card { background: #fff !important; border: 1px solid #ddd !important; break-inside: avoid; page-break-inside: avoid; margin-bottom: 16px; }
+      .ex-q { color: #111 !important; }
+      .ex-opt { color: #333 !important; background: #f8f8f8 !important; border-color: #ddd !important; }
+      .ex-opt-letter { background: #eee !important; color: #111 !important; }
+      .ex-chapter-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .ex-diff { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      #exResults { display: block !important; }
+    }
+  </style>
+
+  <!-- ── JavaScript ── -->
+  <script is:inline>
+  (function() {
+    var BASE = document.querySelector('base') ? document.querySelector('base').href : '/';
+
+    var CHAPTERS = [
+      { id: 'introducere',   label: 'Introducere'   },
+      { id: 'complexitate',  label: 'Complexitate'  },
+      { id: 'recursivitate', label: 'Recursivitate' },
+      { id: 'backtracking',  label: 'Backtracking'  },
+      { id: 'vectori',       label: 'Vectori'       },
+      { id: 'matrici',       label: 'Matrici'       },
+      { id: 'siruri',        label: 'Șiruri'        },
+      { id: 'fisiere',       label: 'Fișiere'       },
+    ];
+
+    var DIFF_LABELS = ['','Facil','Mediu','Dificil'];
+    var DIFF_CLS    = ['','ex-diff-facil','ex-diff-mediu','ex-diff-dificil'];
+
+    // State
+    var selectedChapters = []; // empty = all
+    var selectedDiff     = 'all';
+    var selectedCount    = 10;
+    var loadedData       = {}; // { chapterId: [{q,opts,ans,diff}, ...] }
+
+    /* ── Chip logic ── */
+    function setupChips() {
+      // Chapter chips
+      document.querySelectorAll('#chapterChips .chip').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (btn.dataset.all) {
+            selectedChapters = [];
+            document.querySelectorAll('#chapterChips .chip').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+          } else {
+            var ch = btn.dataset.chapter;
+            document.querySelector('#chapterChips .chip-all').classList.remove('active');
+            btn.classList.toggle('active');
+            if (btn.classList.contains('active')) {
+              selectedChapters.push(ch);
+            } else {
+              selectedChapters = selectedChapters.filter(function(x) { return x !== ch; });
+            }
+            // If none selected, reactivate "All"
+            if (selectedChapters.length === 0) {
+              document.querySelector('#chapterChips .chip-all').classList.add('active');
+            }
+          }
+        });
+      });
+
+      // Diff chips
+      document.querySelectorAll('#diffChips .chip').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#diffChips .chip').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedDiff = btn.dataset.diff;
+        });
+      });
+
+      // Count chips
+      document.querySelectorAll('#countChips .chip').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#countChips .chip').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedCount = btn.dataset.count === 'all' ? 'all' : parseInt(btn.dataset.count, 10);
+        });
+      });
+    }
+
+    /* ── Determine base URL for data fetching ── */
+    function getDataBase() {
+      var canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        var url = new URL(canonical.href);
+        // Remove path segments after base
+        var parts = url.pathname.split('/').filter(Boolean);
+        // e.g. /Complexitate-Algoritmi/exercitii → base is /Complexitate-Algoritmi/
+        if (parts.length > 0) {
+          return url.origin + '/' + parts[0] + '/';
+        }
+        return url.origin + '/';
+      }
+      // Fallback: derive from current URL
+      var loc = window.location;
+      var path = loc.pathname;
+      // Remove last segment (exercitii)
+      var pathBase = path.substring(0, path.lastIndexOf('/') + 1);
+      return loc.origin + pathBase;
+    }
+
+    /* ── Load JSON data ── */
+    function loadAllChapters(chapterIds) {
+      var needed = chapterIds.filter(function(id) { return !loadedData[id]; });
+      if (needed.length === 0) return Promise.resolve();
+      var loc = window.location;
+      // Figure out the data path relative to current page
+      var baseUrl = loc.origin + loc.pathname.replace(/\/[^/]+$/, '/');
+      // We're at /Complexitate-Algoritmi/exercitii, so go up one: ../data/exercises/
+      // But to be safe, use absolute path construction
+      var pathParts = loc.pathname.split('/').filter(Boolean);
+      // Remove last segment (exercitii or exercitii.html)
+      pathParts.pop();
+      var dataPrefix = loc.origin + '/' + pathParts.join('/') + '/data/exercises/';
+
+      var promises = needed.map(function(id) {
+        return fetch(dataPrefix + id + '.json')
+          .then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + id);
+            return r.json();
+          })
+          .then(function(json) {
+            var arr = Array.isArray(json) ? json : (json.quiz || []);
+            // Annotate with chapter id
+            arr = arr.map(function(q) { return Object.assign({}, q, { _chapter: id }); });
+            loadedData[id] = arr;
+          })
+          .catch(function(err) {
+            console.warn('Could not load', id, err);
+            loadedData[id] = [];
+          });
+      });
+      return Promise.all(promises);
+    }
+
+    /* ── Shuffle array (Fisher-Yates) ── */
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    /* ── Render cards ── */
+    function renderCards(questions) {
+      var list = document.getElementById('exList');
+      list.innerHTML = '';
+
+      questions.forEach(function(q, idx) {
+        var diffCls   = DIFF_CLS[q.diff] || '';
+        var diffLabel = DIFF_LABELS[q.diff] || '';
+        var chLabel   = q._chapter || '';
+
+        var optsHtml = q.opts.map(function(opt, i) {
+          return '<div class="ex-opt">' +
+            '<span class="ex-opt-letter">' + String.fromCharCode(65 + i) + '</span>' +
+            '<span>' + opt + '</span>' +
+            '</div>';
+        }).join('');
+
+        var card = document.createElement('div');
+        card.className = 'ex-card';
+        card.innerHTML =
+          '<div class="ex-card-header">' +
+            '<span class="ex-num">' + (idx + 1) + '.</span>' +
+            '<span class="ex-chapter-badge cb-' + chLabel + '">' + chLabel + '</span>' +
+            (diffLabel ? '<span class="ex-diff ' + diffCls + '">' + diffLabel + '</span>' : '') +
+          '</div>' +
+          '<div class="ex-q">' + q.q + '</div>' +
+          '<div class="ex-opts">' + optsHtml + '</div>';
+
+        list.appendChild(card);
+      });
+    }
+
+    /* ── Generate ── */
+    function onGenerate() {
+      var spinner = document.getElementById('loadingSpinner');
+      var btn     = document.getElementById('btnGenerate');
+      spinner.style.display = 'inline';
+      btn.disabled = true;
+
+      var chapterIds = selectedChapters.length > 0
+        ? selectedChapters
+        : CHAPTERS.map(function(c) { return c.id; });
+
+      loadAllChapters(chapterIds).then(function() {
+        // Collect all matching questions
+        var pool = [];
+        chapterIds.forEach(function(id) {
+          var qs = (loadedData[id] || []).filter(function(q) {
+            if (selectedDiff === 'all') return true;
+            return q.diff === parseInt(selectedDiff, 10);
+          });
+          pool = pool.concat(qs);
+        });
+
+        // Shuffle and slice
+        pool = shuffle(pool);
+        var count = selectedCount === 'all' ? pool.length : Math.min(selectedCount, pool.length);
+        pool = pool.slice(0, count);
+
+        // Render
+        renderCards(pool);
+
+        // Show results section
+        var resultsEl = document.getElementById('exResults');
+        resultsEl.style.display = '';
+        document.getElementById('exCount').textContent = pool.length + ' întrebări';
+        var chStr = selectedChapters.length === 0 ? 'toate capitolele'
+          : selectedChapters.join(', ');
+        var diffStr = selectedDiff === 'all' ? 'orice dificultate'
+          : (DIFF_LABELS[parseInt(selectedDiff,10)] || '');
+        document.getElementById('exSubtitle').textContent = chStr + ' · ' + diffStr;
+
+        // Show PDF button
+        document.getElementById('btnPDF').style.display = '';
+
+        // Scroll to results
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        spinner.style.display = 'none';
+        btn.disabled = false;
+      });
+    }
+
+    function onPDF() {
+      window.print();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setupChips();
+      document.getElementById('btnGenerate').addEventListener('click', onGenerate);
+      document.getElementById('btnPDF').addEventListener('click', onPDF);
+    });
+  })();
+  </script>
+
+  <script is:inline src={`${import.meta.env.BASE_URL}/js/platform.js`}></script>
+</BaseLayout>

@@ -287,6 +287,12 @@ body {
   color: white;
 }
 .btn-header-ai:hover { opacity: 0.88; }
+.btn-header-exercises {
+  background: rgba(16,185,129,.15);
+  color: #10b981;
+  border: 1.5px solid rgba(16,185,129,.3);
+}
+.btn-header-exercises:hover { background: rgba(16,185,129,.25); }
 
 /* Hamburger (mobile) */
 .sidebar-toggle {

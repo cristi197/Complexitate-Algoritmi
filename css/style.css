@@ -865,12 +865,18 @@ body.has-chapter-nav .quiz-float-btn      { bottom: 220px; }
 .quiz-btn-nav:hover { background: rgba(255,255,255,.2); }
 .quiz-btn-nav.primary { background: linear-gradient(135deg,#1d4ed8,#7c3aed); border-color: transparent; }
 .quiz-btn-nav.primary:hover { opacity: .88; }
+.quiz-btn-skip { background: rgba(245,158,11,.15); border-color: rgba(245,158,11,.35); color: #fcd34d; }
+.quiz-btn-skip:hover { background: rgba(245,158,11,.25); }
 /* Finish screen */
 .quiz-finish { text-align: center; padding: 20px 0; }
 .qf-emoji { font-size: 56px; margin-bottom: 12px; }
 .qf-score { font-size: 36px; font-weight: 900; color: #f1f5f9; }
 .qf-pct   { font-size: 20px; color: #93c5fd; margin-bottom: 12px; }
+.qf-xp    { font-size: 15px; font-weight: 700; color: #fbbf24; margin-bottom: 8px; background: rgba(251,191,36,.12); display: inline-block; padding: 4px 14px; border-radius: 999px; }
 .qf-msg   { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+
+/* Sidebar progress dot completed */
+.sidebar-progress-dot.completed { background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,.7); }
 
 /* ═══════════════════════════════════════════════════════════════
    DEMO INTERACTIV SIRURI (Caesar cipher + character ops)

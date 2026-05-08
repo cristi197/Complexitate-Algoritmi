@@ -1,0 +1,1204 @@
+{
+  "quiz": [
+    {
+      "q": "Notația O mare (Big-O) descrie:",
+      "opts": [
+        "Limita inferioară a timpului",
+        "Limita superioară a timpului (worst case)",
+        "Timpul mediu",
+        "Memoria folosită"
+      ],
+      "ans": 1,
+      "exp": "Big-O = marginea superioară (worst case) a creșterii funcției.",
+      "diff": 1
+    },
+    {
+      "q": "O(1) înseamnă:",
+      "opts": [
+        "Timp constant, independent de n",
+        "Un singur pas",
+        "Timp liniar",
+        "Timp logaritmic"
+      ],
+      "ans": 0,
+      "exp": "O(1) = timp constant — nu depinde de dimensiunea inputului.",
+      "diff": 1
+    },
+    {
+      "q": "Ierarhia complexităților de la cea mai bună la cea mai rea:",
+      "opts": [
+        "O(1)<O(log n)<O(n)<O(n log n)<O(n²)<O(2^n)<O(n!)",
+        "O(n!)<O(2^n)<O(n²)<O(n log n)<O(n)<O(log n)<O(1)",
+        "O(1)<O(n)<O(log n)<O(n²)",
+        "O(log n)<O(1)<O(n)"
+      ],
+      "ans": 0,
+      "exp": "Ordinea corectă: constant < logaritmică < liniară < liniar-logaritmică < pătratică < exponențială < factorială.",
+      "diff": 1
+    },
+    {
+      "q": "Notația Ω (Omega) descrie:",
+      "opts": [
+        "Limita superioară",
+        "Limita inferioară (best case)",
+        "Limita exactă",
+        "Complexitatea spațiu"
+      ],
+      "ans": 1,
+      "exp": "Ω = marginea inferioară (best case) — funcția crește cel puțin atât.",
+      "diff": 2
+    },
+    {
+      "q": "Notația Θ (Theta) descrie:",
+      "opts": [
+        "Numai worst case",
+        "Numai best case",
+        "Limita exactă (atât superior cât și inferior)",
+        "Complexitatea amortizată"
+      ],
+      "ans": 2,
+      "exp": "Θ = creștere exactă — funcția e mărginită atât superior cât și inferior.",
+      "diff": 2
+    },
+    {
+      "q": "Căutarea binară are complexitatea:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "ans": 1,
+      "exp": "La fiecare pas înjumătățim intervalul → O(log n).",
+      "diff": 1
+    },
+    {
+      "q": "Bubble Sort are complexitatea worst case:",
+      "opts": [
+        "O(n log n)",
+        "O(n)",
+        "O(n²)",
+        "O(2^n)"
+      ],
+      "ans": 2,
+      "exp": "Bubble Sort: n-1 + n-2 + ... + 1 = O(n²) comparații.",
+      "diff": 1
+    },
+    {
+      "q": "Merge Sort are complexitatea:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "Merge Sort: log n niveluri × n per nivel = O(n log n).",
+      "diff": 1
+    },
+    {
+      "q": "Quick Sort worst case (pivot mereu min/max) are complexitatea:",
+      "opts": [
+        "O(n log n)",
+        "O(n²)",
+        "O(n)",
+        "O(2^n)"
+      ],
+      "ans": 1,
+      "exp": "Quick Sort worst case: partiționare în 1 și n-1 → O(n²).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea spațiu a Merge Sort este:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "ans": 2,
+      "exp": "Merge Sort necesită un vector auxiliar de lungime n pentru interclasare → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "f(n) = 3n² + 5n + 1 are complexitatea Big-O:",
+      "opts": [
+        "O(n)",
+        "O(3n²)",
+        "O(n²)",
+        "O(n³)"
+      ],
+      "ans": 2,
+      "exp": "Termenul dominant este n². Constantele se ignoră → O(n²).",
+      "diff": 1
+    },
+    {
+      "q": "f(n) = log₂(n) + n are complexitatea:",
+      "opts": [
+        "O(log n)",
+        "O(n + log n) = O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Termenul dominant este n → O(n). log n crește mult mai lent.",
+      "diff": 1
+    },
+    {
+      "q": "O buclă for (i=1; i<=n; i*=2) execută:",
+      "opts": [
+        "n iterații",
+        "n/2 iterații",
+        "log₂(n) iterații",
+        "√n iterații"
+      ],
+      "ans": 2,
+      "exp": "i se dublează la fiecare pas: 1,2,4,...,n → log₂(n) iterații.",
+      "diff": 2
+    },
+    {
+      "q": "Două bucle for imbricate (i de la 0 la n, j de la 0 la n) au complexitatea:",
+      "opts": [
+        "O(n)",
+        "O(n²)",
+        "O(2n)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "n × n iterații = n² → O(n²).",
+      "diff": 1
+    },
+    {
+      "q": "O buclă for (i=0; i<n; i++) cu interior O(log n) are complexitatea:",
+      "opts": [
+        "O(n + log n)",
+        "O(n log n)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "n iterații × O(log n) per iterație = O(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "Accesul la un element al unui vector este:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Indexarea directă → O(1).",
+      "diff": 1
+    },
+    {
+      "q": "Inserția la capătul unui vector dinamicum (amortizat) este:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1) amortizat",
+        "O(n) amortizat"
+      ],
+      "ans": 2,
+      "exp": "Ocazional se face realocare O(n), dar amortizat pe n operații → O(1).",
+      "diff": 3
+    },
+    {
+      "q": "Counting Sort are complexitatea:",
+      "opts": [
+        "O(n log n)",
+        "O(n + k) unde k = domeniul valorilor",
+        "O(n²)",
+        "O(k log k)"
+      ],
+      "ans": 1,
+      "exp": "Counting Sort: O(n) numărare + O(k) inițializare + O(n) reconstruire = O(n+k).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea spațiu a Quick Sort (in-place):",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(log n) pentru stivă recursivă",
+        "O(1)"
+      ],
+      "ans": 2,
+      "exp": "Quick Sort in-place: O(log n) stivă recursivă (medie), O(n) worst case.",
+      "diff": 3
+    },
+    {
+      "q": "Radix Sort are complexitatea:",
+      "opts": [
+        "O(n log n)",
+        "O(n * d) unde d = numărul de cifre",
+        "O(n²)",
+        "O(d log d)"
+      ],
+      "ans": 1,
+      "exp": "Radix Sort: d treceri × O(n+k) per trecere → O(d*(n+k)) = O(n*d) pentru k=O(n).",
+      "diff": 3
+    },
+    {
+      "q": "O(n!) este mai mare decât O(2^n) pentru n suficient de mare?",
+      "opts": [
+        "Nu, sunt egale",
+        "Da",
+        "Nu, 2^n > n!",
+        "Depinde de n"
+      ],
+      "ans": 1,
+      "exp": "n! crește mult mai rapid decât 2^n. Stirling: n! ≈ (n/e)^n ≫ 2^n.",
+      "diff": 2
+    },
+    {
+      "q": "Programarea dinamică reduce de obicei complexitatea din:",
+      "opts": [
+        "O(n) în O(log n)",
+        "Exponențial în polinomial",
+        "O(n²) în O(n log n)",
+        "O(n) în O(1)"
+      ],
+      "ans": 1,
+      "exp": "DP elimină recalculul subproblemelor suprapuse → exponențial → polinomial.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului de umplere a tabelului DP pentru LCS (n×m):",
+      "opts": [
+        "O(n+m)",
+        "O(n*m)",
+        "O(n log m)",
+        "O(n² * m)"
+      ],
+      "ans": 1,
+      "exp": "Umplem tabelul n×m → O(n*m).",
+      "diff": 2
+    },
+    {
+      "q": "BFS și DFS pe un graf cu V noduri și E muchii au complexitatea:",
+      "opts": [
+        "O(V)",
+        "O(V+E)",
+        "O(V²)",
+        "O(E log V)"
+      ],
+      "ans": 1,
+      "exp": "Vizităm fiecare nod și fiecare muchie o dată → O(V+E).",
+      "diff": 2
+    },
+    {
+      "q": "Dijkstra cu min-heap are complexitatea:",
+      "opts": [
+        "O(V²)",
+        "O((V+E) log V)",
+        "O(V log V + E)",
+        "O(E log E)"
+      ],
+      "ans": 1,
+      "exp": "Dijkstra cu heap binar: O((V+E) log V).",
+      "diff": 3
+    },
+    {
+      "q": "Floyd-Warshall (shortest path all pairs) are complexitatea:",
+      "opts": [
+        "O(V²)",
+        "O(V³)",
+        "O(V² log V)",
+        "O(V*E)"
+      ],
+      "ans": 1,
+      "exp": "3 bucle imbricate de la 1 la V → O(V³).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea construirii unui heap (heapify array) din n elemente:",
+      "opts": [
+        "O(n log n)",
+        "O(n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "Heapify bottom-up: analiza amortizată → O(n).",
+      "diff": 3
+    },
+    {
+      "q": "Insertion Sort best case (vector sortat) are complexitatea:",
+      "opts": [
+        "O(n²)",
+        "O(n)",
+        "O(n log n)",
+        "O(1)"
+      ],
+      "ans": 1,
+      "exp": "Vectorul sortat: fiecare element e deja la loc → n-1 comparații → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea spațiu a Fibonacci recursiv fără memoizare:",
+      "opts": [
+        "O(n) — stivă de adâncime n",
+        "O(2^n)",
+        "O(1)",
+        "O(n²)"
+      ],
+      "ans": 0,
+      "exp": "Adâncimea maximă a stivei = n → O(n) spațiu.",
+      "diff": 2
+    },
+    {
+      "q": "Un algoritm O(n log n) pe n=10^6 face aproximativ:",
+      "opts": [
+        "10^6 operații",
+        "20*10^6 operații",
+        "10^12 operații",
+        "10^6 * 10^6 operații"
+      ],
+      "ans": 1,
+      "exp": "n*log₂(n) = 10^6 * 20 = 2*10^7 ≈ 20 milioane operații.",
+      "diff": 2
+    },
+    {
+      "q": "Lower bound pentru sortare prin comparații este:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "Teorema lower bound: orice algoritm de sortare prin comparații necesită Ω(n log n) în worst case.",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea lui n! (factorial) verificată recursiv:",
+      "opts": [
+        "O(n) pași",
+        "O(n log n) pași",
+        "O(n²) pași",
+        "O(2^n) pași"
+      ],
+      "ans": 0,
+      "exp": "factorial(n): n apeluri recursive → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "O funcție f(n) = c (constantă) pentru orice n este:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(c)"
+      ],
+      "ans": 2,
+      "exp": "Orice constantă (indiferent de valoare) este O(1).",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea lui 2^(log₂ n):",
+      "opts": [
+        "O(log n)",
+        "O(n)",
+        "O(n²)",
+        "O(2^n)"
+      ],
+      "ans": 1,
+      "exp": "2^(log₂ n) = n → O(n).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea amortizată este:",
+      "opts": [
+        "Worst case per operație",
+        "Costul mediu per operație pe o secvență de operații",
+        "Best case",
+        "Spațiu de memorie"
+      ],
+      "ans": 1,
+      "exp": "Amortizat = costul total al n operații împărțit la n → cost mediu pe operație.",
+      "diff": 2
+    },
+    {
+      "q": "Hash table cu coliziuni rare: insert/search/delete au complexitatea:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1) amortizat",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Cu funcție hash bună și load factor mic: O(1) amortizat.",
+      "diff": 2
+    },
+    {
+      "q": "Cel mai eficient algoritm de sortare bazat pe comparații este:",
+      "opts": [
+        "O(n)",
+        "O(n log n) (optim teoretic)",
+        "O(n √n)",
+        "O(n log²n)"
+      ],
+      "ans": 1,
+      "exp": "Lower bound teoretic pentru sortare prin comparații = Ω(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "Dacă f(n) = O(g(n)) și g(n) = O(h(n)), atunci:",
+      "opts": [
+        "f(n) = O(h(n))",
+        "f(n) = Ω(h(n))",
+        "f(n) = Θ(h(n))",
+        "Nimic din cele de mai sus"
+      ],
+      "ans": 0,
+      "exp": "Big-O este tranzitiv: f = O(g) și g = O(h) → f = O(h).",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul lui Strassen pentru înmulțirea matricelor are complexitatea:",
+      "opts": [
+        "O(n³)",
+        "O(n^2.807)",
+        "O(n² log n)",
+        "O(n² + n log n)"
+      ],
+      "ans": 1,
+      "exp": "Strassen: O(n^log₂7) ≈ O(n^2.807), mai bun decât O(n³) clasic.",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea sortării a n numere de k cifre cu Radix Sort:",
+      "opts": [
+        "O(k*n)",
+        "O(n log n)",
+        "O(n*k²)",
+        "O(k log k + n)"
+      ],
+      "ans": 0,
+      "exp": "Radix Sort: k treceri × O(n) per trecere → O(k*n).",
+      "diff": 3
+    },
+    {
+      "q": "Un algoritm O(n²) pe n=10^4 face aproximativ:",
+      "opts": [
+        "10^4 operații",
+        "10^8 operații",
+        "10^6 operații",
+        "10^12 operații"
+      ],
+      "ans": 1,
+      "exp": "(10^4)² = 10^8 operații.",
+      "diff": 1
+    },
+    {
+      "q": "Un algoritm O(2^n) pe n=30 face aproximativ:",
+      "opts": [
+        "30 operații",
+        "900 operații",
+        "10^9 operații",
+        "Imposibil"
+      ],
+      "ans": 2,
+      "exp": "2^30 ≈ 10^9 operații — la limita a 1 secundă (10^8-10^9 op/s).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea construirii unui arbore de sufixe (suffix tree) în O(n):",
+      "opts": [
+        "Este imposibilă",
+        "Algoritmul Ukkonen o realizează",
+        "Necesită O(n log n)",
+        "Necesită O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul Ukkonen construiește suffix tree în O(n) timp.",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea Fibonacci iterativ (cu 2 variabile):",
+      "opts": [
+        "O(n) timp O(n) spațiu",
+        "O(n) timp O(1) spațiu",
+        "O(log n) timp O(1) spațiu",
+        "O(n²) timp O(n) spațiu"
+      ],
+      "ans": 1,
+      "exp": "O singură buclă cu 2 variabile → O(n) timp, O(1) spațiu.",
+      "diff": 1
+    },
+    {
+      "q": "Un algoritm cu recurrența T(n) = 2T(n/2) + O(n) (Master Theorem):",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(2^n)"
+      ],
+      "ans": 1,
+      "exp": "Master Theorem: a=2, b=2, f(n)=n → caz 2 → Θ(n log n).",
+      "diff": 3
+    },
+    {
+      "q": "Recurrența T(n) = T(n-1) + O(1) are soluția:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "T(n) = T(n-1) + c → T(n) = n*c → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Recurrența T(n) = T(n/2) + O(1) (căutare binară) are soluția:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "T(n) = T(n/2) + c → T(n) = log n * c → O(log n).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea DFS pe matrice n×m:",
+      "opts": [
+        "O(n+m)",
+        "O(n*m)",
+        "O(n² + m²)",
+        "O((n+m)²)"
+      ],
+      "ans": 1,
+      "exp": "Vizităm fiecare din cele n*m celule → O(n*m).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului Union-Find cu path compression și union by rank:",
+      "opts": [
+        "O(log n) per operație",
+        "O(α(n)) per operație (aproape O(1))",
+        "O(n) per operație",
+        "O(n log n) total"
+      ],
+      "ans": 1,
+      "exp": "Cu path compression + union by rank: O(α(n)) ≈ O(1) practic (α = invers Ackermann).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea construirii unui segment tree pe n elemente:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "ans": 0,
+      "exp": "Segment tree: O(4n) nouri → construire O(n).",
+      "diff": 3
+    },
+    {
+      "q": "Query pe segment tree (sumă/min/max pe interval):",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "Query pe segment tree: O(log n).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea lui n log n vs n^1.5 pentru n mare:",
+      "opts": [
+        "n log n e mai mic",
+        "n^1.5 e mai mic",
+        "Sunt egale",
+        "Depinde de constantă"
+      ],
+      "ans": 0,
+      "exp": "n log n < n^1.5 pentru n mare (log n crește mai lent decât √n).",
+      "diff": 3
+    },
+    {
+      "q": "Algoritmul FFT (Fast Fourier Transform) are complexitatea:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(n²/log n)"
+      ],
+      "ans": 1,
+      "exp": "FFT: O(n log n) față de DFT naiv O(n²).",
+      "diff": 3
+    },
+    {
+      "q": "Un algoritm O(n log² n) este:",
+      "opts": [
+        "Mai rapid decât O(n log n)",
+        "Mai lent decât O(n log n) dar mai rapid decât O(n²)",
+        "Echivalent cu O(n log n)",
+        "Mai lent decât O(n²)"
+      ],
+      "ans": 1,
+      "exp": "n log n < n log² n < n². (log² n crește mai rapid decât log n dar mai lent decât n).",
+      "diff": 3
+    },
+    {
+      "q": "Dacă un algoritm rulează în 1s pentru n=1000 cu O(n²), pentru n=10000 va rula în:",
+      "opts": [
+        "10s",
+        "100s",
+        "1000s",
+        "0.1s"
+      ],
+      "ans": 1,
+      "exp": "O(n²): (10000/1000)² = 100× mai lent → 100 secunde.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea spațiu a BFS pe un graf cu V noduri:",
+      "opts": [
+        "O(1)",
+        "O(V)",
+        "O(V+E)",
+        "O(E)"
+      ],
+      "ans": 1,
+      "exp": "Coada BFS poate conține cel mult V noduri → O(V) spațiu.",
+      "diff": 2
+    },
+    {
+      "q": "Recurrența T(n) = 4T(n/2) + O(n²) are soluția (Master Theorem):",
+      "opts": [
+        "O(n²)",
+        "O(n² log n)",
+        "O(n³)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "a=4, b=2, f(n)=n². n^(log₂4)=n². f(n)=Θ(n^log_b a) → caz 2 → Θ(n² log n).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea Quick Select (găsire al k-lea element):",
+      "opts": [
+        "O(n log n)",
+        "O(n) mediu, O(n²) worst",
+        "O(n)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "Quick Select: O(n) mediu cu pivot aleator, O(n²) worst case.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea Prim/Kruskal (MST) cu heap binar:",
+      "opts": [
+        "O(V²)",
+        "O(E log V)",
+        "O(V log V)",
+        "O(V+E)"
+      ],
+      "ans": 1,
+      "exp": "Prim cu heap: O((V+E) log V). Kruskal: O(E log E).",
+      "diff": 3
+    },
+    {
+      "q": "Un algoritm O(1) spațiu nu înseamnă:",
+      "opts": [
+        "Timp constant",
+        "Spațiu constant (nu crește cu n)",
+        "Nu foloseste variabile",
+        "Că inputul nu se numără ca spațiu"
+      ],
+      "ans": 0,
+      "exp": "O(1) spațiu = spațiu constant, nu are legătură cu timpulx.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului de verificare a primității naiv:",
+      "opts": [
+        "O(n)",
+        "O(√n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Verificăm divizorii până la √n → O(√n).",
+      "diff": 2
+    },
+    {
+      "q": "Ciurul lui Eratostene pentru numerele prime ≤ n are complexitatea:",
+      "opts": [
+        "O(n)",
+        "O(n log log n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Ciurul lui Eratostene: O(n log log n).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea heap sort:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(n log n) timp O(1) spațiu"
+      ],
+      "ans": 3,
+      "exp": "Heap sort: O(n log n) timp garantat, O(1) spațiu suplimentar (in-place).",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul Bellman-Ford (shortest path cu muchii negative) are complexitatea:",
+      "opts": [
+        "O(V log V)",
+        "O(V*E)",
+        "O(V²)",
+        "O(E log V)"
+      ],
+      "ans": 1,
+      "exp": "Bellman-Ford: V-1 iterații × E muchii = O(V*E).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea Topological Sort (Kahn's algorithm) pe DAG:",
+      "opts": [
+        "O(V²)",
+        "O(V+E)",
+        "O(V log V)",
+        "O(E log E)"
+      ],
+      "ans": 1,
+      "exp": "BFS-based topo sort: O(V+E) — vizităm fiecare nod și muchie o dată.",
+      "diff": 2
+    },
+    {
+      "q": "Recurrența T(n) = T(n-1) + O(n) are soluția:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(2^n)"
+      ],
+      "ans": 2,
+      "exp": "T(n) = T(n-1) + n → suma 1+2+...+n = n(n+1)/2 → O(n²).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului Z-function:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(n + m)"
+      ],
+      "ans": 2,
+      "exp": "Z-function se calculează în O(n) cu algoritmul Z.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea Hash Map (unordered_map) insert/search average:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(√n)"
+      ],
+      "ans": 2,
+      "exp": "Hash map: O(1) amortizat pentru insert/search cu funcție hash bună.",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea treesort (sortare cu BST echilibrat):",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "n inserții în BST echilibrat × O(log n) = O(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "Master Theorem: T(n) = T(n/2) + O(n):",
+      "opts": [
+        "O(log n)",
+        "O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "a=1, b=2, f(n)=n. n^(log₂1)=1. f(n)=n >> n^0 → caz 3 → Θ(n).",
+      "diff": 3
+    },
+    {
+      "q": "Big-O ignoră:",
+      "opts": [
+        "Termenul dominant",
+        "Constante multiplicative și termeni subdominanți",
+        "Termenul cu n",
+        "Toate termenii"
+      ],
+      "ans": 1,
+      "exp": "Big-O elimină constantele și termenii de ordin inferior.",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea lui Shell Sort cu secvența de gap Knuth (h=1,4,13,...) este:",
+      "opts": [
+        "O(n)",
+        "O(n^(3/2))",
+        "O(n²)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "Cu secvența lui Knuth, Shell Sort rulează în O(n^(3/2)) — mai bun decât Insertion Sort dar mai lent decât Merge Sort.",
+      "diff": 3
+    },
+    {
+      "q": "Tim Sort (utilizat în Python și Java) este o combinație de:",
+      "opts": [
+        "Quick Sort și Heap Sort",
+        "Merge Sort și Insertion Sort",
+        "Radix Sort și Counting Sort",
+        "Bubble Sort și Selection Sort"
+      ],
+      "ans": 1,
+      "exp": "Tim Sort utilizează Insertion Sort pe blocuri mici (runs) și Merge Sort pentru a combina blocurile → O(n log n) worst case.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea celei mai rapide implementări a sortării pe baze (Integer Sort) este:",
+      "opts": [
+        "O(n log n)",
+        "O(n + max_val)",
+        "O(n²)",
+        "O(n)"
+      ],
+      "ans": 1,
+      "exp": "Counting Sort are complexitatea O(n+k) unde k=max_val. Dacă k=O(n), atunci O(n).",
+      "diff": 2
+    },
+    {
+      "q": "P vs NP: un algoritm în clasa P are complexitatea:",
+      "opts": [
+        "Exponențială",
+        "Polinomială O(n^k) pentru un k constant",
+        "Factorială",
+        "Sub-liniară"
+      ],
+      "ans": 1,
+      "exp": "Clasa P = probleme solvabile în timp polinomial. Clasa NP = probleme verificabile în timp polinomial.",
+      "diff": 2
+    },
+    {
+      "q": "NP-Complete înseamnă că o problemă este simultan NP și:",
+      "opts": [
+        "NP-Hard",
+        "P",
+        "O(n log n)",
+        "Rezolvabilă în O(1)"
+      ],
+      "ans": 0,
+      "exp": "NP-Complete = NP ∩ NP-Hard. Dacă găsim un algoritm polinomial pentru orice NP-Complete, P=NP.",
+      "diff": 3
+    },
+    {
+      "q": "Algoritmul KMP (Knuth-Morris-Pratt) pentru căutarea unui pattern de lungime m în text de lungime n are complexitatea:",
+      "opts": [
+        "O(n*m)",
+        "O(n+m)",
+        "O(n log m)",
+        "O(m log n)"
+      ],
+      "ans": 1,
+      "exp": "KMP procesează textul o singură dată (O(n)) după o prelucrare a pattern-ului (O(m)) → O(n+m) total.",
+      "diff": 2
+    },
+    {
+      "q": "Un AVL Tree (arbore binar de căutare echilibrat) garantează că operațiile de inserție, ștergere și căutare sunt:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "AVL Tree menține înălțimea O(log n) prin rotații → toate operațiile sunt O(log n).",
+      "diff": 1
+    },
+    {
+      "q": "Un Red-Black Tree are performanțe similare cu AVL Tree: O(log n) per operație. Diferența practică este:",
+      "opts": [
+        "Red-Black este mai rapid la căutare",
+        "AVL este mai strict echilibrat (mai rapid la căutare, mai lent la inserare)",
+        "Sunt identice",
+        "Red-Black este O(n)"
+      ],
+      "ans": 1,
+      "exp": "AVL este mai strict echilibrat → căutare ceva mai rapidă în practică. Red-Black are mai puține rotații la inserare/ștergere.",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea operației push/pop pe un stack implementat cu vector dinamic (amortizat) este:",
+      "opts": [
+        "O(n)",
+        "O(1) amortizat",
+        "O(log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Push occazional face resize (O(n)) dar în medie fiecare push este O(1) amortizat.",
+      "diff": 2
+    },
+    {
+      "q": "Dacă un algoritm O(n log n) rulează în 2s pentru n=10^6, pentru n=10^7 va rula aproximativ în:",
+      "opts": [
+        "20s",
+        "23-24s",
+        "200s",
+        "2s"
+      ],
+      "ans": 1,
+      "exp": "Raport: (10^7 * log(10^7)) / (10^6 * log(10^6)) ≈ 10 * (7/6) ≈ 11.7 → ~23-24s.",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea unui algoritm care execută O(√n) iterații externe, fiecare cu O(√n) iterații interne este:",
+      "opts": [
+        "O(n)",
+        "O(n^(2/3))",
+        "O(n log n)",
+        "O(√n)"
+      ],
+      "ans": 0,
+      "exp": "√n * √n = n → complexitatea este O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Ceil(log₂ n) pentru n=32 este:",
+      "opts": [
+        "4",
+        "5",
+        "6",
+        "32"
+      ],
+      "ans": 1,
+      "exp": "log₂(32) = 5 exact.",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea soluției naive pentru problema 'cel mai lung subșir comun' (LCS) prin recursivitate pură este:",
+      "opts": [
+        "O(n+m)",
+        "O(2^(n+m))",
+        "O(n*m)",
+        "O(n log m)"
+      ],
+      "ans": 1,
+      "exp": "Recursivitatea naivă are subprobleme suprapuse, rezultând în O(2^(n+m)) fără memoizare.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea soluției DP tabelate pentru LCS (n și m lungimile celor doi șiruri) este:",
+      "opts": [
+        "O(n+m)",
+        "O(n*m)",
+        "O(n*m*(n+m))",
+        "O(2^n)"
+      ],
+      "ans": 1,
+      "exp": "DP LCS completează un tabel n×m, fiecare celulă în O(1) → O(n*m) timp și spațiu.",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea celei mai lungi subsecvențe crescătoare (LIS) cu binary search este:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(2^n)"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul optimizat pentru LIS folosește binary search pe o structură de paciență → O(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului Floyd-Warshall față de Dijkstra pentru toate perechile de noduri (V noduri):",
+      "opts": [
+        "Floyd-Warshall O(V³) vs V×Dijkstra O(V² log V) cu heap",
+        "Dijkstra este mereu mai lent",
+        "Ambele O(V²)",
+        "Floyd-Warshall O(V²)"
+      ],
+      "ans": 0,
+      "exp": "Floyd-Warshall: O(V³). V aplicări de Dijkstra cu heap: O(V*(V+E) log V). Pentru grafuri dense E≈V², Floyd poate fi mai rapid.",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea operației 'find' în Union-Find naiv (fără optimizări) este:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "ans": 2,
+      "exp": "Fără optimizări (path compression/union by rank), un lanț degenerat are adâncime O(n) → find este O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Un Fibonacci Heap oferă operația decrease-key în O(1) amortizat. Dijkstra cu Fibonacci Heap are complexitatea:",
+      "opts": [
+        "O(V² + E)",
+        "O((V+E) log V)",
+        "O(E + V log V)",
+        "O(V log V)"
+      ],
+      "ans": 2,
+      "exp": "Cu Fibonacci Heap: O(E + V log V) — optimal pentru grafuri cu E = Ω(V log V).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea verificării dacă un număr n este prim cu algoritmul Miller-Rabin (probabilistic) este:",
+      "opts": [
+        "O(√n)",
+        "O(log² n)",
+        "O(n)",
+        "O(1)"
+      ],
+      "ans": 1,
+      "exp": "Miller-Rabin cu k iterații: O(k log² n) — mult mai rapid decât verificarea naivă O(√n).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea celei mai lungi subsecvențe comune a două șiruri cu LCS + backtracking pentru a reconstrui soluția este:",
+      "opts": [
+        "O(n+m) pentru reconstrucție",
+        "O(n*m) pentru reconstrucție",
+        "O((n+m)²)",
+        "O(n*m) tabel + O(n+m) reconstrucție"
+      ],
+      "ans": 3,
+      "exp": "Tabelul DP se calculează în O(n*m), reconstrucția soluției se face in O(n+m) urmărind tabelul.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului Aho-Corasick pentru căutarea a k pattern-uri de lungime totală m în text de lungime n este:",
+      "opts": [
+        "O(n*m)",
+        "O(n + m + număr_de_potriviri)",
+        "O(n log m)",
+        "O(k * n)"
+      ],
+      "ans": 1,
+      "exp": "Aho-Corasick construiește automatul în O(m) și procesează textul în O(n + număr_de_potriviri) → O(n+m+output).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea unui algoritm care are recurrența T(n) = T(n-1) + T(n-2) (ca Fibonacci naiv) este:",
+      "opts": [
+        "O(n)",
+        "O(φ^n) unde φ ≈ 1.618 (Golden Ratio)",
+        "O(2^n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Fibonacci naiv crește ca φ^n ≈ 1.618^n, care este mai mic decât 2^n dar totuși exponențial.",
+      "diff": 3
+    },
+    {
+      "q": "Constanta ascunsă în Big-O contează în practică? Ex: O(n) cu c=1000 vs O(n log n) cu c=1:",
+      "opts": [
+        "Nu, Big-O ignoră constantele întotdeauna",
+        "Da, pentru n suficient de mic, O(n) cu c mare poate fi mai lent",
+        "Nu afectează deloc",
+        "Constantele sunt întotdeauna 1"
+      ],
+      "ans": 1,
+      "exp": "Big-O descrie comportamentul asimptotic. Pentru n mic, constantele și termenii ascunși contează → profiling real.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului de sortare prin interclasare externă (External Merge Sort) pentru N înregistrări pe disc cu B blocuri în memorie este:",
+      "opts": [
+        "O(N log N)",
+        "O((N/B) log(N/B))",
+        "O(N log(N/B))",
+        "O(N²)"
+      ],
+      "ans": 2,
+      "exp": "External Merge Sort: O(N/B * log(N/B)) operații I/O (citiri/scrieri de blocuri).",
+      "diff": 3
+    },
+    {
+      "q": "Care este complexitatea in-order traversal al unui BST cu n noduri?",
+      "opts": [
+        "O(log n)",
+        "O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "In-order traversal vizitează fiecare nod exact o dată → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea algoritmului de calcul al product-ului a două numere de n cifre prin metoda gradeblocker (naive) este:",
+      "opts": [
+        "O(n)",
+        "O(n²)",
+        "O(n log n)",
+        "O(n^1.585)"
+      ],
+      "ans": 1,
+      "exp": "Înmulțirea clasică cifră cu cifră: O(n²). Karatsuba reduce la O(n^1.585), FFT la O(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea algoritmului Karatsuba pentru înmulțirea a doi întregi de n cifre este:",
+      "opts": [
+        "O(n²)",
+        "O(n^1.585)",
+        "O(n log n)",
+        "O(n)"
+      ],
+      "ans": 1,
+      "exp": "Karatsuba: T(n) = 3T(n/2) + O(n) → Master Theorem → O(n^log₂3) ≈ O(n^1.585).",
+      "diff": 3
+    },
+    {
+      "q": "Complexitatea spațiu a algoritmului Merge Sort iterativ (bottom-up) vs Merge Sort recursiv:",
+      "opts": [
+        "Ambele O(n)",
+        "Iterativ O(n) auxiliar, recursiv O(n) auxiliar + O(log n) stiva",
+        "Iterativ O(1), recursiv O(n)",
+        "Identice O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "Ambele necesită O(n) spațiu auxiliar pentru interclasare. Recursiv adaugă O(log n) pentru stiva de apeluri.",
+      "diff": 2
+    },
+    {
+      "q": "Care algoritm de căutare este mai eficient pe un vector de 10^9 elemente sortate?",
+      "opts": [
+        "Căutare liniară O(n)",
+        "Căutare binară O(log n)",
+        "Căutare interpolată O(log log n) în cazul mediu",
+        "DFS O(n)"
+      ],
+      "ans": 2,
+      "exp": "Căutarea interpolată O(log log n) este teoretic mai rapidă pe distribuții uniforme, deși în practică căutarea binară e preferată.",
+      "diff": 3
+    }
+  ]
+}
