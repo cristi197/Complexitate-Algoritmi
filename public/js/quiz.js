@@ -235,6 +235,17 @@ function initAllQuizzes() {
         })
         .then(function (json) {
           var data = Array.isArray(json) ? json : (json.quiz || []);
+          // Shuffle and limit if data-quiz-max is set
+          var maxQ = el.dataset.quizMax ? parseInt(el.dataset.quizMax, 10) : 0;
+          if (maxQ > 0) {
+            // Fisher-Yates shuffle then slice
+            data = data.slice();
+            for (var i = data.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var t = data[i]; data[i] = data[j]; data[j] = t;
+            }
+            data = data.slice(0, maxQ);
+          }
           if (data.length) renderQuiz(el, data, chapterId);
           else el.innerHTML = '<p style="text-align:center;color:#e44">Nu s-au găsit întrebări.</p>';
         })
