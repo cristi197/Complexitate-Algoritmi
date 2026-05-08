@@ -42,12 +42,12 @@ const chapters = [
       <div class="wrapper">
 
         <!-- ── Filters ─────────────────────────────────────── -->
-        <section class="ex-filters-card slide visible" id="filtreSection">
-          <div class="slide-header">
-            <span class="slide-icon icon-blue">⚙️</span>
+        <section class="ex-filters-card" id="filtreSection">
+          <div class="exf-header">
+            <span class="exf-icon">⚙️</span>
             <h2>Configurează setul de exerciții</h2>
           </div>
-          <div class="slide-body">
+          <div class="exf-body">
 
             <!-- Chapter selector -->
             <div class="filter-group">
@@ -110,7 +110,21 @@ const chapters = [
 
   <!-- ── Inline styles for this page ── -->
   <style is:inline>
-    /* Filter chips */
+    /* Filter card — standalone, no dependency on animations.js */
+    .ex-filters-card {
+      background: var(--surface, #1e293b);
+      border-radius: 16px;
+      border: 1px solid var(--border, rgba(255,255,255,.1));
+      margin-top: 28px;
+      overflow: hidden;
+    }
+    .exf-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 24px 0;
+    }
+    .exf-icon { font-size: 20px; }
+    .exf-header h2 { font-size: 17px; font-weight: 800; color: var(--text, #e2e8f0); margin: 0; }
+    .exf-body { padding: 20px 24px 24px; }
     .filter-group { margin-bottom: 20px; }
     .filter-label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
     .chapter-chips, .diff-chips, .count-chips { display: flex; flex-wrap: wrap; gap: 8px; }
