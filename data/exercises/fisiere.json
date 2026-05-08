@@ -1,0 +1,1204 @@
+{
+  "quiz": [
+    {
+      "q": "În C++, pentru a deschide un fișier de intrare folosim:",
+      "opts": [
+        "ofstream",
+        "ifstream",
+        "fstream",
+        "FILE*"
+      ],
+      "ans": 1,
+      "exp": "ifstream = input file stream. ofstream = output. fstream = ambele.",
+      "diff": 1
+    },
+    {
+      "q": "freopen(\"input.txt\", \"r\", stdin) redirecționează:",
+      "opts": [
+        "cout → fișier",
+        "cin ← fișier input.txt",
+        "stderr",
+        "printf"
+      ],
+      "ans": 1,
+      "exp": "freopen cu stdin redirecționează intrarea standard din fișier.",
+      "diff": 2
+    },
+    {
+      "q": "Modul de deschidere \"a\" în fopen înseamnă:",
+      "opts": [
+        "Citire (read)",
+        "Scriere cu trunchiere (write)",
+        "Adăugare la final (append)",
+        "Citire+scriere"
+      ],
+      "ans": 2,
+      "exp": "\"a\" = append: scriere la finalul fișierului fără a șterge conținutul existent.",
+      "diff": 2
+    },
+    {
+      "q": "EOF (End Of File) are valoarea:",
+      "opts": [
+        "0",
+        "1",
+        "-1",
+        "'\\0'"
+      ],
+      "ans": 2,
+      "exp": "EOF este definit ca -1 în stdio.h.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția fclose(f) este necesară pentru:",
+      "opts": [
+        "Deschiderea fișierului",
+        "Salvarea buffer-ului și eliberarea resurselor",
+        "Citirea eof",
+        "Resetarea pointerului"
+      ],
+      "ans": 1,
+      "exp": "fclose flushează buffer-ul și eliberează resursele asociate fișierului.",
+      "diff": 1
+    },
+    {
+      "q": "Citirea unui număr întreg din fișier cu ifstream fin:",
+      "opts": [
+        "fin.read(n)",
+        "fin >> n",
+        "fin.get(n)",
+        "fscanf(fin, n)"
+      ],
+      "ans": 1,
+      "exp": "Operatorul >> funcționează cu ifstream ca și cin.",
+      "diff": 1
+    },
+    {
+      "q": "fscanf(f, \"%d\", &n) citește:",
+      "opts": [
+        "Un caracter",
+        "Un număr întreg din fișierul f",
+        "Un șir",
+        "Un double"
+      ],
+      "ans": 1,
+      "exp": "fscanf funcționează ca scanf dar citește din fișier.",
+      "diff": 1
+    },
+    {
+      "q": "fprintf(f, \"%d\\n\", x) scrie:",
+      "opts": [
+        "Numai în consolă",
+        "x (întreg) urmat de newline în fișierul f",
+        "x în format hexazecimal",
+        "x ca șir de caractere"
+      ],
+      "ans": 1,
+      "exp": "fprintf funcționează ca printf dar scrie în fișier.",
+      "diff": 1
+    },
+    {
+      "q": "Modul de deschidere \"r+\" în fopen permite:",
+      "opts": [
+        "Numai citire",
+        "Numai scriere",
+        "Citire și scriere (fișierul trebuie să existe)",
+        "Creare fișier nou"
+      ],
+      "ans": 2,
+      "exp": "\"r+\" = citire și scriere; fișierul trebuie să existe.",
+      "diff": 3
+    },
+    {
+      "q": "fgets(buf, n, f) citește:",
+      "opts": [
+        "Exact n caractere",
+        "Cel mult n-1 caractere sau până la '\\n'",
+        "Un număr",
+        "Întreg fișierul"
+      ],
+      "ans": 1,
+      "exp": "fgets citește cel mult n-1 caractere, se oprește la '\\n' sau EOF, adaugă '\\0'.",
+      "diff": 2
+    },
+    {
+      "q": "getline(fin, s) din C++ citește:",
+      "opts": [
+        "Un cuvânt",
+        "O linie întreagă în std::string",
+        "Primele n caractere",
+        "Un număr"
+      ],
+      "ans": 1,
+      "exp": "getline cu ifstream citește o linie completă în std::string.",
+      "diff": 1
+    },
+    {
+      "q": "fseek(f, 0, SEEK_END) mută pointerul:",
+      "opts": [
+        "La începutul fișierului",
+        "La finalul fișierului",
+        "Cu 0 poziții",
+        "La mijloc"
+      ],
+      "ans": 1,
+      "exp": "SEEK_END = finalul fișierului. fseek(f, offset, origine).",
+      "diff": 3
+    },
+    {
+      "q": "ftell(f) returnează:",
+      "opts": [
+        "Lungimea fișierului",
+        "Poziția curentă a pointerului de fișier",
+        "Numărul de linii",
+        "Codul de eroare"
+      ],
+      "ans": 1,
+      "exp": "ftell returnează poziția curentă a pointerului (offset față de început).",
+      "diff": 2
+    },
+    {
+      "q": "Accesul secvențial la fișier înseamnă:",
+      "opts": [
+        "Citire în ordine aleatoare",
+        "Citire/scriere în ordine de la început la final",
+        "Acces direct la orice poziție",
+        "Acces prin indecși"
+      ],
+      "ans": 1,
+      "exp": "Acces secvențial = de la începutul fișierului la final, în ordine.",
+      "diff": 1
+    },
+    {
+      "q": "Accesul direct (random access) la fișier permite:",
+      "opts": [
+        "Numai citire secvențială",
+        "Salt la orice poziție cu fseek",
+        "Numai scriere",
+        "Acces paralel"
+      ],
+      "ans": 1,
+      "exp": "fseek permite saltul la orice poziție → acces direct/aleator.",
+      "diff": 2
+    },
+    {
+      "q": "Fișierele text vs. fișierele binare: diferența principală:",
+      "opts": [
+        "Fișierele text sunt mai rapide",
+        "Fișierele text stochează date ca caractere; binare ca bytes bruti",
+        "Fișierele binare nu există în C",
+        "Fișierele text nu pot fi citite de om"
+      ],
+      "ans": 1,
+      "exp": "Text: date reprezentate ca text (newline convertit); binar: bytes bruti fără conversie.",
+      "diff": 2
+    },
+    {
+      "q": "fread(buf, size, count, f) citește:",
+      "opts": [
+        "count caractere",
+        "count blocuri de size bytes fiecare",
+        "size bytes total",
+        "1 bloc de size bytes"
+      ],
+      "ans": 1,
+      "exp": "fread citește count elemente de dimensiune size bytes → total size*count bytes.",
+      "diff": 2
+    },
+    {
+      "q": "fwrite(buf, size, count, f) scrie:",
+      "opts": [
+        "Un caracter",
+        "count blocuri de size bytes",
+        "size caractere",
+        "count caractere ASCII"
+      ],
+      "ans": 1,
+      "exp": "fwrite scrie count elemente de size bytes din buf în fișier.",
+      "diff": 2
+    },
+    {
+      "q": "remove(\"file.txt\") în C/C++:",
+      "opts": [
+        "Mută fișierul",
+        "Șterge fișierul de pe disc",
+        "Închide fișierul",
+        "Redenumește fișierul"
+      ],
+      "ans": 1,
+      "exp": "remove() șterge fișierul specificat de pe disc.",
+      "diff": 2
+    },
+    {
+      "q": "rename(\"old.txt\", \"new.txt\") în C/C++:",
+      "opts": [
+        "Copiază fișierul",
+        "Șterge fișierul",
+        "Redenumește/mută fișierul",
+        "Deschide fișierul"
+      ],
+      "ans": 2,
+      "exp": "rename() redenumește sau mută fișierul.",
+      "diff": 2
+    },
+    {
+      "q": "Fișierul de intrare pentru concursuri are de obicei extensia:",
+      "opts": [
+        ".txt",
+        ".in",
+        ".dat",
+        ".csv"
+      ],
+      "ans": 1,
+      "exp": "Convențional, fișierele de intrare la concursuri de informatică au extensia .in.",
+      "diff": 1
+    },
+    {
+      "q": "Fișierul de ieșire la concursuri are extensia:",
+      "opts": [
+        ".txt",
+        ".out",
+        ".result",
+        ".ans"
+      ],
+      "ans": 1,
+      "exp": "Convențional, fișierele de ieșire au extensia .out.",
+      "diff": 1
+    },
+    {
+      "q": "ios::sync_with_stdio(false) în C++ crește viteza prin:",
+      "opts": [
+        "Dezactivând sincronizarea între cin/cout și scanf/printf",
+        "Activând caching",
+        "Dezactivând endl",
+        "Mărind buffer-ul"
+      ],
+      "ans": 0,
+      "exp": "Dezactivând sincronizarea, cin/cout devin mai rapide (nu trebuie să fie compatibile cu C I/O).",
+      "diff": 3
+    },
+    {
+      "q": "cin.tie(NULL) în C++ dezactivează:",
+      "opts": [
+        "Sincronizarea cu C I/O",
+        "Flushul automat al cout înainte de cin",
+        "Buffering-ul",
+        "EOL conversion"
+      ],
+      "ans": 1,
+      "exp": "cin.tie(NULL) dezactivează legătura care face cout să se flusheze înainte de fiecare cin.",
+      "diff": 3
+    },
+    {
+      "q": "Citirea tuturor liniilor dintr-un fișier text se face cu:",
+      "opts": [
+        "while(fin >> line)",
+        "while(getline(fin, line))",
+        "for(int i=0; !fin.eof(); i++)",
+        "fin.readAll()"
+      ],
+      "ans": 1,
+      "exp": "while(getline(fin, line)) citește linie cu linie până la EOF.",
+      "diff": 1
+    },
+    {
+      "q": "fin.eof() returnează true:",
+      "opts": [
+        "La prima deschidere",
+        "Numai după o citire eșuată la EOF",
+        "Înainte de EOF",
+        "La eroare de scriere"
+      ],
+      "ans": 1,
+      "exp": "eof() devine true după ce o operație de citire eșuează din cauza EOF.",
+      "diff": 2
+    },
+    {
+      "q": "Citirea eficientă a unui număr mare de date cu scanf vs. cin:",
+      "opts": [
+        "cin e întotdeauna mai rapid",
+        "scanf e mai rapid fără ios optimizări",
+        "Cu ios::sync_with_stdio(false), cin e la fel de rapid",
+        "scanf nu citește numere"
+      ],
+      "ans": 2,
+      "exp": "Cu sync_with_stdio(false) + cin.tie(NULL), cin e comparabil ca viteză cu scanf.",
+      "diff": 3
+    },
+    {
+      "q": "ofstream fout(\"output.txt\", ios::app) deschide fișierul:",
+      "opts": [
+        "În mod citire",
+        "În mod scriere cu trunchiere",
+        "În mod append (adăugare la final)",
+        "În mod binar"
+      ],
+      "ans": 2,
+      "exp": "ios::app = append mode — scrie la finalul fișierului.",
+      "diff": 2
+    },
+    {
+      "q": "Verificarea dacă un fișier s-a deschis cu succes:",
+      "opts": [
+        "if(fin == true)",
+        "if(fin.is_open())",
+        "if(!fin.fail())",
+        "Ambele b și c"
+      ],
+      "ans": 3,
+      "exp": "is_open() și !fail() verifică dacă fișierul s-a deschis cu succes.",
+      "diff": 2
+    },
+    {
+      "q": "Serializarea (scrierea structurilor în fișier binar) se face cu:",
+      "opts": [
+        "fprintf",
+        "fwrite sau ostream::write",
+        "cout",
+        "printf"
+      ],
+      "ans": 1,
+      "exp": "fwrite / ostream::write scriu bytes bruti → serializare structuri.",
+      "diff": 2
+    },
+    {
+      "q": "Numărul de caractere dintr-un fișier text se obține cu:",
+      "opts": [
+        "fseek(f,0,SEEK_END); ftell(f)",
+        "strlen(f)",
+        "fsize(f)",
+        "Numărare manuală"
+      ],
+      "ans": 0,
+      "exp": "fseek la final + ftell returnează dimensiunea în bytes (= caractere pentru ASCII).",
+      "diff": 2
+    },
+    {
+      "q": "Citirea unui fișier binar de întregi (int v[n]) se face cu:",
+      "opts": [
+        "fin >> v[0] >> v[1]...",
+        "fread(v, sizeof(int), n, f)",
+        "scanf(\"%d\", v)",
+        "getline"
+      ],
+      "ans": 1,
+      "exp": "fread citește n întregi de sizeof(int) bytes fiecare.",
+      "diff": 2
+    },
+    {
+      "q": "Fișierele de tip CSV (comma-separated values) se citesc cu:",
+      "opts": [
+        "fread",
+        "getline + tokenizare după ','",
+        "fgets + sscanf sau strtok",
+        "Ambele b și c"
+      ],
+      "ans": 3,
+      "exp": "CSV: citim linie cu getline, apoi separăm câmpurile după ',' cu strtok sau sscanf.",
+      "diff": 2
+    },
+    {
+      "q": "Buffering-ul implicit în C file I/O este:",
+      "opts": [
+        "Dezactivat implicit",
+        "Full buffering (write la flush/fclose)",
+        "Per caracter (unbuffered)",
+        "Line buffering"
+      ],
+      "ans": 1,
+      "exp": "Fișierele standard au full buffering — scrierea efectivă se face la flush sau fclose.",
+      "diff": 3
+    },
+    {
+      "q": "setvbuf(f, NULL, _IONBF, 0) dezactivează:",
+      "opts": [
+        "Citirea",
+        "Scrierea",
+        "Buffering-ul fișierului",
+        "EOF detection"
+      ],
+      "ans": 2,
+      "exp": "_IONBF = no buffering → fiecare citire/scriere e imediată.",
+      "diff": 3
+    },
+    {
+      "q": "Înregistrările unui fișier cu acces direct se accesează prin:",
+      "opts": [
+        "Ordine secvențială",
+        "Offset calculat: fseek(f, idx*sizeof(record), SEEK_SET)",
+        "Hash",
+        "B-tree"
+      ],
+      "ans": 1,
+      "exp": "Record la indexul idx: offset = idx * sizeof(record) față de SEEK_SET.",
+      "diff": 2
+    },
+    {
+      "q": "Fișierele .ini sau de configurare se citesc în C++ cu:",
+      "opts": [
+        "fread binar",
+        "ifstream + parsare linie cu linie",
+        "fseek",
+        "memmap"
+      ],
+      "ans": 1,
+      "exp": "Fișiere text de configurare: citim linie cu linie și parsăm cheie=valoare.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția sscanf(str, \"%d %d\", &a, &b) citește:",
+      "opts": [
+        "Din stdin",
+        "Din fișier",
+        "Din string-ul str",
+        "Din memorie"
+      ],
+      "ans": 2,
+      "exp": "sscanf citește din string (s = string) ca și scanf din stdin.",
+      "diff": 2
+    },
+    {
+      "q": "sprintf(buf, \"%d\", 42) scrie:",
+      "opts": [
+        "42 în stdout",
+        "\"42\" în buffer-ul buf",
+        "Adresa lui 42",
+        "42 în binar"
+      ],
+      "ans": 1,
+      "exp": "sprintf e ca printf dar scrie în string buffer.",
+      "diff": 1
+    },
+    {
+      "q": "Deschiderea unui fișier inexistent în mod \"r\" cu fopen returnează:",
+      "opts": [
+        "Pointer la fișier gol",
+        "NULL",
+        "Eroare fatală",
+        "EOF imediat"
+      ],
+      "ans": 1,
+      "exp": "fopen returnează NULL dacă fișierul nu poate fi deschis.",
+      "diff": 1
+    },
+    {
+      "q": "Numărul maxim de fișiere deschise simultan (FOPEN_MAX) este de obicei:",
+      "opts": [
+        "10",
+        "8",
+        "20+",
+        "256+"
+      ],
+      "ans": 2,
+      "exp": "FOPEN_MAX este garantat ≥ 8, dar în practică sistemele suportă 20+ sau mult mai mult.",
+      "diff": 3
+    },
+    {
+      "q": "'\\ n' vs. endl în C++:",
+      "opts": [
+        "Sunt identice",
+        "endl flushează buffer-ul, '\\n' nu",
+        "'\\n' e mai lent",
+        "endl e mai rapid"
+      ],
+      "ans": 1,
+      "exp": "endl = '\\n' + flush → mai lent. Folosiți '\\n' pentru ieșire în loop.",
+      "diff": 2
+    },
+    {
+      "q": "Scrierea unui vector de n elemente într-un fișier text, fiecare pe o linie:",
+      "opts": [
+        "fout.write(v, n)",
+        "for(int i=0; i<n; i++) fout << v[i] << '\\n';",
+        "fprintf_all(fout, v, n)",
+        "fwrite(v, sizeof(int), n, fout)"
+      ],
+      "ans": 1,
+      "exp": "Bucla cu fout << v[i] << '\\n' scrie fiecare element pe o linie separată.",
+      "diff": 1
+    },
+    {
+      "q": "fflush(stdout) forțează:",
+      "opts": [
+        "Închiderea stdout",
+        "Golirea buffer-ului stdout — scriere imediată",
+        "Citirea din stdin",
+        "Resetarea pointerului"
+      ],
+      "ans": 1,
+      "exp": "fflush flushează buffer-ul → datele sunt scrise efectiv pe disc/consolă.",
+      "diff": 2
+    },
+    {
+      "q": "Citirea unui întreg hexazecimal din fișier (ex: \"FF\") cu fscanf:",
+      "opts": [
+        "fscanf(f, \"%d\", &x)",
+        "fscanf(f, \"%x\", &x)",
+        "fscanf(f, \"%o\", &x)",
+        "fscanf(f, \"%s\", &x)"
+      ],
+      "ans": 1,
+      "exp": "\"%x\" citește număr în baza 16.",
+      "diff": 2
+    },
+    {
+      "q": "Fișierele temporare se creează cu:",
+      "opts": [
+        "tmpfile()",
+        "fopen(\"temp.txt\", \"w\")",
+        "temp_open()",
+        "mkstemp() (POSIX)"
+      ],
+      "ans": 0,
+      "exp": "tmpfile() creează un fișier temporar binar anonim, șters automat la fclose.",
+      "diff": 3
+    },
+    {
+      "q": "clearerr(f) în C șterge:",
+      "opts": [
+        "Conținutul fișierului",
+        "Flag-urile de eroare și EOF ale stream-ului f",
+        "Buffer-ul",
+        "Timestamp-ul fișierului"
+      ],
+      "ans": 1,
+      "exp": "clearerr resetează indicatorii de eroare și EOF, permițând continuarea operațiilor.",
+      "diff": 3
+    },
+    {
+      "q": "Citirea unui număr din fișier pe linia curentă (skipând whitespace) se face automat cu:",
+      "opts": [
+        "fgets",
+        "fin >> n (operatorul >> skip whitespace automat)",
+        "fread",
+        "fgetc în buclă"
+      ],
+      "ans": 1,
+      "exp": "Operatorul >> pentru cin/ifstream skipează automat whitespace-ul.",
+      "diff": 1
+    },
+    {
+      "q": "Un fișier binar de structuri de tip Student (fiecare 50 bytes) cu 1000 studenți are:",
+      "opts": [
+        "50 bytes",
+        "1000 bytes",
+        "50000 bytes",
+        "Depinde de OS"
+      ],
+      "ans": 2,
+      "exp": "1000 studenți × 50 bytes = 50000 bytes.",
+      "diff": 1
+    },
+    {
+      "q": "ofstream::close() vs. destructor:",
+      "opts": [
+        "Sunt identice ca efect",
+        "close() trebuie apelat manual; destructorul îl face automat",
+        "Destructorul nu flushează",
+        "close() nu flushează"
+      ],
+      "ans": 0,
+      "exp": "Destructorul ofstream apelează close() automat → fișierul e închis la distrugerea obiectului.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `ifstream fin(\"date.in\");` deschide fișierul `date.in` în modul:",
+      "opts": [
+        "Scriere (output)",
+        "Citire (input)",
+        "Append (adăugare)",
+        "Citire/Scriere"
+      ],
+      "ans": 1,
+      "exp": "`ifstream` = input file stream → deschide fișierul pentru citire (read-only).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: `ofstream fout(\"out.txt\"); fout << 42 << \" \" << 3.14;`?",
+      "opts": [
+        "42 3.14 pe ecran",
+        "42 3.14 scris în fișierul out.txt",
+        "Eroare de compilare",
+        "Nimic"
+      ],
+      "ans": 1,
+      "exp": "`ofstream` scrie în fișier, nu pe ecran. Fișierul `out.txt` va conține `42 3.14`.",
+      "diff": 1
+    },
+    {
+      "q": "Citind `int n; fin >> n;` din fișier, dacă fișierul este gol, variabila n va fi:",
+      "opts": [
+        "0",
+        "Valoarea anterioară (nemodificată)",
+        "-1",
+        "Eroare run-time"
+      ],
+      "ans": 1,
+      "exp": "Dacă citirea eșuează, `fin.fail()` devine true și `n` nu este modificat — rămâne cu valoarea anterioară (nedefinit dacă neiniț.).",
+      "diff": 2
+    },
+    {
+      "q": "Secvența: `fin >> n; while(!fin.eof()) { /* prelucrare */ fin >> n; }` are o problemă clasică:",
+      "opts": [
+        "Nu poate citi numere",
+        "EOF nu este detectat imediat — ultimul element poate fi procesat de două ori",
+        "Nu compilează",
+        "Funcționează perfect"
+      ],
+      "ans": 1,
+      "exp": "Modelul corect: `while(fin >> n) { /* prelucrare */ }` — condiția verifică succesul citirii.",
+      "diff": 2
+    },
+    {
+      "q": "Modul de deschidere `ios::binary` la `ofstream` în C++ este necesar pentru:",
+      "opts": [
+        "A scrie numere mai rapid",
+        "A preveni conversia caracterelor (ex: \\n→\\r\\n pe Windows)",
+        "A comprima datele",
+        "A cripta datele"
+      ],
+      "ans": 1,
+      "exp": "În modul text pe Windows, `\\n` devine `\\r\\n`. Modul binar dezactivează această conversie.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția `feof(f)` în C returnează true:",
+      "opts": [
+        "Înainte de a citi ultimul caracter",
+        "După o citire care a atins sau depășit sfârșitul fișierului",
+        "Întotdeauna la final",
+        "Niciodată dacă fișierul e deschis"
+      ],
+      "ans": 1,
+      "exp": "`feof` returnează true după ce o citire a atins EOF — nu înainte. De aceea `while(!feof(f))` are probleme.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea C: `FILE *f = fopen(\"a.txt\", \"w\");` dacă fișierul `a.txt` există deja:",
+      "opts": [
+        "Eroare — nu poate suprascrie",
+        "Fișierul este trunchiat (șters și recreat gol)",
+        "Datele vechi sunt păstrate, se adaugă la final",
+        "Fișierul este blocat"
+      ],
+      "ans": 1,
+      "exp": "Modul `\"w\"` trunchiază fișierul existent la dimensiune 0 (suprascrie). Folosiți `\"a\"` pentru a adăuga.",
+      "diff": 1
+    },
+    {
+      "q": "Diferența dintre `\"r\"` și `\"rb\"` la `fopen` pe Linux/Unix este:",
+      "opts": [
+        "Sunt identice pe Linux (fișierele text = binare)",
+        "\"rb\" e mai rapid",
+        "\"r\" comprimă datele",
+        "\"rb\" nu poate citi caractere"
+      ],
+      "ans": 0,
+      "exp": "Pe Linux/Unix nu există diferență — toate fișierele sunt binare. Pe Windows, `\"r\"` convertește `\\r\\n` → `\\n`.",
+      "diff": 2
+    },
+    {
+      "q": "Expresia `fin.peek()` în C++ citește:",
+      "opts": [
+        "Caracterul următor și avansează pointerul",
+        "Caracterul următor fără a avansa pointerul",
+        "Ultimul caracter citit",
+        "Numărul de caractere rămase"
+      ],
+      "ans": 1,
+      "exp": "`peek()` returnează următorul caracter fără a-l extrage din flux (pointerul rămâne pe loc).",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `fin.ignore(100, '\\n')` în C++ ignoră:",
+      "opts": [
+        "Primele 100 de linii",
+        "Cel mult 100 de caractere sau până la '\\n' (inclusiv)",
+        "Toate caracterele până la EOF",
+        "Caracterele non-numerice"
+      ],
+      "ans": 1,
+      "exp": "`ignore(n, delim)` ignoră cel mult n caractere sau până la delimitatorul dat (inclusiv).",
+      "diff": 2
+    },
+    {
+      "q": "La `fseek(f, -4L, SEEK_END)`, pointerul de fișier se mută:",
+      "opts": [
+        "Cu 4 bytes înainte",
+        "Cu 4 bytes înapoi față de sfârșitul fișierului",
+        "La offset 4 de la început",
+        "La sfârșitul fișierului"
+      ],
+      "ans": 1,
+      "exp": "SEEK_END + offset negativ → poziție față de sfârșit. `-4` = 4 bytes înainte de EOF.",
+      "diff": 2
+    },
+    {
+      "q": "Un fișier binar de `double` (8 bytes/element) cu 250 de valori are dimensiunea:",
+      "opts": [
+        "250 bytes",
+        "2000 bytes",
+        "500 bytes",
+        "1000 bytes"
+      ],
+      "ans": 1,
+      "exp": "250 * 8 bytes = 2000 bytes.",
+      "diff": 1
+    },
+    {
+      "q": "Funcția `rewind(f)` în C este echivalentă cu:",
+      "opts": [
+        "fclose(f); fopen(...)",
+        "fseek(f, 0L, SEEK_SET)",
+        "fseek(f, 0L, SEEK_END)",
+        "ftell(f)"
+      ],
+      "ans": 1,
+      "exp": "`rewind(f)` = `fseek(f, 0L, SEEK_SET)` + `clearerr(f)`. Repune pointerul la începutul fișierului.",
+      "diff": 2
+    },
+    {
+      "q": "Scriem un struct de 12 bytes în fișier binar cu `fwrite(&s, sizeof(s), 1, f)`. Câți bytes sunt scrisi?",
+      "opts": [
+        "1",
+        "12",
+        "sizeof(s) în format text",
+        "Depinde de sistem"
+      ],
+      "ans": 1,
+      "exp": "`fwrite` scrie exact `sizeof(s) * 1 = 12` bytes brut.",
+      "diff": 1
+    },
+    {
+      "q": "La un concurs cu fișiere `suma.in`/`suma.out`, metoda rapidă de redirectare în C++ este:",
+      "opts": [
+        "Să folosim `cin`/`cout` fără nimic altceva",
+        "freopen(\"suma.in\", \"r\", stdin); freopen(\"suma.out\", \"w\", stdout);",
+        "system(\"redirect\")",
+        "getchar()"
+      ],
+      "ans": 1,
+      "exp": "`freopen` redirecționează stdin și stdout la fișiere, permițând utilizarea `scanf`/`printf` sau `cin`/`cout` direct.",
+      "diff": 1
+    },
+    {
+      "q": "Diferența dintre `puts(s)` și `fputs(s, stdout)`:",
+      "opts": [
+        "Sunt identice",
+        "puts adaugă automat '\\n' la final, fputs nu",
+        "fputs e mai rapid",
+        "puts e pentru fișiere"
+      ],
+      "ans": 1,
+      "exp": "`puts(s)` scrie șirul și adaugă `\\n`. `fputs(s, f)` scrie exact șirul fără `\\n` suplimentar.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția `gets(buf)` este periculoasă deoarece:",
+      "opts": [
+        "Este lentă",
+        "Nu verifică limita buffer-ului — potențial buffer overflow",
+        "Nu poate citi spații",
+        "Nu funcționează cu fișiere"
+      ],
+      "ans": 1,
+      "exp": "`gets` este eliminată din C11 și C++14 — nu verifică limita, duce la buffer overflow. Folosiți `fgets`.",
+      "diff": 2
+    },
+    {
+      "q": "Citind cu `scanf(\"%s\", buf)`, citirea se oprește la:",
+      "opts": [
+        "Sfârșit de linie",
+        "Orice whitespace (spațiu, tab, newline)",
+        "EOF",
+        "Orice caracter non-alfanumeric"
+      ],
+      "ans": 1,
+      "exp": "`%s` în scanf citește un token (oprire la orice whitespace). Nu citește spații în șir.",
+      "diff": 1
+    },
+    {
+      "q": "Citind o linie întreagă cu spații în C, folosim:",
+      "opts": [
+        "scanf(\"%s\", buf)",
+        "fgets(buf, sizeof(buf), stdin)",
+        "getchar()",
+        "fscanf(f, \"%c\", buf)"
+      ],
+      "ans": 1,
+      "exp": "`fgets` citește până la newline sau EOF, inclusiv spații — aceasta este funcția corectă pentru o linie.",
+      "diff": 1
+    },
+    {
+      "q": "Fișierele de text pe Windows folosesc separatorul de linie `\\r\\n`, iar pe Linux `\\n`. La citire în modul text, C/C++ convertește automat:",
+      "opts": [
+        "Linux → Windows",
+        "\\r\\n → \\n pe Windows (transparent pentru programator)",
+        "Nu face conversie",
+        "\\n → \\r\\n pe Linux"
+      ],
+      "ans": 1,
+      "exp": "Pe Windows, modul text traduce automat `\\r\\n` → `\\n` la citire și `\\n` → `\\r\\n` la scriere.",
+      "diff": 2
+    },
+    {
+      "q": "Cerința `N ≤ 100000` întregi de citit din fișier. Care e mai rapid în C++?",
+      "opts": [
+        "cin >> x",
+        "scanf(\"%d\", &x)",
+        "Ambele la fel dacă ios::sync_with_stdio(false)",
+        "fread în bloc + parsare manuală"
+      ],
+      "ans": 2,
+      "exp": "Cu `ios::sync_with_stdio(false)` și `cin.tie(NULL)`, cin e la fel de rapid ca scanf. fread manual e și mai rapid.",
+      "diff": 2
+    },
+    {
+      "q": "Ce face `fin.clear()` în C++?",
+      "opts": [
+        "Șterge conținutul fișierului",
+        "Resetează indicatorii de eroare ai fluxului (failbit, eofbit, badbit)",
+        "Închide fișierul",
+        "Mută pointerul la început"
+      ],
+      "ans": 1,
+      "exp": "`clear()` resetează starea fluxului — necesar pentru a continua citirea după ce `eof()` sau `fail()` a devenit true.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția `tmpfile()` în C crează un fișier temporar care:",
+      "opts": [
+        "Rămâne după terminarea programului",
+        "Este șters automat la apelul fclose() sau terminarea programului",
+        "Nu poate fi scris",
+        "Are un nume fix temp.dat"
+      ],
+      "ans": 1,
+      "exp": "`tmpfile()` crează un fișier temporar binar în modul `w+b` care se șterge automat la fclose sau exit.",
+      "diff": 2
+    },
+    {
+      "q": "Dimensiunea unui fișier text care conține numerele 1 2 3 4 5 separate prin spații și urmate de newline este:",
+      "opts": [
+        "5 bytes (câte un byte per digit)",
+        "9 bytes (5 cifre + 4 spații)",
+        "10 bytes (5 cifre + 4 spații + 1 newline)",
+        "Depinde de sistem"
+      ],
+      "ans": 2,
+      "exp": "\"1 2 3 4 5\\n\" = 5 cifre + 4 spații + 1 newline = 10 caractere = 10 bytes (ASCII).",
+      "diff": 2
+    },
+    {
+      "q": "La citire cu `fin >> a >> b >> c;`, valorile pot fi separate prin:",
+      "opts": [
+        "Numai spații",
+        "Numai newline-uri",
+        "Orice whitespace (spații, tab-uri, newline-uri)",
+        "Virgule"
+      ],
+      "ans": 2,
+      "exp": "Operatorul `>>` sare orice whitespace (spații, taburi, newline-uri) înainte de a citi valoarea.",
+      "diff": 1
+    },
+    {
+      "q": "Secvența C: `FILE *f = fopen(\"x.bin\", \"rb\"); fseek(f, 0, SEEK_END); long sz = ftell(f);` calculează:",
+      "opts": [
+        "Numărul de linii",
+        "Dimensiunea fișierului în bytes",
+        "Numărul de câmpuri",
+        "Numărul de întregi"
+      ],
+      "ans": 1,
+      "exp": "Mutăm pointerul la final (SEEK_END) și citim poziția curentă cu ftell → dimensiunea fișierului în bytes.",
+      "diff": 2
+    },
+    {
+      "q": "Operatorul `<<` aplicat unui `ofstream` și `cout` diferă prin:",
+      "opts": [
+        "Tipul de date acceptate",
+        "Destinația scrierii (fișier vs. consolă)",
+        "Viteza de execuție",
+        "Sintaxa de apel"
+      ],
+      "ans": 1,
+      "exp": "Sintaxa este identică — ambii folosesc `<<`. Diferă destinația: ofstream → fișier, cout → consolă.",
+      "diff": 1
+    },
+    {
+      "q": "Ce înseamnă că un fișier este 'deschis în mod exclusiv' (lock)?",
+      "opts": [
+        "Este citit mai rapid",
+        "Alte procese nu pot accesa fișierul în același timp",
+        "Poate fi scris de mai mulți utilizatori simultan",
+        "Este criptat"
+      ],
+      "ans": 1,
+      "exp": "File locking previne accesul simultan din mai multe procese → evită coruperea datelor.",
+      "diff": 2
+    },
+    {
+      "q": "La citirea unui fișier cu `fread(v, sizeof(int), n, f)`, dacă fișierul are mai puțini de n întregi, funcția:",
+      "opts": [
+        "Returnează n și completează cu zerouri",
+        "Returnează numărul efectiv de elemente citite (< n)",
+        "Provoacă eroare fatală",
+        "Citește n-1 elemente"
+      ],
+      "ans": 1,
+      "exp": "`fread` returnează numărul efectiv de elemente citite. Se compară cu n pentru a detecta EOF.",
+      "diff": 2
+    },
+    {
+      "q": "Diferența dintre `ofstream` și `fstream` în C++:",
+      "opts": [
+        "Nu există diferență",
+        "ofstream = scriere, fstream = citire + scriere",
+        "fstream = mai rapid",
+        "ofstream poate citi și scrie"
+      ],
+      "ans": 1,
+      "exp": "`ofstream` = output only. `fstream` = input + output (citire și scriere din/în același fișier).",
+      "diff": 1
+    },
+    {
+      "q": "La deschiderea cu `fstream f(\"d.dat\", ios::in | ios::out | ios::binary)`, operatorul `|` are rolul de:",
+      "opts": [
+        "Concatenare de fișiere",
+        "Combinare de flag-uri (bitwise OR)",
+        "Prioritizare moduri",
+        "Separare de nume"
+      ],
+      "ans": 1,
+      "exp": "Flag-urile de mod sunt biți separați, combinati cu `|` (bitwise OR) pentru a specifica mai multe moduri simultan.",
+      "diff": 2
+    },
+    {
+      "q": "Dacă un fișier text conține 3 linii, `getline` apelat de 3 ori citește:",
+      "opts": [
+        "2 linii și un EOF",
+        "Cele 3 linii complete (fără caracterele newline în string)",
+        "Liniile inclusiv \\n la final",
+        "Primele 3 cuvinte"
+      ],
+      "ans": 1,
+      "exp": "`getline` extrage linia inclusiv `\\n` din flux, dar nu include `\\n` în string-ul returnat.",
+      "diff": 1
+    },
+    {
+      "q": "Scriind cu `fprintf(f, \"%05d\\n\", 42)`, în fișier se scrie:",
+      "opts": [
+        "42\\n",
+        "00042\\n",
+        "42000\\n",
+        " 42\\n"
+      ],
+      "ans": 1,
+      "exp": "`%05d` = câmp de 5 caractere, completat cu zerouri → `00042`, urmat de newline.",
+      "diff": 2
+    },
+    {
+      "q": "Citind cu `fscanf(f, \"%lf\", &x)` un număr de tip `double`, `%lf` este necesar deoarece:",
+      "opts": [
+        "`%f` poate citi și double",
+        "`%f` în fscanf citește float, `%lf` citește double (diferit de printf)",
+        "Nu contează formatul",
+        "`double` nu poate fi citit cu fscanf"
+      ],
+      "ans": 1,
+      "exp": "La `scanf`/`fscanf`, `%f` → float*, `%lf` → double*. La `printf`/`fprintf` `%f` funcționează pentru ambele.",
+      "diff": 2
+    },
+    {
+      "q": "Un program care deschide 1000 de fișiere simultan fără a le închide poate eșua deoarece:",
+      "opts": [
+        "Nu există limită de fișiere",
+        "Sistemul de operare limitează numărul de file descriptors per proces (ex: 256, 1024)",
+        "RAM-ul se epuizează",
+        "CPU devine ocupat"
+      ],
+      "ans": 1,
+      "exp": "Fiecare fișier deschis consumă un file descriptor. Limita POSIX minimă este 20, tipic 1024 (ulimit -n).",
+      "diff": 2
+    },
+    {
+      "q": "Cel mai bun mod de a verifica dacă citirea unui număr cu `fin >> n` a reușit este:",
+      "opts": [
+        "if (n != 0)",
+        "if (fin)",
+        "if (!fin.eof())",
+        "if (fin.good() == true)"
+      ],
+      "ans": 1,
+      "exp": "`if (fin)` verifică că fluxul este în stare bună (fără fail, bad sau eof setat).",
+      "diff": 2
+    },
+    {
+      "q": "Citind cu `cin >> n` unde n este `int` și utilizatorul introduce `abc`, starea lui cin devine:",
+      "opts": [
+        "n = 0, cin continua normal",
+        "cin intră în stare failbit și cererile ulterioare eșuează",
+        "Programul se oprește cu eroare",
+        "n devine codul ASCII al 'a'"
+      ],
+      "ans": 1,
+      "exp": "Când inputul nu poate fi convertit la int, `failbit` este setat și cin nu mai citește nimic până la `cin.clear()`.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția `access(\"file.txt\", F_OK)` din `<unistd.h>` verifică:",
+      "opts": [
+        "Dacă fișierul poate fi deschis cu fopen",
+        "Dacă fișierul există",
+        "Dacă fișierul este gol",
+        "Dacă fișierul e binar"
+      ],
+      "ans": 1,
+      "exp": "`access(path, F_OK)` verifică existența fișierului. R_OK = citire, W_OK = scriere, X_OK = executare.",
+      "diff": 3
+    },
+    {
+      "q": "Numărul de linii dintr-un fișier text se poate număra eficient cu:",
+      "opts": [
+        "fread și căutare manuală de \\n",
+        "getline într-un loop cu contor",
+        "ftell",
+        "feof"
+      ],
+      "ans": 1,
+      "exp": "Cel mai simplu: `while(getline(fin, line)) count++;`. Alternativ: numărăm `\\n` cu fread.",
+      "diff": 1
+    },
+    {
+      "q": "Secvența: `fstream f; f.open(\"test.txt\"); f.close(); f.open(\"test2.txt\");` este:",
+      "opts": [
+        "Incorectă — un obiect fstream nu poate fi redeschis",
+        "Corectă — după close() se poate refolosi obiectul",
+        "Compilează dar generează UB",
+        "Trebuie creat un nou obiect"
+      ],
+      "ans": 1,
+      "exp": "După `close()`, obiectul `fstream` poate fi reutilizat cu `open()` pentru alt fișier.",
+      "diff": 2
+    },
+    {
+      "q": "La scrierea în fișier text cu `fout << 3.14159265358979;`, numărul de zecimale afișate implicit în C++ este:",
+      "opts": [
+        "2",
+        "6",
+        "15",
+        "Depinde de valoare"
+      ],
+      "ans": 1,
+      "exp": "Implicit, `cout`/`ofstream` afișează 6 cifre semnificative. Folosiți `fixed << setprecision(15)` pentru mai multe.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `fout.flush()` sau `fout << flush` forțează:",
+      "opts": [
+        "Ștergerea fișierului",
+        "Scrierea buffer-ului intern în fișier imediat",
+        "Închiderea fișierului",
+        "Resetarea pointer-ului"
+      ],
+      "ans": 1,
+      "exp": "Datele pot fi păstrate în buffer și nu scrise imediat pe disc. `flush()` forțează scrierea imediată.",
+      "diff": 2
+    },
+    {
+      "q": "Citind numere din fișier cu `while(fin >> x) v.push_back(x);`, loopul se oprește:",
+      "opts": [
+        "Numai la EOF",
+        "La EOF sau orice eroare de citire (caracter invalid etc.)",
+        "La primul număr negativ",
+        "Niciodată"
+      ],
+      "ans": 1,
+      "exp": "`fin >> x` returnează referința la flux; în context bool, e false dacă fail sau eof → loop se oprește la eroare sau EOF.",
+      "diff": 2
+    },
+    {
+      "q": "Care este diferența dintre `fout << endl` și `fout << '\\n'`?",
+      "opts": [
+        "Sunt identice",
+        "endl face flush al buffer-ului, '\\n' doar scrie caracterul",
+        "'\\n' face flush, endl nu",
+        "endl scrie \\r\\n, '\\n' scrie \\n"
+      ],
+      "ans": 1,
+      "exp": "`endl` = `'\\n'` + `flush`. Dacă nu ai nevoie de flush imediat, `'\\n'` este mai rapid.",
+      "diff": 1
+    },
+    {
+      "q": "Citind dintr-un fișier CSV: `1,23,456`, cu `fscanf(f, \"%d,%d,%d\", &a, &b, &c)` rezultatele sunt:",
+      "opts": [
+        "a=1, b=23, c=456",
+        "Eroare — nu citeste virgule",
+        "a=1, b=0, c=0",
+        "a=123456"
+      ],
+      "ans": 0,
+      "exp": "`fscanf` cu `\",\"` în format string se potrivește literal cu virgulele din fișier.",
+      "diff": 2
+    },
+    {
+      "q": "Un fișier text cu 1000 de linii, fiecare cu un număr de maxim 9 cifre + newline are dimensiunea maximă aproximativă:",
+      "opts": [
+        "1000 bytes",
+        "10000 bytes",
+        "1000 * 10 = 10000 bytes",
+        "100000 bytes"
+      ],
+      "ans": 2,
+      "exp": "Maxim 9 cifre + 1 newline = 10 caractere per linie × 1000 linii = 10000 bytes ≈ 10 KB.",
+      "diff": 1
+    },
+    {
+      "q": "Funcția `perror(\"Eroare\")` în C afișează:",
+      "opts": [
+        "Textul 'Eroare' și atât",
+        "Textul 'Eroare: ' urmat de descrierea ultimei erori din errno",
+        "Codul de eroare numeric",
+        "Mesajul pe stderr și termină programul"
+      ],
+      "ans": 1,
+      "exp": "`perror` afișează textul dat + ': ' + mesajul corespunzător valorii errno curente, pe stderr.",
+      "diff": 2
+    },
+    {
+      "q": "Citind cu `getchar()` caracter cu caracter dintr-un fișier redirecționat via freopen, se obține:",
+      "opts": [
+        "Eroare — getchar e doar pentru tastatură",
+        "Caracterele din fișier, câte unul pe apel",
+        "Codul ASCII al caracterelor",
+        "Caracterul curent și avansul la două poziții"
+      ],
+      "ans": 1,
+      "exp": "După `freopen`, `stdin` = fișierul, și `getchar()` citește câte un caracter din fișier.",
+      "diff": 1
+    },
+    {
+      "q": "La scrierea unui vector `int v[5] = {1,2,3,4,5}` în fișier binar cu `fwrite(v, sizeof(int), 5, f)`, câți bytes sunt scrisi?",
+      "opts": [
+        "5",
+        "10",
+        "20",
+        "40"
+      ],
+      "ans": 2,
+      "exp": "sizeof(int) = 4 bytes × 5 elemente = 20 bytes.",
+      "diff": 1
+    },
+    {
+      "q": "Instrucțiunea C++: `fin.seekg(0, ios::beg)` mută pointerul de citire:",
+      "opts": [
+        "La sfârșitul fișierului",
+        "La începutul fișierului",
+        "Cu 0 bytes față de poziția curentă",
+        "La mijlocul fișierului"
+      ],
+      "ans": 1,
+      "exp": "`seekg(0, ios::beg)` = seek la offset 0 față de beginning (ios::beg) → la start.",
+      "diff": 2
+    }
+  ]
+}

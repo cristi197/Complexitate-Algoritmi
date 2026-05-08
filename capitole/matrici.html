@@ -62,6 +62,10 @@ cin &gt;&gt; n &gt;&gt; m;
         cout &lt;&lt; a[i][j] &lt;&lt; <span class="st">" "</span>;
     cout &lt;&lt; endl;
 }</pre>
+      <div class="code-output"><span class="out-comment">// Matrice 3×3 cu valorile {{1,2,3},{4,5,6},{7,8,9}}</span>
+<span class="out-highlight">1 2 3 </span>
+<span class="out-highlight">4 5 6 </span>
+<span class="out-highlight">7 8 9 </span></div>
 
       <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
         <div class="card teal">
@@ -99,6 +103,10 @@ cin &gt;&gt; n &gt;&gt; m;
         sumaLinie += a[i][j];
     cout &lt;&lt; <span class="st">"Suma linia "</span> &lt;&lt; i &lt;&lt; <span class="st">": "</span> &lt;&lt; sumaLinie &lt;&lt; endl;
 }</pre>
+      <div class="code-output"><span class="out-comment">// Matrice 3×3: {{1,2,3},{4,5,6},{7,8,9}}</span>
+Suma linia 1: <span class="out-highlight">6</span>
+Suma linia 2: <span class="out-highlight">15</span>
+Suma linia 3: <span class="out-highlight">24</span></div>
 
       <h3 style="margin:16px 0 10px;font-size:15px;">Minimul și poziția sa</h3>
       <pre><span class="kw">int</span> minim = a[<span class="nu">1</span>][<span class="nu">1</span>], linMin = <span class="nu">1</span>, colMin = <span class="nu">1</span>;
@@ -377,7 +385,7 @@ cin &gt;&gt; n &gt;&gt; m;
     <h2>&#x1F3AE; Matrici &mdash; Testează-ți cunoștințele</h2>
     <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
   </div>
-  <div class="quiz-section" data-quiz="matrici-quiz"></div>
+  <div class="quiz-section" data-quiz="matrici-quiz" data-quiz-src="../data/exercises/matrici.json"></div>
 </section>
 
 <footer>
@@ -391,214 +399,6 @@ cin &gt;&gt; n &gt;&gt; m;
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
-<script>
-window.QUIZ_DATA = window.QUIZ_DATA || {};
-window.QUIZ_DATA['matrici-quiz'] = [
-  {
-    "q": "Elementul de pe linia i, coloana j dintr-o matrice a[][] se accesează ca:",
-    "opts": [
-      "a[j][i]",
-      "a[i][j]",
-      "a[i*j]",
-      "a(i,j)"
-    ],
-    "ans": 1,
-    "exp": "În C++ notația standard este a[linie][coloana] = a[i][j].",
-    "diff": 1
-  },
-  {
-    "q": "Elementele de pe diagonala principală a unei matrice pătratice n×n satisfac:",
-    "opts": [
-      "i + j = n-1",
-      "i = j",
-      "i > j",
-      "i + j = n"
-    ],
-    "ans": 1,
-    "exp": "Diagonala principală: (0,0), (1,1), ..., (n-1,n-1) → i == j.",
-    "diff": 1
-  },
-  {
-    "q": "Transpusa unei matrice a[i][j] este:",
-    "opts": [
-      "a[i][n-j]",
-      "a[n-i][j]",
-      "a[j][i]",
-      "a[n-i][n-j]"
-    ],
-    "ans": 2,
-    "exp": "Transpusa schimbă liniile cu coloanele: (i,j) → (j,i).",
-    "diff": 2
-  },
-  {
-    "q": "Diagonala secundară (antidiagonala) satisface condiția:",
-    "opts": [
-      "i = j",
-      "i + j = n",
-      "i + j = n - 1",
-      "i = n - j"
-    ],
-    "ans": 2,
-    "exp": "Anti-diagonala: (0,n-1), (1,n-2), ..., (n-1,0) → i + j = n-1.",
-    "diff": 1
-  },
-  {
-    "q": "Triunghiul superior al unei matrice conține elementele unde:",
-    "opts": [
-      "i > j",
-      "i < j",
-      "i = j",
-      "i + j < n"
-    ],
-    "ans": 1,
-    "exp": "Triunghiul superior: toate pozițiile (i,j) cu j > i (deasupra diagonalei principale).",
-    "diff": 2
-  },
-  {
-    "q": "O matrice simetrică satisface:",
-    "opts": [
-      "a[i][j] = 0 pentru i≠j",
-      "a[i][j] = a[j][i]",
-      "a[i][j] = -a[j][i]",
-      "Toate elementele sunt egale"
-    ],
-    "ans": 1,
-    "exp": "Simetrică: a[i][j] = a[j][i]. Transpusa = matricea originală.",
-    "diff": 3
-  },
-  {
-    "q": "Câte elemente conține un tablou bidimensional a[n][m]?",
-    "opts": [
-      "n+m",
-      "n·m",
-      "n²",
-      "m²"
-    ],
-    "ans": 1,
-    "exp": "n linii × m coloane = n×m elemente total.",
-    "diff": 2
-  },
-  {
-    "q": "Rotirea unei matrice 90° în sensul acelor de ceasornic: element (i,j) merge la:",
-    "opts": [
-      "(j, n-1-i)",
-      "(n-1-j, i)",
-      "(i, n-1-j)",
-      "(j, i)"
-    ],
-    "ans": 0,
-    "exp": "Rotire 90° CW: (i,j) → (j, n-1-i). Poți verifica cu colțul (0,0) → (0,n-1).",
-    "diff": 3
-  },
-  {
-    "q": "Complexitatea înmulțirii a două matrice n×n prin algoritmul clasic:",
-    "opts": [
-      "O(n²)",
-      "O(n² log n)",
-      "O(n³)",
-      "O(n⁴)"
-    ],
-    "ans": 2,
-    "exp": "3 bucle imbricate fiecare de n ori → n³ operații. Strassen reduce la ~O(n^2.807).",
-    "diff": 3
-  },
-  {
-    "q": "Parcurgerea 'în spirală' a unei matrice n×n are complexitatea:",
-    "opts": [
-      "O(n)",
-      "O(n log n)",
-      "O(n²)",
-      "O(n³)"
-    ],
-    "ans": 2,
-    "exp": "Trebuie să vizităm toate cele n² elemente exact o dată → O(n²).",
-    "diff": 3
-  },
-  {
-    "q": "(BAC) Diagonala principală a unei matrice n×n are câte elemente?",
-    "opts": [
-      "2n-1",
-      "n",
-      "n²",
-      "n/2"
-    ],
-    "ans": 1,
-    "exp": "Diagonala principală are exact n elemente: a[0][0], a[1][1], ..., a[n-1][n-1].",
-    "diff": 1
-  },
-  {
-    "q": "O matrice 3×4 are indexuri valide de linii (0-based):",
-    "opts": [
-      "0,1,2,3",
-      "0,1,2",
-      "0,1,2,3,4",
-      "1,2,3"
-    ],
-    "ans": 1,
-    "exp": "3 linii → indici 0,1,2 (0-based).",
-    "diff": 1
-  },
-  {
-    "q": "(BAC 2023) Transpusa matricei: b[i][j]=",
-    "opts": [
-      "a[j][i]",
-      "a[n-1-i][n-1-j]",
-      "a[i][n-1-j]",
-      "a[j][n-1-i]"
-    ],
-    "ans": 0,
-    "exp": "Transpusa: b[i][j]=a[j][i] — se interschimbă liniile cu coloanele.",
-    "diff": 2
-  },
-  {
-    "q": "Parcurgerea în spirală a unei matrice n×n vizitează câte elemente?",
-    "opts": [
-      "n",
-      "n²",
-      "2n",
-      "4n"
-    ],
-    "ans": 1,
-    "exp": "Orice parcurgere a matricei vizitează toate n² elemente.",
-    "diff": 2
-  },
-  {
-    "q": "(BAC) Suma elementelor de pe linia i: for j: suma+=",
-    "opts": [
-      "a[j][i]",
-      "a[i][j]",
-      "a[i*m+j]",
-      "a[i][0]"
-    ],
-    "ans": 1,
-    "exp": "Linia i are toate elementele a[i][j] cu j variind de la 0 la m-1.",
-    "diff": 1
-  },
-  {
-    "q": "(BAC 2021) a[i][j]==a[j][i] pentru toți i,j → matricea este:",
-    "opts": [
-      "Diagonală",
-      "Identitate",
-      "Simetrică",
-      "Triunghiulară"
-    ],
-    "ans": 2,
-    "exp": "a[i][j]==a[j][i] ↔ matricea este simetrică față de diagonala principală.",
-    "diff": 2
-  },
-  {
-    "q": "Rotire 90° orar a matricei n×n: b[i][j]=",
-    "opts": [
-      "a[n-1-j][i]",
-      "a[j][n-1-i]",
-      "a[n-1-i][n-1-j]",
-      "a[i][n-1-j]"
-    ],
-    "ans": 0,
-    "exp": "Rotire 90° orar: b[i][j] = a[n-1-j][i]. Verificare cu exemplu 2×2.",
-    "diff": 3
-  }
-];
-</script>
+
 </body>
 </html>

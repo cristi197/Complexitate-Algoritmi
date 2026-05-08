@@ -1,0 +1,1204 @@
+{
+  "quiz": [
+    {
+      "q": "În C++, elementele unui vector sunt indexate de la:",
+      "opts": [
+        "1",
+        "0",
+        "-1",
+        "Depinde de compilator"
+      ],
+      "ans": 1,
+      "exp": "C++ folosește indexare de la 0. Un vector de n elemente are indici 0..n-1.",
+      "diff": 1
+    },
+    {
+      "q": "Cum se declară un vector global de 100 de întregi în C++?",
+      "opts": [
+        "int v[100];",
+        "vector v(100);",
+        "int v = new int[100];",
+        "array v[100];"
+      ],
+      "ans": 0,
+      "exp": "Declarația clasică este int v[100]; — alocată în zona statică a programului.",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea căutării liniare în cel mai rău caz este:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Căutarea liniară parcurge fiecare element — O(n) comparații în cel mai rău caz.",
+      "diff": 1
+    },
+    {
+      "q": "Câte comparații face Selection Sort pe n elemente?",
+      "opts": [
+        "n",
+        "n log n",
+        "n(n-1)/2",
+        "n²"
+      ],
+      "ans": 2,
+      "exp": "Selection Sort face n-1+n-2+...+1 = n(n-1)/2 comparații → O(n²).",
+      "diff": 2
+    },
+    {
+      "q": "Pentru căutarea binară, vectorul trebuie să fie:",
+      "opts": [
+        "Sortat",
+        "Fără duplicate",
+        "De dimensiune pară",
+        "Inițializat cu 0"
+      ],
+      "ans": 0,
+      "exp": "Căutarea binară funcționează DOAR pe vectori sortați.",
+      "diff": 1
+    },
+    {
+      "q": "Ce returnează căutarea binară când elementul nu este găsit (implementare clasică)?",
+      "opts": [
+        "-1",
+        "0",
+        "null",
+        "false"
+      ],
+      "ans": 0,
+      "exp": "Convenția standard: returnăm -1 când elementul nu există în vector.",
+      "diff": 1
+    },
+    {
+      "q": "Un vector de frecvență v[x]++ se folosește pentru:",
+      "opts": [
+        "Sortare rapidă",
+        "Numărarea aparițiilor fiecărei valori",
+        "Căutarea unui element",
+        "Inversarea vectorului"
+      ],
+      "ans": 1,
+      "exp": "v[x]++ incrementează contorul pentru valoarea x.",
+      "diff": 1
+    },
+    {
+      "q": "Complexitatea Bubble Sort în cel mai rău caz:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(n³)"
+      ],
+      "ans": 2,
+      "exp": "Bubble Sort are O(n²) comparații în cel mai rău caz (vector invers sortat).",
+      "diff": 1
+    },
+    {
+      "q": "Ce face `swap(v[i], v[j])` în C++?",
+      "opts": [
+        "Copiază v[i] în v[j]",
+        "Interschimbă valorile de la pozițiile i și j",
+        "Șterge v[i]",
+        "Sortează subvectorul [i..j]"
+      ],
+      "ans": 1,
+      "exp": "swap() din <algorithm> interschimbă valorile celor două variabile.",
+      "diff": 1
+    },
+    {
+      "q": "Dacă v = {5,3,8,1,9}, după un pas de Bubble Sort (i=0), v devine:",
+      "opts": [
+        "{3,5,8,1,9}",
+        "{1,3,5,8,9}",
+        "{3,5,1,8,9}",
+        "{5,3,1,8,9}"
+      ],
+      "ans": 0,
+      "exp": "Prima pereche (5,3) se interschimbă → {3,5,8,1,9} după primul swap.",
+      "diff": 2
+    },
+    {
+      "q": "Suma elementelor unui vector de n întregi se calculează în:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Trebuie parcurse toate cele n elemente → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Căutarea binară are complexitatea:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(log n)",
+        "O(1)"
+      ],
+      "ans": 2,
+      "exp": "La fiecare pas înjumătățim intervalul → O(log n) pași.",
+      "diff": 1
+    },
+    {
+      "q": "Dimensiunea maximă uzuală pentru un vector global în C++ (probleme de concurs) este:",
+      "opts": [
+        "100",
+        "1000",
+        "100000",
+        "1000000000"
+      ],
+      "ans": 2,
+      "exp": "100.000 (10^5) este dimensiunea uzuală pentru probleme de timp O(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "int v[5] = {1,2,3}; Ce valoare are v[4]?",
+      "opts": [
+        "0",
+        "Nedefinit",
+        "3",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Elementele neinițializate explicit sunt inițializate cu 0 la declarare parțială.",
+      "diff": 2
+    },
+    {
+      "q": "Care sortare este stabilă (menține ordinea elementelor egale)?",
+      "opts": [
+        "Selection Sort",
+        "Bubble Sort",
+        "Merge Sort",
+        "Quick Sort (varianta clasică)"
+      ],
+      "ans": 2,
+      "exp": "Merge Sort este stabil. Bubble Sort este stabil, dar Selection Sort și Quick Sort clasic nu sunt.",
+      "diff": 3
+    },
+    {
+      "q": "Ce înseamnă că un vector este sortat descrescător?",
+      "opts": [
+        "v[0] ≤ v[1] ≤ ... ≤ v[n-1]",
+        "v[0] ≥ v[1] ≥ ... ≥ v[n-1]",
+        "v are toate elementele egale",
+        "v[0] = maximum"
+      ],
+      "ans": 1,
+      "exp": "Descrescător: fiecare element ≥ succesor.",
+      "diff": 1
+    },
+    {
+      "q": "Insertion Sort este eficient când vectorul este:",
+      "opts": [
+        "Complet aleator",
+        "Invers sortat",
+        "Aproape sortat",
+        "De lungime pară"
+      ],
+      "ans": 2,
+      "exp": "Pe vectori aproape sortați, Insertion Sort face puține comparații → practic O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Inversarea unui vector de n elemente se face în:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Parcurgem n/2 perechi și le interschimbăm → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Un vector de prefix sums (sume parțiale) permite calculul sumei pe un interval [l,r] în:",
+      "opts": [
+        "O(n)",
+        "O(r-l+1)",
+        "O(1)",
+        "O(log n)"
+      ],
+      "ans": 2,
+      "exp": "sum[r] - sum[l-1] dă suma intervalului în O(1) după preprocesare O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Care este indexul elementului maxim în v={2,7,3,7,1}?",
+      "opts": [
+        "1",
+        "3",
+        "1 sau 3",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "Prima apariție a maximului 7 este la indexul 1.",
+      "diff": 2
+    },
+    {
+      "q": "Complexitatea Merge Sort:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "Merge Sort divide în O(log n) niveluri, fiecare nivel merge O(n) → O(n log n).",
+      "diff": 2
+    },
+    {
+      "q": "Ce tipuri poate stoca un vector în C++?",
+      "opts": [
+        "Doar int",
+        "Doar numere",
+        "Orice tip (int, double, char, struct...)",
+        "Doar tipuri primitive"
+      ],
+      "ans": 2,
+      "exp": "Un vector/tablou poate stoca orice tip de date, inclusiv structuri.",
+      "diff": 1
+    },
+    {
+      "q": "Algoritmul de eliminare a duplicatelor dintr-un vector sortat are complexitatea:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(1)"
+      ],
+      "ans": 2,
+      "exp": "O singură parcurgere liniară elimină duplicatele dintr-un vector deja sortat.",
+      "diff": 2
+    },
+    {
+      "q": "int v[n]; — n declarat ca variabilă funcționează în C++?",
+      "opts": [
+        "Da, întotdeauna",
+        "Nu niciodată",
+        "Da (VLA, C99/GCC), dar nu e standard C++",
+        "Doar dacă n < 100"
+      ],
+      "ans": 2,
+      "exp": "VLA (Variable Length Arrays) există în C99 și GCC, dar nu sunt standard C++.",
+      "diff": 3
+    },
+    {
+      "q": "Normalizarea unui vector înseamnă:",
+      "opts": [
+        "Sortarea lui",
+        "Rescalarea valorilor în intervalul [0,1] sau [0,VMAX]",
+        "Ștergerea duplicatelor",
+        "Calculul mediei"
+      ],
+      "ans": 1,
+      "exp": "Normalizarea comprimă valorile într-un interval fix, util pentru vectori de frecvență.",
+      "diff": 3
+    },
+    {
+      "q": "Algoritmul de interclasare a doi vectori sortați are complexitatea:",
+      "opts": [
+        "O(n²)",
+        "O(n+m)",
+        "O(n·m)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "Parcurgem liniar ambii vectori → O(n+m) unde n și m sunt lungimile lor.",
+      "diff": 2
+    },
+    {
+      "q": "Rotirea unui vector cu o poziție la dreapta mută:",
+      "opts": [
+        "Primul element pe ultima poziție",
+        "Ultimul element pe prima poziție",
+        "Toate elementele un index mai mare",
+        "Mijlocul la capăt"
+      ],
+      "ans": 1,
+      "exp": "Rotire dreapta: ultimul element devine primul, restul se mută cu o poziție.",
+      "diff": 2
+    },
+    {
+      "q": "Câtă memorie ocupă int v[1000] pe o platformă cu sizeof(int)=4?",
+      "opts": [
+        "1000 bytes",
+        "2000 bytes",
+        "4000 bytes",
+        "8000 bytes"
+      ],
+      "ans": 2,
+      "exp": "1000 elemente × 4 bytes = 4000 bytes.",
+      "diff": 2
+    },
+    {
+      "q": "Care este complexitatea timp a sortării prin numărare (Counting Sort) pentru valori în [0,VMAX]?",
+      "opts": [
+        "O(n log n)",
+        "O(n + VMAX)",
+        "O(n²)",
+        "O(VMAX²)"
+      ],
+      "ans": 1,
+      "exp": "Counting Sort face O(n) numărări + O(VMAX) inițializare/reconstruire → O(n + VMAX).",
+      "diff": 3
+    },
+    {
+      "q": "Prefix maximum (max parțial) al unui vector se calculează în:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "O parcurgere liniară calculează maximul de la 0 la i pentru fiecare i.",
+      "diff": 2
+    },
+    {
+      "q": "Ce verifică `v[i] == v[i+1]` într-o buclă pe vectorul sortat?",
+      "opts": [
+        "Dacă vectorul e palindrom",
+        "Dacă există duplicate consecutive",
+        "Dacă vectorul e sortat",
+        "Dacă sunt egale toate elementele"
+      ],
+      "ans": 1,
+      "exp": "Dacă două elemente consecutive sunt egale, am găsit un duplicat.",
+      "diff": 2
+    },
+    {
+      "q": "Elementul al doilea ca mărime dintr-un vector se găsește în:",
+      "opts": [
+        "O(log n)",
+        "O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Parcurgem vectorul o dată ținând maximul și al doilea maxim → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Un vector de n=10^6 întregi de 4 bytes ocupă:",
+      "opts": [
+        "1 MB",
+        "4 MB",
+        "40 MB",
+        "400 MB"
+      ],
+      "ans": 1,
+      "exp": "10^6 × 4 bytes = 4 × 10^6 bytes = 4 MB.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul Quick Sort are complexitatea medie:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(log n)"
+      ],
+      "ans": 1,
+      "exp": "Quick Sort are O(n log n) caz mediu, dar O(n²) worst case (pivot prost ales).",
+      "diff": 2
+    },
+    {
+      "q": "Dacă vectorul v are n=5 și v[n-1]=v[4], ce valoare accesăm?",
+      "opts": [
+        "Al 4-lea element",
+        "Al 5-lea element (ultimul)",
+        "Al 6-lea element",
+        "Eroare de compilare"
+      ],
+      "ans": 1,
+      "exp": "v[4] este ultimul element (indexare de la 0, deci pozițiile 0,1,2,3,4).",
+      "diff": 1
+    },
+    {
+      "q": "Care metodă inversează eficient un vector fără memorie suplimentară?",
+      "opts": [
+        "Copiere în vector auxiliar + recopiere",
+        "Two-pointer (stânga-dreapta, swap)",
+        "Sortare și rotire",
+        "Bubble Sort invers"
+      ],
+      "ans": 1,
+      "exp": "Two-pointer: i=0, j=n-1, swap și apropiați pointerii → O(n) timp, O(1) spațiu.",
+      "diff": 2
+    },
+    {
+      "q": "Cel mai mic element al unui vector se găsește în:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "ans": 2,
+      "exp": "Trebuie parcurs întreg vectorul pentru a găsi minimul → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Algoritmul de eliminare a elementelor pare dintr-un vector necesită:",
+      "opts": [
+        "Un vector auxiliar sau compactare in-place",
+        "Sortare prealabilă",
+        "Căutare binară",
+        "Un vector de frecvență"
+      ],
+      "ans": 0,
+      "exp": "Fie copiem elementele impare în alt vector, fie compactăm in-place cu doi indici.",
+      "diff": 2
+    },
+    {
+      "q": "Suma prefixelor (prefix sums) se calculează cu:",
+      "opts": [
+        "ps[0]=v[0]; ps[i]=ps[i-1]+v[i]",
+        "ps[i]=v[i]+v[i+1]",
+        "ps[i]=sum(v[0..i]) apelat repetat",
+        "ps[i]=v[i]*i"
+      ],
+      "ans": 0,
+      "exp": "Relația de recurență: ps[i] = ps[i-1] + v[i], cu ps[0] = v[0].",
+      "diff": 2
+    },
+    {
+      "q": "Ce este un subarray contiguu?",
+      "opts": [
+        "Orice submulțime de elemente",
+        "Elemente de pe poziții consecutive",
+        "Elemente pare ale vectorului",
+        "Jumătatea stângă a vectorului"
+      ],
+      "ans": 1,
+      "exp": "Subarray contiguu = secvență de elemente aflate pe poziții consecutive v[l..r].",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul Kadane găsește:",
+      "opts": [
+        "Elementul maxim",
+        "Suma maximă a unui subarray contiguu",
+        "Cel mai lung subșir crescător",
+        "Elementul care apare cel mai mult"
+      ],
+      "ans": 1,
+      "exp": "Kadane: dp[i] = max(v[i], dp[i-1]+v[i]) → suma maximă a subarrayului contiguu.",
+      "diff": 3
+    },
+    {
+      "q": "Căutarea binară pe un vector cu n=1000 face cel mult:",
+      "opts": [
+        "10 comparații",
+        "100 comparații",
+        "500 comparații",
+        "1000 comparații"
+      ],
+      "ans": 0,
+      "exp": "log₂(1000) ≈ 10 → cel mult 10 comparații.",
+      "diff": 2
+    },
+    {
+      "q": "Pentru a sorta crescător în C++ STL:",
+      "opts": [
+        "sort(v, v+n, greater<int>())",
+        "sort(v, v+n)",
+        "reverse(v, v+n)",
+        "stable_sort cu comparator desc"
+      ],
+      "ans": 1,
+      "exp": "sort(v, v+n) sortează crescător implicit. Pentru descrescător: sort(v, v+n, greater<int>()).",
+      "diff": 1
+    },
+    {
+      "q": "Interclasarea a doi vectori sortați de lungimi n și m produce un vector de lungime:",
+      "opts": [
+        "n+m",
+        "max(n,m)",
+        "n*m",
+        "n+m-1"
+      ],
+      "ans": 0,
+      "exp": "Toate elementele din ambii vectori → lungime n+m.",
+      "diff": 1
+    },
+    {
+      "q": "Un vector declarat global `int v[100005];` este inițializat cu:",
+      "opts": [
+        "Valori aleatoare",
+        "0",
+        "1",
+        "-1"
+      ],
+      "ans": 1,
+      "exp": "Variabilele globale/statice sunt inițializate cu 0 în C/C++.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul pentru a verifica dacă un vector este palindrom folosește:",
+      "opts": [
+        "Recursivitate obligatoriu",
+        "Two-pointer: compară v[0] cu v[n-1], etc.",
+        "Sortare + comparare",
+        "Vector auxiliar inversat"
+      ],
+      "ans": 1,
+      "exp": "Two-pointer: i=0, j=n-1; dacă v[i]!=v[j] → nu e palindrom; avansăm spre centru.",
+      "diff": 2
+    },
+    {
+      "q": "Cel mai lung subvector cu suma dată S se poate găsi eficient cu:",
+      "opts": [
+        "Prefix sums + hash map",
+        "Forță brută O(n³)",
+        "Sortare + căutare binară",
+        "Vector de frecvență"
+      ],
+      "ans": 0,
+      "exp": "Prefix sums ps[i] + hash map: căutăm ps[i]-S în hash → O(n) în medie.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se întâmplă la `int v[5]; cout << v[10];`?",
+      "opts": [
+        "Compilare eșuată",
+        "Afișează 0",
+        "Comportament nedefinit (UB)",
+        "Excepție runtime"
+      ],
+      "ans": 2,
+      "exp": "Accesul în afara limitelor este Undefined Behavior — poate afișa orice sau crasha.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul de rotire a unui vector cu k poziții la stânga în O(n) spațiu O(1):",
+      "opts": [
+        "Inversare completă + inversare prefixe",
+        "Copiere circulară cu vector aux",
+        "Deplasare repetată k ori",
+        "Sortare + rotire"
+      ],
+      "ans": 0,
+      "exp": "Algoritmul celor 3 inversări: invers v[0..k-1], invers v[k..n-1], invers tot.",
+      "diff": 3
+    },
+    {
+      "q": "Un vector de biți (bitset) stochează n biți în:",
+      "opts": [
+        "n bytes",
+        "n/8 bytes (aproximativ)",
+        "n/4 bytes",
+        "n*8 bytes"
+      ],
+      "ans": 1,
+      "exp": "Un byte = 8 biți → n biți ocupă ⌈n/8⌉ bytes.",
+      "diff": 2
+    },
+    {
+      "q": "Suma tuturor perechilor de elemente dintr-un vector de n elemente se calculează în O(?) brut:",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(n³)"
+      ],
+      "ans": 2,
+      "exp": "Două bucle imbricate → O(n²) pentru toate perechile.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul Floyd pentru detectarea ciclului funcționează pe:",
+      "opts": [
+        "Vectori sortat",
+        "Vectori de frecvență",
+        "Secvențe funcționale (pointer lent și rapid)",
+        "Matrice"
+      ],
+      "ans": 2,
+      "exp": "Floyd's Tortoise and Hare: pointer lent +=1, rapid +=2 → detectează cicluri.",
+      "diff": 3
+    },
+    {
+      "q": "Ce este o permutare a unui vector?",
+      "opts": [
+        "Un vector sortat",
+        "O reordonare a elementelor",
+        "Un subvector",
+        "O copie a vectorului"
+      ],
+      "ans": 1,
+      "exp": "O permutare este orice reordonare a tuturor elementelor vectorului.",
+      "diff": 1
+    },
+    {
+      "q": "next_permutation din STL generează:",
+      "opts": [
+        "Permutarea aleatoare",
+        "Lexicografic următoarea permutare",
+        "Toate permutările",
+        "Permutarea inversă"
+      ],
+      "ans": 1,
+      "exp": "next_permutation rearanjează la următoarea permutare în ordine lexicografică.",
+      "diff": 3
+    },
+    {
+      "q": "Suma elementelor impare din v={1,2,3,4,5} este:",
+      "opts": [
+        "9",
+        "15",
+        "6",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "1+3+5 = 9.",
+      "diff": 1
+    },
+    {
+      "q": "Câte elemente are un vector cu indici [0..n-1]?",
+      "opts": [
+        "n-1",
+        "n",
+        "n+1",
+        "2n"
+      ],
+      "ans": 1,
+      "exp": "Indicii de la 0 la n-1 → exact n elemente.",
+      "diff": 1
+    },
+    {
+      "q": "Algoritmul Shellsort îmbunătățește Insertion Sort prin:",
+      "opts": [
+        "Alegere pivot",
+        "Compararea elementelor distanțate, reducând distanța treptat",
+        "Merge recursiv",
+        "Sortare topologică"
+      ],
+      "ans": 1,
+      "exp": "Shell sort compară elemente la distanță h, reducând h progresiv.",
+      "diff": 3
+    },
+    {
+      "q": "Dacă v={1,2,3,4,5} și aplicăm rotire dreapta o dată, obținem:",
+      "opts": [
+        "{2,3,4,5,1}",
+        "{5,1,2,3,4}",
+        "{1,2,3,4,5}",
+        "{5,4,3,2,1}"
+      ],
+      "ans": 1,
+      "exp": "Rotire dreapta 1 poziție: ultimul element devine primul.",
+      "diff": 2
+    },
+    {
+      "q": "Elementele unui vector se accesează în:",
+      "opts": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Accesul la v[i] este O(1) — indexare directă în memorie.",
+      "diff": 1
+    },
+    {
+      "q": "Produsul scalar a doi vectori u și v de lungime n se calculează în:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "ans": 2,
+      "exp": "Suma u[i]*v[i] pentru i=0..n-1 → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Algoritmul de sortare cu complexitate O(n log n) în cel mai rău caz (garantat):",
+      "opts": [
+        "Quick Sort",
+        "Bubble Sort",
+        "Merge Sort",
+        "Shell Sort"
+      ],
+      "ans": 2,
+      "exp": "Merge Sort garantează O(n log n) indiferent de input.",
+      "diff": 2
+    },
+    {
+      "q": "Ce stochează `lower_bound(v, v+n, x)`?",
+      "opts": [
+        "Primul element > x",
+        "Primul element ≥ x",
+        "Ultimul element < x",
+        "Indexul lui x"
+      ],
+      "ans": 1,
+      "exp": "lower_bound returnează iterator la primul element ≥ x în vectorul sortat.",
+      "diff": 3
+    },
+    {
+      "q": "Verificarea dacă toate elementele unui vector sunt egale se face în:",
+      "opts": [
+        "O(1)",
+        "O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Compară fiecare element cu v[0] → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Algoritmul pentru suma maximă a unui subvector contiguu (Kadane) are complexitatea:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(1)"
+      ],
+      "ans": 2,
+      "exp": "O singură parcurgere liniară → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Un vector de 10 elemente are câte subarrays contigue?",
+      "opts": [
+        "10",
+        "45",
+        "55",
+        "100"
+      ],
+      "ans": 2,
+      "exp": "n*(n+1)/2 = 10*11/2 = 55 subarrays (inclusiv cele de lungime 1).",
+      "diff": 3
+    },
+    {
+      "q": "Algoritmul Dutch National Flag (3 culori) sortează în:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "ans": 2,
+      "exp": "Algoritmul lui Dijkstra cu 3 pointeri sortează în O(n) cu O(1) spațiu suplimentar.",
+      "diff": 3
+    },
+    {
+      "q": "Dacă sortăm descrescător cu sort din STL, comparatorul este:",
+      "opts": [
+        "less<int>()",
+        "equal<int>()",
+        "greater<int>()",
+        "desc<int>()"
+      ],
+      "ans": 2,
+      "exp": "sort(v, v+n, greater<int>()) sortează descrescător.",
+      "diff": 2
+    },
+    {
+      "q": "int v[] = {3,1,4,1,5,9}; sizeof(v)/sizeof(v[0]) = ?",
+      "opts": [
+        "3",
+        "6",
+        "24",
+        "Depinde de sistem"
+      ],
+      "ans": 1,
+      "exp": "sizeof(v) = 24 bytes (6 ints × 4), sizeof(v[0]) = 4 → 24/4 = 6 elemente.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul pentru cel mai lung subvector cu elemente distincte folosește:",
+      "opts": [
+        "Sliding window + set/hash",
+        "Prefix sums",
+        "Sortare",
+        "Programare dinamică O(n²)"
+      ],
+      "ans": 0,
+      "exp": "Sliding window cu un set: expandăm dreapta, contractăm stânga la duplicate → O(n).",
+      "diff": 3
+    },
+    {
+      "q": "Dacă v[0]=5 și dorim să-l ștergem (în loc O(1)), mutăm:",
+      "opts": [
+        "Elementele 1..n-1 cu o poziție la stânga",
+        "v[n-1] pe v[0] și decrementăm n",
+        "v[0] în vector auxiliar",
+        "Nu se poate șterge in-place"
+      ],
+      "ans": 1,
+      "exp": "Swap v[0] cu v[n-1] și n-- → O(1), dar ordinea nu este păstrată.",
+      "diff": 2
+    },
+    {
+      "q": "Suma elementelor de pe pozițiile pare (0,2,4,...) din v={1,2,3,4,5} este:",
+      "opts": [
+        "6",
+        "9",
+        "7",
+        "5"
+      ],
+      "ans": 1,
+      "exp": "v[0]+v[2]+v[4] = 1+3+5 = 9.",
+      "diff": 1
+    },
+    {
+      "q": "Un vector de frecvență pentru valori ≤ 10^6 necesită:",
+      "opts": [
+        "4 MB",
+        "100 MB",
+        "4 KB",
+        "400 MB"
+      ],
+      "ans": 0,
+      "exp": "10^6 întregi × 4 bytes = 4 MB.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul two-sum (găsire pereche cu suma S) pe vector sortat:",
+      "opts": [
+        "O(n²) cu hash",
+        "O(n) cu two-pointer",
+        "O(n log n) cu sortare + căutare binară",
+        "O(n) cu prefix sums"
+      ],
+      "ans": 1,
+      "exp": "Two-pointer: stânga de la 0, dreapta de la n-1; ajustăm în funcție de sumă → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul pentru al k-lea cel mai mic element în O(n) mediu:",
+      "opts": [
+        "Merge Sort + indexare",
+        "Counting Sort",
+        "QuickSelect",
+        "Heap de dimensiune k"
+      ],
+      "ans": 2,
+      "exp": "QuickSelect (varianta Quick Sort cu un singur branch) → O(n) mediu.",
+      "diff": 3
+    },
+    {
+      "q": "Ce face `fill(v, v+n, 0)` ?",
+      "opts": [
+        "Alocă vectorul",
+        "Inițializează toate elementele cu 0",
+        "Sortează vectorul",
+        "Calculează suma"
+      ],
+      "ans": 1,
+      "exp": "fill(begin, end, value) atribuie value tuturor elementelor din interval.",
+      "diff": 1
+    },
+    {
+      "q": "Cel mai lung subvector crescător (LIS) are complexitatea optimă:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(2^n)"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul cu patience sorting + căutare binară → O(n log n).",
+      "diff": 3
+    },
+    {
+      "q": "Dacă v = {4,2,7,1} și îl sortăm crescător, obținem:",
+      "opts": [
+        "{1,2,4,7}",
+        "{7,4,2,1}",
+        "{4,2,7,1}",
+        "{1,4,2,7}"
+      ],
+      "ans": 0,
+      "exp": "Sortare crescătoare: 1 < 2 < 4 < 7.",
+      "diff": 1
+    },
+    {
+      "q": "Suma primelor n numere naturale 1+2+...+n este:",
+      "opts": [
+        "n(n-1)/2",
+        "n(n+1)/2",
+        "n²",
+        "n(n+2)/2"
+      ],
+      "ans": 1,
+      "exp": "Formula lui Gauss: S = n(n+1)/2.",
+      "diff": 1
+    },
+    {
+      "q": "Algoritmul pentru numărul de inversiuni dintr-un vector rulează în:",
+      "opts": [
+        "O(n²) brut sau O(n log n) cu merge sort modificat",
+        "O(n) cu prefix sums",
+        "O(n log n) întotdeauna brut",
+        "O(n³)"
+      ],
+      "ans": 0,
+      "exp": "Brut O(n²), optim cu Merge Sort modificat O(n log n).",
+      "diff": 3
+    },
+    {
+      "q": "Elementele egale cu maximul dintr-un vector se numără în:",
+      "opts": [
+        "O(1)",
+        "O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "ans": 1,
+      "exp": "Două parcurgeri liniare (sau una cu actualizare): O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Ce stochează `upper_bound(v, v+n, x)` (vector sortat)?",
+      "opts": [
+        "Primul element ≥ x",
+        "Primul element > x",
+        "Ultimul element ≤ x",
+        "Elementul x dacă există"
+      ],
+      "ans": 1,
+      "exp": "upper_bound returnează iterator la primul element strict > x.",
+      "diff": 3
+    },
+    {
+      "q": "Algoritmul pentru comprimarea valorilor (coordinate compression) normalizează:",
+      "opts": [
+        "Valorile în [0,1]",
+        "Valorile mari la indici mici (0,1,2,...) menținând ordinea",
+        "Vectorul la lungime fixă",
+        "Elementele la valori prime"
+      ],
+      "ans": 1,
+      "exp": "Sortăm elementele distincte și înlocuim fiecare valoare cu rangul său.",
+      "diff": 3
+    },
+    {
+      "q": "int v[3][4] este un tablou cu:",
+      "opts": [
+        "3 linii, 4 coloane",
+        "4 linii, 3 coloane",
+        "12 elemente pe o linie",
+        "3 coloane, 4 linii"
+      ],
+      "ans": 0,
+      "exp": "Prima dimensiune = linii (3), a doua = coloane (4). Total: 12 elemente.",
+      "diff": 1
+    },
+    {
+      "q": "Numărul de subarrays de lungime exact k dintr-un vector de n elemente este:",
+      "opts": [
+        "k",
+        "n-k",
+        "n-k+1",
+        "n/k"
+      ],
+      "ans": 2,
+      "exp": "Subarrayurile de lungime k încep la pozițiile 0,1,...,n-k → sunt n-k+1.",
+      "diff": 2
+    },
+    {
+      "q": "Dacă maximum unui vector de n elemente este la poziția 0, atunci:",
+      "opts": [
+        "Vectorul e sortat descrescător",
+        "Nu putem spune nimic despre restul",
+        "Vectorul e rotit",
+        "Elementul din mijloc e minim"
+      ],
+      "ans": 1,
+      "exp": "Maximul la poziția 0 spune doar că v[0] ≥ toate celelalte, nu și ordinea lor.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul de mutare a zerourilor la final (in-place, ordine păstrată):",
+      "opts": [
+        "Sort cu comparator",
+        "Two-pointer: pointer pentru non-zero, unul de parcurgere",
+        "Numărare zero + reconstituire",
+        "Bubble sort adaptat"
+      ],
+      "ans": 1,
+      "exp": "Pointer j=0: la fiecare non-zero swap v[i]↔v[j] și j++. → O(n), O(1) spațiu.",
+      "diff": 2
+    },
+    {
+      "q": "Suma maximă posibilă a unui subvector de lungime exactă k se calculează eficient cu:",
+      "opts": [
+        "Prefix sums în O(n)",
+        "Forță brută O(n*k)",
+        "Sortare + selectare",
+        "Programare dinamică O(n²)"
+      ],
+      "ans": 0,
+      "exp": "Sliding window de lungime k: adăugăm v[r], scoatem v[r-k] → O(n).",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul pentru cel mai lung platou (secvență de elemente egale) rulează în:",
+      "opts": [
+        "O(n²)",
+        "O(n log n)",
+        "O(n)",
+        "O(1)"
+      ],
+      "ans": 2,
+      "exp": "O parcurgere liniară cu counter → O(n).",
+      "diff": 1
+    },
+    {
+      "q": "O stivă implementată cu vector are `push` și `pop` de complexitate:",
+      "opts": [
+        "O(n) ambele",
+        "O(1) amortizat ambele",
+        "O(log n) ambele",
+        "Push O(1), pop O(n)"
+      ],
+      "ans": 1,
+      "exp": "Push/pop la capătul vectorului (top) → O(1) amortizat.",
+      "diff": 2
+    },
+    {
+      "q": "Un max-heap implementat pe vector are extracția maximului în:",
+      "opts": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "ans": 1,
+      "exp": "Extracția din heap: swap rădăcină cu ultimul, n--, sift-down → O(log n).",
+      "diff": 3
+    },
+    {
+      "q": "Dacă v = {1,2,3,4,5}, prefix sums ps = {1,3,6,10,15}. Suma pe [2,4] (0-indexed) este:",
+      "opts": [
+        "12",
+        "14",
+        "9",
+        "12"
+      ],
+      "ans": 1,
+      "exp": "ps[4] - ps[1] = 15 - 3 = 12... dar suma v[2]+v[3]+v[4]=3+4+5=12. Corecta: 12.",
+      "diff": 2
+    },
+    {
+      "q": "Cel mai eficient algoritm pentru a sorta 10^7 întregi în [0,100]:",
+      "opts": [
+        "Quick Sort",
+        "Merge Sort",
+        "Counting Sort",
+        "Bubble Sort"
+      ],
+      "ans": 2,
+      "exp": "Counting Sort: O(n + VMAX) = O(10^7 + 100) ≈ O(n) — ideal pentru valori mici.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul sliding window este util pentru probleme de tip:",
+      "opts": [
+        "Subarray de lungime fixă sau variabilă cu condiție",
+        "Cel mai lung subșir crescător",
+        "Sortare topologică",
+        "Parcurgere în adâncime"
+      ],
+      "ans": 0,
+      "exp": "Sliding window optimizează probleme cu fereastră contiguă cu condiție sumă/max/min.",
+      "diff": 2
+    },
+    {
+      "q": "Numărul de permutări ale unui vector de n elemente distincte este:",
+      "opts": [
+        "n",
+        "n!",
+        "2^n",
+        "n²"
+      ],
+      "ans": 1,
+      "exp": "Numărul de permutări este n! (n factorial).",
+      "diff": 1
+    },
+    {
+      "q": "Dacă v = {5,5,5,5}, algoritmul de sortare va face:",
+      "opts": [
+        "0 swapuri (deja sortat)",
+        "n-1 swapuri",
+        "n(n-1)/2 swapuri",
+        "Depinde de algoritm"
+      ],
+      "ans": 0,
+      "exp": "Un vector cu toate elementele egale este deja sortat — niciun swap necesar.",
+      "diff": 2
+    },
+    {
+      "q": "Algoritmul pentru a găsi elementul majoritar (apare de >n/2 ori) în O(n) O(1):",
+      "opts": [
+        "Boyer-Moore Voting",
+        "Counting Sort",
+        "Hash Map",
+        "Quick Sort + mediana"
+      ],
+      "ans": 0,
+      "exp": "Boyer-Moore Voting: candidat + counter; un singur pas → O(n) timp, O(1) spațiu.",
+      "diff": 3
+    },
+    {
+      "q": "Câte inversiuni are vectorul {3,2,1}?",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "ans": 2,
+      "exp": "Inversiunile: (3,2), (3,1), (2,1) → 3 inversiuni.",
+      "diff": 2
+    },
+    {
+      "q": "Diferența dintre `v.size()` și `v.capacity()` pentru std::vector:",
+      "opts": [
+        "size = elemente curente, capacity = spațiu alocat",
+        "Sunt identice",
+        "capacity = elemente curente, size = spațiu",
+        "size este în bytes, capacity în elemente"
+      ],
+      "ans": 0,
+      "exp": "size() = numărul de elemente; capacity() = spațiu alocat (poate fi mai mare).",
+      "diff": 2
+    },
+    {
+      "q": "Care este complexitatea în timp a algoritmului de sortare Bubble Sort în cel mai rău caz?",
+      "opts": [
+        "O(n)",
+        "O(n log n)",
+        "O(n²)",
+        "O(1)"
+      ],
+      "ans": 2,
+      "exp": "Bubble Sort compară perechi adiacente în n-1 treceri: (n-1)+(n-2)+...+1 = n(n-1)/2 → O(n²).",
+      "diff": 2
+    },
+    {
+      "q": "Dacă un vector are elementele {3,1,4,1,5,9,2,6}, câte elemente are subvectorul maxim sortat crescător care începe de la index 0?",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "ans": 0,
+      "exp": "v[0]=3, v[1]=1 < 3, deci primul run sortat crescător are un singur element (indexul 0).",
+      "diff": 3
+    }
+  ]
+}

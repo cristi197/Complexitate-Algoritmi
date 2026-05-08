@@ -130,9 +130,33 @@ function renderQuiz(container, questions) {
 /* ── Auto-init all [data-quiz] containers ── */
 function initAllQuizzes() {
   document.querySelectorAll('[data-quiz]').forEach(function (el) {
-    var id   = el.dataset.quiz;
-    var data = window.QUIZ_DATA && window.QUIZ_DATA[id];
-    if (data && data.length) renderQuiz(el, data);
+    var id  = el.dataset.quiz;
+    var src = el.dataset.quizSrc;
+
+    if (src) {
+      // Load questions from external JSON file
+      el.innerHTML = '<p style="text-align:center;opacity:.6;padding:2rem">Se încarcă întrebările…</p>';
+      fetch(src)
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (json) {
+          var data = Array.isArray(json) ? json : (json.quiz || []);
+          if (data.length) renderQuiz(el, data);
+          else el.innerHTML = '<p style="text-align:center;color:#e44">Nu s-au găsit întrebări.</p>';
+        })
+        .catch(function (err) {
+          console.error('Quiz load error:', err);
+          // Fall back to inline data if available
+          var data = window.QUIZ_DATA && window.QUIZ_DATA[id];
+          if (data && data.length) renderQuiz(el, data);
+        });
+    } else {
+      // Use inline window.QUIZ_DATA
+      var data = window.QUIZ_DATA && window.QUIZ_DATA[id];
+      if (data && data.length) renderQuiz(el, data);
+    }
   });
 }
 

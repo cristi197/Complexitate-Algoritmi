@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -265,6 +265,7 @@ string str = <span class="st">"informatica"</span>;
 <span class="kw">char</span> text[] = <span class="st">"Examenul de informatica este maine"</span>;
 <span class="kw">if</span> (strstr(text, <span class="st">"informatica"</span>) != NULL)
     cout &lt;&lt; <span class="st">"Cuvantul a fost gasit!"</span> &lt;&lt; endl;</pre>
+      <div class="code-output">Astazi<br>este<br>o<br>zi<br>frumoasa<br><span class="out-comment">// strchr: 'a' gasit la pozitia</span> <span class="out-highlight">1</span><br>Cuvantul a fost gasit!</div>
 
       <div class="callout warning">
         <strong>Atentie la buffer overflow!</strong> Asigurati-v&#259; c&#259; destinatia (dest) are suficient spa&#355;iu. Preferati <code>strncpy</code> cu verificare explicit&#259;.
@@ -414,6 +415,8 @@ linie += <span class="st">" "</span>;  <span class="cm">// adaugam spatiu la fin
     }
 }
 cout &lt;&lt; maxCuv;</pre>
+      <div class="code-output"><span class="out-comment">// Intrare: "Ana are mere rosii"</span>
+Cel mai lung cuvant: <span class="out-highlight">rosii</span></div>
 
       <h3 style="margin:20px 0 10px;font-size:15px;">5. Inversarea unui sir (in-place)</h3>
       <pre><span class="kw">void</span> <span class="fn">inverseaza</span>(string &amp;s) {
@@ -568,7 +571,7 @@ cifre[len] = <span class="st">'\0'</span>;
       <h2>Exerci&#355;ii interactive &mdash; testeaz&#259; cuno&#351;tin&#355;ele</h2>
     </div>
     <div class="slide-body">
-      <div class="quiz-section" data-quiz="siruri-quiz"></div>
+      <div class="quiz-section" data-quiz="siruri-quiz" data-quiz-src="../data/exercises/siruri.json"></div>
     </div>
   </div>
 </section>
@@ -639,6 +642,8 @@ cin.getline(a, <span class="nu">101</span>); cin.getline(b, <span class="nu">101
 <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">0</span>; i &lt; <span class="nu">256</span>; i++)
     <span class="kw">if</span> (freq[i] != <span class="nu">0</span>) { cout &lt;&lt; <span class="st">"NU"</span>; <span class="kw">return 0</span>; }
 cout &lt;&lt; <span class="st">"DA"</span>;</pre>
+      <div class="code-output"><span class="out-comment">// a="raca", b="cara" → acelasi multiset de litere</span>
+<span class="out-highlight">DA</span></div>
       </div>
 
       <div class="callout purple" style="margin-top:20px;">
@@ -693,216 +698,7 @@ string cuvant = <span class="st">""</span>;
   <a href="fisiere.html">Cap. 7: Fi&#351;iere &rarr;</a>
 </footer>
 
-<script>
-// Quiz data
-window.QUIZ_DATA = window.QUIZ_DATA || {};
-window.QUIZ_DATA['siruri-quiz'] = [
-  {
-    "q": "Ce functie din &lt;cstring&gt; returneaza lungimea unui sir char[] (fara '\\0')?",
-    "opts": [
-      "length()",
-      "strlen()",
-      "sizeof()",
-      "size()"
-    ],
-    "ans": 1,
-    "exp": "strlen() numara caracterele pana la terminatorul '\\0', excluzandu-l. sizeof() returneaza dimensiunea alocata, nu lungimea reala.",
-    "diff": 1
-  },
-  {
-    "q": "Ce valoare returneaza strcmp(\"abc\", \"abc\")?",
-    "opts": [
-      "1",
-      "-1",
-      "0",
-      "true"
-    ],
-    "ans": 2,
-    "exp": "strcmp returneaza 0 cand cele doua siruri sunt identice, &lt;0 cand primul e mai mic lexicografic, &gt;0 cand primul e mai mare.",
-    "diff": 2
-  },
-  {
-    "q": "Care este codul ASCII al literei 'A'?",
-    "opts": [
-      "61",
-      "65",
-      "97",
-      "48"
-    ],
-    "ans": 1,
-    "exp": "Literele mari A-Z au coduri ASCII 65-90. Literele mici a-z au coduri 97-122. Cifrele 0-9 au coduri 48-57.",
-    "diff": 2
-  },
-  {
-    "q": "Ce face toupper('a')?",
-    "opts": [
-      "Returneaza 'a' neschimbat",
-      "Returneaza 'A'",
-      "Returneaza 65",
-      "Eroare"
-    ],
-    "ans": 1,
-    "exp": "toupper() converteste o litera mica in litera mare. Daca caracterul nu este litera, il returneaza neschimbat.",
-    "diff": 1
-  },
-  {
-    "q": "Ce citeste cin.getline(s, 100) fata de cin >> s?",
-    "opts": [
-      "Acelasi lucru",
-      "getline citeste inclusiv spatii, cin>> se opreste la spatiu",
-      "getline e mai lent",
-      "cin>> citeste mai mult"
-    ],
-    "ans": 1,
-    "exp": "cin >> s se opreste la primul spatiu/newline. cin.getline citeste toata linia (inclusiv spatii), maxim n-1 caractere.",
-    "diff": 2
-  },
-  {
-    "q": "Daca 'a' are ASCII 97 si 'A' are ASCII 65, ce expresie converteste litera mare 'B' in mica?",
-    "opts": [
-      "'B' - 32",
-      "'B' + 32",
-      "'B' + 26",
-      "'B' - 26"
-    ],
-    "ans": 1,
-    "exp": "Diferenta dintre majuscule si minuscule in ASCII este 32. 'B'=66, 'b'=98, deci 'B'+32='b'.",
-    "diff": 3
-  },
-  {
-    "q": "Ce functie verifica daca un caracter este litera (a-z sau A-Z)?",
-    "opts": [
-      "isletter(c)",
-      "isalpha(c)",
-      "ischar(c)",
-      "isword(c)"
-    ],
-    "ans": 1,
-    "exp": "isalpha(c) din &lt;cctype&gt; returneaza non-zero daca c este litera (A-Z sau a-z).",
-    "diff": 2
-  },
-  {
-    "q": "Ce este un palindrom?",
-    "opts": [
-      "Un sir care contine toate literele alfabetului",
-      "Un sir care se citeste la fel de la stanga la dreapta si invers",
-      "Un sir care nu contine vocale",
-      "Un sir format doar din litere mari"
-    ],
-    "ans": 1,
-    "exp": "Exemple: 'radar', 'madam', 'kayak'. Algoritmul verifica daca s[i] == s[n-1-i] pentru toti i de la 0 la n/2.",
-    "diff": 3
-  },
-  {
-    "q": "strtok() este folosit pentru:",
-    "opts": [
-      "Sa calculeze lungimea unui token",
-      "Sa imparta un sir in cuvinte dupa un delimitator",
-      "Sa compare doua siruri",
-      "Sa copieze un subsir"
-    ],
-    "ans": 1,
-    "exp": "strtok(s, delim) returneaza primul token la primul apel, apoi strtok(NULL, delim) pentru apelurile ulterioare. ATENTIE: modifica sirul original!",
-    "diff": 2
-  },
-  {
-    "q": "Cum verifici daca caracterul 'c' este o cifra fara isdigit()?",
-    "opts": [
-      "c >= 0 && c <= 9",
-      "c >= '0' && c <= '9'",
-      "c == int",
-      "c % 2 == 0"
-    ],
-    "ans": 1,
-    "exp": "Cifrele '0'-'9' au coduri ASCII 48-57. Compararea c >= '0' && c <= '9' verifica direct intervalul ASCII.",
-    "diff": 3
-  },
-  {
-    "q": "(BAC) Funcția strlen('hello') returnează:",
-    "opts": [
-      "6",
-      "5",
-      "4",
-      "depinde de sistem"
-    ],
-    "ans": 1,
-    "exp": "strlen returnează numărul de caractere fără terminator null → 5.",
-    "diff": 1
-  },
-  {
-    "q": "Ce returnează strcmp('abc','abd')?",
-    "opts": [
-      "0",
-      "valoare negativă",
-      "valoare pozitivă",
-      "1"
-    ],
-    "ans": 1,
-    "exp": "'abc' < 'abd' (c < d la poziția 2) → strcmp returnează negativ.",
-    "diff": 2
-  },
-  {
-    "q": "(BAC 2022) 'informatica' este palindrom?",
-    "opts": [
-      "Da",
-      "Nu",
-      "Depinde de compilator",
-      "Doar pentru ASCII"
-    ],
-    "ans": 1,
-    "exp": "Inversul lui 'informatica' este 'acitamrofni' ≠ original → nu este palindrom.",
-    "diff": 1
-  },
-  {
-    "q": "(BAC) Câte vocale are șirul 'algoritm'?",
-    "opts": [
-      "2",
-      "3",
-      "4",
-      "1"
-    ],
-    "ans": 1,
-    "exp": "a,o,i — 3 vocale în 'algoritm'.",
-    "diff": 1
-  },
-  {
-    "q": "strcpy(dest, src) copiază șirul src în dest. Condiție obligatorie:",
-    "opts": [
-      "dest să fie alocat dinamic",
-      "dest să aibă cel puțin strlen(src)+1 caractere",
-      "src să fie constant",
-      "dest și src să aibă aceeași lungime"
-    ],
-    "ans": 1,
-    "exp": "Trebuie spațiu pentru toți octeții + caracterul nul terminator.",
-    "diff": 2
-  },
-  {
-    "q": "(BAC 2023) Cifrul Caesar cu deplasament 3 transformă 'abc' în:",
-    "opts": [
-      "def",
-      "bcd",
-      "xyz",
-      "fed"
-    ],
-    "ans": 0,
-    "exp": "a→d, b→e, c→f → 'def'. Fiecare literă e deplasată cu 3 poziții în alfabet.",
-    "diff": 2
-  },
-  {
-    "q": "(BAC dificil) Anagrama lui 'carte' se verifică comparând:",
-    "opts": [
-      "Lungimile celor două șiruri",
-      "Vectorii de frecvență ai literelor",
-      "Primele caractere",
-      "Suma codurilor ASCII"
-    ],
-    "ans": 1,
-    "exp": "Două cuvinte sunt anagrame dacă au același vector de frecvență (aceleași litere, aceleași cantități).",
-    "diff": 3
-  }
-];
-</script>
+
 
 <script>
 // Demo interactiv

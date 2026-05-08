@@ -1,0 +1,1204 @@
+{
+  "quiz": [
+    {
+      "q": "Algoritmul este:",
+      "opts": [
+        "Un program C++",
+        "O secvență finită de pași bine definiți care rezolvă o problemă",
+        "O structură de date",
+        "Un fișier executabil"
+      ],
+      "ans": 1,
+      "exp": "Algoritm = secvență finită, ordonată, de pași unici care rezolvă o problemă în timp finit.",
+      "diff": 1
+    },
+    {
+      "q": "Proprietatea de finitudine a unui algoritm înseamnă:",
+      "opts": [
+        "Că are un număr finit de variabile",
+        "Că se termină după un număr finit de pași",
+        "Că procesează date finite",
+        "Că produce un singur rezultat"
+      ],
+      "ans": 1,
+      "exp": "Finitudine: algoritmul trebuie să se termine (nu rulează la infinit).",
+      "diff": 1
+    },
+    {
+      "q": "Proprietatea de determinism a unui algoritm înseamnă:",
+      "opts": [
+        "Că produce același rezultat la rulări diferite cu același input",
+        "Că are un singur pas",
+        "Că nu folosește variabile aleatoare",
+        "Că are compexitate determinată"
+      ],
+      "ans": 0,
+      "exp": "Determinism: pentru același input, algoritmul produce mereu același output.",
+      "diff": 2
+    },
+    {
+      "q": "Un pseudocod se folosește pentru:",
+      "opts": [
+        "A compila programe",
+        "A descrie un algoritm independent de limbaj",
+        "A scrie cod C++",
+        "A optimiza memoria"
+      ],
+      "ans": 1,
+      "exp": "Pseudocodul exprimă algoritmul în limbaj natural structurat, fără sintaxa unui limbaj specific.",
+      "diff": 1
+    },
+    {
+      "q": "Diagrama de flux (flowchart) folosește:",
+      "opts": [
+        "Numai dreptunghiuri",
+        "Dreptunghiuri (instrucțiuni), romburi (decizii), ovale (start/stop)",
+        "Numai săgeți",
+        "Numai text"
+      ],
+      "ans": 1,
+      "exp": "Flowchart: oval = start/stop, dreptunghi = procesare, romb = decizie, săgeți = flux.",
+      "diff": 1
+    },
+    {
+      "q": "Tipul de date int în C++ pe arhitectura modernă (64-bit) are de obicei:",
+      "opts": [
+        "2 bytes",
+        "4 bytes",
+        "8 bytes",
+        "16 bytes"
+      ],
+      "ans": 1,
+      "exp": "int pe arhitecturi moderne = 4 bytes = 32 biți, indiferent de 32/64-bit.",
+      "diff": 2
+    },
+    {
+      "q": "Tipul long long în C++ are:",
+      "opts": [
+        "4 bytes",
+        "8 bytes",
+        "16 bytes",
+        "Depinde de arhitectură"
+      ],
+      "ans": 1,
+      "exp": "long long garantat ≥ 64 biți = 8 bytes în C++.",
+      "diff": 1
+    },
+    {
+      "q": "Intervalul valorilor unui int de 32 biți cu semn (signed):",
+      "opts": [
+        "0 la 2^32-1",
+        "−2^31 la 2^31−1",
+        "−2^32 la 2^32−1",
+        "0 la 2^31−1"
+      ],
+      "ans": 1,
+      "exp": "32 biți cu semn (two's complement): −2^31 (≈ −2.1 miliarde) la 2^31−1 (≈ 2.1 miliarde).",
+      "diff": 2
+    },
+    {
+      "q": "Variabilele locale în C++ sunt stocate:",
+      "opts": [
+        "Pe heap",
+        "Pe stivă (stack)",
+        "În registre CPU",
+        "În memorie globală"
+      ],
+      "ans": 1,
+      "exp": "Variabilele locale = pe stivă (stack) — dealocate automat la ieșirea din funcție.",
+      "diff": 2
+    },
+    {
+      "q": "Variabilele alocate cu `new` sunt stocate:",
+      "opts": [
+        "Pe stivă",
+        "Pe heap",
+        "În registre",
+        "În fișiere"
+      ],
+      "ans": 1,
+      "exp": "new alochează pe heap — trebuie dealocate manual cu delete.",
+      "diff": 2
+    },
+    {
+      "q": "Un program C++ minimal care compilează trebuie să aibă:",
+      "opts": [
+        "main() și printf",
+        "int main() { return 0; }",
+        "#include <iostream> și cout",
+        "void main()"
+      ],
+      "ans": 1,
+      "exp": "Minimul: int main() { return 0; } — funcția main e punctul de intrare.",
+      "diff": 1
+    },
+    {
+      "q": "Instrucțiunea `return 0;` în main() semnifică:",
+      "opts": [
+        "Eroare de execuție",
+        "Terminare normală a programului (cod 0 = succes)",
+        "Bucla infinită oprită",
+        "Alocare memorie"
+      ],
+      "ans": 1,
+      "exp": "return 0 din main = terminare cu succes (codul 0 semnifică succes pe toate platformele).",
+      "diff": 1
+    },
+    {
+      "q": "Operatorul % (modulo) calculează:",
+      "opts": [
+        "Câtul împărțirii",
+        "Restul împărțirii întregi",
+        "Produsul",
+        "Puterea"
+      ],
+      "ans": 1,
+      "exp": "7 % 3 = 1 (restul împărțirii 7 ÷ 3 = 2 rest 1).",
+      "diff": 1
+    },
+    {
+      "q": "Expresia `5 / 2` în C++ (întregi) evaluează la:",
+      "opts": [
+        "2.5",
+        "2",
+        "3",
+        "2.0"
+      ],
+      "ans": 1,
+      "exp": "Împărțirea întreagă: 5 / 2 = 2 (partea întreagă, fără zecimale).",
+      "diff": 1
+    },
+    {
+      "q": "Expresia `5.0 / 2` în C++ evaluează la:",
+      "opts": [
+        "2",
+        "2.5",
+        "3.0",
+        "2.0"
+      ],
+      "ans": 1,
+      "exp": "5.0 este double → împărțire în virgulă mobilă → 2.5.",
+      "diff": 1
+    },
+    {
+      "q": "Overflow-ul la int se produce când:",
+      "opts": [
+        "Valoarea depășește 2^31-1 sau scade sub -2^31",
+        "Valoarea e 0",
+        "Împărțim la 0",
+        "Valoarea e negativă"
+      ],
+      "ans": 0,
+      "exp": "Int overflow: depășirea limitelor → comportament nedefinit în C++.",
+      "diff": 2
+    },
+    {
+      "q": "Tipul double are precizie de aproximativ:",
+      "opts": [
+        "6-7 cifre semnificative",
+        "15-16 cifre semnificative",
+        "2 cifre semnificative",
+        "30 cifre semnificative"
+      ],
+      "ans": 1,
+      "exp": "double (64-bit IEEE 754): ~15-16 cifre semnificative.",
+      "diff": 2
+    },
+    {
+      "q": "Constanta INT_MAX din <climits> reprezintă:",
+      "opts": [
+        "2^32",
+        "2^31-1 = 2147483647",
+        "2^63-1",
+        "100000"
+      ],
+      "ans": 1,
+      "exp": "INT_MAX = 2^31-1 = 2147483647 pentru int de 32 biți.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `break` în C++ este folosită:",
+      "opts": [
+        "Numai în switch",
+        "Numai în bucle",
+        "În bucle și switch pentru a ieși din ele",
+        "Oriunde în cod"
+      ],
+      "ans": 2,
+      "exp": "break iese din cea mai apropiată buclă sau instrucțiune switch.",
+      "diff": 1
+    },
+    {
+      "q": "Instrucțiunea `continue` în C++ face:",
+      "opts": [
+        "Iese din buclă",
+        "Trece la următoarea iterație a buclei",
+        "Iese din funcție",
+        "Reia bucla de la capăt (reset)"
+      ],
+      "ans": 1,
+      "exp": "continue sare la sfârșitul blocului buclei și continuă cu condiția/incrementul.",
+      "diff": 1
+    },
+    {
+      "q": "Structura `do { } while(cond)` garantează:",
+      "opts": [
+        "Cel puțin 0 execuții",
+        "Exact 1 execuție",
+        "Cel puțin 1 execuție",
+        "Cel mult 1 execuție"
+      ],
+      "ans": 2,
+      "exp": "do-while execută corpul cel puțin o dată (condiția e verificată după prima execuție).",
+      "diff": 1
+    },
+    {
+      "q": "Variabilele globale sunt:",
+      "opts": [
+        "Stocate pe stivă",
+        "Inițializate cu 0 și accesibile din toată unitatea de compilare",
+        "Șterse la finalul main()",
+        "Strict locale funcției main()"
+      ],
+      "ans": 1,
+      "exp": "Globale: inițializate cu 0, durată de viață = durata programului, accesibile global.",
+      "diff": 2
+    },
+    {
+      "q": "Un pointer stochează:",
+      "opts": [
+        "O valoare numerică",
+        "Adresa de memorie a unei variabile",
+        "Un șir de caractere",
+        "Un tip de date"
+      ],
+      "ans": 1,
+      "exp": "Pointer = variabilă care stochează o adresă de memorie.",
+      "diff": 1
+    },
+    {
+      "q": "Operatorul `*` aplicat unui pointer:",
+      "opts": [
+        "Calculează produsul",
+        "Dereferențiază (accesează valoarea de la adresă)",
+        "Declară un pointer",
+        "Calculează dimensiunea"
+      ],
+      "ans": 1,
+      "exp": "Dereferențierea: *p accesează valoarea stocată la adresa p.",
+      "diff": 2
+    },
+    {
+      "q": "Operatorul `&` aplicat unei variabile:",
+      "opts": [
+        "Calculează AND logic",
+        "Returnează adresa variabilei",
+        "Dealochează memoria",
+        "Returnează valoarea"
+      ],
+      "ans": 1,
+      "exp": "&var = adresa variabilei var în memorie.",
+      "diff": 1
+    },
+    {
+      "q": "Recursivitatea este o tehnică în care:",
+      "opts": [
+        "O funcție apelează altă funcție",
+        "O funcție se apelează pe sine",
+        "O funcție nu returnează nimic",
+        "O funcție folosește bucle"
+      ],
+      "ans": 1,
+      "exp": "Recursivitate: funcția se apelează pe ea însăși (direct sau indirect).",
+      "diff": 1
+    },
+    {
+      "q": "O structură (struct) în C++ permite:",
+      "opts": [
+        "Numai variabile întregi",
+        "Gruparea mai multor câmpuri de tipuri diferite",
+        "Moștenire (inheritance)",
+        "Polimorfism"
+      ],
+      "ans": 1,
+      "exp": "struct grupează date de tipuri diferite sub un singur nume.",
+      "diff": 1
+    },
+    {
+      "q": "sizeof(int) returnează:",
+      "opts": [
+        "4 întotdeauna",
+        "Dimensiunea în bytes a tipului int (de obicei 4)",
+        "Numărul maxim al int",
+        "1"
+      ],
+      "ans": 1,
+      "exp": "sizeof returnează dimensiunea în bytes a unui tip sau variabilă.",
+      "diff": 1
+    },
+    {
+      "q": "Conversiile implicite (type coercion) în C++:",
+      "opts": [
+        "Sunt interzise",
+        "Se fac automat (ex: int → double în expresii mixte)",
+        "Produc erori de compilare",
+        "Necesită cast explicit"
+      ],
+      "ans": 1,
+      "exp": "Conversii implicite: int → double în int+double, char → int etc.",
+      "diff": 2
+    },
+    {
+      "q": "Funcțiile predefinite din <cmath>: pow(2, 10) returnează:",
+      "opts": [
+        "1024.0 (double)",
+        "1024 (int)",
+        "10.0",
+        "2.0"
+      ],
+      "ans": 0,
+      "exp": "pow returnează double: pow(2.0, 10.0) = 1024.0.",
+      "diff": 2
+    },
+    {
+      "q": "Câți bytes are un caracter char în C++?",
+      "opts": [
+        "2",
+        "1",
+        "4",
+        "Depinde de encoding"
+      ],
+      "ans": 1,
+      "exp": "char = 1 byte = 8 biți în C++.",
+      "diff": 1
+    },
+    {
+      "q": "Expresia booleană `!false` evaluează la:",
+      "opts": [
+        "false",
+        "true",
+        "0",
+        "Nedefinit"
+      ],
+      "ans": 1,
+      "exp": "NOT false = true.",
+      "diff": 1
+    },
+    {
+      "q": "Operatorul && (AND logic) returnează true dacă:",
+      "opts": [
+        "Cel puțin un operand e true",
+        "Ambii operanzi sunt true",
+        "Operandul stâng e true",
+        "Niciun operand nu e false"
+      ],
+      "ans": 1,
+      "exp": "AND logic: ambii operanzi trebuie să fie true.",
+      "diff": 1
+    },
+    {
+      "q": "Short-circuit evaluation: `false && f()` evaluează:",
+      "opts": [
+        "Ambele",
+        "Numai prima parte (f() nu e apelată)",
+        "Numai f()",
+        "Alternativ"
+      ],
+      "ans": 1,
+      "exp": "Short-circuit: dacă primul operand e false, &&-ul returnează false fără a evalua f().",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea switch în C++:",
+      "opts": [
+        "Funcționează numai cu float",
+        "Comparare cu valori constante întregi/char",
+        "E mai lentă decât if-else",
+        "Nu poate folosi break"
+      ],
+      "ans": 1,
+      "exp": "switch comparare cu constante întregi sau char (nu float/double).",
+      "diff": 2
+    },
+    {
+      "q": "Un header file (.h / .hpp) în C++ conține de obicei:",
+      "opts": [
+        "Numai implementări",
+        "Declarații (prototipuri funcții, clase, tipuri)",
+        "Date",
+        "Cod executabil"
+      ],
+      "ans": 1,
+      "exp": "Header-ele conțin declarații; implementările sunt în fișierele .cpp.",
+      "diff": 2
+    },
+    {
+      "q": "Directiva #include <iostream> include:",
+      "opts": [
+        "Biblioteca matematică",
+        "Stream-urile de intrare/ieșire (cin, cout)",
+        "Funcțiile pentru fișiere",
+        "String-urile"
+      ],
+      "ans": 1,
+      "exp": "#include <iostream> = cin, cout, cerr, endl.",
+      "diff": 1
+    },
+    {
+      "q": "Instrucțiunea for (int i=0; i<n; i++) face:",
+      "opts": [
+        "n+1 iterații",
+        "n iterații",
+        "n-1 iterații",
+        "Depinde de n"
+      ],
+      "ans": 1,
+      "exp": "i merge de la 0 la n-1 → exact n iterații.",
+      "diff": 1
+    },
+    {
+      "q": "Spațiul de memorie al unui program C++ este împărțit în:",
+      "opts": [
+        "Stack și Heap",
+        "Stack, Heap, Global/Static, Code",
+        "RAM și ROM",
+        "Stack și Cache"
+      ],
+      "ans": 1,
+      "exp": "Zone: Code (text), Global/Static, Stack (locale), Heap (dinamică).",
+      "diff": 2
+    },
+    {
+      "q": "Un algoritm neeficient poate transforma o problemă rezolvabilă în:",
+      "opts": [
+        "O problemă mai simplă",
+        "O problemă practic nerezolvabilă (TLE)",
+        "O problemă corectă",
+        "O problemă cu mai puțini pași"
+      ],
+      "ans": 1,
+      "exp": "Un algoritm O(n³) pe n=10^6 ar face 10^18 operații → practic imposibil.",
+      "diff": 2
+    },
+    {
+      "q": "Documentația unui algoritm trebuie să includă:",
+      "opts": [
+        "Numai codul sursă",
+        "Descriere, input/output, complexitate, exemple",
+        "Numai complexitatea",
+        "Numai exemple"
+      ],
+      "ans": 1,
+      "exp": "Documentație completă: descriere, pre/postcondații, complexitate, exemple.",
+      "diff": 1
+    },
+    {
+      "q": "Testarea unui program include:",
+      "opts": [
+        "Numai date normale",
+        "Date normale, date limită (edge cases) și date greșite",
+        "Numai cazuri speciale",
+        "Compilarea cu succes"
+      ],
+      "ans": 1,
+      "exp": "Testare completă: cazuri normale, limite (n=0, n=1, n=maxim) și intrări invalide.",
+      "diff": 2
+    },
+    {
+      "q": "Debugging-ul unui program înseamnă:",
+      "opts": [
+        "Compilarea",
+        "Identificarea și corectarea erorilor",
+        "Optimizarea",
+        "Documentarea"
+      ],
+      "ans": 1,
+      "exp": "Debugging = găsirea și corectarea bug-urilor (erori logice sau de rulare).",
+      "diff": 1
+    },
+    {
+      "q": "Eroarea de tip segmentation fault apare din cauza:",
+      "opts": [
+        "Erorilor de compilare",
+        "Accesului la memorie neautorizat (ex: null pointer, out of bounds)",
+        "Overflow integer",
+        "Buclelor infinite"
+      ],
+      "ans": 1,
+      "exp": "Segfault = acces la adresă de memorie ilegală (pointer null, out-of-bounds etc.).",
+      "diff": 2
+    },
+    {
+      "q": "Tipul bool în C++ poate stoca:",
+      "opts": [
+        "0 și 1 numai",
+        "true și false (orice non-zero e true)",
+        "Întregi și flotante",
+        "Numai caractere"
+      ],
+      "ans": 1,
+      "exp": "bool: true/false; orice non-zero convertit la bool devine true.",
+      "diff": 1
+    },
+    {
+      "q": "Incrementarea i++ față de ++i:",
+      "opts": [
+        "Sunt identice",
+        "i++ returnează valoarea veche; ++i returnează valoarea nouă",
+        "++i e mai lent",
+        "i++ nu funcționează în for"
+      ],
+      "ans": 1,
+      "exp": "i++ (post-increment): folosește valoarea curentă, apoi crește. ++i (pre-increment): crește mai întâi.",
+      "diff": 2
+    },
+    {
+      "q": "Tipul unsigned int permite valori:",
+      "opts": [
+        "−2^31 la 2^31−1",
+        "0 la 2^32−1",
+        "−2^32 la 2^32",
+        "0 la 2^31"
+      ],
+      "ans": 1,
+      "exp": "unsigned int 32-bit: 0 la 2^32−1 = 4294967295.",
+      "diff": 2
+    },
+    {
+      "q": "Exercitarea corectă a unui algoritm necesită:",
+      "opts": [
+        "Numai cod corect",
+        "Input valid + cod corect + output verificat",
+        "Numai compilare",
+        "Numai timp scurt de execuție"
+      ],
+      "ans": 1,
+      "exp": "Corectitudinea algoritmului = produce outputul corect pentru orice input valid.",
+      "diff": 1
+    },
+    {
+      "q": "Limbajul de programare C++ a fost creat de:",
+      "opts": [
+        "Dennis Ritchie",
+        "Bjarne Stroustrup",
+        "James Gosling",
+        "Guido van Rossum"
+      ],
+      "ans": 1,
+      "exp": "C++ a fost creat de Bjarne Stroustrup la Bell Labs (1979-1983).",
+      "diff": 1
+    },
+    {
+      "q": "Compilatorul transformă codul sursă în:",
+      "opts": [
+        "Pseudocod",
+        "Cod mașină (executabil)",
+        "Algoritm",
+        "Diagramă de flux"
+      ],
+      "ans": 1,
+      "exp": "Compilatorul traduce codul sursă (text) în cod mașină executabil.",
+      "diff": 1
+    },
+    {
+      "q": "Cel mai simplu algoritm de sortare (dar cel mai lent) este:",
+      "opts": [
+        "Merge Sort",
+        "Quick Sort",
+        "Bubble Sort",
+        "Heap Sort"
+      ],
+      "ans": 2,
+      "exp": "Bubble Sort este cel mai simplu de înțeles, dar O(n²) — cel mai lent pentru date mari.",
+      "diff": 1
+    },
+    {
+      "q": "Constanta π (pi) în C++ se obține cu:",
+      "opts": [
+        "PI",
+        "M_PI (din <cmath> pe GCC)",
+        "3.14",
+        "acos(-1.0)"
+      ],
+      "ans": 3,
+      "exp": "acos(-1.0) = π. M_PI e nestandard (extensie GCC). 3.14 e imprecis.",
+      "diff": 2
+    },
+    {
+      "q": "Operatorul ternary `a ? b : c` returnează:",
+      "opts": [
+        "a dacă e true",
+        "b dacă a e true, altfel c",
+        "c dacă a e true",
+        "a sau b"
+      ],
+      "ans": 1,
+      "exp": "Ternary: dacă a e true → returnează b, altfel → returnează c.",
+      "diff": 1
+    },
+    {
+      "q": "Macros-ul #define MAX 100 definește:",
+      "opts": [
+        "O variabilă globală",
+        "O constantă la nivel de preprocesare",
+        "Un tip de date",
+        "O funcție"
+      ],
+      "ans": 1,
+      "exp": "#define MAX 100 substituie textual MAX cu 100 înainte de compilare.",
+      "diff": 1
+    },
+    {
+      "q": "const int MAX = 100; vs #define MAX 100:",
+      "opts": [
+        "Sunt identice",
+        "const are tip și scope; #define e textual fără tip",
+        "#define e mai sigur",
+        "const nu poate fi folosit în array bounds"
+      ],
+      "ans": 1,
+      "exp": "const are verificare de tip și scope; #define e substituire textuală fără tip.",
+      "diff": 2
+    },
+    {
+      "q": "Funcțiile predefinite abs(x) din <cstdlib> și fabs(x) din <cmath> diferă prin:",
+      "opts": [
+        "Nu diferă",
+        "abs funcționează pe int; fabs pe double/float",
+        "fabs e mai precisă",
+        "abs e mai rapidă"
+      ],
+      "ans": 1,
+      "exp": "abs() = valoarea absolută pentru int. fabs() = pentru double.",
+      "diff": 2
+    },
+    {
+      "q": "Eroarea logică (logic error) dintr-un program:",
+      "opts": [
+        "Produce eroare de compilare",
+        "Produce crash",
+        "Codul compilează și rulează, dar produce rezultate greșite",
+        "Nu există în C++"
+      ],
+      "ans": 2,
+      "exp": "Logic error: programul compilează și rulează fără crash, dar outputul e incorect.",
+      "diff": 2
+    },
+    {
+      "q": "Paradigma de programare procedurală se bazează pe:",
+      "opts": [
+        "Clase și obiecte",
+        "Funcții și proceduri care acționează pe date",
+        "Reguli logice",
+        "Funcții pure fără side effects"
+      ],
+      "ans": 1,
+      "exp": "Programare procedurală: cod structurat în funcții/subprograme.",
+      "diff": 1
+    },
+    {
+      "q": "Un vector (array) în C++ declarat `int v[10]` are elementele indexate:",
+      "opts": [
+        "De la 1 la 10",
+        "De la 0 la 9",
+        "De la 0 la 10",
+        "De la 1 la 9"
+      ],
+      "ans": 1,
+      "exp": "In C++, indexarea array-urilor începe de la 0. Ultimul element valid este v[9].",
+      "diff": 1
+    },
+    {
+      "q": "Accesarea elementului v[10] al unui array `int v[10]` în C++ cauzează:",
+      "opts": [
+        "Valoarea 0",
+        "Comportament nedefinit (undefined behavior) — posibil crash",
+        "Eroare de compilare",
+        "Valoarea INT_MAX"
+      ],
+      "ans": 1,
+      "exp": "v[10] este out-of-bounds. C++ nu verifică limitele — rezultă UB (undefined behavior).",
+      "diff": 1
+    },
+    {
+      "q": "Operatorul de prioritate în C++: `2 + 3 * 4` evaluează la:",
+      "opts": [
+        "20",
+        "14",
+        "24",
+        "10"
+      ],
+      "ans": 1,
+      "exp": "Înmulțirea are prioritate mai mare ca adunarea: 3*4=12, apoi 2+12=14.",
+      "diff": 1
+    },
+    {
+      "q": "Expresia `(int)3.9` în C++ produce:",
+      "opts": [
+        "4 (rotunjire)",
+        "3 (trunchiere spre zero)",
+        "Eroare de compilare",
+        "3.9"
+      ],
+      "ans": 1,
+      "exp": "Cast-ul explicit `(int)` truncheaza spre zero — nu rotunjeste. 3.9 → 3.",
+      "diff": 1
+    },
+    {
+      "q": "Rezultatul expresiei `1 << 4` în C++ (left shift) este:",
+      "opts": [
+        "4",
+        "16",
+        "8",
+        "1"
+      ],
+      "ans": 1,
+      "exp": "1 << 4 = 1 * 2^4 = 16. Left shift cu k biți = înmulțire cu 2^k.",
+      "diff": 2
+    },
+    {
+      "q": "Expresia `17 & 12` (AND pe biți) în C++ este:",
+      "opts": [
+        "0",
+        "8",
+        "29",
+        "5"
+      ],
+      "ans": 1,
+      "exp": "17 = 10001, 12 = 01100. AND: 01000 = 8.",
+      "diff": 2
+    },
+    {
+      "q": "Expresia `17 | 12` (OR pe biți) în C++ este:",
+      "opts": [
+        "5",
+        "8",
+        "29",
+        "30"
+      ],
+      "ans": 2,
+      "exp": "17 = 10001, 12 = 01100. OR: 11101 = 29.",
+      "diff": 2
+    },
+    {
+      "q": "Expresia `17 ^ 12` (XOR pe biți) în C++ este:",
+      "opts": [
+        "8",
+        "21",
+        "29",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "17 = 10001, 12 = 01100. XOR bit cu bit: 11101 = 16+8+4+0+1 = 29.",
+      "diff": 2
+    },
+    {
+      "q": "Un șir de caractere (string) în C++ definit cu `string s = \"hello\"` are lungimea accesibilă cu:",
+      "opts": [
+        "s.size() sau s.length()",
+        "strlen(s)",
+        "sizeof(s)",
+        "s.count()"
+      ],
+      "ans": 0,
+      "exp": "Pentru `std::string`, metoda `.size()` sau `.length()` returnează numărul de caractere.",
+      "diff": 1
+    },
+    {
+      "q": "Compararea a două șiruri de caractere `std::string` în C++ se face corect cu:",
+      "opts": [
+        "s1 == s2 (operatorul == suprascris)",
+        "strcmp(s1, s2) == 0",
+        "s1.compare(s2)",
+        "Toate cele de mai sus, dar s1==s2 este cel mai simplu pentru std::string"
+      ],
+      "ans": 3,
+      "exp": "Pentru `std::string`, `==` funcționează direct. `strcmp` e pentru char*, `compare()` e mai flexibil dar `==` e cel mai simplu.",
+      "diff": 1
+    },
+    {
+      "q": "Declarând `int &r = x;`, variabila `r` este:",
+      "opts": [
+        "Un pointer la x",
+        "O referință — un alias pentru x (r și x se referă la același spațiu de memorie)",
+        "O copie a lui x",
+        "Un pointer constant"
+      ],
+      "ans": 1,
+      "exp": "O referință (`&`) este un alias — `r` și `x` sunt același obiect. Modificarea lui `r` o modifică pe `x`.",
+      "diff": 2
+    },
+    {
+      "q": "Diferența dintre `int *p` (pointer) și `int &r` (referință):",
+      "opts": [
+        "Sunt identice",
+        "Pointerul poate fi null/redirected, referința nu poate fi null și nu poate fi redirecționată",
+        "Referința e mai rapidă",
+        "Pointerul nu ocupă memorie"
+      ],
+      "ans": 1,
+      "exp": "O referință trebuie inițializată și nu poate fi redirecționată. Un pointer poate fi null și poate pointa la obiecte diferite.",
+      "diff": 2
+    },
+    {
+      "q": "Containerul `std::vector<int>` din STL față de array-ul clasic `int[]`:",
+      "opts": [
+        "Vector e mereu mai lent",
+        "Vector are dimensiune dinamică și verifică limitele la .at()",
+        "Array e mai sigur",
+        "Sunt identice"
+      ],
+      "ans": 1,
+      "exp": "`std::vector` gestionează automat memoria — se poate redimensiona cu push_back. `.at(i)` aruncă excepție la out-of-bounds.",
+      "diff": 1
+    },
+    {
+      "q": "Etapele compilării unui program C++ sunt în ordine:",
+      "opts": [
+        "Editare → Execuție → Compilare",
+        "Preprocesare → Compilare → Asamblare → Linkare",
+        "Compilare → Execuție",
+        "Scriere → Compilare → Rulare"
+      ],
+      "ans": 1,
+      "exp": "Preprocesare (#include, #define) → Compilare (sursă → obiect) → Asamblare → Linkare (obiecte → executabil).",
+      "diff": 2
+    },
+    {
+      "q": "O eroare de 'linker' (undefined reference) apare când:",
+      "opts": [
+        "Sintaxa este greșită",
+        "O funcție este declarată dar nu definită (sau lipsește biblioteca)",
+        "Programul accesează memorie greșit",
+        "Tipurile nu se potrivesc"
+      ],
+      "ans": 1,
+      "exp": "Linker-ul reunește fișierele obiect. `undefined reference` = funcție declarată dar fără implementare accesibilă.",
+      "diff": 2
+    },
+    {
+      "q": "Namespace `std` în C++ este necesar pentru:",
+      "opts": [
+        "A declara variabile globale",
+        "A accesa funcții și clase din biblioteca standard (cout, cin, string, vector)",
+        "A defini constante",
+        "A include fișiere header"
+      ],
+      "ans": 1,
+      "exp": "`std::` prefixul (sau `using namespace std;`) permite accesul la componentele bibliotecii standard.",
+      "diff": 1
+    },
+    {
+      "q": "Supraîncărcarea funcțiilor (function overloading) înseamnă:",
+      "opts": [
+        "O funcție care se apelează recursiv",
+        "Mai multe funcții cu același nume dar parametri diferiți",
+        "O funcție prea lungă",
+        "Funcții predefinite"
+      ],
+      "ans": 1,
+      "exp": "Overloading = aceeași denumire, semnături diferite (tipuri/număr de parametri). Compilatorul alege versiunea potrivită.",
+      "diff": 2
+    },
+    {
+      "q": "Valoarea `INT_MIN` pe 32 biți este:",
+      "opts": [
+        "-2^31 + 1",
+        "-2^31",
+        "-2^32",
+        "-2^15"
+      ],
+      "ans": 1,
+      "exp": "INT_MIN = -2147483648 = -2^31. INT_MAX = 2147483647 = 2^31 - 1.",
+      "diff": 2
+    },
+    {
+      "q": "Operatorul modulo (%) în C++ pentru numere negative: `-7 % 3` evaluează la:",
+      "opts": [
+        "2",
+        "-1",
+        "1",
+        "-2"
+      ],
+      "ans": 1,
+      "exp": "În C++11+, operatorul % truncheaza spre zero: -7 = -2*3 + (-1) → rezultat -1.",
+      "diff": 3
+    },
+    {
+      "q": "Tipul `float` față de `double` în C++:",
+      "opts": [
+        "float = 8 bytes, double = 4 bytes",
+        "float = 4 bytes (~7 zecimale), double = 8 bytes (~15 zecimale)",
+        "Sunt identice",
+        "float e mai precis"
+      ],
+      "ans": 1,
+      "exp": "float: 32 biți, ~7 cifre semnificative. double: 64 biți, ~15 cifre semnificative.",
+      "diff": 1
+    },
+    {
+      "q": "Expresia `0.1 + 0.2 == 0.3` în C++ evaluează la:",
+      "opts": [
+        "true",
+        "false — din cauza erorii de reprezentare în virgulă flotantă",
+        "Compilare error",
+        "Depinde de sistemul de operare"
+      ],
+      "ans": 1,
+      "exp": "0.1 și 0.2 nu pot fi reprezentate exact în binar. Suma lor ≠ 0.3 exactă → false. Folosiți comparare cu epsilon.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `for (auto x : v)` (range-based for) în C++11 iterează:",
+      "opts": [
+        "Prin indecși de la 0 la v.size()-1",
+        "Prin fiecare element al containerului v (copie)",
+        "Prin adresele elementelor",
+        "Nu funcționează cu vectori"
+      ],
+      "ans": 1,
+      "exp": "`for (auto x : v)` creează o copie a fiecărui element. Folosiți `auto &x` pentru referință (fără copie).",
+      "diff": 1
+    },
+    {
+      "q": "Diferența dintre eroarea de compilare și eroarea de execuție (runtime):",
+      "opts": [
+        "Sunt același lucru",
+        "Eroarea de compilare este detectată de compilator; eroarea de runtime apare la rularea programului",
+        "Eroarea de runtime e mai ușor de corectat",
+        "Eroarea de compilare apare numai pe Linux"
+      ],
+      "ans": 1,
+      "exp": "Erori de compilare: sintaxă greșită, tip greșit etc. Erori de runtime: segfault, overflow, acces null pointer — la execuție.",
+      "diff": 1
+    },
+    {
+      "q": "Valoarea expresiei `true + true + false` în C++ este:",
+      "opts": [
+        "true",
+        "2",
+        "3",
+        "false"
+      ],
+      "ans": 1,
+      "exp": "`true` se convertește la 1, `false` la 0. 1+1+0=2.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția `sqrt(x)` din `<cmath>` returnează:",
+      "opts": [
+        "int",
+        "double",
+        "float",
+        "long long"
+      ],
+      "ans": 1,
+      "exp": "`sqrt` returnează `double`. Pentru precizie ridicată: `sqrtl` returnează `long double`.",
+      "diff": 1
+    },
+    {
+      "q": "Constanta `LLONG_MAX` (valoarea maximă a `long long`) este aproximativ:",
+      "opts": [
+        "2 * 10^9",
+        "9.2 * 10^18",
+        "10^15",
+        "2^32"
+      ],
+      "ans": 1,
+      "exp": "LLONG_MAX = 2^63 - 1 ≈ 9.2 × 10^18.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `goto label;` în C++ este:",
+      "opts": [
+        "Interzisă în C++",
+        "Validă dar evitată — duce la cod spaghetti",
+        "Mai rapidă decât funcțiile",
+        "Folosită frecvent în programarea modernă"
+      ],
+      "ans": 1,
+      "exp": "`goto` există în C++ dar este evitată — afectează lizibilitatea. Alternativele structurate sunt preferate.",
+      "diff": 2
+    },
+    {
+      "q": "O funcție fără `return` (void) în C++ poate:",
+      "opts": [
+        "Returna valori implicit",
+        "Folosi `return;` fără valoare pentru a ieși devreme",
+        "Nu poate fi apelată",
+        "Returnează 0 implicit"
+      ],
+      "ans": 1,
+      "exp": "Funcțiile `void` pot conține `return;` pentru a opri execuția înainte de sfârșit.",
+      "diff": 1
+    },
+    {
+      "q": "Trecerea unui array la o funcție în C/C++ se face prin:",
+      "opts": [
+        "Copiere completă",
+        "Pointer (adresa primului element — decay to pointer)",
+        "Referință automată",
+        "Nu se poate"
+      ],
+      "ans": 1,
+      "exp": "Array-urile se 'decay' la pointer la primul element. Funcția primește adresa, nu copia.",
+      "diff": 2
+    },
+    {
+      "q": "Reprezentarea numărului -5 în complement față de 2 (8 biți) este:",
+      "opts": [
+        "10000101",
+        "11111011",
+        "11111101",
+        "01111011"
+      ],
+      "ans": 1,
+      "exp": "5 = 00000101. ~5 = 11111010. ~5+1 = 11111011 = reprezentarea lui -5 în complement față de 2.",
+      "diff": 3
+    },
+    {
+      "q": "Expresia hexazecimală `0xFF` în decimal este:",
+      "opts": [
+        "128",
+        "255",
+        "256",
+        "127"
+      ],
+      "ans": 1,
+      "exp": "0xFF = 15*16 + 15 = 240 + 15 = 255.",
+      "diff": 1
+    },
+    {
+      "q": "Un program C++ care consumă O(n²) memorie pentru n=10^4 necesită aproximativ (sizeof(int)=4):",
+      "opts": [
+        "40 KB",
+        "400 MB",
+        "40 MB",
+        "4 MB"
+      ],
+      "ans": 1,
+      "exp": "10^4 * 10^4 * 4 bytes = 4 * 10^8 bytes = 400 MB (atenție! depășeste RAM-ul tipic).",
+      "diff": 2
+    },
+    {
+      "q": "Funcția `main` poate primi argumente din linia de comandă prin:",
+      "opts": [
+        "Nu poate primi argumente",
+        "int main(int argc, char* argv[])",
+        "int main(string args)",
+        "int main(int n)"
+      ],
+      "ans": 1,
+      "exp": "`argc` = numărul de argumente, `argv` = array de string-uri (argv[0] = numele programului).",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `assert(x > 0)` din `<cassert>` în C++:",
+      "opts": [
+        "Returnează true/false",
+        "Termină programul cu mesaj de eroare dacă condiția e falsă (la debug)",
+        "Corectează automat eroarea",
+        "Este ignorată la compilare"
+      ],
+      "ans": 1,
+      "exp": "`assert` verifică condiția la runtime. Dacă e falsă, afișează mesaj și apelează `abort()`. Dezactivat cu NDEBUG.",
+      "diff": 2
+    },
+    {
+      "q": "Variabila `static int count = 0;` definită în interiorul unei funcții în C++:",
+      "opts": [
+        "Este reiniț. la fiecare apel",
+        "Persistă între apeluri — inițializată o singură dată",
+        "Este globală",
+        "Dispare după funcție"
+      ],
+      "ans": 1,
+      "exp": "Variabilele locale `static` sunt inițializate o singură dată și rămân în memorie pe toată durata programului.",
+      "diff": 2
+    },
+    {
+      "q": "Operatorul `sizeof` în C++ este evaluat la:",
+      "opts": [
+        "Runtime",
+        "Compile-time (de compilator)",
+        "Load time",
+        "Link time"
+      ],
+      "ans": 1,
+      "exp": "`sizeof` este un operator compile-time — compilatorul calculează dimensiunea tipului fără execuție.",
+      "diff": 2
+    },
+    {
+      "q": "Declarând `const int MAX = 1000;` față de `#define MAX 1000`:",
+      "opts": [
+        "Sunt complet identice",
+        "const are tip și scop (type-safe), #define este înlocuire textuală fără tip",
+        "#define e mai bun",
+        "const nu poate fi folosit ca dimensiune array"
+      ],
+      "ans": 1,
+      "exp": "`const` are scop de tip și de bloc. `#define` este o simplă înlocuire textuală în preprocesare.",
+      "diff": 2
+    },
+    {
+      "q": "Instrucțiunea `int v[5] = {1, 2, 3};` în C++ inițializează:",
+      "opts": [
+        "v[0]=1, v[1]=2, v[2]=3, restul aleatoriu",
+        "v[0]=1, v[1]=2, v[2]=3, v[3]=0, v[4]=0",
+        "Eroare — dimensiunea nu se potrivește",
+        "v[0]=1, v[1]=2, v[2]=3, v[3]=4, v[4]=5"
+      ],
+      "ans": 1,
+      "exp": "Când inițializăm parțial, elementele rămase sunt zero-inițializate.",
+      "diff": 1
+    },
+    {
+      "q": "Un algoritm greedy alege la fiecare pas:",
+      "opts": [
+        "Soluția globală optimă",
+        "Cel mai bun pas local disponibil, sperând că duce la optim global",
+        "Toate soluțiile posibile",
+        "Soluția aleatorie"
+      ],
+      "ans": 1,
+      "exp": "Greedy = alegeă optimul local. Nu garantează optim global (funcționează pt. unele probleme, ex: Dijkstra, Kruskal).",
+      "diff": 1
+    },
+    {
+      "q": "Programarea dinamică (DP) rezolvă probleme prin:",
+      "opts": [
+        "Forță brută pură",
+        "Stocarea soluțiilor subproblemelor (memoizare) pentru a evita recalcularea",
+        "Greedy local",
+        "Backtracking exhaustiv"
+      ],
+      "ans": 1,
+      "exp": "DP = optim substructural + subprobleme suprapuse → memorăm soluțiile pentru a nu recalcula.",
+      "diff": 1
+    },
+    {
+      "q": "Notația Big-O descrie:",
+      "opts": [
+        "Exact numărul de operații",
+        "Limita superioară asimptotică a timpului de execuție",
+        "Cel mai bun caz",
+        "Memoria utilizată"
+      ],
+      "ans": 1,
+      "exp": "Big-O = limita superioară asimptotică. Descrie comportamentul în cel mai rău caz pentru n mare.",
+      "diff": 1
+    },
+    {
+      "q": "Dacă un program rulează în 1s pentru n=1000 cu O(n²), pentru n=2000 va rula aproximativ în:",
+      "opts": [
+        "2s",
+        "4s",
+        "8s",
+        "1s"
+      ],
+      "ans": 1,
+      "exp": "O(n²): dublarea lui n → timpului se înmulțește cu 4. 1s * 4 = 4s.",
+      "diff": 1
+    }
+  ]
+}

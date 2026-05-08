@@ -1562,3 +1562,35 @@ footer {
   .progress-section { padding: 20px 18px; }
   .prog-label   { width: 120px; font-size: 12px; }
 }
+/* ── Code Output block ─────────────────────────────────────────── */
+.code-output {
+  background: #0d1117;
+  color: #e6edf3;
+  border: 1px solid var(--border, #30363d);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 12px 20px;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: 18px;
+  position: relative;
+}
+.code-output::before {
+  content: "▶ Output";
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #58a6ff;
+  letter-spacing: .06em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.code-output .out-comment {
+  color: #8b949e;
+  font-style: italic;
+}
+.code-output .out-highlight {
+  color: #79c0ff;
+  font-weight: bold;
+}

@@ -112,6 +112,8 @@ cin &gt;&gt; n;
 <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
     <span class="kw">if</span> (v[i] % <span class="nu">2</span> == <span class="nu">0</span>) nrPare++;
 cout &lt;&lt; <span class="st">"Elemente pare: "</span> &lt;&lt; nrPare;</pre>
+      <div class="code-output"><span class="out-comment">// v = {3, 8, 2, 7, 4, 9, 6} → n=7</span>
+Elemente pare: <span class="out-highlight">4</span></div>
 
       <h3 style="margin:16px 0 10px;font-size:15px;">Verificare dacă vectorul este sortat crescător</h3>
       <pre><span class="kw">bool</span> sortat = <span class="kw">true</span>;
@@ -402,6 +404,8 @@ n = m;  <span class="cm">// actualizăm dimensiunea</span></pre>
     freq[v[i]]++;
 }
 cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>);</pre>
+      <div class="code-output"><span class="out-comment">// v = {3,1,4,2,5} → conține valorile 1..5 fiecare o dată</span>
+<span class="out-highlight">DA</span></div>
       </div>
     </div>
   </div>
@@ -415,7 +419,7 @@ cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>)
     <h2>&#x1F3AE; Vectori &mdash; Testează-ți cunoștințele</h2>
     <p>10 întrebări care acoperă toate conceptele capitalului. Selectează răspunsul corect și obține explicația imediată.</p>
   </div>
-  <div class="quiz-section" data-quiz="vectori-quiz"></div>
+  <div class="quiz-section" data-quiz="vectori-quiz" data-quiz-src="../data/exercises/vectori.json"></div>
 </section>
 
 <footer>
@@ -429,214 +433,6 @@ cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>)
 <script src="../js/animations.js"></script>
 <script src="../js/platform.js"></script>
 <script src="../js/quiz.js"></script>
-<script>
-window.QUIZ_DATA = window.QUIZ_DATA || {};
-window.QUIZ_DATA['vectori-quiz'] = [
-  {
-    "q": "În C++, elementele unui vector (tablou) sunt indexate de la:",
-    "opts": [
-      "1",
-      "0",
-      "-1",
-      "Depinde de compilator"
-    ],
-    "ans": 1,
-    "exp": "C++ folosește indexare de la 0. Un vector de n elemente are indici 0, 1, ..., n-1.",
-    "diff": 1
-  },
-  {
-    "q": "Pentru a aplica căutarea binară, vectorul trebuie să fie:",
-    "opts": [
-      "Sortat",
-      "Fără duplicate",
-      "De dimensiune pară",
-      "Inițializat cu 0"
-    ],
-    "ans": 0,
-    "exp": "Căutarea binară compară cu mijlocul și elimină jumătate — funcționează DOAR pe vectori sortați.",
-    "diff": 1
-  },
-  {
-    "q": "Câte comparații face Selection Sort pe un vector de n elemente?",
-    "opts": [
-      "n",
-      "n log n",
-      "n(n-1)/2",
-      "n²"
-    ],
-    "ans": 2,
-    "exp": "Selection Sort face n-1 + n-2 + ... + 1 = n(n-1)/2 comparații → O(n²).",
-    "diff": 2
-  },
-  {
-    "q": "Un vector de frecvență v[x]++ se folosește pentru:",
-    "opts": [
-      "Sortare rapidă",
-      "Numărarea aparițiilor fiecărei valori",
-      "Căutarea unui element",
-      "Inversarea vectorului"
-    ],
-    "ans": 1,
-    "exp": "v[x]++ incrementează contorul pentru valoarea x → numărăm câte ori apare fiecare valoare.",
-    "diff": 2
-  },
-  {
-    "q": "Cel mai rău caz pentru căutarea liniară (secvențială):",
-    "opts": [
-      "Elementul e primul",
-      "Elementul e la mijloc",
-      "Elementul nu există (parcurgem tot)",
-      "Vectorul e sortat"
-    ],
-    "ans": 2,
-    "exp": "Dacă elementul nu există, comparăm cu TOȚI cei n → O(n) comparații.",
-    "diff": 1
-  },
-  {
-    "q": "Interclasarea a doi vectori sortați de dimensiuni m și n are complexitatea:",
-    "opts": [
-      "O(m·n)",
-      "O(m+n)",
-      "O(m log n)",
-      "O((m+n)²)"
-    ],
-    "ans": 1,
-    "exp": "Parcurgem fiecare vector o singură dată, avansând un pointer → O(m+n).",
-    "diff": 2
-  },
-  {
-    "q": "Insertion Sort are complexitate O(n) în cel mai bun caz deoarece:",
-    "opts": [
-      "Face n/2 swap-uri",
-      "Pe un vector deja sortat face doar n-1 comparații și 0 swap-uri",
-      "Folosește binary search",
-      "Sortează de la mijloc"
-    ],
-    "ans": 1,
-    "exp": "Vector sortat: fiecare element este deja în poziția corectă → o comparație per element.",
-    "diff": 3
-  },
-  {
-    "q": "Algoritmul lui Kadane găsește:",
-    "opts": [
-      "Elementul maxim",
-      "Subșirul de sumă maximă",
-      "Mediana vectorului",
-      "Cel mai lung subșir crescător"
-    ],
-    "ans": 1,
-    "exp": "Kadane: maxCurent = max(v[i], maxCurent+v[i]) → O(n), cel mai eficient algoritm pentru subarraySumMax.",
-    "diff": 2
-  },
-  {
-    "q": "Rotirea la stânga a unui vector cu o poziție: ce se întâmplă cu primul element?",
-    "opts": [
-      "Se pierde",
-      "Merge la final",
-      "Devine 0",
-      "Rămâne pe loc"
-    ],
-    "ans": 1,
-    "exp": "La rotire ciclică stânga: v[0] merge la v[n-1], restul se mută cu o poziție la stânga.",
-    "diff": 3
-  },
-  {
-    "q": "Eliminarea unui element de la mijlocul unui vector de n elemente necesită:",
-    "opts": [
-      "O(1) operații",
-      "O(log n) operații",
-      "O(n) operații (deplasare)",
-      "O(n²) operații"
-    ],
-    "ans": 2,
-    "exp": "Trebuie să deplasăm toate elementele de după poziția ștearsă cu o poziție la stânga → O(n).",
-    "diff": 3
-  },
-  {
-    "q": "(BAC) int v[]={3,1,4,1,5}; cout<<v[2]; afișează:",
-    "opts": [
-      "1",
-      "4",
-      "3",
-      "5"
-    ],
-    "ans": 1,
-    "exp": "Indexarea începe de la 0: v[0]=3, v[1]=1, v[2]=4.",
-    "diff": 1
-  },
-  {
-    "q": "Complexitatea căutării liniare într-un vector nesortat de n elemente:",
-    "opts": [
-      "O(1)",
-      "O(log n)",
-      "O(n)",
-      "O(n²)"
-    ],
-    "ans": 2,
-    "exp": "În cel mai rău caz, parcurgem toți n pași → O(n).",
-    "diff": 1
-  },
-  {
-    "q": "(BAC 2020) Numărul maxim de interschimbări Bubble Sort pentru n=5 este:",
-    "opts": [
-      "4",
-      "8",
-      "10",
-      "5"
-    ],
-    "ans": 2,
-    "exp": "n*(n-1)/2 = 5*4/2 = 10 pentru vectorul complet inversat.",
-    "diff": 3
-  },
-  {
-    "q": "Un vector de frecvență pentru elemente în [1,100] are dimensiunea minimă:",
-    "opts": [
-      "n",
-      "100",
-      "101",
-      "n+1"
-    ],
-    "ans": 2,
-    "exp": "Avem nevoie de 101 poziții (indexurile 0..100).",
-    "diff": 2
-  },
-  {
-    "q": "Complexitatea interclasării a doi vectori sortați de dimensiuni n și m:",
-    "opts": [
-      "O(n)",
-      "O(m)",
-      "O(n+m)",
-      "O(n*m)"
-    ],
-    "ans": 2,
-    "exp": "Parcurgem ambii vectori o singură dată → O(n+m).",
-    "diff": 2
-  },
-  {
-    "q": "(BAC 2022) Ștergerea unui element dintr-un vector de n elemente necesită:",
-    "opts": [
-      "Setarea la 0",
-      "Mutarea elementelor de după el la stânga, decrementarea n",
-      "Mutarea la dreapta",
-      "Inversarea vectorului"
-    ],
-    "ans": 1,
-    "exp": "Ștergerea necesită deplasarea la stânga a tuturor elementelor de după poziția ștearsă.",
-    "diff": 2
-  },
-  {
-    "q": "(BAC) Minimul vectorului {7,2,9,1,5} se află la indexul:",
-    "opts": [
-      "0",
-      "1",
-      "3",
-      "4"
-    ],
-    "ans": 2,
-    "exp": "v[3]=1 este minimul — indexul 3.",
-    "diff": 1
-  }
-];
-</script>
+
 </body>
 </html>
