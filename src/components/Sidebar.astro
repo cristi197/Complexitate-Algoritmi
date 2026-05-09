@@ -18,7 +18,8 @@ const chapters = [
   { num: 6, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  colorVar: 'red'    },
   { num: 7, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  colorVar: 'pink'   },
   { num: 9, file: 'programare-dinamica', title: 'Programare Dinamică',      icon: '🧮',  colorVar: 'teal'   },
-  { num: 10, file: 'structuri',      title: 'Structuri (struct)',          icon: '🗂️', colorVar: 'purple' },
+  { num: 10, file: 'structuri',         title: 'Structuri (struct)',          icon: '🗂️', colorVar: 'purple' },
+  { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică',  icon: '🔗', colorVar: 'green'  },
 ];
 ---
 <nav class="sidebar" id="sidebar" aria-label="Navigare capitole">
@@ -85,6 +86,10 @@ const chapters = [
     <a href={`${base}/streak`} class="sidebar-link sidebar-link--exercises">
       <span class="ch-icon ch-icon--exercises" aria-hidden="true">📅</span>
       <span class="ch-title">Calendar Studiu</span>
+    </a>
+    <a href={`${base}/trasare`} class="sidebar-link sidebar-link--exercises">
+      <span class="ch-icon ch-icon--exercises" aria-hidden="true">🔍</span>
+      <span class="ch-title">Simulator Trasare</span>
     </a>
   </div>
 </nav>

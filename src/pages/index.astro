@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -11,6 +12,12 @@ const chapters = [
     title: 'Introducere în Informatică', subtitle: 'Bazele absolute, program C++, programa BAC 2026',
     topics: ['Ce este informatica și algoritmul','Structura unui program C++','Tipuri de date: int, double, char, bool','Operatori și structuri de control','Programa completă BAC 2026'],
     time: '~25 min'
+  },
+  {
+    num: 8, file: 'functii', color: 'ch-blue',
+    title: 'Funcții și Subprograme', subtitle: 'Parametri, referințe, variabile locale/globale',
+    topics: ['Declarare, definire, apel de funcție','Parametri prin valoare vs. referință (&)','Variabile locale vs. globale','Funcții void și cu return','Overloading și funcții inline'],
+    time: '~30 min'
   },
   {
     num: 1, file: 'complexitate', color: 'ch-blue',
@@ -33,7 +40,7 @@ const chapters = [
   {
     num: 4, file: 'vectori', color: 'ch-orange',
     title: 'Vectori (Tablouri 1D)', subtitle: 'Operații, algoritmi, aplicații clasice',
-    topics: ['Declarare, inițializare, citire','Parcurgere, căutare, sortare','Interclasare, ștergere, inserare','Vectori de frecvență și counting sort','Probleme clasice BAC cu vectori'],
+    topics: ['Declarare, inițializare, citire','Parcurgere, căutare, sortare','Interclasare, ștergere, inserare','Ciurul lui Eratostene','Probleme clasice BAC cu vectori'],
     time: '~35 min'
   },
   {
@@ -54,6 +61,24 @@ const chapters = [
     topics: ['Deschidere, citire, scriere, închidere','fstream, ifstream, ofstream','Citire până la EOF','Procesare date din fișiere','Probleme BAC cu fișiere'],
     time: '~30 min'
   },
+  {
+    num: 9, file: 'programare-dinamica', color: 'ch-teal',
+    title: 'Programare Dinamică', subtitle: 'De la memoizare la DP tabelar',
+    topics: ['Fibonacci: naiv → memoizare → DP','DP tabelar bottom-up','Cel mai lung subșir crescător (LIS)','Triunghi de numere — sum maximă','Probleme BAC M-I intensiv'],
+    time: '~40 min'
+  },
+  {
+    num: 10, file: 'structuri', color: 'ch-purple',
+    title: 'Structuri (struct)', subtitle: 'Tipuri de date definite de utilizator',
+    topics: ['Declararea și inițializarea struct','Accesarea câmpurilor cu . și ->','Array de structuri','Sortare după un câmp','Structuri ca parametri de funcție'],
+    time: '~30 min'
+  },
+  {
+    num: 11, file: 'pointeri', color: 'ch-green',
+    title: 'Pointeri & Alocare Dinamică', subtitle: 'Referințe, new/delete, liste',
+    topics: ['Ce este un pointer — *, &, ->','Aritmetica pointerilor','Alocare dinamică: new și delete','Pointeri și funcții','Introducere în liste simplu înlănțuite'],
+    time: '~35 min'
+  },
 ];
 ---
 <BaseLayout
@@ -73,7 +98,7 @@ const chapters = [
         la probleme rezolvate, cu animații interactive și exemple din practică.
       </p>
       <div class="hero-badges">
-        <span class="hero-badge">📊 8 capitole</span>
+        <span class="hero-badge">📊 12 capitole</span>
         <span class="hero-badge">🎬 Animații interactive</span>
         <span class="hero-badge">⏱ Complexitate timp &amp; spațiu</span>
         <span class="hero-badge">📝 Probleme rezolvate</span>
@@ -86,6 +111,13 @@ const chapters = [
           🤖 Analizează-ți varianta BAC
         </a>
       </div>
+      <!-- Onboarding hint for first-time visitors -->
+      <p class="hero-onboarding">
+        <strong>Ești la început?</strong> Urmează capitolele în ordine:
+        <a href={`${base}/capitole/introducere`}>Introducere</a> →
+        <a href={`${base}/capitole/functii`}>Funcții</a> →
+        <a href={`${base}/capitole/recursivitate`}>Recursivitate</a> → ...
+      </p>
 
       <!-- Decorative code preview -->
       <div class="hero-graphic" aria-hidden="true">
@@ -117,12 +149,12 @@ const chapters = [
   <!-- Stats strip -->
   <div class="stats-strip">
     <div class="stat-item">
-      <span class="stat-num">8</span>
+      <span class="stat-num">12</span>
       <span class="stat-lbl">Capitole</span>
     </div>
     <div class="stat-sep" aria-hidden="true"></div>
     <div class="stat-item">
-      <span class="stat-num">100+</span>
+      <span class="stat-num">800+</span>
       <span class="stat-lbl">Quiz-uri BAC</span>
     </div>
     <div class="stat-sep" aria-hidden="true"></div>
@@ -132,13 +164,13 @@ const chapters = [
     </div>
     <div class="stat-sep" aria-hidden="true"></div>
     <div class="stat-item">
-      <span class="stat-num">~5h</span>
+      <span class="stat-num">~8h</span>
       <span class="stat-lbl">Conținut total</span>
     </div>
   </div>
 
   <!-- Chapters grid -->
-  <div id="capitole">
+  <div id="capitole" role="main" aria-label="Conținut principal">
     <div class="section-heading">
       <h2 class="section-title">📚 Capitolele cursului</h2>
       <p class="section-subtitle">Parcurge lecțiile în ordine sau sari direct la capitolul care te interesează.</p>
@@ -208,15 +240,7 @@ const chapters = [
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="site-footer" id="about">
-    <p>💻 <strong>InfoLiceu</strong> — Resurse gratuite pentru BAC Informatică România</p>
-    <p>
-      <a href={`${base}/`}>Acasă</a>
-      {' · '}
-      <a href={`${base}/analiza-bac`}>Analiză BAC AI</a>
-    </p>
-  </footer>
+  <Footer />
 
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {

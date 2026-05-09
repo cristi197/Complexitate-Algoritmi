@@ -490,12 +490,18 @@ Programare dinamică (M-I intensiv)   █░░░░░░░░░  10%  ← G
 - [x] Sidebar actualizat — capitole 9 și 10 adăugate, linkuri Editor/Examen Alb/Calendar Studiu
 - [x] platform.js actualizat — `programare-dinamica.html` (num=9), `structuri.html` (num=10)
 
-### Sprint 4 — Polish (ongoing)
-- [ ] SEO meta tags unice per pagină
-- [ ] Accesibilitate WCAG 2.1 de bază
-- [ ] Sitemap XML
-- [ ] og:image per capitol
-- [ ] Footer complet (autor, licență, contact, GitHub)
+### Sprint 4 — Polish ✅ FINALIZAT
+- [x] SEO meta tags unice per pagină (BaseLayout.astro — og:, twitter:, canonical, robots, author, theme-color)
+- [x] Accesibilitate WCAG 2.1 de bază (skip link, focus-visible, role="main", aria-label)
+- [x] Sitemap XML (@astrojs/sitemap instalat, astro.config.mjs actualizat)
+- [x] og:image per capitol (ogImageURL în BaseLayout cu fallback og-default.png)
+- [x] Footer complet — Footer.astro (nav links, GitHub, copyright MIT, an dinamic)
+- [x] Capitolul Pointeri & Alocare Dinamică creat (num=11, 7 secțiuni, 12 quiz-uri)
+- [x] Simulator Trasare Algoritm — /trasare (6 algoritmi pas-cu-pas, vizualizare variabile + array)
+- [x] complexitate.astro — "Universități RO" → "Continuare după BAC", MIT OCW → cppreference.com, contextualizat LeetCode/HackerRank
+- [x] Sidebar actualizat — pointeri (num=11) + link Simulator Trasare
+- [x] platform.js actualizat — pointeri.html (num=11)
+- [x] Homepage actualizat — 12 capitole, stats 800+ quiz-uri / ~8h / 12 capitole, onboarding hint
 
 ---
 

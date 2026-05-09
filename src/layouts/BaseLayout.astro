@@ -8,18 +8,56 @@ interface Props {
   bodyClass?: string;
 }
 
-const { title, description = 'Ghid complet de informatică pentru liceu și bacalaureat.', bodyClass = '' } = Astro.props;
+const {
+  title,
+  description = 'Ghid complet de informatică pentru liceu și bacalaureat. Algoritmi, complexitate, recursivitate, backtracking, vectori, matrici, șiruri, fișiere — cu animații interactive și quiz-uri BAC.',
+  ogImage,
+  bodyClass = '',
+} = Astro.props;
+
 const base = import.meta.env.BASE_URL;
+const siteOrigin = 'https://cristi197.github.io';
+const siteBase   = `${siteOrigin}/Complexitate-Algoritmi`;
+const canonicalURL = `${siteOrigin}${Astro.url.pathname}`;
+const ogImageURL   = ogImage || `${siteBase}/og-default.png`;
+const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu`;
 ---
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
+
+  <!-- Primary SEO -->
+  <title>{fullTitle}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="InfoLiceu" />
+  <meta property="og:title"       content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url"         content={canonicalURL} />
+  <meta property="og:image"       content={ogImageURL} />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="ro_RO" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImageURL} />
+
+  <!-- Misc -->
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="InfoLiceu" />
+  <meta name="theme-color" content="#6366f1" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <!-- Dark mode: apply before render to avoid flash -->
   <script is:inline>
     (function() {
@@ -30,6 +68,9 @@ const base = import.meta.env.BASE_URL;
   </script>
 </head>
 <body class={bodyClass}>
+  <!-- Skip navigation for keyboard/screen-reader users (WCAG 2.1 SC 2.4.1) -->
+  <a class="skip-link" href="#main-content">Sari la conținut</a>
+
   <div id="page-overlay"></div>
   <div id="scroll-progress" aria-hidden="true"></div>
   <slot />

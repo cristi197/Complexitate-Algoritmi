@@ -37,7 +37,8 @@ var CHAPTERS = [
   { file: 'siruri.html',       num: 6, title: 'Șiruri de Caractere' },
   { file: 'fisiere.html',           num: 7,  title: 'Fișiere' },
   { file: 'programare-dinamica.html', num: 9,  title: 'Programare Dinamică' },
-  { file: 'structuri.html',           num: 10, title: 'Structuri (struct)' }
+  { file: 'structuri.html',           num: 10, title: 'Structuri (struct)' },
+  { file: 'pointeri.html',            num: 11, title: 'Pointeri & Alocare Dinamică' }
 ];
 
 function initChapterNav() {

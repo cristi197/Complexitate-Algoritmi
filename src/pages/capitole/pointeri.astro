@@ -1,0 +1,380 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [
+  { id: 'ce-este', label: 'Ce este un pointer' },
+  { id: 'operatori', label: 'Operatori * și &' },
+  { id: 'aritmetica', label: 'Aritmetică pointeri' },
+  { id: 'alocare', label: 'new și delete' },
+  { id: 'functii', label: 'Pointeri în funcții' },
+  { id: 'liste', label: 'Liste înlănțuite' },
+  { id: 'bac-pointeri', label: 'Probleme BAC' },
+];
+---
+<ChapterLayout
+  title="Pointeri & Alocare Dinamică"
+  subtitle="Referințe, gestiunea memoriei heap, liste simplu înlănțuite"
+  icon="🔗"
+  gradient="linear-gradient(135deg,#16a34a 0%,#15803d 100%)"
+  chapterNum={11}
+  tags={["Pointeri","new/delete","Heap","Liste înlănțuite","Memorie dinamică"]}
+  description="Capitol complet despre pointeri în C++: operatorii * și &, aritmetica pointerilor, alocare dinamică cu new/delete și introducere în liste simplu înlănțuite."
+  sections={sections}
+>
+
+<!-- ─── 1. CE ESTE UN POINTER ─────────────────────────── -->
+<section id="ce-este">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-green" aria-hidden="true">🔗</span>
+      <h2>Ce este un pointer?</h2>
+    </div>
+    <div class="slide-body">
+      <p>Un <strong>pointer</strong> este o variabilă care stochează <em>adresa de memorie</em> a altei variabile. În loc să conțină direct valoarea, pointerul „arată" spre locul din memorie unde se află acea valoare.</p>
+
+      <div class="callout callout-blue">
+        <strong>Analogie:</strong> Un pointer este ca o adresă poștală — nu conține casa, ci locația ei. Adresa te ajută să ajungi la casă (valoare).
+      </div>
+
+      <h3>Declararea unui pointer</h3>
+      <pre><span class="kw">int</span>  x = <span class="nu">42</span>;       <span class="cm">// variabilă normală, valoare = 42</span>
+<span class="kw">int</span>* p = &amp;x;      <span class="cm">// p este pointer la int; stochează adresa lui x</span>
+
+<span class="cm">// Tipuri de pointeri:</span>
+<span class="kw">double</span>* pd;       <span class="cm">// pointer la double</span>
+<span class="kw">char</span>*   pc;       <span class="cm">// pointer la char</span>
+<span class="kw">int</span>*    pn = <span class="kw">nullptr</span>; <span class="cm">// pointer neinițializat corect = nullptr</span></pre>
+
+      <div class="callout callout-warn">
+        <strong>Atenție!</strong> Un pointer neinițializat (dangling pointer) are o valoare aleatoare și poate cauza crash-uri. Inițializează întotdeauna cu <code>nullptr</code> sau cu adresa unei variabile valide.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. OPERATORI * ȘI & ───────────────────────────── -->
+<section id="operatori">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue" aria-hidden="true">⚙️</span>
+      <h2>Operatorii * și &amp;</h2>
+    </div>
+    <div class="slide-body">
+      <div class="card-grid">
+        <div class="card green">
+          <strong>&amp; — operatorul de adresă (address-of)</strong>
+          <p>Returnează adresa de memorie a unei variabile.</p>
+          <pre><span class="kw">int</span> x = <span class="nu">10</span>;
+<span class="kw">int</span>* p = &amp;x;  <span class="cm">// p = adresa lui x</span>
+<span class="cm">// ex: p poate fi 0x7ffee4b8a</span></pre>
+        </div>
+        <div class="card blue">
+          <strong>* — operatorul de dereferențiere (dereference)</strong>
+          <p>Accesează valoarea de la adresa stocată în pointer.</p>
+          <pre><span class="kw">int</span> val = *p;  <span class="cm">// val = 10 (valoarea lui x)</span>
+*p = <span class="nu">20</span>;       <span class="cm">// acum x == 20</span></pre>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.5rem">Exemplu complet</h3>
+      <pre><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+  <span class="kw">int</span> x = <span class="nu">5</span>;
+  <span class="kw">int</span>* p = &amp;x;
+
+  cout &lt;&lt; <span class="str">"Valoarea lui x: "</span> &lt;&lt; x &lt;&lt; endl;   <span class="cm">// 5</span>
+  cout &lt;&lt; <span class="str">"Adresa lui x:   "</span> &lt;&lt; p &lt;&lt; endl;   <span class="cm">// ex: 0x7fff...</span>
+  cout &lt;&lt; <span class="str">"Prin pointer:   "</span> &lt;&lt; *p &lt;&lt; endl;  <span class="cm">// 5</span>
+
+  *p = <span class="nu">99</span>;
+  cout &lt;&lt; <span class="str">"x dupa *p=99:  "</span> &lt;&lt; x &lt;&lt; endl;   <span class="cm">// 99</span>
+  <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+
+      <div class="callout callout-green">
+        <strong>Regulă de memorat:</strong> <code>&amp;variabilă</code> → adresă. <code>*pointer</code> → valoare. Cele două operații sunt inverse una față de cealaltă.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. ARITMETICA POINTERILOR ────────────────────── -->
+<section id="aritmetica">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal" aria-hidden="true">📐</span>
+      <h2>Aritmetica pointerilor</h2>
+    </div>
+    <div class="slide-body">
+      <p>Pointerilor li se pot aplica operații aritmetice. Incrementarea unui pointer cu 1 avansează cu <code>sizeof(tip)</code> bytes, nu cu 1 byte.</p>
+
+      <pre><span class="kw">int</span> v[] = &#123;<span class="nu">10</span>, <span class="nu">20</span>, <span class="nu">30</span>, <span class="nu">40</span>&#125;;
+<span class="kw">int</span>* p = v;   <span class="cm">// p pointează la v[0]</span>
+
+cout &lt;&lt; *p;       <span class="cm">// 10 (v[0])</span>
+p++;
+cout &lt;&lt; *p;       <span class="cm">// 20 (v[1]) — a avansat cu sizeof(int)=4 bytes</span>
+cout &lt;&lt; *(p+1);   <span class="cm">// 30 (v[2])</span>
+cout &lt;&lt; *(p-1);   <span class="cm">// 10 (v[0])</span>
+
+<span class="cm">// Parcurgere cu pointer (echivalentă cu indexare)</span>
+<span class="kw">for</span> (<span class="kw">int</span>* q = v; q &lt; v + <span class="nu">4</span>; q++) &#123;
+  cout &lt;&lt; *q &lt;&lt; <span class="str">" "</span>;
+&#125; <span class="cm">// 10 20 30 40</span></pre>
+
+      <div class="table-scroll">
+        <table class="o-table">
+          <thead><tr><th>Expresie</th><th>Echivalent</th><th>Descriere</th></tr></thead>
+          <tbody>
+            <tr><td><code>p + n</code></td><td><code>&amp;v[n]</code></td><td>Avansează n elemente</td></tr>
+            <tr><td><code>*(p + n)</code></td><td><code>v[n]</code></td><td>Accesează elementul n</td></tr>
+            <tr><td><code>p1 - p2</code></td><td>număr de elemente</td><td>Distanța între 2 pointeri</td></tr>
+            <tr><td><code>p++</code></td><td>—</td><td>Avansează la următorul element</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. ALOCARE DINAMICĂ ─────────────────────────── -->
+<section id="alocare">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple" aria-hidden="true">🧠</span>
+      <h2>Alocare dinamică: new și delete</h2>
+    </div>
+    <div class="slide-body">
+      <p>Alocarea normală (pe stivă) este limitată. Cu <code>new</code> alocăm memorie pe <strong>heap</strong> — o zonă mai mare, gestionată manual.</p>
+
+      <div class="card-grid">
+        <div class="card blue">
+          <strong>Alocare pentru o singură valoare</strong>
+          <pre><span class="kw">int</span>* p = <span class="kw">new</span> <span class="kw">int</span>;     <span class="cm">// aloc un int pe heap</span>
+*p = <span class="nu">42</span>;
+cout &lt;&lt; *p;              <span class="cm">// 42</span>
+<span class="kw">delete</span> p;               <span class="cm">// eliberare memorie!</span>
+p = <span class="kw">nullptr</span>;           <span class="cm">// bună practică</span></pre>
+        </div>
+        <div class="card green">
+          <strong>Alocare pentru un array</strong>
+          <pre><span class="kw">int</span> n = <span class="nu">100000</span>;
+<span class="kw">int</span>* v = <span class="kw">new</span> <span class="kw">int</span>[n];   <span class="cm">// array dinamic</span>
+v[<span class="nu">0</span>] = <span class="nu">1</span>; v[<span class="nu">1</span>] = <span class="nu">2</span>; <span class="cm">// folosire normală</span>
+<span class="kw">delete</span>[] v;             <span class="cm">// delete[] pentru array!</span>
+v = <span class="kw">nullptr</span>;</pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warn" style="margin-top:1rem">
+        <strong>Reguli critice:</strong>
+        <ul>
+          <li>Fiecare <code>new</code> necesită un <code>delete</code> corespunzător.</li>
+          <li>Fiecare <code>new[]</code> necesită un <code>delete[]</code> (cu paranteze!).</li>
+          <li>Lipsa eliberării = <strong>memory leak</strong>.</li>
+          <li>La BAC, vectori mari (<code>int v[1000000]</code>) trebuie declarați <strong>global</strong> sau cu <code>new</code>.</li>
+        </ul>
+      </div>
+
+      <h3>Comparație stivă vs. heap</h3>
+      <div class="card-grid">
+        <div class="card teal">
+          <strong>Stivă (stack)</strong>
+          <p>Alocare automată, eliberare automată la ieșirea din funcție. Dimensiune limitată (~1-8 MB). Rapidă.</p>
+          <pre><span class="kw">int</span> v[<span class="nu">1000</span>]; <span class="cm">// OK</span>
+<span class="kw">int</span> v[<span class="nu">1000000</span>]; <span class="cm">// Stack overflow!</span></pre>
+        </div>
+        <div class="card purple">
+          <strong>Heap (alocare dinamică)</strong>
+          <p>Alocare explicită cu <code>new</code>, eliberare explicită cu <code>delete</code>. Capacitate mare. Mai lentă.</p>
+          <pre><span class="kw">int</span>* v = <span class="kw">new</span> <span class="kw">int</span>[<span class="nu">1000000</span>]; <span class="cm">// OK</span>
+<span class="kw">delete</span>[] v; <span class="cm">// nu uita!</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. POINTERI ÎN FUNCȚII ──────────────────────── -->
+<section id="functii">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange" aria-hidden="true">⚙️</span>
+      <h2>Pointeri ca parametri de funcție</h2>
+    </div>
+    <div class="slide-body">
+      <p>Pasarea unui pointer ca parametru permite funcției să modifice variabila originală — similar cu pasarea prin referință (<code>&amp;</code>).</p>
+
+      <div class="card-grid">
+        <div class="card red">
+          <strong>Prin valoare — NU modifică originalul</strong>
+          <pre><span class="kw">void</span> <span class="fn">dublare</span>(<span class="kw">int</span> x) &#123;
+  x *= <span class="nu">2</span>; <span class="cm">// x e copie</span>
+&#125;
+<span class="kw">int</span> a = <span class="nu">5</span>;
+<span class="fn">dublare</span>(a);
+<span class="cm">// a rămâne 5!</span></pre>
+        </div>
+        <div class="card green">
+          <strong>Prin pointer — MODIFICĂ originalul</strong>
+          <pre><span class="kw">void</span> <span class="fn">dublare</span>(<span class="kw">int</span>* p) &#123;
+  *p *= <span class="nu">2</span>; <span class="cm">// modifică valoarea</span>
+&#125;
+<span class="kw">int</span> a = <span class="nu">5</span>;
+<span class="fn">dublare</span>(&amp;a);
+<span class="cm">// a = 10 ✓</span></pre>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1rem">Pointer vs. Referință (&amp;)</h3>
+      <div class="callout callout-blue">
+        La BAC, pasarea prin referință (<code>int&amp; x</code>) este preferată față de pointeri pentru simplitate. Pointerii sunt necesari pentru alocare dinamică și structuri de date complexe.
+      </div>
+
+      <h3>Array-uri ca parametri</h3>
+      <pre><span class="cm">// Array-ul se transmite ca pointer la primul element</span>
+<span class="kw">void</span> <span class="fn">afisare</span>(<span class="kw">int</span>* v, <span class="kw">int</span> n) &#123;   <span class="cm">// echivalent cu: int v[]</span>
+  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+    cout &lt;&lt; v[i] &lt;&lt; <span class="str">" "</span>;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+  <span class="kw">int</span> arr[] = &#123;<span class="nu">1</span>, <span class="nu">2</span>, <span class="nu">3</span>&#125;;
+  <span class="fn">afisare</span>(arr, <span class="nu">3</span>);   <span class="cm">// arr se convertește automat la &arr[0]</span>
+&#125;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. LISTE ÎNLĂNȚUITE ──────────────────────────── -->
+<section id="liste">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-pink" aria-hidden="true">🔗</span>
+      <h2>Liste simplu înlănțuite</h2>
+    </div>
+    <div class="slide-body">
+      <p>O <strong>listă simplu înlănțuită</strong> este o structură de date în care fiecare element (nod) conține o valoare și un pointer la nodul următor. Spre deosebire de array, nu ocupă memorie contiguă.</p>
+
+      <pre><span class="cm">// Definiția unui nod</span>
+<span class="kw">struct</span> Nod &#123;
+  <span class="kw">int</span>   val;    <span class="cm">// valoarea nodului</span>
+  Nod*  next;   <span class="cm">// pointer la nodul următor</span>
+&#125;;
+
+<span class="cm">// Creare listă: 1 -> 2 -> 3 -> nullptr</span>
+Nod* head = <span class="kw">new</span> Nod&#123;<span class="nu">1</span>, <span class="kw">nullptr</span>&#125;;
+head-&gt;next = <span class="kw">new</span> Nod&#123;<span class="nu">2</span>, <span class="kw">nullptr</span>&#125;;
+head-&gt;next-&gt;next = <span class="kw">new</span> Nod&#123;<span class="nu">3</span>, <span class="kw">nullptr</span>&#125;;
+
+<span class="cm">// Parcurgere</span>
+<span class="kw">for</span> (Nod* p = head; p != <span class="kw">nullptr</span>; p = p-&gt;next)
+  cout &lt;&lt; p-&gt;val &lt;&lt; <span class="str">" "</span>;   <span class="cm">// 1 2 3</span>
+
+<span class="cm">// Inserare la început</span>
+Nod* nou = <span class="kw">new</span> Nod&#123;<span class="nu">0</span>, head&#125;;
+head = nou;   <span class="cm">// 0 -> 1 -> 2 -> 3</span>
+
+<span class="cm">// Eliberare memorie</span>
+Nod* p = head;
+<span class="kw">while</span> (p != <span class="kw">nullptr</span>) &#123;
+  Nod* tmp = p-&gt;next;
+  <span class="kw">delete</span> p;
+  p = tmp;
+&#125;
+head = <span class="kw">nullptr</span>;</pre>
+
+      <div class="table-scroll">
+        <table class="o-table">
+          <thead><tr><th>Operație</th><th>Array</th><th>Listă înlănțuită</th></tr></thead>
+          <tbody>
+            <tr><td>Acces element[i]</td><td class="row-green">O(1)</td><td class="row-red">O(n)</td></tr>
+            <tr><td>Inserare la început</td><td class="row-red">O(n)</td><td class="row-green">O(1)</td></tr>
+            <tr><td>Inserare la sfârșit</td><td class="row-green">O(1)*</td><td class="row-yellow">O(n) / O(1) cu tail</td></tr>
+            <tr><td>Ștergere element</td><td class="row-red">O(n)</td><td class="row-yellow">O(n) căutare + O(1) ștergere</td></tr>
+            <tr><td>Memorie</td><td class="row-green">Contiguă, cache-friendly</td><td class="row-red">Fragmentată</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. PROBLEME BAC ──────────────────────────────── -->
+<section id="bac-pointeri">
+  <div class="slide reveal">
+    <div class="slide-header">
+      <span class="slide-icon icon-red" aria-hidden="true">🎯</span>
+      <h2>Probleme tip BAC cu pointeri</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout callout-blue">
+        <strong>La BAC M-I</strong>, pointerii apar în contextul: pasare array la funcții (implicit ca pointer), alocare array mare cu <code>new</code>, și ocazional structuri cu pointeri.
+      </div>
+
+      <h3>Problemă 1 — Array dinamic citit din fișier</h3>
+      <pre><span class="kw">#include</span> &lt;fstream&gt;
+<span class="kw">using namespace</span> std;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+  ifstream fin(<span class="str">"date.in"</span>);
+  ofstream fout(<span class="str">"date.out"</span>);
+  <span class="kw">int</span> n;
+  fin &gt;&gt; n;
+  <span class="kw">int</span>* v = <span class="kw">new</span> <span class="kw">int</span>[n];   <span class="cm">// alocare dinamică</span>
+  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) fin &gt;&gt; v[i];
+
+  <span class="cm">// procesare: suma elementelor</span>
+  <span class="kw">long long</span> suma = <span class="nu">0</span>;
+  <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) suma += v[i];
+  fout &lt;&lt; suma;
+
+  <span class="kw">delete</span>[] v;
+  <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+
+      <h3>Problemă 2 — Swap prin pointer (clasic BAC)</h3>
+      <pre><span class="cm">// Intrebare BAC: ce se afișează?</span>
+<span class="kw">void</span> <span class="fn">swap</span>(<span class="kw">int</span>* a, <span class="kw">int</span>* b) &#123;
+  <span class="kw">int</span> t = *a; *a = *b; *b = t;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+  <span class="kw">int</span> x = <span class="nu">3</span>, y = <span class="nu">7</span>;
+  <span class="fn">swap</span>(&amp;x, &amp;y);
+  cout &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y;  <span class="cm">// 7 3</span>
+&#125;</pre>
+
+      <h3>Problemă 3 — Trasare algoritm cu pointer</h3>
+      <pre><span class="cm">// Ce valori ia p și *p?</span>
+<span class="kw">int</span> a[] = &#123;<span class="nu">5</span>, <span class="nu">3</span>, <span class="nu">8</span>, <span class="nu">1</span>&#125;;
+<span class="kw">int</span>* p = a;
+p++;           <span class="cm">// p pointează la a[1] = 3</span>
+*p = <span class="nu">10</span>;       <span class="cm">// a[1] = 10</span>
+p += <span class="nu">2</span>;        <span class="cm">// p pointează la a[3] = 1</span>
+cout &lt;&lt; *p;    <span class="cm">// 1</span>
+<span class="cm">// a = {5, 10, 8, 1}</span></pre>
+
+      <div class="callout callout-green">
+        <strong>Sfat BAC:</strong> Dacă nu știi pointeri avansați, poți folosi întotdeauna <strong>referințe (<code>&amp;</code>)</strong> în loc de pointeri pentru parametri de funcție — sunt echivalente funcțional și mai simple sintactic.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quiz Section -->
+<section id="exercitii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple" aria-hidden="true">💪</span>
+      <h2>Exerciții interactive — testează cunoștințele</h2>
+    </div>
+    <div class="slide-body">
+      <div class="quiz-section" data-chapter="pointeri"></div>
+    </div>
+  </div>
+</section>
+
+</ChapterLayout>
