@@ -1363,6 +1363,35 @@ tr:nth-child(even) td { background: var(--border-faint); }
   .chapters-grid { grid-template-columns: 1fr; }
   .section-heading { padding: 36px 16px 24px; }
   .bac-cta-inner { padding: 28px 20px; }
+
+  /* Code blocks — prevent horizontal overflow on small screens */
+  pre { max-width: 100%; white-space: pre; }
+
+  /* Tables without explicit wrapper — make scrollable */
+  .slide-body table, .wrapper table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+
+  /* Touch-friendly nav buttons (min 44px tap target) */
+  .nav-bar a {
+    padding: 10px 12px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .cfn-btn {
+    min-height: 48px;
+  }
+  .btn-header {
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+
+  /* Section reading time badge — hide on very small screens to save space */
+  .section-read-time { display: none; }
 }
 
 /* ─── Missing vars used in analiza-bac.astro ─────────────────── */

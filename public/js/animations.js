@@ -508,6 +508,21 @@ function initScrollProgress() {
   update(); /* stare inițială */
 }
 
+/* ── 5b. Timp total de citire capitol (actualizează hero badge) ─ */
+function initGlobalReadingTime() {
+  var el = document.getElementById('reading-time');
+  if (!el) return;
+  var content = document.querySelector('.wrapper');
+  if (!content) return;
+  var clone = content.cloneNode(true);
+  clone.querySelectorAll('pre, code, table, script, style, svg, iframe, .quiz-section').forEach(function (n) {
+    n.parentNode && n.parentNode.removeChild(n);
+  });
+  var words = (clone.textContent || '').trim().split(/\s+/).filter(Boolean).length;
+  var mins  = Math.max(1, Math.round(words / 200));
+  el.textContent = mins;
+}
+
 /* ── 6. Scroll-based XP for reading sections ─────────────────── */
 function initSectionXP() {
   var XP_KEY      = 'infoXP';
