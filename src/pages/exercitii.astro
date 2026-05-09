@@ -88,12 +88,24 @@ const chapters = [
                 ▶ Generează exerciții
               </button>
               <button id="btnPDF" class="btn-pdf" style="display:none">
-                🖨 Exportă PDF
+                ⬇ Descarcă PDF
               </button>
+              <label id="answersToggleWrap" class="answers-toggle" style="display:none">
+                <input type="checkbox" id="showAnswers" />
+                <span>Cu răspunsuri</span>
+              </label>
               <span id="loadingSpinner" style="display:none;opacity:.6;font-size:13px">Se încarcă…</span>
             </div>
           </div>
         </section>
+
+        <!-- ── Print-only header ─────────────────────────────── -->
+        <div id="printHeader" aria-hidden="true">
+          <div class="ph-logo">📝 InfoLiceu — Exerciții Informatică</div>
+          <div id="phMeta" class="ph-meta"></div>
+          <div id="phDate" class="ph-date"></div>
+          <hr class="ph-divider" />
+        </div>
 
         <!-- ── Results ─────────────────────────────────────── -->
         <section id="exResults" style="display:none">
@@ -164,6 +176,19 @@ const chapters = [
     }
     .btn-pdf:hover { background: rgba(255,255,255,.14); }
 
+    /* Answers toggle */
+    .answers-toggle {
+      display: flex; align-items: center; gap: 7px;
+      cursor: pointer; font-size: 13px; font-weight: 600; color: #94a3b8;
+      user-select: none;
+    }
+    .answers-toggle input[type=checkbox] {
+      width: 16px; height: 16px; cursor: pointer; accent-color: #7c3aed;
+    }
+
+    /* Print-only header (hidden on screen) */
+    #printHeader { display: none; }
+
     /* Results header */
     .ex-results-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
     .ex-count-badge {
@@ -203,6 +228,15 @@ const chapters = [
     .ex-diff-mediu   { background: rgba(251,191,36,.15);  color: #fbbf24; }
     .ex-diff-dificil { background: rgba(248,113,113,.15); color: #f87171; }
 
+    /* Correct answer marker (hidden on screen, shown in print when toggled) */
+    .ex-correct-mark {
+      margin-left: auto; flex-shrink: 0;
+      display: none;
+      align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #16a34a; color: #fff; font-size: 11px; font-weight: 800;
+    }
+
     /* Chapter badge colors */
     .cb-introducere   { background: rgba(59,130,246,.15); color: #60a5fa; }
     .cb-complexitate  { background: rgba(13,148,136,.15); color: #2dd4bf; }
@@ -215,18 +249,60 @@ const chapters = [
 
     /* Print / PDF styles */
     @media print {
-      .sidebar, .header, #filtreSection, .ex-results-header, .chapter-hero { display: none !important; }
-      .app-shell { padding: 0 !important; }
-      .app-content { padding: 0 !important; }
-      .wrapper { padding: 0 !important; margin: 0 !important; }
-      body, html { background: #fff !important; color: #111 !important; }
-      .ex-card { background: #fff !important; border: 1px solid #ddd !important; break-inside: avoid; page-break-inside: avoid; margin-bottom: 16px; }
-      .ex-q { color: #111 !important; }
-      .ex-opt { color: #333 !important; background: #f8f8f8 !important; border-color: #ddd !important; }
-      .ex-opt-letter { background: #eee !important; color: #111 !important; }
-      .ex-chapter-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .ex-diff { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      @page { margin: 18mm 16mm; }
+      .sidebar, .header, .site-header, #filtreSection,
+      .ex-results-header, .chapter-hero, .chapter-hero-back,
+      #scroll-progress, #page-overlay { display: none !important; }
+      .app-shell { padding: 0 !important; display: block !important; }
+      .app-content { padding: 0 !important; margin: 0 !important; }
+      .wrapper { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+      body, html { background: #fff !important; color: #111 !important; font-size: 11pt; }
+
+      /* Print header */
+      #printHeader { display: block !important; margin-bottom: 18px; }
+      .ph-logo { font-size: 17pt; font-weight: 900; color: #1d4ed8; margin-bottom: 4px; }
+      .ph-meta { font-size: 10pt; color: #475569; margin-bottom: 2px; }
+      .ph-date { font-size: 9pt; color: #94a3b8; margin-bottom: 10px; }
+      .ph-divider { border: none; border-top: 2px solid #e2e8f0; margin-bottom: 16px; }
+
+      /* Results */
       #exResults { display: block !important; }
+      .ex-list { gap: 12px !important; }
+
+      /* Cards */
+      .ex-card {
+        background: #fff !important; border: 1.5px solid #d1d5db !important;
+        border-radius: 8px !important; padding: 14px 16px !important;
+        break-inside: avoid; page-break-inside: avoid; margin-bottom: 14px;
+        box-shadow: none !important;
+      }
+      .ex-card-header { margin-bottom: 8px !important; }
+      .ex-q { color: #111 !important; font-size: 11pt !important; font-weight: 700; }
+      .ex-opts { gap: 5px !important; }
+      .ex-opt {
+        color: #374151 !important; background: #f9fafb !important;
+        border-color: #e5e7eb !important; font-size: 10pt !important;
+        padding: 6px 10px !important; border-radius: 6px !important;
+      }
+      .ex-opt-letter {
+        background: #e5e7eb !important; color: #1f2937 !important;
+        font-size: 9pt !important; border-radius: 4px !important;
+      }
+      .ex-chapter-badge, .ex-diff {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      }
+      .ex-num { color: #9ca3af !important; }
+
+      /* Correct answers (visible when "Cu răspunsuri" is checked) */
+      body.print-answers .ex-opt-correct {
+        background: #dcfce7 !important; border-color: #86efac !important;
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      }
+      body.print-answers .ex-opt-correct .ex-opt-letter {
+        background: #16a34a !important; color: #fff !important;
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      }
+      body.print-answers .ex-correct-mark { display: flex !important; }
     }
   </style>
 
@@ -376,9 +452,11 @@ const chapters = [
         var chLabel   = q._chapter || '';
 
         var optsHtml = q.opts.map(function(opt, i) {
-          return '<div class="ex-opt">' +
+          var isCorrect = (typeof q.ans !== 'undefined') && i === q.ans;
+          return '<div class="ex-opt' + (isCorrect ? ' ex-opt-correct' : '') + '">' +
             '<span class="ex-opt-letter">' + String.fromCharCode(65 + i) + '</span>' +
             '<span>' + opt + '</span>' +
+            (isCorrect ? '<span class="ex-correct-mark" aria-label="Răspuns corect">✓</span>' : '') +
             '</div>';
         }).join('');
 
@@ -431,14 +509,20 @@ const chapters = [
         var resultsEl = document.getElementById('exResults');
         resultsEl.style.display = '';
         document.getElementById('exCount').textContent = pool.length + ' întrebări';
-        var chStr = selectedChapters.length === 0 ? 'toate capitolele'
+        // Update print header meta
+        var chStr = selectedChapters.length === 0 ? 'Toate capitolele'
           : selectedChapters.join(', ');
-        var diffStr = selectedDiff === 'all' ? 'orice dificultate'
+        var diffStr = selectedDiff === 'all' ? 'Orice dificultate'
           : (DIFF_LABELS[parseInt(selectedDiff,10)] || '');
         document.getElementById('exSubtitle').textContent = chStr + ' · ' + diffStr;
+        document.getElementById('phMeta').textContent =
+          pool.length + ' întrebări · ' + chStr + ' · ' + diffStr;
+        document.getElementById('phDate').textContent =
+          'Generat pe ' + new Date().toLocaleDateString('ro-RO', { day: '2-digit', month: 'long', year: 'numeric' });
 
-        // Show PDF button
+        // Show PDF button + answers toggle
         document.getElementById('btnPDF').style.display = '';
+        document.getElementById('answersToggleWrap').style.display = 'flex';
 
         // Scroll to results
         resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -449,7 +533,17 @@ const chapters = [
     }
 
     function onPDF() {
+      var withAnswers = document.getElementById('showAnswers').checked;
+      if (withAnswers) {
+        document.body.classList.add('print-answers');
+      } else {
+        document.body.classList.remove('print-answers');
+      }
       window.print();
+      // Clean up class after print dialog closes
+      setTimeout(function() {
+        document.body.classList.remove('print-answers');
+      }, 1000);
     }
 
     document.addEventListener('DOMContentLoaded', function() {

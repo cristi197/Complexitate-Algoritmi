@@ -1165,31 +1165,31 @@ tr:nth-child(even) td { background: var(--border-faint); }
 }
 
 /* Chapters section */
-.section-heading { max-width: 900px; margin: 0 auto; padding: 52px 24px 32px; text-align: center; }
+.section-heading { max-width: 1140px; margin: 0 auto; padding: 52px 24px 32px; text-align: center; }
 .section-title { font-size: clamp(22px, 4vw, 32px); font-weight: 900; color: var(--text); margin-bottom: 10px; }
 .section-subtitle { font-size: 16px; color: var(--text-muted); }
 
 .chapters-grid {
-  max-width: 900px; margin: 0 auto 0;
+  max-width: 1140px; margin: 0 auto 0;
   padding: 0 24px 60px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
 }
 .chapter-card {
   display: flex; flex-direction: column;
   background: var(--surface);
   border: 1.5px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 28px;
   text-decoration: none; color: inherit;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
   position: relative; overflow: hidden;
 }
-.chapter-card:hover { transform: translateY(-3px); box-shadow: var(--shadow2); }
+.chapter-card:hover { transform: translateY(-4px); box-shadow: var(--shadow2); }
 .chapter-card-stripe {
   position: absolute; top: 0; left: 0; right: 0;
-  height: 4px;
+  height: 5px;
 }
 .ch-blue   .chapter-card-stripe { background: linear-gradient(90deg, #2563eb, #60a5fa); }
 .ch-green  .chapter-card-stripe { background: linear-gradient(90deg, #16a34a, #4ade80); }
@@ -1201,22 +1201,22 @@ tr:nth-child(even) td { background: var(--border-faint); }
 .ch-indigo .chapter-card-stripe { background: linear-gradient(90deg, #4338ca, #818cf8); }
 .chapter-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; margin-top: 10px; }
 .chapter-num {
-  width: 36px; height: 36px;
-  border-radius: 10px;
+  width: 42px; height: 42px;
+  border-radius: 12px;
   background: var(--surface2);
   border: 1.5px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 800; color: var(--text-muted);
+  font-size: 14px; font-weight: 800; color: var(--text-muted);
   flex-shrink: 0;
 }
-.chapter-card h2 { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 2px; }
-.chapter-card p  { font-size: 12.5px; color: var(--text-muted); }
-.chapter-card-body { font-size: 13px; color: var(--text-muted); line-height: 1.55; flex: 1; }
+.chapter-card h2 { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+.chapter-card p  { font-size: 13px; color: var(--text-muted); }
+.chapter-card-body { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; flex: 1; }
 .chapter-card-footer {
   display: flex; align-items: center; justify-content: space-between;
-  margin-top: 16px; padding-top: 14px;
+  margin-top: 18px; padding-top: 14px;
   border-top: 1px solid var(--border-faint);
-  font-size: 12px;
+  font-size: 12.5px;
 }
 .chapter-card-arrow {
   font-size: 16px;
@@ -1227,7 +1227,7 @@ tr:nth-child(even) td { background: var(--border-faint); }
 
 /* BAC CTA section */
 .bac-cta {
-  max-width: 900px; margin: 0 auto;
+  max-width: 1140px; margin: 0 auto;
   padding: 0 24px 80px;
 }
 .bac-cta-inner {
