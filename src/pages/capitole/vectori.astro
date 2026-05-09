@@ -1,7 +1,7 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"declarare","label":"Declarare"},{"id":"parcurgere","label":"Parcurgere"},{"id":"cautare","label":"Căutare"},{"id":"sortare","label":"Sortare"},{"id":"interclasare","label":"Interclasare"},{"id":"inserare","label":"Inserare/Ștergere"},{"id":"frecventa","label":"Frecvență"},{"id":"vector-demo","label":"Demo Interactiv"},{"id":"bac","label":"Probleme BAC"}];
+const sections = [{"id":"declarare","label":"Declarare"},{"id":"parcurgere","label":"Parcurgere"},{"id":"cautare","label":"Căutare"},{"id":"sortare","label":"Sortare"},{"id":"interclasare","label":"Interclasare"},{"id":"inserare","label":"Inserare/Ştergere"},{"id":"frecventa","label":"Frecvență"},{"id":"ciur","label":"Ciurul lui Eratostene"},{"id":"vector-demo","label":"Demo Interactiv"},{"id":"bac","label":"Probleme BAC"}];
 ---
 <ChapterLayout
   title="Vectori"
@@ -378,6 +378,176 @@ n = m;  <span class="cm">// actualizăm dimensiunea</span></pre>
     freq[v[i]]++;
 &#125;
 cout &lt;&lt; (ok ? <span class="st">"DA"</span> : <span class="st">"NU"</span>);</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quiz Section -->
+
+<!-- ─── CIURUL LUI ERATOSTENE ────────────────────── -->
+<section id="ciur">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🔢</span>
+      <h2>Ciurul lui Eratostene</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🎯 Ce este Ciurul lui Eratostene?</div>
+        <p>Ciurul lui Eratostene este algoritmul clasic pentru a găsi <strong>toate numerele prime</strong> până la un număr dat N, în timp <strong>O(N log log N)</strong>. Este unul dintre cei mai eficienți algoritmi pentru această problemă și apare frecvent la BAC.</p>
+        <p>Ideea: pornești de la 2, marchezi toți multiplii lui 2 ca neprimi, treci la 3, marchezi multiplii lui 3, și tot așa.</p>
+      </div>
+
+      <h3 style="margin-bottom:10px;font-size:15px;">Implementare standard</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">const int</span> NMAX = <span class="nu">1000001</span>;
+<span class="kw">bool</span> ciur[NMAX];  <span class="cm">// ciur[i] = true dacă i este NEPRIM</span>
+
+<span class="kw">void</span> <span class="fn">genereazaCiur</span>(<span class="kw">int</span> n) &#123;
+    ciur[<span class="nu">0</span>] = ciur[<span class="nu">1</span>] = <span class="kw">true</span>;  <span class="cm">// 0 și 1 nu sunt prime</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; (long long)i * i &lt;= n; i++) &#123;
+        <span class="kw">if</span> (!ciur[i]) &#123;             <span class="cm">// i este prim</span>
+            <span class="kw">for</span> (<span class="kw">int</span> j = i * i; j &lt;= n; j += i)  <span class="cm">// pornim de la i²</span>
+                ciur[j] = <span class="kw">true</span>;   <span class="cm">// multiplii lui i sunt neprime</span>
+        &#125;
+    &#125;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n;
+    cin >> n;
+    <span class="fn">genereazaCiur</span>(n);
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+        <span class="kw">if</span> (!ciur[i]) cout &lt;&lt; i &lt;&lt; <span class="st">" "</span>;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>De ce pornim de la i² la pasul interior?</strong><br>
+        Toți multiplii mai mici decât i² (adică 2·i, 3·i, …, (i−1)·i) au fost deja marcați de pași anteriori. Astfel, evităm marcări duplicate.
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Numărarea numerelor prime — problemă BAC frecventă</h3>
+      <pre><span class="cm">// Câte numere prime există în intervalul [a, b]?</span>
+<span class="fn">genereazaCiur</span>(b);
+<span class="kw">int</span> cnt = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = max(<span class="nu">2</span>, a); i &lt;= b; i++)
+    <span class="kw">if</span> (!ciur[i]) cnt++;
+cout &lt;&lt; cnt;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Verificare rapidă: este x prim?</h3>
+      <pre><span class="cm">// După apelul genereazaCiur(NMAX-1):</span>
+<span class="kw">bool</span> estePrim(x) &#123; <span class="kw">return</span> x >= <span class="nu">2</span> && !ciur[x]; &#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card purple">
+          <strong>Complexitate timp:</strong> O(N log log N)
+          <p>Practic linear pentru N ≤ 10⁶</p>
+        </div>
+        <div class="card blue">
+          <strong>Complexitate spațiu:</strong> O(N)
+          <p>Un vector bool de N elemente = N bytes ≈ 1 MB pentru N=10⁶</p>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <strong>Atenție la BAC:</strong> Declarați <code>ciur[]</code> ca variabilă <strong>globală</strong>, nu în <code>main()</code>. Un vector de 10⁶ elemente declarat local provoacă stack overflow!
+      </div>
+
+      <div class="callout success">
+        <strong>Exemplu — prime până la 20:</strong><br>
+        Start: [F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F]<br>
+        Marchează multiplii lui 2: 4,6,8,10,12,14,16,18,20<br>
+        Marchează multiplii lui 3: 9,15<br>
+        Marchează multiplii lui 5: 25 > 20 → stop<br>
+        Prime: <strong>2, 3, 5, 7, 11, 13, 17, 19</strong> ✅
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CIURUL LUI ERATOSTENE ──────────────────────── -->
+<section id="ciur">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🔢</span>
+      <h2>Ciurul lui Eratostene</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🎯 Ce este Ciurul lui Eratostene?</div>
+        <p>Ciurul lui Eratostene este algoritmul clasic pentru a găsi <strong>toate numerele prime</strong> până la un număr dat N, în timp <strong>O(N log log N)</strong>. Este unul dintre cei mai eficienți algoritmi pentru această problemă și apare frecvent la BAC.</p>
+        <p>Ideea: pornești de la 2, marchezi toți multiplii lui 2 ca neprimi, treci la 3, marchezi multiplii lui 3, și tot așa.</p>
+      </div>
+
+      <h3 style="margin-bottom:10px;font-size:15px;">Implementare standard</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+
+<span class="kw">const int</span> NMAX = <span class="nu">1000001</span>;
+<span class="kw">bool</span> ciur[NMAX];  <span class="cm">// ciur[i] = true dacă i este NEPRIM</span>
+
+<span class="kw">void</span> <span class="fn">genereazaCiur</span>(<span class="kw">int</span> n) &#123;
+    ciur[<span class="nu">0</span>] = ciur[<span class="nu">1</span>] = <span class="kw">true</span>;  <span class="cm">// 0 și 1 nu sunt prime</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; (<span class="kw">long long</span>)i * i &lt;= n; i++) &#123;
+        <span class="kw">if</span> (!ciur[i]) &#123;             <span class="cm">// i este prim</span>
+            <span class="kw">for</span> (<span class="kw">int</span> j = i * i; j &lt;= n; j += i)  <span class="cm">// pornim de la i²</span>
+                ciur[j] = <span class="kw">true</span>;   <span class="cm">// multiplii lui i sunt neprimi</span>
+        &#125;
+    &#125;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n;
+    cin >> n;
+    <span class="fn">genereazaCiur</span>(n);
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+        <span class="kw">if</span> (!ciur[i]) cout &lt;&lt; i &lt;&lt; <span class="st">" "</span>;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>De ce pornim de la i² la pasul interior?</strong><br>
+        Toți multiplii mai mici decât i² (adică 2·i, 3·i, …, (i−1)·i) au fost deja marcați de pași anteriori. Astfel, evităm marcări duplicate și algoritmul este mai rapid.
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Numărarea numerelor prime — problemă BAC frecventă</h3>
+      <pre><span class="cm">// Câte numere prime există în intervalul [a, b]?</span>
+<span class="fn">genereazaCiur</span>(b);
+<span class="kw">int</span> cnt = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = max(<span class="nu">2</span>, a); i &lt;= b; i++)
+    <span class="kw">if</span> (!ciur[i]) cnt++;
+cout &lt;&lt; cnt;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Verificare rapidă: este x prim?</h3>
+      <pre><span class="cm">// După apelul genereazaCiur(NMAX-1):</span>
+<span class="kw">bool</span> <span class="fn">estePrim</span>(<span class="kw">int</span> x) &#123; <span class="kw">return</span> x >= <span class="nu">2</span> && !ciur[x]; &#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card purple">
+          <strong>Complexitate timp:</strong> O(N log log N)
+          <p>Practic liniar pentru N ≤ 10⁶</p>
+        </div>
+        <div class="card blue">
+          <strong>Complexitate spațiu:</strong> O(N)
+          <p>Un vector bool de N elemente ≈ 1 MB pentru N=10⁶</p>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <strong>Atenție la BAC:</strong> Declarați <code>ciur[]</code> ca variabilă <strong>globală</strong>, nu în <code>main()</code>. Un vector de 10⁶ elemente declarat local provoacă stack overflow!
+      </div>
+
+      <div class="callout success">
+        <strong>Exemplu — prime până la 20:</strong><br>
+        Start: toți false (neprimii vor fi marcați true)<br>
+        Marchează multiplii lui 2: 4, 6, 8, 10, 12, 14, 16, 18, 20<br>
+        Marchează multiplii lui 3: 9, 15 (6, 12, 18 deja marcate)<br>
+        4² = 16 &gt; 20 → stop<br>
+        Prime găsite: <strong>2, 3, 5, 7, 11, 13, 17, 19</strong> ✅
       </div>
     </div>
   </div>

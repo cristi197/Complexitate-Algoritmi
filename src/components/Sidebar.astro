@@ -9,6 +9,7 @@ const base = import.meta.env.BASE_URL;
 // color maps to one of the semantic CSS variables
 const chapters = [
   { num: 0, file: 'introducere',    title: 'Introducere în Informatică', icon: '🖥️',  colorVar: 'blue'   },
+  { num: 8, file: 'functii',         title: 'Funcții și Subprograme',     icon: '⚙️',  colorVar: 'blue'   },
   { num: 1, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  colorVar: 'teal'   },
   { num: 2, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  colorVar: 'green'  },
   { num: 3, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  colorVar: 'purple' },
@@ -61,6 +62,14 @@ const chapters = [
       <span class="ch-icon ch-icon--exercises" aria-hidden="true">📝</span>
       <span class="ch-title">Exerciții &amp; Filtrare</span>
       <span class="sidebar-link-badge sidebar-link-badge--new">NOU</span>
+    </a>
+    <a href={`${base}/greseli-bac`} class="sidebar-link sidebar-link--exercises">
+      <span class="ch-icon ch-icon--exercises" aria-hidden="true">⚠️</span>
+      <span class="ch-title">Greșeli frecvente BAC</span>
+    </a>
+    <a href={`${base}/cheat-sheet`} class="sidebar-link sidebar-link--exercises">
+      <span class="ch-icon ch-icon--exercises" aria-hidden="true">📄</span>
+      <span class="ch-title">Cheat Sheet printabil</span>
     </a>
   </div>
 </nav>

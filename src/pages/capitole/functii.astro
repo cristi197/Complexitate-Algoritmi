@@ -1,0 +1,402 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [{"id":"declarare-functii","label":"Declarare și apel"},{"id":"parametri-valoare","label":"Parametri prin valoare"},{"id":"parametri-referinta","label":"Parametri prin referință"},{"id":"tipuri-return","label":"Tipul returnat"},{"id":"variabile","label":"Variabile locale/globale"},{"id":"subprograme-bac","label":"Subprograme predefinite"},{"id":"bac-functii","label":"Probleme BAC"}];
+---
+<ChapterLayout
+  title="Funcții și Subprograme"
+  subtitle="Capitol bonus — Declarare, parametri, apel și probleme BAC cu funcții"
+  icon="⚙️"
+  gradient="linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 50%,#60a5fa 100%)"
+  tags={["Funcții","Parametri","Valoare vs Referință","Variabile globale","Subprograme BAC"]}
+  sections={sections}
+  chapterNum={8}
+  description="Funcții și subprograme — informatică pentru liceu și bacalaureat"
+>
+
+<!-- ─── 1. DECLARARE ȘI APEL ─────────────────────────── -->
+<section id="declarare-functii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">⚙️</span>
+      <h2>Declarare, definire și apelul funcțiilor</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🏠 Analogie: Funcția = Rețetă de gătit</div>
+        <p>O funcție este ca o <strong>rețetă</strong>: o scriem o singură dată și o putem folosi (apela) de ori câte ori vrem. Are <strong>ingrediente</strong> (parametri de intrare) și produce un <strong>rezultat</strong> (valoarea returnată). Scopul principal este să <em>evităm duplicarea codului</em>.</p>
+      </div>
+
+      <h3 style="margin-bottom:10px;font-size:15px;">Structura unei funcții</h3>
+      <pre><span class="cm">// tip_returnat  nume_functie(parametri) { corp }</span>
+
+<span class="kw">int</span> <span class="fn">suma</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;   <span class="cm">// parametri prin valoare</span>
+    <span class="kw">return</span> a + b;           <span class="cm">// valoarea returnată</span>
+&#125;
+
+<span class="kw">bool</span> <span class="fn">estePar</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">return</span> n % <span class="nu">2</span> == <span class="nu">0</span>;     <span class="cm">// true dacă n este par</span>
+&#125;
+
+<span class="kw">void</span> <span class="fn">afiseazaLinie</span>() &#123;     <span class="cm">// void = nu returnează nimic</span>
+    cout &lt;&lt; <span class="st">"----------------"</span> &lt;&lt; endl;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> rezultat = <span class="fn">suma</span>(<span class="nu">3</span>, <span class="nu">7</span>);   <span class="cm">// apel funcție → rezultat = 10</span>
+    cout &lt;&lt; rezultat &lt;&lt; endl;
+    <span class="kw">if</span> (<span class="fn">estePar</span>(<span class="nu">4</span>)) cout &lt;&lt; <span class="st">"4 este par"</span> &lt;&lt; endl;
+    <span class="fn">afiseazaLinie</span>();              <span class="cm">// apel funcție void</span>
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>Prototip (declarație înainte de main):</strong> Dacă funcția este definită <em>după</em> main, trebuie declarată înainte:<br>
+        <code>int suma(int a, int b);</code> — linie înainte de main, corp după.
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;margin:14px 0;">
+        <div class="card blue">
+          <strong>Declarare</strong>
+          <p>Anunță existența: <code>int suma(int, int);</code></p>
+        </div>
+        <div class="card teal">
+          <strong>Definire</strong>
+          <p>Corpul complet cu <code>&#123; ... &#125;</code></p>
+        </div>
+        <div class="card orange">
+          <strong>Apel</strong>
+          <p>Execuție: <code>suma(3, 7)</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. PARAMETRI PRIN VALOARE ───────────────────── -->
+<section id="parametri-valoare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📋</span>
+      <h2>Parametri prin valoare</h2>
+    </div>
+    <div class="slide-body">
+      <p>Când transmitem un parametru <strong>prin valoare</strong>, funcția primește o <em>copie</em> a argumentului. Modificările din funcție <strong>nu afectează</strong> variabila originală.</p>
+
+      <pre><span class="kw">void</span> <span class="fn">dublu</span>(<span class="kw">int</span> x) &#123;
+    x = x * <span class="nu">2</span>;        <span class="cm">// modificăm copia, nu originalul</span>
+    cout &lt;&lt; x &lt;&lt; endl;  <span class="cm">// afișează 10</span>
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> a = <span class="nu">5</span>;
+    <span class="fn">dublu</span>(a);          <span class="cm">// trimitem valoarea 5, nu variabila</span>
+    cout &lt;&lt; a &lt;&lt; endl; <span class="cm">// afișează 5 — a nu s-a modificat!</span>
+&#125;</pre>
+
+      <div class="callout warning">
+        <strong>Atenție:</strong> Trecerea prin valoare creează o copie completă. Pentru vectori mari, această copiere este costisitoare în timp și memorie. Folosiți referință în acel caz.
+      </div>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Parametru cu valoare implicită (C++)</h3>
+      <pre><span class="kw">int</span> <span class="fn">putere</span>(<span class="kw">int</span> baza, <span class="kw">int</span> exp = <span class="nu">2</span>) &#123;  <span class="cm">// exp implicit = 2</span>
+    <span class="kw">int</span> rez = <span class="nu">1</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; exp; i++) rez *= baza;
+    <span class="kw">return</span> rez;
+&#125;
+
+cout &lt;&lt; <span class="fn">putere</span>(<span class="nu">3</span>, <span class="nu">3</span>);  <span class="cm">// 27 — folosim exp=3</span>
+cout &lt;&lt; <span class="fn">putere</span>(<span class="nu">5</span>);     <span class="cm">// 25 — folosim exp implicit=2</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. PARAMETRI PRIN REFERINȚĂ ─────────────────── -->
+<section id="parametri-referinta">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🔗</span>
+      <h2>Parametri prin referință</h2>
+    </div>
+    <div class="slide-body">
+      <p>Parametrii prin <strong>referință</strong> (marcați cu <code>&amp;</code>) permit funcției să modifice direct variabila originală. Nu se creează copie.</p>
+
+      <pre><span class="kw">void</span> <span class="fn">dublu</span>(<span class="kw">int</span> &x) &#123;  <span class="cm">// & = referință la variabila originală</span>
+    x = x * <span class="nu">2</span>;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> a = <span class="nu">5</span>;
+    <span class="fn">dublu</span>(a);           <span class="cm">// a devine 10</span>
+    cout &lt;&lt; a &lt;&lt; endl;  <span class="cm">// 10 — a s-a modificat!</span>
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Cazul clasic: funcție de schimbare (swap)</h3>
+      <pre><span class="kw">void</span> <span class="fn">schimba</span>(<span class="kw">int</span> &a, <span class="kw">int</span> &b) &#123;
+    <span class="kw">int</span> temp = a;
+    a = b;
+    b = temp;
+&#125;
+
+<span class="kw">int</span> x = <span class="nu">3</span>, y = <span class="nu">7</span>;
+<span class="fn">schimba</span>(x, y);  <span class="cm">// acum x=7, y=3</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Citire în funcție — referință la n</h3>
+      <pre><span class="kw">void</span> <span class="fn">citesteVector</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n) &#123;  <span class="cm">// n prin referință</span>
+    cin >> n;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        cin >> v[i];
+&#125;
+
+<span class="kw">int</span> v[<span class="nu">100001</span>], n;
+<span class="fn">citesteVector</span>(v, n);  <span class="cm">// n se actualizează în main</span></pre>
+
+      <div class="callout info">
+        <strong>Vectorii se transmit întotdeauna prin referință</strong> (implicit — numele unui vector este un pointer la primul element). Nu este necesar <code>&amp;</code> pentru vectori.
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card orange">
+          <strong>Prin valoare (fără &amp;)</strong>
+          <p>Copie. Funcția nu modifică originalul. Mai sigur.</p>
+        </div>
+        <div class="card teal">
+          <strong>Prin referință (&amp;)</strong>
+          <p>Alias. Funcția modifică originalul. Mai eficient.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. TIPUL RETURNAT ────────────────────────────── -->
+<section id="tipuri-return">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">↩️</span>
+      <h2>Tipul returnat — void vs non-void</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="margin-bottom:10px;font-size:15px;">Funcții care returnează o valoare</h3>
+      <pre><span class="kw">int</span> <span class="fn">maxim</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+    <span class="kw">return</span> a > b ? a : b;    <span class="cm">// returnează int</span>
+&#125;
+
+<span class="kw">bool</span> <span class="fn">ePrim</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n &lt; <span class="nu">2</span>) <span class="kw">return false</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i * i &lt;= n; i++)
+        <span class="kw">if</span> (n % i == <span class="nu">0</span>) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;             <span class="cm">// returnează bool</span>
+&#125;
+
+<span class="kw">double</span> <span class="fn">medie</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">int</span> s = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) s += v[i];
+    <span class="kw">return</span> (<span class="kw">double</span>)s / n;     <span class="cm">// returnează double</span>
+&#125;</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">Funcții void (fără valoare returnată)</h3>
+      <pre><span class="kw">void</span> <span class="fn">afiseazaVector</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        cout &lt;&lt; v[i] &lt;&lt; <span class="st">" "</span>;
+    cout &lt;&lt; endl;
+&#125;  <span class="cm">// nu există return (sau return; fără valoare)</span>
+
+<span class="kw">void</span> <span class="fn">sorteaza</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt; n; i++)
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n-i; j++)
+            <span class="kw">if</span> (v[j] > v[j+<span class="nu">1</span>]) swap(v[j], v[j+<span class="nu">1</span>]);
+&#125;</pre>
+
+      <div class="callout warning">
+        <strong>Return timpuriu:</strong> Poți folosi <code>return</code> în orice punct al funcției pentru a ieși mai devreme — util pentru validare la început.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. VARIABILE LOCALE / GLOBALE ────────────────── -->
+<section id="variabile">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">🌐</span>
+      <h2>Variabile locale și globale</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">int</span> n;               <span class="cm">// variabilă GLOBALĂ — vizibilă în tot programul</span>
+<span class="kw">int</span> v[<span class="nu">100001</span>];       <span class="cm">// inițializat automat cu 0 (global)</span>
+
+<span class="kw">void</span> <span class="fn">calcul</span>() &#123;
+    <span class="kw">int</span> suma = <span class="nu">0</span>;      <span class="cm">// variabilă LOCALĂ — există doar în calcul()</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        suma += v[i];   <span class="cm">// accesează globalele n și v</span>
+    cout &lt;&lt; suma;
+&#125;  <span class="cm">// suma e distrusă la ieșirea din calcul()</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin >> n;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) cin >> v[i];
+    <span class="fn">calcul</span>();
+&#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card blue">
+          <strong>Variabile globale</strong>
+          <ul style="margin:8px 0;padding-left:16px;font-size:13px;">
+            <li>Declarate în afara oricărei funcții</li>
+            <li>Vizibile în tot fișierul</li>
+            <li>Inițializate automat cu 0</li>
+            <li>Rămân în memorie pe toată durata programului</li>
+          </ul>
+        </div>
+        <div class="card orange">
+          <strong>Variabile locale</strong>
+          <ul style="margin:8px 0;padding-left:16px;font-size:13px;">
+            <li>Declarate în interiorul unei funcții</li>
+            <li>Vizibile doar în acea funcție</li>
+            <li>Nu sunt inițializate automat!</li>
+            <li>Distruse la ieșirea din funcție</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <strong>La BAC — regula de aur:</strong> Vectorii mari (<code>int v[100001]</code>) se declară <strong>global</strong>, nu local în main(). Variabilele locale sunt pe stivă (limitat la ~1 MB), globalele în segment de date (mai mult spațiu).
+      </div>
+
+      <div class="callout info">
+        <strong>Variabila locală ascunde cea globală:</strong> Dacă ai o variabilă locală cu același nume ca una globală, cea locală o «umbrește» pe cea globală în acel bloc.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. SUBPROGRAME PREDEFINITE ──────────────────── -->
+<section id="subprograme-bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">📚</span>
+      <h2>Subprograme predefinite — biblioteci standard</h2>
+    </div>
+    <div class="slide-body">
+      <p>C++ oferă o serie de funcții gata scrise pe care le poți folosi incluzând header-ul corespunzător.</p>
+
+      <h3 style="margin-bottom:10px;font-size:15px;">&lt;algorithm&gt; — cel mai util la BAC</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;algorithm&gt;</span>
+
+sort(v + <span class="nu">1</span>, v + n + <span class="nu">1</span>);              <span class="cm">// sortare crescătoare O(n log n)</span>
+sort(v + <span class="nu">1</span>, v + n + <span class="nu">1</span>, greater&lt;<span class="kw">int</span>>());  <span class="cm">// sortare descrescătoare</span>
+<span class="kw">int</span> mx = *max_element(v+<span class="nu">1</span>, v+n+<span class="nu">1</span>);   <span class="cm">// maximul din vector</span>
+<span class="kw">int</span> mn = *min_element(v+<span class="nu">1</span>, v+n+<span class="nu">1</span>);   <span class="cm">// minimul din vector</span>
+reverse(v+<span class="nu">1</span>, v+n+<span class="nu">1</span>);                 <span class="cm">// inversează vectorul</span>
+<span class="kw">int</span> m = max(a, b);  <span class="cm">// maximul a doi scalari</span>
+<span class="kw">int</span> mn2 = min(a, b);</pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">&lt;cmath&gt; — funcții matematice</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;cmath&gt;</span>
+
+sqrt(<span class="nu">16.0</span>)   <span class="cm">// → 4.0  (rădăcina pătrată)</span>
+pow(<span class="nu">2</span>, <span class="nu">10</span>)  <span class="cm">// → 1024 (2 la puterea 10)</span>
+abs(-<span class="nu">5</span>)     <span class="cm">// → 5    (valoare absolută)</span>
+floor(<span class="nu">3.7</span>) <span class="cm">// → 3    (rotunjire în jos)</span>
+ceil(<span class="nu">3.2</span>)  <span class="cm">// → 4    (rotunjire în sus)</span></pre>
+
+      <h3 style="margin:16px 0 10px;font-size:15px;">&lt;string&gt; — metode pe string</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;string&gt;</span>
+
+string s = <span class="st">"Hello"</span>;
+s.<span class="fn">length</span>()        <span class="cm">// 5 — lungimea</span>
+s.<span class="fn">substr</span>(<span class="nu">1</span>, <span class="nu">3</span>)    <span class="cm">// "ell" — subsecvență de la 1, lungime 3</span>
+s.<span class="fn">find</span>(<span class="st">"ll"</span>)      <span class="cm">// 2 — poziția primei apariții</span>
+s + <span class="st">" World"</span>      <span class="cm">// "Hello World" — concatenare</span>
+s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces caracter la indice 0</span></pre>
+
+      <div class="callout success">
+        <strong>La BAC este permis</strong> să folosești funcțiile din &lt;algorithm&gt; și &lt;cmath&gt; fără să le implementezi manual. Verifică mereu cerința problemei!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. PROBLEME BAC ──────────────────────────────── -->
+<section id="bac-functii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">📝</span>
+      <h2>Probleme tip BAC — funcții și subprograme</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout purple">
+        <strong>Problemă 1 (BAC 2023):</strong> Scrieți o funcție <code>int cmmdc(int a, int b)</code> care returnează cel mai mare divizor comun al lui a și b, folosind algoritmul lui Euclid.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> <span class="fn">cmmdc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+    <span class="kw">while</span> (b != <span class="nu">0</span>) &#123;
+        <span class="kw">int</span> r = a % b;
+        a = b;
+        b = r;
+    &#125;
+    <span class="kw">return</span> a;  <span class="cm">// O(log min(a,b))</span>
+&#125;
+<span class="cm">// cmmmc(a, b) = a / cmmdc(a, b) * b</span></pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 2:</strong> Scrieți o funcție <code>void citeste(int v[], int &amp;n)</code> și o funcție <code>void afiseaza(int v[], int n)</code>, apoi un subprogram <code>void elimina(int v[], int &amp;n, int p)</code> care elimină elementul de la poziția p.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">void</span> <span class="fn">citeste</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n) &#123;
+    cin >> n;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) cin >> v[i];
+&#125;
+
+<span class="kw">void</span> <span class="fn">afiseaza</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) cout &lt;&lt; v[i] &lt;&lt; <span class="st">" "</span>;
+    cout &lt;&lt; endl;
+&#125;
+
+<span class="kw">void</span> <span class="fn">elimina</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n, <span class="kw">int</span> p) &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = p; i &lt; n; i++)
+        v[i] = v[i+<span class="nu">1</span>];
+    n--;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> v[<span class="nu">100001</span>], n;
+    <span class="fn">citeste</span>(v, n);
+    <span class="fn">elimina</span>(v, n, <span class="nu">3</span>);  <span class="cm">// elimină elem. de la poziția 3</span>
+    <span class="fn">afiseaza</span>(v, n);
+&#125;</pre>
+      </div>
+
+      <div class="callout purple" style="margin-top:20px;">
+        <strong>Problemă 3:</strong> Scrieți o funcție <code>bool verificaPrimalitate(int n)</code> care verifică dacă n este număr prim, fără a folosi ciurul.
+      </div>
+      <div class="callout success">
+        <strong>Soluție:</strong>
+        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">bool</span> <span class="fn">verificaPrimalitate</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n &lt; <span class="nu">2</span>) <span class="kw">return false</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; (<span class="kw">long long</span>)i * i &lt;= n; i++)
+        <span class="kw">if</span> (n % i == <span class="nu">0</span>) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;
+<span class="cm">// Complexitate: O(√n)</span></pre>
+      </div>
+
+      <div class="callout warning" style="margin-top:20px;">
+        <strong>Tipare frecvente la BAC cu funcții:</strong>
+        <ul style="margin:8px 0 0;padding-left:18px;">
+          <li>Scrieți subprogramul <code>void citire(int v[], int &amp;n)</code> și apelați-l în main</li>
+          <li>Scrieți subprogramul care modifică vectorul (prin referință sau direct)</li>
+          <li>Scrieți subprogramul care returnează un scalar (cmmdc, verificare, calcul)</li>
+          <li>Structurați programul: citire → prelucrare → afișare (funcții separate)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</ChapterLayout>

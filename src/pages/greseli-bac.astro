@@ -1,0 +1,440 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Greșeli frecvente la BAC — InfoLiceu"
+  description="Cele mai comune greșeli pe care elevii le fac la examenul de informatică BAC, cu explicații și soluții corecte."
+>
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 50%, #ef4444 100%);
+      padding: 56px 24px 40px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin: 0 0 10px; }
+    .page-hero p  { font-size: 1rem; opacity: 0.88; max-width: 600px; margin: 0 auto; }
+    .page-hero .hero-badge {
+      display: inline-block; background: rgba(255,255,255,.18); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.3); border-radius: 20px;
+      padding: 4px 16px; font-size: 0.82rem; font-weight: 600; margin-bottom: 18px;
+    }
+
+    .greseli-wrap {
+      max-width: 860px; margin: 0 auto; padding: 40px 24px 80px;
+    }
+
+    .greseli-intro {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 36px;
+      border-left: 4px solid var(--danger, #ef4444);
+    }
+    .greseli-intro p { margin: 0; color: var(--text-2); font-size: 0.95rem; line-height: 1.6; }
+
+    .greseli-list { display: flex; flex-direction: column; gap: 24px; }
+
+    .greseala-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .greseala-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .greseala-num {
+      width: 32px; height: 32px; border-radius: 50%; background: #b91c1c; color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .greseala-title { font-weight: 700; font-size: 1rem; color: var(--text); }
+    .greseala-body { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .greseala-body { grid-template-columns: 1fr; } }
+
+    .code-block {
+      border-radius: 8px; padding: 14px 16px; font-family: 'Fira Code', monospace;
+      font-size: 0.82rem; line-height: 1.6; position: relative;
+    }
+    .code-block.wrong { background: #fef2f2; border: 1px solid #fecaca; }
+    .code-block.right { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .code-block-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .05em; margin-bottom: 8px;
+      display: block;
+    }
+    .code-block.wrong .code-block-label { color: #b91c1c; }
+    .code-block.right .code-block-label  { color: #15803d; }
+
+    .greseala-explanation {
+      padding: 0 20px 20px; grid-column: 1 / -1;
+    }
+    .greseala-explanation p { margin: 0; font-size: 0.9rem; color: var(--text-2); line-height: 1.6; }
+
+    .tip-box {
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px;
+      padding: 12px 16px; margin-top: 14px; font-size: 0.88rem; line-height: 1.5;
+      color: #78350f;
+    }
+    .tip-box strong { color: #92400e; }
+
+    pre { margin: 0; white-space: pre-wrap; }
+    code { font-family: 'Fira Code', 'Consolas', monospace; }
+    .kw { color: #1d4ed8; font-weight: 600; }
+    .cm { color: #6b7280; font-style: italic; }
+    .nu { color: #059669; }
+    .st { color: #b45309; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-2); font-size: 0.88rem; text-decoration: none;
+      padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+      margin-bottom: 24px; transition: background var(--transition);
+    }
+    .back-link:hover { background: var(--surface-2); color: var(--primary); }
+
+    .section-heading {
+      font-size: 1.35rem; font-weight: 700; margin: 40px 0 18px;
+      color: var(--text); display: flex; align-items: center; gap: 10px;
+    }
+    .section-heading::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+  </style>
+
+  <Header />
+
+  <div style="padding-top: var(--header-h);">
+    <div class="page-hero">
+      <div class="hero-badge">⚠️ Greșeli frecvente</div>
+      <h1>Greșeli frecvente la BAC Informatică</h1>
+      <p>Cele mai comune capcane care reduc nota — cu exemple greșit vs. corect și explicații clare</p>
+    </div>
+
+    <div class="greseli-wrap">
+      <a href={`${base}/`} class="back-link">← Înapoi la platformă</a>
+
+      <div class="greseli-intro">
+        <p>Această pagină reunește greșelile care apar cel mai frecvent în lucrările de BAC la informatică. Fiecare greșeală are un exemplu de cod incorect și varianta corectă. Studiază-le înainte de examen!</p>
+      </div>
+
+      <div class="section-heading">🔴 Greșeli de logică și operatori</div>
+
+      <div class="greseli-list">
+
+        <!-- GRESEALA 1 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">1</div>
+            <div class="greseala-title">Confuzia între = (atribuire) și == (comparație)</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">if</span> (x = <span class="nu">5</span>)        <span class="cm">// atribuie 5 lui x!</span>
+    cout &lt;&lt; <span class="st">"DA"</span>;  <span class="cm">// mereu adevărat dacă x≠0</span></pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">if</span> (x == <span class="nu">5</span>)       <span class="cm">// verifică dacă x este 5</span>
+    cout &lt;&lt; <span class="st">"DA"</span>;</pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>De reținut:</strong> <code>=</code> atribuie o valoare. <code>==</code> compară două valori. Eroarea cu <code>=</code> în if este depistată de compilator cu warning (-Wall), dar nu e eroare de compilare.
+            </div>
+          </div>
+        </div>
+
+        <!-- GRESEALA 2 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">2</div>
+            <div class="greseala-title">Lipsa break în instrucțiunea switch</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">switch</span>(x) &#123;
+  <span class="kw">case</span> <span class="nu">1</span>: cout &lt;&lt; <span class="st">"unu"</span>;
+  <span class="kw">case</span> <span class="nu">2</span>: cout &lt;&lt; <span class="st">"doi"</span>;
+  <span class="kw">case</span> <span class="nu">3</span>: cout &lt;&lt; <span class="st">"trei"</span>;
+&#125;
+<span class="cm">// x=1 → afișează "unudoitrei"!</span></pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">switch</span>(x) &#123;
+  <span class="kw">case</span> <span class="nu">1</span>: cout &lt;&lt; <span class="st">"unu"</span>; <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="nu">2</span>: cout &lt;&lt; <span class="st">"doi"</span>; <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="nu">3</span>: cout &lt;&lt; <span class="st">"trei"</span>; <span class="kw">break</span>;
+&#125;</pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>De reținut:</strong> Fără <code>break</code>, execuția «cade» în cazul următor (fall-through). Adaugă <code>break</code> după fiecare ramură, cu excepția cazurilor intenționat grupate.
+            </div>
+          </div>
+        </div>
+
+        <!-- GRESEALA 3 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">3</div>
+            <div class="greseala-title">Depășire de tip int — trebuie long long</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">int</span> n = <span class="nu">100000</span>;
+<span class="kw">int</span> suma = n * (n + <span class="nu">1</span>) / <span class="nu">2</span>;
+<span class="cm">// n*(n+1) = 10^10 → overflow int!</span>
+<span class="cm">// int max ≈ 2.1 × 10^9</span></pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">long long</span> n = <span class="nu">100000</span>;
+<span class="kw">long long</span> suma = n * (n + <span class="nu">1</span>) / <span class="nu">2</span>;
+<span class="cm">// long long max ≈ 9.2 × 10^18 ✅</span></pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Regulă:</strong> Dacă produsul sau suma poate depăși ~2×10⁹, folosiți <code>long long</code>. La BAC cu n ≤ 10⁶, produsele n² sau n×n sunt adesea prea mari pentru int.
+            </div>
+          </div>
+        </div>
+
+        <!-- GRESEALA 4 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">4</div>
+            <div class="greseala-title">Acces în afara limitelor vectorului (buffer overflow)</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">int</span> v[<span class="nu">10</span>];    <span class="cm">// indici 0..9</span>
+v[<span class="nu">10</span>] = <span class="nu">5</span>;   <span class="cm">// undefined behavior!</span>
+
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    v[i] = ...  <span class="cm">// dacă n ≥ 10 → crash</span></pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">int</span> v[<span class="nu">100001</span>]; <span class="cm">// n ≤ 100000, indexat 1..n</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    cin >> v[i]; <span class="cm">// i merge de la 1 la n ✅</span></pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Regulă:</strong> Dacă indexezi de la 1, dimensiunea vectorului trebuie să fie cel puțin n+1. Verifică întotdeauna că bucla se oprește la <code>i &lt;= n</code>, nu la <code>i &lt; n</code> sau <code>i &lt;= n+1</code>.
+            </div>
+          </div>
+        </div>
+
+        <div class="section-heading">🟠 Greșeli de citire și afișare</div>
+
+        <!-- GRESEALA 5 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">5</div>
+            <div class="greseala-title">cin >> s vs getline — citire șiruri cu spații</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre>string s;
+cin >> s;
+<span class="cm">// Input: "Ana are mere"</span>
+<span class="cm">// s = "Ana" — se oprește la spațiu!</span></pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre>string s;
+getline(cin, s);
+<span class="cm">// Input: "Ana are mere"</span>
+<span class="cm">// s = "Ana are mere" ✅</span></pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Atenție:</strong> Dacă ai citit un număr cu <code>cin >> n</code> înainte de <code>getline</code>, adaugă <code>cin.ignore();</code> între ele pentru a consuma newline-ul rămas în buffer.
+            </div>
+          </div>
+        </div>
+
+        <!-- GRESEALA 6 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">6</div>
+            <div class="greseala-title">Vector mare declarat local în main — stack overflow</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> v[<span class="nu">1000000</span>];  <span class="cm">// ~4 MB pe stivă</span>
+    <span class="cm">// Stiva are ~1-8 MB → crash!</span>
+&#125;</pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">int</span> v[<span class="nu">1000001</span>];  <span class="cm">// global — segment date</span>
+<span class="cm">// Inițializat automat cu 0</span>
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="cm">// folosim v fără probleme</span>
+&#125;</pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Regulă de aur la BAC:</strong> Orice vector cu n ≥ 10.000 se declară <strong>global</strong>. Variabilele globale sunt stocate în segmentul de date (BSS/data), nu pe stivă.
+            </div>
+          </div>
+        </div>
+
+        <div class="section-heading">🟡 Greșeli de algoritm</div>
+
+        <!-- GRESEALA 7 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">7</div>
+            <div class="greseala-title">Recursivitate infinită — lipsa cazului de bază</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">int</span> <span class="fn">factorial</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="nu">1</span>);
+    <span class="cm">// niciodată nu se oprește!</span>
+&#125;</pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">int</span> <span class="fn">factorial</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n == <span class="nu">0</span>) <span class="kw">return</span> <span class="nu">1</span>; <span class="cm">// caz de bază!</span>
+    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="nu">1</span>);
+&#125;</pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Regulă:</strong> Orice funcție recursivă trebuie să aibă un <strong>caz de bază</strong> care oprește recursivitatea. Verifică că parametrul se apropie mereu de cazul de bază.
+            </div>
+          </div>
+        </div>
+
+        <!-- GRESEALA 8 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">8</div>
+            <div class="greseala-title">Compararea numerelor reale cu == (float/double)</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">double</span> x = <span class="nu">0.1</span> + <span class="nu">0.2</span>;
+<span class="kw">if</span> (x == <span class="nu">0.3</span>)       <span class="cm">// FALS!</span>
+    cout &lt;&lt; <span class="st">"egal"</span>; <span class="cm">// nu se afișează</span>
+<span class="cm">// 0.1+0.2 = 0.30000000000000004</span></pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">double</span> EPS = <span class="nu">1e-9</span>;
+<span class="kw">if</span> (abs(x - <span class="nu">0.3</span>) &lt; EPS)
+    cout &lt;&lt; <span class="st">"egal"</span>;  <span class="cm">// funcționează ✅</span></pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Regulă:</strong> Numerele reale nu se compară cu <code>==</code> din cauza erorilor de reprezentare în virgulă mobilă. Folosiți o marjă de toleranță <strong>epsilon</strong> (de obicei 10⁻⁹).
+            </div>
+          </div>
+        </div>
+
+        <!-- GRESEALA 9 -->
+        <div class="greseala-card">
+          <div class="greseala-header">
+            <div class="greseala-num">9</div>
+            <div class="greseala-title">Inițializarea greșită a minimului/maximului</div>
+          </div>
+          <div class="greseala-body">
+            <div>
+              <div class="code-block wrong">
+                <span class="code-block-label">❌ Greșit</span>
+                <pre><span class="kw">int</span> minim = <span class="nu">0</span>;   <span class="cm">// greșit dacă v[i] > 0</span>
+<span class="kw">int</span> maxim = <span class="nu">0</span>;   <span class="cm">// greșit dacă v[i] < 0</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;=n; i++) &#123;
+    <span class="kw">if</span> (v[i]&lt;minim) minim=v[i]; <span class="cm">// n-ar găsi minim din [3,5,7]</span>
+&#125;</pre>
+              </div>
+            </div>
+            <div>
+              <div class="code-block right">
+                <span class="code-block-label">✅ Corect</span>
+                <pre><span class="kw">int</span> minim = v[<span class="nu">1</span>]; <span class="cm">// inițializare cu primul element</span>
+<span class="kw">int</span> maxim = v[<span class="nu">1</span>];
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">2</span>; i&lt;=n; i++) &#123;  <span class="cm">// pornim de la 2</span>
+    <span class="kw">if</span>(v[i]&lt;minim) minim=v[i];
+    <span class="kw">if</span>(v[i]&gt;maxim) maxim=v[i];
+&#125;</pre>
+              </div>
+            </div>
+          </div>
+          <div class="greseala-explanation">
+            <div class="tip-box">
+              <strong>Alternativă:</strong> Poți iniția cu <code>INT_MAX</code> și <code>INT_MIN</code> (din <code>&lt;climits&gt;</code>), sau mai simplu — cu primul element din vector și buclă de la 2.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /greseli-list -->
+
+      <div style="margin-top:48px;padding:24px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);text-align:center;">
+        <p style="margin:0 0 14px;font-size:1rem;font-weight:600;">Vrei să exersezi cu exerciții interactive?</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href={`${base}/exercitii`} class="back-link" style="margin-bottom:0;">📝 Exerciții &amp; Filtrare</a>
+          <a href={`${base}/`} class="back-link" style="margin-bottom:0;">🏠 Înapoi la capitole</a>
+          <a href={`${base}/cheat-sheet`} class="back-link" style="margin-bottom:0;">📄 Cheat Sheet</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -458,25 +458,27 @@ Programare dinamică (M-I intensiv)   █░░░░░░░░░  10%  ← G
 
 ## 12. Checklist de implementare recomandat
 
-### Sprint 1 — Bugfix & Quick Wins (1–2 săptămâni)
-- [ ] Fix exerciții interactive (console debugging)
-- [ ] XP persistent cu localStorage
-- [ ] Dark mode persistent cu localStorage
-- [ ] Buton „Copiază codul" pe toate blocurile
-- [ ] Navigare Prev/Next între capitole
-- [ ] Elimina elementele `👁 —` și `🤍 0` nefuncționale
-- [ ] Fix `#include` greșit din capitolul Introducere
-- [ ] Timp de citire calculat dinamic
-- [ ] Fix cod responsive pe mobile (overflow-x: auto pe pre)
+### Sprint 1 — Bugfix & Quick Wins ✅ FINALIZAT
+- [x] Fix exerciții interactive — src-urile JSON și quiz.js corectate pentru toate capitolele
+- [x] XP persistent cu localStorage — `infoXP` + `infoVisitedSections`, actualizat la scroll și quiz
+- [x] Dark mode persistent cu localStorage — BaseLayout citește `localStorage.getItem('theme')` înainte de render
+- [x] Buton „Copiază codul" pe toate blocurile — `initCopyButtons()` în animations.js
+- [x] Navigare Prev/Next între capitole — `renderPrevNext()` în platform.js, array CHAPTERS complet
+- [x] Elimina elementele `👁 —` și `🤍 0` nefuncționale — JS actualizează contorii la DOMContentLoaded
+- [x] Fix `#include` greșit din capitolul Introducere — mutat deasupra `main()` în introducere.astro
+- [x] Timp de citire calculat dinamic — `initSectionReadingTime()` și `initGlobalReadingTime()` în animations.js
+- [x] Fix cod responsive pe mobile — `pre { overflow-x: auto; }` în global.css
 
-### Sprint 2 — Conținut critic (3–4 săptămâni)
-- [ ] Capitol nou: Funcții și Subprograme
-- [ ] Ciurul lui Eratostene în capitolul Vectori
-- [ ] Completare Matrici: simetrie, transpusă
-- [ ] Pagină „Greșeli frecvente la BAC"
-- [ ] Pagină „Cheat sheet printabil" A4
-- [ ] Linkuri directe spre subiecte BAC oficiale (edu.ro)
-- [ ] Scroll spy pe TOC-ul din fiecare capitol
+### Sprint 2 — Conținut critic ✅ FINALIZAT
+- [x] Capitol nou: Funcții și Subprograme — `src/pages/capitole/functii.astro` creat (chapterNum=8, 7 secțiuni)
+- [x] Ciurul lui Eratostene în capitolul Vectori — secțiune `#ciur` adăugată în vectori.astro cu implementare completă + optimizare i²
+- [x] Completare Matrici: simetrie, transpusă — secțiunile `#transpusa` și `#speciale` existau deja în matrici.astro
+- [x] Pagină „Greșeli frecvente la BAC" — `src/pages/greseli-bac.astro` creată cu 9 greșeli (cod greșit/corect + tips)
+- [x] Pagină „Cheat sheet printabil" A4 — `src/pages/cheat-sheet.astro` creată cu `@media print`, grid 2 coloane
+- [x] Linkuri directe spre subiecte BAC oficiale (edu.ro) — adăugate în Sprint 1 în introducere.astro
+- [x] Scroll spy pe TOC-ul din fiecare capitol — `initNavHighlight()` cu IntersectionObserver exista deja în animations.js
+- [x] Sidebar actualizat — capitol Funcții adăugat (num=8), linkuri Cheat Sheet și Greșeli frecvente în Instrumente
+- [x] platform.js actualizat — `functii.html` adăugat în array CHAPTERS (js/ și public/js/)
 
 ### Sprint 3 — Features (1–2 luni)
 - [ ] Editor de cod integrat (Piston API sau iframe)

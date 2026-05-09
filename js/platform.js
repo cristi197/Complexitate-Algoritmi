@@ -28,6 +28,7 @@ function initGoToTop() {
 /* ── 2. Navigare capitole — footer fix ───────────────────────── */
 var CHAPTERS = [
   { file: 'introducere.html',  num: 0, title: 'Introducere în Informatică' },
+  { file: 'functii.html',      num: 8, title: 'Funcții și Subprograme' },
   { file: 'complexitate.html', num: 1, title: 'Eficiența Algoritmilor' },
   { file: 'recursivitate.html',num: 2, title: 'Recursivitate' },
   { file: 'backtracking.html', num: 3, title: 'Backtracking' },

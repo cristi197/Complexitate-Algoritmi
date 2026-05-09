@@ -1,0 +1,406 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Cheat Sheet Informatică BAC — InfoLiceu"
+  description="Foaie de referință rapidă pentru BAC la informatică: tipuri de date, complexități, algoritmi, C++ esențial. Printabilă format A4."
+>
+  <style>
+    /* ── Ecran ──────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 60%, #60a5fa 100%);
+      padding: 56px 24px 40px; text-align: center; color: white;
+    }
+    .page-hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin: 0 0 10px; }
+    .page-hero p  { font-size: 1rem; opacity: .88; max-width: 600px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block; background: rgba(255,255,255,.18); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.3); border-radius: 20px;
+      padding: 4px 16px; font-size: .82rem; font-weight: 600; margin-bottom: 18px;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+    .btn-print {
+      background: white; color: #1d4ed8; border: none; border-radius: 10px;
+      padding: 10px 24px; font-size: .92rem; font-weight: 700; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+      transition: background .15s;
+    }
+    .btn-print:hover { background: #dbeafe; }
+    .btn-back {
+      background: rgba(255,255,255,.15); color: white; border: 1px solid rgba(255,255,255,.4);
+      border-radius: 10px; padding: 10px 24px; font-size: .92rem; font-weight: 600;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; transition: background .15s;
+    }
+    .btn-back:hover { background: rgba(255,255,255,.25); }
+
+    /* ── Cheat sheet grid ───────────────────────────────── */
+    .sheet-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px;
+    }
+    .sheet-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .sheet-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .sheet-card-header {
+      background: var(--surface-2); padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sheet-card-header h2 {
+      font-size: .95rem; font-weight: 700; margin: 0; color: var(--text);
+    }
+    .sheet-card-body { padding: 16px 18px; }
+
+    table { border-collapse: collapse; width: 100%; font-size: .82rem; }
+    th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-weight: 700; color: var(--text); background: var(--surface-2); }
+    td { color: var(--text-2); }
+    td:first-child { font-family: 'Fira Code', monospace; color: var(--text); font-weight: 600; font-size: .8rem; }
+
+    .cs-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 20px;
+      font-size: .72rem; font-weight: 700;
+    }
+    .cs-tag.green  { background: #dcfce7; color: #15803d; }
+    .cs-tag.yellow { background: #fef9c3; color: #854d0e; }
+    .cs-tag.red    { background: #fee2e2; color: #b91c1c; }
+    .cs-tag.blue   { background: #dbeafe; color: #1d4ed8; }
+
+    pre { margin: 0; font-family: 'Fira Code', 'Consolas', monospace; font-size: .78rem;
+          line-height: 1.55; white-space: pre-wrap; }
+    code { font-family: inherit; }
+    .kw  { color: #1d4ed8; font-weight: 600; }
+    .cm  { color: #6b7280; font-style: italic; }
+    .nu  { color: #059669; }
+    .st  { color: #b45309; }
+    .fn  { color: #7c3aed; }
+
+    .section-title {
+      font-size: 1.15rem; font-weight: 700; margin: 36px 0 14px;
+      color: var(--text); display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Print styles ───────────────────────────────────── */
+    @media print {
+      .site-header, .page-hero .hero-actions, .no-print { display: none !important; }
+      .page-hero {
+        background: #1d4ed8 !important; -webkit-print-color-adjust: exact;
+        print-color-adjust: exact; padding: 20px 24px !important;
+      }
+      .page-hero h1 { font-size: 1.4rem !important; }
+      .page-hero p  { display: none; }
+      .sheet-wrap { padding: 16px 12px 20px !important; }
+      .sheet-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+      .sheet-card { break-inside: avoid; page-break-inside: avoid; }
+      .sheet-card-body { padding: 10px 12px !important; }
+      body { font-size: 11px !important; }
+      table { font-size: .72rem !important; }
+      pre  { font-size: .7rem !important; }
+      .section-title { font-size: .95rem !important; margin: 18px 0 8px !important; }
+    }
+  </style>
+
+  <Header />
+
+  <div style="padding-top: var(--header-h);">
+    <div class="page-hero">
+      <div class="hero-badge">📄 Printabil A4</div>
+      <h1>Cheat Sheet — Informatică BAC</h1>
+      <p>Referință rapidă: tipuri de date, complexități, algoritmi standard, C++ esențial</p>
+      <div class="hero-actions">
+        <button class="btn-print" onclick="window.print()">🖨️ Printează / Salvează PDF</button>
+        <a href={`${base}/`} class="btn-back">← Înapoi la platformă</a>
+      </div>
+    </div>
+
+    <div class="sheet-wrap">
+
+      <div class="section-title">📊 Tipuri de date și limite</div>
+      <div class="sheet-grid">
+        <div class="sheet-card">
+          <div class="sheet-card-header">
+            <span>📋</span>
+            <h2>Tipuri de date C++</h2>
+          </div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Tip</th><th>Dimensiune</th><th>Interval</th></tr></thead>
+              <tbody>
+                <tr><td>int</td><td>4 bytes</td><td>−2.1×10⁹ … +2.1×10⁹</td></tr>
+                <tr><td>long long</td><td>8 bytes</td><td>−9.2×10¹⁸ … +9.2×10¹⁸</td></tr>
+                <tr><td>unsigned int</td><td>4 bytes</td><td>0 … 4.3×10⁹</td></tr>
+                <tr><td>float</td><td>4 bytes</td><td>~7 cifre semnificative</td></tr>
+                <tr><td>double</td><td>8 bytes</td><td>~15 cifre semnificative</td></tr>
+                <tr><td>char</td><td>1 byte</td><td>−128 … 127</td></tr>
+                <tr><td>bool</td><td>1 byte</td><td>true (1) / false (0)</td></tr>
+                <tr><td>string</td><td>variabil</td><td>şir de caractere STL</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header">
+            <span>🔤</span>
+            <h2>Coduri ASCII frecvente</h2>
+          </div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Caracter</th><th>Cod ASCII</th><th>Relație</th></tr></thead>
+              <tbody>
+                <tr><td>'A'…'Z'</td><td>65 … 90</td><td>c - 'A' = 0..25</td></tr>
+                <tr><td>'a'…'z'</td><td>97 … 122</td><td>c - 'a' = 0..25</td></tr>
+                <tr><td>'0'…'9'</td><td>48 … 57</td><td>c - '0' = cifra</td></tr>
+                <tr><td>' '</td><td>32</td><td>spațiu</td></tr>
+                <tr><td>'\n'</td><td>10</td><td>newline</td></tr>
+              </tbody>
+            </table>
+            <pre style="margin-top:10px;"><span class="cm">// Litere mici → mari:</span>
+c = c - <span class="st">'a'</span> + <span class="st">'A'</span>;  <span class="cm">// sau c -= 32</span>
+<span class="cm">// Cifră → int:</span>
+<span class="kw">int</span> d = c - <span class="st">'0'</span>;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">⚡ Complexități și reguli de performanță</div>
+      <div class="sheet-grid">
+        <div class="sheet-card">
+          <div class="sheet-card-header">
+            <span>📈</span>
+            <h2>Clase de complexitate</h2>
+          </div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Notație</th><th>Exemplu</th><th>n=10⁶ ops</th></tr></thead>
+              <tbody>
+                <tr><td>O(1)</td><td>Acces vector v[i]</td><td><span class="cs-tag green">instant</span></td></tr>
+                <tr><td>O(log n)</td><td>Căutare binară</td><td><span class="cs-tag green">~20</span></td></tr>
+                <tr><td>O(n)</td><td>Parcurgere vector</td><td><span class="cs-tag green">10⁶</span></td></tr>
+                <tr><td>O(n log n)</td><td>sort() STL</td><td><span class="cs-tag green">~2×10⁷</span></td></tr>
+                <tr><td>O(n²)</td><td>Bubble Sort</td><td><span class="cs-tag red">10¹²</span></td></tr>
+                <tr><td>O(n³)</td><td>Matrice triplate</td><td><span class="cs-tag red">10¹⁸</span></td></tr>
+                <tr><td>O(2ⁿ)</td><td>Backtracking</td><td><span class="cs-tag red">enorm</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header">
+            <span>🎯</span>
+            <h2>Reguli practice — BAC</h2>
+          </div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Limită n</th><th>Complexitate maximă</th></tr></thead>
+              <tbody>
+                <tr><td>n ≤ 20</td><td>O(2ⁿ) — backtracking OK</td></tr>
+                <tr><td>n ≤ 100</td><td>O(n³) — OK</td></tr>
+                <tr><td>n ≤ 5000</td><td>O(n²) — OK</td></tr>
+                <tr><td>n ≤ 10⁵</td><td>O(n log n) — preferabil</td></tr>
+                <tr><td>n ≤ 10⁶</td><td>O(n) sau O(n log n)</td></tr>
+                <tr><td>n ≤ 10⁸</td><td>O(n) strict necesar</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:10px;padding:8px;background:var(--surface-2);border-radius:6px;font-size:.78rem;color:var(--text-2);">
+              ⏱️ Un calculator execută ~10⁸–10⁹ operații simple pe secundă
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">🔧 Algoritmi esențiali C++</div>
+      <div class="sheet-grid">
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔀</span><h2>Sortare — Bubble Sort (BAC)</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">void</span> <span class="fn">bSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
+  <span class="kw">for</span> (<span class="kw">int</span> i=<span class="nu">1</span>; i&lt;n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j=<span class="nu">1</span>; j&lt;=n-i; j++)
+      <span class="kw">if</span>(v[j]&gt;v[j+<span class="nu">1</span>]) swap(v[j],v[j+<span class="nu">1</span>]);
+&#125;  <span class="cm">// O(n²) — cel mai cerut la BAC</span>
+
+<span class="cm">// STL: sort(v+1, v+n+1);  → O(n log n)</span></pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔍</span><h2>Căutare binară</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">int</span> <span class="fn">bSearch</span>(<span class="kw">int</span> v[],<span class="kw">int</span> n,<span class="kw">int</span> x) &#123;
+  <span class="kw">int</span> st=<span class="nu">1</span>,dr=n;
+  <span class="kw">while</span>(st&lt;=dr) &#123;
+    <span class="kw">int</span> m=(st+dr)/<span class="nu">2</span>;
+    <span class="kw">if</span>(v[m]==x) <span class="kw">return</span> m;
+    <span class="kw">else if</span>(v[m]&lt;x) st=m+<span class="nu">1</span>;
+    <span class="kw">else</span> dr=m-<span class="nu">1</span>;
+  &#125;
+  <span class="kw">return</span> -<span class="nu">1</span>;  <span class="cm">// O(log n)</span>
+&#125;</pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🌀</span><h2>Recursivitate — template</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">int</span> <span class="fn">f</span>(<span class="kw">int</span> n) &#123;
+  <span class="cm">// 1. Caz de bază (stop)</span>
+  <span class="kw">if</span> (n == <span class="nu">0</span>) <span class="kw">return</span> <span class="nu">1</span>;
+  <span class="cm">// 2. Apel recursiv</span>
+  <span class="kw">return</span> n * <span class="fn">f</span>(n - <span class="nu">1</span>);
+&#125;
+
+<span class="cm">// Fibonacci cu memo:</span>
+<span class="kw">int</span> memo[<span class="nu">101</span>] = &#123;<span class="nu">0</span>&#125;;
+<span class="kw">int</span> <span class="fn">fib</span>(<span class="kw">int</span> n) &#123;
+  <span class="kw">if</span>(n&lt;=<span class="nu">1</span>) <span class="kw">return</span> n;
+  <span class="kw">if</span>(memo[n]) <span class="kw">return</span> memo[n];
+  <span class="kw">return</span> memo[n]=<span class="fn">fib</span>(n-<span class="nu">1</span>)+<span class="fn">fib</span>(n-<span class="nu">2</span>);
+&#125;</pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🌳</span><h2>Backtracking — template</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">int</span> sol[<span class="nu">101</span>];  <span class="cm">// soluția curentă</span>
+
+<span class="kw">void</span> <span class="fn">back</span>(<span class="kw">int</span> k) &#123;
+  <span class="kw">if</span>(k > n) &#123; <span class="fn">afiseaza</span>(); <span class="kw">return</span>; &#125;
+  <span class="kw">for</span>(<span class="kw">int</span> v=<span class="nu">1</span>; v&lt;=n; v++) &#123;
+    sol[k] = v;
+    <span class="kw">if</span>(<span class="fn">valid</span>(k))  <span class="cm">// verificare constrângeri</span>
+      <span class="fn">back</span>(k+<span class="nu">1</span>);   <span class="cm">// adâncime mai mare</span>
+  &#125;
+&#125;
+<span class="cm">// Apel: back(1);</span></pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔗</span><h2>Interclasare doi vectori sortați</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">void</span> <span class="fn">merge</span>(<span class="kw">int</span> a[],<span class="kw">int</span> m,<span class="kw">int</span> b[],<span class="kw">int</span> n,<span class="kw">int</span> c[]) &#123;
+  <span class="kw">int</span> i=<span class="nu">1</span>,j=<span class="nu">1</span>,k=<span class="nu">0</span>;
+  <span class="kw">while</span>(i&lt;=m&&j&lt;=n)
+    c[++k]= a[i]&lt;=b[j] ? a[i++] : b[j++];
+  <span class="kw">while</span>(i&lt;=m) c[++k]=a[i++];
+  <span class="kw">while</span>(j&lt;=n) c[++k]=b[j++];
+&#125;  <span class="cm">// O(m+n)</span></pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔢</span><h2>Ciurul lui Eratostene</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">bool</span> ciur[<span class="nu">1000001</span>];  <span class="cm">// global!</span>
+<span class="kw">void</span> <span class="fn">sieve</span>(<span class="kw">int</span> n) &#123;
+  ciur[<span class="nu">0</span>]=ciur[<span class="nu">1</span>]=<span class="kw">true</span>;
+  <span class="kw">for</span>(<span class="kw">int</span> i=<span class="nu">2</span>;(<span class="kw">long long</span>)i*i&lt;=n;i++)
+    <span class="kw">if</span>(!ciur[i])
+      <span class="kw">for</span>(<span class="kw">int</span> j=i*i;j&lt;=n;j+=i)
+        ciur[j]=<span class="kw">true</span>;
+&#125;
+<span class="cm">// estePrim(x) = !ciur[x]  (x>=2)</span>
+<span class="cm">// O(N log log N)</span></pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>➗</span><h2>CMMDC și CMMMC</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="cm">// CMMDC — Algoritmul lui Euclid</span>
+<span class="kw">int</span> <span class="fn">cmmdc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+  <span class="kw">while</span>(b) &#123; <span class="kw">int</span> r=a%b; a=b; b=r; &#125;
+  <span class="kw">return</span> a;
+&#125;  <span class="cm">// O(log min(a,b))</span>
+
+<span class="cm">// CMMMC</span>
+<span class="kw">long long</span> <span class="fn">cmmmc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+  <span class="kw">return</span> (<span class="kw">long long</span>)a / <span class="fn">cmmdc</span>(a,b) * b;
+&#125;  <span class="cm">// împărțim înainte de înmulțire!</span></pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>📁</span><h2>Fișiere — I/O</h2></div>
+          <div class="sheet-card-body">
+            <pre><span class="kw">#include</span> <span class="st">&lt;fstream&gt;</span>
+ifstream fin(<span class="st">"date.in"</span>);
+ofstream fout(<span class="st">"date.out"</span>);
+
+<span class="cm">// Citire:</span>
+fin >> n;
+<span class="kw">for</span>(<span class="kw">int</span> i=<span class="nu">1</span>;i&lt;=n;i++) fin >> v[i];
+
+<span class="cm">// Scriere:</span>
+fout << rez << endl;
+
+fin.close(); fout.close();</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">📚 &lt;algorithm&gt; — funcții STL esențiale</div>
+      <div class="sheet-grid">
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🛠️</span><h2>Funcții STL frecvente</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Funcție</th><th>Efect</th></tr></thead>
+              <tbody>
+                <tr><td>sort(v+1, v+n+1)</td><td>Sortare crescătoare O(n log n)</td></tr>
+                <tr><td>reverse(v+1, v+n+1)</td><td>Inversează vectorul</td></tr>
+                <tr><td>*max_element(v+1,v+n+1)</td><td>Maximul din [1..n]</td></tr>
+                <tr><td>*min_element(v+1,v+n+1)</td><td>Minimul din [1..n]</td></tr>
+                <tr><td>max(a, b)</td><td>Maximul a doi scalari</td></tr>
+                <tr><td>min(a, b)</td><td>Minimul a doi scalari</td></tr>
+                <tr><td>swap(a, b)</td><td>Interschimbă a și b</td></tr>
+                <tr><td>abs(x)</td><td>Valoarea absolută</td></tr>
+                <tr><td>sqrt(x)</td><td>Rădăcina pătrată (double)</td></tr>
+                <tr><td>pow(b, e)</td><td>b la puterea e (double)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔤</span><h2>Operații pe string</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Operație</th><th>Efect</th></tr></thead>
+              <tbody>
+                <tr><td>s.length()</td><td>Lungimea șirului</td></tr>
+                <tr><td>s.size()</td><td>Identic cu length()</td></tr>
+                <tr><td>s[i]</td><td>Caracterul de la indicele i</td></tr>
+                <tr><td>s.substr(p, l)</td><td>Subsecv. de la p, lungime l</td></tr>
+                <tr><td>s.find("abc")</td><td>Prima apariție sau string::npos</td></tr>
+                <tr><td>s + t</td><td>Concatenare</td></tr>
+                <tr><td>s == t</td><td>Egalitate</td></tr>
+                <tr><td>getline(cin, s)</td><td>Citire cu spații</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;padding:20px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);text-align:center;" class="no-print">
+        <p style="margin:0 0 14px;font-size:.95rem;font-weight:600;">Explorează mai mult</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href={`${base}/greseli-bac`} style="color:var(--primary);text-decoration:none;padding:8px 16px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;">⚠️ Greșeli frecvente</a>
+          <a href={`${base}/exercitii`} style="color:var(--primary);text-decoration:none;padding:8px 16px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;">📝 Exerciții</a>
+          <a href={`${base}/`} style="color:var(--primary);text-decoration:none;padding:8px 16px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;">🏠 Capitole</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
