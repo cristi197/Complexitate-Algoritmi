@@ -1,7 +1,7 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculator","label":"Calculatorul"},{"id":"algoritm","label":"Ce e un algoritm"},{"id":"primul-program","label":"Primul program"},{"id":"tipuri","label":"Tipuri de date"},{"id":"operatori","label":"Operatori"},{"id":"structuri","label":"Structuri de control"},{"id":"programa-bac","label":"Programa BAC 2026"},{"id":"exercitii","label":"Exerciii"}];
+const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculator","label":"Calculatorul"},{"id":"algoritm","label":"Ce e un algoritm"},{"id":"primul-program","label":"Primul program"},{"id":"tipuri","label":"Tipuri de date"},{"id":"operatori","label":"Operatori"},{"id":"structuri","label":"Structuri de control"},{"id":"programa-bac","label":"Programa BAC 2026"},{"id":"greseli-frecvente","label":"Greșeli frecvente"},{"id":"exercitii","label":"Exerciții"}];
 ---
 <ChapterLayout
   title="Introducere în Informatic&#259;"
@@ -62,7 +62,7 @@ const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculat
     </div>
     <div class="slide-body">
       <div class="beginner-box">
-        <div class="bb-title">易 Analogie: Calculatorul ca un birou</div>
+        <div class="bb-title">🧠 Analogie: Calculatorul ca un birou</div>
         <p>Imaginează-ţi calculatorul ca un <strong>birou de lucru</strong>:
           <br>&bull; <strong>CPU</strong> (Procesorul) = angajatul care face calculele — extrem de rapid
           <br>&bull; <strong>RAM</strong> (Memoria) = biroul de lucru — ţine datele la îndemână, dar se goaleşte când închiţi calculatorul
@@ -73,22 +73,22 @@ const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculat
 
       <div class="card-grid" style="margin:16px 0;">
         <div class="card red">
-          <strong>直 CPU (Procesor)</strong>
+          <strong>💻 CPU (Procesor)</strong>
           <p>Execută instrucţiunile programului. Viteza se măsoară în GHz (miliarde de operaţii/secundă). Programe moderne rulează pe mai multe nuclee simultan.</p>
           <small>Ex: Intel i7, AMD Ryzen 9</small>
         </div>
         <div class="card blue">
-          <strong> RAM (Memorie)</strong>
+          <strong>🧮 RAM (Memorie)</strong>
           <p>Stochează datele şi programele în execuţie. Volatilă (se şterge la închidere). Variabilele din programul nostru stau în RAM.</p>
           <small>Ex: 8GB, 16GB, 32GB DDR5</small>
         </div>
         <div class="card teal">
-          <strong> HDD/SSD</strong>
+          <strong>💾 HDD/SSD</strong>
           <p>Stocare permanentă. Fişierele şi programele sunt salvate aici. SSD-urile sunt mult mai rapide decât HDD-urile.</p>
           <small>Ex: SSD 512GB NVMe</small>
         </div>
         <div class="card purple">
-          <strong>燐 Sistemul de Operare</strong>
+          <strong>🖥️ Sistemul de Operare</strong>
           <p>Gestionează resursele hardware şi oferă o interfaţă utilizatorului. Windows, Linux, macOS sunt sisteme de operare.</p>
           <small>Ex: Windows 11, Ubuntu 24</small>
         </div>
@@ -147,7 +147,7 @@ const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculat
         <p>Un algoritm este o <strong>secvenţă finită de paşi precis definiţi</strong> care rezolvă o clasă de probleme într-un timp finit.</p>
         <p>Proprietăţile unui algoritm bun:</p>
         <ul style="margin-top:8px;line-height:1.8;">
-          <li><strong>Finitudine</strong>: se termeină după un număr finit de paşi</li>
+          <li><strong>Finitudine</strong>: se termină după un număr finit de paşi</li>
           <li><strong>Claritate</strong>: fiecare pas este precis şi fără ambiguităţi</li>
           <li><strong>Generalitate</strong>: rezolvă o clasă de probleme, nu doar un caz</li>
           <li><strong>Eficienţă</strong>: foloseşte resurse rezonabile (timp şi memorie)</li>
@@ -178,16 +178,16 @@ cout &lt;&lt; mx;</pre>
       <h3 style="margin:16px 0 10px;font-size:15px;">Complexitatea algoritmilor — pe scurt</h3>
       <p>Complexitatea măsoară <strong>cât de rapid creşte timpul de execuţie</strong> cu dimensiunea datelor de intrare. Se exprimă cu notaţia Big-O.</p>
       <table>
-        <thead><tr><th>Complexitate</th><th>Exemplu</th><th>n=1000</th><th>n=1.000.000</th></tr></thead>
+        <thead><tr><th>Complexitate</th><th>Exemplu</th><th>n=1.000</th><th>n=10.000</th><th>n=100.000</th><th>n=1.000.000</th></tr></thead>
         <tbody>
-          <tr><td><code>O(1)</code></td><td>Accesare element vector</td><td>1 op.</td><td>1 op.</td></tr>
-          <tr><td><code>O(log n)</code></td><td>Căutare binară</td><td>10 op.</td><td>20 op.</td></tr>
-          <tr><td><code>O(n)</code></td><td>Parcurgere vector</td><td>1.000 op.</td><td>1.000.000 op.</td></tr>
-          <tr><td><code>O(n log n)</code></td><td>Sortare eficientă</td><td>10.000 op.</td><td>20.000.000 op.</td></tr>
-          <tr><td><code>O(n²)</code></td><td>Sortare bulă, 2 bucle</td><td>1.000.000 op.</td><td>10¹² op. (prea lent!)</td></tr>
+          <tr><td><code>O(1)</code></td><td>Accesare element vector</td><td>1 op.</td><td>1 op.</td><td>1 op.</td><td>1 op.</td></tr>
+          <tr><td><code>O(log n)</code></td><td>Căutare binară</td><td>10 op.</td><td>13 op.</td><td>17 op.</td><td>20 op.</td></tr>
+          <tr><td><code>O(n)</code></td><td>Parcurgere vector</td><td>1.000 op.</td><td>10.000 op.</td><td>100.000 op.</td><td>1.000.000 op.</td></tr>
+          <tr><td><code>O(n log n)</code></td><td>Sortare eficientă</td><td>10.000 op.</td><td>130.000 op.</td><td>1.700.000 op.</td><td>20.000.000 op.</td></tr>
+          <tr><td><code>O(n²)</code></td><td>Sortare bulă, 2 bucle</td><td>10⁶ op.</td><td style="color:#f87171;">10⁸ op. ⚠️</td><td style="color:#ef4444;">10¹⁰ op. ❌</td><td style="color:#ef4444;">10¹² op. ❌</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:8px;font-size:13px;color:#94a3b8;">La BAC, limitele tipice sunt: <strong>n &le; 1000</strong> permite O(n²), <strong>n &le; 100.000</strong> necesită O(n log n) sau O(n).</p>
+      <p style="margin-top:8px;font-size:13px;color:#94a3b8;">La BAC, limitele tipice sunt: <strong>n &le; 1.000</strong> permite O(n²), <strong>n &le; 10.000</strong> permite O(n²) cu constante mici, <strong>n &le; 100.000</strong> necesită O(n log n) sau O(n).</p>
     </div>
   </div>
 </section>
@@ -225,7 +225,7 @@ cout &lt;&lt; mx;</pre>
         </tbody>
       </table>
 
-      <h3 style="margin:18px 0 10px;font-size:15px;">Citire şi afişare</h3>
+      <h3 style="margin:18px 0 10px;font-size:15px;">Citire şi afişare (consolă)</h3>
       <pre><span class="kw">#include</span> <span class="st">&lt;iostream></span>
 <span class="kw">using namespace</span> std;
 <span class="kw">int</span> <span class="fn">main</span>() &#123;
@@ -241,11 +241,17 @@ cout &lt;&lt; mx;</pre>
     <span class="cm">// Afisare formatata</span>
     cout &lt;&lt; <span class="st">"Suma: "</span> &lt;&lt; a+b &lt;&lt; endl;
     cout &lt;&lt; <span class="st">"Max: "</span> &lt;&lt; (a > b ? a : b) &lt;&lt; endl;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
 
-    <span class="cm">// Citire/scriere fisiere</span>
-    <span class="kw">#include</span> <span class="st">&lt;fstream></span>
+      <h3 style="margin:18px 0 10px;font-size:15px;">Citire şi scriere din fişiere (BAC)</h3>
+      <pre><span class="kw">#include</span> <span class="st">&lt;iostream></span>
+<span class="kw">#include</span> <span class="st">&lt;fstream></span>    <span class="cm">// #include TREBUIE sa fie in afara lui main()!</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
     ifstream fin(<span class="st">"date.in"</span>);
     ofstream fout(<span class="st">"date.out"</span>);
+    <span class="kw">int</span> a, b;
     fin >> a >> b;
     fout &lt;&lt; a + b;
     <span class="kw">return</span> <span class="nu">0</span>;
@@ -253,6 +259,20 @@ cout &lt;&lt; mx;</pre>
 
       <div class="callout warning">
         <strong>La BAC</strong>, datele sunt întotdeauna citite din fişier (<code>date.in</code> sau similar) şi scrise în fişier (<code>date.out</code>). Antrenati-vă cu <code>ifstream</code>/<code>ofstream</code>!
+      </div>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">▶️ Testează codul C++ direct în browser</h3>
+      <p style="font-size:13px;color:#94a3b8;margin-bottom:10px;">Editorul de mai jos îţi permite să rulezi cod C++ fără să instalezi nimic. Modifică exemplul şi apasă <strong>Run</strong>!</p>
+      <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
+        <iframe
+          src="https://onecompiler.com/embed/cpp?theme=dark&hideTitle=true&hideNew=true&listenToEvents=true&codeChangeEvent=true"
+          width="100%"
+          height="420"
+          style="border:none;display:block;"
+          title="Editor C++ online"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        ></iframe>
       </div>
     </div>
   </div>
@@ -489,7 +509,7 @@ cin >> n;
           <small style="color:#4ade80;">Include: sortare, cautare binara, interclasare, deduplicare</small>
         </div>
         <div class="card red">
-          <strong><a href="matrici.html" style="color:inherit;">粒 Cap 5: Matrici</a></strong>
+          <strong><a href="matrici.html" style="color:inherit;">🔲 Cap 5: Matrici</a></strong>
           <p>Array-uri 2D, parcurgeri, diagonale, rotatie, operatii pe coloane/linii.</p>
           <small style="color:#4ade80;">Include: parcurgere, diagonale, spirala, inmultire matrici</small>
         </div>
@@ -549,11 +569,93 @@ cin >> n;
       <div class="callout info">
         <strong>Sfat strategic:</strong> Subiectul I este mai &ldquo;teoretic&rdquo; — studiază complexitate şi trasare algoritm. Subiectele II şi III cer cod C++ complet, compilabil şi corect. Exersează zilnic probleme de pe pbinfo.ro sau infoarena.ro!
       </div>
+
+      <h3 style="margin:20px 0 10px;font-size:15px;">📚 Resurse oficiale &amp; platforme de exersare</h3>
+      <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:8px 0;">
+        <div class="card blue">
+          <strong>🏛️ edu.ro — Subiecte oficiale</strong>
+          <p style="font-size:13px;">Subiecte şi bareme de la examenele de bacalaureat anterioare.</p>
+          <a href="https://www.edu.ro/bacalaureat" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#60a5fa;">→ edu.ro/bacalaureat</a>
+        </div>
+        <div class="card teal">
+          <strong>💻 pbinfo.ro</strong>
+          <p style="font-size:13px;">Mii de probleme clasificate pe capitole, cu testare automată. Ideal pentru pregătire BAC.</p>
+          <a href="https://www.pbinfo.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#2dd4bf;">→ pbinfo.ro</a>
+        </div>
+        <div class="card purple">
+          <strong>🏆 infoarena.ro</strong>
+          <p style="font-size:13px;">Arhivă de probleme de concurs şi olimpiadă. Nivel mediu—avansat.</p>
+          <a href="https://infoarena.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#c084fc;">→ infoarena.ro</a>
+        </div>
+        <div class="card orange">
+          <strong>📖 Manuale digitale</strong>
+          <p style="font-size:13px;">Manuale aprobate de Ministerul Educaţiei, disponibile gratuit online.</p>
+          <a href="https://manual.edu.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#fb923c;">→ manual.edu.ro</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 9. EXERCITII -->
+<!-- 9. GREȘELI FRECVENTE -->
+<section id="greseli-frecvente">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">⚠️</span>
+      <h2>Greşeli frecvente la BAC</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;">Acestea sunt cele mai comune greşeli pe care le fac elevii la examen. Cunoaşterea lor îţi poate salva puncte preţioase!</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <div class="callout warning">
+          <strong>⚠️ int overflow — rezultat greşit fără eroare de compilare</strong><br/>
+          <code>int a = 100000, b = 100000;<br/>cout &lt;&lt; a * b; // rezultat: -1794967296 (greşit!)</code><br/>
+          <span style="color:#4ade80;">✅ Fix: foloseşte <code>long long</code> când rezultatele pot depăşi ~2 miliarde.</span>
+        </div>
+
+        <div class="callout warning">
+          <strong>⚠️ = în loc de == în condiţii</strong><br/>
+          <code>if (x = 5) &#123; ... &#125; // ATRIBUIRE, nu comparaţie!</code><br/>
+          <span style="color:#4ade80;">✅ Fix: <code>if (x == 5)</code> — dublu egal pentru comparaţie.</span>
+        </div>
+
+        <div class="callout warning">
+          <strong>⚠️ Lipsa <code>break</code> în <code>switch</code></strong><br/>
+          <code>switch(x) &#123; case 1: cout &lt;&lt; "unu"; case 2: cout &lt;&lt; "doi"; &#125; // afişează "unudoi"!</code><br/>
+          <span style="color:#4ade80;">✅ Fix: adaugă <code>break;</code> după fiecare <code>case</code>.</span>
+        </div>
+
+        <div class="callout warning">
+          <strong>⚠️ Citire cu <code>cin</code> după <code>getline</code></strong><br/>
+          <code>cin >> n; getline(cin, s); // s va fi gol — newline-ul rămas în buffer!</code><br/>
+          <span style="color:#4ade80;">✅ Fix: adaugă <code>cin.ignore();</code> între ele.</span>
+        </div>
+
+        <div class="callout warning">
+          <strong>⚠️ Array out-of-bounds — acces în afara vectorului</strong><br/>
+          <code>int v[10]; v[10] = 5; // index valid: 0..9, nu 10!</code><br/>
+          <span style="color:#4ade80;">✅ Fix: indexarea porneşte de la 0 — ultimul element valid este <code>v[n-1]</code>.</span>
+        </div>
+
+        <div class="callout warning">
+          <strong>⚠️ Împărţire întreagă în loc de reală</strong><br/>
+          <code>int a = 5, b = 2; double r = a / b; // r = 2.0, nu 2.5!</code><br/>
+          <span style="color:#4ade80;">✅ Fix: <code>double r = (double)a / b;</code> sau <code>double r = 1.0 * a / b;</code></span>
+        </div>
+
+        <div class="callout warning">
+          <strong>⚠️ Uitarea datelor din fişier la BAC</strong><br/>
+          <code>cin >> n; // GREŞIT la BAC — datele vin din fişier!</code><br/>
+          <span style="color:#4ade80;">✅ Fix: <code>ifstream fin("date.in"); fin >> n;</code></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. EXERCITII -->
 <section id="exercitii">
   <div class="slide">
     <div class="slide-header">
@@ -561,7 +663,7 @@ cin >> n;
       <h2>Exerciţii interactive — testează cunoştinţele de bază</h2>
     </div>
     <div class="slide-body">
-      <div class="quiz-section" data-quiz="intro-quiz" data-quiz-src="../data/exercises/introducere.json" data-quiz-max="10"></div>
+      <div class="quiz-section" data-quiz="intro-quiz" data-quiz-src={`${import.meta.env.BASE_URL}/data/exercises/introducere.json`} data-quiz-max="10"></div>
     </div>
   </div>
 </section>
