@@ -1,0 +1,331 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [
+  {"id":"declarare-struct","label":"Declarare struct"},
+  {"id":"campuri","label":"Câmpuri și acces"},
+  {"id":"array-struct","label":"Vector de structuri"},
+  {"id":"sortare-struct","label":"Sortare după câmp"},
+  {"id":"functii-struct","label":"Structuri în funcții"},
+  {"id":"bac-struct","label":"Probleme BAC"}
+];
+---
+<ChapterLayout
+  title="Structuri (struct)"
+  subtitle="Capitolul 10 — Tipuri compuse de date: declarare, câmpuri, vectori, sortare, BAC"
+  icon="🗂️"
+  gradient="linear-gradient(135deg,#2e1065 0%,#5b21b6 40%,#7c3aed 70%,#a78bfa 100%)"
+  tags={["struct","date compuse","sortare","BAC","tipuri utilizator"]}
+  sections={sections}
+  chapterNum={10}
+  description="Structuri (struct) în C++ — informatică pentru liceu și bacalaureat"
+>
+
+<!-- ─── 1. DECLARARE STRUCT ──────────────────────── -->
+<section id="declarare-struct">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🗂️</span>
+      <h2>Declarare struct</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">💡 Ce este un struct?</div>
+        <p>Un <strong>struct</strong> este un tip de dată definit de programator care grupează mai multe câmpuri de tipuri diferite sub un singur nume. Este util când vrem să reprezentăm o <em>entitate</em> (persoană, produs, student) cu mai multe atribute.</p>
+      </div>
+
+      <pre><span class="cm">// Sintaxa generală</span>
+<span class="kw">struct</span> NumeTip &#123;
+    tip1 camp1;
+    tip2 camp2;
+    <span class="cm">// ...</span>
+&#125;;  <span class="cm">// &lt;-- punct-virgulă obligatoriu!</span>
+
+<span class="cm">// Exemplu: struct pentru un student</span>
+<span class="kw">struct</span> Student &#123;
+    <span class="kw">char</span> nume[<span class="nu">50</span>];
+    <span class="kw">int</span> varsta;
+    <span class="kw">float</span> medie;
+&#125;;
+
+<span class="cm">// Declarare variabile de tip Student</span>
+Student s1, s2;
+Student clasa[<span class="nu">30</span>];  <span class="cm">// tablou de 30 de studenți</span></pre>
+
+      <div class="callout warning">
+        <strong>Atenție:</strong> Definiția struct-ului se pune <strong>global</strong> (înainte de orice funcție), nu înăuntrul lui <code>main()</code>. Altfel nu este vizibil în alte funcții.
+      </div>
+
+      <div class="callout info">
+        <strong>Struct tipice la BAC:</strong>
+        <ul style="margin:6px 0 0 0;padding-left:18px;">
+          <li>Persoana: nume + vârstă + salariu</li>
+          <li>Student: nume + medie + grup</li>
+          <li>Produs: cod + denumire + preț + stoc</li>
+          <li>Punct: x + y (coordonate 2D)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. CÂMPURI ȘI ACCES ──────────────────────── -->
+<section id="campuri">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🔍</span>
+      <h2>Câmpuri și acces</h2>
+    </div>
+    <div class="slide-body">
+      <p>Câmpurile se accesează cu <strong>operatorul punct <code>.</code></strong> (pentru variabile obișnuite) sau cu <strong>operatorul săgeată <code>-&gt;</code></strong> (pentru pointeri la struct).</p>
+
+      <pre><span class="kw">struct</span> Produs &#123;
+    <span class="kw">char</span> denumire[<span class="nu">50</span>];
+    <span class="kw">float</span> pret;
+    <span class="kw">int</span> stoc;
+&#125;;
+
+Produs p;
+
+<span class="cm">// Citire câmpuri</span>
+cin &gt;&gt; p.denumire &gt;&gt; p.pret &gt;&gt; p.stoc;
+
+<span class="cm">// Afișare câmpuri</span>
+cout &lt;&lt; p.denumire &lt;&lt; <span class="st">" "</span> &lt;&lt; p.pret &lt;&lt; <span class="st">" "</span> &lt;&lt; p.stoc &lt;&lt; endl;
+
+<span class="cm">// Modificare câmp</span>
+p.stoc -= <span class="nu">1</span>;  <span class="cm">// vânzare 1 produs</span>
+p.pret *= <span class="nu">1.1</span>;  <span class="cm">// scumpire 10%</span>
+
+<span class="cm">// Atribuire struct (copie completă a tuturor câmpurilor)</span>
+Produs p2 = p;  <span class="cm">// p2 este o copie independentă a lui p</span></pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card blue">
+          <strong>Operator punct <code>.</code></strong>
+          <p>Folosit cu variabile struct obișnuite: <code>p.pret</code>, <code>s.medie</code></p>
+        </div>
+        <div class="card blue">
+          <strong>Operator săgeată <code>-&gt;</code></strong>
+          <p>Folosit cu pointeri la struct: <code>ptr-&gt;pret</code> echivalent cu <code>(*ptr).pret</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. VECTOR DE STRUCTURI ───────────────────── -->
+<section id="array-struct">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">📋</span>
+      <h2>Vector de structuri</h2>
+    </div>
+    <div class="slide-body">
+      <p>Cel mai frecvent mod de utilizare la BAC: un <strong>tablou de struct-uri</strong> citit din tastatură sau fișier.</p>
+
+      <pre><span class="kw">struct</span> Elev &#123;
+    <span class="kw">char</span> nume[<span class="nu">30</span>];
+    <span class="kw">float</span> medie;
+    <span class="kw">int</span> clasa;
+&#125;;
+
+Elev v[<span class="nu">100</span>];
+<span class="kw">int</span> n;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin &gt;&gt; n;
+    <span class="cm">// Citire vector de struct-uri</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+        cin &gt;&gt; v[i].nume &gt;&gt; v[i].medie &gt;&gt; v[i].clasa;
+
+    <span class="cm">// Afișare</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+        cout &lt;&lt; v[i].nume &lt;&lt; <span class="st">"\t"</span> &lt;&lt; v[i].medie &lt;&lt; <span class="st">"\t"</span> &lt;&lt; v[i].clasa &lt;&lt; <span class="st">"\n"</span>;
+
+    <span class="cm">// Găsire elev cu media maximă</span>
+    <span class="kw">int</span> idxMax = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt; n; i++)
+        <span class="kw">if</span> (v[i].medie &gt; v[idxMax].medie)
+            idxMax = i;
+    cout &lt;&lt; <span class="st">"Cel mai bun elev: "</span> &lt;&lt; v[idxMax].nume &lt;&lt; endl;
+&#125;</pre>
+
+      <div class="callout success">
+        Parcurgerea unui vector de struct-uri se face exact ca la un vector obișnuit — cu <code>for (int i = 0; i &lt; n; i++)</code>, accesând câmpurile cu <code>v[i].câmp</code>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. SORTARE DUPĂ CÂMP ─────────────────────── -->
+<section id="sortare-struct">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🔀</span>
+      <h2>Sortare după câmp</h2>
+    </div>
+    <div class="slide-body">
+      <h3 style="font-size:15px;margin-bottom:8px;">Metoda 1: Bubble sort (clasic, O(n²))</h3>
+      <pre><span class="cm">// Sortare crescătoare după medie (Bubble Sort)</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n-<span class="nu">1</span>; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">0</span>; j &lt; n-i-<span class="nu">1</span>; j++)
+        <span class="kw">if</span> (v[j].medie &gt; v[j+<span class="nu">1</span>].medie) &#123;
+            Elev tmp = v[j];
+            v[j] = v[j+<span class="nu">1</span>];   <span class="cm">// interschimb complet (toate câmpurile)</span>
+            v[j+<span class="nu">1</span>] = tmp;
+        &#125;</pre>
+
+      <h3 style="font-size:15px;margin-bottom:8px;margin-top:18px;">Metoda 2: sort() cu comparator lambda (O(n log n))</h3>
+      <pre><span class="cm">// Necesită #include &lt;algorithm&gt;</span>
+
+<span class="cm">// Sortare crescătoare după medie</span>
+sort(v, v+n, [](<span class="kw">const</span> Elev& a, <span class="kw">const</span> Elev& b) &#123;
+    <span class="kw">return</span> a.medie &lt; b.medie;
+&#125;);
+
+<span class="cm">// Sortare descrescătoare după medie</span>
+sort(v, v+n, [](<span class="kw">const</span> Elev& a, <span class="kw">const</span> Elev& b) &#123;
+    <span class="kw">return</span> a.medie &gt; b.medie;
+&#125;);
+
+<span class="cm">// Sortare alfabetică după nume</span>
+sort(v, v+n, [](<span class="kw">const</span> Elev& a, <span class="kw">const</span> Elev& b) &#123;
+    <span class="kw">return</span> strcmp(a.nume, b.nume) &lt; <span class="nu">0</span>;
+&#125;);</pre>
+
+      <div class="callout info">
+        La BAC apare frecvent: <em>„sortează elevii descrescător după medie; la egalitate, crescător după nume"</em>
+      </div>
+      <pre><span class="cm">// Sortare cu criteriu dublu</span>
+sort(v, v+n, [](<span class="kw">const</span> Elev& a, <span class="kw">const</span> Elev& b) &#123;
+    <span class="kw">if</span> (a.medie != b.medie) <span class="kw">return</span> a.medie &gt; b.medie;  <span class="cm">// descrescător medie</span>
+    <span class="kw">return</span> strcmp(a.nume, b.nume) &lt; <span class="nu">0</span>;               <span class="cm">// crescător alfab.</span>
+&#125;);</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. STRUCTURI ÎN FUNCȚII ──────────────────── -->
+<section id="functii-struct">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">⚙️</span>
+      <h2>Structuri în funcții</h2>
+    </div>
+    <div class="slide-body">
+      <pre><span class="kw">struct</span> Punct &#123;
+    <span class="kw">double</span> x, y;
+&#125;;
+
+<span class="cm">// Transmitere prin valoare (funcția primește o COPIE)</span>
+<span class="kw">double</span> <span class="fn">distanta</span>(Punct a, Punct b) &#123;
+    <span class="kw">double</span> dx = a.x - b.x, dy = a.y - b.y;
+    <span class="kw">return</span> sqrt(dx*dx + dy*dy);  <span class="cm">// #include &lt;cmath&gt;</span>
+&#125;
+
+<span class="cm">// Transmitere prin referință (funcția modifică originalul)</span>
+<span class="kw">void</span> <span class="fn">translateaza</span>(Punct& p, <span class="kw">double</span> dx, <span class="kw">double</span> dy) &#123;
+    p.x += dx;  <span class="cm">// modifică originalul!</span>
+    p.y += dy;
+&#125;
+
+<span class="cm">// Funcție care returnează un struct</span>
+Punct <span class="fn">mijloc</span>(Punct a, Punct b) &#123;
+    Punct m;
+    m.x = (a.x + b.x) / <span class="nu">2</span>;
+    m.y = (a.y + b.y) / <span class="nu">2</span>;
+    <span class="kw">return</span> m;
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    Punct p1 = &#123;<span class="nu">0</span>, <span class="nu">0</span>&#125;, p2 = &#123;<span class="nu">3</span>, <span class="nu">4</span>&#125;;  <span class="cm">// inițializare cu liste</span>
+    cout &lt;&lt; <span class="fn">distanta</span>(p1, p2) &lt;&lt; endl;     <span class="cm">// 5.0</span>
+    <span class="fn">translateaza</span>(p1, <span class="nu">1</span>, <span class="nu">1</span>);              <span class="cm">// p1 devine (1,1)</span>
+    Punct m = <span class="fn">mijloc</span>(p1, p2);            <span class="cm">// m = (2, 2.5)</span>
+&#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card blue">
+          <strong>Prin valoare</strong>
+          <p>Funcția primește copie. Modificările nu afectează originalul. Potrivit pentru funcții care doar citesc.</p>
+        </div>
+        <div class="card green">
+          <strong>Prin referință (&amp;)</strong>
+          <p>Funcția modifică originalul. Potrivit pentru funcții de citire, sortare, modificare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. BAC STRUCT ─────────────────────────────── -->
+<section id="bac-struct">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🎓</span>
+      <h2>Probleme tip BAC — struct</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="font-size:15px;margin-bottom:8px;">Problema 1: Elevii cu media peste 9</h3>
+      <pre><span class="kw">struct</span> Elev &#123; <span class="kw">char</span> nume[<span class="nu">30</span>]; <span class="kw">float</span> medie; &#125;;
+Elev v[<span class="nu">100</span>]; <span class="kw">int</span> n;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin &gt;&gt; n;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cin &gt;&gt; v[i].nume &gt;&gt; v[i].medie;
+
+    <span class="cm">// a) Afișare elevi cu medie &gt; 9</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+        <span class="kw">if</span> (v[i].medie &gt; <span class="nu">9</span>) cout &lt;&lt; v[i].nume &lt;&lt; endl;
+
+    <span class="cm">// b) Sortare descrescătoare după medie</span>
+    sort(v, v+n, [](<span class="kw">const</span> Elev& a, <span class="kw">const</span> Elev& b) &#123;
+        <span class="kw">return</span> a.medie &gt; b.medie;
+    &#125;);
+
+    <span class="cm">// c) Afișare clasament</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+        cout &lt;&lt; i+<span class="nu">1</span> &lt;&lt; <span class="st">". "</span> &lt;&lt; v[i].nume &lt;&lt; <span class="st">" - "</span> &lt;&lt; v[i].medie &lt;&lt; <span class="st">"\n"</span>;
+&#125;</pre>
+
+      <h3 style="font-size:15px;margin-bottom:8px;margin-top:18px;">Problema 2: Inventar produse — prețul mediu și produsele sub medie</h3>
+      <pre><span class="kw">struct</span> Produs &#123; <span class="kw">char</span> cod[<span class="nu">10</span>]; <span class="kw">float</span> pret; <span class="kw">int</span> stoc; &#125;;
+Produs p[<span class="nu">500</span>]; <span class="kw">int</span> n;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin &gt;&gt; n;
+    <span class="kw">float</span> suma = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) &#123;
+        cin &gt;&gt; p[i].cod &gt;&gt; p[i].pret &gt;&gt; p[i].stoc;
+        suma += p[i].pret;
+    &#125;
+    <span class="kw">float</span> mediu = suma / n;
+    cout &lt;&lt; <span class="st">"Pret mediu: "</span> &lt;&lt; mediu &lt;&lt; endl;
+
+    <span class="cm">// Produse sub prețul mediu</span>
+    cout &lt;&lt; <span class="st">"Sub medie:"</span> &lt;&lt; endl;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++)
+        <span class="kw">if</span> (p[i].pret &lt; mediu)
+            cout &lt;&lt; p[i].cod &lt;&lt; <span class="st">": "</span> &lt;&lt; p[i].pret &lt;&lt; endl;
+&#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card green">
+          <strong>Pași problemă struct la BAC</strong>
+          <p>1. Declară struct global<br>2. Citește tablou de struct<br>3. Parcurge și filtrează<br>4. Sortează dacă e cerut<br>5. Afișează rezultate</p>
+        </div>
+        <div class="card blue">
+          <strong>Greșeli frecvente</strong>
+          <p>- Struct definit în main (nu e global)<br>- Uitat <code>;</code> după &#125; struct<br>- Sortat după câmpul greșit<br>- Compararea float cu <code>==</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div class="quiz-section" data-chapter="structuri"></div>
+</section>
+
+</ChapterLayout>

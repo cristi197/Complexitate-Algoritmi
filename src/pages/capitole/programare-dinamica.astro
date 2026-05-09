@@ -1,0 +1,343 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [
+  {"id":"fibonacci-dp","label":"Fibonacci — recursiv → DP"},
+  {"id":"memoizare","label":"Memoizare (top-down)"},
+  {"id":"dp-tabelar","label":"DP tabelar (bottom-up)"},
+  {"id":"lis","label":"Cel mai lung subșir crescător"},
+  {"id":"triunghi","label":"Triunghi de numere"},
+  {"id":"bac-dp","label":"Probleme BAC"}
+];
+---
+<ChapterLayout
+  title="Programare Dinamică"
+  subtitle="Capitolul 9 — De la recursivitate la DP: memoizare, tabel, LIS, triunghi"
+  icon="🧮"
+  gradient="linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#533483 100%)"
+  tags={["DP","Memoizare","LIS","Fibonacci","Triunghi Pascal"]}
+  sections={sections}
+  chapterNum={9}
+  description="Programare dinamică — informatică pentru liceu și bacalaureat"
+>
+
+<!-- ─── 1. FIBONACCI: RECURSIV → DP ─────────────── -->
+<section id="fibonacci-dp">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🧮</span>
+      <h2>Fibonacci — de la O(2ⁿ) la O(n)</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">💡 Ce este programarea dinamică?</div>
+        <p><strong>Programarea dinamică (DP)</strong> rezolvă problemele complexe spărgându-le în <em>subprobleme mai mici</em> și stocând rezultatele pentru a nu le recalcula. Se aplică când există <strong>subprobleme suprapuse</strong> — adică aceeași subproblemă apare de mai multe ori în recursivitate.</p>
+      </div>
+
+      <h3 style="margin-bottom:8px;font-size:15px;">Problema: recursivitate naivă — O(2ⁿ)</h3>
+      <pre><span class="cm">// Fibonacci recursiv NaIV — calculează de mii de ori aceleași valori!</span>
+<span class="kw">int</span> <span class="fn">fib</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n &lt;= <span class="nu">1</span>) <span class="kw">return</span> n;          <span class="cm">// caz de bază</span>
+    <span class="kw">return</span> <span class="fn">fib</span>(n-<span class="nu">1</span>) + <span class="fn">fib</span>(n-<span class="nu">2</span>);  <span class="cm">// O(2^n) apeluri!</span>
+&#125;
+<span class="cm">// fib(40) = ~2 miliarde operații → prea lent!</span></pre>
+
+      <div class="callout warning">
+        <strong>Problema:</strong> <code>fib(5)</code> calculează <code>fib(3)</code> de <strong>2 ori</strong>, <code>fib(2)</code> de <strong>3 ori</strong>. La n=40, se fac ~2 miliarde de apeluri pentru valori deja cunoscute.
+      </div>
+
+      <h3 style="margin-bottom:8px;font-size:15px;margin-top:18px;">Soluția DP: tabel — O(n)</h3>
+      <pre><span class="kw">int</span> dp[<span class="nu">100</span>];   <span class="cm">// dp[i] = al i-lea număr Fibonacci</span>
+
+<span class="kw">void</span> <span class="fn">calcFibDP</span>(<span class="kw">int</span> n) &#123;
+    dp[<span class="nu">0</span>] = <span class="nu">0</span>;  dp[<span class="nu">1</span>] = <span class="nu">1</span>;   <span class="cm">// cazuri de bază</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+        dp[i] = dp[i-<span class="nu">1</span>] + dp[i-<span class="nu">2</span>];  <span class="cm">// fiecare valoare calculată o singură dată</span>
+&#125;
+<span class="cm">// fib(40) = 8 operații, nu 2 miliarde!</span></pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card red">
+          <strong>Recursiv naiv</strong>
+          <p>Complexitate: <strong>O(2ⁿ)</strong><br>n=40 → ~2 miliarde ops<br>Lent, inacceptabil la BAC</p>
+        </div>
+        <div class="card green">
+          <strong>DP (tabel)</strong>
+          <p>Complexitate: <strong>O(n)</strong><br>n=40 → 40 operații<br>Rapid, eficient</p>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <strong>Regula de aur DP:</strong> Dacă o funcție recursivă recalculează aceleași valori, transformă-o în DP — salvează rezultatele într-un tablou.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. MEMOIZARE ─────────────────────────────── -->
+<section id="memoizare">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">💾</span>
+      <h2>Memoizare (DP top-down)</h2>
+    </div>
+    <div class="slide-body">
+      <p>Memoizarea adaugă un <strong>cache</strong> funcției recursive existente. La primul apel, calculează și salvează. La apelurile ulterioare, returnează direct valoarea salvată.</p>
+
+      <pre><span class="kw">int</span> memo[<span class="nu">10001</span>];   <span class="cm">// inițializat cu -1 = "necalculat"</span>
+
+<span class="kw">int</span> <span class="fn">fib</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n &lt;= <span class="nu">1</span>) <span class="kw">return</span> n;
+    <span class="kw">if</span> (memo[n] != -<span class="nu">1</span>) <span class="kw">return</span> memo[n];  <span class="cm">// deja calculat → returnează direct</span>
+    memo[n] = <span class="fn">fib</span>(n-<span class="nu">1</span>) + <span class="fn">fib</span>(n-<span class="nu">2</span>);    <span class="cm">// calculează și salvează</span>
+    <span class="kw">return</span> memo[n];
+&#125;
+
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="cm">// Inițializare obligatorie!</span>
+    fill(memo, memo + <span class="nu">10001</span>, -<span class="nu">1</span>);
+    cout &lt;&lt; <span class="fn">fib</span>(<span class="nu">100</span>) &lt;&lt; endl;  <span class="cm">// O(n) apeluri în total</span>
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>Template general memoizare:</strong>
+      </div>
+      <pre><span class="kw">int</span> cache[MAXN];
+memset(cache, -<span class="nu">1</span>, <span class="kw">sizeof</span>(cache));  <span class="cm">// sau fill()</span>
+
+<span class="kw">int</span> <span class="fn">solve</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (<span class="cm">/* caz de baza */</span>) <span class="kw">return</span> <span class="cm">/* valoare_baza */</span>;
+    <span class="kw">if</span> (cache[n] != -<span class="nu">1</span>) <span class="kw">return</span> cache[n];
+    cache[n] = <span class="cm">/* calcul bazat pe apeluri recursive */</span>;
+    <span class="kw">return</span> cache[n];
+&#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;margin:14px 0;">
+        <div class="card blue">
+          <strong>Avantaj</strong>
+          <p>Cod simplu, se pornește de la soluția recursivă existentă</p>
+        </div>
+        <div class="card blue">
+          <strong>Dezavantaj</strong>
+          <p>Stiva de recursivitate — stack overflow pentru n mare</p>
+        </div>
+        <div class="card blue">
+          <strong>Complexitate</strong>
+          <p>Timp: O(n) · Spațiu: O(n) pentru cache + O(n) stack</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. DP TABELAR ─────────────────────────────── -->
+<section id="dp-tabelar">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">📊</span>
+      <h2>DP tabelar (bottom-up)</h2>
+    </div>
+    <div class="slide-body">
+      <p>DP <strong>bottom-up</strong> construiește tabelul <em>de la cazuri mici la mari</em>, fără recursivitate. Este mai eficient ca memorie și evită stack overflow.</p>
+
+      <pre><span class="cm">// Fibonacci bottom-up cu tabel complet — O(n) timp, O(n) spațiu</span>
+<span class="kw">int</span> dp[<span class="nu">100001</span>];
+dp[<span class="nu">0</span>] = <span class="nu">0</span>; dp[<span class="nu">1</span>] = <span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+    dp[i] = dp[i-<span class="nu">1</span>] + dp[i-<span class="nu">2</span>];
+cout &lt;&lt; dp[n] &lt;&lt; endl;
+
+<span class="cm">// Optimizat cu 2 variabile — O(n) timp, O(1) spațiu!</span>
+<span class="kw">int</span> a = <span class="nu">0</span>, b = <span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++) &#123;
+    <span class="kw">int</span> c = a + b;
+    a = b; b = c;
+&#125;
+cout &lt;&lt; b &lt;&lt; endl;  <span class="cm">// Fibonacci(n)</span></pre>
+
+      <div class="callout info">
+        <strong>Număr de modalități de a urca n trepte (1 sau 2 trepte odată)</strong> — problemă clasică DP:
+      </div>
+      <pre><span class="cm">// dp[i] = nr. moduri de a ajunge la treapta i</span>
+<span class="kw">int</span> dp[<span class="nu">1001</span>];
+dp[<span class="nu">0</span>] = <span class="nu">1</span>;  <span class="cm">// 0 trepte: 1 mod (nu faci nimic)</span>
+dp[<span class="nu">1</span>] = <span class="nu">1</span>;  <span class="cm">// 1 treaptă: 1 mod (un pas de 1)</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+    dp[i] = dp[i-<span class="nu">1</span>] + dp[i-<span class="nu">2</span>];  <span class="cm">// vin din treapta i-1 (1 pas) sau i-2 (2 pași)</span>
+cout &lt;&lt; dp[n] &lt;&lt; endl;</pre>
+
+      <div class="callout success">
+        <strong>Structura oricărei soluții DP:</strong><br>
+        1. Definește <code>dp[i]</code> (ce reprezintă)<br>
+        2. Cazuri de bază (dp[0], dp[1], ...)<br>
+        3. Relație de recurență (cum dp[i] depinde de dp[j], j&lt;i)<br>
+        4. Răspunsul (dp[n] sau max din dp[])
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. LIS ─────────────────────────────────────── -->
+<section id="lis">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">📈</span>
+      <h2>Cel mai lung subșir strict crescător (LIS)</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">📖 Definiție</div>
+        <p>Dat un vector <code>v[1..n]</code>, găsim cel mai lung subșir de <strong>indici</strong> <code>i₁ &lt; i₂ &lt; ... &lt; iₖ</code> cu <code>v[i₁] &lt; v[i₂] &lt; ... &lt; v[iₖ]</code>. Elementele selectate nu trebuie să fie consecutive în vector.</p>
+        <p><strong>Exemplu:</strong> v = [3, 1, 4, 1, 5, 9, 2, 6] → LIS = [1, 4, 5, 9] sau [1, 4, 5, 6], lungime = <strong>4</strong></p>
+      </div>
+
+      <h3 style="margin-bottom:8px;font-size:15px;">Soluție DP — O(n²)</h3>
+      <pre><span class="cm">// dp[i] = lungimea celui mai lung subșir crescător care se termină la v[i]</span>
+<span class="kw">int</span> v[<span class="nu">1001</span>], dp[<span class="nu">1001</span>], n;
+
+<span class="kw">int</span> <span class="fn">lisLength</span>() &#123;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+        dp[i] = <span class="nu">1</span>;  <span class="cm">// minim: subșir cu un singur element</span>
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt; i; j++)
+            <span class="kw">if</span> (v[j] &lt; v[i])               <span class="cm">// v[j] poate precede v[i]</span>
+                dp[i] = max(dp[i], dp[j] + <span class="nu">1</span>);
+    &#125;
+    <span class="kw">int</span> lis = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        lis = max(lis, dp[i]);
+    <span class="kw">return</span> lis;  <span class="cm">// O(n²)</span>
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>Trasare pe exemplu:</strong> v = [3, 1, 4, 1, 5]
+        <br>dp[1]=1 (v[1]=3), dp[2]=1 (v[2]=1), dp[3]=2 (1&lt;4: dp[2]+1),
+        <br>dp[4]=1 (v[4]=1, nimic mai mic), dp[5]=3 (4&lt;5: dp[3]+1)
+        <br>→ LIS = max(1,1,2,1,3) = <strong>3</strong>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card blue">
+          <strong>LIS clasic — O(n²)</strong>
+          <p>Două bucle imbricate. Suficient pentru n≤5000 la BAC.</p>
+        </div>
+        <div class="card green">
+          <strong>LIS optimizat — O(n log n)</strong>
+          <p>Folosește Binary Search pentru n ≤ 10⁵. Nu e cerut la BAC M-I standard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. TRIUNGHI ────────────────────────────────── -->
+<section id="triunghi">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🔺</span>
+      <h2>Triunghi de numere — suma maximă</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">📖 Problema</div>
+        <p>Dat un triunghi de numere cu n rânduri, se coboară de la vârf (rândul 1) la baza (rândul n), la fiecare pas mișcând-ne pe <em>același indice sau indicele+1</em>. Găsim drumul cu <strong>suma maximă</strong>.</p>
+      </div>
+
+      <pre><span class="cm">// Exemplu triunghi (n=4):</span>
+<span class="cm">//    7</span>
+<span class="cm">//   3 8</span>
+<span class="cm">//  8 1 0</span>
+<span class="cm">// 2 7 4 4</span>
+<span class="cm">// Drum optim: 7→8→1→7 = 23 (sau 7→3→8→7=25)</span>
+
+<span class="kw">int</span> t[<span class="nu">101</span>][<span class="nu">101</span>], dp[<span class="nu">101</span>][<span class="nu">101</span>], n;
+
+<span class="cm">// DP bottom-up (de la baza spre vârf)</span>
+<span class="kw">void</span> <span class="fn">triunghi</span>() &#123;
+    <span class="cm">// Copiem baza ca stare inițială</span>
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n; j++)
+        dp[n][j] = t[n][j];
+
+    <span class="cm">// Urcăm de la rândul n-1 spre rândul 1</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = n-<span class="nu">1</span>; i &gt;= <span class="nu">1</span>; i--)
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= i; j++)
+            dp[i][j] = t[i][j] + max(dp[i+<span class="nu">1</span>][j], dp[i+<span class="nu">1</span>][j+<span class="nu">1</span>]);
+
+    cout &lt;&lt; <span class="st">"Suma maxima: "</span> &lt;&lt; dp[<span class="nu">1</span>][<span class="nu">1</span>] &lt;&lt; endl;  <span class="cm">// O(n²)</span>
+&#125;</pre>
+
+      <div class="callout info">
+        <strong>Alternativ (top-down):</strong> <code>dp[i][j] = t[i][j] + max(dp[i-1][j-1], dp[i-1][j])</code>, pornind de la vârf. Ambele variante sunt echivalente.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. BAC DP ──────────────────────────────────── -->
+<section id="bac-dp">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🎓</span>
+      <h2>Probleme tip BAC — Programare Dinamică</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3 style="font-size:15px;margin-bottom:8px;">Problema 1: Cel mai lung subșir de valori egale consecutive</h3>
+      <pre><span class="cm">// Cerință: găsește lungimea maximă a unui bloc de valori egale în șir</span>
+<span class="kw">int</span> v[<span class="nu">1001</span>], n;
+<span class="kw">int</span> maxLen = <span class="nu">1</span>, cur = <span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++) &#123;
+    <span class="kw">if</span> (v[i] == v[i-<span class="nu">1</span>]) cur++;
+    <span class="kw">else</span> cur = <span class="nu">1</span>;
+    maxLen = max(maxLen, cur);
+&#125;
+cout &lt;&lt; maxLen;</pre>
+
+      <h3 style="font-size:15px;margin-bottom:8px;margin-top:18px;">Problema 2: Fibonacci(n) modulo 10⁹+7</h3>
+      <pre><span class="kw">const</span> <span class="kw">int</span> MOD = <span class="nu">1000000007</span>;
+<span class="kw">long</span> <span class="kw">long</span> dp[<span class="nu">1000001</span>];
+
+dp[<span class="nu">0</span>] = <span class="nu">0</span>; dp[<span class="nu">1</span>] = <span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; i &lt;= n; i++)
+    dp[i] = (dp[i-<span class="nu">1</span>] + dp[i-<span class="nu">2</span>]) % MOD;
+cout &lt;&lt; dp[n];</pre>
+
+      <h3 style="font-size:15px;margin-bottom:8px;margin-top:18px;">Problema 3: LIS — lungime și reconstituire</h3>
+      <pre><span class="kw">int</span> v[<span class="nu">1001</span>], dp[<span class="nu">1001</span>], prev_idx[<span class="nu">1001</span>], n;
+
+<span class="kw">void</span> <span class="fn">lis_reconstituire</span>() &#123;
+    <span class="kw">int</span> best_end = <span class="nu">1</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+        dp[i] = <span class="nu">1</span>; prev_idx[i] = -<span class="nu">1</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt; i; j++)
+            <span class="kw">if</span> (v[j] &lt; v[i] && dp[j] + <span class="nu">1</span> &gt; dp[i]) &#123;
+                dp[i] = dp[j] + <span class="nu">1</span>;
+                prev_idx[i] = j;
+            &#125;
+        <span class="kw">if</span> (dp[i] &gt; dp[best_end]) best_end = i;
+    &#125;
+    <span class="cm">// Reconstituire (de la coadă spre cap)</span>
+    <span class="kw">int</span> idx = best_end;
+    <span class="kw">while</span> (idx != -<span class="nu">1</span>) &#123;
+        cout &lt;&lt; v[idx] &lt;&lt; <span class="st">" "</span>;
+        idx = prev_idx[idx];
+    &#125;
+&#125;</pre>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="card green">
+          <strong>Subiecte unde apare DP la BAC</strong>
+          <p>Fibonacci, nr. modalități de dispunere, LIS, suma maximă pe drum în triunghi, probleme de numărare cu restricții</p>
+        </div>
+        <div class="card blue">
+          <strong>Identificare rapidă</strong>
+          <p>Dacă problema cere „numărul de moduri" sau „cea mai bună/lungă cale" — gândește-te la DP!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div class="quiz-section" data-chapter="programare-dinamica"></div>
+</section>
+
+</ChapterLayout>

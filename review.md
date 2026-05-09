@@ -480,12 +480,15 @@ Programare dinamică (M-I intensiv)   █░░░░░░░░░  10%  ← G
 - [x] Sidebar actualizat — capitol Funcții adăugat (num=8), linkuri Cheat Sheet și Greșeli frecvente în Instrumente
 - [x] platform.js actualizat — `functii.html` adăugat în array CHAPTERS (js/ și public/js/)
 
-### Sprint 3 — Features (1–2 luni)
-- [ ] Editor de cod integrat (Piston API sau iframe)
-- [ ] Capitol Programare Dinamică — introducere
-- [ ] Capitol Structuri (struct)
-- [ ] Modul examen alb cu timer
-- [ ] Streak calendar de studiu
+### Sprint 3 — Features (1–2 luni) ✅ FINALIZAT
+
+- [x] Editor de cod integrat (Piston API) — `src/pages/editor.astro` cu 8 template-uri, fetch POST la `emkc.org/api/v2/piston/execute`
+- [x] Capitol Programare Dinamică — `src/pages/capitole/programare-dinamica.astro` (chapterNum=9), 6 secțiuni, quiz 12 întrebări
+- [x] Capitol Structuri (struct) — `src/pages/capitole/structuri.astro` (chapterNum=10), 6 secțiuni, quiz 10 întrebări
+- [x] Modul examen alb cu timer — `src/pages/examen-alb.astro`, 3h countdown, 3 subiecte × 5 întrebări, salvare `infoExamHistory`
+- [x] Streak calendar de studiu — `src/pages/streak.astro`, heatmap lunar, streak curent/maxim, auto-mark la vizitare
+- [x] Sidebar actualizat — capitole 9 și 10 adăugate, linkuri Editor/Examen Alb/Calendar Studiu
+- [x] platform.js actualizat — `programare-dinamica.html` (num=9), `structuri.html` (num=10)
 
 ### Sprint 4 — Polish (ongoing)
 - [ ] SEO meta tags unice per pagină

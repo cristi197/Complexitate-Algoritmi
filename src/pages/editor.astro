@@ -1,0 +1,472 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const templates = [
+  {
+    label: "Hello World",
+    code: `#include<iostream>
+using namespace std;
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}`
+  },
+  {
+    label: "Citire și afișare vector",
+    code: `#include<iostream>
+using namespace std;
+int v[100], n;
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = 0; i < n; i++) cout << v[i] << " ";
+    cout << endl;
+    return 0;
+}`
+  },
+  {
+    label: "Bubble Sort",
+    code: `#include<iostream>
+using namespace std;
+int v[100], n;
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> v[i];
+    // Bubble Sort
+    for (int i = 0; i < n-1; i++)
+        for (int j = 0; j < n-i-1; j++)
+            if (v[j] > v[j+1]) {
+                int tmp = v[j]; v[j] = v[j+1]; v[j+1] = tmp;
+            }
+    for (int i = 0; i < n; i++) cout << v[i] << " ";
+    return 0;
+}`
+  },
+  {
+    label: "Căutare binară",
+    code: `#include<iostream>
+using namespace std;
+int v[100], n;
+int binarySearch(int x) {
+    int st = 0, dr = n-1;
+    while (st <= dr) {
+        int mij = (st + dr) / 2;
+        if (v[mij] == x) return mij;
+        else if (v[mij] < x) st = mij + 1;
+        else dr = mij - 1;
+    }
+    return -1;  // negasit
+}
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> v[i];
+    int x; cin >> x;
+    int idx = binarySearch(x);
+    if (idx != -1) cout << "Gasit la pozitia " << idx << endl;
+    else cout << "Negasit" << endl;
+    return 0;
+}`
+  },
+  {
+    label: "Fibonacci DP",
+    code: `#include<iostream>
+using namespace std;
+int dp[100];
+int main() {
+    int n; cin >> n;
+    dp[0] = 0; dp[1] = 1;
+    for (int i = 2; i <= n; i++)
+        dp[i] = dp[i-1] + dp[i-2];
+    cout << "Fibonacci(" << n << ") = " << dp[n] << endl;
+    return 0;
+}`
+  },
+  {
+    label: "Ciurul lui Eratostene",
+    code: `#include<iostream>
+using namespace std;
+const int MAXN = 1000001;
+bool ciur[MAXN];
+int main() {
+    int n; cin >> n;
+    // ciur[i] = true inseamna ca i e COMPUS
+    for (int i = 2; (long long)i*i <= n; i++)
+        if (!ciur[i])
+            for (int j = i*i; j <= n; j += i)
+                ciur[j] = true;
+    cout << "Numere prime pana la " << n << ": ";
+    for (int i = 2; i <= n; i++)
+        if (!ciur[i]) cout << i << " ";
+    cout << endl;
+    return 0;
+}`
+  },
+  {
+    label: "Factorial recursiv",
+    code: `#include<iostream>
+using namespace std;
+long long fact(int n) {
+    if (n <= 1) return 1;
+    return n * fact(n-1);
+}
+int main() {
+    int n; cin >> n;
+    cout << n << "! = " << fact(n) << endl;
+    return 0;
+}`
+  },
+  {
+    label: "CMMDC (algoritmul lui Euclid)",
+    code: `#include<iostream>
+using namespace std;
+int cmmdc(int a, int b) {
+    while (b) { int r = a % b; a = b; b = r; }
+    return a;
+}
+int main() {
+    int a, b; cin >> a >> b;
+    cout << "CMMDC(" << a << ", " << b << ") = " << cmmdc(a, b) << endl;
+    cout << "CMMMC = " << (long long)a / cmmdc(a,b) * b << endl;
+    return 0;
+}`
+  }
+];
+---
+<BaseLayout title="Editor C++ Online — InfoLiceu">
+  <Header />
+
+  <main class="editor-page">
+    <!-- Hero -->
+    <div class="editor-hero">
+      <div class="editor-hero__inner">
+        <h1><span>⌨️</span> Editor C++ Online</h1>
+        <p>Scrie, testează și rulează cod C++ direct în browser — fără instalare. Codul este executat pe serverele Piston (open-source).</p>
+      </div>
+    </div>
+
+    <div class="editor-layout">
+      <!-- Panoul stâng: cod + stdin -->
+      <div class="editor-panel editor-panel--left">
+        <div class="editor-toolbar">
+          <label for="templateSelect" class="editor-label">📁 Template:</label>
+          <select id="templateSelect" class="editor-select">
+            {templates.map((t, i) => <option value={i}>{t.label}</option>)}
+          </select>
+          <button id="btnCopy" class="editor-btn editor-btn--secondary" title="Copiază codul">
+            📋 Copiază
+          </button>
+          <button id="btnClear" class="editor-btn editor-btn--secondary" title="Șterge tot">
+            🗑️ Șterge
+          </button>
+        </div>
+
+        <label class="editor-label">📝 Cod C++</label>
+        <textarea id="codeArea" class="editor-textarea editor-textarea--code" spellcheck="false"></textarea>
+
+        <label class="editor-label" style="margin-top:12px;">📥 Date de intrare (stdin)</label>
+        <textarea id="stdinArea" class="editor-textarea editor-textarea--stdin" placeholder="Introduceți datele de intrare (opțional)..." spellcheck="false"></textarea>
+
+        <div class="editor-actions">
+          <button id="btnRun" class="editor-btn editor-btn--run">
+            ▶ Rulează
+          </button>
+          <span id="runStatus" class="editor-status"></span>
+        </div>
+
+        <div class="editor-disclaimer">
+          <strong>ℹ️ Notă:</strong> Codul rulează pe serverele publice <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener noreferrer">Piston</a> (engineer-man/piston). Nu trimite informații personale sau cod sensibil. Timp maxim execuție: ~10 secunde.
+        </div>
+      </div>
+
+      <!-- Panoul drept: output -->
+      <div class="editor-panel editor-panel--right">
+        <label class="editor-label">📤 Rezultat (stdout + stderr)</label>
+        <div id="outputArea" class="editor-output">
+          <span class="editor-output__placeholder">Apasă „▶ Rulează" pentru a executa codul...</span>
+        </div>
+
+        <div id="execInfo" class="editor-exec-info" style="display:none;">
+          <span id="execTime"></span>
+          <span id="execCode"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .editor-page { min-height: 100vh; padding-bottom: 48px; }
+
+    .editor-hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #1d4ed8 50%, #0ea5e9 100%);
+      padding: 40px 24px 36px;
+      text-align: center;
+      color: #fff;
+    }
+    .editor-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); margin: 0 0 10px; }
+    .editor-hero h1 span { margin-right: 8px; }
+    .editor-hero p { opacity: .85; max-width: 600px; margin: 0 auto; font-size: 1rem; }
+
+    .editor-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1280px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+    }
+    @media (max-width: 900px) { .editor-layout { grid-template-columns: 1fr; } }
+
+    .editor-panel { display: flex; flex-direction: column; gap: 6px; }
+
+    .editor-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .editor-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-muted, #888);
+      letter-spacing: .03em;
+    }
+
+    .editor-select {
+      flex: 1;
+      min-width: 160px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1.5px solid var(--color-border, #334155);
+      background: var(--color-surface, #1e293b);
+      color: var(--color-text, #f1f5f9);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .editor-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s, transform .1s;
+    }
+    .editor-btn:active { transform: scale(.97); }
+    .editor-btn--run {
+      background: linear-gradient(90deg,#22c55e,#16a34a);
+      color: #fff;
+      font-size: 15px;
+      padding: 10px 28px;
+    }
+    .editor-btn--secondary {
+      background: var(--color-surface, #1e293b);
+      color: var(--color-text-muted, #94a3b8);
+      border: 1.5px solid var(--color-border, #334155);
+    }
+    .editor-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    .editor-textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1.5px solid var(--color-border, #334155);
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 14px;
+      resize: vertical;
+      box-sizing: border-box;
+      tab-size: 4;
+    }
+    .editor-textarea--code { height: 380px; }
+    .editor-textarea--stdin { height: 80px; }
+    .editor-textarea:focus { outline: 2px solid #3b82f6; }
+
+    .editor-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .editor-status {
+      font-size: 13px;
+      color: var(--color-text-muted, #888);
+      font-style: italic;
+    }
+
+    .editor-disclaimer {
+      font-size: 12px;
+      color: var(--color-text-muted, #64748b);
+      background: var(--color-surface, #1e293b);
+      border: 1px solid var(--color-border, #334155);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 8px;
+    }
+    .editor-disclaimer a { color: #60a5fa; }
+
+    .editor-output {
+      flex: 1;
+      min-height: 400px;
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      border-radius: 10px;
+      border: 1.5px solid var(--color-border, #334155);
+      padding: 14px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-y: auto;
+    }
+    .editor-output--error { border-color: #ef4444; }
+    .editor-output--success { border-color: #22c55e; }
+    .editor-output__placeholder { color: #4b5563; font-style: italic; }
+
+    .editor-exec-info {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--color-text-muted, #64748b);
+      margin-top: 6px;
+    }
+    #execTime::before { content: "⏱ Timp: "; }
+    #execCode::before { content: "🔢 Exit code: "; }
+  </style>
+
+  <script id="editor-templates-data" type="application/json" set:html={JSON.stringify(templates)}></script>
+  <script is:inline>
+  (function() {
+    var templates = JSON.parse(document.getElementById('editor-templates-data').textContent);
+
+    var codeArea   = document.getElementById('codeArea');
+    var stdinArea  = document.getElementById('stdinArea');
+    var outputArea = document.getElementById('outputArea');
+    var btnRun     = document.getElementById('btnRun');
+    var btnCopy    = document.getElementById('btnCopy');
+    var btnClear   = document.getElementById('btnClear');
+    var runStatus  = document.getElementById('runStatus');
+    var execInfo   = document.getElementById('execInfo');
+    var execTime   = document.getElementById('execTime');
+    var execCode   = document.getElementById('execCode');
+    var tplSelect  = document.getElementById('templateSelect');
+
+    // Load template 0 by default
+    function loadTemplate(idx) {
+      if (templates[idx]) codeArea.value = templates[idx].code;
+    }
+    loadTemplate(0);
+
+    tplSelect.addEventListener('change', function() {
+      loadTemplate(parseInt(tplSelect.value, 10));
+    });
+
+    btnCopy.addEventListener('click', function() {
+      navigator.clipboard.writeText(codeArea.value).then(function() {
+        btnCopy.textContent = '✅ Copiat!';
+        setTimeout(function() { btnCopy.textContent = '📋 Copiază'; }, 2000);
+      });
+    });
+
+    btnClear.addEventListener('click', function() {
+      if (confirm('Ștergi tot codul din editor?')) {
+        codeArea.value = '';
+        stdinArea.value = '';
+      }
+    });
+
+    // Tab key inserts spaces
+    codeArea.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        var start = codeArea.selectionStart;
+        var end   = codeArea.selectionEnd;
+        codeArea.value = codeArea.value.substring(0, start) + '    ' + codeArea.value.substring(end);
+        codeArea.selectionStart = codeArea.selectionEnd = start + 4;
+      }
+    });
+
+    btnRun.addEventListener('click', function() {
+      var code  = codeArea.value.trim();
+      var stdin = stdinArea.value;
+      if (!code) { alert('Introduceți cod C++ înainte de rulare.'); return; }
+
+      btnRun.disabled = true;
+      runStatus.textContent = 'Se compilează și execută...';
+      outputArea.className = 'editor-output';
+      outputArea.innerHTML = '<span class="editor-output__placeholder">⏳ Execuție în curs...</span>';
+      execInfo.style.display = 'none';
+
+      fetch('https://emkc.org/api/v2/piston/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          language: 'cpp',
+          version: '10.2.0',
+          files: [{ name: 'main.cpp', content: code }],
+          stdin: stdin,
+          run_timeout: 10000,
+          compile_timeout: 10000
+        })
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        var out = '';
+        var hasError = false;
+
+        if (data.compile && data.compile.stderr && data.compile.stderr.trim()) {
+          out += '⚠️ EROARE COMPILARE:\n' + data.compile.stderr + '\n';
+          hasError = true;
+        }
+
+        if (data.run) {
+          if (data.run.stdout && data.run.stdout.trim()) {
+            out += data.run.stdout;
+          }
+          if (data.run.stderr && data.run.stderr.trim()) {
+            out += '\n⚠️ STDERR:\n' + data.run.stderr;
+            hasError = true;
+          }
+
+          var code_exit = data.run.code;
+          if (data.run.signal) {
+            out += '\n⚠️ Semnal: ' + data.run.signal;
+            hasError = true;
+          }
+
+          execCode.textContent = code_exit !== null ? code_exit : '—';
+          if (data.run.cpu_time !== undefined) {
+            execTime.textContent = (data.run.cpu_time / 1000).toFixed(3) + 's';
+          }
+          execInfo.style.display = 'flex';
+        }
+
+        if (!out.trim()) out = '(fără output)';
+        outputArea.textContent = out;
+        outputArea.classList.add(hasError ? 'editor-output--error' : 'editor-output--success');
+        runStatus.textContent = hasError ? '❌ Eroare' : '✅ Rulat cu succes';
+      })
+      .catch(function(err) {
+        outputArea.textContent = '❌ Nu s-a putut conecta la serverul de execuție.\nVerifică conexiunea la internet.\n\nDetalii: ' + err.message;
+        outputArea.classList.add('editor-output--error');
+        runStatus.textContent = '❌ Conexiune eșuată';
+      })
+      .finally(function() {
+        btnRun.disabled = false;
+      });
+    });
+  })();
+  </script>
+</BaseLayout>

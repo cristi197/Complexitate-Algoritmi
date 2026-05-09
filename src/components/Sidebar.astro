@@ -17,6 +17,8 @@ const chapters = [
   { num: 5, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  colorVar: 'teal'   },
   { num: 6, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  colorVar: 'red'    },
   { num: 7, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  colorVar: 'pink'   },
+  { num: 9, file: 'programare-dinamica', title: 'Programare Dinamică',      icon: '🧮',  colorVar: 'teal'   },
+  { num: 10, file: 'structuri',      title: 'Structuri (struct)',          icon: '🗂️', colorVar: 'purple' },
 ];
 ---
 <nav class="sidebar" id="sidebar" aria-label="Navigare capitole">
@@ -70,6 +72,19 @@ const chapters = [
     <a href={`${base}/cheat-sheet`} class="sidebar-link sidebar-link--exercises">
       <span class="ch-icon ch-icon--exercises" aria-hidden="true">📄</span>
       <span class="ch-title">Cheat Sheet printabil</span>
+    </a>
+    <a href={`${base}/editor`} class="sidebar-link sidebar-link--exercises">
+      <span class="ch-icon ch-icon--exercises" aria-hidden="true">⌨️</span>
+      <span class="ch-title">Editor C++ Online</span>
+      <span class="sidebar-link-badge sidebar-link-badge--new">NOU</span>
+    </a>
+    <a href={`${base}/examen-alb`} class="sidebar-link sidebar-link--exercises">
+      <span class="ch-icon ch-icon--exercises" aria-hidden="true">⏱️</span>
+      <span class="ch-title">Examen Alb 3h</span>
+    </a>
+    <a href={`${base}/streak`} class="sidebar-link sidebar-link--exercises">
+      <span class="ch-icon ch-icon--exercises" aria-hidden="true">📅</span>
+      <span class="ch-title">Calendar Studiu</span>
     </a>
   </div>
 </nav>
