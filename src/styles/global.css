@@ -1915,6 +1915,177 @@ body.has-audiobook.has-chapter-nav .quiz-float-btn { bottom: 250px; }
 .breadcrumbs a:hover { color: var(--primary); }
 .breadcrumbs-sep { opacity: 0.5; }
 
+/* ══════════════════════════════════════════════════════════════
+   DEMO ANIMATIONS — Queens, Matrix, Call Stack, Vector
+══════════════════════════════════════════════════════════════ */
+
+/* ── N-Queens board cells ─────────────────────────────────── */
+.bt-cell {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  cursor: default; user-select: none;
+}
+.bt-cell:nth-child(odd of .bt-row-even)  { background: #f0d9b5; }
+.bt-cell:nth-child(even of .bt-row-even) { background: #b58863; }
+.bt-cell.queen    { color: #1e293b; font-size: 1.6rem; background: #dcfce7 !important; border-color: #16a34a !important; }
+.bt-cell.trying   { background: #fef9c3 !important; border-color: #ca8a04 !important; }
+.bt-cell.fail     { background: #fef2f2 !important; border-color: #ef4444 !important; }
+.bt-cell.safe     { background: #f0fdf4 !important; border-color: #22c55e !important; }
+[data-theme="dark"] .bt-cell          { background: #1e293b; border-color: #334155; }
+[data-theme="dark"] .bt-cell.queen   { background: #14532d !important; border-color: #22c55e !important; color: #86efac; }
+[data-theme="dark"] .bt-cell.trying  { background: #422006 !important; border-color: #d97706 !important; }
+[data-theme="dark"] .bt-cell.fail    { background: #450a0a !important; border-color: #dc2626 !important; }
+[data-theme="dark"] .bt-cell.safe    { background: #052e16 !important; border-color: #16a34a !important; }
+
+/* speed slider row */
+.speed-wrap {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-size: 13px; color: var(--text-muted);
+}
+.speed-wrap input[type="range"] { width: 120px; accent-color: var(--primary); }
+.speed-label { font-weight: 600; color: var(--text); }
+
+/* ── Matrix zone demo ─────────────────────────────────────── */
+.matrix-viz {
+  display: inline-grid;
+  gap: 4px;
+  margin: 16px auto;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.matrix-viz-wrap { text-align: center; overflow-x: auto; }
+
+.mx-cell {
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.8rem; font-weight: 600;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  color: var(--text-muted);
+}
+.mx-cell.diag-main  { background: rgba(29,78,216,0.25); border-color: #1d4ed8; color: #93c5fd; font-weight: 700; }
+.mx-cell.diag-sec   { background: rgba(124,58,237,0.25); border-color: #7c3aed; color: #c4b5fd; font-weight: 700; }
+.mx-cell.both-diag  { background: rgba(153,27,27,0.35); border-color: #991b1b; color: #fca5a5; font-weight: 700; }
+.mx-cell.tri-upper  { background: rgba(15,118,110,0.2); border-color: #0f766e; color: #5eead4; }
+.mx-cell.tri-lower  { background: rgba(180,83,9,0.2);   border-color: #b45309; color: #fcd34d; }
+.mx-cell.border-cell{ background: rgba(190,24,93,0.2);  border-color: #be185d; color: #f9a8d4; }
+
+.matrix-zone-btns {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 16px 0 10px;
+}
+.matrix-zone-btns .btn { font-size: 12px; padding: 6px 12px; }
+
+.matrix-legend {
+  display: flex; flex-wrap: wrap; gap: 12px 20px;
+  margin-top: 12px; justify-content: center;
+}
+.mx-legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--text-muted);
+}
+.mx-legend-color {
+  width: 14px; height: 14px;
+  border-radius: 3px; flex-shrink: 0;
+}
+
+/* ── Call Stack (factorial) ───────────────────────────────── */
+.call-stack {
+  min-height: 180px;
+  display: flex; flex-direction: column-reverse;
+  gap: 5px;
+  padding: 16px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow-y: auto; max-height: 340px;
+}
+[data-theme="dark"] .call-stack { background: var(--surface2); }
+
+/* stack frames are created inline by JS — ensure push animation works */
+.stack-frame-push {
+  background: var(--blue, #3b82f6); color: white;
+  padding: 8px 16px; border-radius: 7px;
+  font-weight: 700; font-size: 14px;
+  animation: slideInLeft 0.3s ease;
+  transition: all 0.35s ease;
+}
+.stack-frame-pop {
+  background: var(--green, #22c55e); color: white;
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.fact-result {
+  margin-top: 12px; font-size: 15px; font-weight: 700;
+  color: var(--green, #22c55e); min-height: 26px;
+}
+
+/* ── Vector block demo ────────────────────────────────────── */
+.vec-track {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  margin: 12px 0; padding: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; min-height: 80px; align-items: center;
+}
+.vec-block {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono, monospace); font-size: 14px; font-weight: 700;
+  background: var(--surface2); border: 2px solid var(--border);
+  border-radius: 7px; transition: all 0.25s ease;
+}
+.vec-block.empty     { color: var(--text-muted); border-style: dashed; }
+.vec-block.highlight { background: var(--primary-dim); border-color: var(--primary); color: var(--primary); }
+.vec-block.found     { background: #dcfce7; border-color: #16a34a; color: #15803d; }
+.vec-block.comparing { background: #fef9c3; border-color: #ca8a04; color: #92400e; }
+.vec-block.removing  { background: #fef2f2; border-color: #ef4444; color: #dc2626; }
+.vec-status {
+  font-size: 13px; color: var(--text-muted); min-height: 22px;
+  padding: 8px 12px; background: var(--surface); border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* ── Warning banner (BAC content) ─────────────────────────── */
+.warning-banner {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 16px 20px;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.4);
+  border-left: 4px solid #f59e0b;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.warning-banner .warning-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+.warning-banner .warning-content { font-size: 0.9rem; line-height: 1.65; }
+.warning-banner .warning-content strong { color: #f59e0b; }
+.warning-banner .warning-content code {
+  background: rgba(245,158,11,0.15); color: #f59e0b;
+  padding: 1px 5px; border-radius: 3px;
+  font-family: var(--font-mono, monospace);
+}
+
+/* ── Responsive adjustments for demos ─────────────────────── */
+@media (max-width: 560px) {
+  .bt-cell  { width: 44px; height: 44px; font-size: 1.2rem; }
+  .mx-cell  { width: 36px; height: 36px; font-size: 0.7rem; }
+  .vec-block { width: 42px; height: 42px; font-size: 12px; }
+  .matrix-zone-btns { gap: 6px; }
+  .matrix-zone-btns .btn { font-size: 11px; padding: 5px 9px; }
+}
+
 /* ─── Difficulty badge ────────────────────────────────────────── */
 .difficulty-badge {
   display: inline-flex; align-items: center; gap: 4px;

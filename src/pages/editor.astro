@@ -419,6 +419,15 @@ int main() {
         })
       })
       .then(function(res) {
+        if (res.status === 401 || res.status === 403) {
+          throw new Error('Serverul de execuție necesită autentificare (HTTP ' + res.status + '). Încearcă din nou mai târziu.');
+        }
+        if (res.status === 429) {
+          throw new Error('Prea multe cereri. Așteaptă câteva secunde și încearcă din nou (HTTP 429).');
+        }
+        if (res.status >= 500) {
+          throw new Error('Serverul de execuție este temporar indisponibil (HTTP ' + res.status + '). Încearcă din nou mai târziu.');
+        }
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();
       })

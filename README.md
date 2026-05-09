@@ -1,12 +1,16 @@
 # InfoLiceu — Algoritmi & Structuri de Date
 
-> Platformă educațională web pentru informatică de liceu și bacalaureat (România · C++)
+[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?logo=astro&logoColor=white)](https://astro.build)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-22c55e?logo=github)](https://cristi197.github.io/Complexitate-Algoritmi)
+[![License: MIT](https://img.shields.io/badge/License-MIT-6366f1)](LICENSE)
+
+> Platformă educațională modernă pentru informatică de liceu și bacalaureat (România · C++)
 
 ---
 
-## Descriere
+## Despre proiect
 
-**InfoLiceu** este un ghid interactiv complet, destinat elevilor de liceu care se pregătesc pentru **Bacalaureatul de Informatică**. Conține 8 capitole cu teorie, exemple de cod C++, animații interactive, quizuri și lecții audio.
+**InfoLiceu** este un ghid interactiv complet, destinat elevilor de liceu care se pregătesc pentru **Bacalaureatul de Informatică**. Cuprinde 12 capitole structurate cu teorie, exemple de cod C++, animații interactive, quizuri, grafice comparative și un sistem de progres cu XP.
 
 ---
 
@@ -14,84 +18,110 @@
 
 | Funcționalitate | Detalii |
 |---|---|
-| 📚 8 capitole structurate | De la introducere până la backtracking și fișiere |
-| 🎬 Animații interactive | Scroll-reveal și vizualizări ale algoritmilor |
-| 📝 Quiz interactiv | Întrebări cu dificultate Facil / Mediu / Dificil per capitol |
-| 🔊 Player Audiobook | Sincronizare text–audio pe secțiuni, din fișiere JSON + MP3 |
-| 📊 Referință Big-O | Tabel comparativ complexitate timp & spațiu |
-| ↑ Go-to-Top & progress bar | Navigare facilă în paginile lungi |
-| 🤖 Analiză BAC cu AI | Încarcă varianta de BAC (PDF/imagine), AI-ul parsează și explică fiecare exercițiu cu teorie și linkuri spre capitole |
-| 🌐 Pur static | Fără framework-uri, fără dependențe externe — rulează direct din browser |
+| 📚 12 capitole complete | Complexitate, Vectori, Matrici, Șiruri, Recursivitate, Backtracking, Fișiere, Programare dinamică + altele |
+| 📊 Grafice interactive | Chart.js — Big-O comparativ (slider n) + comparație algoritmi de sortare |
+| 🔍 Căutare rapidă | Modal Ctrl+K cu index complet de capitole și unelte |
+| 🏆 Sistem XP | Progres persistent (localStorage) — câștigă XP la fiecare capitol vizitat |
+| 🎬 Animații | Scroll-reveal, vizualizare Bubble Sort pas cu pas |
+| 📝 Quiz interactiv | Întrebări cu dificultate Ușor / Mediu / Dificil per capitol |
+| 🔊 Player Audiobook | Sincronizare text–audio pe secțiuni, din fișiere JSON |
+| 🌙 Dark / Light mode | Temă persistentă în localStorage, fără flash |
+| ↑ Reading progress bar | Progres de citire per pagină |
+| 📱 Responsive + PWA | Manifest + favicon SVG, sidebar overlay pe mobil |
+| 🤖 Analiză BAC | Pagină dedicată pentru analiza variantelor de bacalaureat |
+
+---
+
+## Stack tehnic
+
+| Layer | Tehnologie |
+|---|---|
+| Framework | [Astro 5.x](https://astro.build) — build static, fișiere `.astro` |
+| Fonturi | Syne (display) · DM Sans (body) · JetBrains Mono (cod) via Google Fonts |
+| Stiluri | CSS custom properties — design system în `src/styles/global.css` |
+| Grafice | [Chart.js 4.4](https://www.chartjs.org) — încărcat CDN doar pe pagina Complexitate |
+| Quiz | Motor propriu (`public/js/quiz.js`) + date JSON per capitol |
+| Progres | `public/js/progress.js` — XP system cu localStorage (`infoLiceu_v2`) |
+| Căutare | `public/js/search.js` — index static client-side, modal Ctrl+K |
+| Deploy | GitHub Pages via `astro build` + `base: '/Complexitate-Algoritmi'` |
+
+---
+
+## Setup local
+
+```bash
+# 1. Clonează repo-ul
+git clone https://github.com/cristi197/Complexitate-Algoritmi.git
+cd Complexitate-Algoritmi
+
+# 2. Instalează dependențele
+npm install
+
+# 3. Server de dezvoltare (localhost:4321)
+npm run dev
+
+# 4. Build de producție
+npm run build
+
+# 5. Preview build local
+npm run preview
+```
 
 ---
 
 ## Structura proiectului
 
 ```
-├── index.html                  # Pagina principală (hero, capitole, Big-O)
-├── analiza-bac.html            # Analiză variantă BAC cu AI (PDF/imagine → explicații)
-├── css/
-│   └── style.css               # Stiluri globale
-├── js/
-│   ├── platform.js             # Go-to-top, navigare capitole, viteză animații
-│   ├── animations.js           # Scroll-reveal și animații partajate
-│   ├── quiz.js                 # Motor quiz interactiv
-│   └── audiobook.js            # Player audio cu sincronizare text
-├── data/
-│   └── complexitate.json       # Date tabel Big-O
-└── capitole/
-    ├── introducere.html        # Capitol 0 — Introducere în informatică
-    ├── complexitate.html       # Capitol 1 — Complexitatea algoritmilor
-    ├── vectori.html            # Capitol 2 — Vectori
-    ├── matrici.html            # Capitol 3 — Matrici
-    ├── siruri.html             # Capitol 4 — Șiruri de caractere
-    ├── recursivitate.html      # Capitol 5 — Recursivitate
-    ├── backtracking.html       # Capitol 6 — Backtracking
-    └── fisiere.html            # Capitol 7 — Fișiere
+src/
+├── layouts/
+│   ├── BaseLayout.astro       # HTML shell: fonts, dark mode, search modal, XP toast
+│   └── ChapterLayout.astro    # Layout capitol: sidebar, breadcrumbs, prev/next nav
+├── pages/
+│   ├── index.astro            # Pagina principală — hero + card-uri capitole
+│   ├── exercitii.astro        # Exerciții centralizate
+│   ├── analiza-bac.astro      # Analiză variante BAC
+│   ├── 404.astro              # Pagina 404 custom
+│   └── capitole/              # Un fișier .astro per capitol
+│       ├── complexitate.astro
+│       ├── vectori.astro
+│       └── ...
+├── components/
+│   ├── Header.astro           # Navbar glass + SVG logo + buton căutare
+│   ├── Sidebar.astro          # Sidebar cu overlay mobil
+│   └── ...
+└── styles/
+    └── global.css             # Design system complet (tokens, utilities, animații)
+
+public/
+├── js/                        # JS rulat în browser (copiat și din js/)
+│   ├── platform.js
+│   ├── quiz.js
+│   ├── search.js
+│   ├── progress.js
+│   ├── charts.js
+│   └── audiobook.js
+├── data/exercises/            # JSON-uri cu întrebările de quiz per capitol
+├── favicon.svg
+└── manifest.json
 ```
-
----
-
-## Utilizare
-
-Nu necesită instalare sau build. Deschide `index.html` direct în browser sau servește folderul cu orice server HTTP static:
-
-```bash
-# Python 3
-python -m http.server 8080
-
-# Node.js (npx)
-npx serve .
-```
-
-Apoi accesează `http://localhost:8080`.
 
 ---
 
 ## Capitole
 
-| # | Capitol | Conținut principal |
+| # | Capitol | Teme principale |
 |---|---|---|
-| 0 | Introducere | Ce este informatica, calculator, algoritm, primul program C++, tipuri de date, BAC 2026 |
-| 1 | Complexitate | Notația Big-O, timp & spațiu, clase de complexitate |
+| 1 | Complexitate | Big-O, Ω, Θ, clase de complexitate, sortare, grafice interactive |
 | 2 | Vectori | Declarare, parcurgere, sortare, căutare binară |
-| 3 | Matrici | Operații pe matrice, transpusa, spirală |
-| 4 | Șiruri | Caractere, operații pe șiruri, palindrom |
+| 3 | Matrici | Operații, transpusă, diagonale, spirală |
+| 4 | Șiruri | Caractere, operații, palindrom, anagrame |
 | 5 | Recursivitate | Stivă de apeluri, divide et impera, memoizare |
-| 6 | Backtracking | Generare permutări, combinări, subseturi |
+| 6 | Backtracking | Permutări, combinări, subseturi, N-Regine |
 | 7 | Fișiere | Citire/scriere fișiere text în C++ |
-
----
-
-## Tehnologii
-
-- **HTML5** / **CSS3** / **JavaScript** (ES5+, fără framework)
-- **Intersection Observer API** — scroll-reveal
-- **Web Audio / `<audio>`** — player audiobook
-- **JSON** — date Big-O și configurare lecții audio
+| + | Introducere | Algoritm, pseudocod, primul program C++ |
 
 ---
 
 ## Licență
 
-Proiect educațional open-source. Conținutul este destinat elevilor români care se pregătesc pentru bacalaureat.
+MIT — proiect educațional open-source pentru elevii români.

@@ -69,8 +69,14 @@ string str = <span class="st">"informatica"</span>;
 string str2(<span class="nu">5</span>, <span class="st">'a'</span>);            <span class="cm">// "aaaaa" — 5 de 'a'</span>
 string str3(str, <span class="nu">2</span>, <span class="nu">4</span>);         <span class="cm">// "form" — substr din pozitia 2, lung 4</span></pre>
 
-      <div class="callout warning">
-        <strong>La BAC</strong>, ambele variante sunt acceptate. Dacă se cere &ldquo;şir de caractere&rdquo; sau vectori char[], folosiţi funcţiile din &lt;cstring>.
+      <div class="warning-banner" role="alert">
+        <span class="warning-icon">⚠️</span>
+        <div class="warning-content">
+          <strong>Atenție BAC!</strong> Clasa <code>string</code> (C++) <strong>NU este inclusă în programa oficială de bacalaureat!</strong>
+          La examen folosiți <strong>exclusiv <code>char[]</code></strong> și funcțiile din <code>&lt;cstring&gt;</code> (strlen, strcpy, strcat, strcmp etc.).
+          Utilizarea clasei <code>string</code> la BAC 2024+ poate atrage depunctare sau refuz de corectare pe anumite subiecte.
+          Secțiunea despre <code>string</code> de mai jos este utilă pentru concursuri sau facultate.
+        </div>
       </div>
     </div>
   </div>
