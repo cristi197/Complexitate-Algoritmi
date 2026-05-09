@@ -58,6 +58,10 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- Favicon & PWA manifest -->
+  <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+  <link rel="manifest" href={`${base}/manifest.json`} />
+
   <!-- Dark mode: apply before render to avoid flash -->
   <script is:inline>
     (function() {
@@ -73,8 +77,36 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
 
   <div id="page-overlay"></div>
   <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Search Modal (Ctrl+K) -->
+  <div id="searchModal" class="search-modal" role="dialog" aria-modal="true" aria-label="Caută capitol">
+    <div class="search-backdrop" onclick="closeSearch()"></div>
+    <div class="search-dialog">
+      <div class="search-header">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </span>
+        <input id="searchInput" type="search" placeholder="Caută capitol, funcție, concept..." autocomplete="off" spellcheck="false" />
+      </div>
+      <ul id="searchResults" role="listbox"></ul>
+      <div class="search-footer">
+        <span>↑↓ navighează</span>
+        <span>↵ deschide</span>
+        <span>Ctrl+K pentru toggle</span>
+        <span>Esc pentru închidere</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- XP toast -->
+  <div id="xp-toast" class="xp-toast" aria-live="polite" aria-atomic="true"></div>
+
   <slot />
 
+  <script is:inline>
+    // Expose base URL for search.js
+    window.__BASE_URL = {JSON.stringify(base)};
+  </script>
   <script is:inline>
     // Scroll progress bar
     window.addEventListener('scroll', function() {
@@ -84,5 +116,7 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
       el.style.transform = 'scaleX(' + Math.min(1, pct) + ')';
     }, { passive: true });
   </script>
+  <script is:inline src={`${base}/js/search.js`}></script>
+  <script is:inline src={`${base}/js/progress.js`}></script>
 </body>
 </html>

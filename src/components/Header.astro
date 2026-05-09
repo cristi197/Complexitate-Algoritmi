@@ -14,13 +14,30 @@ const base = import.meta.env.BASE_URL;
     </button>
 
     <a href={`${base}/`} class="site-logo" aria-label="InfoLiceu">
-      <span class="site-logo-icon" aria-hidden="true">💻</span>
+      <!-- SVG logo replacing emoji -->
+      <svg class="logo-svg-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="url(#logoGrad)"/>
+        <text x="16" y="21" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle" fill="white">&lt;/&gt;</text>
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#06b6d4"/>
+          </linearGradient>
+        </defs>
+      </svg>
       <span>Info<strong>Liceu</strong></span>
     </a>
 
     <div class="header-spacer"></div>
 
     <div class="header-actions">
+      <!-- Search trigger -->
+      <button class="search-trigger" id="search-trigger" onclick="openSearch()" aria-label="Caută (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        Caută <kbd>Ctrl+K</kbd>
+      </button>
       <a href={`${base}/exercitii`} class="btn-header btn-header-exercises">
         📝 Exerciții
       </a>
@@ -34,19 +51,37 @@ const base = import.meta.env.BASE_URL;
 
 <script is:inline>
   (function() {
-    var btn  = document.getElementById('sidebar-toggle');
-    var side = document.getElementById('sidebar');
-    if (!btn || !side) return;
-    btn.addEventListener('click', function() {
-      var open = side.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(open));
-    });
+    var btn     = document.getElementById('sidebar-toggle');
+    var side    = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebar-overlay');
+    var header  = document.getElementById('site-header');
+
+    // Sidebar open/close
+    function closeSidebar() {
+      if (side) side.classList.remove('open');
+      if (btn)  btn.setAttribute('aria-expanded', 'false');
+    }
+    if (btn && side) {
+      btn.addEventListener('click', function() {
+        var open = side.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    }
+    if (overlay) {
+      overlay.addEventListener('click', closeSidebar);
+    }
     // Close on outside click
     document.addEventListener('click', function(e) {
-      if (side.classList.contains('open') && !side.contains(e.target) && !btn.contains(e.target)) {
-        side.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
+      if (side && side.classList.contains('open') && !side.contains(e.target) && !btn.contains(e.target)) {
+        closeSidebar();
       }
     });
+
+    // Scrolled class for glass shadow
+    if (header) {
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 8);
+      }, { passive: true });
+    }
   })();
 </script>

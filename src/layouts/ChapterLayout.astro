@@ -29,6 +29,25 @@ const {
 
 const base = import.meta.env.BASE_URL;
 const readingTime = 12; // fallback; scripts will update dynamically
+
+// Chapter order for prev/next navigation
+const CHAPTER_ORDER = [
+  { num: 0,  file: 'introducere',        title: 'Introducere în Informatică' },
+  { num: 8,  file: 'functii',            title: 'Funcții și Subprograme' },
+  { num: 1,  file: 'complexitate',       title: 'Eficiența Algoritmilor' },
+  { num: 2,  file: 'recursivitate',      title: 'Recursivitate' },
+  { num: 3,  file: 'backtracking',       title: 'Backtracking' },
+  { num: 4,  file: 'vectori',            title: 'Vectori (1D)' },
+  { num: 5,  file: 'matrici',            title: 'Matrici (2D)' },
+  { num: 6,  file: 'siruri',             title: 'Șiruri de Caractere' },
+  { num: 7,  file: 'fisiere',            title: 'Fișiere' },
+  { num: 9,  file: 'programare-dinamica',title: 'Programare Dinamică' },
+  { num: 10, file: 'structuri',          title: 'Structuri (struct)' },
+  { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică' },
+];
+const currentIdx = CHAPTER_ORDER.findIndex(c => c.num === chapterNum);
+const prevCh = currentIdx > 0 ? CHAPTER_ORDER[currentIdx - 1] : null;
+const nextCh = currentIdx < CHAPTER_ORDER.length - 1 ? CHAPTER_ORDER[currentIdx + 1] : null;
 ---
 <BaseLayout title={`${title} — Informatică Liceu`} description={description} bodyClass="has-sidebar">
   <Header />
@@ -38,7 +57,12 @@ const readingTime = 12; // fallback; scripts will update dynamically
     <div class="app-content">
       <!-- Chapter Hero -->
       <div class="chapter-hero" style={`--hero-gradient: ${gradient};`}>
-        <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href={`${base}/`}>Acasă</a>
+          <span class="breadcrumbs-sep" aria-hidden="true">›</span>
+          <span aria-current="page">{title}</span>
+        </nav>
         <h1>{icon} {title}</h1>
         <p>{subtitle}</p>
         {tags.length > 0 && (
@@ -73,6 +97,30 @@ const readingTime = 12; // fallback; scripts will update dynamically
       <!-- Chapter content (injected by page) -->
       <div class="wrapper" id="main-content">
         <slot />
+
+        <!-- Prev / Next chapter navigation -->
+        {(prevCh || nextCh) && (
+          <nav class="chapter-nav" aria-label="Capitol anterior / următor">
+            {prevCh ? (
+              <a href={`${base}/capitole/${prevCh.file}`} class="chapter-nav-btn prev">
+                <span class="nav-arrow">←</span>
+                <span>
+                  <span class="nav-label">Capitol anterior</span>
+                  <span class="nav-title">{prevCh.title}</span>
+                </span>
+              </a>
+            ) : <span />}
+            {nextCh ? (
+              <a href={`${base}/capitole/${nextCh.file}`} class="chapter-nav-btn next">
+                <span>
+                  <span class="nav-label">Capitolul următor</span>
+                  <span class="nav-title">{nextCh.title}</span>
+                </span>
+                <span class="nav-arrow">→</span>
+              </a>
+            ) : <span />}
+          </nav>
+        )}
       </div>
     </div>
   </div>

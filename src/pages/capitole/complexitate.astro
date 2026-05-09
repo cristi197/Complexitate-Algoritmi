@@ -153,6 +153,18 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"notatii","label
           <tr><td><strong>O(2ⁿ)</strong></td><td>1 024</td><td>10³⁰</td><td>10³⁰⁰</td><td>∞</td></tr>
         </tbody>
       </table>
+
+      <!-- Big-O Interactive Chart -->
+      <div class="chart-section" style="margin-top:24px;">
+        <h3>📈 Grafic interactiv Big-O</h3>
+        <div class="chart-wrapper">
+          <canvas id="bigOChart" role="img" aria-label="Grafic comparativ complexități Big-O"></canvas>
+        </div>
+        <div class="chart-controls">
+          <label>n = <span id="bigOSliderLabel">20</span></label>
+          <input type="range" id="bigOSlider" min="5" max="50" value="20" aria-label="Selectează n pentru grafic" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -334,6 +346,14 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"notatii","label
         <strong>La BAC</strong> se cer de obicei Bubble Sort și Selection Sort. Cunoaște codul și complexitatea O(n²) pentru ambele.
       </div>
 
+      <!-- Sorting comparison chart -->
+      <div class="chart-section" style="margin:24px 0;">
+        <h3>📊 Comparație algoritmi de sortare</h3>
+        <div class="chart-wrapper">
+          <canvas id="sortingChart" role="img" aria-label="Comparație complexitate algoritmi sortare"></canvas>
+        </div>
+      </div>
+
       <h3 style="margin:20px 0 10px;font-size:15px;">Bubble Sort — implementare C++</h3>
       <pre><span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n) &#123;
     <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n-<span class="nu">1</span>; i++) &#123;
@@ -485,4 +505,14 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"notatii","label
 </section>
 
 <div data-audiobook="/Complexitate-Algoritmi/data/complexitate.json" hidden></div>
+
+<!-- Chart.js and charts.js for this page -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script is:inline src={`${import.meta.env.BASE_URL}/js/charts.js`}></script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initBubbleSortDemo === 'function') initBubbleSortDemo('bubble-demo');
+  });
+</script>
 </ChapterLayout>
