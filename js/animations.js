@@ -507,3 +507,95 @@ function initScrollProgress() {
   window.addEventListener('scroll', update, { passive: true });
   update(); /* stare inițială */
 }
+
+/* ── 6. Scroll-based XP for reading sections ─────────────────── */
+function initSectionXP() {
+  var XP_KEY      = 'infoXP';
+  var VISITED_KEY = 'infoVisitedSections';
+  var XP_PER_SECTION = 5;
+
+  function getXP() { return parseInt(localStorage.getItem(XP_KEY) || '0', 10); }
+  function getVisited() {
+    try { return JSON.parse(localStorage.getItem(VISITED_KEY) || '{}'); } catch (e) { return {}; }
+  }
+
+  var LEVELS = [0,100,250,500,900,1400,2000,3000,5000];
+  var LEVEL_NAMES = ['Începător','Elev','Cunoscător','Avansat','Expert','Master','Campion','Legend','Profesional'];
+  function getLevelInfo(xp) {
+    var lvl = 0;
+    for (var i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i]) lvl = i; }
+    var nextXP = LEVELS[lvl+1] || LEVELS[LEVELS.length-1];
+    var prevXP = LEVELS[lvl] || 0;
+    var pct = Math.min(100, Math.round(((xp - prevXP) / Math.max(1, nextXP - prevXP)) * 100));
+    return { level: lvl + 1, name: LEVEL_NAMES[lvl] || 'Profesional', pct: pct };
+  }
+
+  function updateSidebarXP(xp) {
+    var info = getLevelInfo(xp);
+    var valEl  = document.getElementById('xp-value');
+    var fillEl = document.getElementById('xp-fill');
+    var lvlEl  = document.getElementById('xp-level');
+    if (valEl)  valEl.textContent  = xp;
+    if (fillEl) fillEl.style.width = info.pct + '%';
+    if (lvlEl)  lvlEl.textContent  = 'Nivel ' + info.level + ' — ' + info.name;
+  }
+
+  function awardXP(sectionId) {
+    var visited = getVisited();
+    var pageKey = window.location.pathname + '#' + sectionId;
+    if (visited[pageKey]) return; /* already rewarded */
+    visited[pageKey] = 1;
+    try { localStorage.setItem(VISITED_KEY, JSON.stringify(visited)); } catch (e) {}
+    var xp = getXP() + XP_PER_SECTION;
+    try { localStorage.setItem(XP_KEY, xp); } catch (e) {}
+    updateSidebarXP(xp);
+
+    /* Show a brief +XP toast */
+    var toast = document.createElement('div');
+    toast.className = 'xp-toast';
+    toast.textContent = '+' + XP_PER_SECTION + ' XP';
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.classList.add('xp-toast--show'); }, 10);
+    setTimeout(function () {
+      toast.classList.remove('xp-toast--show');
+      setTimeout(function () { toast.parentNode && toast.parentNode.removeChild(toast); }, 400);
+    }, 1600);
+  }
+
+  /* Observe every section except exercitii */
+  var sections = document.querySelectorAll('section[id]');
+  if (!sections.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && e.target.id !== 'exercitii') {
+        awardXP(e.target.id);
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(function (s) { io.observe(s); });
+
+  /* Init sidebar display on page load */
+  updateSidebarXP(getXP());
+}
+
+/* ── 7. Per-section reading time badges ──────────────────────── */
+function initSectionReadingTime() {
+  var WORDS_PER_MIN = 200;
+  document.querySelectorAll('section[id]').forEach(function (sec) {
+    var clone = sec.cloneNode(true);
+    /* Remove non-readable elements */
+    clone.querySelectorAll('pre, code, table, script, style, svg, iframe, .quiz-section').forEach(function (el) {
+      el.parentNode && el.parentNode.removeChild(el);
+    });
+    var words = (clone.textContent || '').trim().split(/\s+/).filter(Boolean).length;
+    if (words < 30) return;
+    var mins = Math.max(1, Math.round(words / WORDS_PER_MIN));
+    var header = sec.querySelector('.slide-header');
+    if (!header) return;
+    var badge = document.createElement('span');
+    badge.className = 'section-read-time';
+    badge.title = 'Timp estimat de citire';
+    badge.textContent = '\uD83D\uDCD6 ' + mins + ' min';
+    header.appendChild(badge);
+  });
+}
