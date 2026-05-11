@@ -327,12 +327,14 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
     </div>
     <div class="slide-body">
 
-      <div class="callout purple">
-        <strong>Problemă 1 (BAC 2023):</strong> Scrieți o funcție <code>int cmmdc(int a, int b)</code> care returnează cel mai mare divizor comun al lui a și b, folosind algoritmul lui Euclid.
-      </div>
-      <div class="callout success">
-        <strong>Soluție:</strong>
-        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">int</span> <span class="fn">cmmdc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+      <div class="bac-problem">
+        <div class="bac-problem__header">
+          <strong>Problemă 1 (BAC 2023):</strong>
+        </div>
+        <p>Scrieți o funcție <code>int cmmdc(int a, int b)</code> care returnează cel mai mare divizor comun al lui a și b, folosind algoritmul lui Euclid.</p>
+        <div class="bac-problem__solution">
+          <div class="bac-problem__solution-label">✅ Soluție:</div>
+          <pre><span class="kw">int</span> <span class="fn">cmmdc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
     <span class="kw">while</span> (b != <span class="nu">0</span>) &#123;
         <span class="kw">int</span> r = a % b;
         a = b;
@@ -341,14 +343,17 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
     <span class="kw">return</span> a;  <span class="cm">// O(log min(a,b))</span>
 &#125;
 <span class="cm">// cmmmc(a, b) = a / cmmdc(a, b) * b</span></pre>
+        </div>
       </div>
 
-      <div class="callout purple" style="margin-top:20px;">
-        <strong>Problemă 2:</strong> Scrieți o funcție <code>void citeste(int v[], int &amp;n)</code> și o funcție <code>void afiseaza(int v[], int n)</code>, apoi un subprogram <code>void elimina(int v[], int &amp;n, int p)</code> care elimină elementul de la poziția p.
-      </div>
-      <div class="callout success">
-        <strong>Soluție:</strong>
-        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">void</span> <span class="fn">citeste</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n) &#123;
+      <div class="bac-problem">
+        <div class="bac-problem__header">
+          <strong>Problemă 2:</strong>
+        </div>
+        <p>Scrieți o funcție <code>void citeste(int v[], int &amp;n)</code> și o funcție <code>void afiseaza(int v[], int n)</code>, apoi un subprogram <code>void elimina(int v[], int &amp;n, int p)</code> care elimină elementul de la poziția p.</p>
+        <div class="bac-problem__solution">
+          <div class="bac-problem__solution-label">✅ Soluție:</div>
+          <pre><span class="kw">void</span> <span class="fn">citeste</span>(<span class="kw">int</span> v[], <span class="kw">int</span> &n) &#123;
     cin >> n;
     <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) cin >> v[i];
 &#125;
@@ -370,20 +375,24 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
     <span class="fn">elimina</span>(v, n, <span class="nu">3</span>);  <span class="cm">// elimină elem. de la poziția 3</span>
     <span class="fn">afiseaza</span>(v, n);
 &#125;</pre>
+        </div>
       </div>
 
-      <div class="callout purple" style="margin-top:20px;">
-        <strong>Problemă 3:</strong> Scrieți o funcție <code>bool verificaPrimalitate(int n)</code> care verifică dacă n este număr prim, fără a folosi ciurul.
-      </div>
-      <div class="callout success">
-        <strong>Soluție:</strong>
-        <pre style="margin:8px 0 0;background:transparent;border:none;padding:0;"><span class="kw">bool</span> <span class="fn">verificaPrimalitate</span>(<span class="kw">int</span> n) &#123;
+      <div class="bac-problem">
+        <div class="bac-problem__header">
+          <strong>Problemă 3:</strong>
+        </div>
+        <p>Scrieți o funcție <code>bool verificaPrimalitate(int n)</code> care verifică dacă n este număr prim, fără a folosi ciurul.</p>
+        <div class="bac-problem__solution">
+          <div class="bac-problem__solution-label">✅ Soluție:</div>
+          <pre><span class="kw">bool</span> <span class="fn">verificaPrimalitate</span>(<span class="kw">int</span> n) &#123;
     <span class="kw">if</span> (n &lt; <span class="nu">2</span>) <span class="kw">return false</span>;
     <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">2</span>; (<span class="kw">long long</span>)i * i &lt;= n; i++)
         <span class="kw">if</span> (n % i == <span class="nu">0</span>) <span class="kw">return false</span>;
     <span class="kw">return true</span>;
 &#125;
 <span class="cm">// Complexitate: O(√n)</span></pre>
+        </div>
       </div>
 
       <div class="callout warning" style="margin-top:20px;">

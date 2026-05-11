@@ -97,7 +97,7 @@
 
     /* Element audio */
     audio = document.createElement('audio');
-    audio.preload       = 'metadata';
+    audio.preload       = 'none';
     audio.playbackRate  = rate;
 
     audio.addEventListener('timeupdate',     onTimeUpdate);
@@ -119,8 +119,7 @@
     /* Ascundem TTS-ul vechi pe paginile cu audio real */
     suppressTTS();
 
-    /* Preîncărcăm metadate pentru primul track */
-    loadTrack(0, false);
+    /* Don't preload audio — wait for user interaction */
   }
 
   /* ─── Track management ──────────────────────────────────────── */

@@ -757,13 +757,27 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
 /* ─── Callout boxes ────────────────────────────────────────────── */
 .callout {
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 14px 16px 14px 44px;
   margin: 14px 0;
   font-size: 14px;
-  display: flex; gap: 10px;
   border: 1px solid transparent;
+  position: relative;
+  line-height: 1.65;
 }
-.callout::before { font-size: 16px; flex-shrink: 0; line-height: 1.5; }
+.callout::before {
+  font-size: 16px;
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  line-height: 1.5;
+}
+.callout > strong:first-child,
+.callout > div > strong:first-child {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14.5px;
+}
+.callout pre { position: relative; }
 .callout.warning { background: var(--orange2); border-color: #fed7aa; color: #7c2d12; }
 .callout.warning::before { content: '⚠️'; }
 .callout.info    { background: var(--blue4);   border-color: var(--blue3); color: #1e3a8a; }
@@ -772,10 +786,13 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
 .callout.success::before { content: '✅'; }
 .callout.tip     { background: var(--purple2); border-color: #ddd6fe; color: #3b0764; }
 .callout.tip::before     { content: '💡'; }
+.callout.purple  { background: rgba(139,92,246,.08); border-color: #a78bfa; color: #4c1d95; }
+.callout.purple::before  { content: '📝'; }
 [data-theme="dark"] .callout.warning { color: #fed7aa; }
 [data-theme="dark"] .callout.info    { color: #bfdbfe; }
 [data-theme="dark"] .callout.success { color: #bbf7d0; }
 [data-theme="dark"] .callout.tip     { color: #ddd6fe; }
+[data-theme="dark"] .callout.purple  { color: #c4b5fd; }
 
 /* ─── Cards grid ───────────────────────────────────────────────── */
 .card-grid {
@@ -812,6 +829,75 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
   transition: opacity .2s, transform .15s;
 }
 .card-link-btn:hover { opacity: .85; transform: translateY(-1px); }
+
+/* ─── Bar chart rows (complexity viz) ──────────────────────────── */
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+.bar-outer {
+  flex: 1;
+  height: 18px;
+  background: var(--border-faint, rgba(255,255,255,.06));
+  border-radius: 6px;
+  overflow: hidden;
+}
+.bar-inner {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease-out;
+  min-width: 2px;
+}
+.bar-inner.g-great  { background: linear-gradient(90deg, #10b981, #34d399); }
+.bar-inner.g-good   { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
+.bar-inner.g-medium { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.bar-inner.g-bad    { background: linear-gradient(90deg, #f97316, #fb923c); }
+.bar-inner.g-worst  { background: linear-gradient(90deg, #ef4444, #f87171); }
+.tag { font-weight: 600; }
+.tag.green  { color: #10b981; }
+.tag.blue   { color: #0ea5e9; }
+.tag.orange { color: #f59e0b; }
+.tag.red    { color: #ef4444; }
+
+/* ─── BAC problem cards ────────────────────────────────────────── */
+.bac-problem {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+.bac-problem__header {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.bac-problem__header strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+.bac-problem > p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+.bac-problem__solution {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.bac-problem__solution-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.bac-problem__solution pre {
+  margin: 0;
+  position: relative;
+}
 
 /* ─── Beginner box ─────────────────────────────────────────────── */
 .beginner-box {
@@ -2123,6 +2209,30 @@ body.has-audiobook.has-chapter-nav .quiz-float-btn { bottom: 250px; }
 .difficulty-badge.easy   { background: rgba(16,185,129,.12); color: #10b981; }
 .difficulty-badge.medium { background: rgba(245,158,11,.12);  color: #f59e0b; }
 .difficulty-badge.hard   { background: rgba(239,68,68,.12);   color: #ef4444; }
+
+/* ─── Calendar day cells (global to avoid Astro scoping) ──────── */
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: default;
+  transition: transform .15s;
+  background: var(--color-background, #0f172a);
+  color: var(--color-text-muted, #64748b);
+  border: 1px solid transparent;
+}
+.cal-day--empty { background: transparent; }
+.cal-day--studied { background: linear-gradient(135deg,#0369a1,#0ea5e9); color: #fff; font-weight: 700; box-shadow: 0 2px 8px rgba(14,165,233,0.3); }
+.cal-day--today { border: 3px solid #f59e0b; color: #fbbf24; font-weight: 800; background: rgba(245,158,11,0.18); box-shadow: 0 0 10px rgba(245,158,11,0.45); position: relative; }
+.cal-day--today::after { content: ''; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; background: #f59e0b; border-radius: 50%; }
+.cal-day--today.cal-day--studied { border-color: #f59e0b; color: #fff; background: linear-gradient(135deg,#0369a1,#0ea5e9); box-shadow: 0 0 0 3px rgba(245,158,11,0.4), 0 2px 8px rgba(14,165,233,0.3); }
+.cal-day--today.cal-day--studied::after { background: #fbbf24; }
+.cal-day--future { opacity: .3; }
+.cal-day:not(.cal-day--empty):hover { transform: scale(1.1); z-index: 1; }
 
 /* ─── Card progress bar ───────────────────────────────────────── */
 .card-progress {

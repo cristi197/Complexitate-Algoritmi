@@ -193,28 +193,7 @@ const chapterLinks = [
 
     .streak-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 
-    .cal-day {
-      aspect-ratio: 1;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: default;
-      transition: transform .15s;
-      background: var(--color-background, #0f172a);
-      color: var(--color-text-muted, #64748b);
-      border: 1px solid transparent;
-    }
-    .cal-day--empty { background: transparent; }
-    .cal-day--studied { background: linear-gradient(135deg,#0369a1,#0ea5e9); color: #fff; font-weight: 700; box-shadow: 0 2px 8px rgba(14,165,233,0.3); }
-    .cal-day--today { border: 3px solid #f59e0b; color: #fbbf24; font-weight: 800; background: rgba(245,158,11,0.15); box-shadow: 0 0 8px rgba(245,158,11,0.4); position: relative; }
-    .cal-day--today::after { content: ''; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; background: #f59e0b; border-radius: 50%; }
-    .cal-day--today.cal-day--studied { border-color: #f59e0b; color: #fff; background: linear-gradient(135deg,#0369a1,#0ea5e9); box-shadow: 0 0 0 3px rgba(245,158,11,0.4), 0 2px 8px rgba(14,165,233,0.3); }
-    .cal-day--today.cal-day--studied::after { background: #fbbf24; }
-    .cal-day--future { opacity: .3; }
-    .cal-day:not(.cal-day--empty):hover { transform: scale(1.1); z-index: 1; }
+    /* cal-day styles moved to global.css to avoid Astro scoping issues */
 
     .streak-calendar-legend { display: flex; gap: 20px; margin-top: 14px; flex-wrap: wrap; }
     .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-muted, #94a3b8); }
