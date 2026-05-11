@@ -2222,3 +2222,47 @@ body.has-audiobook.has-chapter-nav .quiz-float-btn { bottom: 250px; }
 .chart-controls input[type=range] {
   width: 180px; accent-color: var(--primary);
 }
+
+/* ─── Mobile responsiveness fixes (#11) ──────────────────────── */
+@media (max-width: 768px) {
+  .search-dialog {
+    width: 95vw;
+    max-width: 95vw;
+    margin: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .search-dialog {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+  }
+  .search-footer {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 11px;
+  }
+}
+
+/* Horizontal scroll indicators for code blocks */
+pre, .sheet-card-body pre, code {
+  -webkit-overflow-scrolling: touch;
+}
+pre::-webkit-scrollbar {
+  height: 4px;
+}
+pre::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 2px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* ─── Accessibility: role=code styling ───────────────────────── */
+[role="code"] {
+  font-family: var(--mono);
+}

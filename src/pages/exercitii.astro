@@ -29,15 +29,15 @@ const chapters = [
   <Sidebar />
 
   <div class="app-shell">
-    <div class="app-content">
+    <div class="app-content" id="main-content">
       <!-- Hero -->
       <div class="chapter-hero" style="--hero-gradient: linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 50%,#7c3aed 100%);">
         <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
         <h1>📝 Exerciții Interactive</h1>
         <p>Selectează capitolele, dificultatea și numărul de întrebări. Exersează sau exportă ca PDF.</p>
         <div class="chapter-hero-tags">
-          <span class="chapter-hero-tag">800 întrebări</span>
-          <span class="chapter-hero-tag">8 capitole</span>
+          <span class="chapter-hero-tag">1200 întrebări</span>
+          <span class="chapter-hero-tag">12 capitole</span>
           <span class="chapter-hero-tag">3 niveluri</span>
           <span class="chapter-hero-tag">Export PDF</span>
         </div>
@@ -52,6 +52,16 @@ const chapters = [
             <h2>Configurează setul de exerciții</h2>
           </div>
           <div class="exf-body">
+
+            <!-- Exercise type selector -->
+            <div class="filter-group">
+              <div class="filter-label">📋 Tip exercițiu</div>
+              <div class="type-chips" id="typeChips">
+                <button class="chip chip-type active" data-type="grila">Grilă (Subiect I)</button>
+                <button class="chip chip-type" data-type="trasare" disabled title="În curând">Trasare cod (Subiect II) — în curând</button>
+                <button class="chip chip-type" data-type="scriere" disabled title="În curând">Scriere program (Subiect III) — în curând</button>
+              </div>
+            </div>
 
             <!-- Chapter selector -->
             <div class="filter-group">
@@ -164,6 +174,9 @@ const chapters = [
     .chip-dificil.active{ background: #dc2626; }
     .chip-count.active  { background: linear-gradient(135deg,#1d4ed8,#7c3aed); }
     .chip-diff.active   { background: #1d4ed8; }
+    .chip-type.active   { background: linear-gradient(135deg,#0d9488,#14b8a6); }
+    .chip-type:disabled { opacity: 0.4; cursor: not-allowed; }
+    .type-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 
     /* Action buttons */
     .filter-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }

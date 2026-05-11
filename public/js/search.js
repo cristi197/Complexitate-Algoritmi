@@ -59,7 +59,7 @@ function doSearch(query) {
     return;
   }
 
-  var base = (window.__BASE_URL || '');
+  var base = (window.__BASE_URL || (document.querySelector('meta[name="base-url"]') ? document.querySelector('meta[name="base-url"]').content : '')).replace(/\/+$/, '');
   results.forEach(function(item, i) {
     var li = document.createElement('li');
     li.setAttribute('role', 'option');

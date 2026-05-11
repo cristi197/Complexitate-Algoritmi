@@ -1,118 +1,1204 @@
 {
   "quiz": [
     {
-      "q": "Ce tehnică salvează rezultatele subproblemelor pentru a evita recalcularea?",
-      "opts": ["Backtracking", "Memoizare", "Divide et Impera", "Greedy"],
-      "ans": 1,
-      "exp": "Memoizarea (top-down DP) stochează rezultatele subproblemelor deja rezolvate într-un tablou sau map, reducând complexitatea de la exponențială la polinomială.",
+      "q": "Care este ideea de bază a programării dinamice?",
+      "opts": [
+        "Rezolvarea problemei prin descompunerea în subprobleme care se suprapun",
+        "Rezolvarea problemei prin forță brută",
+        "Rezolvarea problemei prin sortare",
+        "Rezolvarea problemei prin căutare binară"
+      ],
+      "ans": 0,
+      "exp": "Programarea dinamică descompune problema în subprobleme care se suprapun și memorează rezultatele pentru a evita recalcularea lor.",
       "diff": 1
     },
     {
-      "q": "Care este complexitatea calculului naiv (recursiv fără memoizare) al Fibonacci(n)?",
-      "opts": ["O(n)", "O(n log n)", "O(2^n)", "O(n^2)"],
-      "ans": 2,
-      "exp": "Fără memoizare, fiecare apel generează doi noi apeluri recursive — arborele de apeluri are 2^n noduri, deci complexitatea este O(2^n).",
+      "q": "Ce proprietate trebuie să aibă o problemă pentru a putea fi rezolvată prin programare dinamică?",
+      "opts": [
+        "Substructură optimală și subprobleme suprapuse",
+        "Doar substructură optimală",
+        "Doar subprobleme suprapuse",
+        "Niciuna din variante"
+      ],
+      "ans": 0,
+      "exp": "O problemă poate fi rezolvată prin DP dacă are atât substructură optimală cât și subprobleme care se suprapun.",
       "diff": 1
     },
     {
-      "q": "Care este complexitatea Fibonacci calculat cu programare dinamică (tabel DP)?",
-      "opts": ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
-      "ans": 2,
-      "exp": "DP calculează fiecare valoare fib[i] o singură dată și o stochează — total O(n) operații.",
+      "q": "Care este diferența dintre abordarea top-down și bottom-up în DP?",
+      "opts": [
+        "Top-down folosește recursie cu memoizare, bottom-up folosește iterație cu tabel",
+        "Top-down este mai rapidă",
+        "Bottom-up folosește recursie",
+        "Nu există nicio diferență"
+      ],
+      "ans": 0,
+      "exp": "Top-down (memoizare) rezolvă recursiv și memorează rezultatele, iar bottom-up (tabelar) completează un tabel iterativ de la subproblemele mici la cele mari.",
       "diff": 1
     },
     {
-      "q": "Ce înseamnă 'subprobleme suprapuse' (overlapping subproblems)?",
+      "q": "Ce returnează următorul cod?\n<code>int fib(int n) {\n  if(n &lt;= 1) return n;\n  return fib(n-1) + fib(n-2);\n}\ncout &lt;&lt; fib(5);</code>",
       "opts": [
-        "Subproblemele sunt independente unele de altele",
-        "Aceeași subproblemă este rezolvată de mai multe ori în recursivitate",
-        "Subproblemele au dimensiuni egale",
-        "Subproblemele se suprapun în spațiu de memorie"
+        "5",
+        "8",
+        "3",
+        "13"
       ],
-      "ans": 1,
-      "exp": "DP se aplică când recursivitatea calcuează aceeași subproblemă de mai multe ori. Stocând rezultatele, le calculăm o singură dată.",
-      "diff": 2
+      "ans": 0,
+      "exp": "fib(5) = fib(4) + fib(3) = 3 + 2 = 5. Șirul Fibonacci: 0, 1, 1, 2, 3, 5.",
+      "diff": 1
     },
     {
-      "q": "Ce este LIS (Longest Increasing Subsequence)?",
+      "q": "Care este complexitatea funcției recursive naive pentru Fibonacci fib(n)?",
       "opts": [
-        "Cel mai lung subșir contiguu crescător",
-        "Cel mai lung subșir (nu neapărat contiguu) strict crescător",
-        "Cel mai lung prefix crescător",
-        "Sortarea crescătoare a unui vector"
+        "O(2^n)",
+        "O(n)",
+        "O(n^2)",
+        "O(n log n)"
       ],
-      "ans": 1,
-      "exp": "LIS = cel mai lung subșir de elemente selectate din vector (nu neapărat consecutive) care sunt strict în ordine crescătoare.",
-      "diff": 2
+      "ans": 0,
+      "exp": "Funcția recursivă naivă pentru Fibonacci are complexitate exponențială O(2^n) deoarece recalculează aceleași subprobleme de multe ori.",
+      "diff": 1
     },
     {
-      "q": "Dacă dp[i] = lungimea LIS care se termină la poziția i, care este relația de recurență?",
+      "q": "Ce complexitate are calculul Fibonacci cu programare dinamică (bottom-up)?",
       "opts": [
-        "dp[i] = dp[i-1] + 1",
-        "dp[i] = max(dp[j]+1) pentru j<i și v[j]<v[i]",
-        "dp[i] = dp[i/2] + 1",
-        "dp[i] = dp[i-1] + dp[i-2]"
+        "O(n)",
+        "O(2^n)",
+        "O(n^2)",
+        "O(n log n)"
       ],
-      "ans": 1,
-      "exp": "dp[i] este cel mai mare dp[j]+1 pentru oricare j anterior lui i cu v[j] < v[i]. Valoarea inițială dp[i]=1 (subsir format doar din v[i]).",
-      "diff": 2
+      "ans": 0,
+      "exp": "Abordarea bottom-up calculează fiecare valoare Fibonacci o singură dată, deci complexitatea este O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul următor?\n<code>int dp[6];\ndp[0]=0; dp[1]=1;\nfor(int i=2;i&lt;=5;i++)\n  dp[i]=dp[i-1]+dp[i-2];\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "5",
+        "8",
+        "3",
+        "13"
+      ],
+      "ans": 0,
+      "exp": "Se calculează Fibonacci bottom-up: dp[2]=1, dp[3]=2, dp[4]=3, dp[5]=5.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este memoizarea în contextul programării dinamice?",
+      "opts": [
+        "Stocarea rezultatelor subproblemelor deja calculate",
+        "Sortarea datelor",
+        "Utilizarea memoriei heap",
+        "Alocarea dinamică de memorie"
+      ],
+      "ans": 0,
+      "exp": "Memoizarea presupune salvarea rezultatelor subproblemelor într-o structură de date pentru a nu le recalcula.",
+      "diff": 1
+    },
+    {
+      "q": "Ce tip de structură de date se folosește cel mai des pentru memoizare?",
+      "opts": [
+        "Vector sau matrice",
+        "Arbore binar",
+        "Coadă",
+        "Stivă"
+      ],
+      "ans": 0,
+      "exp": "Vectorii și matricele sunt cele mai folosite structuri pentru memoizare datorită accesului în O(1).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int memo[10];\nmemset(memo,-1,sizeof(memo));\nint fib(int n) {\n  if(n&lt;=1) return n;\n  if(memo[n]!=-1) return memo[n];\n  return memo[n]=fib(n-1)+fib(n-2);\n}\ncout &lt;&lt; fib(6);</code>",
+      "opts": [
+        "8",
+        "13",
+        "5",
+        "21"
+      ],
+      "ans": 0,
+      "exp": "fib(6) = fib(5) + fib(4) = 5 + 3 = 8. Memoizarea evită recalcularea subproblemelor.",
+      "diff": 1
+    },
+    {
+      "q": "Care este spațiul suplimentar necesar pentru Fibonacci DP bottom-up cu optimizare de spațiu?",
+      "opts": [
+        "O(1)",
+        "O(n)",
+        "O(n^2)",
+        "O(2^n)"
+      ],
+      "ans": 0,
+      "exp": "Se pot folosi doar două variabile pentru ultimele două valori Fibonacci, deci spațiul este O(1).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int a=0, b=1, c;\nfor(int i=2;i&lt;=7;i++){\n  c=a+b; a=b; b=c;\n}\ncout &lt;&lt; b;</code>",
+      "opts": [
+        "13",
+        "8",
+        "21",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Se calculează Fibonacci optimizat: F(7) = 13. Secvența: 0,1,1,2,3,5,8,13.",
+      "diff": 1
+    },
+    {
+      "q": "Ce problemă clasică DP cere găsirea celui mai lung subșir crescător?",
+      "opts": [
+        "LIS (Longest Increasing Subsequence)",
+        "LCS (Longest Common Subsequence)",
+        "Knapsack",
+        "Coin Change"
+      ],
+      "ans": 0,
+      "exp": "LIS – cel mai lung subșir strict crescător este o problemă clasică de programare dinamică.",
+      "diff": 1
     },
     {
       "q": "Care este complexitatea algoritmului DP clasic pentru LIS?",
-      "opts": ["O(n)", "O(n log n)", "O(n^2)", "O(2^n)"],
-      "ans": 2,
-      "exp": "Algoritmul cu dp[i] = max(dp[j]+1) folosește două bucle imbricate → O(n²). Există și o variantă O(n log n) cu Binary Search.",
-      "diff": 2
-    },
-    {
-      "q": "La Trianglul lui Pascal/numerelor, dp[i][j] reprezintă suma maximă a unui drum de la vârf până la celula (i,j). Care este relația?",
       "opts": [
-        "dp[i][j] = dp[i-1][j] + t[i][j]",
-        "dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + t[i][j]",
-        "dp[i][j] = dp[i][j-1] + dp[i-1][j]",
-        "dp[i][j] = t[i][j] + t[i-1][j]"
+        "O(n^2)",
+        "O(n)",
+        "O(n log n)",
+        "O(2^n)"
       ],
-      "ans": 1,
-      "exp": "Fiecare celulă (i,j) poate fi atinsă din (i-1,j-1) sau (i-1,j). Luăm maximul celor două drumuri și adăugăm valoarea curentă t[i][j].",
-      "diff": 3
-    },
-    {
-      "q": "Care este diferența principală între DP top-down și DP bottom-up?",
-      "opts": [
-        "Top-down e mai rapid, bottom-up mai lent",
-        "Top-down folosește recursivitate + memoizare; bottom-up construiește tabelul iterativ de la cazuri de bază",
-        "Bottom-up are complexitate mai mare",
-        "Nu există diferență practică"
-      ],
-      "ans": 1,
-      "exp": "Top-down = recursivitate cu cache (memoizare). Bottom-up = buclă care construiește tabelul DP de la subprobleme mici la mari. Ambele au aceeași complexitate asimptotică.",
-      "diff": 2
-    },
-    {
-      "q": "Fibonacci(6) = ?",
-      "opts": ["8", "13", "21", "5"],
       "ans": 0,
-      "exp": "Șirul Fibonacci: 1,1,2,3,5,8,13,... Fibonacci(6) = 8 (indexat de la 1).",
+      "exp": "Algoritmul DP clasic pentru LIS are complexitate O(n^2): pentru fiecare element se verifică toate elementele anterioare.",
       "diff": 1
     },
     {
-      "q": "Care este LIS-ul vectorului [3, 1, 4, 1, 5, 9, 2, 6]?",
-      "opts": ["3", "4", "5", "6"],
-      "ans": 1,
-      "exp": "Un LIS de lungime 4: [1, 4, 5, 9] sau [1, 4, 5, 6] sau [1, 2, 6]. Lungimea maximă este 4.",
+      "q": "Ce problemă DP cere găsirea celui mai lung subșir comun a două secvențe?",
+      "opts": [
+        "LCS (Longest Common Subsequence)",
+        "LIS",
+        "Edit Distance",
+        "Knapsack"
+      ],
+      "ans": 0,
+      "exp": "LCS determină cel mai lung subșir comun a două secvențe.",
+      "diff": 1
+    },
+    {
+      "q": "Care este complexitatea algoritmului DP pentru LCS a două secvențe de lungime m și n?",
+      "opts": [
+        "O(m*n)",
+        "O(m+n)",
+        "O(m*n*min(m,n))",
+        "O(2^(m+n))"
+      ],
+      "ans": 0,
+      "exp": "Algoritmul DP pentru LCS folosește o matrice m×n, deci complexitatea totală este O(m*n).",
+      "diff": 1
+    },
+    {
+      "q": "Ce este problema rucsacului (Knapsack) 0/1?",
+      "opts": [
+        "Selectarea obiectelor cu greutate și valoare pentru a maximiza valoarea fără a depăși capacitatea",
+        "Sortarea obiectelor după greutate",
+        "Găsirea drumului minim",
+        "Calcularea sumei maxime"
+      ],
+      "ans": 0,
+      "exp": "Problema rucsacului 0/1 presupune alegerea unui subset de obiecte care maximizează valoarea totală fără a depăși capacitatea.",
+      "diff": 1
+    },
+    {
+      "q": "Care este complexitatea DP pentru problema rucsacului 0/1 cu n obiecte și capacitate W?",
+      "opts": [
+        "O(n*W)",
+        "O(n^2)",
+        "O(2^n)",
+        "O(n*log(W))"
+      ],
+      "ans": 0,
+      "exp": "Algoritmul DP pentru rucsac folosește o matrice n×W.",
+      "diff": 1
+    },
+    {
+      "q": "Ce diferență există între problema rucsacului 0/1 și rucsacul fracționar?",
+      "opts": [
+        "La 0/1 un obiect se ia integral sau deloc, la fracționar se poate lua o fracțiune",
+        "Nu există nicio diferență",
+        "Rucsacul fracționar nu se poate rezolva",
+        "Rucsacul 0/1 se rezolvă greedy"
+      ],
+      "ans": 0,
+      "exp": "La rucsacul 0/1 fiecare obiect este luat integral sau deloc (DP), iar la cel fracționar se pot lua fracțiuni (greedy).",
+      "diff": 1
+    },
+    {
+      "q": "Ce este problema Coin Change?",
+      "opts": [
+        "Găsirea numărului minim de monede pentru a obține o sumă dată",
+        "Sortarea monedelor",
+        "Numărarea monedelor",
+        "Găsirea celei mai mari monede"
+      ],
+      "ans": 0,
+      "exp": "Coin Change cere determinarea numărului minim de monede pentru a forma o sumă dată.",
+      "diff": 1
+    },
+    {
+      "q": "Care este algoritmul lui Kadane?",
+      "opts": [
+        "Algoritm DP pentru suma maximă a unui subșir contiguu",
+        "Algoritm de sortare",
+        "Algoritm de căutare",
+        "Algoritm pentru LCS"
+      ],
+      "ans": 0,
+      "exp": "Algoritmul lui Kadane găsește suma maximă a unui subșir contiguu (subarray) într-un vector, în O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Ce complexitate are algoritmul lui Kadane?",
+      "opts": [
+        "O(n)",
+        "O(n^2)",
+        "O(n log n)",
+        "O(2^n)"
+      ],
+      "ans": 0,
+      "exp": "Kadane parcurge vectorul o singură dată, menținând suma curentă și suma maximă, deci O(n).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează algoritmul Kadane pe vectorul {5, -3, 5}?",
+      "opts": [
+        "7",
+        "5",
+        "10",
+        "2"
+      ],
+      "ans": 0,
+      "exp": "cur=5, cur=max(-3,2)=2, cur=max(5,7)=7. Subșirul {5,-3,5} are suma 7.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este problema triunghiului de numere (Triangle DP)?",
+      "opts": [
+        "Găsirea drumului de sumă maximă/minimă de la vârf la baza unui triunghi",
+        "Sortarea unui triunghi",
+        "Căutarea într-un triunghi",
+        "Rotirea unui triunghi"
+      ],
+      "ans": 0,
+      "exp": "Problema triunghiului cere găsirea drumului de la vârf la bază care maximizează sau minimizează suma.",
+      "diff": 1
+    },
+    {
+      "q": "Care este recurența pentru problema numărării modurilor de a urca n trepte (1 sau 2 trepte)?",
+      "opts": [
+        "dp[i] = dp[i-1] + dp[i-2]",
+        "dp[i] = dp[i-1] * dp[i-2]",
+        "dp[i] = max(dp[i-1], dp[i-2])",
+        "dp[i] = dp[i-1] - dp[i-2]"
+      ],
+      "ans": 0,
+      "exp": "Numărul de moduri de a ajunge pe treapta i este suma modurilor pentru treapta i-1 și i-2, similar cu Fibonacci.",
+      "diff": 1
+    },
+    {
+      "q": "Câte moduri există de a urca 5 trepte (1 sau 2 trepte)?",
+      "opts": [
+        "8",
+        "5",
+        "13",
+        "10"
+      ],
+      "ans": 0,
+      "exp": "dp[1]=1, dp[2]=2, dp[3]=3, dp[4]=5, dp[5]=8. Sunt 8 moduri.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int dp[6];\ndp[0]=1; dp[1]=1;\nfor(int i=2;i&lt;=5;i++)\n  dp[i]=dp[i-1]+dp[i-2];\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "8",
+        "5",
+        "13",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "dp[2]=2, dp[3]=3, dp[4]=5, dp[5]=8.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este distanța de editare (Edit Distance)?",
+      "opts": [
+        "Numărul minim de operații (inserare, ștergere, substituție) pentru a transforma un șir în altul",
+        "Lungimea LCS",
+        "Numărul de caractere diferite",
+        "Distanța Hamming"
+      ],
+      "ans": 0,
+      "exp": "Distanța de editare (Levenshtein) este numărul minim de operații necesare pentru a transforma un șir în altul.",
+      "diff": 1
+    },
+    {
+      "q": "Ce problemă DP rezolvă: câte moduri există de a forma suma S din monedele date?",
+      "opts": [
+        "Coin Change (numărare moduri)",
+        "Knapsack",
+        "LIS",
+        "Fibonacci"
+      ],
+      "ans": 0,
+      "exp": "Varianta de numărare a problemei Coin Change: câte combinații de monede formează suma S.",
+      "diff": 1
+    },
+    {
+      "q": "Ce problemă DP rezolvă drumul de cost minim într-o matrice de la (0,0) la (m-1,n-1)?",
+      "opts": [
+        "Minimum Path Sum",
+        "LCS",
+        "Knapsack",
+        "Kadane"
+      ],
+      "ans": 0,
+      "exp": "Minimum Path Sum cere drumul de cost minim mergând doar dreapta sau jos.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={3,1,4,1,5,9};\nint n=6, dp[6];\nfor(int i=0;i&lt;n;i++) dp[i]=1;\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(v[j]&lt;v[i]) dp[i]=max(dp[i],dp[j]+1);\nint mx=0;\nfor(int i=0;i&lt;n;i++) mx=max(mx,dp[i]);\ncout &lt;&lt; mx;</code>",
+      "opts": [
+        "4",
+        "3",
+        "5",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "LIS: subșirul crescător maxim este {1,4,5,9} cu lungimea 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce valoare va conține dp[3][4] la finalul algoritmului LCS pentru \"ABC\" și \"ABCD\"?",
+      "opts": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "ans": 0,
+      "exp": "LCS(\"ABC\",\"ABCD\") = \"ABC\", deci dp[3][4] = 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>string a=\"AGGTAB\",b=\"GXTXAYB\";\nint m=a.size(),n=b.size();\nint dp[7][8];\nmemset(dp,0,sizeof(dp));\nfor(int i=1;i&lt;=m;i++)\n  for(int j=1;j&lt;=n;j++)\n    if(a[i-1]==b[j-1]) dp[i][j]=dp[i-1][j-1]+1;\n    else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);\ncout &lt;&lt; dp[m][n];</code>",
+      "opts": [
+        "4",
+        "5",
+        "3",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "LCS(\"AGGTAB\",\"GXTXAYB\") = \"GTAB\" cu lungimea 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int w[]={1,3,4,5}, v[]={1,4,5,7};\nint n=4, W=7;\nint dp[5][8];\nmemset(dp,0,sizeof(dp));\nfor(int i=1;i&lt;=n;i++)\n  for(int j=0;j&lt;=W;j++)\n    if(w[i-1]&lt;=j)\n      dp[i][j]=max(dp[i-1][j],dp[i-1][j-w[i-1]]+v[i-1]);\n    else dp[i][j]=dp[i-1][j];\ncout &lt;&lt; dp[n][W];</code>",
+      "opts": [
+        "9",
+        "11",
+        "7",
+        "12"
+      ],
+      "ans": 0,
+      "exp": "Rucsac 0/1: se aleg obiectele cu w={3,4} și v={4,5}, valoare totală = 9.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int coins[]={1,5,10}, n=3, sum=11;\nint dp[12];\nfor(int i=0;i&lt;=sum;i++) dp[i]=1e9;\ndp[0]=0;\nfor(int i=1;i&lt;=sum;i++)\n  for(int j=0;j&lt;n;j++)\n    if(coins[j]&lt;=i &amp;&amp; dp[i-coins[j]]+1&lt;dp[i])\n      dp[i]=dp[i-coins[j]]+1;\ncout &lt;&lt; dp[11];</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Coin Change: 11 = 10 + 1, deci sunt necesare minim 2 monede.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int coins[]={1,3,4}, sum=6;\nint dp[7];\nfor(int i=0;i&lt;=sum;i++) dp[i]=1e9;\ndp[0]=0;\nfor(int i=1;i&lt;=sum;i++)\n  for(int j=0;j&lt;3;j++)\n    if(coins[j]&lt;=i)\n      dp[i]=min(dp[i],dp[i-coins[j]]+1);\ncout &lt;&lt; dp[6];</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "dp[6] = min(dp[5]+1, dp[3]+1, dp[2]+1) = 2. Se folosesc 2 monede: 3+3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int coins[]={2,5,3,6}, sum=10;\nint dp[11];\nfor(int i=0;i&lt;=sum;i++) dp[i]=1e9;\ndp[0]=0;\nfor(int i=1;i&lt;=sum;i++)\n  for(int j=0;j&lt;4;j++)\n    if(coins[j]&lt;=i &amp;&amp; dp[i-coins[j]]!=1e9)\n      dp[i]=min(dp[i],dp[i-coins[j]]+1);\ncout &lt;&lt; dp[10];</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "dp[10]: 5+5 = 2 monede.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={-2,1,-3,4,-1,2,1,-5,4};\nint n=9, mx=v[0], cur=v[0];\nfor(int i=1;i&lt;n;i++){\n  cur=max(v[i],cur+v[i]);\n  mx=max(mx,cur);\n}\ncout &lt;&lt; mx;</code>",
+      "opts": [
+        "6",
+        "7",
+        "4",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Kadane: subșirul contiguu cu suma maximă este {4,-1,2,1} cu suma 6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează algoritmul Kadane pe vectorul {-1, -2, -3}?",
+      "opts": [
+        "-1",
+        "-2",
+        "-3",
+        "0"
+      ],
+      "ans": 0,
+      "exp": "Toate elementele sunt negative. Kadane returnează cel mai mare element: -1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int t[3][3]={{1,0,0},{2,3,0},{4,5,6}};\nfor(int i=1;i&lt;3;i++)\n  for(int j=0;j&lt;=i;j++){\n    if(j==0) t[i][j]+=t[i-1][j];\n    else if(j==i) t[i][j]+=t[i-1][j-1];\n    else t[i][j]+=max(t[i-1][j-1],t[i-1][j]);\n  }\nint mx=0;\nfor(int j=0;j&lt;3;j++) mx=max(mx,t[2][j]);\ncout &lt;&lt; mx;</code>",
+      "opts": [
+        "10",
+        "9",
+        "8",
+        "11"
+      ],
+      "ans": 0,
+      "exp": "t[1][0]=2+1=3, t[1][1]=3+1=4. t[2][0]=4+3=7, t[2][1]=5+max(3,4)=9, t[2][2]=6+4=10. Maximul = 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce returnează funcția?\n<code>int solve(int v[], int n) {\n  int dp[100];\n  dp[0]=v[0]; dp[1]=max(v[0],v[1]);\n  for(int i=2;i&lt;n;i++)\n    dp[i]=max(dp[i-1],dp[i-2]+v[i]);\n  return dp[n-1];\n}\n// v={3,2,7,10}, n=4</code>",
+      "opts": [
+        "13",
+        "12",
+        "10",
+        "17"
+      ],
+      "ans": 0,
+      "exp": "House Robber: dp[0]=3, dp[1]=3, dp[2]=max(3,3+7)=10, dp[3]=max(10,3+10)=13.",
+      "diff": 2
+    },
+    {
+      "q": "Ce problemă rezolvă recurența dp[i] = max(dp[i-1], dp[i-2] + v[i])?",
+      "opts": [
+        "Suma maximă de elemente neadiacente (House Robber)",
+        "Fibonacci",
+        "LIS",
+        "LCS"
+      ],
+      "ans": 0,
+      "exp": "Recurența corespunde problemei House Robber: selectarea elementelor neadiacente cu suma maximă.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={1,2,3,1};\nint dp[4];\ndp[0]=1; dp[1]=2;\nfor(int i=2;i&lt;4;i++)\n  dp[i]=max(dp[i-1],dp[i-2]+v[i]);\ncout &lt;&lt; dp[3];</code>",
+      "opts": [
+        "4",
+        "3",
+        "5",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "dp[2]=max(2,1+3)=4. dp[3]=max(4,2+1)=4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul urmator (Edit Distance)?\n<code>string a=\"kitten\",b=\"sitting\";\nint m=6,n=7;\nint dp[7][8];\nfor(int i=0;i&lt;=m;i++) dp[i][0]=i;\nfor(int j=0;j&lt;=n;j++) dp[0][j]=j;\nfor(int i=1;i&lt;=m;i++)\n  for(int j=1;j&lt;=n;j++)\n    if(a[i-1]==b[j-1]) dp[i][j]=dp[i-1][j-1];\n    else dp[i][j]=1+min({dp[i-1][j],dp[i][j-1],dp[i-1][j-1]});\ncout &lt;&lt; dp[m][n];</code>",
+      "opts": [
+        "3",
+        "2",
+        "4",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Edit Distance(\"kitten\",\"sitting\") = 3: substituie k→s, e→i, adaugă g.",
+      "diff": 2
+    },
+    {
+      "q": "Care este recurența pentru Edit Distance?",
+      "opts": [
+        "dp[i][j] = dp[i-1][j-1] dacă a[i]==b[j], altfel 1+min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])",
+        "dp[i][j] = dp[i-1][j-1] + 1",
+        "dp[i][j] = max(dp[i-1][j], dp[i][j-1])",
+        "dp[i][j] = dp[i-1][j] + dp[i][j-1]"
+      ],
+      "ans": 0,
+      "exp": "Dacă caracterele coincid, dp[i][j]=dp[i-1][j-1]. Altfel, se alege minimul plus 1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int coins[]={1,2,5}, sum=5;\nint dp[6]={0};\ndp[0]=1;\nfor(int j=0;j&lt;3;j++)\n  for(int i=coins[j];i&lt;=sum;i++)\n    dp[i]+=dp[i-coins[j]];\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "4",
+        "5",
+        "3",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Moduri de a forma 5: {5}, {2+2+1}, {2+1+1+1}, {1+1+1+1+1} = 4 moduri.",
+      "diff": 2
+    },
+    {
+      "q": "Care este diferența între varianta de numărare combinații și permutări la Coin Change?",
+      "opts": [
+        "La combinații se iterează mai întâi pe monede, la permutări pe sume",
+        "Nu există diferență",
+        "Combinațiile sunt mereu mai multe",
+        "Permutările se calculează greedy"
+      ],
+      "ans": 0,
+      "exp": "Dacă bucla exterioară este pe monede → combinații. Dacă bucla exterioară este pe sume → permutări.",
+      "diff": 2
+    },
+    {
+      "q": "Ce problemă rezolvă recurența dp[i][j] = dp[i+1][j-1] + 2 dacă s[i]==s[j]?",
+      "opts": [
+        "Cel mai lung subșir palindromic",
+        "LCS",
+        "Edit Distance",
+        "Knapsack"
+      ],
+      "ans": 0,
+      "exp": "Recurența corespunde problemei Longest Palindromic Subsequence.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={10,22,9,33,21,50,41,60,80};\nint n=9, dp[9];\nfor(int i=0;i&lt;n;i++) dp[i]=1;\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(v[j]&lt;v[i]) dp[i]=max(dp[i],dp[j]+1);\nint mx=0;\nfor(int i=0;i&lt;n;i++) mx=max(mx,dp[i]);\ncout &lt;&lt; mx;</code>",
+      "opts": [
+        "6",
+        "5",
+        "7",
+        "4"
+      ],
+      "ans": 0,
+      "exp": "LIS: {10,22,33,50,60,80} cu lungimea 6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int mat[2][2]={{1,2},{3,4}};\nint dp[2][2];\ndp[0][0]=mat[0][0];\nfor(int j=1;j&lt;2;j++) dp[0][j]=dp[0][j-1]+mat[0][j];\nfor(int i=1;i&lt;2;i++) dp[i][0]=dp[i-1][0]+mat[i][0];\nfor(int i=1;i&lt;2;i++)\n  for(int j=1;j&lt;2;j++)\n    dp[i][j]=mat[i][j]+min(dp[i-1][j],dp[i][j-1]);\ncout &lt;&lt; dp[1][1];</code>",
+      "opts": [
+        "7",
+        "10",
+        "6",
+        "8"
+      ],
+      "ans": 0,
+      "exp": "Drum minim: dp[0][0]=1, dp[0][1]=3, dp[1][0]=4, dp[1][1]=4+min(3,4)=7.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int mat[3][3]={{1,3,1},{1,5,1},{4,2,1}};\nint dp[3][3];\ndp[0][0]=mat[0][0];\nfor(int j=1;j&lt;3;j++) dp[0][j]=dp[0][j-1]+mat[0][j];\nfor(int i=1;i&lt;3;i++) dp[i][0]=dp[i-1][0]+mat[i][0];\nfor(int i=1;i&lt;3;i++)\n  for(int j=1;j&lt;3;j++)\n    dp[i][j]=mat[i][j]+min(dp[i-1][j],dp[i][j-1]);\ncout &lt;&lt; dp[2][2];</code>",
+      "opts": [
+        "7",
+        "8",
+        "6",
+        "9"
+      ],
+      "ans": 0,
+      "exp": "dp[0]={1,4,5}, dp[1]={2,7,6}, dp[2]={6,8,7}. dp[2][2]=7.",
+      "diff": 2
+    },
+    {
+      "q": "Ce problemă DP rezolvă recurența dp[i] = max(v[j] + dp[i-j]) pentru j de la 1 la i?",
+      "opts": [
+        "Tăierea barei (Rod Cutting)",
+        "Fibonacci",
+        "LCS",
+        "Kadane"
+      ],
+      "ans": 0,
+      "exp": "Recurența corespunde problemei tăierii barei: maximizarea profitului din tăierea unei bare de lungime n.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>string s=\"abcde\",t=\"ace\";\nint m=5,n=3;\nint dp[6][4];\nmemset(dp,0,sizeof(dp));\nfor(int i=1;i&lt;=m;i++)\n  for(int j=1;j&lt;=n;j++)\n    if(s[i-1]==t[j-1]) dp[i][j]=dp[i-1][j-1]+1;\n    else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);\ncout &lt;&lt; dp[m][n];</code>",
+      "opts": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "ans": 0,
+      "exp": "LCS(\"abcde\",\"ace\") = \"ace\" cu lungimea 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce problemă DP rezolvă înmulțirea optimă a unui lanț de matrici?",
+      "opts": [
+        "Matrix Chain Multiplication",
+        "LCS",
+        "Knapsack",
+        "Edit Distance"
+      ],
+      "ans": 0,
+      "exp": "Matrix Chain Multiplication determină ordinea optimă de parantezare pentru a minimiza înmulțirile scalare.",
+      "diff": 2
+    },
+    {
+      "q": "Care este complexitatea DP pentru Matrix Chain Multiplication cu n matrici?",
+      "opts": [
+        "O(n^3)",
+        "O(n^2)",
+        "O(n)",
+        "O(2^n)"
+      ],
+      "ans": 0,
+      "exp": "Algoritmul DP pentru MCM are trei bucle imbricate, rezultând O(n^3).",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={1,2,3};\nint n=3, sum=0;\nfor(int i=0;i&lt;n;i++) sum+=v[i];\nif(sum%2!=0) { cout&lt;&lt;\"NO\"; return 0; }\nint S=sum/2;\nbool dp[4]={false};\ndp[0]=true;\nfor(int i=0;i&lt;n;i++)\n  for(int j=S;j&gt;=v[i];j--)\n    dp[j]=dp[j]||dp[j-v[i]];\ncout &lt;&lt; (dp[S]?\"YES\":\"NO\");</code>",
+      "opts": [
+        "YES",
+        "NO",
+        "ERROR",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "Subset Sum Partition: sum=6, S=3. Se poate partiționa în {1,2} și {3}.",
+      "diff": 2
+    },
+    {
+      "q": "Ce problemă DP verifică dacă un vector poate fi împărțit în două submulțimi cu sume egale?",
+      "opts": [
+        "Equal Subset Sum Partition",
+        "Knapsack",
+        "Coin Change",
+        "LIS"
+      ],
+      "ans": 0,
+      "exp": "Equal Subset Sum Partition se reduce la Subset Sum cu target = sum/2.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={1,5,11,5};\nint n=4, S=11;\nbool dp[12]={false};\ndp[0]=true;\nfor(int i=0;i&lt;n;i++)\n  for(int j=S;j&gt;=v[i];j--)\n    dp[j]=dp[j]||dp[j-v[i]];\ncout &lt;&lt; (dp[S]?\"DA\":\"NU\");</code>",
+      "opts": [
+        "DA",
+        "NU",
+        "ERROR",
+        "11"
+      ],
+      "ans": 0,
+      "exp": "Subset Sum: S=11. Se poate forma 11 din {11} sau {1,5,5}. dp[11]=true.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int dp[4][4];\nmemset(dp,0,sizeof(dp));\ndp[0][0]=1;\nfor(int i=0;i&lt;3;i++)\n  for(int j=0;j&lt;3;j++){\n    if(i+1&lt;3) dp[i+1][j]+=dp[i][j];\n    if(j+1&lt;3) dp[i][j+1]+=dp[i][j];\n  }\ncout &lt;&lt; dp[2][2];</code>",
+      "opts": [
+        "6",
+        "4",
+        "8",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "Drumuri unice într-o matrice 3×3: C(4,2) = 6.",
+      "diff": 2
+    },
+    {
+      "q": "Câte drumuri unice există într-o matrice m×n de la (0,0) la (m-1,n-1) mergând doar dreapta sau jos?",
+      "opts": [
+        "C(m+n-2, m-1)",
+        "m*n",
+        "m+n",
+        "2^(m+n)"
+      ],
+      "ans": 0,
+      "exp": "Sunt C(m+n-2, m-1) drumuri: exact m-1 pași jos și n-1 pași dreapta.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={3,4,5,1,2};\nint n=5, dp[5];\nfor(int i=0;i&lt;n;i++) dp[i]=1;\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(v[j]&lt;v[i]) dp[i]=max(dp[i],dp[j]+1);\ncout &lt;&lt; *max_element(dp,dp+n);</code>",
+      "opts": [
+        "3",
+        "2",
+        "4",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "LIS: {3,4,5} cu lungimea 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={2,1,5,3,4};\nint n=5, dp[5];\nfor(int i=0;i&lt;n;i++) dp[i]=1;\nfor(int i=n-2;i&gt;=0;i--)\n  for(int j=i+1;j&lt;n;j++)\n    if(v[j]&gt;v[i]) dp[i]=max(dp[i],dp[j]+1);\ncout &lt;&lt; *max_element(dp,dp+n);</code>",
+      "opts": [
+        "3",
+        "4",
+        "2",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "LIS calculat de la dreapta la stânga: {2,3,4} cu lungimea 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int m[3][3]={{1,2,3},{4,5,6},{7,8,9}};\nint dp[3][3];\ndp[0][0]=m[0][0];\nfor(int i=1;i&lt;3;i++) dp[i][0]=dp[i-1][0]+m[i][0];\nfor(int j=1;j&lt;3;j++) dp[0][j]=dp[0][j-1]+m[0][j];\nfor(int i=1;i&lt;3;i++)\n  for(int j=1;j&lt;3;j++)\n    dp[i][j]=m[i][j]+max(dp[i-1][j],dp[i][j-1]);\ncout &lt;&lt; dp[2][2];</code>",
+      "opts": [
+        "29",
+        "21",
+        "25",
+        "33"
+      ],
+      "ans": 0,
+      "exp": "Drum maxim: dp[0]={1,3,6}, dp[1]={5,10,16}, dp[2]={12,20,29}. dp[2][2]=29.",
+      "diff": 2
+    },
+    {
+      "q": "Ce tip de DP este necesar pentru Subset Sum?",
+      "opts": [
+        "DP boolean cu dp[j] = true dacă suma j poate fi formată",
+        "DP pe grafuri",
+        "DP pe arbori",
+        "DP cu mascare pe biți"
+      ],
+      "ans": 0,
+      "exp": "Subset Sum folosește un vector boolean dp[] unde dp[j] indică dacă suma j poate fi formată.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={1,3,5,8,9,2,6,7,6,1};\nint n=10, dp[10];\nfor(int i=0;i&lt;n;i++) dp[i]=1;\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(v[j]&lt;v[i]) dp[i]=max(dp[i],dp[j]+1);\ncout &lt;&lt; *max_element(dp,dp+n);</code>",
+      "opts": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "ans": 0,
+      "exp": "LIS: {1,3,5,8,9} cu lungimea 5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce este un subșir bitonic?",
+      "opts": [
+        "Un subșir care crește și apoi descrește",
+        "Un subșir constant",
+        "Un subșir care doar crește",
+        "Un subșir alternant"
+      ],
+      "ans": 0,
+      "exp": "Un subșir bitonic crește strict până la un maxim și apoi descrește strict.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int dp[4][4];\nmemset(dp,0,sizeof(dp));\nint obs[3][3]={{0,0,0},{0,1,0},{0,0,0}};\ndp[0][0]=1;\nfor(int i=0;i&lt;3;i++)\n  for(int j=0;j&lt;3;j++){\n    if(obs[i][j]==1){dp[i][j]=0; continue;}\n    if(i&gt;0) dp[i][j]+=dp[i-1][j];\n    if(j&gt;0) dp[i][j]+=dp[i][j-1];\n  }\ncout &lt;&lt; dp[2][2];</code>",
+      "opts": [
+        "2",
+        "4",
+        "1",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "Drumuri cu obstacole: dp={{1,1,1},{1,0,1},{1,1,2}}. Sunt 2 drumuri.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul (numărarea secvențelor binare fără doi 1 consecutivi)?\n<code>int n=4;\nint a=1,b=2,c;\nfor(int i=3;i&lt;=n;i++){\n  c=a+b; a=b; b=c;\n}\ncout &lt;&lt; b;</code>",
+      "opts": [
+        "5",
+        "8",
+        "3",
+        "13"
+      ],
+      "ans": 0,
+      "exp": "Similar Fibonacci: a=1,b=2, f(3)=3, f(4)=5. b=5.",
+      "diff": 2
+    },
+    {
+      "q": "Care este recurența pentru numărarea șirurilor binare de lungime n fără doi de 1 consecutivi?",
+      "opts": [
+        "f(n) = f(n-1) + f(n-2)",
+        "f(n) = 2*f(n-1)",
+        "f(n) = f(n-1) * f(n-2)",
+        "f(n) = n*f(n-1)"
+      ],
+      "ans": 0,
+      "exp": "Dacă ultimul bit=0, f(n-1) posibilități. Dacă ultimul bit=1, penultimul=0, deci f(n-2).",
+      "diff": 2
+    },
+    {
+      "q": "De ce se iterează de la W la w[i] (descrescător) la Knapsack 0/1 cu un singur vector?",
+      "opts": [
+        "Pentru a nu folosi un obiect de mai multe ori",
+        "Pentru eficiență",
+        "Pentru sortare",
+        "Nu contează ordinea"
+      ],
+      "ans": 0,
+      "exp": "Iterarea descrescătoare asigură că fiecare obiect este considerat cel mult o dată.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul (subșir palindromic maxim)?\n<code>string s=\"bbbab\";\nint n=5;\nint dp[5][5];\nmemset(dp,0,sizeof(dp));\nfor(int i=0;i&lt;n;i++) dp[i][i]=1;\nfor(int l=2;l&lt;=n;l++)\n  for(int i=0;i&lt;=n-l;i++){\n    int j=i+l-1;\n    if(s[i]==s[j]) dp[i][j]=dp[i+1][j-1]+2;\n    else dp[i][j]=max(dp[i+1][j],dp[i][j-1]);\n  }\ncout &lt;&lt; dp[0][n-1];</code>",
+      "opts": [
+        "4",
+        "3",
+        "5",
+        "2"
+      ],
+      "ans": 0,
+      "exp": "Cel mai lung subșir palindromic din \"bbbab\" este \"bbbb\" cu lungimea 4.",
       "diff": 3
     },
     {
-      "q": "Pentru a economisi memorie la Fibonacci DP, ce putem face?",
+      "q": "Ce afișează codul?\n<code>int v[]={1,5,8,9,10,17,17,20};\nint n=8;\nint dp[9]={0};\nfor(int i=1;i&lt;=n;i++)\n  for(int j=1;j&lt;=i;j++)\n    dp[i]=max(dp[i],v[j-1]+dp[i-j]);\ncout &lt;&lt; dp[8];</code>",
       "opts": [
-        "Nu se poate optimiza memoria",
-        "Stocăm doar ultimele 2 valori în loc de tot tabelul",
-        "Folosim un arbore binar",
-        "Aplicăm memoizarea cu map<int,int>"
+        "22",
+        "20",
+        "24",
+        "18"
       ],
-      "ans": 1,
-      "exp": "fib[i] depinde doar de fib[i-1] și fib[i-2], deci putem ține doar 2 variabile (prev1, prev2) în loc de un tablou de n elemente — optimizare de la O(n) la O(1) spațiu.",
-      "diff": 2
+      "ans": 0,
+      "exp": "Problema tăierii barei (Rod Cutting). dp[8] = 22.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={2,3,1,1,4};\nint n=5, dp[5];\nfor(int i=0;i&lt;n;i++) dp[i]=1e9;\ndp[0]=0;\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(j+v[j]&gt;=i)\n      dp[i]=min(dp[i],dp[j]+1);\ncout &lt;&lt; dp[4];</code>",
+      "opts": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "ans": 0,
+      "exp": "Jump Game II: dp[0]=0, dp[1]=1, dp[2]=1, dp[3]=2, dp[4]=2. Minim 2 salturi.",
+      "diff": 3
+    },
+    {
+      "q": "Ce este un număr Catalan și unde apare?",
+      "opts": [
+        "C(n+1) = sum(C(i)*C(n-i)) pentru i=0..n, apare în numărarea arborilor binari și parantezărilor",
+        "C(n) = C(n-1) + C(n-2)",
+        "C(n) = 2*C(n-1)",
+        "C(n) = n!"
+      ],
+      "ans": 0,
+      "exp": "Numerele Catalan satisfac recurența C(n+1) = Σ C(i)·C(n-i) și apar în numărarea arborilor binari, parantezărilor corecte etc.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>string s=\"aab\";\nint n=3, dp[3][3];\nmemset(dp,0,sizeof(dp));\nfor(int i=n-1;i&gt;=0;i--)\n  for(int j=i;j&lt;n;j++)\n    if(i==j) dp[i][j]=0;\n    else if(s[i]==s[j]) dp[i][j]=dp[i+1][j-1];\n    else dp[i][j]=1+min(dp[i+1][j],dp[i][j-1]);\ncout &lt;&lt; dp[0][n-1];</code>",
+      "opts": [
+        "1",
+        "0",
+        "2",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "Minimum insertions to make palindrome: \"aab\" → \"baab\" = 1 inserare.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul (Knapsack optimizat)?\n<code>int w[]={2,3,4,5}, v[]={3,4,5,6};\nint n=4, W=5;\nint dp[6]={0};\nfor(int i=0;i&lt;n;i++)\n  for(int j=W;j&gt;=w[i];j--)\n    dp[j]=max(dp[j],dp[j-w[i]]+v[i]);\ncout &lt;&lt; dp[W];</code>",
+      "opts": [
+        "7",
+        "8",
+        "6",
+        "9"
+      ],
+      "ans": 0,
+      "exp": "Knapsack 0/1: se aleg obiectele cu w={2,3}, v={3,4}=7.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={3,1,4,1,5};\nint n=5;\nint lis[5], lds[5];\nfor(int i=0;i&lt;n;i++) lis[i]=lds[i]=1;\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(v[j]&lt;v[i]) lis[i]=max(lis[i],lis[j]+1);\nfor(int i=n-2;i&gt;=0;i--)\n  for(int j=n-1;j&gt;i;j--)\n    if(v[j]&lt;v[i]) lds[i]=max(lds[i],lds[j]+1);\nint mx=0;\nfor(int i=0;i&lt;n;i++) mx=max(mx,lis[i]+lds[i]-1);\ncout &lt;&lt; mx;</code>",
+      "opts": [
+        "3",
+        "4",
+        "5",
+        "2"
+      ],
+      "ans": 0,
+      "exp": "Longest Bitonic Subsequence: lis={1,1,2,1,3}, lds={2,1,2,1,1}. Max: lis[2]+lds[2]-1=3.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=4;\nint dp[5]={0};\ndp[0]=1;\nfor(int i=1;i&lt;=n;i++)\n  for(int j=i;j&lt;=n;j++)\n    dp[j]+=dp[j-i];\ncout &lt;&lt; dp[4];</code>",
+      "opts": [
+        "5",
+        "4",
+        "3",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Partițiile lui 4: {4},{3+1},{2+2},{2+1+1},{1+1+1+1} = 5 partiții.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={2,4,6,2,5};\nint n=5;\nint dp[5][5];\nmemset(dp,0,sizeof(dp));\nfor(int i=0;i&lt;n;i++) dp[i][i]=v[i];\nfor(int l=2;l&lt;=n;l++)\n  for(int i=0;i&lt;=n-l;i++){\n    int j=i+l-1;\n    dp[i][j]=max(v[i]+min(dp[i+2][j],dp[i+1][j-1]),\n                 v[j]+min(dp[i+1][j-1],dp[i][j-2]));\n  }\ncout &lt;&lt; dp[0][n-1];</code>",
+      "opts": [
+        "12",
+        "11",
+        "13",
+        "10"
+      ],
+      "ans": 0,
+      "exp": "Jocul cu monede (Optimal Strategy): jucătorul 1 câștigă maxim 12.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=5;\nlong long dp[6];\ndp[0]=1; dp[1]=1;\nfor(int i=2;i&lt;=n;i++){\n  dp[i]=0;\n  for(int j=0;j&lt;i;j++)\n    dp[i]+=dp[j]*dp[i-1-j];\n}\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "42",
+        "14",
+        "132",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Numerele Catalan: C(5) = 42.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={1,101,2,3,100,4,5};\nint n=7, dp[7];\nfor(int i=0;i&lt;n;i++) dp[i]=v[i];\nfor(int i=1;i&lt;n;i++)\n  for(int j=0;j&lt;i;j++)\n    if(v[j]&lt;v[i]) dp[i]=max(dp[i],dp[j]+v[i]);\ncout &lt;&lt; *max_element(dp,dp+n);</code>",
+      "opts": [
+        "106",
+        "110",
+        "101",
+        "201"
+      ],
+      "ans": 0,
+      "exp": "Maximum Sum Increasing Subsequence: {1,2,3,100} cu suma 106.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int target=4;\nint nums[]={1,2,3};\nint dp[5]={0};\ndp[0]=1;\nfor(int i=1;i&lt;=target;i++)\n  for(int j=0;j&lt;3;j++)\n    if(nums[j]&lt;=i)\n      dp[i]+=dp[i-nums[j]];\ncout &lt;&lt; dp[4];</code>",
+      "opts": [
+        "7",
+        "4",
+        "5",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Combination Sum IV (permutări): dp[1]=1, dp[2]=2, dp[3]=4, dp[4]=7.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int prices[]={1,5,8,9,10};\nint n=5;\nint dp[6]={0};\nfor(int i=1;i&lt;=n;i++)\n  for(int j=1;j&lt;=i;j++)\n    dp[i]=max(dp[i],prices[j-1]+dp[i-j]);\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "13",
+        "10",
+        "12",
+        "15"
+      ],
+      "ans": 0,
+      "exp": "Rod Cutting: dp[5]=max(1+10,5+8,8+5,9+1,10)=13.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=4;\nint dp[5]={0};\ndp[0]=1; dp[1]=1;\nfor(int i=2;i&lt;=n;i++)\n  for(int j=0;j&lt;i;j++)\n    dp[i]+=dp[j]*dp[i-1-j];\ncout &lt;&lt; dp[4];</code>",
+      "opts": [
+        "14",
+        "42",
+        "5",
+        "132"
+      ],
+      "ans": 0,
+      "exp": "Numerele Catalan: C(4) = 14.",
+      "diff": 3
+    },
+    {
+      "q": "Câți arbori binari de căutare diferiți pot fi formați cu n=3 noduri?",
+      "opts": [
+        "5",
+        "3",
+        "4",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Numărul de BST-uri cu n noduri este al n-lea număr Catalan: C(3) = 5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul (0/1 Knapsack)?\n<code>int w[]={1,2,3}, v[]={6,10,12};\nint n=3, W=5;\nint dp[6]={0};\nfor(int i=0;i&lt;n;i++)\n  for(int j=W;j&gt;=w[i];j--)\n    dp[j]=max(dp[j],dp[j-w[i]]+v[i]);\ncout &lt;&lt; dp[W];</code>",
+      "opts": [
+        "22",
+        "18",
+        "16",
+        "12"
+      ],
+      "ans": 0,
+      "exp": "Knapsack: dp[5]=22 (obiecte cu w={2,3}, v={10,12}).",
+      "diff": 3
+    },
+    {
+      "q": "Ce tip de DP folosește mascare pe biți (bitmask DP)?",
+      "opts": [
+        "DP care codifică starea ca un număr binar, fiecare bit indicând dacă un element a fost vizitat",
+        "DP cu matrice",
+        "DP pe arbori",
+        "DP cu memoizare simplă"
+      ],
+      "ans": 0,
+      "exp": "Bitmask DP folosește un întreg ca mască binară unde fiecare bit indică includerea unui element.",
+      "diff": 3
+    },
+    {
+      "q": "Care este complexitatea TSP cu DP pe bitmask pentru n noduri?",
+      "opts": [
+        "O(n^2 * 2^n)",
+        "O(n!)",
+        "O(n^3)",
+        "O(2^n)"
+      ],
+      "ans": 0,
+      "exp": "TSP cu bitmask DP: O(n² · 2^n) — 2^n stări, n noduri, n tranziții.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul (Longest Palindromic Substring)?\n<code>string s=\"babad\";\nint n=5, mx=1, st=0;\nbool dp[5][5];\nmemset(dp,false,sizeof(dp));\nfor(int i=0;i&lt;n;i++) dp[i][i]=true;\nfor(int i=0;i&lt;n-1;i++)\n  if(s[i]==s[i+1]){dp[i][i+1]=true; st=i; mx=2;}\nfor(int l=3;l&lt;=n;l++)\n  for(int i=0;i&lt;=n-l;i++){\n    int j=i+l-1;\n    if(s[i]==s[j] &amp;&amp; dp[i+1][j-1]){dp[i][j]=true; if(l&gt;mx){st=i;mx=l;}}\n  }\ncout &lt;&lt; mx;</code>",
+      "opts": [
+        "3",
+        "5",
+        "2",
+        "4"
+      ],
+      "ans": 0,
+      "exp": "Cel mai lung subșir palindromic contiguu din \"babad\" este \"bab\" sau \"aba\" cu lungimea 3.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int v[]={5,1,4,2,8};\nint n=5;\nint dp[5][5];\nmemset(dp,0,sizeof(dp));\nfor(int i=0;i&lt;n;i++) dp[i][i]=v[i];\nfor(int l=2;l&lt;=n;l++)\n  for(int i=0;i&lt;=n-l;i++){\n    int j=i+l-1;\n    dp[i][j]=max(v[i]-dp[i+1][j], v[j]-dp[i][j-1]);\n  }\ncout &lt;&lt; dp[0][n-1];</code>",
+      "opts": [
+        "6",
+        "4",
+        "8",
+        "2"
+      ],
+      "ans": 0,
+      "exp": "Jocul de colectare cu diferența maximă. dp[0][4] = 6.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=3;\nint dp[4][4];\nmemset(dp,0,sizeof(dp));\ndp[1][1]=1;\nfor(int i=2;i&lt;=n;i++)\n  for(int j=1;j&lt;=i;j++)\n    dp[i][j]=dp[i-1][j-1]+(i-1)*dp[i-1][j];\ncout &lt;&lt; dp[3][2];</code>",
+      "opts": [
+        "3",
+        "2",
+        "1",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Numerele Stirling: S(2,1)=1, S(2,2)=1. S(3,2)=S(2,1)+2*S(2,2)=1+2=3.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=4;\nint dp[5][5];\nmemset(dp,0,sizeof(dp));\nfor(int i=0;i&lt;n;i++) dp[i][i]=0;\nint p[]={10,20,30,40,30};\nfor(int l=2;l&lt;=n;l++)\n  for(int i=0;i&lt;=n-l;i++){\n    int j=i+l-1;\n    dp[i][j]=1e9;\n    for(int k=i;k&lt;j;k++)\n      dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+p[i]*p[k+1]*p[j+1]);\n  }\ncout &lt;&lt; dp[0][n-1];</code>",
+      "opts": [
+        "30000",
+        "26000",
+        "24000",
+        "36000"
+      ],
+      "ans": 0,
+      "exp": "Matrix Chain Multiplication cu dimensiuni {10,20,30,40,30}. dp[0][3] = 30000.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=4;\nint dp[5]={0};\ndp[0]=1; dp[1]=1;\nfor(int i=2;i&lt;=n;i++)\n  for(int j=0;j&lt;i;j++)\n    dp[i]+=dp[j]*dp[i-1-j];\ncout &lt;&lt; dp[3];</code>",
+      "opts": [
+        "5",
+        "2",
+        "14",
+        "42"
+      ],
+      "ans": 0,
+      "exp": "Numerele Catalan: C(0)=1, C(1)=1, C(2)=2, C(3)=5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=4;\nint dp[5];\nint v[]={3,2,7,10};\ndp[0]=v[0]; dp[1]=max(v[0],v[1]);\nfor(int i=2;i&lt;n;i++)\n  dp[i]=max(dp[i-1],dp[i-2]+v[i]);\ncout &lt;&lt; dp[n-1];</code>",
+      "opts": [
+        "13",
+        "12",
+        "17",
+        "10"
+      ],
+      "ans": 0,
+      "exp": "House Robber: dp[0]=3, dp[1]=3, dp[2]=max(3,10)=10, dp[3]=max(10,13)=13.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=4;\nbool dp[5][5];\nmemset(dp,false,sizeof(dp));\ndp[0][0]=true;\nfor(int i=1;i&lt;=n;i++)\n  for(int j=0;j&lt;=i;j++){\n    if(j==0) dp[i][j]=true;\n    else if(j==i) dp[i][j]=true;\n    else dp[i][j]=dp[i-1][j-1]||dp[i-1][j];\n  }\nint cnt=0;\nfor(int j=0;j&lt;=4;j++) if(dp[4][j]) cnt++;\ncout &lt;&lt; cnt;</code>",
+      "opts": [
+        "5",
+        "4",
+        "3",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Se construiește triunghiul Pascal: rândul 4 are 5 elemente, toate true. cnt = 5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=5;\nint dp[6]={0};\ndp[0]=dp[1]=1;\nfor(int i=2;i&lt;=n;i++)\n  dp[i]=(2*(2*i-1)*dp[i-1])/(i+1);\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "42",
+        "14",
+        "5",
+        "132"
+      ],
+      "ans": 0,
+      "exp": "Numerele Catalan cu formula directă: C(5) = 42.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int s[]={5,3,4,5};\nint n=4, W=6;\nint dp[7]={0};\nfor(int i=0;i&lt;n;i++)\n  for(int j=W;j&gt;=s[i];j--)\n    dp[j]=max(dp[j],dp[j-s[i]]+s[i]);\ncout &lt;&lt; W-dp[W];</code>",
+      "opts": [
+        "1",
+        "0",
+        "2",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "Varianta Subset Sum: dp[6]=5 (nu se poate forma exact 6). W-dp[W] = 6-5 = 1.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?\n<code>int n=5;\nint dp[6];\ndp[0]=0; dp[1]=0;\nfor(int i=2;i&lt;=n;i++)\n  dp[i]=1+dp[i/2];\ncout &lt;&lt; dp[5];</code>",
+      "opts": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "ans": 0,
+      "exp": "dp[2]=1, dp[3]=1, dp[4]=2, dp[5]=1+dp[2]=2.",
+      "diff": 3
+    },
+    {
+      "q": "La rucsacul nelimitat (Unbounded Knapsack), cum se iterează?",
+      "opts": [
+        "De la w[i] la W (ordine crescătoare)",
+        "De la W la w[i] (ordine descrescătoare)",
+        "Nu contează",
+        "De la W la 0"
+      ],
+      "ans": 0,
+      "exp": "La rucsacul nelimitat, iterarea crescătoare permite refolosirea aceluiași obiect.",
+      "diff": 3
+    },
+    {
+      "q": "Ce problemă DP este „jocul cu monede” (Optimal Strategy)?",
+      "opts": [
+        "Doi jucători aleg alternativ de la capetele șirului, maximizând câștigul",
+        "Sortarea monedelor",
+        "Coin Change",
+        "Numărarea monedelor"
+      ],
+      "ans": 0,
+      "exp": "Doi jucători aleg alternativ monede de la capetele șirului, fiecare maximizând câștigul propriu.",
+      "diff": 3
     }
   ]
 }

@@ -63,13 +63,70 @@ const categories = [
       <div class="ix-stats">
         <span><strong>12</strong> capitole</span>
         <span class="ix-stats-sep" aria-hidden="true"></span>
-        <span><strong>800+</strong> exerciții</span>
+        <span><strong>1100+</strong> exerciții</span>
         <span class="ix-stats-sep" aria-hidden="true"></span>
         <span><strong>5+</strong> animații</span>
         <span class="ix-stats-sep" aria-hidden="true"></span>
         <span><strong>~8h</strong> conținut</span>
       </div>
     </div>
+  </div>
+
+  <!-- ─── Quick-access toolbar ────────────────────────── -->
+  <div class="ix-toolbar" aria-label="Acces rapid la instrumente">
+    <a href={`${base}/exercitii`} class="ix-toolbar-btn"><span>📝</span> Exerciții</a>
+    <a href={`${base}/analiza-bac`} class="ix-toolbar-btn"><span>🤖</span> Analiză BAC</a>
+    <a href={`${base}/examen-alb`} class="ix-toolbar-btn"><span>⏱️</span> Examen Alb</a>
+    <a href={`${base}/editor`} class="ix-toolbar-btn"><span>💻</span> Editor</a>
+    <a href={`${base}/cheat-sheet`} class="ix-toolbar-btn"><span>📄</span> Cheat Sheet</a>
+    <a href={`${base}/streak`} class="ix-toolbar-btn"><span>📅</span> Streak</a>
+    <a href={`${base}/trasare`} class="ix-toolbar-btn"><span>🔍</span> Trasare</a>
+  </div>
+
+  <!-- ─── Quick-access tools (detailed cards) ─────────── -->
+  <div class="ix-tools" aria-label="Instrumente rapide">
+    <a href={`${base}/analiza-bac`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">🤖</span>
+      <div>
+        <strong>Analiză BAC cu AI</strong>
+        <p>Încarci subiectul, primești teorie + soluții + capitole relevante</p>
+      </div>
+    </a>
+    <a href={`${base}/exercitii`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📝</span>
+      <div>
+        <strong>Exerciții BAC</strong>
+        <p>1100+ întrebări grilă și probleme rezolvate cu explicații</p>
+      </div>
+    </a>
+    <a href={`${base}/editor`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">💻</span>
+      <div>
+        <strong>Editor C++ Online</strong>
+        <p>Compilare și rulare C++ direct în browser, fără instalare</p>
+      </div>
+    </a>
+    <a href={`${base}/examen-alb`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">⏱️</span>
+      <div>
+        <strong>Examen Alb 3h</strong>
+        <p>Simulează condițiile reale de bacalaureat cu timer de 3 ore</p>
+      </div>
+    </a>
+    <a href={`${base}/cheat-sheet`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📄</span>
+      <div>
+        <strong>Cheat Sheet</strong>
+        <p>Referință rapidă printabilă cu tipuri de date, complexități și algoritmi</p>
+      </div>
+    </a>
+    <a href={`${base}/streak`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📅</span>
+      <div>
+        <strong>Calendar Studiu & Streak</strong>
+        <p>Urmărește progresul zilnic și menține streak-ul de studiu</p>
+      </div>
+    </a>
   </div>
 
   <!-- ─── Chapters ─────────────────────────────────────────── -->
@@ -103,63 +160,22 @@ const categories = [
     ))}
   </main>
 
-  <!-- ─── Quick-access tools ──────────────────────────────── -->
-  <div class="ix-tools" aria-label="Instrumente rapide">
-    <a href={`${base}/analiza-bac`} class="ix-tool-card">
-      <span class="ix-tool-icon" aria-hidden="true">🤖</span>
-      <div>
-        <strong>Analiză BAC cu AI</strong>
-        <p>Încarci subiectul, primești teorie + soluții + capitole relevante</p>
-      </div>
-    </a>
-    <a href={`${base}/exercitii`} class="ix-tool-card">
-      <span class="ix-tool-icon" aria-hidden="true">📝</span>
-      <div>
-        <strong>Exerciții BAC</strong>
-        <p>800+ întrebări grilă și probleme rezolvate cu explicații</p>
-      </div>
-    </a>
-    <a href={`${base}/editor`} class="ix-tool-card">
-      <span class="ix-tool-icon" aria-hidden="true">💻</span>
-      <div>
-        <strong>Editor C++ Online</strong>
-        <p>Compilare și rulare C++ direct în browser, fără instalare</p>
-      </div>
-    </a>
-  </div>
-
-  <!-- ─── Big-O quick reference ───────────────────────────── -->
-  <div id="complexitate" class="ix-bigo">
-    <div class="ix-bigo-inner">
-      <h2 class="ix-section-title">Referință Big-O</h2>
-      <p class="ix-section-desc" style="margin-bottom:28px">Complexitățile cele mai frecvente la examen.</p>
-      <div class="table-scroll">
-        <table class="ix-table">
-          <thead>
-            <tr><th>Notație</th><th>Nume</th><th>Exemplu tipic</th><th>n = 1 000</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>O(1)</code></td><td>Constant</td><td>Accesare element array</td><td>1 op</td></tr>
-            <tr><td><code>O(log n)</code></td><td>Logaritmic</td><td>Căutare binară</td><td>~10 op</td></tr>
-            <tr><td><code>O(n)</code></td><td>Liniar</td><td>Parcurgere array</td><td>1 000 op</td></tr>
-            <tr><td><code>O(n log n)</code></td><td>Liniar-log</td><td>Merge sort, Quick sort</td><td>~10 000 op</td></tr>
-            <tr class="ix-row-warn"><td><code>O(n²)</code></td><td>Pătratic</td><td>Bubble sort, selecție</td><td>1 000 000 op</td></tr>
-            <tr class="ix-row-bad"><td><code>O(2ⁿ)</code></td><td>Exponențial</td><td>Backtracking naiv</td><td>~ ∞</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
   <Footer />
 
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
+      var progressData;
+      try {
+        progressData = JSON.parse(localStorage.getItem('infoLiceu_v2') || '{}');
+      } catch(e) { progressData = {}; }
+      var visited = progressData.visited || {};
+      var quizScores = progressData.quizScores || {};
+
       document.querySelectorAll('.ix-progress-fill').forEach(function(bar) {
         var chFile = bar.getAttribute('data-chapter-file');
-        var visited = localStorage.getItem('visited_' + chFile) === '1';
-        var quizDone = parseInt(localStorage.getItem('quiz_score_' + chFile) || '0', 10);
-        var pct = visited ? (quizDone > 0 ? Math.min(100, quizDone) : 30) : 0;
+        var isVisited = !!visited[chFile];
+        var quizXP = quizScores[chFile] || 0;
+        var pct = isVisited ? (quizXP > 0 ? Math.min(100, 30 + quizXP) : 30) : 0;
         if (pct > 0) {
           setTimeout(function() { bar.style.width = pct + '%'; }, 300);
         }
@@ -287,40 +303,45 @@ const categories = [
     .ix-progress-bar { height: 2px; background: var(--border-faint); border-radius: 99px; overflow: hidden; }
     .ix-progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, #a855f7 100%); border-radius: 99px; width: 0; transition: width 0.7s cubic-bezier(.4,0,.2,1); }
 
+    /* ── Quick-access toolbar ─────────────────────────────────── */
+    .ix-toolbar {
+      display: flex; justify-content: center; align-items: center;
+      gap: 6px; flex-wrap: wrap; padding: 14px 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .ix-toolbar-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      font-size: 12px; font-weight: 600;
+      transition: border-color 0.18s, background 0.18s, transform 0.18s;
+      white-space: nowrap;
+    }
+    .ix-toolbar-btn:hover { border-color: var(--primary); background: var(--primary-dim, rgba(99,102,241,0.06)); transform: translateY(-1px); }
+    .ix-toolbar-btn span { font-size: 14px; }
+
     /* ── Tools strip ───────────────────────────────────────────── */
     .ix-tools {
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       display: grid; grid-template-columns: repeat(3, 1fr);
-      margin-top: 20px;
+      margin-top: 0;
     }
     .ix-tool-card {
       display: flex; align-items: center; gap: 16px;
       padding: 22px 28px; text-decoration: none; color: inherit;
       border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       transition: background var(--transition);
     }
-    .ix-tool-card:last-child { border-right: none; }
+    .ix-tool-card:nth-child(3n) { border-right: none; }
+    .ix-tool-card:nth-last-child(-n+3) { border-bottom: none; }
     .ix-tool-card:hover { background: var(--surface2); }
     .ix-tool-icon { font-size: 22px; flex-shrink: 0; }
     .ix-tool-card strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .ix-tool-card p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.45; }
-
-    /* ── Big-O ────────────────────────────────────────────────── */
-    .ix-bigo { padding: 60px 24px 80px; }
-    .ix-bigo-inner { max-width: 720px; margin: 0 auto; }
-    .ix-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-    .ix-table th { text-align: left; padding: 10px 14px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1.5px solid var(--border); }
-    .ix-table td { padding: 11px 14px; border-bottom: 1px solid var(--border-faint); }
-    .ix-table tr:last-child td { border-bottom: none; }
-    .ix-table code { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--primary); }
-    .ix-row-warn td { background: rgba(234,88,12,0.03); }
-    .ix-row-warn code { color: var(--orange); }
-    .ix-row-bad  td { background: rgba(220,38,38,0.03); }
-    .ix-row-bad  code { color: var(--red); }
-    [data-theme="dark"] .ix-row-warn code { color: #fb923c; }
-    [data-theme="dark"] .ix-row-bad  code { color: #f87171; }
 
     /* ── Responsive ──────────────────────────────────────────── */
     @media (max-width: 768px) {
@@ -328,8 +349,10 @@ const categories = [
       .ix-title { letter-spacing: -1.5px; }
       .ix-main { padding: 44px 16px 16px; gap: 40px; }
       .ix-tools { grid-template-columns: 1fr; }
-      .ix-tool-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .ix-tool-card { border-right: none !important; border-bottom: 1px solid var(--border); }
       .ix-tool-card:last-child { border-bottom: none; }
+      .ix-toolbar { gap: 4px; padding: 10px 16px; }
+      .ix-toolbar-btn { padding: 6px 10px; font-size: 11px; }
     }
     @media (max-width: 540px) {
       .ix-grid { grid-template-columns: 1fr; gap: 8px; }

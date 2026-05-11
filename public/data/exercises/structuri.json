@@ -1,114 +1,1204 @@
 {
   "quiz": [
     {
-      "q": "Cum se accesează câmpul 'varsta' al unei variabile 'p' de tip struct Persoana?",
-      "opts": ["p->varsta", "p.varsta", "p[varsta]", "Persoana.varsta"],
+      "q": "Care este cuvântul cheie folosit pentru a declara o structură în C++?",
+      "opts": [
+        "class",
+        "struct",
+        "record",
+        "type"
+      ],
       "ans": 1,
-      "exp": "Pentru variabile de tip struct (nu pointeri), câmpurile se accesează cu operatorul punct: p.varsta. Operatorul -> se folosește pentru pointeri la struct.",
+      "exp": "Cuvântul cheie 'struct' este folosit pentru a declara o structură în C++.",
       "diff": 1
     },
     {
-      "q": "Unde se declară de obicei un struct în C++ pentru a fi vizibil în tot programul?",
+      "q": "Ce operator se folosește pentru a accesa un câmp al unei variabile de tip structură?",
       "opts": [
-        "Înăuntrul funcției main()",
-        "Înăuntrul funcției care îl folosește",
-        "Global, înainte de funcțiile care îl folosesc",
-        "Doar în fișiere header .h"
+        "->",
+        "::",
+        ".",
+        "[]"
       ],
       "ans": 2,
-      "exp": "Struct-ul se declară global (înainte de main și de orice funcție care îl folosește) pentru a fi vizibil în tot programul.",
+      "exp": "Operatorul punct (.) se folosește pentru accesul la câmpurile unei variabile de tip structură.",
       "diff": 1
     },
     {
-      "q": "Ce cuvânt cheie se folosește pentru a defini un tip structurat în C++?",
-      "opts": ["class", "struct", "type", "record"],
-      "ans": 1,
-      "exp": "În C++, tipurile structurate se definesc cu cuvântul cheie 'struct'. Spre deosebire de 'class', membrii sunt publici implicit.",
-      "diff": 1
-    },
-    {
-      "q": "Cum se declară un vector de 100 de elemente de tip struct Persoana?",
+      "q": "Care este rezultatul următorului cod?<br><code>struct Punct { int x, y; };<br>Punct p;<br>p.x = 3; p.y = 5;<br>cout &lt;&lt; p.x + p.y;</code>",
       "opts": [
-        "Persoana v = new Persoana[100];",
-        "Persoana v[100];",
-        "struct v[100] Persoana;",
-        "vector<Persoana> v(100);"
+        "35",
+        "8",
+        "3",
+        "5"
       ],
       "ans": 1,
-      "exp": "Declararea unui tablou de struct se face exact ca pentru orice alt tip: Persoana v[100]; — declară 100 de elemente de tip Persoana.",
+      "exp": "p.x = 3 și p.y = 5, deci p.x + p.y = 3 + 5 = 8.",
       "diff": 1
     },
     {
-      "q": "Ce se întâmplă când atribuim o structură alteia (p2 = p1)?",
+      "q": "Cum se declară corect o variabilă de tip structură <code>Elev</code>?",
       "opts": [
-        "Se face o copie profundă a tuturor câmpurilor",
-        "Ambele variabile referă aceeași structură în memorie",
-        "Se copiază doar primul câmp",
-        "Este o operație ilegală în C++"
+        "Elev e;",
+        "struct e = Elev;",
+        "new Elev e;",
+        "Elev = e;"
       ],
       "ans": 0,
-      "exp": "Atribuirea p2 = p1 creează o copie câmp cu câmp a întregii structuri. Modificarea lui p2 nu afectează p1 (cu excepția câmpurilor de tip pointer).",
+      "exp": "În C++, declararea unei variabile de tip structură se face: Elev e;",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul următor?<br><code>struct A { int x; };<br>A a;<br>a.x = 10;<br>cout &lt;&lt; a.x;</code>",
+      "opts": [
+        "0",
+        "10",
+        "eroare",
+        "nedefinit"
+      ],
+      "ans": 1,
+      "exp": "Câmpul x primește valoarea 10, care este apoi afișată.",
+      "diff": 1
+    },
+    {
+      "q": "Care dintre următoarele este o declarare corectă a unei structuri cu două câmpuri?",
+      "opts": [
+        "struct S { int a; float b; };",
+        "struct S ( int a, float b );",
+        "struct S [ int a; float b; ]",
+        "struct { int a; float b; } = S;"
+      ],
+      "ans": 0,
+      "exp": "Sintaxa corectă folosește acolade și punct-virgulă la final: struct S { int a; float b; };",
+      "diff": 1
+    },
+    {
+      "q": "Ce tip de date poate conține un câmp al unei structuri?",
+      "opts": [
+        "doar int",
+        "doar tipuri primitive",
+        "orice tip de date",
+        "doar char și int"
+      ],
+      "ans": 2,
+      "exp": "Un câmp al unei structuri poate fi de orice tip: int, float, char, string, array, altă structură etc.",
+      "diff": 1
+    },
+    {
+      "q": "Câte variabile de tip <code>Punct</code> sunt declarate?<br><code>struct Punct { int x, y; };<br>Punct a, b, c;</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "ans": 2,
+      "exp": "Sunt declarate 3 variabile: a, b și c, toate de tip Punct.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int a; char c; };<br>S x;<br>x.a = 7; x.c = 'B';<br>cout &lt;&lt; x.c &lt;&lt; x.a;</code>",
+      "opts": [
+        "B7",
+        "7B",
+        "eroare",
+        "B 7"
+      ],
+      "ans": 0,
+      "exp": "Se afișează mai întâi x.c = 'B', apoi x.a = 7, rezultând B7.",
+      "diff": 1
+    },
+    {
+      "q": "Cum se accesează câmpul <code>nume</code> al variabilei <code>e</code> de tip structură?",
+      "opts": [
+        "e->nume",
+        "e::nume",
+        "e.nume",
+        "e[nume]"
+      ],
+      "ans": 2,
+      "exp": "Pentru o variabilă (nu pointer), accesul la câmp se face cu operatorul punct: e.nume.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este corect despre structurile din C++?",
+      "opts": [
+        "Nu pot conține câmpuri de tip char",
+        "Membrii sunt implicit publici",
+        "Membrii sunt implicit privați",
+        "Nu pot fi transmise ca parametri"
+      ],
+      "ans": 1,
+      "exp": "Spre deosebire de class, membrii unei structuri sunt implicit publici (public).",
+      "diff": 1
+    },
+    {
+      "q": "Care este rezultatul?<br><code>struct S { int v; };<br>S a, b;<br>a.v = 5;<br>b = a;<br>cout &lt;&lt; b.v;</code>",
+      "opts": [
+        "0",
+        "5",
+        "eroare",
+        "nedefinit"
+      ],
+      "ans": 1,
+      "exp": "Atribuirea b = a copiază toate câmpurile, deci b.v devine 5.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct P { int x; };<br>P p = {42};<br>cout &lt;&lt; p.x;</code>",
+      "opts": [
+        "0",
+        "42",
+        "eroare",
+        "nedefinit"
+      ],
+      "ans": 1,
+      "exp": "Inițializarea cu acolade {42} setează câmpul x la 42.",
+      "diff": 1
+    },
+    {
+      "q": "Care este sintaxa corectă pentru a declara un array de 10 structuri <code>Elev</code>?",
+      "opts": [
+        "Elev[10] e;",
+        "Elev e[10];",
+        "array Elev e(10);",
+        "Elev e = new[10];"
+      ],
+      "ans": 1,
+      "exp": "Declararea unui array de structuri: Elev e[10];",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă la atribuirea <code>s2 = s1;</code> unde s1 și s2 sunt de același tip structură?",
+      "opts": [
+        "Eroare de compilare",
+        "Se copiază adresa",
+        "Se copiază toate câmpurile",
+        "Se copiază doar primul câmp"
+      ],
+      "ans": 2,
+      "exp": "Atribuirea între structuri de același tip copiază toate câmpurile (copiere membru cu membru).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S x = {1, 2};<br>cout &lt;&lt; x.a &lt;&lt; \" \" &lt;&lt; x.b;</code>",
+      "opts": [
+        "1 2",
+        "2 1",
+        "eroare",
+        "0 0"
+      ],
+      "ans": 0,
+      "exp": "Inițializarea {1, 2} setează a=1 și b=2, afișând 1 2.",
+      "diff": 1
+    },
+    {
+      "q": "Ce tip are câmpul <code>nota</code> în structura:<br><code>struct Elev { char nume[30]; float nota; };</code>",
+      "opts": [
+        "int",
+        "char",
+        "float",
+        "double"
+      ],
+      "ans": 2,
+      "exp": "Câmpul nota este declarat ca float.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este greșit în codul:<br><code>struct { int x; } S;<br>S a;</code>",
+      "opts": [
+        "S este numele variabilei, nu al tipului",
+        "Lipsă punct-virgulă",
+        "Nu se poate folosi int",
+        "Nimic, codul e corect"
+      ],
+      "ans": 0,
+      "exp": "Fără nume după struct, S devine numele variabilei. Corect: struct S { int x; };",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int v; };<br>S a;<br>a.v = 3;<br>S b = a;<br>b.v = 7;<br>cout &lt;&lt; a.v;</code>",
+      "opts": [
+        "3",
+        "7",
+        "0",
+        "eroare"
+      ],
+      "ans": 0,
+      "exp": "b este o copie a lui a. Modificarea b.v nu afectează a.v, care rămâne 3.",
+      "diff": 1
+    },
+    {
+      "q": "Cum se termină corect definiția unei structuri în C++?",
+      "opts": [
+        "}",
+        "};",
+        ");",
+        "]"
+      ],
+      "ans": 1,
+      "exp": "Definiția unei structuri se termină cu }; (acoladă închisă urmată de punct-virgulă).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int x, y; };<br>S v[3];<br>v[0].x = 1; v[1].x = 2; v[2].x = 3;<br>cout &lt;&lt; v[1].x;</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "eroare"
+      ],
+      "ans": 1,
+      "exp": "v[1].x a fost setat la 2, deci se afișează 2.",
+      "diff": 1
+    },
+    {
+      "q": "Care este rolul lui <code>typedef</code> în contextul structurilor?",
+      "opts": [
+        "Declară o variabilă",
+        "Creează un alias pentru un tip",
+        "Șterge o structură",
+        "Inițializează câmpurile"
+      ],
+      "ans": 1,
+      "exp": "typedef creează un alias (nume alternativ) pentru un tip de date, inclusiv structuri.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a; };<br>S x = {0};<br>x.a += 5;<br>cout &lt;&lt; x.a;</code>",
+      "opts": [
+        "0",
+        "5",
+        "eroare",
+        "nedefinit"
+      ],
+      "ans": 1,
+      "exp": "x.a pornește de la 0, apoi += 5 îl face 5.",
+      "diff": 1
+    },
+    {
+      "q": "Ce operator se folosește pentru a accesa un câmp printr-un pointer la structură?",
+      "opts": [
+        ".",
+        "->",
+        "::",
+        "&"
+      ],
+      "ans": 1,
+      "exp": "Operatorul -> se folosește pentru accesul la câmpuri prin pointer la structură.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct P { int x, y; };<br>P a = {2, 3};<br>cout &lt;&lt; a.x * a.y;</code>",
+      "opts": [
+        "5",
+        "6",
+        "23",
+        "eroare"
+      ],
+      "ans": 1,
+      "exp": "a.x = 2, a.y = 3, deci a.x * a.y = 6.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă dacă nu inițializezi câmpurile unei structuri locale?",
+      "opts": [
+        "Sunt automat 0",
+        "Conțin valori nedefinite",
+        "Eroare de compilare",
+        "Sunt NULL"
+      ],
+      "ans": 1,
+      "exp": "Variabilele locale neinițializate (inclusiv câmpurile structurilor locale) conțin valori nedefinite.",
+      "diff": 1
+    },
+    {
+      "q": "Care este corectă pentru a citi câmpul <code>varsta</code> al structurii <code>e</code> de la tastatură?",
+      "opts": [
+        "cin &gt;&gt; e-&gt;varsta;",
+        "cin &gt;&gt; varsta.e;",
+        "cin &gt;&gt; e.varsta;",
+        "cin &gt;&gt; e[varsta];"
+      ],
+      "ans": 2,
+      "exp": "Citirea unui câmp: cin >> e.varsta; (operator punct pentru variabilă, nu pointer).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int a, b; };<br>S s = {10, 20};<br>s.a = s.b;<br>cout &lt;&lt; s.a &lt;&lt; \" \" &lt;&lt; s.b;</code>",
+      "opts": [
+        "10 20",
+        "20 20",
+        "10 10",
+        "20 10"
+      ],
+      "ans": 1,
+      "exp": "s.a devine s.b = 20. s.b rămâne 20. Se afișează 20 20.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int x; };<br>S a = {1}, b = {2};<br>a = b;<br>cout &lt;&lt; a.x &lt;&lt; b.x;</code>",
+      "opts": [
+        "12",
+        "22",
+        "11",
+        "21"
+      ],
+      "ans": 1,
+      "exp": "După a = b, a.x devine 2. b.x rămâne 2. Afișează 22.",
+      "diff": 1
+    },
+    {
+      "q": "Câte câmpuri are structura?<br><code>struct Complex { double re, im; };</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "ans": 1,
+      "exp": "Structura are 2 câmpuri: re și im, ambele de tip double.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct Cerc { float r; };<br>Cerc c = {5.0};<br>cout &lt;&lt; 2 * 3.14 * c.r;</code>",
+      "opts": [
+        "15.7",
+        "31.4",
+        "78.5",
+        "10"
+      ],
+      "ans": 1,
+      "exp": "Circumferința = 2 * 3.14 * 5.0 = 31.4.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S x[2] = {{1,2},{3,4}};<br>swap(x[0], x[1]);<br>cout &lt;&lt; x[0].a &lt;&lt; x[0].b &lt;&lt; x[1].a &lt;&lt; x[1].b;</code>",
+      "opts": [
+        "1234",
+        "3412",
+        "2143",
+        "4321"
+      ],
+      "ans": 1,
+      "exp": "Swap interschimbă complet structurile: x[0]={3,4}, x[1]={1,2}. Afișează 3412.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { char s[10]; int v; };<br>S e = {\"Ana\", 9};<br>cout &lt;&lt; e.s &lt;&lt; \" \" &lt;&lt; e.v;</code>",
+      "opts": [
+        "Ana 9",
+        "eroare",
+        "A 9",
+        "Ana9"
+      ],
+      "ans": 0,
+      "exp": "e.s conține \"Ana\", e.v = 9. Se afișează Ana 9.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>typedef struct { int r; float g; } Note;<br>Note n = {9, 8.5};<br>cout &lt;&lt; n.r;</code>",
+      "opts": [
+        "9",
+        "8.5",
+        "eroare",
+        "0"
+      ],
+      "ans": 0,
+      "exp": "typedef creează tipul Note. n.r = 9.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S v[3] = {{5},{3},{8}};<br>int poz = 0;<br>for(int i=1;i&lt;3;i++)<br>  if(v[i].x &gt; v[poz].x) poz = i;<br>cout &lt;&lt; poz;</code>",
+      "opts": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "ans": 2,
+      "exp": "Se caută poziția maximului: v[0]=5, v[1]=3, v[2]=8. Maximul e pe poziția 2.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S *p, a = {9};<br>p = &amp;a;<br>cout &lt;&lt; p-&gt;x;</code>",
+      "opts": [
+        "eroare",
+        "0",
+        "9",
+        "nedefinit"
+      ],
+      "ans": 2,
+      "exp": "p pointează la a, iar p->x accesează câmpul x al lui a, care este 9.",
       "diff": 2
     },
     {
-      "q": "Cum se transmite o structură la o funcție pentru a putea fi modificată?",
+      "q": "Ce afișează codul?<br><code>struct S { int a, b; };<br>void f(S &amp;s) { s.a += 10; }<br>int main() {<br>  S x = {5, 3};<br>  f(x);<br>  cout &lt;&lt; x.a;<br>}</code>",
       "opts": [
-        "void f(Persoana p)",
-        "void f(Persoana &p)",
-        "void f(Persoana *p) și apel f(p)",
-        "Nu se poate modifica din funcție"
+        "5",
+        "15",
+        "10",
+        "eroare"
       ],
       "ans": 1,
-      "exp": "Transmiterea prin referință (Persoana &p) permite funcției să modifice câmpurile structurii originale. Transmiterea prin valoare creează o copie locală.",
+      "exp": "Funcția primește structura prin referință (&), deci modificarea s.a += 10 afectează x.a: 5 + 10 = 15.",
       "diff": 2
     },
     {
-      "q": "Cum se sortează un vector de struct după câmpul 'medie' descrescător, folosind sort() STL?",
+      "q": "Ce afișează?<br><code>struct S { int v; };<br>void f(S s) { s.v = 100; }<br>int main() {<br>  S a = {1};<br>  f(a);<br>  cout &lt;&lt; a.v;<br>}</code>",
       "opts": [
-        "sort(v, v+n) fără comparator",
-        "sort(v, v+n, [](Persoana a, Persoana b){ return a.medie > b.medie; })",
-        "sort(v.medie, v.medie+n)",
-        "struct nu poate fi sortat cu sort()"
+        "100",
+        "1",
+        "0",
+        "eroare"
       ],
       "ans": 1,
-      "exp": "sort() cu un comparator lambda: sort(v, v+n, [](Persoana a, Persoana b){ return a.medie > b.medie; }) sortează descrescător după medie.",
+      "exp": "Structura este transmisă prin valoare (copie). Modificarea din funcție nu afectează originalul. a.v rămâne 1.",
       "diff": 2
     },
     {
-      "q": "Care este diferența dintre struct și class în C++?",
+      "q": "Ce afișează?<br><code>struct Drept { int L, l; };<br>int arie(Drept d) { return d.L * d.l; }<br>int main() {<br>  Drept r = {5, 3};<br>  cout &lt;&lt; arie(r);<br>}</code>",
       "opts": [
-        "struct nu suportă funcții membre",
-        "În struct membrii sunt publici implicit; în class sunt privați implicit",
-        "class nu poate fi folosit fără obiecte",
-        "Nu există diferență"
+        "8",
+        "15",
+        "53",
+        "eroare"
       ],
       "ans": 1,
-      "exp": "Singura diferență: în struct, membrii sunt public implicit, iar în class sunt private implicit. La BAC se folosește struct, nu class.",
+      "exp": "arie primește d cu L=5 și l=3. L * l = 15.",
       "diff": 2
     },
     {
-      "q": "Câți octeți ocupă struct-ul: struct P { int x; double y; char z; }?",
+      "q": "Ce afișează codul?<br><code>struct S { int x, y; };<br>S v[4] = {{1,2},{3,4},{5,6},{7,8}};<br>int s = 0;<br>for(int i = 0; i &lt; 4; i++) s += v[i].x;<br>cout &lt;&lt; s;</code>",
       "opts": [
-        "Exact 13 (4+8+1)",
-        "Poate mai mult, din cauza alinierii (padding)",
-        "Exact 8 (maximul câmpurilor)",
-        "Depinde de compilator și nu se poate ști"
+        "10",
+        "16",
+        "20",
+        "36"
       ],
       "ans": 1,
-      "exp": "Compilatoarele adaugă padding pentru aliniere la memorie. Un struct cu int (4) + double (8) + char (1) poate ocupa 24 de octeți din cauza alinierii. La BAC nu se cere calculul exact.",
+      "exp": "s = v[0].x + v[1].x + v[2].x + v[3].x = 1 + 3 + 5 + 7 = 16.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S v[3] = {{4,1},{2,5},{3,3}};<br>int mx = v[0].b;<br>for(int i = 1; i &lt; 3; i++)<br>  if(v[i].b &gt; mx) mx = v[i].b;<br>cout &lt;&lt; mx;</code>",
+      "opts": [
+        "1",
+        "3",
+        "5",
+        "4"
+      ],
+      "ans": 2,
+      "exp": "Se caută maximul câmpului b: 1, 5, 3. Maximul este 5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a; };<br>S x = {3};<br>S *p = &amp;x;<br>(*p).a = 7;<br>cout &lt;&lt; x.a;</code>",
+      "opts": [
+        "3",
+        "7",
+        "eroare",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "(*p).a = 7 modifică câmpul a al structurii pointate de p, adică x.a devine 7.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x, y; };<br>S a = {1, 2}, b = {3, 4};<br>S c;<br>c.x = a.x + b.x;<br>c.y = a.y + b.y;<br>cout &lt;&lt; c.x &lt;&lt; \" \" &lt;&lt; c.y;</code>",
+      "opts": [
+        "4 6",
+        "1 2",
+        "3 4",
+        "2 4"
+      ],
+      "ans": 0,
+      "exp": "c.x = 1 + 3 = 4, c.y = 2 + 4 = 6. Se afișează 4 6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct Elev { char n; int v; };<br>Elev e[3] = {{'A',9},{'B',7},{'C',10}};<br>for(int i=0;i&lt;3;i++)<br>  if(e[i].v &gt;= 9) cout &lt;&lt; e[i].n;</code>",
+      "opts": [
+        "AB",
+        "AC",
+        "ABC",
+        "C"
+      ],
+      "ans": 1,
+      "exp": "Elevii cu v >= 9 sunt A (9) și C (10). Se afișează AC.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S f() { S s = {42}; return s; }<br>int main() { cout &lt;&lt; f().x; }</code>",
+      "opts": [
+        "42",
+        "0",
+        "eroare",
+        "nedefinit"
+      ],
+      "ans": 0,
+      "exp": "Funcția f() returnează o structură cu x=42. f().x accesează direct câmpul returnat.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int v[3]; };<br>S a = {{1, 2, 3}};<br>cout &lt;&lt; a.v[0] + a.v[2];</code>",
+      "opts": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "ans": 1,
+      "exp": "a.v[0] = 1, a.v[2] = 3. Suma = 1 + 3 = 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul următor?<br><code>struct S { int a, b; };<br>S v[3] = {{5,2},{1,4},{3,6}};<br>for(int i=0;i&lt;2;i++)<br>  for(int j=i+1;j&lt;3;j++)<br>    if(v[i].a &gt; v[j].a) swap(v[i], v[j]);<br>cout &lt;&lt; v[0].a &lt;&lt; v[1].a &lt;&lt; v[2].a;</code>",
+      "opts": [
+        "135",
+        "531",
+        "513",
+        "153"
+      ],
+      "ans": 0,
+      "exp": "Sortare crescătoare după a: {1,4}, {3,6}, {5,2}. Se afișează 135.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a[4] = {{3},{1},{4},{2}};<br>for(int i=0;i&lt;3;i++)<br>  for(int j=i+1;j&lt;4;j++)<br>    if(a[i].x &gt; a[j].x) swap(a[i],a[j]);<br>cout &lt;&lt; a[3].x;</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "ans": 3,
+      "exp": "După sortare crescătoare: {1},{2},{3},{4}. a[3].x = 4.",
+      "diff": 2
+    },
+    {
+      "q": "Cum se accesează câmpul <code>zi</code> al structurii imbricate?<br><code>struct Data { int zi, luna; };<br>struct Elev { char n; Data d; };<br>Elev e;</code>",
+      "opts": [
+        "e.zi",
+        "e->d.zi",
+        "e.d.zi",
+        "e.Data.zi"
+      ],
+      "ans": 2,
+      "exp": "Pentru structuri imbricate, se folosește: e.d.zi (structura exterioară.câmp intern.câmp).",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct Data { int z, l; };<br>struct E { Data d; int v; };<br>E x = {{15, 3}, 9};<br>cout &lt;&lt; x.d.z &lt;&lt; \"/\" &lt;&lt; x.d.l;</code>",
+      "opts": [
+        "15/3",
+        "3/15",
+        "eroare",
+        "9/15"
+      ],
+      "ans": 0,
+      "exp": "x.d.z = 15, x.d.l = 3. Se afișează 15/3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int x; };<br>void inc(S *p) { p-&gt;x++; }<br>int main() {<br>  S a = {5};<br>  inc(&amp;a);<br>  cout &lt;&lt; a.x;<br>}</code>",
+      "opts": [
+        "5",
+        "6",
+        "eroare",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "Funcția primește un pointer la structură. p->x++ incrementează x-ul structurii originale: 5+1=6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S v[] = {{1,6},{2,5},{3,4}};<br>int c = 0;<br>for(int i=0;i&lt;3;i++)<br>  if(v[i].a &lt; v[i].b) c++;<br>cout &lt;&lt; c;</code>",
+      "opts": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "ans": 3,
+      "exp": "Toate au a < b: 1<6, 2<5, 3<4. c = 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct P { int x, y; };<br>P a = {2, 3};<br>P b = a;<br>b.x = 10;<br>cout &lt;&lt; a.x &lt;&lt; \" \" &lt;&lt; b.x;</code>",
+      "opts": [
+        "2 10",
+        "10 10",
+        "2 2",
+        "10 2"
+      ],
+      "ans": 0,
+      "exp": "b este o copie a lui a. Modificarea b.x nu afectează a.x. Afișează 2 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { char c; int n; };<br>S v[3] = {{'x',3},{'y',1},{'z',2}};<br>for(int i=0;i&lt;2;i++)<br>  for(int j=i+1;j&lt;3;j++)<br>    if(v[i].n &gt; v[j].n) swap(v[i],v[j]);<br>for(int i=0;i&lt;3;i++) cout &lt;&lt; v[i].c;</code>",
+      "opts": [
+        "xyz",
+        "yzx",
+        "yxz",
+        "zxy"
+      ],
+      "ans": 1,
+      "exp": "Sortare crescătoare după n: {y,1},{z,2},{x,3}. Se afișează caracterele: yzx.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S tab[5];<br>for(int i=0;i&lt;5;i++) tab[i].x = i*i;<br>cout &lt;&lt; tab[3].x;</code>",
+      "opts": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "ans": 2,
+      "exp": "tab[3].x = 3*3 = 9.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S x = {4, 7};<br>int t = x.a;<br>x.a = x.b;<br>x.b = t;<br>cout &lt;&lt; x.a &lt;&lt; \" \" &lt;&lt; x.b;</code>",
+      "opts": [
+        "4 7",
+        "7 4",
+        "7 7",
+        "4 4"
+      ],
+      "ans": 1,
+      "exp": "Se interschimbă valorile câmpurilor: a devine 7, b devine 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a; };<br>S v[4] = {{2},{7},{1},{9}};<br>int mn = v[0].a;<br>for(int i=1;i&lt;4;i++)<br>  if(v[i].a &lt; mn) mn = v[i].a;<br>cout &lt;&lt; mn;</code>",
+      "opts": [
+        "2",
+        "1",
+        "7",
+        "9"
+      ],
+      "ans": 1,
+      "exp": "Se caută minimul: 2, 7, 1, 9. Minimul este 1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a = {5};<br>S *p = &amp;a;<br>p-&gt;x *= 2;<br>cout &lt;&lt; a.x;</code>",
+      "opts": [
+        "5",
+        "10",
+        "2",
+        "eroare"
+      ],
+      "ans": 1,
+      "exp": "p->x *= 2 modifică x-ul structurii pointate (a). a.x = 5 * 2 = 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează codul următor?<br><code>struct S { int x, y; };<br>S a = {3, 5};<br>S *p = &amp;a;<br>cout &lt;&lt; p-&gt;x + p-&gt;y;</code>",
+      "opts": [
+        "35",
+        "8",
+        "eroare",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "p->x = 3, p->y = 5. Suma = 3 + 5 = 8.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int n; char c; };<br>S v[3] = {{1,'a'},{2,'b'},{3,'c'}};<br>for(int i=0;i&lt;3;i++)<br>  if(v[i].n % 2 == 1) cout &lt;&lt; v[i].c;</code>",
+      "opts": [
+        "abc",
+        "ac",
+        "b",
+        "a"
+      ],
+      "ans": 1,
+      "exp": "Elementele cu n impar: v[0] (n=1, c='a') și v[2] (n=3, c='c'). Afișează ac.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S f(S x) {<br>  x.a += x.b;<br>  return x;<br>}<br>int main() {<br>  S s = {2, 3};<br>  S r = f(s);<br>  cout &lt;&lt; r.a &lt;&lt; \" \" &lt;&lt; s.a;<br>}</code>",
+      "opts": [
+        "5 5",
+        "5 2",
+        "2 5",
+        "2 2"
+      ],
+      "ans": 1,
+      "exp": "f() primește copie, o modifică (a=2+3=5) și returnează. s.a rămâne 2. r.a = 5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S v[3] = {{1,2},{3,4},{5,6}};<br>S *p = v + 1;<br>cout &lt;&lt; p-&gt;a &lt;&lt; p-&gt;b;</code>",
+      "opts": [
+        "12",
+        "34",
+        "56",
+        "eroare"
+      ],
+      "ans": 1,
+      "exp": "p = v + 1 pointează la v[1]. p->a = 3, p->b = 4. Afișează 34.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>void f(S v[], int n) {<br>  for(int i=0;i&lt;n;i++) v[i].x *= 2;<br>}<br>int main() {<br>  S a[3] = {{1},{2},{3}};<br>  f(a, 3);<br>  cout &lt;&lt; a[0].x &lt;&lt; a[1].x &lt;&lt; a[2].x;<br>}</code>",
+      "opts": [
+        "123",
+        "246",
+        "369",
+        "eroare"
+      ],
+      "ans": 1,
+      "exp": "Array-ul de structuri e transmis prin adresă. Fiecare x se dublează: 2, 4, 6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S v[] = {{5,1},{3,2},{4,3},{2,4},{1,5}};<br>int n = 5, c = 0;<br>for(int i=0;i&lt;n;i++)<br>  if(v[i].a + v[i].b == 6) c++;<br>cout &lt;&lt; c;</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "Sumele a+b: 6, 5, 7, 6, 6. Trei elemente au suma 6. c = 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct D { int z, l, a; };<br>struct E { char n; D dn; int nota; };<br>E e = {'X', {15, 6, 2005}, 10};<br>cout &lt;&lt; e.dn.a;</code>",
+      "opts": [
+        "15",
+        "6",
+        "2005",
+        "10"
+      ],
+      "ans": 2,
+      "exp": "e.dn.a accesează câmpul a (anul) din structura imbricată: 2005.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { char c; int n; };<br>S a = {'A', 65};<br>cout &lt;&lt; (a.c == a.n);</code>",
+      "opts": [
+        "0",
+        "1",
+        "A",
+        "65"
+      ],
+      "ans": 1,
+      "exp": "Codul ASCII al 'A' este 65. Comparația 65 == 65 este true (1).",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b, c; };<br>S x = {1, 2};<br>cout &lt;&lt; x.c;</code>",
+      "opts": [
+        "eroare",
+        "nedefinit",
+        "0",
+        "2"
+      ],
+      "ans": 2,
+      "exp": "La inițializare parțială cu acolade, câmpurile nespecificate sunt inițializate cu 0. x.c = 0.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S v[3] = {{2,3},{1,5},{4,1}};<br>int s = 0;<br>for(int i=0;i&lt;3;i++)<br>  s += (v[i].a &gt; v[i].b) ? 1 : 0;<br>cout &lt;&lt; s;</code>",
+      "opts": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "ans": 1,
+      "exp": "Doar v[2] are a > b (4 > 1). s = 1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a = {2};<br>S* p = &amp;a;<br>cout &lt;&lt; (*p).x + p-&gt;x + a.x;</code>",
+      "opts": [
+        "2",
+        "4",
+        "6",
+        "eroare"
+      ],
+      "ans": 2,
+      "exp": "(*p).x = 2, p->x = 2, a.x = 2. Suma = 2+2+2 = 6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int v[4]; int n; };<br>S a = {{1,2,3,4}, 4};<br>int s = 0;<br>for(int i=0;i&lt;a.n;i++) s += a.v[i];<br>cout &lt;&lt; s;</code>",
+      "opts": [
+        "4",
+        "10",
+        "8",
+        "6"
+      ],
+      "ans": 1,
+      "exp": "s = 1 + 2 + 3 + 4 = 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x, y; };<br>S v[3] = {{1,2},{3,4},{5,6}};<br>int s = 0;<br>for(int i=0;i&lt;3;i++)<br>  s += v[i].x * v[i].y;<br>cout &lt;&lt; s;</code>",
+      "opts": [
+        "21",
+        "32",
+        "44",
+        "50"
+      ],
+      "ans": 2,
+      "exp": "s = 1*2 + 3*4 + 5*6 = 2 + 12 + 30 = 44.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a; };<br>void dublu(S &amp;s) { s.a *= 2; }<br>int main() {<br>  S x = {6};<br>  dublu(x);<br>  dublu(x);<br>  cout &lt;&lt; x.a;<br>}</code>",
+      "opts": [
+        "6",
+        "12",
+        "24",
+        "48"
+      ],
+      "ans": 2,
+      "exp": "Prima apelare: x.a = 6*2 = 12. A doua: x.a = 12*2 = 24.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a = {3};<br>S arr[3];<br>for(int i=0;i&lt;3;i++) {<br>  arr[i] = a;<br>  arr[i].x += i;<br>}<br>cout &lt;&lt; arr[2].x;</code>",
+      "opts": [
+        "7",
+        "8",
+        "5",
+        "3"
+      ],
+      "ans": 2,
+      "exp": "arr[2] = a (x=3), apoi arr[2].x += 2, deci arr[2].x = 5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x, y; };<br>S v[3];<br>for(int i=0;i&lt;3;i++) {<br>  v[i].x = i + 1;<br>  v[i].y = (i + 1) * (i + 1);<br>}<br>cout &lt;&lt; v[2].y - v[1].y;</code>",
+      "opts": [
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "ans": 2,
+      "exp": "v[1].y = 2*2 = 4, v[2].y = 3*3 = 9. Diferența = 9 - 4 = 5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct P { int x, y; };<br>P a = {1, 2}, b = {3, 4};<br>P c = {a.x + b.y, a.y * b.x};<br>cout &lt;&lt; c.x &lt;&lt; \" \" &lt;&lt; c.y;</code>",
+      "opts": [
+        "4 6",
+        "5 6",
+        "3 8",
+        "4 8"
+      ],
+      "ans": 1,
+      "exp": "c.x = a.x + b.y = 1 + 4 = 5. c.y = a.y * b.x = 2 * 3 = 6. Afișează 5 6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează?<br><code>struct Nod { int val; Nod *urm; };<br>Nod a = {1, NULL}, b = {2, &amp;a};<br>cout &lt;&lt; b.urm-&gt;val;</code>",
+      "opts": [
+        "1",
+        "2",
+        "eroare",
+        "0"
+      ],
+      "ans": 0,
+      "exp": "b.urm pointează la a. b.urm->val = a.val = 1.",
       "diff": 3
     },
     {
-      "q": "La BAC, care este cel mai frecvent tip de problemă cu struct?",
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S x = {10, 20};<br>S y = {30, 40};<br>S *p = &amp;x, *q = &amp;y;<br>p-&gt;a = q-&gt;b;<br>cout &lt;&lt; x.a;</code>",
       "opts": [
-        "Implementarea unui arbore binar cu struct",
-        "Citirea unui vector de struct și sortarea/filtrarea lui după un câmp",
-        "Alocarea dinamică a struct-urilor",
-        "Moștenirea între struct-uri"
+        "10",
+        "20",
+        "30",
+        "40"
+      ],
+      "ans": 3,
+      "exp": "p->a = q->b înseamnă x.a = y.b = 40.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct A { int x; };<br>struct B { A a; int y; };<br>B b = {{5}, 10};<br>B *p = &amp;b;<br>cout &lt;&lt; p-&gt;a.x + p-&gt;y;</code>",
+      "opts": [
+        "5",
+        "10",
+        "15",
+        "eroare"
+      ],
+      "ans": 2,
+      "exp": "p->a.x = 5, p->y = 10. Suma = 15.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x, y; };<br>S v[4] = {{3,1},{1,4},{4,1},{5,9}};<br>// sortare descrescătoare după y<br>for(int i=0;i&lt;3;i++)<br>  for(int j=i+1;j&lt;4;j++)<br>    if(v[i].y &lt; v[j].y) swap(v[i],v[j]);<br>cout &lt;&lt; v[0].x;</code>",
+      "opts": [
+        "3",
+        "1",
+        "5",
+        "4"
+      ],
+      "ans": 2,
+      "exp": "Sortare descrescătoare după y: {5,9},{1,4},{3,1},{4,1}. v[0].x = 5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int n; };<br>S a[5] = {{3},{1},{4},{1},{5}};<br>int c = 0;<br>for(int i=0;i&lt;5;i++)<br>  for(int j=i+1;j&lt;5;j++)<br>    if(a[i].n == a[j].n) c++;<br>cout &lt;&lt; c;</code>",
+      "opts": [
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "ans": 1,
-      "exp": "La BAC apar frecvent probleme de tip: citește n persoane/studenți/produse, sortează după un câmp, găsește cel cu valoarea maximă/minimă, afișează cei cu condiție pe un câmp.",
-      "diff": 1
+      "exp": "Singura pereche cu valori egale: a[1].n == a[3].n == 1. c = 1.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S x = {2, 3};<br>S *p = &amp;x;<br>int r = p-&gt;a * p-&gt;b + (*p).a;<br>cout &lt;&lt; r;</code>",
+      "opts": [
+        "6",
+        "8",
+        "9",
+        "12"
+      ],
+      "ans": 1,
+      "exp": "p->a = 2, p->b = 3, (*p).a = 2. r = 2*3 + 2 = 8.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int a; };<br>S v[5] = {{5},{2},{8},{1},{6}};<br>for(int i=0;i&lt;4;i++)<br>  for(int j=0;j&lt;4-i;j++)<br>    if(v[j].a &gt; v[j+1].a) swap(v[j],v[j+1]);<br>cout &lt;&lt; v[2].a;</code>",
+      "opts": [
+        "5",
+        "6",
+        "8",
+        "2"
+      ],
+      "ans": 0,
+      "exp": "Bubble sort crescător: {1,2,5,6,8}. v[2].a = 5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a = {1}, b = {2}, c = {3};<br>S *v[3] = {&amp;c, &amp;a, &amp;b};<br>cout &lt;&lt; v[0]-&gt;x &lt;&lt; v[1]-&gt;x &lt;&lt; v[2]-&gt;x;</code>",
+      "opts": [
+        "123",
+        "312",
+        "321",
+        "213"
+      ],
+      "ans": 1,
+      "exp": "v[0] = &c (x=3), v[1] = &a (x=1), v[2] = &b (x=2). Afișează 312.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S* aloc() {<br>  S *p = new S;<br>  p-&gt;x = 100;<br>  return p;<br>}<br>int main() {<br>  S *q = aloc();<br>  cout &lt;&lt; q-&gt;x;<br>  delete q;<br>}</code>",
+      "opts": [
+        "0",
+        "100",
+        "eroare",
+        "nedefinit"
+      ],
+      "ans": 1,
+      "exp": "Funcția alocă dinamic o structură, setează x=100 și returnează pointerul. q->x = 100.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x, y; };<br>S v[3] = {{1,2},{3,4},{5,6}};<br>S *p = v;<br>int s = 0;<br>for(int i=0;i&lt;3;i++) {<br>  s += p-&gt;x;<br>  p++;<br>}<br>cout &lt;&lt; s;</code>",
+      "opts": [
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "ans": 1,
+      "exp": "p parcurge array-ul: v[0].x=1, v[1].x=3, v[2].x=5. s = 1+3+5 = 9.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct Nod { int v; Nod* next; };<br>Nod c={3,NULL}, b={2,&amp;c}, a={1,&amp;b};<br>Nod *p = &amp;a;<br>int s = 0;<br>while(p != NULL) {<br>  s += p-&gt;v;<br>  p = p-&gt;next;<br>}<br>cout &lt;&lt; s;</code>",
+      "opts": [
+        "1",
+        "3",
+        "6",
+        "eroare"
+      ],
+      "ans": 2,
+      "exp": "Lista: a(1)->b(2)->c(3)->NULL. s = 1+2+3 = 6.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a = {3};<br>S *p1 = &amp;a, *p2 = p1;<br>p2-&gt;x = 15;<br>cout &lt;&lt; p1-&gt;x;</code>",
+      "opts": [
+        "3",
+        "15",
+        "eroare",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "p1 și p2 pointează la aceeași structură a. p2->x = 15 modifică a.x. p1->x = 15.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int v; };<br>S a[3] = {{10},{20},{30}};<br>for(int i=0;i&lt;3;i++)<br>  a[i].v = a[2-i].v + a[i].v;<br>cout &lt;&lt; a[0].v;</code>",
+      "opts": [
+        "10",
+        "30",
+        "40",
+        "60"
+      ],
+      "ans": 2,
+      "exp": "i=0: a[0].v = a[2].v + a[0].v = 30+10 = 40. Afișează a[0].v = 40.",
+      "diff": 3
+    },
+    {
+      "q": "Ce valoare returnează <code>sizeof(S)</code>?<br><code>struct S { char a; int b; };</code><br>(sizeof(char)=1, sizeof(int)=4, cu aliniere pe 4 bytes)",
+      "opts": [
+        "5",
+        "8",
+        "4",
+        "12"
+      ],
+      "ans": 1,
+      "exp": "Cu padding/aliniere: char (1 byte) + 3 bytes padding + int (4 bytes) = 8 bytes.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a; };<br>S v[4] = {{10},{20},{30},{40}};<br>S *p = v;<br>cout &lt;&lt; (p+2)-&gt;a;</code>",
+      "opts": [
+        "10",
+        "20",
+        "30",
+        "40"
+      ],
+      "ans": 2,
+      "exp": "p+2 pointează la v[2]. (p+2)->a = v[2].a = 30.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S a = {10};<br>S *p = &amp;a;<br>(*p).x += 5;<br>p-&gt;x += 3;<br>cout &lt;&lt; a.x;</code>",
+      "opts": [
+        "10",
+        "15",
+        "18",
+        "13"
+      ],
+      "ans": 2,
+      "exp": "(*p).x += 5: a.x = 10+5 = 15. p->x += 3: a.x = 15+3 = 18.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int x; };<br>S a = {5};<br>S b = {10};<br>S *p = &amp;a;<br>*p = b;<br>cout &lt;&lt; a.x;</code>",
+      "opts": [
+        "5",
+        "10",
+        "eroare",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "*p = b copiază conținutul lui b în structura pointată de p (adică a). a.x = 10.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S x = {3, 4};<br>S y = x;<br>y.a = y.a + y.b;<br>y.b = y.a - y.b;<br>y.a = y.a - y.b;<br>cout &lt;&lt; y.a &lt;&lt; \" \" &lt;&lt; y.b;</code>",
+      "opts": [
+        "3 4",
+        "4 3",
+        "7 3",
+        "4 7"
+      ],
+      "ans": 1,
+      "exp": "Interschimbare fără auxiliar: y.a=3+4=7, y.b=7-4=3, y.a=7-3=4. Rezultat: 4 3.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct Nod { int v; Nod *next; };<br>Nod a = {5, NULL};<br>Nod b = {3, &amp;a};<br>Nod c = {1, &amp;b};<br>cout &lt;&lt; c.next-&gt;next-&gt;v;</code>",
+      "opts": [
+        "1",
+        "3",
+        "5",
+        "eroare"
+      ],
+      "ans": 2,
+      "exp": "c.next = &b, b.next = &a. c.next->next->v = a.v = 5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S f(S a, S b) {<br>  S r;<br>  r.x = a.x &gt; b.x ? a.x : b.x;<br>  return r;<br>}<br>int main() {<br>  S a={3}, b={7}, c={5};<br>  cout &lt;&lt; f(f(a,b), c).x;<br>}</code>",
+      "opts": [
+        "3",
+        "5",
+        "7",
+        "eroare"
+      ],
+      "ans": 2,
+      "exp": "f(a,b) returnează {7}. f({7}, c={5}) returnează {7}. Afișează 7.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>void f(S* v, int n) {<br>  for(int i=0;i&lt;n/2;i++)<br>    swap(v[i], v[n-1-i]);<br>}<br>int main() {<br>  S a[4] = {{1},{2},{3},{4}};<br>  f(a, 4);<br>  cout &lt;&lt; a[0].x &lt;&lt; a[1].x &lt;&lt; a[2].x &lt;&lt; a[3].x;<br>}</code>",
+      "opts": [
+        "1234",
+        "4321",
+        "2143",
+        "3412"
+      ],
+      "ans": 1,
+      "exp": "Funcția inversează array-ul. Rezultat: {4},{3},{2},{1}. Afișează 4321.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int x; };<br>S v[5] = {{1},{2},{3},{4},{5}};<br>S *p = &amp;v[4];<br>while(p &gt;= v) {<br>  cout &lt;&lt; p-&gt;x;<br>  p--;<br>}</code>",
+      "opts": [
+        "12345",
+        "54321",
+        "5",
+        "1"
+      ],
+      "ans": 1,
+      "exp": "p pornește de la v[4] și merge înapoi: 5, 4, 3, 2, 1. Afișează 54321.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul?<br><code>struct S { int x, y; };<br>S a = {10, 20};<br>S *p = &amp;a;<br>p-&gt;x = p-&gt;y - p-&gt;x;<br>p-&gt;y = p-&gt;y - p-&gt;x;<br>p-&gt;x = p-&gt;x + p-&gt;y;<br>cout &lt;&lt; a.x &lt;&lt; \" \" &lt;&lt; a.y;</code>",
+      "opts": [
+        "10 20",
+        "20 10",
+        "30 10",
+        "10 30"
+      ],
+      "ans": 1,
+      "exp": "Interschimbare prin pointer: x=20-10=10, y=20-10=10, x=10+10=20. Rezultat: 20 10.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int n; };<br>S a[4] = {{5},{3},{7},{1}};<br>for(int i=0;i&lt;3;i++)<br>  if(a[i].n &gt; a[i+1].n)<br>    swap(a[i], a[i+1]);<br>cout &lt;&lt; a[3].n;</code>",
+      "opts": [
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "ans": 3,
+      "exp": "Un pas de bubble sort: i=0: swap(5,3)->{3,5,7,1}, i=1: 5<7 nu swap, i=2: swap(7,1)->{3,5,1,7}. a[3].n = 7.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează?<br><code>struct S { int a, b; };<br>S v[3] = {{2,5},{4,3},{1,6}};<br>// sortare crescătoare după câmpul b<br>for(int i=0;i&lt;2;i++)<br>  for(int j=i+1;j&lt;3;j++)<br>    if(v[i].b &gt; v[j].b) swap(v[i],v[j]);<br>cout &lt;&lt; v[0].a &lt;&lt; v[1].a &lt;&lt; v[2].a;</code>",
+      "opts": [
+        "241",
+        "124",
+        "412",
+        "421"
+      ],
+      "ans": 2,
+      "exp": "Sortare după b crescător: {4,3},{2,5},{1,6}. Se afișează a: 421.",
+      "diff": 3
     }
   ]
 }

@@ -70,6 +70,33 @@ const chapterLinks = [
         </div>
       </div>
 
+      <!-- Study goals -->
+      <div class="streak-goals-section">
+        <h3>🎯 Obiective zilnice</h3>
+        <p class="streak-goals-intro">Setează-ți obiective pentru a-ți organiza studiul:</p>
+        <div class="streak-goals-grid">
+          <label class="streak-goal-item">
+            <input type="checkbox" id="goal1" class="streak-goal-check" data-goal="exercises" />
+            <span class="streak-goal-text">Rezolvă 10 exerciții</span>
+          </label>
+          <label class="streak-goal-item">
+            <input type="checkbox" id="goal2" class="streak-goal-check" data-goal="chapter" />
+            <span class="streak-goal-text">Studiază 1 capitol</span>
+          </label>
+          <label class="streak-goal-item">
+            <input type="checkbox" id="goal3" class="streak-goal-check" data-goal="exam" />
+            <span class="streak-goal-text">Fă un examen alb</span>
+          </label>
+          <label class="streak-goal-item">
+            <input type="checkbox" id="goal4" class="streak-goal-check" data-goal="review" />
+            <span class="streak-goal-text">Recapitulează cheat sheet</span>
+          </label>
+        </div>
+        <div class="streak-goals-progress" id="goalsProgress">
+          <span id="goalsCount">0/4 completate azi</span>
+        </div>
+      </div>
+
       <!-- Studiază azi -->
       <div class="streak-study-section">
         <h3>📖 Studiază astăzi</h3>
@@ -239,6 +266,31 @@ const chapterLinks = [
     .streak-mark-note { font-size: 13px; color: var(--color-text-muted, #64748b); margin-top: 10px; min-height: 20px; }
 
     .streak-danger-section { text-align: center; }
+
+    /* Goals */
+    .streak-goals-section {
+      background: var(--color-surface, #1e293b);
+      border: 1.5px solid var(--color-border, #334155);
+      border-radius: 14px; padding: 22px;
+    }
+    .streak-goals-section h3 { margin: 0 0 8px; }
+    .streak-goals-intro { color: var(--color-text-muted, #94a3b8); font-size: 14px; margin: 0 0 16px; }
+    .streak-goals-grid { display: flex; flex-direction: column; gap: 10px; }
+    .streak-goal-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--color-background, #0f172a);
+      border: 1.5px solid var(--color-border, #334155);
+      border-radius: 10px; padding: 12px 16px;
+      cursor: pointer; transition: border-color .2s, background .2s;
+    }
+    .streak-goal-item:hover { border-color: #3b82f6; }
+    .streak-goal-check { width: 18px; height: 18px; accent-color: #22c55e; cursor: pointer; }
+    .streak-goal-check:checked + .streak-goal-text { text-decoration: line-through; color: var(--color-text-muted, #64748b); }
+    .streak-goal-text { font-size: 14px; font-weight: 500; }
+    .streak-goals-progress {
+      margin-top: 14px; text-align: center;
+      font-size: 13px; font-weight: 600; color: var(--color-text-muted, #94a3b8);
+    }
   </style>
 
   <script is:inline>
@@ -392,6 +444,39 @@ const chapterLinks = [
     markToday();
     renderStats();
     renderCalendar();
+
+    // Goals system
+    var GOALS_KEY = 'infoStudyGoals';
+    function getTodayGoals() {
+      try {
+        var data = JSON.parse(localStorage.getItem(GOALS_KEY) || '{}');
+        if (data.date !== today) return {};
+        return data.goals || {};
+      } catch(e) { return {}; }
+    }
+    function saveTodayGoals(goals) {
+      localStorage.setItem(GOALS_KEY, JSON.stringify({ date: today, goals: goals }));
+    }
+    function updateGoalsUI() {
+      var goals = getTodayGoals();
+      var checks = document.querySelectorAll('.streak-goal-check');
+      var done = 0;
+      checks.forEach(function(ch) {
+        var key = ch.dataset.goal;
+        if (goals[key]) { ch.checked = true; done++; }
+        else ch.checked = false;
+      });
+      document.getElementById('goalsCount').textContent = done + '/' + checks.length + ' completate azi';
+    }
+    document.querySelectorAll('.streak-goal-check').forEach(function(ch) {
+      ch.addEventListener('change', function() {
+        var goals = getTodayGoals();
+        goals[ch.dataset.goal] = ch.checked;
+        saveTodayGoals(goals);
+        updateGoalsUI();
+      });
+    });
+    updateGoalsUI();
   })();
   </script>
 </BaseLayout>

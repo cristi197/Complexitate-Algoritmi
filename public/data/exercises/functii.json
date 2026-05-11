@@ -1,0 +1,1204 @@
+{
+  "quiz": [
+    {
+      "q": "O funcție în C++ este:",
+      "opts": [
+        "Un bloc de cod reutilizabil care realizează o sarcină specifică",
+        "O variabilă specială",
+        "Un tip de dată",
+        "O directivă de preprocesare"
+      ],
+      "ans": 0,
+      "exp": "Funcțiile sunt blocuri de cod reutilizabile care îndeplinesc o sarcină specifică și pot fi apelate de mai multe ori.",
+      "diff": 1
+    },
+    {
+      "q": "Care este sintaxa corectă pentru declararea unei funcții în C++?",
+      "opts": [
+        "function numeFunctie() {}",
+        "def numeFunctie():",
+        "tip_returnat numeFunctie(parametri) { }",
+        "void = numeFunctie()"
+      ],
+      "ans": 2,
+      "exp": "În C++, o funcție se declară cu tipul returnat, numele funcției și lista de parametri: tip_returnat numeFunctie(parametri) { corp }.",
+      "diff": 1
+    },
+    {
+      "q": "Ce tip de funcție nu returnează nicio valoare?",
+      "opts": [
+        "int",
+        "float",
+        "void",
+        "null"
+      ],
+      "ans": 2,
+      "exp": "Funcțiile de tip void nu returnează nicio valoare. Ele execută acțiuni fără a produce un rezultat.",
+      "diff": 1
+    },
+    {
+      "q": "Ce sunt parametrii formali?",
+      "opts": [
+        "Valorile transmise la apelul funcției",
+        "Variabilele din definiția funcției care primesc valorile",
+        "Variabilele globale",
+        "Constantele din program"
+      ],
+      "ans": 1,
+      "exp": "Parametrii formali sunt variabilele declarate în antetul funcției, care primesc valorile la momentul apelului.",
+      "diff": 1
+    },
+    {
+      "q": "Ce sunt parametrii actuali (efectivi)?",
+      "opts": [
+        "Variabilele din definiția funcției",
+        "Tipurile de date ale funcției",
+        "Valorile sau expresiile transmise funcției la momentul apelului",
+        "Variabilele locale ale funcției"
+      ],
+      "ans": 2,
+      "exp": "Parametrii actuali sunt valorile sau expresiile furnizate la apelul funcției, care se transmit parametrilor formali.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int x) { x = x + 10; }\nint main() { int a = 5; f(a); cout &lt;&lt; a; }</code>",
+      "opts": [
+        "15",
+        "5",
+        "10",
+        "Eroare de compilare"
+      ],
+      "ans": 1,
+      "exp": "Parametrul x este transmis prin valoare, deci modificarea lui x în funcție nu afectează variabila a din main. Se afișează 5.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int &amp;x) { x = x + 10; }\nint main() { int a = 5; f(a); cout &lt;&lt; a; }</code>",
+      "opts": [
+        "5",
+        "10",
+        "15",
+        "Eroare de compilare"
+      ],
+      "ans": 2,
+      "exp": "Parametrul x este transmis prin referință (&), deci modificarea lui x în funcție modifică și variabila a din main. Se afișează 15.",
+      "diff": 1
+    },
+    {
+      "q": "Simbolul & în lista de parametri ai unei funcții C++ indică:",
+      "opts": [
+        "Operatorul de adresă",
+        "Transmiterea prin referință",
+        "Operatorul AND pe biți",
+        "Transmiterea prin pointer"
+      ],
+      "ans": 1,
+      "exp": "Simbolul & plasat după tipul parametrului (ex: int &x) indică transmiterea prin referință, permițând funcției să modifice variabila originală.",
+      "diff": 1
+    },
+    {
+      "q": "O variabilă locală este accesibilă:",
+      "opts": [
+        "În tot programul",
+        "Doar în funcția în care a fost declarată",
+        "În toate funcțiile",
+        "Doar în funcția main"
+      ],
+      "ans": 1,
+      "exp": "Variabilele locale au domeniu de vizibilitate (scope) limitat la funcția sau blocul în care au fost declarate.",
+      "diff": 1
+    },
+    {
+      "q": "O variabilă globală este declarată:",
+      "opts": [
+        "În interiorul unei funcții",
+        "În interiorul unei bucle",
+        "În afara tuturor funcțiilor",
+        "Doar în funcția main"
+      ],
+      "ans": 2,
+      "exp": "Variabilele globale se declară în afara tuturor funcțiilor și sunt accesibile din orice funcție a programului.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este prototipul unei funcții?",
+      "opts": [
+        "Corpul funcției",
+        "Declarația funcției fără corp, plasată înainte de main",
+        "Apelul funcției",
+        "O variabilă de tip funcție"
+      ],
+      "ans": 1,
+      "exp": "Prototipul (declarația forward) conține doar antetul funcției (tip, nume, parametri) urmat de ; și informează compilatorul despre existența funcției.",
+      "diff": 1
+    },
+    {
+      "q": "Care este prototipul corect pentru o funcție care primește un int și returnează un double?",
+      "opts": [
+        "double f(int);",
+        "int f(double);",
+        "void f(int, double);",
+        "f(int) double;"
+      ],
+      "ans": 0,
+      "exp": "Prototipul declară tipul returnat (double), numele funcției (f) și tipul parametrului (int), terminat cu punct și virgulă.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int dublu(int x) { return 2 * x; }\nint main() { cout &lt;&lt; dublu(7); }</code>",
+      "opts": [
+        "7",
+        "14",
+        "2",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "Funcția dublu primește 7 și returnează 2 * 7 = 14.",
+      "diff": 1
+    },
+    {
+      "q": "Ce instrucțiune oprește execuția unei funcții și returnează o valoare?",
+      "opts": [
+        "break",
+        "exit",
+        "return",
+        "stop"
+      ],
+      "ans": 2,
+      "exp": "Instrucțiunea return oprește execuția funcției și returnează valoarea specificată către apelant.",
+      "diff": 1
+    },
+    {
+      "q": "Câte valori poate returna o funcție C++ printr-un return?",
+      "opts": [
+        "Oricâte",
+        "Exact una",
+        "Exact două",
+        "Depinde de tipul funcției"
+      ],
+      "ans": 1,
+      "exp": "O funcție C++ poate returna exact o singură valoare prin instrucțiunea return. Pentru mai multe valori se folosesc referințe sau structuri.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void schimba(int a, int b) {\n  int t = a; a = b; b = t;\n}\nint main() {\n  int x = 3, y = 7;\n  schimba(x, y);\n  cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}</code>",
+      "opts": [
+        "7 3",
+        "3 7",
+        "3 3",
+        "7 7"
+      ],
+      "ans": 1,
+      "exp": "Parametrii sunt transmiși prin valoare, deci interschimbarea se face doar pe copiile locale. x și y rămân neschimbate: 3 7.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void schimba(int &amp;a, int &amp;b) {\n  int t = a; a = b; b = t;\n}\nint main() {\n  int x = 3, y = 7;\n  schimba(x, y);\n  cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}</code>",
+      "opts": [
+        "3 7",
+        "7 3",
+        "3 3",
+        "7 7"
+      ],
+      "ans": 1,
+      "exp": "Parametrii sunt transmiși prin referință (&), deci interschimbarea se face pe variabilele originale. Se afișează 7 3.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este supraîncărcarea funcțiilor (overloading)?",
+      "opts": [
+        "Apelarea unei funcții de mai multe ori",
+        "Definirea mai multor funcții cu același nume dar parametri diferiți",
+        "O funcție care apelează altă funcție",
+        "O funcție fără parametri"
+      ],
+      "ans": 1,
+      "exp": "Supraîncărcarea permite definirea mai multor funcții cu același nume, dar cu număr sau tipuri diferite de parametri.",
+      "diff": 1
+    },
+    {
+      "q": "Ce sunt parametrii impliciti (default)?",
+      "opts": [
+        "Parametri care nu pot fi modificați",
+        "Parametri care au o valoare prestabilită dacă nu se furnizează argument",
+        "Parametri de tip const",
+        "Primul parametru al oricărei funcții"
+      ],
+      "ans": 1,
+      "exp": "Parametrii impliciti au o valoare default care se folosește dacă argumentul corespunzător nu este furnizat la apel.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b = 5) { return a + b; }\nint main() { cout &lt;&lt; f(3); }</code>",
+      "opts": [
+        "3",
+        "5",
+        "8",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "Parametrul b are valoarea implicită 5. La apelul f(3), a=3 și b=5, deci rezultatul este 3+5=8.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b = 5) { return a + b; }\nint main() { cout &lt;&lt; f(3, 10); }</code>",
+      "opts": [
+        "8",
+        "13",
+        "15",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "Când se furnizează al doilea argument (10), acesta înlocuiește valoarea implicită. Se calculează 3+10=13.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int x = 5;\nvoid f() { x = x * 2; }\nint main() { f(); f(); cout &lt;&lt; x; }</code>",
+      "opts": [
+        "5",
+        "10",
+        "20",
+        "15"
+      ],
+      "ans": 2,
+      "exp": "x este variabilă globală. Primul apel f() face x=10, al doilea face x=20. Se afișează 20.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int suma(int v[], int n) {\n  int s = 0;\n  for(int i=0; i&lt;n; i++) s += v[i];\n  return s;\n}\nint main() {\n  int a[] = {1,2,3,4};\n  cout &lt;&lt; suma(a, 4);\n}</code>",
+      "opts": [
+        "4",
+        "10",
+        "24",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "Funcția calculează suma elementelor: 1+2+3+4 = 10.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă dacă o funcție recursivă nu are condiție de oprire?",
+      "opts": [
+        "Returnează 0",
+        "Se produce stack overflow (depășirea stivei)",
+        "Compilatorul adaugă automat o condiție",
+        "Funcția se oprește după 100 de apeluri"
+      ],
+      "ans": 1,
+      "exp": "Fără condiție de oprire, funcția se apelează la infinit, consumând toată stiva disponibilă, ceea ce produce stack overflow.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int n) {\n  if(n &gt; 0) { cout &lt;&lt; n; f(n-1); }\n}\nint main() { f(3); }</code>",
+      "opts": [
+        "123",
+        "321",
+        "0123",
+        "3210"
+      ],
+      "ans": 1,
+      "exp": "Se afișează n înainte de apelul recursiv: 3, apoi 2, apoi 1. Rezultat: 321.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x) { return x * x; }\nint main() { cout &lt;&lt; f(f(2)); }</code>",
+      "opts": [
+        "4",
+        "8",
+        "16",
+        "2"
+      ],
+      "ans": 2,
+      "exp": "f(2) = 4, apoi f(4) = 16. Se afișează 16.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int g = 1;\nvoid f() { g++; }\nint main() { f(); f(); f(); cout &lt;&lt; g; }</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "ans": 3,
+      "exp": "g este variabilă globală inițializată cu 1. Trei apeluri f() incrementează g de 3 ori: 1→2→3→4. Se afișează 4.",
+      "diff": 1
+    },
+    {
+      "q": "Care este diferența dintre declarație și definiție a unei funcții?",
+      "opts": [
+        "Nu există diferență",
+        "Declarația conține doar antetul (prototipul), definiția conține și corpul",
+        "Definiția conține doar antetul, declarația conține și corpul",
+        "Declarația se scrie doar în main"
+      ],
+      "ans": 1,
+      "exp": "Declarația (prototipul) informează compilatorul despre existența funcției. Definiția include și corpul funcției cu implementarea completă.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b = 2, int c = 3) {\n  return a + b + c;\n}\nint main() { cout &lt;&lt; f(1); }</code>",
+      "opts": [
+        "1",
+        "3",
+        "6",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "Se apelează f(1) cu b=2 (implicit) și c=3 (implicit). Rezultat: 1+2+3=6.",
+      "diff": 1
+    },
+    {
+      "q": "Care variantă declară corect o funcție care primește un vector și dimensiunea sa?",
+      "opts": [
+        "void f(int v, int n);",
+        "void f(int v[], int n);",
+        "void f(int[] v, int n);",
+        "void f(vector v, n);"
+      ],
+      "ans": 1,
+      "exp": "Sintaxa corectă este int v[] sau int *v pentru parametrul vector, urmat de dimensiunea int n.",
+      "diff": 1
+    },
+    {
+      "q": "O funcție poate apela altă funcție?",
+      "opts": [
+        "Nu, funcțiile sunt independente",
+        "Da, dar doar funcția main poate apela alte funcții",
+        "Da, orice funcție poate apela alte funcții",
+        "Da, dar doar funcțiile void"
+      ],
+      "ans": 2,
+      "exp": "Orice funcție poate apela alte funcții, inclusiv pe ea însăși (recursivitate).",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x) { return x + 1; }\nint g(int x) { return x * 2; }\nint main() { cout &lt;&lt; f(g(3)); }</code>",
+      "opts": [
+        "7",
+        "8",
+        "6",
+        "4"
+      ],
+      "ans": 0,
+      "exp": "g(3) = 3*2 = 6, apoi f(6) = 6+1 = 7.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x) { return x + 1; }\nint g(int x) { return x * 2; }\nint main() { cout &lt;&lt; g(f(3)); }</code>",
+      "opts": [
+        "7",
+        "8",
+        "6",
+        "4"
+      ],
+      "ans": 1,
+      "exp": "f(3) = 3+1 = 4, apoi g(4) = 4*2 = 8.",
+      "diff": 1
+    },
+    {
+      "q": "Funcția main() este o funcție specială deoarece:",
+      "opts": [
+        "Nu poate primi parametri",
+        "Este punctul de intrare al programului",
+        "Nu returnează nicio valoare",
+        "Poate fi apelată recursiv"
+      ],
+      "ans": 1,
+      "exp": "Funcția main() este punctul de intrare al programului C++ – execuția începe întotdeauna de la main.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int s = 0;\nvoid f(int x) { s += x; }\nint main() {\n  for(int i = 1; i &lt;= 4; i++) f(i);\n  cout &lt;&lt; s;\n}</code>",
+      "opts": [
+        "4",
+        "10",
+        "24",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "s este globală. Se apelează f(1), f(2), f(3), f(4): s = 0+1+2+3+4 = 10.",
+      "diff": 1
+    },
+    {
+      "q": "Ce tip de transmitere se recomandă pentru a modifica o variabilă simplă (int, float) în funcție?",
+      "opts": [
+        "Prin valoare",
+        "Prin referință (&)",
+        "Prin constanta",
+        "Prin variabilă globală obligatoriu"
+      ],
+      "ans": 1,
+      "exp": "Transmiterea prin referință permite funcției să modifice variabila originală din apelant.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă dacă o funcție are mai multe instrucțiuni return?",
+      "opts": [
+        "Eroare de compilare",
+        "Se execută toate instrucțiunile return",
+        "Se execută prima instrucțiune return întâlnită și funcția se termină",
+        "Se execută ultima instrucțiune return"
+      ],
+      "ans": 2,
+      "exp": "Funcția se termină la prima instrucțiune return executată, iar valoarea specificată este returnată.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n % 2 == 0) return n;\n  return -1;\n}\nint main() { cout &lt;&lt; f(5) &lt;&lt; \" \" &lt;&lt; f(8); }</code>",
+      "opts": [
+        "5 8",
+        "-1 8",
+        "5 -1",
+        "-1 -1"
+      ],
+      "ans": 1,
+      "exp": "f(5): 5 e impar, returnează -1. f(8): 8 e par, returnează 8. Se afișează -1 8.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int minim(int v[], int n) {\n  int m = v[0];\n  for(int i=1; i&lt;n; i++)\n    if(v[i] &lt; m) m = v[i];\n  return m;\n}\nint main() {\n  int a[] = {5, 3, 8, 1, 4};\n  cout &lt;&lt; minim(a, 5);\n}</code>",
+      "opts": [
+        "5",
+        "3",
+        "1",
+        "4"
+      ],
+      "ans": 2,
+      "exp": "Funcția parcurge vectorul și găsește minimul: 1.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int &amp;x) {\n  if(x &lt; 0) x = -x;\n}\nint main() {\n  int a = -7;\n  f(a);\n  cout &lt;&lt; a;\n}</code>",
+      "opts": [
+        "-7",
+        "7",
+        "0",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "Funcția calculează valoarea absolută prin referință: -7 devine 7.",
+      "diff": 1
+    },
+    {
+      "q": "Ce returnează o funcție de tip int dacă nu are instrucțiunea return?",
+      "opts": [
+        "0",
+        "O valoare nedefinită (comportament nedefinit)",
+        "-1",
+        "Eroare de compilare obligatorie"
+      ],
+      "ans": 1,
+      "exp": "Dacă o funcție non-void nu conține return, comportamentul este nedefinit (undefined behavior) conform standardului C++.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b) { return a + b; }\nint main() { cout &lt;&lt; f(3, f(2, 4)); }</code>",
+      "opts": [
+        "9",
+        "7",
+        "6",
+        "14"
+      ],
+      "ans": 0,
+      "exp": "Se evaluează mai întâi f(2,4) = 6, apoi f(3, 6) = 9.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se întâmplă când se apelează o funcție?",
+      "opts": [
+        "Se creează un nou fișier",
+        "Se alocă un stack frame pe stivă cu parametrii și variabilele locale",
+        "Se oprește programul",
+        "Se șterge memoria heap"
+      ],
+      "ans": 1,
+      "exp": "La fiecare apel de funcție, se creează un stack frame pe stivă care conține parametrii, variabilele locale și adresa de întoarcere.",
+      "diff": 2
+    },
+    {
+      "q": "Care cod demonstrează corect supraîncărcarea?",
+      "opts": [
+        "int f(int x); int f(int x, int y);",
+        "int f(int x); int f(int x);",
+        "int f(int x); void f(int x);",
+        "int f(); int f();"
+      ],
+      "ans": 0,
+      "exp": "Funcțiile supraîncărcate trebuie să difere prin numărul sau tipul parametrilor. f(int) și f(int,int) diferă prin numărul de parametri.",
+      "diff": 2
+    },
+    {
+      "q": "Unde trebuie plasați parametrii impliciti în lista de parametri?",
+      "opts": [
+        "La început (stânga)",
+        "Oriunde",
+        "La sfârșit (dreapta)",
+        "Nu contează ordinea"
+      ],
+      "ans": 2,
+      "exp": "Parametrii cu valori implicite trebuie plasați la sfârșitul listei de parametri, după cei fără valori implicite.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int x = 10;\nvoid f() { int x = 20; cout &lt;&lt; x; }\nint main() { f(); cout &lt;&lt; x; }</code>",
+      "opts": [
+        "10 10",
+        "20 20",
+        "20 10",
+        "10 20"
+      ],
+      "ans": 2,
+      "exp": "In functia f(), variabila locala x=20 ascunde variabila globala x. In main, se acceseaza x global = 10. Se afiseaza 2010.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int v[], int n) {\n  for(int i=0; i&lt;n; i++) v[i] *= 2;\n}\nint main() {\n  int a[] = {1,2,3};\n  f(a, 3);\n  cout &lt;&lt; a[0] &lt;&lt; a[1] &lt;&lt; a[2];\n}</code>",
+      "opts": [
+        "123",
+        "246",
+        "369",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "Vectorii se transmit prin adresă (nu se copiază), deci modificările din funcție afectează vectorul original. Se afișează 246.",
+      "diff": 2
+    },
+    {
+      "q": "De ce vectorii se transmit prin referinta automat in C++?",
+      "opts": [
+        "Deoarece compilatorul decide",
+        "Deoarece numele vectorului este un pointer către primul element",
+        "Deoarece sunt variabile globale",
+        "Deoarece au tipul void"
+      ],
+      "ans": 1,
+      "exp": "Numele unui vector este un pointer către primul element. Când se transmite unui parametru, se copiază adresa, nu elementele.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 1;\n  return n * f(n-1);\n}\nint main() { cout &lt;&lt; f(4); }</code>",
+      "opts": [
+        "4",
+        "10",
+        "24",
+        "16"
+      ],
+      "ans": 2,
+      "exp": "Funcția calculează factorialul: f(4) = 4 * f(3) = 4 * 3 * f(2) = 4 * 3 * 2 * f(1) = 4 * 3 * 2 * 1 * f(0) = 24.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n &lt;= 1) return n;\n  return f(n-1) + f(n-2);\n}\nint main() { cout &lt;&lt; f(5); }</code>",
+      "opts": [
+        "5",
+        "8",
+        "13",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "Funcția calculează al n-lea termen Fibonacci: f(5) = f(4)+f(3) = 3+2 = 5. (Seria: 0,1,1,2,3,5)",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int n) {\n  if(n &gt; 0) { f(n-1); cout &lt;&lt; n; }\n}\nint main() { f(3); }</code>",
+      "opts": [
+        "321",
+        "123",
+        "0123",
+        "3210"
+      ],
+      "ans": 1,
+      "exp": "Se afișează n după apelul recursiv, deci valorile se tipăresc în ordine inversă apelurilor: 1, 2, 3. Rezultat: 123.",
+      "diff": 2
+    },
+    {
+      "q": "Ce tip de parametru NU este valid la supraîncărcare pentru a diferenția funcțiile?",
+      "opts": [
+        "Numărul de parametri",
+        "Tipul parametrilor",
+        "Doar tipul de returnare",
+        "Ordinea tipurilor parametrilor"
+      ],
+      "ans": 2,
+      "exp": "Funcțiile nu pot fi diferențiate doar prin tipul de returnare. Trebuie să difere prin numărul sau tipul parametrilor.",
+      "diff": 2
+    },
+    {
+      "q": "Care declarație de funcție cu parametri impliciti este INCORECTĂ?",
+      "opts": [
+        "void f(int a, int b = 5);",
+        "void f(int a = 3, int b = 5);",
+        "void f(int a = 3, int b);",
+        "void f(int a, int b = 5, int c = 10);"
+      ],
+      "ans": 2,
+      "exp": "Parametrii cu valori implicite trebuie să fie la sfârșitul listei. void f(int a=3, int b) este incorectă deoarece b (fără implicit) urmează după a (cu implicit).",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b) { return a - b; }\nint main() { cout &lt;&lt; f(10, f(3, 1)); }</code>",
+      "opts": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "ans": 2,
+      "exp": "f(3,1) = 3-1 = 2, apoi f(10, 2) = 10-2 = 8.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int &amp;a, int &amp;b) {\n  a = a + b;\n  b = a - b;\n  a = a - b;\n}\nint main() {\n  int x = 5, y = 3;\n  f(x, y);\n  cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}</code>",
+      "opts": [
+        "5 3",
+        "3 5",
+        "8 5",
+        "3 8"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul interschimbă valorile fără variabilă temporară: a=5+3=8, b=8-3=5, a=8-5=3. Rezultat: x=3, y=5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int maxim(int a, int b) {\n  if(a &gt; b) return a;\n  return b;\n}\nint main() { cout &lt;&lt; maxim(maxim(3,7), maxim(5,2)); }</code>",
+      "opts": [
+        "3",
+        "5",
+        "7",
+        "2"
+      ],
+      "ans": 2,
+      "exp": "maxim(3,7)=7, maxim(5,2)=5, maxim(7,5)=7. Se afișează 7.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 1) return 0;\n  return 1 + f(n / 2);\n}\nint main() { cout &lt;&lt; f(8); }</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "ans": 1,
+      "exp": "f(8)=1+f(4)=1+1+f(2)=1+1+1+f(1)=1+1+1+0=3. Funcția calculează log₂(n).",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x) {\n  if(x % 2 == 0) return x / 2;\n  return 3 * x + 1;\n}\nint main() { cout &lt;&lt; f(f(3)); }</code>",
+      "opts": [
+        "5",
+        "10",
+        "16",
+        "3"
+      ],
+      "ans": 0,
+      "exp": "f(3): 3 e impar, deci 3*3+1=10. f(10): 10 e par, deci 10/2=5. Se afișează 5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int &amp;x) { x = x * x; }\nint main() {\n  int a = 3;\n  f(a); f(a);\n  cout &lt;&lt; a;\n}</code>",
+      "opts": [
+        "9",
+        "81",
+        "27",
+        "6"
+      ],
+      "ans": 1,
+      "exp": "Transmitere prin referință: primul apel f(a) face a=3*3=9, al doilea face a=9*9=81.",
+      "diff": 2
+    },
+    {
+      "q": "Stiva de apeluri (call stack) este o structură de tip:",
+      "opts": [
+        "FIFO (First In, First Out)",
+        "LIFO (Last In, First Out)",
+        "Arbore binar",
+        "Lista dublu înlănțuită"
+      ],
+      "ans": 1,
+      "exp": "Stiva de apeluri funcționează pe principiul LIFO: ultima funcție apelată este prima care se termină și se scoate de pe stivă.",
+      "diff": 2
+    },
+    {
+      "q": "Ce conține un stack frame?",
+      "opts": [
+        "Doar variabilele globale",
+        "Parametrii funcției, variabilele locale și adresa de întoarcere",
+        "Doar codul funcției",
+        "Doar valoarea returnată"
+      ],
+      "ans": 1,
+      "exp": "Un stack frame conține parametrii formali, variabilele locale, adresa de întoarcere și alte informații de context ale apelului.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b = 2, int c = 3) {\n  return a + b + c;\n}\nint main() { cout &lt;&lt; f(1, 10); }</code>",
+      "opts": [
+        "6",
+        "13",
+        "14",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "Se apelează f(1, 10) cu a=1, b=10, c=3 (implicit). Rezultat: 1+10+3=14.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int nr_cifre(int n) {\n  if(n &lt; 10) return 1;\n  return 1 + nr_cifre(n / 10);\n}\nint main() { cout &lt;&lt; nr_cifre(2048); }</code>",
+      "opts": [
+        "3",
+        "4",
+        "5",
+        "2048"
+      ],
+      "ans": 1,
+      "exp": "nr_cifre(2048) = 1+nr_cifre(204) = 1+1+nr_cifre(20) = 1+1+1+nr_cifre(2) = 1+1+1+1 = 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int prim(int n) {\n  if(n &lt; 2) return 0;\n  for(int i=2; i*i&lt;=n; i++)\n    if(n%i==0) return 0;\n  return 1;\n}\nint main() { cout &lt;&lt; prim(7) &lt;&lt; prim(9); }</code>",
+      "opts": [
+        "01",
+        "10",
+        "11",
+        "00"
+      ],
+      "ans": 1,
+      "exp": "7 este prim (returnează 1), 9 nu este prim (9=3×3, returnează 0). Se afișează 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int cmmdc(int a, int b) {\n  if(b == 0) return a;\n  return cmmdc(b, a % b);\n}\nint main() { cout &lt;&lt; cmmdc(12, 8); }</code>",
+      "opts": [
+        "2",
+        "4",
+        "8",
+        "12"
+      ],
+      "ans": 1,
+      "exp": "cmmdc(12,8) = cmmdc(8,4) = cmmdc(4,0) = 4. Algoritmul lui Euclid recursiv.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x, int y) { return x + y; }\ndouble f(double x, double y) { return x * y; }\nint main() { cout &lt;&lt; f(2, 3); }</code>",
+      "opts": [
+        "5",
+        "6",
+        "6.0",
+        "Eroare de ambiguitate"
+      ],
+      "ans": 0,
+      "exp": "Argumentele 2 și 3 sunt int, deci se apelează versiunea int f(int,int) care returnează 2+3=5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x, int y) { return x + y; }\ndouble f(double x, double y) { return x * y; }\nint main() { cout &lt;&lt; f(2.0, 3.0); }</code>",
+      "opts": [
+        "5",
+        "5.0",
+        "6",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "Argumentele 2.0 și 3.0 sunt double, deci se apelează versiunea double f(double,double) care returnează 2.0*3.0=6.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int n, int &amp;s) {\n  s = 0;\n  while(n &gt; 0) { s += n % 10; n /= 10; }\n}\nint main() {\n  int r;\n  f(123, r);\n  cout &lt;&lt; r;\n}</code>",
+      "opts": [
+        "123",
+        "6",
+        "321",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "Funcția calculează suma cifrelor: 3+2+1=6. Rezultatul e stocat în r prin referință.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int putere(int b, int e) {\n  if(e == 0) return 1;\n  return b * putere(b, e-1);\n}\nint main() { cout &lt;&lt; putere(2, 5); }</code>",
+      "opts": [
+        "10",
+        "25",
+        "32",
+        "64"
+      ],
+      "ans": 2,
+      "exp": "putere(2,5) = 2 * putere(2,4) = ... = 2^5 = 32.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int v[], int n) {\n  for(int i=0; i&lt;n/2; i++) {\n    int t = v[i];\n    v[i] = v[n-1-i];\n    v[n-1-i] = t;\n  }\n}\nint main() {\n  int a[] = {1,2,3,4,5};\n  f(a, 5);\n  for(int i=0; i&lt;5; i++) cout &lt;&lt; a[i];\n}</code>",
+      "opts": [
+        "12345",
+        "54321",
+        "13524",
+        "52431"
+      ],
+      "ans": 1,
+      "exp": "Funcția inversează vectorul: {1,2,3,4,5} → {5,4,3,2,1}. Se afișează 54321.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  return n % 10 + f(n / 10);\n}\nint main() { cout &lt;&lt; f(456); }</code>",
+      "opts": [
+        "15",
+        "456",
+        "11",
+        "654"
+      ],
+      "ans": 0,
+      "exp": "Funcția calculează suma cifrelor recursiv: f(456)=6+f(45)=6+5+f(4)=6+5+4+f(0)=6+5+4+0=15.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n &lt; 10) return n;\n  return f(n / 10);\n}\nint main() { cout &lt;&lt; f(4567); }</code>",
+      "opts": [
+        "7",
+        "4",
+        "45",
+        "567"
+      ],
+      "ans": 1,
+      "exp": "f(4567)=f(456)=f(45)=f(4)=4 (4&lt;10, se returnează). Funcția extrage prima cifră a numărului.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int n) {\n  if(n &gt; 0) {\n    f(n / 10);\n    cout &lt;&lt; n % 10;\n  }\n}\nint main() { f(1234); }</code>",
+      "opts": [
+        "4321",
+        "1234",
+        "123",
+        "234"
+      ],
+      "ans": 1,
+      "exp": "Apelul recursiv se face înainte de afișare, deci cifrele se afișează de la stânga la dreapta: 1234.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  if(n % 2 == 0) return 1 + f(n / 10);\n  return f(n / 10);\n}\nint main() { cout &lt;&lt; f(2468); }</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "0"
+      ],
+      "ans": 2,
+      "exp": "Funcția numără cifrele pare: 8(par)+6(par)+4(par)+2(par) = 4 cifre pare.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b) {\n  if(a == b) return a;\n  if(a &gt; b) return f(a - b, b);\n  return f(a, b - a);\n}\nint main() { cout &lt;&lt; f(18, 12); }</code>",
+      "opts": [
+        "2",
+        "6",
+        "12",
+        "18"
+      ],
+      "ans": 1,
+      "exp": "f(18,12)=f(6,12)=f(6,6)=6. Este algoritmul CMMDC prin scăderi repetate.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  int r = 0;\n  while(n &gt; 0) {\n    r = r * 10 + n % 10;\n    n /= 10;\n  }\n  return r;\n}\nint main() { cout &lt;&lt; f(1234); }</code>",
+      "opts": [
+        "1234",
+        "4321",
+        "10",
+        "1"
+      ],
+      "ans": 1,
+      "exp": "Funcția construiește oglinditul numărului: 1234 → 4321.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>bool palindrom(int n) {\n  int r = 0, aux = n;\n  while(aux &gt; 0) { r = r*10 + aux%10; aux /= 10; }\n  return n == r;\n}\nint main() { cout &lt;&lt; palindrom(121) &lt;&lt; palindrom(123); }</code>",
+      "opts": [
+        "10",
+        "01",
+        "11",
+        "00"
+      ],
+      "ans": 0,
+      "exp": "121 este palindrom (returnează 1=true), 123 nu este (returnează 0=false). Se afișează 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x) {\n  if(x &lt;= 0) return 0;\n  return x + f(x - 2);\n}\nint main() { cout &lt;&lt; f(7); }</code>",
+      "opts": [
+        "12",
+        "16",
+        "21",
+        "28"
+      ],
+      "ans": 1,
+      "exp": "f(7)=7+f(5)=7+5+f(3)=7+5+3+f(1)=7+5+3+1+f(-1)=7+5+3+1+0=16.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int &amp;a, int &amp;b, int &amp;c) {\n  if(a &gt; b) { int t=a; a=b; b=t; }\n  if(b &gt; c) { int t=b; b=c; c=t; }\n  if(a &gt; b) { int t=a; a=b; b=t; }\n}\nint main() {\n  int x=3, y=1, z=2;\n  f(x, y, z);\n  cout &lt;&lt; x &lt;&lt; y &lt;&lt; z;\n}</code>",
+      "opts": [
+        "312",
+        "123",
+        "321",
+        "213"
+      ],
+      "ans": 1,
+      "exp": "Funcția sortează trei valori crescător prin comparații și interschimbări. 3,1,2 → 1,2,3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int a, int b) {\n  while(a != b) {\n    if(a &gt; b) a -= b;\n    else b -= a;\n  }\n  return a;\n}\nint main() { cout &lt;&lt; f(48, 36); }</code>",
+      "opts": [
+        "4",
+        "6",
+        "12",
+        "36"
+      ],
+      "ans": 2,
+      "exp": "Este algoritmul CMMDC prin scăderi repetate: f(48,36)→f(12,36)→f(12,24)→f(12,12)=12.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  return n % 10 * n % 10 + f(n / 10);\n}\nint main() { cout &lt;&lt; f(123); }</code>",
+      "opts": [
+        "14",
+        "36",
+        "6",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Atenție la precedența operatorilor: n%10*n%10 = ((n%10)*n)%10. f(123)=((3*123)%10)+f(12)=(369%10)+f(12)=9+((2*12)%10)+f(1)=9+(24%10)+f(1)=9+4+((1*1)%10)+f(0)=9+4+1+0=14.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x) {\n  static int c = 0;\n  c++;\n  return c + x;\n}\nint main() {\n  cout &lt;&lt; f(1) &lt;&lt; \" \" &lt;&lt; f(1) &lt;&lt; \" \" &lt;&lt; f(1);\n}</code>",
+      "opts": [
+        "2 2 2",
+        "2 3 4",
+        "1 2 3",
+        "1 1 1"
+      ],
+      "ans": 1,
+      "exp": "Variabila static c își păstrează valoarea între apeluri. Apel 1: c=1, ret 2. Apel 2: c=2, ret 3. Apel 3: c=3, ret 4.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n, int k) {\n  if(k == 0) return 1;\n  if(k == n) return 1;\n  return f(n-1, k-1) + f(n-1, k);\n}\nint main() { cout &lt;&lt; f(5, 2); }</code>",
+      "opts": [
+        "5",
+        "10",
+        "20",
+        "15"
+      ],
+      "ans": 1,
+      "exp": "Funcția calculează combinări C(n,k) recursiv folosind triunghiul lui Pascal: C(5,2) = 10.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int v[], int &amp;n) {\n  int j = 0;\n  for(int i=0; i&lt;n; i++)\n    if(v[i] % 2 == 0) v[j++] = v[i];\n  n = j;\n}\nint main() {\n  int a[] = {1,2,3,4,5,6}, n=6;\n  f(a, n);\n  for(int i=0; i&lt;n; i++) cout &lt;&lt; a[i];\n}</code>",
+      "opts": [
+        "135",
+        "246",
+        "123456",
+        "12345"
+      ],
+      "ans": 1,
+      "exp": "Funcția păstrează doar elementele pare: 2, 4, 6. Se afișează 246.",
+      "diff": 3
+    },
+    {
+      "q": "Câte stack frame-uri sunt pe stivă în momentul apelului f(1) din cod?\n<code>void f(int n) {\n  if(n &gt; 0) f(n-1);\n}\nint main() { f(3); }</code>",
+      "opts": [
+        "3 (f(3), f(2), f(1))",
+        "4 (main, f(3), f(2), f(1))",
+        "5 (main, f(3), f(2), f(1), f(0))",
+        "2 (main, f(1))"
+      ],
+      "ans": 1,
+      "exp": "Pe stivă sunt: main(), f(3), f(2) și f(1) – în total 4 stack frame-uri.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  return n % 10 &gt; f(n / 10) ? n % 10 : f(n / 10);\n}\nint main() { cout &lt;&lt; f(3718); }</code>",
+      "opts": [
+        "3",
+        "7",
+        "8",
+        "1"
+      ],
+      "ans": 2,
+      "exp": "Funcția găsește cifra maximă recursiv: max(8, max(1, max(7, max(3, 0)))) = 8.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n &lt;= 1) return 1;\n  if(n % 2 == 0) return f(n/2);\n  return f(n-1) + f(n-2);\n}\nint main() { cout &lt;&lt; f(6); }</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "f(6)=f(3) (6 e par), f(3)=f(2)+f(1) (3 e impar), f(2)=f(1) (2 e par), f(1)=1. Deci f(2)=1, f(3)=1+1=2... Recalculând: f(6)→f(3)→f(2)+f(1)→f(1)+1→1+1=2... Atenție: f(6)=f(3), f(3)=f(2)+f(1)=f(1)+1=1+1=2. Rezultatul este 2.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int x, int y) {\n  if(y == 0) return x;\n  return f(y, x % y);\n}\nint main() { cout &lt;&lt; f(f(12,8), f(20,15)); }</code>",
+      "opts": [
+        "1",
+        "4",
+        "5",
+        "20"
+      ],
+      "ans": 0,
+      "exp": "f(12,8)=f(8,4)=f(4,0)=4. f(20,15)=f(15,5)=f(5,0)=5. f(4,5)=f(5,4)=f(4,1)=f(1,0)=1.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int v[], int st, int dr) {\n  if(st == dr) return v[st];\n  int m = (st + dr) / 2;\n  int a = f(v, st, m);\n  int b = f(v, m+1, dr);\n  return a &gt; b ? a : b;\n}\nint main() {\n  int a[] = {3,7,2,9,5};\n  cout &lt;&lt; f(a, 0, 4);\n}</code>",
+      "opts": [
+        "3",
+        "7",
+        "9",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "Funcția găsește maximul recursiv prin divide et impera. Maximul din {3,7,2,9,5} este 9.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int v[], int n) {\n  int c = 0;\n  for(int i=0; i&lt;n; i++)\n    for(int j=i+1; j&lt;n; j++)\n      if(v[i] &gt; v[j]) c++;\n  return c;\n}\nint main() {\n  int a[] = {3,1,2};\n  cout &lt;&lt; f(a, 3);\n}</code>",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "Funcția numără inversiunile: (3,1) și (3,2) – 2 perechi unde elementul din stânga e mai mare.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>void f(int &amp;a, int &amp;b) {\n  a = a ^ b;\n  b = a ^ b;\n  a = a ^ b;\n}\nint main() {\n  int x = 5, y = 9;\n  f(x, y);\n  cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}</code>",
+      "opts": [
+        "5 9",
+        "9 5",
+        "0 0",
+        "14 14"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul interschimbă valorile folosind XOR pe biți: a^=b, b^=a, a^=b. Rezultat: x=9, y=5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  if(n % 2 == 1) return 1 + f(n / 2);\n  return f(n / 2);\n}\nint main() { cout &lt;&lt; f(13); }</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "13"
+      ],
+      "ans": 1,
+      "exp": "13 în binar = 1101. Funcția numără biții de 1: f(13)=1+f(6)=1+f(3)=1+1+f(1)=1+1+1+f(0)=3.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n, int b) {\n  if(n == 0) return 0;\n  return n % b + f(n / b, b) * 10;\n}\nint main() { cout &lt;&lt; f(10, 2); }</code>",
+      "opts": [
+        "10",
+        "1010",
+        "101",
+        "2"
+      ],
+      "ans": 1,
+      "exp": "Funcția convertește n=10 în baza b=2: 10₁₀ = 1010₂. Construiește cifrele ca număr zecimal: 1010.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n &lt; 10) return 1;\n  if(n % 10 &gt; (n/10) % 10) return 1 + f(n/10);\n  return f(n/10);\n}\nint main() { cout &lt;&lt; f(13579); }</code>",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "Funcția numără perechile de cifre consecutive crescătoare (de la dreapta): 9>7(da), 7>5(da), 5>3(da), 3>1(da) = 4. Plus 1 pentru cazul de bază.",
+      "diff": 3
+    },
+    {
+      "q": "Câte apeluri recursive face funcția fib(5)?\n<code>int fib(int n) {\n  if(n &lt;= 1) return n;\n  return fib(n-1) + fib(n-2);\n}</code>",
+      "opts": [
+        "5",
+        "9",
+        "14",
+        "15"
+      ],
+      "ans": 2,
+      "exp": "Arborele apelurilor: fib(5) apelează fib(4)+fib(3), fib(4)→fib(3)+fib(2), etc. Total 14 apeluri recursive (fără apelul inițial din main).",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  return (n % 10) % 2 + f(n / 10);\n}\nint main() { cout &lt;&lt; f(24680); }</code>",
+      "opts": [
+        "0",
+        "1",
+        "5",
+        "20"
+      ],
+      "ans": 0,
+      "exp": "Funcția calculează suma (cifra%2) pentru fiecare cifră. Toate cifrele (2,4,6,8,0) sunt pare, deci fiecare dă 0. Total = 0.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n == 0) return 0;\n  return (n % 10) % 2 + f(n / 10);\n}\nint main() { cout &lt;&lt; f(13579); }</code>",
+      "opts": [
+        "0",
+        "3",
+        "5",
+        "25"
+      ],
+      "ans": 2,
+      "exp": "Toate cifrele (1,3,5,7,9) sunt impare, deci fiecare dă 1%2=1. Total = 5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int v[], int n) {\n  if(n == 1) return v[0];\n  if(v[n-1] &gt; f(v, n-1)) return v[n-1];\n  return f(v, n-1);\n}\nint main() {\n  int a[] = {3,7,1,9};\n  cout &lt;&lt; f(a, 4);\n}</code>",
+      "opts": [
+        "3",
+        "7",
+        "1",
+        "9"
+      ],
+      "ans": 3,
+      "exp": "Funcția găsește maximul recursiv din vector. Maximul din {3,7,1,9} este 9.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n, int &amp;p) {\n  p = 1;\n  int s = 0;\n  while(n &gt; 0) {\n    s += (n%10) * p;\n    p *= 10;\n    n /= 10;\n  }\n  return s;\n}\nint main() {\n  int p;\n  cout &lt;&lt; f(123, p) &lt;&lt; \" \" &lt;&lt; p;\n}</code>",
+      "opts": [
+        "123 1000",
+        "321 1000",
+        "123 100",
+        "321 100"
+      ],
+      "ans": 0,
+      "exp": "Funcția reconstruiește numărul (123) și p ajunge la 1000 (10^3). Se afișează 123 1000.",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează următorul cod?\n<code>int f(int n) {\n  if(n &lt; 10) return n;\n  return n % 10 + f(n / 10);\n}\nint g(int n) {\n  while(f(n) &gt;= 10) n = f(n);\n  return f(n);\n}\nint main() { cout &lt;&lt; g(9999); }</code>",
+      "opts": [
+        "9",
+        "36",
+        "27",
+        "0"
+      ],
+      "ans": 0,
+      "exp": "f(9999)=9+9+9+9=36, f(36)=3+6=9. g calculează suma cifrelor repetată până la o cifră: rădăcina digitală = 9.",
+      "diff": 3
+    }
+  ]
+}

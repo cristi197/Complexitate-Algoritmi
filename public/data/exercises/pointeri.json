@@ -2,43 +2,63 @@
   "quiz": [
     {
       "q": "Ce operator se folosește pentru a obține adresa de memorie a unei variabile în C++?",
-      "opts": ["* (dereferențiere)", "& (adresă)", "-> (acces câmp)", ":: (rezoluție)"],
+      "opts": [
+        "* (dereferențiere)",
+        "& (adresă)",
+        "-> (acces câmp)",
+        ":: (rezoluție)"
+      ],
       "ans": 1,
       "exp": "Operatorul & (address-of) returnează adresa de memorie a variabilei. Ex: int* p = &x; — p stochează adresa lui x.",
       "diff": 1
     },
     {
+      "q": "Care este declarația corectă a unui pointer la un întreg în C++?",
+      "opts": [
+        "int p;",
+        "int &p;",
+        "int* p;",
+        "pointer int p;"
+      ],
+      "ans": 2,
+      "exp": "int* p; declară un pointer la int. Simbolul * în declarație indică faptul că p este un pointer ce va stoca o adresă de memorie a unui întreg.",
+      "diff": 1
+    },
+    {
       "q": "Dacă int* p = &x; și x = 10, ce expresie returnează valoarea 10?",
-      "opts": ["p", "&p", "*p", "&*p"],
+      "opts": [
+        "p",
+        "&p",
+        "*p",
+        "**p"
+      ],
       "ans": 2,
       "exp": "*p (dereferențierea) accesează valoarea de la adresa stocată în pointer. Deci *p = 10 (valoarea lui x).",
       "diff": 1
     },
     {
-      "q": "Ce se întâmplă cu memorie dacă folosești new[] dar uiți delete[]?",
-      "opts": ["Stack overflow", "Memory leak", "Segmentation fault", "Compilare eșuată"],
-      "ans": 1,
-      "exp": "Omiterea delete[] cauzează memory leak — memoria alocată pe heap rămâne ocupată și nu mai poate fi reutilizată pe durata programului.",
-      "diff": 2
-    },
-    {
-      "q": "Care este diferența dintre delete și delete[] în C++?",
+      "q": "Ce valoare are nullptr în C++?",
       "opts": [
-        "Nu există diferență, funcționează la fel",
-        "delete[] se folosește pentru a șterge un array alocat cu new[]",
-        "delete[] este mai rapid",
-        "delete[] șterge toți pointerii din program"
+        "0 (zero)",
+        "Un pointer nul — indică faptul că pointerul nu pointează nicăieri",
+        "Valoarea -1",
+        "O adresă validă de memorie"
       ],
       "ans": 1,
-      "exp": "delete[] se folosește specific pentru array-uri alocate cu new[]. Folosirea delete (fără []) pe un array are comportament nedefinit (undefined behavior).",
-      "diff": 2
+      "exp": "nullptr este un pointer nul — reprezintă adresa 0x0, indicând că pointerul nu pointează nicăieri. Este mai explicit tipizat decât NULL sau 0.",
+      "diff": 1
     },
     {
-      "q": "Fie int v[] = {2, 4, 6, 8} și int* p = v; p++; — ce returnează *p?",
-      "opts": ["2", "4", "6", "adresa lui v[1]"],
+      "q": "Ce se întâmplă dacă dereferențiezi un pointer neinitializat?",
+      "opts": [
+        "Se afișează 0",
+        "Comportament nedefinit (undefined behavior)",
+        "Eroare de compilare",
+        "Se inițializează automat"
+      ],
       "ans": 1,
-      "exp": "p inițial pointează la v[0]. După p++, avansează la v[1] care are valoarea 4. Deci *p = 4.",
-      "diff": 2
+      "exp": "Dereferențierea unui pointer neinițializat produce comportament nedefinit (undefined behavior). Pointerul conține o adresă aleatorie, accesarea ei poate duce la crash (segfault) sau rezultate imprevizibile.",
+      "diff": 1
     },
     {
       "q": "Care declarație alocă corect un array de 100 de întregi pe heap?",
@@ -49,60 +69,1136 @@
         "int v = new int(100);"
       ],
       "ans": 1,
-      "exp": "int* v = new int[100]; alocă 100 de întregi pe heap și returnează un pointer la primul element. Pentru array-uri, new[] folosește paranteze drepte.",
+      "exp": "int* v = new int[100]; alocă 100 de întregi pe heap și returnează un pointer la primul element. Parantezele drepte [] indică alocarea unui array.",
       "diff": 1
     },
     {
-      "q": "Ce valoare are nullptr în C++?",
-      "opts": ["0 (zero)", "Adresa 0x0 (pointer nul)", "Valoarea -1", "O adresă validă de memorie"],
+      "q": "Ce tip are variabila p în declarația: double* p;?",
+      "opts": [
+        "double",
+        "pointer la double",
+        "referință la double",
+        "adresă de int"
+      ],
       "ans": 1,
-      "exp": "nullptr este un pointer nul — reprezintă adresa 0x0, indicând că pointerul nu pointează nicăieri. Este echivalent cu 0 sau NULL, dar mai explicit tipizat.",
+      "exp": "double* p; declară p ca pointer la double. p va stoca o adresă de memorie unde se află o valoare de tip double.",
       "diff": 1
     },
     {
-      "q": "Care este avantajul principal al listelor înlănțuite față de array-uri?",
+      "q": "Ce afișează codul? int a = 7; int* p = &a; cout &lt;&lt; *p;",
       "opts": [
-        "Acces mai rapid la elemente cu index",
-        "Inserare la început în O(1)",
-        "Mai puțină memorie utilizată",
-        "Cache-friendly — datele sunt contigue"
+        "Adresa lui a",
+        "7",
+        "0",
+        "Eroare de compilare"
       ],
       "ans": 1,
-      "exp": "Inserarea la începutul listei înlănțuite se face în O(1) — se creează nodul și se actualizează head. La array, inserarea la început necesită deplasarea tuturor elementelor: O(n).",
-      "diff": 2
+      "exp": "p stochează adresa lui a. *p dereferențiază pointerul și accesează valoarea lui a, adică 7.",
+      "diff": 1
     },
     {
-      "q": "Ce operație complexitate are accesul la elementul i dintr-o listă simplu înlănțuită?",
-      "opts": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
-      "ans": 2,
-      "exp": "Accesul la elementul i necesită parcurgerea listei de la head, nod cu nod, timp de i pași. Deci complexitate O(n), spre deosebire de array unde e O(1).",
-      "diff": 2
-    },
-    {
-      "q": "Ce se afișează? int a=5, b=3; int* p=&a; int* q=&b; *p=*q; cout<<a<<b;",
-      "opts": ["5 3", "3 3", "5 5", "3 5"],
-      "ans": 1,
-      "exp": "*p = *q înseamnă: pune valoarea lui *q (adică valoarea lui b = 3) în locul indicat de p (adică în a). Deci a devine 3, b rămâne 3. Afișează: 3 3.",
-      "diff": 3
-    },
-    {
-      "q": "De ce declarăm vectorii mari (n > 100000) ca variabile globale sau cu new?",
+      "q": "Care este diferența dintre int* p și int &r?",
       "opts": [
-        "Variabilele globale sunt mai rapide",
-        "Stiva (stack) are dimensiune limitată (~1-8MB); heap-ul este mult mai mare",
-        "new alocă memory mai eficient",
-        "Nu există diferență"
+        "Nu există diferență",
+        "p este pointer (stochează adresă), r este referință (alias)",
+        "p este referință, r este pointer",
+        "Ambele sunt pointeri"
       ],
       "ans": 1,
-      "exp": "Stiva (stack) are o dimensiune limitată (tipic 1-8MB pe sistem). Un array de 1.000.000 de int = 4MB poate cauza stack overflow. Variabilele globale și new folosesc heap-ul, care poate fi GB.",
-      "diff": 2
+      "exp": "int* p declară un pointer — o variabilă ce stochează o adresă. int &r declară o referință — un alias pentru o variabilă existentă. Referința nu poate fi reasignată.",
+      "diff": 1
+    },
+    {
+      "q": "Ce operator se folosește pentru a accesa valoarea de la adresa stocată într-un pointer?",
+      "opts": [
+        "& (adresă)",
+        "* (dereferențiere)",
+        ". (acces membru)",
+        "[] (indexare)"
+      ],
+      "ans": 1,
+      "exp": "Operatorul * (dereferențiere/indirection) accesează valoarea de la adresa memorată în pointer. Dacă int* p = &x, atunci *p dă valoarea lui x.",
+      "diff": 1
+    },
+    {
+      "q": "Câți octeți ocupă un pointer pe un sistem pe 64 de biți, indiferent de tipul de date?",
+      "opts": [
+        "4 octeți",
+        "8 octeți",
+        "Depinde de tipul de date",
+        "2 octeți"
+      ],
+      "ans": 1,
+      "exp": "Pe un sistem de 64 de biți, un pointer are dimensiunea de 8 octeți (64 biți) indiferent dacă este int*, double* sau char*. Pointerul stochează o adresă, nu o valoare.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă dacă scrii: int* p = nullptr; *p = 5;?",
+      "opts": [
+        "Se atribuie valoarea 5 la adresa 0",
+        "Segmentation fault / crash",
+        "Compilarea eșuează",
+        "Se creează automat o variabilă cu valoarea 5"
+      ],
+      "ans": 1,
+      "exp": "Dereferențierea unui pointer nullptr cauzează comportament nedefinit, de obicei segmentation fault. Adresa nullptr (0x0) nu este o zonă validă de memorie.",
+      "diff": 1
+    },
+    {
+      "q": "Ce eliberare este corectă pentru: int* p = new int(5);?",
+      "opts": [
+        "delete[] p;",
+        "delete p;",
+        "free(p);",
+        "p = nullptr;"
+      ],
+      "ans": 1,
+      "exp": "new int(5) alocă un singur întreg, deci se folosește delete p; (fără []). delete[] se folosește doar pentru array-uri alocate cu new[].",
+      "diff": 1
+    },
+    {
+      "q": "Ce diferență există între new int(5) și new int[5]?",
+      "opts": [
+        "Nu există diferență",
+        "new int(5) alocă un întreg cu valoarea 5; new int[5] alocă un array de 5 întregi",
+        "new int(5) alocă 5 întregi; new int[5] alocă un întreg",
+        "Ambele alocă 5 întregi"
+      ],
+      "ans": 1,
+      "exp": "new int(5) alocă un singur int inițializat cu valoarea 5. new int[5] alocă un array de 5 întregi pe heap. Sunt operații complet diferite.",
+      "diff": 1
     },
     {
       "q": "Cum se accesează câmpul 'val' al unui nod printr-un pointer 'p' la structura Nod?",
-      "opts": ["p.val", "*p.val", "p->val sau (*p).val", "p[val]"],
+      "opts": [
+        "p.val",
+        "*p.val",
+        "p-&gt;val sau (*p).val",
+        "p[val]"
+      ],
       "ans": 2,
-      "exp": "Operatorul -> (arrow) accesează câmpurile unui struct prin pointer. p->val este echivalent cu (*p).val. Operatorul . (punct) se folosește pentru variabile directe, nu pointeri.",
+      "exp": "Operatorul -&gt; (arrow) accesează câmpurile unui struct prin pointer. p-&gt;val este echivalent cu (*p).val. Operatorul . se folosește pentru variabile directe, nu pointeri.",
       "diff": 1
+    },
+    {
+      "q": "Ce conține un pointer imediat după declararea: int* p;?",
+      "opts": [
+        "nullptr",
+        "0",
+        "O adresă aleatorie (nedeterminată)",
+        "Adresa primei variabile din program"
+      ],
+      "ans": 2,
+      "exp": "Un pointer local neinițializat conține o valoare nedeterminată (o adresă aleatorie de pe stivă). Este bună practică să inițializezi pointerii cu nullptr.",
+      "diff": 1
+    },
+    {
+      "q": "Ce este corect pentru a declara un pointer la char?",
+      "opts": [
+        "char p*;",
+        "char *p;",
+        "pointer char p;",
+        "char &p;"
+      ],
+      "ans": 1,
+      "exp": "char *p; (sau echivalent char* p) declară un pointer la char. Steluța * poate fi lângă tip sau lângă variabilă — ambele forme sunt corecte.",
+      "diff": 1
+    },
+    {
+      "q": "Care dintre următoarele este un avantaj al alocării dinamice cu new?",
+      "opts": [
+        "Este mai rapidă decât alocarea pe stivă",
+        "Memoria alocată persistă până la apelul explicit delete",
+        "Nu necesită declararea tipului",
+        "Memoria se eliberează automat la ieșirea din funcție"
+      ],
+      "ans": 1,
+      "exp": "Memoria alocată cu new pe heap rămâne alocată până când programatorul apelează explicit delete. Spre deosebire de variabilele locale (pe stivă), care se distrug automat la ieșirea din bloc.",
+      "diff": 1
+    },
+    {
+      "q": "Unde se alocă memoria atunci când folosim operatorul new în C++?",
+      "opts": [
+        "Pe stivă (stack)",
+        "Pe heap (memoria liberă)",
+        "În registrele CPU",
+        "În zona de date statice"
+      ],
+      "ans": 1,
+      "exp": "Operatorul new alocă memorie pe heap (free store). Aceasta este o zonă de memorie mai mare decât stiva, dar trebuie eliberată manual cu delete.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se afișează? int x = 3; int* p = &x; *p = 10; cout &lt;&lt; x;",
+      "opts": [
+        "3",
+        "10",
+        "Adresa lui x",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "p pointează la x. *p = 10 modifică valoarea de la adresa lui x, deci x devine 10. Se afișează 10.",
+      "diff": 1
+    },
+    {
+      "q": "Care afirmație este adevărată despre pointerii void (void*)?",
+      "opts": [
+        "Nu pot stoca nicio adresă",
+        "Pot stoca adresa oricărui tip de date, dar trebuie convertit înainte de dereferențiere",
+        "Pot fi dereferențiați direct",
+        "Sunt echivalenți cu nullptr"
+      ],
+      "ans": 1,
+      "exp": "Un pointer void* poate stoca adresa oricărui tip, dar nu poate fi dereferențiat direct — trebuie făcut un cast la tipul corespunzător: *(int*)pv.",
+      "diff": 1
+    },
+    {
+      "q": "De ce declarăm vectorii mari (n &gt; 100000) ca variabile globale sau cu new?",
+      "opts": [
+        "Variabilele globale sunt mai rapide",
+        "Stiva (stack) are dimensiune limitată (~1-8MB); heap-ul este mult mai mare",
+        "new alocă memorie mai eficient",
+        "Nu există diferență"
+      ],
+      "ans": 1,
+      "exp": "Stiva are o dimensiune limitată (tipic 1-8MB). Un array de 1.000.000 de int = 4MB poate cauza stack overflow. Variabilele globale și new folosesc heap-ul, care poate fi de ordinul GB.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă dacă apelezi delete de două ori pe același pointer?",
+      "opts": [
+        "Se șterge de două ori memoria",
+        "Comportament nedefinit (double free)",
+        "A doua ștergere este ignorată",
+        "Eroare de compilare"
+      ],
+      "ans": 1,
+      "exp": "Apelarea delete de două ori pe aceeași adresă (double free) produce comportament nedefinit. Poate cauza crash sau coruperea heap-ului. După delete, setează pointerul la nullptr.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se afișează? int v[] = {2, 4, 6, 8}; cout &lt;&lt; *v;",
+      "opts": [
+        "Adresa primului element",
+        "2",
+        "4",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "Numele unui array (v) este echivalent cu un pointer la primul element. *v este echivalent cu v[0], adică 2.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se afișează? int v[]={5,10,15}; int* p=v; cout&lt;&lt;*(p+2);",
+      "opts": [
+        "7",
+        "15",
+        "10",
+        "12"
+      ],
+      "ans": 1,
+      "exp": "*(p+2) avansează pointerul cu 2 poziții, apoi dereferențiază: v[2] = 15.",
+      "diff": 1
+    },
+    {
+      "q": "Ce se întâmplă cu memoria alocată pe heap dacă funcția se termină fără delete?",
+      "opts": [
+        "Se eliberează automat",
+        "Rămâne ocupată (memory leak)",
+        "Se mută pe stivă",
+        "Se comprimă automat"
+      ],
+      "ans": 1,
+      "exp": "Memoria alocată cu new pe heap rămâne ocupată până la apelul explicit al lui delete. Dacă funcția se termină fără delete, pointerul local se pierde și memoria nu mai poate fi eliberată — memory leak.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int a=5, b=3; int* p=&a; int* q=&b; *p=*q; cout&lt;&lt;a&lt;&lt;\" \"&lt;&lt;b;",
+      "opts": [
+        "5 3",
+        "3 3",
+        "5 5",
+        "3 5"
+      ],
+      "ans": 1,
+      "exp": "*p = *q copiază valoarea lui *q (adică b = 3) la adresa indicată de p (adică în a). Deci a devine 3, b rămâne 3. Se afișează: 3 3.",
+      "diff": 2
+    },
+    {
+      "q": "Fie int v[] = {2, 4, 6, 8} și int* p = v; p++; — ce returnează *p?",
+      "opts": [
+        "2",
+        "4",
+        "6",
+        "Adresa lui v[1]"
+      ],
+      "ans": 1,
+      "exp": "p inițial pointează la v[0]. După p++, avansează la v[1] care are valoarea 4. Deci *p = 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[] = {10, 20, 30}; int* p = v + 2; cout &lt;&lt; *p;",
+      "opts": [
+        "10",
+        "20",
+        "30",
+        "Adresa v[2]"
+      ],
+      "ans": 2,
+      "exp": "v + 2 pointează la elementul v[2] (al treilea element). *p dereferențiază și dă valoarea 30.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[] = {1, 2, 3, 4, 5}; cout &lt;&lt; *(v+3);",
+      "opts": [
+        "1",
+        "3",
+        "4",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "*(v+3) este echivalent cu v[3], adică al patrulea element. Vectorul este {1, 2, 3, 4, 5}, deci v[3] = 4.",
+      "diff": 2
+    },
+    {
+      "q": "Care este diferența dintre delete și delete[] în C++?",
+      "opts": [
+        "Nu există diferență",
+        "delete[] se folosește pentru array-uri alocate cu new[]",
+        "delete[] este mai rapid",
+        "delete[] șterge toți pointerii din program"
+      ],
+      "ans": 1,
+      "exp": "delete[] se folosește specific pentru array-uri alocate cu new[]. Folosirea delete (fără []) pe un array are comportament nedefinit.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se întâmplă cu memorie dacă folosești new[] dar uiți delete[]?",
+      "opts": [
+        "Stack overflow",
+        "Memory leak",
+        "Segmentation fault",
+        "Compilare eșuată"
+      ],
+      "ans": 1,
+      "exp": "Omiterea delete[] cauzează memory leak — memoria alocată pe heap rămâne ocupată și nu poate fi reutilizată pe durata execuției programului.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int x = 5; int* p = &x; (*p)++; cout &lt;&lt; x;",
+      "opts": [
+        "5",
+        "6",
+        "Adresa lui x + 1",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "(*p)++ mai întâi dereferențiază p (obține x=5), apoi incrementează valoarea. x devine 6. Parantezele sunt esențiale — fără ele, p++ ar muta pointerul.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[] = {5, 10, 15}; int* p = &v[1]; cout &lt;&lt; p[-1];",
+      "opts": [
+        "5",
+        "10",
+        "15",
+        "Eroare"
+      ],
+      "ans": 0,
+      "exp": "p pointează la v[1]. p[-1] este echivalent cu *(p-1), adică v[0] = 5. Indecșii negativi sunt valizi dacă adresa rezultată este validă.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int a = 1, b = 2; int* p = &a; p = &b; cout &lt;&lt; *p;",
+      "opts": [
+        "1",
+        "2",
+        "Adresa lui b",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "p pointează inițial la a, apoi este reasignat să pointeze la b. *p dereferențiază pointerul și returnează valoarea lui b, adică 2.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[] = {1,2,3,4,5}; int* p = v; int* q = v + 4; cout &lt;&lt; q - p;",
+      "opts": [
+        "4",
+        "16",
+        "20",
+        "5"
+      ],
+      "ans": 0,
+      "exp": "Diferența dintre doi pointeri la elemente ale aceluiași array dă numărul de elemente dintre ei. q - p = (v+4) - v = 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? char s[] = \"BAC\"; char* p = s; cout &lt;&lt; *(p+1);",
+      "opts": [
+        "B",
+        "A",
+        "C",
+        "Adresa lui s[1]"
+      ],
+      "ans": 1,
+      "exp": "p pointează la s[0]='B'. *(p+1) accesează s[1]='A'. Aritmetica pointerilor la char avansează câte un octet.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int x=10, y=20; int* p=&x; int* q=&y; int* temp=p; p=q; q=temp; cout&lt;&lt;*p&lt;&lt;\" \"&lt;&lt;*q;",
+      "opts": [
+        "10 20",
+        "20 10",
+        "10 10",
+        "20 20"
+      ],
+      "ans": 1,
+      "exp": "Se interschimbă pointerii p și q (nu valorile). Acum p pointează la y (20) și q la x (10). Se afișează: 20 10. Valorile x și y rămân neschimbate.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[] = {3, 6, 9}; for(int* p = v; p &lt; v+3; p++) cout &lt;&lt; *p &lt;&lt; \" \";",
+      "opts": [
+        "3 6 9",
+        "Adresele elementelor",
+        "0 1 2",
+        "9 6 3"
+      ],
+      "ans": 0,
+      "exp": "Pointerul p parcurge vectorul de la v (adresa primului element) până la v+3. La fiecare pas, *p afișează valoarea curentă: 3, 6, 9.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int* p = new int(42); cout &lt;&lt; *p; delete p;",
+      "opts": [
+        "0",
+        "42",
+        "Adresa pe heap",
+        "Eroare de compilare"
+      ],
+      "ans": 1,
+      "exp": "new int(42) alocă un întreg pe heap cu valoarea inițială 42. *p accesează această valoare. După delete p, memoria este eliberată.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[] = {1,2,3,4}; cout &lt;&lt; *(v+1) + *(v+2);",
+      "opts": [
+        "3",
+        "5",
+        "6",
+        "7"
+      ],
+      "ans": 1,
+      "exp": "*(v+1) = v[1] = 2 și *(v+2) = v[2] = 3. Suma este 2 + 3 = 5.",
+      "diff": 2
+    },
+    {
+      "q": "Dacă int* p = new int[10], ce expresie accesează al 5-lea element?",
+      "opts": [
+        "p[5]",
+        "p[4]",
+        "*(p+5)",
+        "p(4)"
+      ],
+      "ans": 1,
+      "exp": "Al 5-lea element are indexul 4 (indexarea începe de la 0). p[4] sau echivalent *(p+4) accesează acest element.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int x = 100; int* p = &x; int** pp = &p; cout &lt;&lt; **pp;",
+      "opts": [
+        "Adresa lui p",
+        "Adresa lui x",
+        "100",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "pp este un pointer la pointer. *pp dă p (adresa lui x). **pp dereferențiază de două ori: mai întâi obține p, apoi *p = x = 100.",
+      "diff": 2
+    },
+    {
+      "q": "Ce tip are pp în declarația: int** pp;?",
+      "opts": [
+        "pointer la int",
+        "pointer la pointer la int",
+        "referință la pointer",
+        "int dublu"
+      ],
+      "ans": 1,
+      "exp": "int** pp declară un pointer la pointer la int (double pointer). pp stochează adresa unui pointer int*, care la rândul lui stochează adresa unui int.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={10,20,30}; int* p=v; cout&lt;&lt;p[2];",
+      "opts": [
+        "10",
+        "20",
+        "30",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "p pointează la începutul vectorului v. p[2] este echivalent cu *(p+2), adică v[2] = 30.",
+      "diff": 2
+    },
+    {
+      "q": "Ce face codul: int* p = new int[5]; for(int i=0; i&lt;5; i++) p[i] = i*2; delete[] p;?",
+      "opts": [
+        "Alocă un array pe stivă",
+        "Alocă un array pe heap cu valori {0,2,4,6,8}, apoi îl eliberează",
+        "Alocă 5 pointeri",
+        "Eroare — nu poți indexa un pointer"
+      ],
+      "ans": 1,
+      "exp": "new int[5] alocă 5 întregi pe heap. Bucla for atribuie valorile 0, 2, 4, 6, 8. delete[] eliberează memoria corect.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int a=3; int* p=&a; int** q=&p; **q = 7; cout &lt;&lt; a;",
+      "opts": [
+        "3",
+        "7",
+        "Adresa lui a",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "q este pointer la pointer. **q accesează a (prin dubla dereferențiere). **q = 7 modifică valoarea lui a la 7.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? char* s = \"info\"; cout &lt;&lt; *(s+2);",
+      "opts": [
+        "i",
+        "n",
+        "f",
+        "o"
+      ],
+      "ans": 2,
+      "exp": "s pointează la șirul \"info\". *(s+2) accesează caracterul de la poziția 2, adică 'f'. Indexarea: i=0, n=1, f=2, o=3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={5,10,15,20}; int* p=v+1; int* q=v+3; cout&lt;&lt;q-p;",
+      "opts": [
+        "2",
+        "8",
+        "3",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Diferența q-p dă numărul de elemente între pointeri: (v+3)-(v+1) = 2. Rezultatul este în unități de elemente, nu de octeți.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int a = 4; int& r = a; int* p = &r; *p = 9; cout &lt;&lt; a;",
+      "opts": [
+        "4",
+        "9",
+        "Adresa lui r",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "r este o referință la a (alias). &r dă adresa lui a. p pointează la a. *p = 9 modifică a la 9.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int* p = new int[3]{10, 20, 30}; cout &lt;&lt; p[0] + p[2]; delete[] p;",
+      "opts": [
+        "30",
+        "40",
+        "50",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "new int[3]{10, 20, 30} alocă și inițializează un array pe heap. p[0] + p[2] = 10 + 30 = 40.",
+      "diff": 2
+    },
+    {
+      "q": "Fie void f(int* p) { *p = 100; } și int x=5; f(&x); — ce valoare are x după apel?",
+      "opts": [
+        "5",
+        "100",
+        "0",
+        "Adresa lui x"
+      ],
+      "ans": 1,
+      "exp": "Funcția primește adresa lui x prin pointer. *p = 100 modifică valoarea de la acea adresă. x devine 100 (transmitere prin pointer).",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[3]={1,2,3}; int* p=v; ++p; ++*p; cout&lt;&lt;v[1];",
+      "opts": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "ans": 1,
+      "exp": "p inițial pointează la v[0]. ++p mută pointerul la v[1]. ++*p incrementează valoarea v[1] de la 2 la 3. Se afișează 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={1,2,3,4,5}; int* p=v+2; cout&lt;&lt;p[-2]&lt;&lt;\" \"&lt;&lt;p[1];",
+      "opts": [
+        "3 4",
+        "1 4",
+        "1 3",
+        "2 5"
+      ],
+      "ans": 1,
+      "exp": "p pointează la v[2]. p[-2] = *(p-2) = v[0] = 1. p[1] = *(p+1) = v[3] = 4. Se afișează: 1 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce este un dangling pointer?",
+      "opts": [
+        "Un pointer neinițializat",
+        "Un pointer care pointează la memorie deja eliberată",
+        "Un pointer void",
+        "Un pointer const"
+      ],
+      "ans": 1,
+      "exp": "Un dangling pointer este un pointer care continuă să rețină adresa unei zone de memorie care a fost deja eliberată (cu delete). Accesarea sa produce comportament nedefinit.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={2,4,6}; int* p=v; int s=0; for(int i=0;i&lt;3;i++) s+=*(p+i); cout&lt;&lt;s;",
+      "opts": [
+        "6",
+        "12",
+        "8",
+        "246"
+      ],
+      "ans": 1,
+      "exp": "Bucla adună *(p+0) + *(p+1) + *(p+2) = v[0] + v[1] + v[2] = 2 + 4 + 6 = 12.",
+      "diff": 2
+    },
+    {
+      "q": "Ce diferență este între const int* p și int* const p?",
+      "opts": [
+        "Nu există diferență",
+        "const int* p: nu poți modifica valoarea; int* const p: nu poți modifica adresa",
+        "const int* p: nu poți modifica adresa; int* const p: nu poți modifica valoarea",
+        "Ambele interzic orice modificare"
+      ],
+      "ans": 1,
+      "exp": "const int* p (pointer la const): nu poți modifica *p. int* const p (const pointer): nu poți reasigna p. Citește de la dreapta la stânga.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? const int x = 10; const int* p = &x; cout &lt;&lt; *p;",
+      "opts": [
+        "10",
+        "0",
+        "Eroare de compilare",
+        "Adresa lui x"
+      ],
+      "ans": 0,
+      "exp": "const int* p permite citirea prin pointer (*p = 10), dar nu permite modificarea (*p = 20 ar fi eroare). Se afișează 10.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={10,20,30,40,50}; cout&lt;&lt;*v&lt;&lt;\" \"&lt;&lt;*(v+4);",
+      "opts": [
+        "10 50",
+        "10 40",
+        "20 50",
+        "Eroare"
+      ],
+      "ans": 0,
+      "exp": "*v = v[0] = 10. *(v+4) = v[4] = 50. Se afișează: 10 50.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={1,2,3,4,5}; int* p=v; while(*p&lt;4){p++;} cout&lt;&lt;*p;",
+      "opts": [
+        "3",
+        "4",
+        "5",
+        "Buclă infinită"
+      ],
+      "ans": 1,
+      "exp": "p parcurge vectorul: *p=1,2,3 (toate &lt; 4, deci p++). Când *p=4, condiția *p&lt;4 este falsă, bucla se oprește. Se afișează 4.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int x=1,y=2,z=3; int* v[]={&x,&y,&z}; cout&lt;&lt;*v[1];",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "Adresa lui y"
+      ],
+      "ans": 1,
+      "exp": "v este un array de pointeri. v[1] = &y (adresa lui y). *v[1] dereferențiază și dă valoarea lui y = 2.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int a=1; int* p=&a; int** q=&p; *p=5; cout&lt;&lt;**q;",
+      "opts": [
+        "1",
+        "5",
+        "Adresa lui a",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "q pointează la p, care pointează la a. *p=5 modifică a la 5. **q dereferențiază dublu: *q=p, **q=*p=a=5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? void swap(int* a, int* b){int t=*a;*a=*b;*b=t;} int x=3,y=7; swap(&x,&y); cout&lt;&lt;x&lt;&lt;\" \"&lt;&lt;y;",
+      "opts": [
+        "3 7",
+        "7 3",
+        "7 7",
+        "3 3"
+      ],
+      "ans": 1,
+      "exp": "Funcția swap primește adresele lui x și y. Prin dereferențiere, interschimbă valorile: x devine 7, y devine 3.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={5,10,15,20}; int* p=v; p+=2; cout&lt;&lt;*p-*(p-1);",
+      "opts": [
+        "5",
+        "10",
+        "15",
+        "-5"
+      ],
+      "ans": 0,
+      "exp": "p inițial la v[0], după p+=2 la v[2]=15. *(p-1)=v[1]=10. Rezultat: 15-10=5.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int* p = new int(0); for(int i=1;i&lt;=5;i++) *p += i; cout&lt;&lt;*p; delete p;",
+      "opts": [
+        "5",
+        "10",
+        "15",
+        "0"
+      ],
+      "ans": 2,
+      "exp": "*p inițial 0. Se adună: 0+1+2+3+4+5 = 15. Se afișează 15.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={2,4,6,8}; int *p=v, *q=v+3; while(p&lt;q){cout&lt;&lt;*p&lt;&lt;\" \"; p++;}",
+      "opts": [
+        "2 4 6 8",
+        "2 4 6",
+        "4 6",
+        "8 6 4 2"
+      ],
+      "ans": 1,
+      "exp": "p pornește de la v[0], q este la v[3]. Bucla afișează cât timp p&lt;q: v[0]=2, v[1]=4, v[2]=6. Când p ajunge la v[3]=q, se oprește.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int a[]={1,2,3}; int* p=a; int* q=a+2; cout&lt;&lt;(q&gt;p);",
+      "opts": [
+        "0",
+        "1",
+        "2",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "Compararea pointerilor la elemente din același array este validă. q (a+2) are adresă mai mare decât p (a), deci q&gt;p este true (1).",
+      "diff": 2
+    },
+    {
+      "q": "Ce face codul? int* p = nullptr; if(p) cout&lt;&lt;*p; else cout&lt;&lt;\"NULL\";",
+      "opts": [
+        "Afișează 0",
+        "Afișează NULL",
+        "Crash (segfault)",
+        "Eroare de compilare"
+      ],
+      "ans": 1,
+      "exp": "nullptr se evaluează la false într-un context boolean. Condiția if(p) este falsă, deci se execută ramura else și se afișează \"NULL\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? char s[]=\"ABCD\"; char* p=s; while(*p){cout&lt;&lt;*p; p++;}",
+      "opts": [
+        "ABCD",
+        "A",
+        "DCBA",
+        "Buclă infinită"
+      ],
+      "ans": 0,
+      "exp": "while(*p) parcurge șirul până la terminatorul null ('\\0'). La fiecare pas afișează caracterul curent: A, B, C, D.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int v[]={2,4,6,8,10}; int* p=v+4; while(p&gt;=v){cout&lt;&lt;*p&lt;&lt;\" \"; p--;}",
+      "opts": [
+        "2 4 6 8 10",
+        "10 8 6 4 2",
+        "10 8 6 4",
+        "8 6 4 2"
+      ],
+      "ans": 1,
+      "exp": "p pornește de la v[4]=10 și decrementează până la v[0]. Se afișează invers: 10 8 6 4 2.",
+      "diff": 2
+    },
+    {
+      "q": "Ce se afișează? int m[2][3]={{1,2,3},{4,5,6}}; int* p = &m[0][0]; cout&lt;&lt;*(p+4);",
+      "opts": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "ans": 2,
+      "exp": "Matricea este stocată liniar în memorie: 1,2,3,4,5,6. p+4 avansează 4 elemente de la m[0][0], ajungând la valoarea 5.",
+      "diff": 3
+    },
+    {
+      "q": "Fie int a[3][2] = {{1,2},{3,4},{5,6}}; Ce valoare are *(*(a+1)+1)?",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "a+1 pointează la al doilea rând a[1]. *(a+1) dă adresa primului element al rândului 1. *(*(a+1)+1) = a[1][1] = 4.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int a[2][3]={{1,2,3},{4,5,6}}; cout&lt;&lt;**(a+1);",
+      "opts": [
+        "1",
+        "2",
+        "4",
+        "5"
+      ],
+      "ans": 2,
+      "exp": "a+1 pointează la al doilea rând (a[1]). *(a+1) dă adresa primului element al rândului 1. **(a+1) = a[1][0] = 4.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int a=10; const int* p = &a; a = 20; cout&lt;&lt;*p;",
+      "opts": [
+        "10",
+        "20",
+        "Eroare de compilare",
+        "Comportament nedefinit"
+      ],
+      "ans": 1,
+      "exp": "const int* p interzice modificarea prin pointer (*p = 20 ar fi eroare), dar variabila a nu e const și poate fi modificată direct. *p reflectă noua valoare: 20.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int x=5; int* const p = &x; *p = 15; cout&lt;&lt;x;",
+      "opts": [
+        "5",
+        "15",
+        "Eroare de compilare",
+        "Comportament nedefinit"
+      ],
+      "ans": 1,
+      "exp": "int* const p: pointerul nu poate fi reasignat (p=&y ar fi eroare), dar valoarea pointată poate fi modificată. *p = 15 schimbă x la 15.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={1,2,3,4,5}; int* p=v; int* q=v+4; int s=0; while(p&lt;=q){s+=*p; p+=2;} cout&lt;&lt;s;",
+      "opts": [
+        "6",
+        "9",
+        "15",
+        "5"
+      ],
+      "ans": 1,
+      "exp": "p parcurge din 2 în 2: *p la v[0]=1, v[2]=3, v[4]=5. Suma: 1+3+5=9.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={10,20,30,40}; int* p=v; cout&lt;&lt;++*p&lt;&lt;\" \"&lt;&lt;*++p;",
+      "opts": [
+        "11 20",
+        "11 21",
+        "10 20",
+        "Comportament nedefinit"
+      ],
+      "ans": 3,
+      "exp": "Ordinea de evaluare a operanzilor lui &lt;&lt; nu este garantată în C++ (înainte de C++17). Modificarea lui p și *p în aceeași expresie produce comportament nedefinit.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={1,2,3}; int (*p)[3] = &v; cout&lt;&lt;(*p)[1];",
+      "opts": [
+        "1",
+        "2",
+        "3",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "int (*p)[3] este un pointer la un array de 3 int. &v dă adresa array-ului. (*p)[1] dereferențiază pointerul la array și accesează elementul 1, adică 2.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int a=1,b=2,c=3; int* v[]={&c,&a,&b}; cout&lt;&lt;*v[0]+*v[2];",
+      "opts": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "ans": 2,
+      "exp": "v[0]=&c, deci *v[0]=c=3. v[2]=&b, deci *v[2]=b=2. Suma: 3+2=5.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int** p = new int*[3]; for(int i=0;i&lt;3;i++){p[i]=new int(i*10);} cout&lt;&lt;*p[2]; for(int i=0;i&lt;3;i++) delete p[i]; delete[] p;",
+      "opts": [
+        "0",
+        "10",
+        "20",
+        "30"
+      ],
+      "ans": 2,
+      "exp": "Se alocă un array de 3 pointeri. Fiecare pointer alocă un int: 0, 10, 20. *p[2] dereferențiază al treilea pointer: valoarea 20.",
+      "diff": 3
+    },
+    {
+      "q": "Cum se alocă dinamic o matrice de n×m întregi folosind pointeri?",
+      "opts": [
+        "int** a = new int[n][m];",
+        "int** a = new int*[n]; for(...) a[i] = new int[m];",
+        "int* a = new int[n*m]; (doar array liniar)",
+        "int a[n][m];"
+      ],
+      "ans": 1,
+      "exp": "Se alocă un array de n pointeri, apoi pentru fiecare rând se alocă un array de m întregi. Aceasta creează o matrice dinamică pe heap.",
+      "diff": 3
+    },
+    {
+      "q": "Cum se eliberează corect o matrice alocată cu int** a = new int*[n]; a[i] = new int[m];?",
+      "opts": [
+        "delete a;",
+        "delete[] a;",
+        "for(...) delete[] a[i]; apoi delete[] a;",
+        "free(a);"
+      ],
+      "ans": 2,
+      "exp": "Trebuie eliberată în ordine inversă: mai întâi fiecare rând (delete[] a[i]), apoi array-ul de pointeri (delete[] a). Altfel apare memory leak.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={10,20,30}; int* p=v; cout&lt;&lt;*p++&lt;&lt;\" \"&lt;&lt;*p;",
+      "opts": [
+        "10 20",
+        "20 20",
+        "10 10",
+        "Comportament nedefinit"
+      ],
+      "ans": 3,
+      "exp": "Ordinea evaluării operanzilor &lt;&lt; nu este specificată înainte de C++17. *p++ modifică p, iar *p din al doilea operand poate citi fie vechea, fie noua valoare.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? typedef int (*FuncPtr)(int,int); int add(int a,int b){return a+b;} FuncPtr f=add; cout&lt;&lt;f(3,4);",
+      "opts": [
+        "3",
+        "4",
+        "7",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "FuncPtr este un tip pointer la funcție. f pointează la funcția add. f(3,4) apelează add(3,4) = 7.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int sum(int a,int b){return a+b;} int prod(int a,int b){return a*b;} int (*f)(int,int)=sum; cout&lt;&lt;f(2,3); f=prod; cout&lt;&lt;\" \"&lt;&lt;f(2,3);",
+      "opts": [
+        "5 6",
+        "6 5",
+        "5 5",
+        "6 6"
+      ],
+      "ans": 0,
+      "exp": "f pointează inițial la sum: f(2,3)=5. Apoi f este reasignat la prod: f(2,3)=6. Se afișează: 5 6.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? void inc(int** pp){(**pp)++;} int x=10; int* p=&x; inc(&p); cout&lt;&lt;x;",
+      "opts": [
+        "10",
+        "11",
+        "Adresa lui x",
+        "Eroare"
+      ],
+      "ans": 1,
+      "exp": "pp este pointer la pointer. **pp accesează x. (**pp)++ incrementează x de la 10 la 11.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={1,3,5,7,9}; int* p=v; int* q=p+4; cout&lt;&lt;(q-p)*sizeof(int);",
+      "opts": [
+        "4",
+        "8",
+        "16",
+        "20"
+      ],
+      "ans": 2,
+      "exp": "q-p = 4 (diferență în număr de elemente). sizeof(int) = 4 octeți. Rezultat: 4*4 = 16.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int a[]={1,2,3}; int b[]={4,5,6}; int* p[]={a,b}; cout&lt;&lt;p[1][2];",
+      "opts": [
+        "3",
+        "5",
+        "6",
+        "2"
+      ],
+      "ans": 2,
+      "exp": "p este un array de pointeri: p[0]=a, p[1]=b. p[1][2] = b[2] = 6.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={4,3,2,1}; int* p=v; int* q=v+3; while(p&lt;q){int t=*p;*p=*q;*q=t;p++;q--;} for(int i=0;i&lt;4;i++) cout&lt;&lt;v[i]&lt;&lt;\" \";",
+      "opts": [
+        "4 3 2 1",
+        "1 2 3 4",
+        "1 3 2 4",
+        "4 2 3 1"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul inversează vectorul cu doi pointeri (start și sfârșit). Se interschimbă v[0]↔v[3], v[1]↔v[2]. Rezultat: 1 2 3 4.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int x=10; void* p = &x; cout&lt;&lt;*(int*)p;",
+      "opts": [
+        "10",
+        "0",
+        "Eroare de compilare",
+        "Adresa lui x"
+      ],
+      "ans": 0,
+      "exp": "p este void* și stochează adresa lui x. Pentru a dereferenția, se face cast la int*: *(int*)p = 10.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={7,8,9}; int* p=v; cout&lt;&lt;sizeof(v)/sizeof(v[0])&lt;&lt;\" \"&lt;&lt;sizeof(p)/sizeof(*p);",
+      "opts": [
+        "3 3",
+        "3 2",
+        "3 1",
+        "12 8"
+      ],
+      "ans": 1,
+      "exp": "sizeof(v)/sizeof(v[0]) = 12/4 = 3 (numărul de elemente). sizeof(p)/sizeof(*p) pe 64-bit = 8/4 = 2 (nu dă dimensiunea array-ului, ci a pointerului).",
+      "diff": 3
+    },
+    {
+      "q": "Ce face new(nothrow) int[100] diferit de new int[100]?",
+      "opts": [
+        "Sunt identice",
+        "nothrow returnează nullptr dacă alocarea eșuează, în loc să arunce excepție",
+        "nothrow alocă pe stivă",
+        "nothrow este mai rapid"
+      ],
+      "ans": 1,
+      "exp": "new int[100] aruncă std::bad_alloc dacă alocarea eșuează. new(nothrow) int[100] returnează nullptr în caz de eșec, permițând verificarea manuală.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={2,4,6,8,10}; int** pp; int* p=v+2; pp=&p; cout&lt;&lt;**pp;",
+      "opts": [
+        "2",
+        "3",
+        "5",
+        "6"
+      ],
+      "ans": 3,
+      "exp": "p=v+2 pointează la v[2]=6. pp=&p, deci *pp=p, **pp=*p=6.",
+      "diff": 3
+    },
+    {
+      "q": "Care este riscul principal al returnării unui pointer la o variabilă locală din funcție?",
+      "opts": [
+        "Funcția nu compilează",
+        "Pointerul returnat devine dangling pointer — variabila locală se distruge la ieșirea din funcție",
+        "Variabila locală devine globală",
+        "Nu există risc"
+      ],
+      "ans": 1,
+      "exp": "Variabilele locale sunt pe stivă și se distrug la ieșirea din funcție. Pointerul returnat pointează la memorie eliberată — dangling pointer.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int* f(){int* p = new int(99); return p;} int* q = f(); cout&lt;&lt;*q; delete q;",
+      "opts": [
+        "99",
+        "0",
+        "Eroare — dangling pointer",
+        "Comportament nedefinit"
+      ],
+      "ans": 0,
+      "exp": "Funcția alocă pe heap (cu new) și returnează pointerul. Memoria heap persistă după ieșirea din funcție. *q = 99. Corect — nu este dangling pointer.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int m[2][2]={{1,2},{3,4}}; int* p=(int*)m; cout&lt;&lt;*(p+3);",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "Eroare"
+      ],
+      "ans": 2,
+      "exp": "Matricea 2x2 este stocată liniar: 1,2,3,4. Cast-ul (int*)m dă adresa primului element. *(p+3) = al 4-lea element = 4.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={5,15,25,35}; int* p=v; int* q=v+3; cout&lt;&lt;(*q-*p)/(q-p);",
+      "opts": [
+        "5",
+        "10",
+        "15",
+        "30"
+      ],
+      "ans": 1,
+      "exp": "*q=35, *p=5, q-p=3. (35-5)/3 = 30/3 = 10.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int x=7; int* p=&x; int** q=&p; int*** r=&q; cout&lt;&lt;***r;",
+      "opts": [
+        "Adresa lui q",
+        "Adresa lui p",
+        "Adresa lui x",
+        "7"
+      ],
+      "ans": 3,
+      "exp": "r este pointer triplu. ***r: *r=q, **r=*q=p, ***r=*p=x=7. Triplă dereferențiere.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={2,4,6,8}; int* p=v; *(p+1)=*(p+2)+*(p+3); cout&lt;&lt;v[1];",
+      "opts": [
+        "4",
+        "6",
+        "14",
+        "8"
+      ],
+      "ans": 2,
+      "exp": "*(p+1) = v[1]. *(p+2)+*(p+3) = v[2]+v[3] = 6+8 = 14. Deci v[1] devine 14.",
+      "diff": 3
+    },
+    {
+      "q": "Ce se afișează? int v[]={1,2,3,4}; int* p=v; int* q=v+3; *p^=*q; *q^=*p; *p^=*q; cout&lt;&lt;v[0]&lt;&lt;\" \"&lt;&lt;v[3];",
+      "opts": [
+        "1 4",
+        "4 1",
+        "0 0",
+        "5 5"
+      ],
+      "ans": 1,
+      "exp": "Algoritmul XOR swap interschimbă v[0] și v[3] fără variabilă temporară. Rezultat: v[0]=4, v[3]=1.",
+      "diff": 3
     }
   ]
 }

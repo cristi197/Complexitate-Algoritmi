@@ -391,6 +391,46 @@ fin.close(); fout.close();</pre>
             </table>
           </div>
         </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>📎</span><h2>&lt;cstring&gt; — funcții pentru char[]</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Funcție</th><th>Efect</th></tr></thead>
+              <tbody>
+                <tr><td>strlen(s)</td><td>Lungimea șirului (fără '\0')</td></tr>
+                <tr><td>strcpy(dest, src)</td><td>Copiază src în dest</td></tr>
+                <tr><td>strcat(dest, src)</td><td>Concatenează src la dest</td></tr>
+                <tr><td>strcmp(a, b)</td><td>Compară: &lt;0, 0, &gt;0</td></tr>
+                <tr><td>strchr(s, c)</td><td>Pointer la prima apariție a lui c</td></tr>
+                <tr><td>strstr(s, sub)</td><td>Pointer la prima apariție a sub</td></tr>
+                <tr><td>strtok(s, delim)</td><td>Tokenizare (spargere pe delimitatori)</td></tr>
+                <tr><td>atoi(s)</td><td>char[] → int</td></tr>
+                <tr><td>atof(s)</td><td>char[] → double</td></tr>
+                <tr><td>itoa(n, s, base)</td><td>int → char[] (non-standard, dar cerut)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔡</span><h2>&lt;cctype&gt; — funcții pe caractere</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Funcție</th><th>Efect</th></tr></thead>
+              <tbody>
+                <tr><td>isalpha(c)</td><td>Literă? (A-Z, a-z)</td></tr>
+                <tr><td>isdigit(c)</td><td>Cifră? (0-9)</td></tr>
+                <tr><td>isalnum(c)</td><td>Literă sau cifră?</td></tr>
+                <tr><td>isupper(c)</td><td>Literă mare?</td></tr>
+                <tr><td>islower(c)</td><td>Literă mică?</td></tr>
+                <tr><td>isspace(c)</td><td>Spațiu/tab/newline?</td></tr>
+                <tr><td>toupper(c)</td><td>Convertește la literă mare</td></tr>
+                <tr><td>tolower(c)</td><td>Convertește la literă mică</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       <div style="margin-top:40px;padding:20px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);text-align:center;" class="no-print">

@@ -132,6 +132,77 @@ int main() {
     cout << "CMMMC = " << (long long)a / cmmdc(a,b) * b << endl;
     return 0;
 }`
+  },
+  {
+    label: "Backtracking N-Regine",
+    code: `#include<iostream>
+using namespace std;
+int n, sol[20], cnt = 0;
+bool valid(int k) {
+    for (int i = 1; i < k; i++)
+        if (sol[i] == sol[k] || abs(sol[i]-sol[k]) == abs(i-k))
+            return false;
+    return true;
+}
+void back(int k) {
+    if (k > n) { cnt++; return; }
+    for (int v = 1; v <= n; v++) {
+        sol[k] = v;
+        if (valid(k)) back(k+1);
+    }
+}
+int main() {
+    cin >> n;
+    back(1);
+    cout << "Numar solutii: " << cnt << endl;
+    return 0;
+}`
+  },
+  {
+    label: "Operații pe matrice",
+    code: `#include<iostream>
+using namespace std;
+int a[101][101], n, m;
+int main() {
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= m; j++)
+            cin >> a[i][j];
+    // Suma elementelor pe diagonala principala (pt matrice patrata)
+    int sum = 0;
+    for (int i = 1; i <= n; i++) sum += a[i][i];
+    cout << "Suma diag. principala: " << sum << endl;
+    // Transpusa
+    cout << "Transpusa:" << endl;
+    for (int j = 1; j <= m; j++) {
+        for (int i = 1; i <= n; i++)
+            cout << a[i][j] << " ";
+        cout << endl;
+    }
+    return 0;
+}`
+  },
+  {
+    label: "Citire/Scriere fișier",
+    code: `#include<fstream>
+using namespace std;
+int main() {
+    // Simulare (in browser nu exista fisiere)
+    // Pe calculator real: ifstream fin("date.in");
+    int n, v[100];
+    n = 5;
+    v[1]=3; v[2]=1; v[3]=4; v[4]=1; v[5]=5;
+    // Sortare
+    for (int i = 1; i < n; i++)
+        for (int j = i+1; j <= n; j++)
+            if (v[i] > v[j]) {
+                int t = v[i]; v[i] = v[j]; v[j] = t;
+            }
+    // Afisare (in loc de fout)
+    for (int i = 1; i <= n; i++)
+        cout << v[i] << " ";
+    return 0;
+}`
   }
 ];
 ---

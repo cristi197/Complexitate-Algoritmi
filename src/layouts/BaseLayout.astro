@@ -54,6 +54,7 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
   <meta name="robots" content="index, follow" />
   <meta name="author" content="InfoLiceu" />
   <meta name="theme-color" content="#6366f1" />
+  <meta name="base-url" content={base.replace(/\/$/, '')} />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -105,10 +106,19 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
   <slot />
 
   <script is:inline>
-    // Expose base URL for search.js
-    window.__BASE_URL = {JSON.stringify(base)};
+    // Expose base URL for search.js (normalized, no trailing slash)
+    window.__BASE_URL = {JSON.stringify(base.replace(/\/$/, ''))};
   </script>
   <script is:inline src={`${base}/js/search.js`}></script>
   <script is:inline src={`${base}/js/progress.js`}></script>
+  <script is:inline src={`${base}/js/analytics.js`}></script>
+  <script is:inline>
+    // Register service worker for offline caching
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/Complexitate-Algoritmi/sw.js', { scope: '/Complexitate-Algoritmi/' });
+      });
+    }
+  </script>
 </body>
 </html>
