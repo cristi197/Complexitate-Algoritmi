@@ -43,8 +43,8 @@ const CHAPTER_ORDER = [
   { num: 8,  file: 'fisiere',            title: 'Fișiere' },
   { num: 9,  file: 'programare-dinamica',title: 'Programare Dinamică' },
   { num: 10, file: 'structuri',          title: 'Structuri (struct)' },
-  { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică' },
-];
+  { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică' },  
+  { num: 12, file: 'grafuri',            title: 'Teoria Grafurilor' },];
 const currentIdx = CHAPTER_ORDER.findIndex(c => c.num === chapterNum);
 const prevCh = currentIdx > 0 ? CHAPTER_ORDER[currentIdx - 1] : null;
 const nextCh = currentIdx < CHAPTER_ORDER.length - 1 ? CHAPTER_ORDER[currentIdx + 1] : null;

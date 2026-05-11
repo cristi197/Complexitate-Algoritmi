@@ -1,0 +1,1427 @@
+---
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
+
+const sections = [
+  {"id":"intro","label":"Introducere"},
+  {"id":"terminologie","label":"Terminologie"},
+  {"id":"grade","label":"Grade"},
+  {"id":"reprezentari","label":"Reprezentări"},
+  {"id":"tipuri","label":"Tipuri Speciale"},
+  {"id":"conexitate","label":"Conexitate"},
+  {"id":"arbori","label":"Arbori"},
+  {"id":"euler-hamilton","label":"Euler & Hamilton"},
+  {"id":"orientate","label":"Grafuri Orientate"},
+  {"id":"tare-conexitate","label":"Tare Conexitate"},
+  {"id":"bfs","label":"BFS"},
+  {"id":"dfs","label":"DFS"},
+  {"id":"aplicatii","label":"Aplicații"},
+  {"id":"bac","label":"Probleme BAC"}
+];
+---
+<ChapterLayout
+  title="Teoria Grafurilor"
+  subtitle="Capitolul 12 — Grafuri neorientate și orientate, parcurgeri BFS/DFS, conexitate"
+  icon="🕸️"
+  gradient="linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4f46e5 100%)"
+  tags={["Grafuri","BFS","DFS","Conexitate","Arbori","Euler","Hamilton"]}
+  sections={sections}
+  chapterNum={12}
+  description="Teoria Grafurilor — grafuri neorientate și orientate, parcurgeri, conexitate"
+>
+
+<!-- ─── 1. INTRODUCERE ─────────────────────────────────── -->
+<section id="intro">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🕸️</span>
+      <h2>Introducere în Teoria Grafurilor</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🌉 Analogie: Podurile din Königsberg</div>
+        <p>Teoria grafurilor s-a născut în 1736, când matematicianul <strong>Leonhard Euler</strong> a studiat o problemă aparent simplă: <em>"Se poate traversa fiecare pod din orașul Königsberg exact o dată și reveni la punctul de plecare?"</em></p>
+        <p>Euler a demonstrat că răspunsul este <strong>NU</strong> — și prin aceasta a pus bazele unei întregi ramuri a matematicii.</p>
+      </div>
+
+      <!-- Königsberg SVG diagram -->
+      <div style="text-align:center;margin:24px 0;">
+        <svg viewBox="0 0 500 280" width="460" style="max-width:100%;border-radius:12px;background:#f0f4ff;border:1px solid var(--border);">
+          <!-- River -->
+          <path d="M0,120 Q125,100 250,130 Q375,160 500,140" fill="none" stroke="#60a5fa" stroke-width="40" opacity="0.3"/>
+          <path d="M0,160 Q125,140 250,170 Q375,200 500,180" fill="none" stroke="#60a5fa" stroke-width="40" opacity="0.2"/>
+          <!-- Islands -->
+          <ellipse cx="200" cy="140" rx="60" ry="30" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+          <ellipse cx="350" cy="150" rx="40" ry="22" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+          <!-- Land masses -->
+          <rect x="30" y="30" width="440" height="40" rx="8" fill="#fde68a" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+          <rect x="30" y="210" width="440" height="40" rx="8" fill="#fde68a" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+          <!-- Bridges -->
+          <line x1="160" y1="50" x2="170" y2="115" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <line x1="240" y1="50" x2="230" y2="115" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <line x1="170" y1="165" x2="160" y2="210" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <line x1="230" y1="165" x2="240" y2="210" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <line x1="258" y1="138" x2="312" y2="145" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <line x1="350" y1="128" x2="350" y2="50" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <line x1="350" y1="172" x2="350" y2="210" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+          <!-- Labels -->
+          <text x="200" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="#065f46">Insula A</text>
+          <text x="350" y="155" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">B</text>
+          <text x="250" y="25" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">Malul Nord</text>
+          <text x="250" y="268" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">Malul Sud</text>
+          <text x="430" y="95" font-size="10" fill="#4338ca" font-weight="bold">7 poduri</text>
+        </svg>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">Reprezentarea schematică a podurilor din Königsberg (1736)</p>
+      </div>
+
+      <div class="callout info">
+        <strong>Grafurile sunt peste tot:</strong> rețele sociale (Facebook, Instagram), hărți GPS, circuite electrice, rețele de calculatoare, biologie moleculară, planificarea proiectelor și multe altele.
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:18px 0;">
+        <div class="mini-card"><strong>🌐 Rețele sociale</strong><br><small>Persoane = noduri, Prietenii = muchii</small></div>
+        <div class="mini-card"><strong>🗺️ Hărți & GPS</strong><br><small>Intersecții = noduri, Drumuri = muchii</small></div>
+        <div class="mini-card"><strong>💻 Internet</strong><br><small>Routere = noduri, Conexiuni = muchii</small></div>
+        <div class="mini-card"><strong>🧬 Bioinformatică</strong><br><small>Proteine = noduri, Interacțiuni = muchii</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 2. TERMINOLOGIE ─────────────────────────────────── -->
+<section id="terminologie">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">📐</span>
+      <h2>Terminologie — Grafuri Neorientate</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Definiție:</strong> Se numește <strong>graf neorientat</strong> o pereche ordonată <code>G = (X, U)</code> unde:
+        <ul style="margin:8px 0 0;">
+          <li><code>X</code> — mulțime finită și nevidă de <strong>vârfuri</strong> (noduri)</li>
+          <li><code>U</code> — mulțime de submulțimi cu 2 elemente din X, numite <strong>muchii</strong></li>
+        </ul>
+      </div>
+
+      <!-- Example graph SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 420 220" width="400" style="max-width:100%;">
+          <!-- Edges -->
+          <line x1="80" y1="60" x2="200" y2="40" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="80" y1="60" x2="120" y2="160" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="200" y1="40" x2="300" y2="80" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="200" y1="40" x2="120" y2="160" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="120" y1="160" x2="260" y2="180" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="300" y1="80" x2="260" y2="180" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="300" y1="80" x2="380" y2="140" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Nodes -->
+          <circle cx="80" cy="60" r="20" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="80" y="65" text-anchor="middle" fill="white" font-size="14" font-weight="bold">1</text>
+          <circle cx="200" cy="40" r="20" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="200" y="45" text-anchor="middle" fill="white" font-size="14" font-weight="bold">2</text>
+          <circle cx="300" cy="80" r="20" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="300" y="85" text-anchor="middle" fill="white" font-size="14" font-weight="bold">3</text>
+          <circle cx="120" cy="160" r="20" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="120" y="165" text-anchor="middle" fill="white" font-size="14" font-weight="bold">4</text>
+          <circle cx="260" cy="180" r="20" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="260" y="185" text-anchor="middle" fill="white" font-size="14" font-weight="bold">5</text>
+          <circle cx="380" cy="140" r="20" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="380" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="bold">6</text>
+          <!-- Isolated node -->
+          <circle cx="50" cy="180" r="20" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
+          <text x="50" y="185" text-anchor="middle" fill="#64748b" font-size="14" font-weight="bold">7</text>
+          <text x="50" y="210" text-anchor="middle" fill="#94a3b8" font-size="9">izolat</text>
+        </svg>
+      </div>
+
+      <p><strong>Exemplu:</strong> <code>G = (X, U)</code> cu <code>X = &#123;1,2,3,4,5,6,7&#125;</code> și <code>U = &#123;[1,2],[1,4],[2,3],[2,4],[3,5],[3,6],[4,5]&#125;</code></p>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:16px 0;">
+        <div class="mini-card">
+          <strong>Terminologie</strong>
+          <ul style="font-size:13px;margin-top:6px;">
+            <li><strong>Vecin</strong> al lui x: orice y cu [x,y] ∈ U</li>
+            <li><strong>Adiacente</strong>: 2 vârfuri legate prin muchie</li>
+            <li><strong>Incidente</strong>: 2 muchii cu extremitate comună</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <strong>Proprietăți</strong>
+          <ul style="font-size:13px;margin-top:6px;">
+            <li>Nu există muchie de la un vârf la el însuși</li>
+            <li>Între 2 vârfuri: <strong>cel mult o muchie</strong></li>
+            <li>Simetrie: [x,y] ∈ U ⟹ [y,x] ∈ U</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. GRADE ─────────────────────────────────── -->
+<section id="grade">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🔢</span>
+      <h2>Gradul unui vârf</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Definiție:</strong> <strong>Gradul</strong> unui vârf x, notat <code>d(x)</code>, este numărul de muchii incidente cu x (= numărul de vecini ai lui x).
+      </div>
+
+      <!-- Degree example SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 400 180" width="380" style="max-width:100%;">
+          <!-- Edges from node 3 -->
+          <line x1="200" y1="90" x2="80" y2="40" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="200" y1="90" x2="80" y2="140" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="200" y1="90" x2="320" y2="40" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="200" y1="90" x2="320" y2="140" stroke="#94a3b8" stroke-width="2"/>
+          <!-- Extra edges -->
+          <line x1="80" y1="40" x2="80" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+          <!-- Center node (degree 4) -->
+          <circle cx="200" cy="90" r="24" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+          <text x="200" y="95" text-anchor="middle" fill="white" font-size="14" font-weight="bold">3</text>
+          <text x="200" y="130" text-anchor="middle" fill="#ef4444" font-size="12" font-weight="bold">d(3)=4</text>
+          <!-- Other nodes -->
+          <circle cx="80" cy="40" r="18" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="80" y="45" text-anchor="middle" fill="white" font-size="13" font-weight="bold">1</text>
+          <circle cx="80" cy="140" r="18" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="80" y="145" text-anchor="middle" fill="white" font-size="13" font-weight="bold">2</text>
+          <circle cx="320" cy="40" r="18" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="320" y="45" text-anchor="middle" fill="white" font-size="13" font-weight="bold">4</text>
+          <circle cx="320" cy="140" r="18" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+          <text x="320" y="145" text-anchor="middle" fill="white" font-size="13" font-weight="bold">5</text>
+          <!-- Degree labels -->
+          <text x="80" y="18" text-anchor="middle" fill="#6366f1" font-size="10">d=2</text>
+          <text x="80" y="173" text-anchor="middle" fill="#6366f1" font-size="10">d=2</text>
+          <text x="320" y="18" text-anchor="middle" fill="#6366f1" font-size="10">d=1</text>
+          <text x="320" y="173" text-anchor="middle" fill="#6366f1" font-size="10">d=1</text>
+          <text x="320" y="173" text-anchor="middle" fill="#6366f1" font-size="10">d=1</text>
+          <!-- Terminal label -->
+          <text x="370" y="45" fill="#94a3b8" font-size="9">terminal</text>
+        </svg>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;margin:16px 0;">
+        <div class="mini-card" style="text-align:center;border-left:3px solid #94a3b8;">
+          <strong>d(x) = 0</strong><br><small>vârf <em>izolat</em></small>
+        </div>
+        <div class="mini-card" style="text-align:center;border-left:3px solid #f59e0b;">
+          <strong>d(x) = 1</strong><br><small>vârf <em>terminal</em></small>
+        </div>
+        <div class="mini-card" style="text-align:center;border-left:3px solid #ef4444;">
+          <strong>d(x) = n−1</strong><br><small>grad <em>maxim</em></small>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <strong>Teorema sumei gradelor (Handshaking Lemma):</strong><br>
+        Într-un graf neorientat cu <code>m</code> muchii: <strong style="font-size:16px;">∑ d(xᵢ) = 2m</strong>
+      </div>
+
+      <div class="callout warning">
+        <strong>Consecințe importante:</strong>
+        <ul>
+          <li>Suma gradelor = număr par (întotdeauna!)</li>
+          <li>Numărul de vârfuri de <strong>grad impar</strong> este întotdeauna <strong>par</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout quiz">
+        <strong>🧠 Întrebare:</strong> Este posibil ca într-un grup de 5 persoane, fiecare persoană să aibă exact 3 prieteni?<br>
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Răspuns</summary>
+          <p style="margin-top:6px;"><strong>NU.</strong> Suma gradelor ar fi 5 × 3 = 15 (impar), dar suma gradelor trebuie să fie pară (= 2m). Contradicție!</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. REPREZENTĂRI ─────────────────────────────────── -->
+<section id="reprezentari">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">💾</span>
+      <h2>Reprezentarea grafurilor</h2>
+    </div>
+    <div class="slide-body">
+      <h3>1. Matricea de adiacență</h3>
+      <p>Matrice <code>A[n][n]</code> cu <code>A[i][j] = 1</code> dacă există muchie [i,j], altfel <code>0</code>.</p>
+
+      <!-- Adjacency matrix example -->
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:16px 0;align-items:start;">
+        <div style="text-align:center;">
+          <svg viewBox="0 0 200 200" width="180" style="max-width:100%;">
+            <line x1="100" y1="30" x2="40" y2="100" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="100" y1="30" x2="160" y2="100" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="40" y1="100" x2="100" y2="170" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="160" y1="100" x2="100" y2="170" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="40" y1="100" x2="160" y2="100" stroke="#94a3b8" stroke-width="2"/>
+            <circle cx="100" cy="30" r="18" fill="#6366f1"/><text x="100" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="bold">1</text>
+            <circle cx="40" cy="100" r="18" fill="#6366f1"/><text x="40" y="105" text-anchor="middle" fill="white" font-size="13" font-weight="bold">2</text>
+            <circle cx="160" cy="100" r="18" fill="#6366f1"/><text x="160" y="105" text-anchor="middle" fill="white" font-size="13" font-weight="bold">3</text>
+            <circle cx="100" cy="170" r="18" fill="#6366f1"/><text x="100" y="175" text-anchor="middle" fill="white" font-size="13" font-weight="bold">4</text>
+          </svg>
+        </div>
+        <div>
+          <table class="data-table" style="font-size:13px;margin:0 auto;">
+            <thead><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead>
+            <tbody>
+              <tr><th>1</th><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+              <tr><th>2</th><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+              <tr><th>3</th><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr><th>4</th><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:6px;text-align:center;">Matricea este simetrică!</p>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <strong>Proprietăți ale matricei de adiacență (graf neorientat):</strong>
+        <ul>
+          <li>Simetrică față de diagonala principală</li>
+          <li>Diagonala principală = 0 (nu există bucle)</li>
+          <li>d(x) = suma elementelor de pe linia x</li>
+          <li>Suma totală a elementelor = 2m</li>
+        </ul>
+      </div>
+
+      <pre><span class="cm">// Declarare și citire matrice de adiacență</span>
+<span class="kw">int</span> A[<span class="nu">101</span>][<span class="nu">101</span>], n, m;
+
+<span class="ty">void</span> <span class="fn">citire</span>() &#123;
+    cin >> n >> m;
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="nu">1</span>; i <= m; i++) &#123;
+        <span class="kw">int</span> x, y;
+        cin >> x >> y;
+        A[x][y] = A[y][x] = <span class="nu">1</span>;  <span class="cm">// simetric!</span>
+    &#125;
+&#125;</pre>
+
+      <h3 style="margin-top:24px;">2. Lista de muchii</h3>
+      <p>Se memorează toate perechile (x, y) care formează muchii.</p>
+
+      <pre><span class="kw">struct</span> <span class="ty">Muchie</span> &#123; <span class="kw">int</span> x, y; &#125;;
+<span class="ty">Muchie</span> muchii[<span class="nu">5001</span>];
+<span class="kw">int</span> m;   <span class="cm">// numărul de muchii</span>
+
+<span class="cm">// Citire</span>
+<span class="kw">for</span>(<span class="kw">int</span> i = <span class="nu">0</span>; i < m; i++)
+    cin >> muchii[i].x >> muchii[i].y;</pre>
+
+      <h3 style="margin-top:24px;">3. Liste de adiacență (vecini)</h3>
+      <p>Pentru fiecare vârf x, se memorează lista vecinilor săi. <strong>Cea mai eficientă</strong> metodă!</p>
+
+      <pre><span class="pp">#include &lt;vector&gt;</span>
+<span class="kw">using namespace</span> std;
+
+vector&lt;<span class="kw">int</span>&gt; adj[<span class="nu">101</span>];  <span class="cm">// adj[x] = vecinii lui x</span>
+<span class="kw">int</span> n, m;
+
+<span class="ty">void</span> <span class="fn">citire</span>() &#123;
+    cin >> n >> m;
+    <span class="kw">for</span>(<span class="kw">int</span> i = <span class="nu">0</span>; i < m; i++) &#123;
+        <span class="kw">int</span> x, y;
+        cin >> x >> y;
+        adj[x].push_back(y);
+        adj[y].push_back(x);  <span class="cm">// neorientat → adaugă în ambele</span>
+    &#125;
+&#125;</pre>
+
+      <h3 style="margin-top:24px;">Comparație</h3>
+      <table class="data-table" style="font-size:13px;">
+        <thead><tr><th>Criteriu</th><th>Matrice de adiacență</th><th>Lista muchii</th><th>Liste adiacență</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Memorie</strong></td><td>O(n²)</td><td>O(m)</td><td>O(n + m)</td></tr>
+          <tr><td><strong>Verificare muchie</strong></td><td>O(1) ✅</td><td>O(m)</td><td>O(grad)</td></tr>
+          <tr><td><strong>Vecini ai lui x</strong></td><td>O(n)</td><td>O(m)</td><td>O(grad(x)) ✅</td></tr>
+          <tr><td><strong>Adăugare muchie</strong></td><td>O(1)</td><td>O(1)</td><td>O(1)</td></tr>
+          <tr><td><strong>Recomandare</strong></td><td>n ≤ 100</td><td>Rar</td><td><strong>n mare</strong> ✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. TIPURI SPECIALE ─────────────────────────────────── -->
+<section id="tipuri">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">⭐</span>
+      <h2>Tipuri speciale de grafuri</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3>Graf complet K<sub>n</sub></h3>
+      <p>Oricare două vârfuri sunt adiacente. Are <strong>n(n−1)/2</strong> muchii.</p>
+
+      <div style="text-align:center;margin:16px 0;">
+        <svg viewBox="0 0 500 140" width="480" style="max-width:100%;">
+          <!-- K3 -->
+          <line x1="60" y1="30" x2="30" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="60" y1="30" x2="90" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="30" y1="110" x2="90" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <circle cx="60" cy="30" r="12" fill="#f59e0b"/><circle cx="30" cy="110" r="12" fill="#f59e0b"/><circle cx="90" cy="110" r="12" fill="#f59e0b"/>
+          <text x="60" y="135" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-weight="bold">K₃</text>
+
+          <!-- K4 -->
+          <line x1="190" y1="30" x2="150" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="190" y1="30" x2="230" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="190" y1="30" x2="190" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="150" y1="110" x2="190" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="150" y1="110" x2="230" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="190" y1="110" x2="230" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+          <circle cx="190" cy="30" r="12" fill="#10b981"/><circle cx="150" cy="110" r="12" fill="#10b981"/><circle cx="230" cy="110" r="12" fill="#10b981"/><circle cx="190" cy="110" r="12" fill="#10b981"/>
+          <text x="190" y="135" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-weight="bold">K₄</text>
+
+          <!-- K5 -->
+          <g transform="translate(350,70)">
+            <line x1="0" y1="-50" x2="47" y2="-15" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="0" y1="-50" x2="29" y2="40" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="0" y1="-50" x2="-29" y2="40" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="0" y1="-50" x2="-47" y2="-15" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="47" y1="-15" x2="29" y2="40" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="47" y1="-15" x2="-29" y2="40" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="47" y1="-15" x2="-47" y2="-15" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="29" y1="40" x2="-29" y2="40" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="29" y1="40" x2="-47" y2="-15" stroke="#94a3b8" stroke-width="1.2"/>
+            <line x1="-29" y1="40" x2="-47" y2="-15" stroke="#94a3b8" stroke-width="1.2"/>
+            <circle cx="0" cy="-50" r="12" fill="#6366f1"/><circle cx="47" cy="-15" r="12" fill="#6366f1"/><circle cx="29" cy="40" r="12" fill="#6366f1"/><circle cx="-29" cy="40" r="12" fill="#6366f1"/><circle cx="-47" cy="-15" r="12" fill="#6366f1"/>
+          </g>
+          <text x="350" y="135" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-weight="bold">K₅ (10 muchii)</text>
+        </svg>
+      </div>
+
+      <h3>Graf bipartit</h3>
+      <p>Vârfurile se pot împărți în două mulțimi A și B, astfel încât orice muchie are o extremitate în A și cealaltă în B.</p>
+
+      <div style="text-align:center;margin:16px 0;">
+        <svg viewBox="0 0 340 150" width="320" style="max-width:100%;">
+          <!-- Partition A (left) -->
+          <rect x="20" y="10" width="100" height="130" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4"/>
+          <text x="70" y="28" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="bold">A</text>
+          <!-- Partition B (right) -->
+          <rect x="220" y="10" width="100" height="130" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4"/>
+          <text x="270" y="28" text-anchor="middle" font-size="10" fill="#d97706" font-weight="bold">B</text>
+          <!-- Edges -->
+          <line x1="70" y1="55" x2="270" y2="55" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="70" y1="55" x2="270" y2="95" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="70" y1="95" x2="270" y2="55" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="70" y1="95" x2="270" y2="125" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="70" y1="125" x2="270" y2="95" stroke="#94a3b8" stroke-width="1.5"/>
+          <!-- Nodes A -->
+          <circle cx="70" cy="55" r="14" fill="#8b5cf6"/><text x="70" y="59" text-anchor="middle" fill="white" font-size="12" font-weight="bold">1</text>
+          <circle cx="70" cy="95" r="14" fill="#8b5cf6"/><text x="70" y="99" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2</text>
+          <circle cx="70" cy="125" r="14" fill="#8b5cf6"/><text x="70" y="129" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3</text>
+          <!-- Nodes B -->
+          <circle cx="270" cy="55" r="14" fill="#f59e0b"/><text x="270" y="59" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4</text>
+          <circle cx="270" cy="95" r="14" fill="#f59e0b"/><text x="270" y="99" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5</text>
+          <circle cx="270" cy="125" r="14" fill="#f59e0b"/><text x="270" y="129" text-anchor="middle" fill="white" font-size="12" font-weight="bold">6</text>
+        </svg>
+      </div>
+
+      <h3>Graf regulat</h3>
+      <p>Toate vârfurile au același grad.</p>
+
+      <h3 style="margin-top:16px;">Graf nul</h3>
+      <p>Mulțimea muchiilor este vidă (toate vârfurile sunt izolate).</p>
+
+      <div class="callout info">
+        <strong>Numărul total de grafuri neorientate</strong> cu n vârfuri: <strong>2<sup>n(n−1)/2</sup></strong>
+      </div>
+
+      <h3 style="margin-top:20px;">Graf parțial, Subgraf, Complementar</h3>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;margin:14px 0;">
+        <div class="mini-card" style="border-top:3px solid #3b82f6;">
+          <strong>Graf Parțial</strong><br>
+          <small>Aceleași vârfuri, se elimină unele muchii. Sunt 2<sup>m</sup> grafuri parțiale.</small>
+        </div>
+        <div class="mini-card" style="border-top:3px solid #10b981;">
+          <strong>Subgraf</strong><br>
+          <small>Se elimină vârfuri + muchiile lor incidente. Sunt 2<sup>n</sup>−1 subgrafuri.</small>
+        </div>
+        <div class="mini-card" style="border-top:3px solid #f59e0b;">
+          <strong>Complementar</strong><br>
+          <small>[x,y] ∈ complementar ⟺ [x,y] ∉ original. Este <strong>unic</strong>.</small>
+        </div>
+      </div>
+
+      <!-- Complementar diagram -->
+      <div style="text-align:center;margin:16px 0;">
+        <svg viewBox="0 0 440 130" width="420" style="max-width:100%;">
+          <!-- Original -->
+          <text x="75" y="15" text-anchor="middle" font-size="10" fill="var(--text-muted)" font-weight="bold">Original G</text>
+          <line x1="45" y1="50" x2="105" y2="50" stroke="#6366f1" stroke-width="2"/>
+          <line x1="45" y1="50" x2="75" y2="110" stroke="#6366f1" stroke-width="2"/>
+          <circle cx="45" cy="50" r="14" fill="#6366f1"/><text x="45" y="54" text-anchor="middle" fill="white" font-size="11" font-weight="bold">1</text>
+          <circle cx="105" cy="50" r="14" fill="#6366f1"/><text x="105" y="54" text-anchor="middle" fill="white" font-size="11" font-weight="bold">2</text>
+          <circle cx="75" cy="110" r="14" fill="#6366f1"/><text x="75" y="114" text-anchor="middle" fill="white" font-size="11" font-weight="bold">3</text>
+          <!-- Arrow -->
+          <text x="180" y="75" text-anchor="middle" font-size="24" fill="var(--text-muted)">→</text>
+          <!-- Complementar -->
+          <text x="330" y="15" text-anchor="middle" font-size="10" fill="var(--text-muted)" font-weight="bold">Complementar Ḡ</text>
+          <line x1="360" y1="50" x2="330" y2="110" stroke="#f59e0b" stroke-width="2"/>
+          <circle cx="300" cy="50" r="14" fill="#f59e0b"/><text x="300" y="54" text-anchor="middle" fill="white" font-size="11" font-weight="bold">1</text>
+          <circle cx="360" cy="50" r="14" fill="#f59e0b"/><text x="360" y="54" text-anchor="middle" fill="white" font-size="11" font-weight="bold">2</text>
+          <circle cx="330" cy="110" r="14" fill="#f59e0b"/><text x="330" y="114" text-anchor="middle" fill="white" font-size="11" font-weight="bold">3</text>
+          <!-- Missing edge from original becomes present -->
+          <line x1="300" y1="50" x2="360" y2="50" stroke="#f59e0b" stroke-width="2" stroke-dasharray="0"/>
+          <text x="220" y="125" text-anchor="middle" font-size="9" fill="var(--text-muted)">Muchia [2,3] lipsea din G → apare în Ḡ</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. CONEXITATE ─────────────────────────────────── -->
+<section id="conexitate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🔗</span>
+      <h2>Conexitate — Lanțuri și Cicluri</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Lanț:</strong> Succesiune de vârfuri <code>L = [x₁, x₂, ..., xₖ]</code> cu proprietatea că oricare 2 consecutive sunt adiacente. Lungimea = k−1 (nr. muchii).<br><br>
+        <strong>Ciclu:</strong> Lanț simplu în care primul vârf = ultimul. Minim 3 muchii.
+      </div>
+
+      <!-- Chain/Cycle SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 450 180" width="430" style="max-width:100%;">
+          <!-- Graph edges (all) -->
+          <line x1="60" y1="50" x2="150" y2="30" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="150" y1="30" x2="240" y2="50" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="240" y1="50" x2="330" y2="30" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="60" y1="50" x2="90" y2="130" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="150" y1="30" x2="180" y2="130" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="240" y1="50" x2="180" y2="130" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="330" y1="30" x2="360" y2="130" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="90" y1="130" x2="180" y2="130" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="180" y1="130" x2="360" y2="130" stroke="#e2e8f0" stroke-width="2"/>
+          <!-- Highlighted chain [1,2,3,5] -->
+          <line x1="60" y1="50" x2="150" y2="30" stroke="#ef4444" stroke-width="3.5"/>
+          <line x1="150" y1="30" x2="240" y2="50" stroke="#ef4444" stroke-width="3.5"/>
+          <line x1="240" y1="50" x2="180" y2="130" stroke="#ef4444" stroke-width="3.5"/>
+          <!-- Nodes -->
+          <circle cx="60" cy="50" r="16" fill="#6366f1"/><text x="60" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">1</text>
+          <circle cx="150" cy="30" r="16" fill="#6366f1"/><text x="150" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="bold">2</text>
+          <circle cx="240" cy="50" r="16" fill="#6366f1"/><text x="240" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">3</text>
+          <circle cx="330" cy="30" r="16" fill="#6366f1"/><text x="330" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="bold">4</text>
+          <circle cx="90" cy="130" r="16" fill="#6366f1"/><text x="90" y="135" text-anchor="middle" fill="white" font-size="13" font-weight="bold">5</text>
+          <circle cx="180" cy="130" r="16" fill="#ef4444"/><text x="180" y="135" text-anchor="middle" fill="white" font-size="13" font-weight="bold">6</text>
+          <circle cx="360" cy="130" r="16" fill="#6366f1"/><text x="360" y="135" text-anchor="middle" fill="white" font-size="13" font-weight="bold">7</text>
+          <!-- Label -->
+          <text x="225" y="175" text-anchor="middle" font-size="11" fill="#ef4444" font-weight="bold">Lanț elementar: [1, 2, 3, 6]</text>
+        </svg>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:16px 0;">
+        <div class="mini-card">
+          <strong>Lanț elementar</strong><br>
+          <small>Nu se repetă vârfuri</small>
+        </div>
+        <div class="mini-card">
+          <strong>Lanț simplu</strong><br>
+          <small>Nu se repetă muchii</small>
+        </div>
+        <div class="mini-card">
+          <strong>Ciclu elementar</strong><br>
+          <small>Lanț simplu cu x₁ = xₖ, vârfuri distincte</small>
+        </div>
+        <div class="mini-card">
+          <strong>Graf aciclic</strong><br>
+          <small>Nu conține niciun ciclu</small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">Graf conex. Componente conexe</h3>
+      <div class="callout success">
+        <strong>Definiție:</strong> Un graf este <strong>conex</strong> dacă între oricare două vârfuri există cel puțin un lanț.
+      </div>
+
+      <p>O <strong>componentă conexă</strong> = subgraf conex maximal (nu se mai poate adăuga un vârf fără a pierde conexitatea).</p>
+
+      <!-- Connected components SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 440 140" width="420" style="max-width:100%;">
+          <!-- Component 1 (green) -->
+          <rect x="10" y="5" width="150" height="130" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5"/>
+          <line x1="50" y1="40" x2="120" y2="40" stroke="#16a34a" stroke-width="2"/>
+          <line x1="50" y1="40" x2="80" y2="100" stroke="#16a34a" stroke-width="2"/>
+          <line x1="120" y1="40" x2="80" y2="100" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="50" cy="40" r="14" fill="#16a34a"/><text x="50" y="44" text-anchor="middle" fill="white" font-size="12" font-weight="bold">1</text>
+          <circle cx="120" cy="40" r="14" fill="#16a34a"/><text x="120" y="44" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2</text>
+          <circle cx="80" cy="100" r="14" fill="#16a34a"/><text x="80" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3</text>
+          <text x="85" y="132" text-anchor="middle" font-size="9" fill="#16a34a">Comp. 1</text>
+          <!-- Component 2 (blue) -->
+          <rect x="175" y="5" width="120" height="130" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5"/>
+          <line x1="210" y1="50" x2="270" y2="50" stroke="#2563eb" stroke-width="2"/>
+          <line x1="240" y1="100" x2="210" y2="50" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="210" cy="50" r="14" fill="#2563eb"/><text x="210" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4</text>
+          <circle cx="270" cy="50" r="14" fill="#2563eb"/><text x="270" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5</text>
+          <circle cx="240" cy="100" r="14" fill="#2563eb"/><text x="240" y="104" text-anchor="middle" fill="white" font-size="12" font-weight="bold">6</text>
+          <text x="235" y="132" text-anchor="middle" font-size="9" fill="#2563eb">Comp. 2</text>
+          <!-- Component 3 (single node) -->
+          <rect x="310" y="20" width="60" height="60" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5"/>
+          <circle cx="340" cy="50" r="14" fill="#f59e0b"/><text x="340" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">7</text>
+          <text x="340" y="100" text-anchor="middle" font-size="9" fill="#f59e0b">Comp. 3</text>
+          <!-- Component 4 -->
+          <rect x="380" y="20" width="55" height="60" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="5"/>
+          <circle cx="408" cy="50" r="14" fill="#ec4899"/><text x="408" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">8</text>
+          <text x="408" y="100" text-anchor="middle" font-size="9" fill="#ec4899">Comp. 4</text>
+        </svg>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Graful are 4 componente conexe → <strong>nu este conex</strong></p>
+      </div>
+
+      <div class="callout warning">
+        <strong>Un graf este conex ⟺ are exact 1 componentă conexă.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. ARBORI ─────────────────────────────────── -->
+<section id="arbori">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-teal">🌲</span>
+      <h2>Arbori și Păduri</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Definiție:</strong> Un <strong>arbore</strong> este un graf conex și aciclic.
+      </div>
+
+      <!-- Tree SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 360 200" width="340" style="max-width:100%;">
+          <!-- Edges -->
+          <line x1="180" y1="30" x2="100" y2="80" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="180" y1="30" x2="260" y2="80" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="100" y1="80" x2="60" y2="140" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="100" y1="80" x2="140" y2="140" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="260" y1="80" x2="220" y2="140" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="260" y1="80" x2="300" y2="140" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="60" y1="140" x2="40" y2="185" stroke="#0d9488" stroke-width="2.5"/>
+          <line x1="60" y1="140" x2="80" y2="185" stroke="#0d9488" stroke-width="2.5"/>
+          <!-- Nodes -->
+          <circle cx="180" cy="30" r="16" fill="#0d9488"/><text x="180" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="bold">1</text>
+          <circle cx="100" cy="80" r="16" fill="#0d9488"/><text x="100" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2</text>
+          <circle cx="260" cy="80" r="16" fill="#0d9488"/><text x="260" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3</text>
+          <circle cx="60" cy="140" r="16" fill="#0d9488"/><text x="60" y="145" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4</text>
+          <circle cx="140" cy="140" r="16" fill="#0d9488"/><text x="140" y="145" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5</text>
+          <circle cx="220" cy="140" r="16" fill="#0d9488"/><text x="220" y="145" text-anchor="middle" fill="white" font-size="12" font-weight="bold">6</text>
+          <circle cx="300" cy="140" r="16" fill="#0d9488"/><text x="300" y="145" text-anchor="middle" fill="white" font-size="12" font-weight="bold">7</text>
+          <circle cx="40" cy="185" r="14" fill="#5eead4"/><text x="40" y="189" text-anchor="middle" fill="#0d9488" font-size="11" font-weight="bold">8</text>
+          <circle cx="80" cy="185" r="14" fill="#5eead4"/><text x="80" y="189" text-anchor="middle" fill="#0d9488" font-size="11" font-weight="bold">9</text>
+          <!-- Labels -->
+          <text x="180" y="8" text-anchor="middle" font-size="10" fill="var(--text-muted)">rădăcină</text>
+          <text x="310" y="175" text-anchor="start" font-size="9" fill="var(--text-muted)">n=9 noduri</text>
+          <text x="310" y="188" text-anchor="start" font-size="9" fill="var(--text-muted)">m=8 muchii</text>
+        </svg>
+      </div>
+
+      <div class="callout success">
+        <strong>Proprietăți fundamentale ale arborelui:</strong>
+        <ul>
+          <li>Un arbore cu <strong>n</strong> vârfuri are exact <strong>n − 1</strong> muchii</li>
+          <li>Este <strong>conex minimal</strong>: dacă elimini o muchie → nu mai e conex</li>
+          <li>Este <strong>aciclic maximal</strong>: dacă adaugi o muchie → apare un ciclu</li>
+          <li>Între oricare 2 vârfuri există un <strong>unic lanț</strong></li>
+        </ul>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:16px 0;">
+        <div class="mini-card" style="border-left:3px solid #0d9488;">
+          <strong>Arbore parțial</strong><br>
+          <small>Un graf parțial al lui G care este arbore (conține toate nodurile, n−1 muchii selectate, conex și aciclic)</small>
+        </div>
+        <div class="mini-card" style="border-left:3px solid #16a34a;">
+          <strong>Pădure</strong><br>
+          <small>Un graf fără cicluri. Fiecare componentă conexă este un arbore.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. EULER & HAMILTON ─────────────────────────────────── -->
+<section id="euler-hamilton">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-purple">🏆</span>
+      <h2>Grafuri Euleriene și Hamiltoniene</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3>Graf Eulerian</h3>
+      <div class="callout info">
+        <strong>Ciclu eulerian</strong> = ciclu care conține <strong>toate muchiile</strong> grafului (fiecare muchie exact o dată).<br>
+        <strong>Graf eulerian</strong> = graf care admite un ciclu eulerian.
+      </div>
+
+      <div class="callout success">
+        <strong>Teorema lui Euler:</strong> Un graf fără vârfuri izolate este eulerian ⟺ <strong>este conex</strong> și <strong>toate vârfurile au grad par</strong>.
+      </div>
+
+      <!-- Eulerian graph SVG -->
+      <div style="text-align:center;margin:16px 0;">
+        <svg viewBox="0 0 300 160" width="280" style="max-width:100%;">
+          <!-- Edges -->
+          <line x1="70" y1="40" x2="230" y2="40" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="70" y1="40" x2="70" y2="120" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="230" y1="40" x2="230" y2="120" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="70" y1="120" x2="230" y2="120" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="70" y1="40" x2="150" y2="80" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="230" y1="40" x2="150" y2="80" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="70" y1="120" x2="150" y2="80" stroke="#8b5cf6" stroke-width="2"/>
+          <line x1="230" y1="120" x2="150" y2="80" stroke="#8b5cf6" stroke-width="2"/>
+          <!-- Nodes with degrees -->
+          <circle cx="70" cy="40" r="16" fill="#8b5cf6"/><text x="70" y="45" text-anchor="middle" fill="white" font-size="12" font-weight="bold">A</text>
+          <circle cx="230" cy="40" r="16" fill="#8b5cf6"/><text x="230" y="45" text-anchor="middle" fill="white" font-size="12" font-weight="bold">B</text>
+          <circle cx="150" cy="80" r="16" fill="#8b5cf6"/><text x="150" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="bold">C</text>
+          <circle cx="70" cy="120" r="16" fill="#8b5cf6"/><text x="70" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="bold">D</text>
+          <circle cx="230" cy="120" r="16" fill="#8b5cf6"/><text x="230" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="bold">E</text>
+          <!-- Degree labels -->
+          <text x="40" y="35" font-size="9" fill="#8b5cf6">d=4</text>
+          <text x="248" y="35" font-size="9" fill="#8b5cf6">d=4</text>
+          <text x="168" y="75" font-size="9" fill="#8b5cf6">d=4</text>
+          <text x="40" y="125" font-size="9" fill="#8b5cf6">d=4</text>
+          <text x="248" y="125" font-size="9" fill="#8b5cf6">d=4</text>
+          <text x="150" y="152" text-anchor="middle" font-size="10" fill="#8b5cf6" font-weight="bold">✓ Eulerian (toate gradele pare)</text>
+        </svg>
+      </div>
+
+      <h3 style="margin-top:24px;">Graf Hamiltonian</h3>
+      <div class="callout info">
+        <strong>Ciclu hamiltonian</strong> = ciclu elementar care conține <strong>toate vârfurile</strong> grafului.<br>
+        <strong>Graf hamiltonian</strong> = graf care admite un ciclu hamiltonian.
+      </div>
+
+      <div class="callout success">
+        <strong>Condiție suficientă (Dirac):</strong> Dacă n ≥ 3 și d(x) ≥ n/2 pentru orice vârf x, atunci G este hamiltonian.
+      </div>
+
+      <table class="data-table" style="font-size:13px;margin-top:16px;">
+        <thead><tr><th>Criteriu</th><th>Eulerian</th><th>Hamiltonian</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Parcurge</strong></td><td>Toate <strong>muchiile</strong></td><td>Toate <strong>vârfurile</strong></td></tr>
+          <tr><td><strong>Condiție (neorientat)</strong></td><td>Conex + grade pare</td><td>NP-complet (nu există condiție necesară și suficientă simplă)</td></tr>
+          <tr><td><strong>Verificare</strong></td><td>O(n + m) — polinomial</td><td>Exponențial (backtracking)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warning" style="margin-top:16px;">
+        <strong>Atenție la BAC:</strong> Nu confunda eulerian cu hamiltonian!<br>
+        • Eulerian = <strong>muchii</strong> (merge pe toate drumurile)<br>
+        • Hamiltonian = <strong>vârfuri</strong> (vizitează toate orașele)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 9. GRAFURI ORIENTATE ─────────────────────────────────── -->
+<section id="orientate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">➡️</span>
+      <h2>Grafuri Orientate (Digrafuri)</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Definiție:</strong> Un <strong>graf orientat</strong> (digraf) este o pereche <code>G = (V, U)</code> unde:
+        <ul style="margin:6px 0 0;">
+          <li><code>V</code> — mulțime finită de vârfuri</li>
+          <li><code>U</code> — mulțime de <strong>perechi ordonate</strong> (arce) din V</li>
+        </ul>
+        Arc <code>(x, y)</code>: x = extremitate inițială, y = extremitate finală, y = succesor al lui x.
+      </div>
+
+      <!-- Directed graph SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 380 200" width="360" style="max-width:100%;">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+            </marker>
+          </defs>
+          <!-- Arcs -->
+          <line x1="95" y1="55" x2="175" y2="38" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <line x1="215" y1="35" x2="275" y2="68" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <line x1="282" y1="98" x2="215" y2="145" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <line x1="180" y1="155" x2="95" y2="115" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <line x1="78" y1="90" x2="78" y2="62" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <line x1="200" y1="55" x2="200" y2="135" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <!-- Bidirectional arc between 1 and 2 indicator -->
+          <line x1="185" y1="50" x2="92" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <!-- Nodes -->
+          <circle cx="80" cy="50" r="18" fill="#6366f1"/><text x="80" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">1</text>
+          <circle cx="200" cy="35" r="18" fill="#6366f1"/><text x="200" y="40" text-anchor="middle" fill="white" font-size="13" font-weight="bold">2</text>
+          <circle cx="290" cy="80" r="18" fill="#6366f1"/><text x="290" y="85" text-anchor="middle" fill="white" font-size="13" font-weight="bold">3</text>
+          <circle cx="200" cy="155" r="18" fill="#6366f1"/><text x="200" y="160" text-anchor="middle" fill="white" font-size="13" font-weight="bold">4</text>
+          <circle cx="80" cy="110" r="18" fill="#6366f1"/><text x="80" y="115" text-anchor="middle" fill="white" font-size="13" font-weight="bold">5</text>
+          <!-- Labels -->
+          <text x="70" y="190" font-size="10" fill="var(--text-muted)">Arcele (1,2) și (2,1) sunt distincte!</text>
+        </svg>
+      </div>
+
+      <h3>Grade în grafuri orientate</h3>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="mini-card" style="border-left:3px solid #10b981;">
+          <strong>Grad exterior d⁺(x)</strong><br>
+          <small>Numărul de arce care <strong>ies</strong> din x<br>(arce de forma (x, y))</small>
+        </div>
+        <div class="mini-card" style="border-left:3px solid #ef4444;">
+          <strong>Grad interior d⁻(x)</strong><br>
+          <small>Numărul de arce care <strong>intră</strong> în x<br>(arce de forma (y, x))</small>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <strong>Teoremă:</strong> ∑ d⁺(xᵢ) = ∑ d⁻(xᵢ) = m (numărul de arce)
+      </div>
+
+      <h3 style="margin-top:20px;">Reprezentare</h3>
+      <pre><span class="cm">// Matrice de adiacență — graf orientat</span>
+<span class="kw">int</span> A[<span class="nu">101</span>][<span class="nu">101</span>];
+<span class="cm">// A[i][j] = 1 dacă există arcul (i,j)</span>
+<span class="cm">// NU mai este simetrică!</span>
+
+<span class="cm">// Liste de adiacență (succesori)</span>
+vector&lt;<span class="kw">int</span>&gt; adj[<span class="nu">101</span>];
+<span class="kw">for</span>(<span class="kw">int</span> i = <span class="nu">0</span>; i < m; i++) &#123;
+    <span class="kw">int</span> x, y;
+    cin >> x >> y;
+    adj[x].push_back(y);  <span class="cm">// DOAR într-o direcție!</span>
+&#125;</pre>
+
+      <h3 style="margin-top:20px;">Lanț, Drum, Circuit</h3>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;margin:14px 0;">
+        <div class="mini-card">
+          <strong>Lanț</strong><br>
+          <small>Succesiune de arce cu extremități comune (orientare ignorată)</small>
+        </div>
+        <div class="mini-card">
+          <strong>Drum</strong><br>
+          <small>Succesiune de arce <strong>respectând orientarea</strong>: (x₁,x₂), (x₂,x₃), ...</small>
+        </div>
+        <div class="mini-card">
+          <strong>Circuit</strong><br>
+          <small>Drum simplu cu x₁ = xₖ (revine la start)</small>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <strong>Numărul de grafuri orientate cu n noduri:</strong> 4<sup>n(n−1)/2</sup> = 2<sup>n(n−1)</sup>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 10. TARE CONEXITATE ─────────────────────────────────── -->
+<section id="tare-conexitate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">🔴</span>
+      <h2>Tare Conexitate</h2>
+    </div>
+    <div class="slide-body">
+      <div class="callout info">
+        <strong>Definiție:</strong> Un graf orientat este <strong>tare conex</strong> dacă între oricare două noduri distincte x și y există un <strong>drum</strong> de la x la y ȘI un drum de la y la x.
+      </div>
+
+      <p>O <strong>componentă tare conexă</strong> (CTC) = subgraf tare conex maximal.</p>
+
+      <!-- Strongly connected components SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 420 200" width="400" style="max-width:100%;">
+          <defs>
+            <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+            </marker>
+          </defs>
+          <!-- CTC 1 -->
+          <rect x="15" y="15" width="130" height="170" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2" stroke-dasharray="5"/>
+          <text x="80" y="185" text-anchor="middle" font-size="9" fill="#16a34a" font-weight="bold">CTC 1</text>
+          <!-- CTC 1 arcs -->
+          <line x1="60" y1="62" x2="100" y2="98" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <line x1="100" y1="118" x2="60" y2="140" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <line x1="55" y1="135" x2="55" y2="68" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <circle cx="60" cy="55" r="15" fill="#16a34a"/><text x="60" y="59" text-anchor="middle" fill="white" font-size="12" font-weight="bold">1</text>
+          <circle cx="105" cy="105" r="15" fill="#16a34a"/><text x="105" y="109" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2</text>
+          <circle cx="60" cy="150" r="15" fill="#16a34a"/><text x="60" y="154" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3</text>
+
+          <!-- CTC 2 (single node) -->
+          <rect x="170" y="35" width="60" height="60" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2" stroke-dasharray="5"/>
+          <text x="200" y="105" text-anchor="middle" font-size="9" fill="#2563eb" font-weight="bold">CTC 2</text>
+          <circle cx="200" cy="65" r="15" fill="#2563eb"/><text x="200" y="69" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4</text>
+
+          <!-- CTC 3 -->
+          <rect x="255" y="15" width="150" height="170" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5"/>
+          <text x="330" y="185" text-anchor="middle" font-size="9" fill="#f59e0b" font-weight="bold">CTC 3</text>
+          <!-- CTC 3 arcs -->
+          <line x1="300" y1="62" x2="358" y2="62" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <line x1="365" y1="75" x2="345" y2="128" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <line x1="330" y1="140" x2="295" y2="75" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <circle cx="295" cy="60" r="15" fill="#f59e0b"/><text x="295" y="64" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5</text>
+          <circle cx="365" cy="60" r="15" fill="#f59e0b"/><text x="365" y="64" text-anchor="middle" fill="white" font-size="12" font-weight="bold">6</text>
+          <circle cx="340" cy="140" r="15" fill="#f59e0b"/><text x="340" y="144" text-anchor="middle" fill="white" font-size="12" font-weight="bold">7</text>
+
+          <!-- Inter-CTC arcs -->
+          <line x1="118" y1="100" x2="183" y2="68" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr2)" stroke-dasharray="4"/>
+          <line x1="215" y1="62" x2="278" y2="58" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr2)" stroke-dasharray="4"/>
+        </svg>
+      </div>
+
+      <div class="callout warning">
+        <strong>Observații:</strong>
+        <ul>
+          <li>Fiecare nod aparține <strong>exact unei</strong> componente tare conexe</li>
+          <li>Un nod izolat (fără arce) formează o CTC de un singur element</li>
+          <li>Algoritmi de determinare: <strong>Tarjan</strong> sau <strong>Kosaraju</strong> — O(V + E)</li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top:16px;">Graf turneu</h3>
+      <p>Un graf orientat este <strong>turneu</strong> dacă între oricare 2 vârfuri distincte i și j există <strong>exact un singur arc</strong>: fie (i,j), fie (j,i).</p>
+      <div class="callout success">
+        <strong>Proprietate:</strong> În orice graf turneu există un <strong>drum hamiltonian</strong> (drum elementar care trece prin toate nodurile).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 11. BFS ─────────────────────────────────── -->
+<section id="bfs">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🌊</span>
+      <h2>Parcurgerea BFS (Breadth-First Search)</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🌊 Analogie: Undă pe apă</div>
+        <p>BFS explorează graful <strong>nivel cu nivel</strong>, ca un val care se propagă circular dintr-un punct. Mai întâi vizitezi toți vecinii direcți (la distanță 1), apoi vecinii vecinilor (distanță 2), etc.</p>
+      </div>
+
+      <div class="callout info">
+        <strong>Principiu:</strong> Se folosește o <strong>coadă</strong> (queue). Se vizitează vârfurile în ordinea distanței față de sursă.<br>
+        <strong>Complexitate:</strong> O(V + E) timp, O(V) memorie auxiliară.
+      </div>
+
+      <!-- BFS step-by-step SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 440 260" width="420" style="max-width:100%;">
+          <!-- Graph structure -->
+          <line x1="220" y1="40" x2="120" y2="100" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="220" y1="40" x2="320" y2="100" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="120" y1="100" x2="70" y2="180" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="120" y1="100" x2="170" y2="180" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="320" y1="100" x2="270" y2="180" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="320" y1="100" x2="370" y2="180" stroke="#e2e8f0" stroke-width="2"/>
+          <!-- Level indicators -->
+          <rect x="5" y="25" width="50" height="24" rx="4" fill="#dbeafe"/>
+          <text x="30" y="41" text-anchor="middle" font-size="9" fill="#2563eb" font-weight="bold">Nivel 0</text>
+          <rect x="5" y="87" width="50" height="24" rx="4" fill="#dcfce7"/>
+          <text x="30" y="103" text-anchor="middle" font-size="9" fill="#16a34a" font-weight="bold">Nivel 1</text>
+          <rect x="5" y="167" width="50" height="24" rx="4" fill="#fef3c7"/>
+          <text x="30" y="183" text-anchor="middle" font-size="9" fill="#d97706" font-weight="bold">Nivel 2</text>
+          <!-- Nodes colored by level -->
+          <circle cx="220" cy="40" r="20" fill="#2563eb"/><text x="220" y="45" text-anchor="middle" fill="white" font-size="14" font-weight="bold">1</text>
+          <circle cx="120" cy="100" r="20" fill="#16a34a"/><text x="120" y="105" text-anchor="middle" fill="white" font-size="14" font-weight="bold">2</text>
+          <circle cx="320" cy="100" r="20" fill="#16a34a"/><text x="320" y="105" text-anchor="middle" fill="white" font-size="14" font-weight="bold">3</text>
+          <circle cx="70" cy="180" r="20" fill="#d97706"/><text x="70" y="185" text-anchor="middle" fill="white" font-size="14" font-weight="bold">4</text>
+          <circle cx="170" cy="180" r="20" fill="#d97706"/><text x="170" y="185" text-anchor="middle" fill="white" font-size="14" font-weight="bold">5</text>
+          <circle cx="270" cy="180" r="20" fill="#d97706"/><text x="270" y="185" text-anchor="middle" fill="white" font-size="14" font-weight="bold">6</text>
+          <circle cx="370" cy="180" r="20" fill="#d97706"/><text x="370" y="185" text-anchor="middle" fill="white" font-size="14" font-weight="bold">7</text>
+          <!-- Queue visualization -->
+          <rect x="80" y="220" width="280" height="32" rx="6" fill="none" stroke="#6366f1" stroke-width="1.5"/>
+          <text x="220" y="240" text-anchor="middle" font-size="11" fill="#6366f1" font-weight="bold">Coadă: [1] → [2,3] → [4,5,6,7] → []</text>
+          <text x="220" y="258" text-anchor="middle" font-size="10" fill="var(--text-muted)">Ordine vizitare: 1, 2, 3, 4, 5, 6, 7</text>
+        </svg>
+      </div>
+
+      <h3>Implementare C++</h3>
+      <pre><span class="pp">#include &lt;queue&gt;</span>
+<span class="pp">#include &lt;vector&gt;</span>
+<span class="kw">using namespace</span> std;
+
+vector&lt;<span class="kw">int</span>&gt; adj[<span class="nu">101</span>];
+<span class="kw">bool</span> vizitat[<span class="nu">101</span>];
+<span class="kw">int</span> dist[<span class="nu">101</span>];   <span class="cm">// distanța minimă de la sursă</span>
+
+<span class="ty">void</span> <span class="fn">BFS</span>(<span class="kw">int</span> start) &#123;
+    queue&lt;<span class="kw">int</span>&gt; Q;
+    vizitat[start] = <span class="kw">true</span>;
+    dist[start] = <span class="nu">0</span>;
+    Q.push(start);
+
+    <span class="kw">while</span> (!Q.empty()) &#123;
+        <span class="kw">int</span> nod = Q.front();
+        Q.pop();
+
+        <span class="kw">for</span> (<span class="kw">int</span> vecin : adj[nod]) &#123;
+            <span class="kw">if</span> (!vizitat[vecin]) &#123;
+                vizitat[vecin] = <span class="kw">true</span>;
+                dist[vecin] = dist[nod] + <span class="nu">1</span>;
+                Q.push(vecin);
+            &#125;
+        &#125;
+    &#125;
+&#125;</pre>
+
+      <div class="callout success">
+        <strong>Aplicații BFS:</strong>
+        <ul>
+          <li><strong>Drumul minim</strong> (graf neponderat) — distanța minimă între 2 noduri</li>
+          <li><strong>Componente conexe</strong> — BFS din fiecare nod nevizitat</li>
+          <li><strong>Verificare graf bipartit</strong> — colorare pe 2 culori</li>
+          <li><strong>Nivel (distanță)</strong> de la un nod sursă la toate celelalte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 12. DFS ─────────────────────────────────── -->
+<section id="dfs">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🏊</span>
+      <h2>Parcurgerea DFS (Depth-First Search)</h2>
+    </div>
+    <div class="slide-body">
+      <div class="beginner-box">
+        <div class="bb-title">🏊 Analogie: Explorarea unui labirint</div>
+        <p>DFS explorează <strong>cât mai adânc</strong> pe o ramură, apoi face <strong>backtracking</strong> și explorează următoarea ramură. Ca un explorator care merge tot înainte pe un coridor până la capăt, apoi se întoarce la ultima bifurcație.</p>
+      </div>
+
+      <div class="callout info">
+        <strong>Principiu:</strong> Se folosește <strong>stiva</strong> (sau recursivitate). Se merge cât mai adânc, apoi se revine.<br>
+        <strong>Complexitate:</strong> O(V + E) timp, O(V) memorie auxiliară.
+      </div>
+
+      <!-- DFS step-by-step SVG -->
+      <div style="text-align:center;margin:20px 0;">
+        <svg viewBox="0 0 440 230" width="420" style="max-width:100%;">
+          <!-- Graph edges -->
+          <line x1="220" y1="35" x2="120" y2="90" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="220" y1="35" x2="320" y2="90" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="120" y1="90" x2="70" y2="160" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="120" y1="90" x2="170" y2="160" stroke="#e2e8f0" stroke-width="2"/>
+          <line x1="320" y1="90" x2="370" y2="160" stroke="#e2e8f0" stroke-width="2"/>
+          <!-- DFS path highlighted -->
+          <line x1="220" y1="35" x2="120" y2="90" stroke="#ef4444" stroke-width="3.5"/>
+          <line x1="120" y1="90" x2="70" y2="160" stroke="#ef4444" stroke-width="3.5"/>
+          <!-- Backtrack shown -->
+          <path d="M 75 155 Q 50 120 115 92" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
+          <line x1="120" y1="90" x2="170" y2="160" stroke="#10b981" stroke-width="3"/>
+          <!-- Numbers showing order -->
+          <circle cx="220" cy="35" r="20" fill="#ef4444"/><text x="220" y="40" text-anchor="middle" fill="white" font-size="13" font-weight="bold">1</text>
+          <text x="220" y="10" text-anchor="middle" font-size="10" fill="#ef4444">①</text>
+          <circle cx="120" cy="90" r="20" fill="#ef4444"/><text x="120" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="bold">2</text>
+          <text x="92" y="82" text-anchor="middle" font-size="10" fill="#ef4444">②</text>
+          <circle cx="70" cy="160" r="20" fill="#ef4444"/><text x="70" y="165" text-anchor="middle" fill="white" font-size="13" font-weight="bold">4</text>
+          <text x="42" y="155" text-anchor="middle" font-size="10" fill="#ef4444">③</text>
+          <circle cx="170" cy="160" r="20" fill="#10b981"/><text x="170" y="165" text-anchor="middle" fill="white" font-size="13" font-weight="bold">5</text>
+          <text x="198" y="155" text-anchor="middle" font-size="10" fill="#10b981">④</text>
+          <circle cx="320" cy="90" r="20" fill="#6366f1"/><text x="320" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="bold">3</text>
+          <text x="348" y="82" text-anchor="middle" font-size="10" fill="#6366f1">⑤</text>
+          <circle cx="370" cy="160" r="20" fill="#6366f1"/><text x="370" y="165" text-anchor="middle" fill="white" font-size="13" font-weight="bold">6</text>
+          <text x="398" y="155" text-anchor="middle" font-size="10" fill="#6366f1">⑥</text>
+          <!-- Legend -->
+          <text x="220" y="205" text-anchor="middle" font-size="11" fill="var(--text-muted)">Ordine vizitare DFS: 1 → 2 → 4 → (backtrack) → 5 → (backtrack) → 3 → 6</text>
+          <rect x="70" y="215" width="12" height="12" rx="2" fill="#f59e0b"/>
+          <text x="88" y="225" font-size="9" fill="var(--text-muted)">= backtracking</text>
+        </svg>
+      </div>
+
+      <h3>Implementare C++ (recursiv)</h3>
+      <pre>vector&lt;<span class="kw">int</span>&gt; adj[<span class="nu">101</span>];
+<span class="kw">bool</span> vizitat[<span class="nu">101</span>];
+
+<span class="ty">void</span> <span class="fn">DFS</span>(<span class="kw">int</span> nod) &#123;
+    vizitat[nod] = <span class="kw">true</span>;
+    cout &lt;&lt; nod &lt;&lt; <span class="st">" "</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> vecin : adj[nod]) &#123;
+        <span class="kw">if</span> (!vizitat[vecin]) &#123;
+            <span class="fn">DFS</span>(vecin);
+        &#125;
+    &#125;
+&#125;</pre>
+
+      <h3 style="margin-top:20px;">Implementare C++ (iterativ cu stivă)</h3>
+      <pre><span class="pp">#include &lt;stack&gt;</span>
+
+<span class="ty">void</span> <span class="fn">DFS_iterativ</span>(<span class="kw">int</span> start) &#123;
+    stack&lt;<span class="kw">int</span>&gt; S;
+    S.push(start);
+
+    <span class="kw">while</span> (!S.empty()) &#123;
+        <span class="kw">int</span> nod = S.top();
+        S.pop();
+
+        <span class="kw">if</span> (vizitat[nod]) <span class="kw">continue</span>;
+        vizitat[nod] = <span class="kw">true</span>;
+        cout &lt;&lt; nod &lt;&lt; <span class="st">" "</span>;
+
+        <span class="kw">for</span> (<span class="kw">int</span> vecin : adj[nod])
+            <span class="kw">if</span> (!vizitat[vecin])
+                S.push(vecin);
+    &#125;
+&#125;</pre>
+
+      <h3 style="margin-top:20px;">Componente conexe cu DFS</h3>
+      <pre><span class="kw">int</span> nr_comp = <span class="nu">0</span>;
+
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i <= n; i++) &#123;
+    <span class="kw">if</span> (!vizitat[i]) &#123;
+        nr_comp++;
+        <span class="fn">DFS</span>(i);  <span class="cm">// vizitează toată componenta</span>
+    &#125;
+&#125;
+cout &lt;&lt; <span class="st">"Componente conexe: "</span> &lt;&lt; nr_comp;</pre>
+
+      <div class="callout success">
+        <strong>Aplicații DFS:</strong>
+        <ul>
+          <li><strong>Componente conexe</strong> (neorientat)</li>
+          <li><strong>Componente tare conexe</strong> (orientat — Tarjan/Kosaraju)</li>
+          <li><strong>Detectare cicluri</strong></li>
+          <li><strong>Sortare topologică</strong> (graf orientat aciclic)</li>
+          <li><strong>Verificare graf bipartit</strong></li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top:20px;">BFS vs DFS — Comparație</h3>
+      <table class="data-table" style="font-size:13px;">
+        <thead><tr><th>Criteriu</th><th>BFS 🌊</th><th>DFS 🏊</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Structură</strong></td><td>Coadă (queue)</td><td>Stivă (stack) / Recursie</td></tr>
+          <tr><td><strong>Strategie</strong></td><td>Nivel cu nivel (lățime)</td><td>Cât mai adânc (adâncime)</td></tr>
+          <tr><td><strong>Complexitate</strong></td><td>O(V + E)</td><td>O(V + E)</td></tr>
+          <tr><td><strong>Drum minim</strong></td><td>✅ Da (neponderat)</td><td>❌ Nu garantează</td></tr>
+          <tr><td><strong>Memorie</strong></td><td>O(V) — poate fi mare</td><td>O(V) — de obicei mai mică</td></tr>
+          <tr><td><strong>Când folosim</strong></td><td>Distanțe minime, bipartit</td><td>Cicluri, sortare topo, CTC</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 13. APLICAȚII ─────────────────────────────────── -->
+<section id="aplicatii">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-orange">🚀</span>
+      <h2>Aplicații și Algoritmi Clasici</h2>
+    </div>
+    <div class="slide-body">
+
+      <h3>1. Sortare Topologică (DAG — graf orientat aciclic)</h3>
+      <p>Ordonează nodurile unui graf orientat aciclic astfel încât pentru orice arc (u, v), u apare <strong>înaintea</strong> lui v.</p>
+
+      <div style="text-align:center;margin:16px 0;">
+        <svg viewBox="0 0 400 100" width="380" style="max-width:100%;">
+          <defs>
+            <marker id="arr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#6366f1"/>
+            </marker>
+          </defs>
+          <line x1="55" y1="50" x2="115" y2="50" stroke="#6366f1" stroke-width="2" marker-end="url(#arr3)"/>
+          <line x1="155" y1="50" x2="215" y2="50" stroke="#6366f1" stroke-width="2" marker-end="url(#arr3)"/>
+          <line x1="255" y1="50" x2="315" y2="50" stroke="#6366f1" stroke-width="2" marker-end="url(#arr3)"/>
+          <line x1="55" y1="55" x2="215" y2="55" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr3)" stroke-dasharray="4"/>
+          <circle cx="40" cy="50" r="18" fill="#6366f1"/><text x="40" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">A</text>
+          <circle cx="130" cy="50" r="18" fill="#6366f1"/><text x="130" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">B</text>
+          <circle cx="230" cy="50" r="18" fill="#6366f1"/><text x="230" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">C</text>
+          <circle cx="330" cy="50" r="18" fill="#6366f1"/><text x="330" y="55" text-anchor="middle" fill="white" font-size="13" font-weight="bold">D</text>
+          <text x="200" y="90" text-anchor="middle" font-size="11" fill="var(--text-muted)">Sortare topologică: A → B → C → D</text>
+        </svg>
+      </div>
+
+      <pre><span class="cm">// Sortare topologică cu DFS</span>
+vector&lt;<span class="kw">int</span>&gt; adj[<span class="nu">101</span>];
+<span class="kw">bool</span> vizitat[<span class="nu">101</span>];
+stack&lt;<span class="kw">int</span>&gt; rezultat;
+
+<span class="ty">void</span> <span class="fn">DFS_topo</span>(<span class="kw">int</span> nod) &#123;
+    vizitat[nod] = <span class="kw">true</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> vecin : adj[nod])
+        <span class="kw">if</span> (!vizitat[vecin])
+            <span class="fn">DFS_topo</span>(vecin);
+    rezultat.push(nod);  <span class="cm">// adaugă DUPĂ ce a terminat vecinii</span>
+&#125;
+
+<span class="cm">// Apel: DFS_topo din fiecare nod nevizitat</span>
+<span class="cm">// Apoi citim stiva = ordinea topologică</span></pre>
+
+      <h3 style="margin-top:24px;">2. Dijkstra — Drum minim în graf ponderat</h3>
+      <div class="callout info">
+        Algoritmul lui <strong>Dijkstra</strong> găsește distanța minimă de la un nod sursă la toate celelalte noduri într-un graf cu <strong>ponderi pozitive</strong>. Complexitate: O((V + E) log V) cu priority_queue.
+      </div>
+
+      <h3 style="margin-top:24px;">3. Arbore parțial de cost minim</h3>
+      <p>Algoritmii <strong>Kruskal</strong> și <strong>Prim</strong> găsesc un arbore parțial (n−1 muchii) cu suma ponderilor minimă.</p>
+
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:16px 0;">
+        <div class="mini-card" style="border-top:3px solid #10b981;">
+          <strong>Kruskal</strong><br>
+          <small>Sortează muchiile crescător. Adaugă muchii care nu creează ciclu (Union-Find).</small>
+        </div>
+        <div class="mini-card" style="border-top:3px solid #6366f1;">
+          <strong>Prim</strong><br>
+          <small>Pornește de la un nod. La fiecare pas adaugă cea mai ușoară muchie spre un nod nevizitat.</small>
+        </div>
+      </div>
+
+      <h3 style="margin-top:24px;">4. Detectare cicluri</h3>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr;margin:14px 0;">
+        <div class="mini-card">
+          <strong>Graf neorientat</strong><br>
+          <small>DFS: dacă găsim un vecin deja vizitat (≠ părintele curent) → ciclu!</small>
+        </div>
+        <div class="mini-card">
+          <strong>Graf orientat</strong><br>
+          <small>DFS cu 3 culori (alb/gri/negru): dacă găsim nod <em>gri</em> → ciclu!</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 14. PROBLEME BAC ─────────────────────────────────── -->
+<section id="bac">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-red">📝</span>
+      <h2>Probleme tip BAC — Grafuri</h2>
+    </div>
+    <div class="slide-body">
+
+      <div class="callout warning">
+        <strong>La BAC apar frecvent:</strong>
+        <ul>
+          <li>Determinarea numărului de componente conexe</li>
+          <li>Verificare: graf conex / eulerian / hamiltonian / arbore</li>
+          <li>Calculul gradelor, matricea de adiacență</li>
+          <li>Parcurgeri BFS/DFS — ordinea vizitării</li>
+          <li>Lanțuri, drumuri, cicluri de lungime dată</li>
+        </ul>
+      </div>
+
+      <h3>Exercițiu 1 — Matrice de adiacență</h3>
+      <div class="callout quiz">
+        <strong>Enunț:</strong> Fie graful neorientat cu 5 vârfuri și muchiile: [1,2], [1,3], [2,4], [3,4], [4,5]. Scrieți matricea de adiacență.
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Rezolvare</summary>
+          <pre style="margin-top:8px;">  1 2 3 4 5
+1[0 1 1 0 0]
+2[1 0 0 1 0]
+3[1 0 0 1 0]
+4[0 1 1 0 1]
+5[0 0 0 1 0]</pre>
+          <p>d(1)=2, d(2)=2, d(3)=2, d(4)=3, d(5)=1. Suma=10=2×5 muchii ✓</p>
+        </details>
+      </div>
+
+      <h3 style="margin-top:20px;">Exercițiu 2 — Componente conexe</h3>
+      <div class="callout quiz">
+        <strong>Enunț:</strong> Un graf neorientat cu 8 vârfuri are muchiile: [1,2], [2,3], [4,5], [6,7], [7,8], [6,8]. Câte componente conexe are?
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Rezolvare</summary>
+          <p><strong>3 componente conexe:</strong></p>
+          <ul>
+            <li>C1: {1, 2, 3}</li>
+            <li>C2: {4, 5}</li>
+            <li>C3: {6, 7, 8}</li>
+          </ul>
+        </details>
+      </div>
+
+      <h3 style="margin-top:20px;">Exercițiu 3 — Verificare Euler</h3>
+      <div class="callout quiz">
+        <strong>Enunț:</strong> Un graf conex cu 4 vârfuri are gradele: d(1)=2, d(2)=4, d(3)=2, d(4)=2. Este eulerian?
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Rezolvare</summary>
+          <p><strong>DA.</strong> Toate gradele sunt <strong>pare</strong> și graful este <strong>conex</strong> → graf eulerian.</p>
+          <p>Suma gradelor = 2+4+2+2 = 10 → m = 5 muchii.</p>
+        </details>
+      </div>
+
+      <h3 style="margin-top:20px;">Exercițiu 4 — Parcurgere BFS</h3>
+      <div class="callout quiz">
+        <strong>Enunț:</strong> Graf cu muchiile: [1,2], [1,3], [2,4], [3,4], [3,5], [4,6]. Scrieți ordinea BFS pornind din nodul 1 (vecini vizitați în ordine crescătoare).
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Rezolvare</summary>
+          <p><strong>BFS(1): 1, 2, 3, 4, 5, 6</strong></p>
+          <ul style="font-size:13px;">
+            <li>Nivel 0: vizităm 1</li>
+            <li>Nivel 1: vecinii lui 1 → 2, 3</li>
+            <li>Nivel 2: vecinii nevizitați ai lui 2 → 4; ai lui 3 → 5 (4 deja în coadă)</li>
+            <li>Nivel 3: vecinii nevizitați ai lui 4 → 6</li>
+          </ul>
+        </details>
+      </div>
+
+      <h3 style="margin-top:20px;">Exercițiu 5 — Parcurgere DFS</h3>
+      <div class="callout quiz">
+        <strong>Enunț:</strong> Același graf. Scrieți ordinea DFS pornind din 1.
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Rezolvare</summary>
+          <p><strong>DFS(1): 1, 2, 4, 3, 5, 6</strong></p>
+          <ul style="font-size:13px;">
+            <li>Vizităm 1 → mergem la 2</li>
+            <li>Din 2 → mergem la 4 (primul vecin nevizitat)</li>
+            <li>Din 4 → mergem la 3 (2 deja vizitat)</li>
+            <li>Din 3 → mergem la 5 (1 și 4 vizitate)</li>
+            <li>Backtrack la 4 → mergem la 6</li>
+          </ul>
+        </details>
+      </div>
+
+      <h3 style="margin-top:20px;">Exercițiu 6 — Arbore</h3>
+      <div class="callout quiz">
+        <strong>Enunț:</strong> Un graf conex cu 7 vârfuri are 6 muchii. Demonstrați că este arbore.
+        <details style="margin-top:8px;">
+          <summary style="cursor:pointer;color:var(--primary);">Rezolvare</summary>
+          <p>Un arbore cu n vârfuri are exact n−1 muchii. Avem n=7 vârfuri și m=6=7−1 muchii. Graful este conex (dat) și are n−1 muchii → este <strong>arbore</strong>.</p>
+          <p>(Alternativ: conex + n−1 muchii ⟹ nu conține cicluri ⟹ arbore)</p>
+        </details>
+      </div>
+
+      <h3 style="margin-top:24px;">Fișă de formule rapide</h3>
+      <table class="data-table" style="font-size:12px;">
+        <thead><tr><th>Formulă</th><th>Descriere</th></tr></thead>
+        <tbody>
+          <tr><td><code>∑d(xᵢ) = 2m</code></td><td>Suma gradelor = dublu nr. muchii</td></tr>
+          <tr><td><code>Kₙ: m = n(n−1)/2</code></td><td>Muchii în graf complet</td></tr>
+          <tr><td><code>Arbore: m = n−1</code></td><td>Muchii în arbore</td></tr>
+          <tr><td><code>2^(n(n−1)/2)</code></td><td>Nr. grafuri neorientate cu n noduri</td></tr>
+          <tr><td><code>4^(n(n−1)/2)</code></td><td>Nr. grafuri orientate cu n noduri</td></tr>
+          <tr><td><code>BFS/DFS: O(V+E)</code></td><td>Complexitate parcurgeri</td></tr>
+          <tr><td><code>Euler: conex + grade pare</code></td><td>Condiție graf eulerian</td></tr>
+          <tr><td><code>Dirac: d(x)≥n/2 → Hamilton</code></td><td>Condiție suficientă hamiltonian</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</ChapterLayout>
+
+<style is:inline>
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 12px 0;
+  }
+  .data-table th, .data-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .data-table th {
+    background: var(--surface);
+    font-weight: 600;
+  }
+  .data-table tr:hover td {
+    background: var(--surface);
+  }
+  .mini-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .card-grid {
+    display: grid;
+    gap: 12px;
+  }
+  .beginner-box {
+    background: linear-gradient(135deg, #ede9fe 0%, #dbeafe 100%);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    border: 1px solid #c4b5fd;
+  }
+  [data-theme="dark"] .beginner-box {
+    background: linear-gradient(135deg, #1e1b4b 0%, #172554 100%);
+    border-color: #4338ca;
+  }
+  .beginner-box .bb-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .callout {
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .callout.info {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+  }
+  [data-theme="dark"] .callout.info {
+    background: #1e3a5f;
+    border-left-color: #60a5fa;
+  }
+  .callout.success {
+    background: #ecfdf5;
+    border-left: 4px solid #10b981;
+  }
+  [data-theme="dark"] .callout.success {
+    background: #064e3b;
+    border-left-color: #34d399;
+  }
+  .callout.warning {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+  }
+  [data-theme="dark"] .callout.warning {
+    background: #451a03;
+    border-left-color: #fbbf24;
+  }
+  .callout.quiz {
+    background: #faf5ff;
+    border-left: 4px solid #8b5cf6;
+  }
+  [data-theme="dark"] .callout.quiz {
+    background: #2e1065;
+    border-left-color: #a78bfa;
+  }
+  pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+  pre .kw { color: #c084fc; }
+  pre .ty { color: #67e8f9; }
+  pre .fn { color: #fbbf24; }
+  pre .nu { color: #a5f3fc; }
+  pre .st { color: #86efac; }
+  pre .cm { color: #64748b; font-style: italic; }
+  pre .pp { color: #f472b6; }
+
+  svg text { font-family: 'DM Sans', sans-serif; }
+
+  [data-theme="dark"] svg { filter: none; }
+  [data-theme="dark"] svg rect[fill="#f0f4ff"] { fill: #1e293b; }
+</style>
