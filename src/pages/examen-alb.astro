@@ -104,7 +104,7 @@ const allChapters = [
     </div>
   </main>
 
-  <style>
+  <style is:global>
     .exam-page { min-height: 100vh; padding-bottom: 48px; background: var(--color-background, #0f172a); }
 
     /* ── Hero ─────────────────────────────────────────────────── */
@@ -397,6 +397,30 @@ const allChapters = [
       margin-bottom: 14px;
       font-size: 15px;
       line-height: 1.5;
+    }
+    .exam-question__text code {
+      background: rgba(59,130,246,.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .exam-question__text pre {
+      background: rgba(0,0,0,.3);
+      padding: 12px 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 10px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .exam-option code {
+      background: rgba(59,130,246,.1);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
     }
     .exam-question__num {
       color: #60a5fa;

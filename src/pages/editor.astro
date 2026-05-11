@@ -203,6 +203,33 @@ int main() {
         cout << v[i] << " ";
     return 0;
 }`
+  },
+  {
+    label: "⭐ Simulare BAC cu fișiere",
+    code: `#include<iostream>
+#include<cstring>
+using namespace std;
+// ===== SIMULARE FISIERE BAC =====
+// La BAC se cere: ifstream fin("date.in"); ofstream fout("date.out");
+// In browser nu exista fisiere, asa ca folosim cin/cout
+// Inlocuieste: fin >> x  cu  cin >> x
+//              fout << x  cu  cout << x
+// Pune datele din "date.in" in campul STDIN (Input) al editorului
+
+int main() {
+    // Exemplu: Se citeste din fisierul "date.in" un numar n
+    // si apoi n numere. Se scrie in "date.out" suma lor.
+    int n, x, s = 0;
+    cin >> n;  // la BAC: fin >> n;
+    for(int i = 1; i <= n; i++) {
+        cin >> x;  // la BAC: fin >> x;
+        s += x;
+    }
+    cout << s;  // la BAC: fout << s;
+    return 0;
+}
+// STDIN (pune in Input): 5\\n3 1 4 1 5
+// Rezultat: 14`
   }
 ];
 ---
@@ -213,14 +240,19 @@ int main() {
     <!-- Hero -->
     <div class="editor-hero">
       <div class="editor-hero__inner">
+        <div class="editor-hero__badge">✨ Gratis &bull; Fără instalare</div>
         <h1><span>⌨️</span> Editor C++ Online</h1>
-        <p>Scrie, testează și rulează cod C++ direct în browser — fără instalare. Codul este executat pe serverele Piston (open-source).</p>
+        <p>Scrie, testează și rulează cod C++ direct în browser. Alege un template, editează codul, apoi copiază-l în editorul OneCompiler din dreapta.</p>
       </div>
     </div>
 
     <div class="editor-layout">
-      <!-- Panoul stâng: templates -->
+      <!-- Panoul stâng: templates + code -->
       <div class="editor-panel editor-panel--left">
+        <div class="editor-panel__header">
+          <span class="editor-panel__title">📝 Cod C++</span>
+        </div>
+
         <div class="editor-toolbar">
           <label for="templateSelect" class="editor-label">📁 Template:</label>
           <select id="templateSelect" class="editor-select">
@@ -231,17 +263,31 @@ int main() {
           </button>
         </div>
 
-        <label class="editor-label">📝 Cod C++ (editează, apoi copiază în editor →)</label>
         <textarea id="codeArea" class="editor-textarea editor-textarea--code" spellcheck="false"></textarea>
 
+        <!-- File simulation -->
+        <div class="editor-files">
+          <div class="editor-files__header">
+            <span class="editor-files__title">📂 Simulare fișiere (BAC)</span>
+            <button id="btnAddFile" class="editor-btn editor-btn--small">+ Fișier</button>
+          </div>
+          <div class="editor-files__info">
+            La BAC se cere citirea/scrierea din fișiere (<code>ifstream</code>/<code>ofstream</code>). OneCompiler nu suportă fișiere reale — folosește <strong>cin/cout</strong> în loc de <code>fin/fout</code>, sau definește datele hardcodat. Mai jos poți nota conținutul fișierelor de intrare.
+          </div>
+          <div id="fileContainer" class="editor-files__list"></div>
+        </div>
+
         <div class="editor-disclaimer">
-          <strong>💡 Cum folosești:</strong> Alege un template din lista de mai sus, editează codul, apoi copiază-l (📋) și lipește-l în editorul din dreapta. Apasă <strong>Run</strong> în editor pentru a executa.
+          <strong>💡 Cum folosești:</strong> Alege un template, editează codul, copiază-l (📋) și lipește-l în editorul din dreapta. Apasă <strong>Run</strong> pentru a executa.
         </div>
       </div>
 
       <!-- Panoul drept: OneCompiler iframe -->
       <div class="editor-panel editor-panel--right">
-        <label class="editor-label">▶️ Editor & Execuție (OneCompiler)</label>
+        <div class="editor-panel__header">
+          <span class="editor-panel__title">▶️ Editor & Execuție</span>
+          <span class="editor-panel__badge">OneCompiler</span>
+        </div>
         <div class="editor-iframe-wrap">
           <iframe
             id="compilerFrame"
@@ -262,26 +308,77 @@ int main() {
     .editor-page { min-height: 100vh; padding-bottom: 48px; }
 
     .editor-hero {
-      background: linear-gradient(135deg, #1e1b4b 0%, #1d4ed8 50%, #0ea5e9 100%);
-      padding: 40px 24px 36px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1d4ed8 70%, #0ea5e9 100%);
+      padding: 48px 24px 40px;
       text-align: center;
       color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .editor-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(59,130,246,.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(168,85,247,.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .editor-hero__inner { position: relative; z-index: 1; }
+    .editor-hero__badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.15);
+      margin-bottom: 14px;
+      letter-spacing: .5px;
     }
     .editor-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); margin: 0 0 10px; }
     .editor-hero h1 span { margin-right: 8px; }
-    .editor-hero p { opacity: .85; max-width: 600px; margin: 0 auto; font-size: 1rem; }
+    .editor-hero p { opacity: .85; max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
 
     .editor-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      max-width: 1280px;
+      max-width: 1340px;
       margin: 28px auto 0;
       padding: 0 20px;
     }
     @media (max-width: 900px) { .editor-layout { grid-template-columns: 1fr; } }
 
-    .editor-panel { display: flex; flex-direction: column; gap: 6px; }
+    .editor-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: var(--color-surface, #1e293b);
+      border: 1.5px solid var(--color-border, #334155);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .editor-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .editor-panel__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text, #f1f5f9);
+    }
+    .editor-panel__badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(59,130,246,.12);
+      color: #60a5fa;
+      border: 1px solid rgba(59,130,246,.2);
+    }
 
     .editor-toolbar {
       display: flex;
@@ -304,7 +401,7 @@ int main() {
       padding: 7px 10px;
       border-radius: 8px;
       border: 1.5px solid var(--color-border, #334155);
-      background: var(--color-surface, #1e293b);
+      background: var(--color-background, #0f172a);
       color: var(--color-text, #f1f5f9);
       font-size: 13px;
       cursor: pointer;
@@ -320,16 +417,25 @@ int main() {
       transition: opacity .2s, transform .1s;
     }
     .editor-btn:active { transform: scale(.97); }
-    .editor-btn--run {
-      background: linear-gradient(90deg,#22c55e,#16a34a);
-      color: #fff;
-      font-size: 15px;
-      padding: 10px 28px;
-    }
     .editor-btn--secondary {
-      background: var(--color-surface, #1e293b);
+      background: var(--color-background, #0f172a);
       color: var(--color-text-muted, #94a3b8);
       border: 1.5px solid var(--color-border, #334155);
+    }
+    .editor-btn--secondary:hover {
+      border-color: #3b82f6;
+      color: #60a5fa;
+    }
+    .editor-btn--small {
+      padding: 5px 12px;
+      font-size: 12px;
+      background: rgba(59,130,246,.1);
+      color: #60a5fa;
+      border: 1px solid rgba(59,130,246,.2);
+      border-radius: 6px;
+    }
+    .editor-btn--small:hover {
+      background: rgba(59,130,246,.2);
     }
     .editor-btn:disabled { opacity: .5; cursor: not-allowed; }
 
@@ -349,27 +455,109 @@ int main() {
       font-variant-ligatures: none;
       font-feature-settings: "liga" 0, "calt" 0;
     }
-    .editor-textarea--code { height: 380px; }
+    .editor-textarea--code { height: 340px; }
     .editor-textarea:focus { outline: 2px solid #3b82f6; }
 
     .editor-iframe-wrap {
       flex: 1;
-      min-height: 520px;
+      min-height: 560px;
       border-radius: 10px;
       overflow: hidden;
       border: 1.5px solid var(--color-border, #334155);
+      background: #0d1117;
+    }
+
+    /* ── File simulation ─────────────────────────── */
+    .editor-files {
+      border: 1.5px solid var(--color-border, #334155);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .editor-files__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(59,130,246,.06);
+      border-bottom: 1px solid var(--color-border, #334155);
+    }
+    .editor-files__title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text, #f1f5f9);
+    }
+    .editor-files__info {
+      font-size: 12px;
+      color: var(--color-text-muted, #64748b);
+      padding: 10px 14px;
+      line-height: 1.6;
+      border-bottom: 1px solid var(--color-border, #334155);
+    }
+    .editor-files__info code {
+      background: rgba(59,130,246,.1);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+    .editor-files__list {
+      display: flex;
+      flex-direction: column;
+    }
+    .editor-file-item {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--color-border, #334155);
+    }
+    .editor-file-item:last-child { border-bottom: none; }
+    .editor-file-item__header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .editor-file-item__name {
+      flex: 1;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--color-border, #334155);
+      background: var(--color-background, #0f172a);
+      color: var(--color-text, #f1f5f9);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+    .editor-file-item__remove {
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .editor-file-item__remove:hover { background: rgba(239,68,68,.1); }
+    .editor-file-item__content {
+      width: 100%;
+      min-height: 60px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--color-border, #334155);
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      resize: vertical;
+      box-sizing: border-box;
     }
 
     .editor-disclaimer {
       font-size: 12px;
       color: var(--color-text-muted, #64748b);
-      background: var(--color-surface, #1e293b);
+      background: rgba(59,130,246,.04);
       border: 1px solid var(--color-border, #334155);
       border-radius: 8px;
       padding: 10px 14px;
-      margin-top: 8px;
+      line-height: 1.5;
     }
-    .editor-disclaimer a { color: #60a5fa; }
   </style>
 
   <script id="editor-templates-data" type="application/json" set:html={JSON.stringify(templates)}></script>
@@ -408,6 +596,34 @@ int main() {
         codeArea.selectionStart = codeArea.selectionEnd = start + 4;
       }
     });
+
+    // File simulation
+    var fileContainer = document.getElementById('fileContainer');
+    var btnAddFile = document.getElementById('btnAddFile');
+    var fileCount = 0;
+
+    function addFileItem(name, content) {
+      fileCount++;
+      var item = document.createElement('div');
+      item.className = 'editor-file-item';
+      item.innerHTML =
+        '<div class="editor-file-item__header">' +
+          '<input type="text" class="editor-file-item__name" value="' + (name || 'date.in') + '" placeholder="nume_fisier.in" />' +
+          '<button class="editor-file-item__remove" title="Şterge fişier">✕</button>' +
+        '</div>' +
+        '<textarea class="editor-file-item__content" placeholder="Scrie conţinutul fişierului aici...">' + (content || '') + '</textarea>';
+      item.querySelector('.editor-file-item__remove').addEventListener('click', function() {
+        item.remove();
+      });
+      fileContainer.appendChild(item);
+    }
+
+    btnAddFile.addEventListener('click', function() {
+      addFileItem('', '');
+    });
+
+    // Start with one default file
+    addFileItem('date.in', '5\n3 1 4 1 5');
   })();
   </script>
 </BaseLayout>

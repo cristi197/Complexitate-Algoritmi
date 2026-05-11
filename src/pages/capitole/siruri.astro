@@ -1,4 +1,4 @@
----
+﻿---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
 const sections = [{"id":"tipuri","label":"char[] vs string"},{"id":"caractere","label":"Funcii Caractere"},{"id":"cstring","label":"Funcii cstring"},{"id":"citire","label":"Citire"},{"id":"algoritmi","label":"Algoritmi"},{"id":"conversii","label":"Conversii"},{"id":"demo","label":"Demo Interactiv"},{"id":"exercitii","label":"Exerciii"},{"id":"bac","label":"Probleme BAC"}];
@@ -22,7 +22,7 @@ const sections = [{"id":"tipuri","label":"char[] vs string"},{"id":"caractere","
     </div>
     <div class="slide-body">
       <div class="beginner-box">
-        <div class="bb-title"> Ce este un şir de caractere?</div>
+        <div class="bb-title">🔡 Ce este un şir de caractere?</div>
         <p>Un şir de caractere este o <strong>secvenţă de litere, cifre sau simboluri</strong> stocate consecutiv în memorie. Fiecare caracter are un cod numeric în tabelul ASCII. De exemplu, <code>'A'</code> = 65, <code>'a'</code> = 97, <code>'0'</code> = 48.</p>
         <p>Imaginează-ţi un şir ca o <strong>cutie cu sertare numerotate</strong> — fiecare sertar ţine câte un caracter. Ultimul sertar special conţine <code>'\0'</code> (zero), semn că şirul s-a terminat.</p>
         <p>Relaţia dintre caractere şi numere permite comparaţii, conversii şi operaţii matematice pe caractere!</p>
@@ -91,11 +91,11 @@ string str3(str, <span class="nu">2</span>, <span class="nu">4</span>);         
     </div>
     <div class="slide-body">
       <div class="beginner-box">
-        <div class="bb-title"> De ce avem nevoie de funcţii pentru caractere?</div>
+        <div class="bb-title">💡 De ce avem nevoie de funcţii pentru caractere?</div>
         <p>La BAC, foarte des trebuie să verificăm: &ldquo;e literă? e cifră? e spaţiu?&rdquo; sau să convertăm litere mari în mici. Biblioteca <code>&lt;cctype></code> oferă funcţii gata făcute pentru asta. În loc să compari cu coduri ASCII direct, poţi folosi aceste funcţii clare.</p>
       </div>
 
-      <h3 style="margin:16px 0 12px;font-size:15px;"> Funcţii de verificare (returnează 0 sau non-zero)</h3>
+      <h3 style="margin:16px 0 12px;font-size:15px;">✅ Funcţii de verificare (returnează 0 sau non-zero)</h3>
       <table>
         <thead><tr><th>Funcţie</th><th>Returnează adevărat când...</th><th>Exemplu adevărat</th><th>Exemplu fals</th></tr></thead>
         <tbody>
@@ -110,7 +110,7 @@ string str3(str, <span class="nu">2</span>, <span class="nu">4</span>);         
         </tbody>
       </table>
 
-      <h3 style="margin:20px 0 12px;font-size:15px;"> Funcţii de conversie (returnează char convertit)</h3>
+      <h3 style="margin:20px 0 12px;font-size:15px;">🔄 Funcţii de conversie (returnează char convertit)</h3>
       <table>
         <thead><tr><th>Funcţie</th><th>Descriere</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
         <tbody>
@@ -174,7 +174,7 @@ string str = <span class="st">"informatica"</span>;
     </div>
     <div class="slide-body">
 
-      <h3 style="margin-bottom:12px;font-size:15px;"> Lungime şi copiere</h3>
+      <h3 style="margin-bottom:12px;font-size:15px;">📏 Lungime şi copiere</h3>
       <table>
         <thead><tr><th>Funcţie</th><th>Descriere</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
         <tbody>
@@ -184,7 +184,7 @@ string str = <span class="st">"informatica"</span>;
         </tbody>
       </table>
 
-      <h3 style="margin:18px 0 12px;font-size:15px;"> Concatenare</h3>
+      <h3 style="margin:18px 0 12px;font-size:15px;">🔗 Concatenare</h3>
       <table>
         <thead><tr><th>Funcţie</th><th>Descriere</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
         <tbody>
@@ -202,7 +202,7 @@ string str = <span class="st">"informatica"</span>;
         </tbody>
       </table>
 
-      <h3 style="margin:18px 0 12px;font-size:15px;"> Căutare în şir</h3>
+      <h3 style="margin:18px 0 12px;font-size:15px;">🔍 Căutare în şir</h3>
       <table>
         <thead><tr><th>Funcţie</th><th>Returnează</th><th>Exemplu</th><th>Rezultat</th></tr></thead>
         <tbody>
@@ -482,10 +482,10 @@ cifre[len] = <span class="st">'\0'</span>;
       <p>Experimentează cu operaţiile pe siruri direct în browser!</p>
 
       <div id="str-tabs" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
-        <button class="str-tab active" data-tab="caesar"> Cifru Caesar</button>
-        <button class="str-tab" data-tab="case"> Majuscule/Minuscule</button>
-        <button class="str-tab" data-tab="palindrome"> Palindrom</button>
-        <button class="str-tab" data-tab="stats"> Statistici</button>
+        <button class="str-tab active" data-tab="caesar">🔐 Cifru Caesar</button>
+        <button class="str-tab" data-tab="case">🔤 Majuscule/Minuscule</button>
+        <button class="str-tab" data-tab="palindrome">🔁 Palindrom</button>
+        <button class="str-tab" data-tab="stats">📊 Statistici</button>
         <button class="str-tab" data-tab="reverse">↩ Inversare</button>
       </div>
 
@@ -495,8 +495,8 @@ cifre[len] = <span class="st">'\0'</span>;
           <input type="number" id="sd-caesar-k" class="str-demo-input" value="3" min="1" max="25" style="width:70px;padding:8px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button id="sd-caesar-enc" class="str-demo-btn"> Criptează</button>
-          <button id="sd-caesar-dec" class="str-demo-btn"> Decriptează</button>
+          <button id="sd-caesar-enc" class="str-demo-btn">🔐 Criptează</button>
+          <button id="sd-caesar-dec" class="str-demo-btn">🔓 Decriptează</button>
         </div>
         <div id="sd-caesar-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă un buton...</div>
       </div>
