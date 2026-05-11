@@ -688,6 +688,8 @@ pre {
   line-height: 1.6;
   margin: 14px 0;
   position: relative;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 code {
   font-family: var(--mono);
@@ -697,6 +699,8 @@ code {
   border-radius: 5px;
   padding: 1px 6px;
   color: var(--primary);
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 pre code { background: none; border: none; padding: 0; color: inherit; }
 
@@ -776,7 +780,7 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
 /* ─── Cards grid ───────────────────────────────────────────────── */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px; margin: 16px 0;
 }
 .card {
@@ -786,12 +790,15 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
   padding: 14px 16px;
   font-size: 13.5px;
 }
-.card strong { display: block; margin-bottom: 4px; font-weight: 700; font-size: 14px; }
+.card strong { display: block; margin-bottom: 6px; font-weight: 700; font-size: 14.5px; line-height: 1.3; }
+.card p { line-height: 1.55; }
 .card.blue   { border-left: 3px solid var(--blue2); }
 .card.green  { border-left: 3px solid var(--green); }
 .card.orange { border-left: 3px solid var(--orange); }
 .card.red    { border-left: 3px solid var(--red); }
 .card.purple { border-left: 3px solid var(--purple); }
+.card.teal   { border-left: 3px solid var(--teal, #14b8a6); }
+.card table  { overflow-x: auto; display: block; font-variant-ligatures: none; }
 
 /* ─── Beginner box ─────────────────────────────────────────────── */
 .beginner-box {
@@ -817,6 +824,8 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
 table {
   width: 100%; border-collapse: collapse;
   font-size: 13.5px;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 th, td {
   padding: 10px 14px;

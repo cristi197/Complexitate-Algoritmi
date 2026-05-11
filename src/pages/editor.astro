@@ -219,7 +219,7 @@ int main() {
     </div>
 
     <div class="editor-layout">
-      <!-- Panoul stâng: cod + stdin -->
+      <!-- Panoul stâng: templates -->
       <div class="editor-panel editor-panel--left">
         <div class="editor-toolbar">
           <label for="templateSelect" class="editor-label">📁 Template:</label>
@@ -229,39 +229,30 @@ int main() {
           <button id="btnCopy" class="editor-btn editor-btn--secondary" title="Copiază codul">
             📋 Copiază
           </button>
-          <button id="btnClear" class="editor-btn editor-btn--secondary" title="Șterge tot">
-            🗑️ Șterge
-          </button>
         </div>
 
-        <label class="editor-label">📝 Cod C++</label>
+        <label class="editor-label">📝 Cod C++ (editează, apoi copiază în editor →)</label>
         <textarea id="codeArea" class="editor-textarea editor-textarea--code" spellcheck="false"></textarea>
 
-        <label class="editor-label" style="margin-top:12px;">📥 Date de intrare (stdin)</label>
-        <textarea id="stdinArea" class="editor-textarea editor-textarea--stdin" placeholder="Introduceți datele de intrare (opțional)..." spellcheck="false"></textarea>
-
-        <div class="editor-actions">
-          <button id="btnRun" class="editor-btn editor-btn--run">
-            ▶ Rulează
-          </button>
-          <span id="runStatus" class="editor-status"></span>
-        </div>
-
         <div class="editor-disclaimer">
-          <strong>ℹ️ Notă:</strong> Codul rulează pe serverele publice <a href="https://github.com/engineer-man/piston" target="_blank" rel="noopener noreferrer">Piston</a> (engineer-man/piston). Nu trimite informații personale sau cod sensibil. Timp maxim execuție: ~10 secunde.
+          <strong>💡 Cum folosești:</strong> Alege un template din lista de mai sus, editează codul, apoi copiază-l (📋) și lipește-l în editorul din dreapta. Apasă <strong>Run</strong> în editor pentru a executa.
         </div>
       </div>
 
-      <!-- Panoul drept: output -->
+      <!-- Panoul drept: OneCompiler iframe -->
       <div class="editor-panel editor-panel--right">
-        <label class="editor-label">📤 Rezultat (stdout + stderr)</label>
-        <div id="outputArea" class="editor-output">
-          <span class="editor-output__placeholder">Apasă „▶ Rulează" pentru a executa codul...</span>
-        </div>
-
-        <div id="execInfo" class="editor-exec-info" style="display:none;">
-          <span id="execTime"></span>
-          <span id="execCode"></span>
+        <label class="editor-label">▶️ Editor & Execuție (OneCompiler)</label>
+        <div class="editor-iframe-wrap">
+          <iframe
+            id="compilerFrame"
+            src="https://onecompiler.com/embed/cpp?theme=dark&hideTitle=true&hideNew=true&listenToEvents=true&codeChangeEvent=true"
+            width="100%"
+            height="100%"
+            style="border:none;display:block;border-radius:10px;"
+            title="Editor C++ online — OneCompiler"
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -355,22 +346,18 @@ int main() {
       resize: vertical;
       box-sizing: border-box;
       tab-size: 4;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
     }
     .editor-textarea--code { height: 380px; }
-    .editor-textarea--stdin { height: 80px; }
     .editor-textarea:focus { outline: 2px solid #3b82f6; }
 
-    .editor-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 4px;
-    }
-
-    .editor-status {
-      font-size: 13px;
-      color: var(--color-text-muted, #888);
-      font-style: italic;
+    .editor-iframe-wrap {
+      flex: 1;
+      min-height: 520px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1.5px solid var(--color-border, #334155);
     }
 
     .editor-disclaimer {
@@ -383,35 +370,6 @@ int main() {
       margin-top: 8px;
     }
     .editor-disclaimer a { color: #60a5fa; }
-
-    .editor-output {
-      flex: 1;
-      min-height: 400px;
-      background: #0d1117;
-      color: #e6edf3;
-      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-      font-size: 13px;
-      line-height: 1.6;
-      border-radius: 10px;
-      border: 1.5px solid var(--color-border, #334155);
-      padding: 14px;
-      white-space: pre-wrap;
-      word-break: break-word;
-      overflow-y: auto;
-    }
-    .editor-output--error { border-color: #ef4444; }
-    .editor-output--success { border-color: #22c55e; }
-    .editor-output__placeholder { color: #4b5563; font-style: italic; }
-
-    .editor-exec-info {
-      display: flex;
-      gap: 16px;
-      font-size: 12px;
-      color: var(--color-text-muted, #64748b);
-      margin-top: 6px;
-    }
-    #execTime::before { content: "⏱ Timp: "; }
-    #execCode::before { content: "🔢 Exit code: "; }
   </style>
 
   <script id="editor-templates-data" type="application/json" set:html={JSON.stringify(templates)}></script>
@@ -419,17 +377,9 @@ int main() {
   (function() {
     var templates = JSON.parse(document.getElementById('editor-templates-data').textContent);
 
-    var codeArea   = document.getElementById('codeArea');
-    var stdinArea  = document.getElementById('stdinArea');
-    var outputArea = document.getElementById('outputArea');
-    var btnRun     = document.getElementById('btnRun');
-    var btnCopy    = document.getElementById('btnCopy');
-    var btnClear   = document.getElementById('btnClear');
-    var runStatus  = document.getElementById('runStatus');
-    var execInfo   = document.getElementById('execInfo');
-    var execTime   = document.getElementById('execTime');
-    var execCode   = document.getElementById('execCode');
-    var tplSelect  = document.getElementById('templateSelect');
+    var codeArea  = document.getElementById('codeArea');
+    var btnCopy   = document.getElementById('btnCopy');
+    var tplSelect = document.getElementById('templateSelect');
 
     // Load template 0 by default
     function loadTemplate(idx) {
@@ -448,13 +398,6 @@ int main() {
       });
     });
 
-    btnClear.addEventListener('click', function() {
-      if (confirm('Ștergi tot codul din editor?')) {
-        codeArea.value = '';
-        stdinArea.value = '';
-      }
-    });
-
     // Tab key inserts spaces
     codeArea.addEventListener('keydown', function(e) {
       if (e.key === 'Tab') {
@@ -464,79 +407,6 @@ int main() {
         codeArea.value = codeArea.value.substring(0, start) + '    ' + codeArea.value.substring(end);
         codeArea.selectionStart = codeArea.selectionEnd = start + 4;
       }
-    });
-
-    btnRun.addEventListener('click', function() {
-      var code  = codeArea.value.trim();
-      var stdin = stdinArea.value;
-      if (!code) { alert('Introduceți cod C++ înainte de rulare.'); return; }
-
-      btnRun.disabled = true;
-      runStatus.textContent = 'Se compilează și execută...';
-      outputArea.className = 'editor-output';
-      outputArea.innerHTML = '<span class="editor-output__placeholder">⏳ Execuție în curs...</span>';
-      execInfo.style.display = 'none';
-
-      fetch('https://wandbox.org/api/compile', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          compiler: 'gcc-head',
-          code: code,
-          options: 'warning,c++17',
-          stdin: stdin,
-          'compiler-option-raw': '-O2'
-        })
-      })
-      .then(function(res) {
-        if (res.status === 429) {
-          throw new Error('Prea multe cereri. Așteaptă câteva secunde și încearcă din nou (HTTP 429).');
-        }
-        if (res.status >= 500) {
-          throw new Error('Serverul de execuție este temporar indisponibil (HTTP ' + res.status + '). Încearcă din nou mai târziu.');
-        }
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function(data) {
-        var out = '';
-        var hasError = false;
-
-        if (data.compiler_error && data.compiler_error.trim()) {
-          out += '⚠️ EROARE COMPILARE:\n' + data.compiler_error + '\n';
-          hasError = true;
-        }
-
-        if (data.program_output && data.program_output.trim()) {
-          out += data.program_output;
-        }
-        if (data.program_error && data.program_error.trim()) {
-          out += '\n⚠️ STDERR:\n' + data.program_error;
-          hasError = true;
-        }
-        if (data.signal) {
-          out += '\n⚠️ Semnal: ' + data.signal;
-          hasError = true;
-        }
-
-        var exitCode = data.status !== undefined ? data.status : '—';
-        execCode.textContent = exitCode;
-        execTime.textContent = 'N/A';
-        execInfo.style.display = 'flex';
-
-        if (!out.trim()) out = '(fără output)';
-        outputArea.textContent = out;
-        outputArea.classList.add(hasError ? 'editor-output--error' : 'editor-output--success');
-        runStatus.textContent = hasError ? '❌ Eroare' : '✅ Rulat cu succes';
-      })
-      .catch(function(err) {
-        outputArea.textContent = '❌ Nu s-a putut conecta la serverul de execuție.\nVerifică conexiunea la internet.\n\nDetalii: ' + err.message;
-        outputArea.classList.add('editor-output--error');
-        runStatus.textContent = '❌ Conexiune eșuată';
-      })
-      .finally(function() {
-        btnRun.disabled = false;
-      });
     });
   })();
   </script>

@@ -208,9 +208,9 @@ const chapterLinks = [
       border: 1px solid transparent;
     }
     .cal-day--empty { background: transparent; }
-    .cal-day--studied { background: linear-gradient(135deg,#0369a1,#0ea5e9); color: #fff; font-weight: 700; }
-    .cal-day--today { border: 2px solid #f59e0b; color: #f59e0b; font-weight: 700; }
-    .cal-day--today.cal-day--studied { border-color: #f59e0b; color: #fff; }
+    .cal-day--studied { background: linear-gradient(135deg,#0369a1,#0ea5e9); color: #fff; font-weight: 700; box-shadow: 0 2px 8px rgba(14,165,233,0.3); }
+    .cal-day--today { border: 2.5px solid #f59e0b; color: #f59e0b; font-weight: 800; background: rgba(245,158,11,0.08); }
+    .cal-day--today.cal-day--studied { border-color: #f59e0b; color: #fff; box-shadow: 0 0 0 2px rgba(245,158,11,0.3), 0 2px 8px rgba(14,165,233,0.3); }
     .cal-day--future { opacity: .3; }
     .cal-day:not(.cal-day--empty):hover { transform: scale(1.1); z-index: 1; }
 
@@ -296,7 +296,9 @@ const chapterLinks = [
   <script is:inline>
   (function() {
     var STORAGE_KEY = 'infoStudyDays';
-    var today = new Date().toISOString().slice(0, 10);
+    // Use local date (not UTC) to match calendar rendering
+    var now = new Date();
+    var today = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
 
     var currentViewDate = new Date();
     currentViewDate.setDate(1);
@@ -323,9 +325,9 @@ const chapterLinks = [
       if (!days.length) return 0;
       var sorted = days.slice().sort();
       var streak = 0;
-      var d = new Date(today);
+      var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
       while (true) {
-        var ds = d.toISOString().slice(0, 10);
+        var ds = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
         if (sorted.includes(ds)) {
           streak++;
           d.setDate(d.getDate() - 1);
@@ -341,8 +343,10 @@ const chapterLinks = [
       var sorted = days.slice().sort();
       var best = 1, cur = 1;
       for (var i = 1; i < sorted.length; i++) {
-        var prev = new Date(sorted[i-1]);
-        var curr = new Date(sorted[i]);
+        var prevParts = sorted[i-1].split('-');
+        var currParts = sorted[i].split('-');
+        var prev = new Date(parseInt(prevParts[0]), parseInt(prevParts[1])-1, parseInt(prevParts[2]));
+        var curr = new Date(parseInt(currParts[0]), parseInt(currParts[1])-1, parseInt(currParts[2]));
         var diff = (curr - prev) / 86400000;
         if (diff === 1) { cur++; if (cur > best) best = cur; }
         else if (diff > 1) cur = 1;

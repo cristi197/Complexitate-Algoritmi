@@ -141,7 +141,7 @@ const base = import.meta.env.BASE_URL;
                 <tr><td>double</td><td>8 bytes</td><td>~15 cifre semnificative</td></tr>
                 <tr><td>char</td><td>1 byte</td><td>−128 … 127</td></tr>
                 <tr><td>bool</td><td>1 byte</td><td>true (1) / false (0)</td></tr>
-                <tr><td>string</td><td>variabil</td><td>şir de caractere STL</td></tr>
+                <tr><td>char[]</td><td>n bytes</td><td>şir de caractere C (BAC)</td></tr>
               </tbody>
             </table>
           </div>
@@ -368,25 +368,6 @@ fin.close(); fout.close();</pre>
                 <tr><td>abs(x)</td><td>Valoarea absolută</td></tr>
                 <tr><td>sqrt(x)</td><td>Rădăcina pătrată (double)</td></tr>
                 <tr><td>pow(b, e)</td><td>b la puterea e (double)</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="sheet-card">
-          <div class="sheet-card-header"><span>🔤</span><h2>Operații pe string</h2></div>
-          <div class="sheet-card-body">
-            <table>
-              <thead><tr><th>Operație</th><th>Efect</th></tr></thead>
-              <tbody>
-                <tr><td>s.length()</td><td>Lungimea șirului</td></tr>
-                <tr><td>s.size()</td><td>Identic cu length()</td></tr>
-                <tr><td>s[i]</td><td>Caracterul de la indicele i</td></tr>
-                <tr><td>s.substr(p, l)</td><td>Subsecv. de la p, lungime l</td></tr>
-                <tr><td>s.find("abc")</td><td>Prima apariție sau string::npos</td></tr>
-                <tr><td>s + t</td><td>Concatenare</td></tr>
-                <tr><td>s == t</td><td>Egalitate</td></tr>
-                <tr><td>getline(cin, s)</td><td>Citire cu spații</td></tr>
               </tbody>
             </table>
           </div>

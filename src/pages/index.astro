@@ -109,8 +109,8 @@ const categories = [
     <a href={`${base}/examen-alb`} class="ix-tool-card">
       <span class="ix-tool-icon" aria-hidden="true">⏱️</span>
       <div>
-        <strong>Examen Alb 3h</strong>
-        <p>Simulează condițiile reale de bacalaureat cu timer de 3 ore</p>
+        <strong>Examen Alb</strong>
+        <p>Simulează condițiile reale de bacalaureat — examen complet 3h sau practică rapidă 30 min</p>
       </div>
     </a>
     <a href={`${base}/cheat-sheet`} class="ix-tool-card">
@@ -323,22 +323,25 @@ const categories = [
 
     /* ── Tools strip ───────────────────────────────────────────── */
     .ix-tools {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
       display: grid; grid-template-columns: repeat(3, 1fr);
-      margin-top: 0;
+      gap: 14px;
+      max-width: 1080px;
+      margin: 8px auto 0;
+      padding: 0 24px;
     }
     .ix-tool-card {
       display: flex; align-items: center; gap: 16px;
-      padding: 22px 28px; text-decoration: none; color: inherit;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background var(--transition);
+      padding: 20px 22px; text-decoration: none; color: inherit;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
     }
-    .ix-tool-card:nth-child(3n) { border-right: none; }
-    .ix-tool-card:nth-last-child(-n+3) { border-bottom: none; }
-    .ix-tool-card:hover { background: var(--surface2); }
+    .ix-tool-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(99,102,241,0.11);
+    }
     .ix-tool-icon { font-size: 22px; flex-shrink: 0; }
     .ix-tool-card strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .ix-tool-card p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.45; }
@@ -348,9 +351,7 @@ const categories = [
       .ix-hero { padding: calc(var(--header-h) + 48px) 20px 48px; }
       .ix-title { letter-spacing: -1.5px; }
       .ix-main { padding: 44px 16px 16px; gap: 40px; }
-      .ix-tools { grid-template-columns: 1fr; }
-      .ix-tool-card { border-right: none !important; border-bottom: 1px solid var(--border); }
-      .ix-tool-card:last-child { border-bottom: none; }
+      .ix-tools { grid-template-columns: 1fr; padding: 0 16px; gap: 10px; }
       .ix-toolbar { gap: 4px; padding: 10px 16px; }
       .ix-toolbar-btn { padding: 6px 10px; font-size: 11px; }
     }
