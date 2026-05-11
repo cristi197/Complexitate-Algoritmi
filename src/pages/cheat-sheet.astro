@@ -414,6 +414,70 @@ fin.close(); fout.close();</pre>
         </div>
       </div>
 
+      <div class="section-title">🕸️ Teoria Grafurilor — Formule</div>
+      <div class="sheet-grid">
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>📐</span><h2>Formule grafuri neorientate</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Formula</th><th>Descriere</th></tr></thead>
+              <tbody>
+                <tr><td>∑d(v) = 2m</td><td>Suma gradelor = 2×muchii</td></tr>
+                <tr><td>m ≤ n(n−1)/2</td><td>Maxim muchii (graf simplu)</td></tr>
+                <tr><td>K<sub>n</sub>: m = n(n−1)/2</td><td>Muchii graf complet</td></tr>
+                <tr><td>Arbore: m = n−1</td><td>Graf conex aciclic</td></tr>
+                <tr><td>Componente: n−m</td><td>Nr. componente (pădure)</td></tr>
+                <tr><td>Eulerian: grad par∀v</td><td>Ciclu prin toate muchiile</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🔀</span><h2>Formule grafuri orientate</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Formula</th><th>Descriere</th></tr></thead>
+              <tbody>
+                <tr><td>∑d⁺(v) = ∑d⁻(v) = m</td><td>Suma gradelor = nr. arce</td></tr>
+                <tr><td>m ≤ n(n−1)</td><td>Maxim arce (orientat)</td></tr>
+                <tr><td>d⁺(v) + d⁻(v) = d(v)</td><td>Grad total nod</td></tr>
+                <tr><td>Tare conex: ∀u,v drum</td><td>Drum u→v ȘI v→u</td></tr>
+              </tbody>
+            </table>
+            <pre style="margin-top:10px;"><span class="cm">// BFS — distanță minimă:</span>
+queue&lt;<span class="kw">int</span>&gt; Q;
+Q.push(start);
+viz[start]=<span class="nu">1</span>;
+<span class="kw">while</span>(!Q.empty()) &#123;
+  <span class="kw">int</span> x=Q.front(); Q.pop();
+  <span class="kw">for</span>(<span class="kw">int</span> v:adj[x])
+    <span class="kw">if</span>(!viz[v]) &#123;
+      viz[v]=<span class="nu">1</span>; d[v]=d[x]+<span class="nu">1</span>;
+      Q.push(v); &#125;
+&#125;</pre>
+          </div>
+        </div>
+
+        <div class="sheet-card">
+          <div class="sheet-card-header"><span>🌳</span><h2>Grafuri speciale</h2></div>
+          <div class="sheet-card-body">
+            <table>
+              <thead><tr><th>Tip</th><th>Proprietate cheie</th></tr></thead>
+              <tbody>
+                <tr><td>K<sub>n</sub> (complet)</td><td>m=n(n−1)/2, grad n−1</td></tr>
+                <tr><td>Arbore</td><td>Conex + m=n−1</td></tr>
+                <tr><td>Bipartit</td><td>Fără cicluri impare</td></tr>
+                <tr><td>Eulerian</td><td>Conex + grade pare</td></tr>
+                <tr><td>Hamiltonian</td><td>Dirac: d(v)≥n/2</td></tr>
+                <tr><td>Subgraf</td><td>Elimini noduri (+muchii)</td></tr>
+                <tr><td>Graf parțial</td><td>Elimini doar muchii</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
       <div style="margin-top:40px;padding:20px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);text-align:center;" class="no-print">
         <p style="margin:0 0 14px;font-size:.95rem;font-weight:600;">Explorează mai mult</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">

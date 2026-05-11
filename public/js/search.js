@@ -15,6 +15,7 @@ var SEARCH_INDEX = [
   { title: 'Programare Dinamică',         subtitle: 'Memoizare, DP tabelar, LIS',            url: 'programare-dinamica', icon: '🧮' },
   { title: 'Structuri (struct)',           subtitle: 'Tipuri definite, array de structuri',    url: 'structuri',  icon: '🗂️' },
   { title: 'Pointeri & Alocare Dinamică', subtitle: 'new/delete, aritmetică pointeri',        url: 'pointeri',   icon: '🔗' },
+  { title: 'Teoria Grafurilor',           subtitle: 'BFS, DFS, componente conexe, formule',   url: 'grafuri',    icon: '🕸️' },
   { title: 'Exerciții & Filtrare',        subtitle: 'Quiz-uri BAC pe capitol și dificultate', url: 'exercitii', icon: '📝', isPage: true },
   { title: 'Analiză BAC cu AI',           subtitle: 'Analizează subiectul tău cu AI',        url: 'analiza-bac', icon: '🤖', isPage: true },
   { title: 'Simulator Trasare',           subtitle: 'Urmărește pas cu pas execuția unui algoritm', url: 'trasare', icon: '🔍', isPage: true },
