@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL;
           Toate subiectele și baremele de la bacalaureat, profil Matematică-Informatică,
           limbajul C/C++ — din 2010 până în prezent. Descarcă direct din aplicație.
         </p>
-        <div class="sb-stats" id="sb-stats">
+        <div class="sb-stats">
           <div class="sb-stat-pill">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
             <strong id="stat-years">17</strong> ani
@@ -43,43 +43,48 @@ const base = import.meta.env.BASE_URL;
 
       <div class="sb-wrapper">
 
-        <!-- Controls -->
-        <div class="sb-controls">
-          <div class="sb-filters" id="type-filters">
-            <button class="sb-chip active" data-filter="all">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg>
-              Toate
-            </button>
-            <button class="sb-chip" data-filter="iunie">
-              <span class="sb-chip-dot" style="background:#16a34a"></span>
-              Iunie
-            </button>
-            <button class="sb-chip" data-filter="august">
-              <span class="sb-chip-dot" style="background:#d97706"></span>
-              August
-            </button>
-            <button class="sb-chip" data-filter="speciala">
-              <span class="sb-chip-dot" style="background:#6366f1"></span>
-              Specială
-            </button>
-            <button class="sb-chip" data-filter="simulare">
-              <span class="sb-chip-dot" style="background:#db2777"></span>
-              Simulare
-            </button>
-            <button class="sb-chip" data-filter="model">
-              <span class="sb-chip-dot" style="background:#7c3aed"></span>
-              Model
-            </button>
+        <!-- Filters card -->
+        <div class="sb-filters-card">
+          <div class="sb-filters-header">
+            <span>⚙️</span>
+            <h2>Filtrează subiecte</h2>
           </div>
-          <button class="sb-sort-btn" id="sort-btn" title="Schimbă ordinea">
-            <svg id="sort-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-            <span id="sort-label">Cel mai recent</span>
-          </button>
+          <div class="sb-filters-body">
+
+            <!-- Type filter -->
+            <div class="sb-filter-group">
+              <div class="sb-filter-label">📋 Tip sesiune</div>
+              <div class="sb-chips" id="type-filters">
+                <button class="sb-chip active" data-filter="all">Toate</button>
+                <button class="sb-chip sb-chip-iunie" data-filter="iunie">☀️ Iunie</button>
+                <button class="sb-chip sb-chip-august" data-filter="august">🍂 August</button>
+                <button class="sb-chip sb-chip-speciala" data-filter="speciala">⭐ Specială</button>
+                <button class="sb-chip sb-chip-simulare" data-filter="simulare">📝 Simulare</button>
+                <button class="sb-chip sb-chip-model" data-filter="model">📋 Model</button>
+              </div>
+            </div>
+
+            <!-- Year filter -->
+            <div class="sb-filter-group">
+              <div class="sb-filter-label">📅 An</div>
+              <div class="sb-chips" id="year-filters">
+                <button class="sb-chip active" data-year="all">Toți anii</button>
+                <!-- populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Sort -->
+            <div class="sb-filter-group">
+              <div class="sb-filter-label">🔃 Ordine</div>
+              <div class="sb-chips">
+                <button class="sb-chip active" id="sort-btn" data-dir="desc">↓ Cel mai recent</button>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Year list -->
+        <!-- Results -->
         <div class="sb-list" id="bac-list">
           <div class="sb-loading">
             <div class="sb-spinner"></div>
@@ -93,7 +98,7 @@ const base = import.meta.env.BASE_URL;
 
   <Footer />
 
-  <style>
+  <style is:inline>
     /* ─── Hero ─── */
     .sb-hero {
       background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
@@ -137,47 +142,58 @@ const base = import.meta.env.BASE_URL;
       padding: 24px 20px 60px;
     }
 
-    /* ─── Controls ─── */
-    .sb-controls {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 12px; flex-wrap: wrap; margin-bottom: 24px;
+    /* ─── Filters card ─── */
+    .sb-filters-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      overflow: hidden;
     }
-    .sb-filters {
-      display: flex; gap: 6px; flex-wrap: wrap;
+    .sb-filters-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 22px 0;
     }
+    .sb-filters-header span { font-size: 1.1rem; }
+    .sb-filters-header h2 {
+      font-size: 0.95rem; font-weight: 800;
+      color: var(--text); margin: 0;
+    }
+    .sb-filters-body { padding: 16px 22px 22px; }
+    .sb-filter-group { margin-bottom: 16px; }
+    .sb-filter-group:last-child { margin-bottom: 0; }
+    .sb-filter-label {
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 8px;
+    }
+    .sb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
     .sb-chip {
-      display: inline-flex; align-items: center; gap: 5px;
       padding: 6px 14px; border-radius: 999px;
-      border: 1.5px solid var(--border); background: var(--surface);
-      color: var(--text-muted); font-size: 0.82rem; font-weight: 600;
-      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+      border: 1.5px solid var(--border); background: transparent;
+      color: var(--text-muted); font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all var(--transition);
+      white-space: nowrap; font-family: inherit;
     }
     .sb-chip:hover { border-color: var(--primary); color: var(--primary); }
     .sb-chip.active {
       background: var(--primary); color: #fff;
       border-color: var(--primary);
     }
-    .sb-chip.active svg { stroke: #fff; }
-    .sb-chip-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-    }
-    .sb-chip.active .sb-chip-dot { background: #fff !important; }
-    .sb-sort-btn {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 6px 14px; border-radius: 999px;
-      border: 1.5px solid var(--border); background: var(--surface);
-      color: var(--text-muted); font-size: 0.82rem; font-weight: 600;
-      cursor: pointer; transition: all var(--transition); white-space: nowrap;
-    }
-    .sb-sort-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .sb-sort-btn svg { transition: transform var(--transition); }
+    /* Type-specific active colors */
+    .sb-chip-iunie.active   { background: #16a34a; border-color: #16a34a; }
+    .sb-chip-august.active  { background: #d97706; border-color: #d97706; }
+    .sb-chip-speciala.active { background: #6366f1; border-color: #6366f1; }
+    .sb-chip-simulare.active { background: #db2777; border-color: #db2777; }
+    .sb-chip-model.active   { background: #7c3aed; border-color: #7c3aed; }
 
     /* ─── Year group ─── */
     .sb-year-group { margin-bottom: 28px; }
     .sb-year-head {
       display: flex; align-items: center; gap: 14px;
       margin-bottom: 12px; position: sticky;
-      top: var(--header-h, 60px); z-index: 5;
+      top: 60px; z-index: 5;
       background: var(--bg); padding: 6px 0;
     }
     .sb-year-tag {
@@ -197,8 +213,7 @@ const base = import.meta.env.BASE_URL;
     .sb-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0;
+      border-radius: var(--radius, 14px);
       margin-bottom: 10px;
       overflow: hidden;
       transition: border-color var(--transition), box-shadow var(--transition);
@@ -208,56 +223,59 @@ const base = import.meta.env.BASE_URL;
       box-shadow: 0 4px 20px rgba(99,102,241,.08);
     }
     .sb-card-top {
-      display: flex; align-items: center; gap: 10px;
-      padding: 14px 18px; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px;
     }
     .sb-card-icon {
-      width: 36px; height: 36px; border-radius: 10px;
+      width: 38px; height: 38px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
+      font-size: 1.05rem; flex-shrink: 0;
     }
-    .sb-card-icon[data-type="iunie"]     { background: #dcfce7; }
-    .sb-card-icon[data-type="august"]    { background: #fef3c7; }
-    .sb-card-icon[data-type="speciala"]  { background: #e0e7ff; }
-    .sb-card-icon[data-type="simulare"]  { background: #fce7f3; }
-    .sb-card-icon[data-type="model"]     { background: #f3e8ff; }
-    .sb-card-icon[data-type="antrenament"] { background: #ffedd5; }
-    :global([data-theme="dark"]) .sb-card-icon[data-type="iunie"]     { background: rgba(22,163,74,.15); }
-    :global([data-theme="dark"]) .sb-card-icon[data-type="august"]    { background: rgba(217,119,6,.15); }
-    :global([data-theme="dark"]) .sb-card-icon[data-type="speciala"]  { background: rgba(99,102,241,.15); }
-    :global([data-theme="dark"]) .sb-card-icon[data-type="simulare"]  { background: rgba(219,39,119,.15); }
-    :global([data-theme="dark"]) .sb-card-icon[data-type="model"]     { background: rgba(124,58,237,.15); }
-    :global([data-theme="dark"]) .sb-card-icon[data-type="antrenament"] { background: rgba(234,88,12,.15); }
+    /* Icon backgrounds — light */
+    .sb-icon-iunie     { background: #dcfce7; }
+    .sb-icon-august    { background: #fef3c7; }
+    .sb-icon-speciala  { background: #e0e7ff; }
+    .sb-icon-simulare  { background: #fce7f3; }
+    .sb-icon-model     { background: #f3e8ff; }
+    .sb-icon-antrenament { background: #ffedd5; }
+    /* Icon backgrounds — dark */
+    [data-theme="dark"] .sb-icon-iunie     { background: rgba(22,163,74,.15); }
+    [data-theme="dark"] .sb-icon-august    { background: rgba(217,119,6,.15); }
+    [data-theme="dark"] .sb-icon-speciala  { background: rgba(99,102,241,.15); }
+    [data-theme="dark"] .sb-icon-simulare  { background: rgba(219,39,119,.15); }
+    [data-theme="dark"] .sb-icon-model     { background: rgba(124,58,237,.15); }
+    [data-theme="dark"] .sb-icon-antrenament { background: rgba(234,88,12,.15); }
+
     .sb-card-info { flex: 1; min-width: 0; }
     .sb-card-name {
       font-weight: 700; font-size: 0.95rem; color: var(--text);
-      margin-bottom: 2px;
+      margin: 0 0 2px; line-height: 1.3;
     }
-    .sb-card-date {
-      font-size: 0.78rem; color: var(--text-faint);
-    }
+    .sb-card-date { font-size: 0.78rem; color: var(--text-faint); }
+
+    /* Type badge */
     .sb-badge {
       font-size: 0.68rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.5px;
       padding: 3px 10px; border-radius: 6px;
-      white-space: nowrap;
+      white-space: nowrap; flex-shrink: 0;
     }
-    .sb-badge[data-type="iunie"]     { background: #dcfce7; color: #166534; }
-    .sb-badge[data-type="august"]    { background: #fef3c7; color: #92400e; }
-    .sb-badge[data-type="speciala"]  { background: #e0e7ff; color: #3730a3; }
-    .sb-badge[data-type="simulare"]  { background: #fce7f3; color: #9d174d; }
-    .sb-badge[data-type="model"]     { background: #f3e8ff; color: #6b21a8; }
-    .sb-badge[data-type="antrenament"] { background: #ffedd5; color: #9a3412; }
-    :global([data-theme="dark"]) .sb-badge[data-type="iunie"]     { background: #052e16; color: #86efac; }
-    :global([data-theme="dark"]) .sb-badge[data-type="august"]    { background: #451a03; color: #fde68a; }
-    :global([data-theme="dark"]) .sb-badge[data-type="speciala"]  { background: #1e1b4b; color: #a5b4fc; }
-    :global([data-theme="dark"]) .sb-badge[data-type="simulare"]  { background: #500724; color: #f9a8d4; }
-    :global([data-theme="dark"]) .sb-badge[data-type="model"]     { background: #2e1065; color: #d8b4fe; }
-    :global([data-theme="dark"]) .sb-badge[data-type="antrenament"] { background: #431407; color: #fdba74; }
+    .sb-badge-iunie     { background: #dcfce7; color: #166534; }
+    .sb-badge-august    { background: #fef3c7; color: #92400e; }
+    .sb-badge-speciala  { background: #e0e7ff; color: #3730a3; }
+    .sb-badge-simulare  { background: #fce7f3; color: #9d174d; }
+    .sb-badge-model     { background: #f3e8ff; color: #6b21a8; }
+    .sb-badge-antrenament { background: #ffedd5; color: #9a3412; }
+    [data-theme="dark"] .sb-badge-iunie     { background: #052e16; color: #86efac; }
+    [data-theme="dark"] .sb-badge-august    { background: #451a03; color: #fde68a; }
+    [data-theme="dark"] .sb-badge-speciala  { background: #1e1b4b; color: #a5b4fc; }
+    [data-theme="dark"] .sb-badge-simulare  { background: #500724; color: #f9a8d4; }
+    [data-theme="dark"] .sb-badge-model     { background: #2e1065; color: #d8b4fe; }
+    [data-theme="dark"] .sb-badge-antrenament { background: #431407; color: #fdba74; }
 
     /* Action bar */
     .sb-card-actions {
-      display: flex; gap: 0;
+      display: flex;
       border-top: 1px solid var(--border);
     }
     .sb-action {
@@ -266,15 +284,13 @@ const base = import.meta.env.BASE_URL;
       font-size: 0.82rem; font-weight: 600;
       text-decoration: none; transition: all var(--transition);
       cursor: pointer; border: none; background: none;
+      font-family: inherit; color: var(--text-muted);
     }
-    .sb-action + .sb-action {
-      border-left: 1px solid var(--border);
-    }
+    .sb-action + .sb-action { border-left: 1px solid var(--border); }
     .sb-action-subiect { color: var(--primary); }
     .sb-action-subiect:hover { background: var(--primary-dim); }
-    .sb-action-barem { color: var(--text-muted); }
     .sb-action-barem:hover { background: rgba(0,0,0,.03); color: var(--text); }
-    :global([data-theme="dark"]) .sb-action-barem:hover { background: rgba(255,255,255,.05); }
+    [data-theme="dark"] .sb-action-barem:hover { background: rgba(255,255,255,.05); color: var(--text); }
     .sb-action-external { color: #d97706; }
     .sb-action-external:hover { background: rgba(217,119,6,.08); }
     .sb-action svg { flex-shrink: 0; }
@@ -285,17 +301,13 @@ const base = import.meta.env.BASE_URL;
       text-transform: uppercase; letter-spacing: 0.5px;
       padding: 6px 18px 0; margin: 0;
     }
-    .sb-extra-actions { display: flex; gap: 0; }
-    .sb-extra-actions .sb-action { border-top: none; }
 
     /* ─── Empty ─── */
     .sb-empty {
       text-align: center; padding: 48px 20px; color: var(--text-faint);
     }
-    .sb-empty svg {
-      width: 48px; height: 48px; stroke: var(--text-faint); margin-bottom: 12px;
-    }
-    .sb-empty p { font-size: 0.9rem; }
+    .sb-empty-icon { font-size: 2.4rem; margin-bottom: 8px; }
+    .sb-empty p { font-size: 0.9rem; margin: 0; }
 
     /* ─── Loading ─── */
     .sb-loading {
@@ -309,7 +321,7 @@ const base = import.meta.env.BASE_URL;
       animation: sb-spin .8s linear infinite;
     }
     @keyframes sb-spin { to { transform: rotate(360deg); } }
-    .sb-loading p { color: var(--text-faint); font-size: 0.85rem; }
+    .sb-loading p { color: var(--text-faint); font-size: 0.85rem; margin: 0; }
 
     /* ─── Source footer ─── */
     .sb-source {
@@ -318,9 +330,7 @@ const base = import.meta.env.BASE_URL;
       border: 1px solid var(--border); border-radius: 12px;
       font-size: 0.8rem; color: var(--text-faint);
     }
-    .sb-source a {
-      color: var(--primary); font-weight: 600; text-decoration: none;
-    }
+    .sb-source a { color: var(--primary); font-weight: 600; text-decoration: none; }
     .sb-source a:hover { text-decoration: underline; }
 
     /* ─── Responsive ─── */
@@ -328,9 +338,7 @@ const base = import.meta.env.BASE_URL;
       .sb-hero { padding: 24px 16px 28px; }
       .sb-hero h1 { font-size: 1.3rem; }
       .sb-wrapper { padding: 16px 12px 40px; }
-      .sb-controls { flex-direction: column; align-items: stretch; }
-      .sb-filters { justify-content: center; }
-      .sb-sort-btn { align-self: center; }
+      .sb-filters-body { padding: 14px 16px 16px; }
       .sb-card-top { padding: 12px 14px; }
       .sb-action { font-size: 0.78rem; padding: 10px 8px; }
     }
@@ -338,7 +346,8 @@ const base = import.meta.env.BASE_URL;
 
   <script define:vars={{ base }}>
     let bacData = [];
-    let currentFilter = 'all';
+    let currentType = 'all';
+    let currentYear = 'all';
     let sortDesc = true;
 
     const typeIcons = {
@@ -354,12 +363,23 @@ const base = import.meta.env.BASE_URL;
       try {
         const res = await fetch(`${base}/data/subiecte-bac.json`);
         bacData = await res.json();
+        buildYearChips();
         updateStats();
         render();
       } catch(e) {
         document.getElementById('bac-list').innerHTML =
-          '<div class="sb-empty"><p>Eroare la încărcarea datelor.</p></div>';
+          '<div class="sb-empty"><div class="sb-empty-icon">😕</div><p>Eroare la încărcarea datelor.</p></div>';
       }
+    }
+
+    function buildYearChips() {
+      const container = document.getElementById('year-filters');
+      const years = bacData.map(y => y.year).sort((a, b) => b - a);
+      let html = '<button class="sb-chip active" data-year="all">Toți anii</button>';
+      years.forEach(y => {
+        html += `<button class="sb-chip" data-year="${y}">${y}</button>`;
+      });
+      container.innerHTML = html;
     }
 
     function updateStats() {
@@ -380,115 +400,131 @@ const base = import.meta.env.BASE_URL;
 
     function render() {
       const container = document.getElementById('bac-list');
-      const sorted = [...bacData].sort((a, b) => sortDesc ? b.year - a.year : a.year - b.year);
+
+      let filtered = [...bacData];
+      if (currentYear !== 'all') {
+        filtered = filtered.filter(y => y.year === parseInt(currentYear));
+      }
+      filtered.sort((a, b) => sortDesc ? b.year - a.year : a.year - b.year);
+
       let html = '';
 
-      sorted.forEach(yearData => {
-        const sessions = currentFilter === 'all'
+      filtered.forEach(yearData => {
+        const sessions = currentType === 'all'
           ? yearData.sessions
-          : yearData.sessions.filter(s => s.type === currentFilter);
+          : yearData.sessions.filter(s => s.type === currentType);
         if (sessions.length === 0) return;
 
-        html += `<div class="sb-year-group">`;
-        html += `<div class="sb-year-head">`;
-        html += `  <span class="sb-year-tag">${yearData.year}</span>`;
-        html += `  <span class="sb-year-line"></span>`;
-        html += `  <span class="sb-year-count">${sessions.length} ${sessions.length === 1 ? 'sesiune' : 'sesiuni'}</span>`;
-        html += `</div>`;
+        html += '<div class="sb-year-group">';
+        html += '<div class="sb-year-head">';
+        html += '  <span class="sb-year-tag">' + yearData.year + '</span>';
+        html += '  <span class="sb-year-line"></span>';
+        html += '  <span class="sb-year-count">' + sessions.length + (sessions.length === 1 ? ' sesiune' : ' sesiuni') + '</span>';
+        html += '</div>';
 
-        sessions.forEach(session => {
-          const icon = typeIcons[session.type] || '📄';
-          const label = typeLabels[session.type] || session.type;
+        sessions.forEach(function(session) {
+          var icon = typeIcons[session.type] || '📄';
+          var label = typeLabels[session.type] || session.type;
 
-          html += `<div class="sb-card">`;
-          html += `  <div class="sb-card-top">`;
-          html += `    <div class="sb-card-icon" data-type="${session.type}">${icon}</div>`;
-          html += `    <div class="sb-card-info">`;
-          html += `      <div class="sb-card-name">${session.name}</div>`;
-          html += `      <div class="sb-card-date">${session.date}</div>`;
-          html += `    </div>`;
-          html += `    <span class="sb-badge" data-type="${session.type}">${label}</span>`;
-          html += `  </div>`;
+          html += '<div class="sb-card">';
+          html += '  <div class="sb-card-top">';
+          html += '    <div class="sb-card-icon sb-icon-' + session.type + '">' + icon + '</div>';
+          html += '    <div class="sb-card-info">';
+          html += '      <div class="sb-card-name">' + session.name + '</div>';
+          html += '      <div class="sb-card-date">' + session.date + '</div>';
+          html += '    </div>';
+          html += '    <span class="sb-badge sb-badge-' + session.type + '">' + label + '</span>';
+          html += '  </div>';
 
           if (session.externalLink && session.subjects.length === 0) {
-            html += `<div class="sb-card-actions">`;
-            html += `  <a class="sb-action sb-action-external" href="${session.externalLink}" target="_blank" rel="noopener">`;
-            html += `    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
-            html += `    Vezi lista completă pe pbinfo.ro`;
-            html += `  </a>`;
-            html += `</div>`;
+            html += '<div class="sb-card-actions">';
+            html += '  <a class="sb-action sb-action-external" href="' + session.externalLink + '" target="_blank" rel="noopener">';
+            html += '    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+            html += '    Vezi lista completă pe pbinfo.ro';
+            html += '  </a>';
+            html += '</div>';
           } else {
-            const main = session.subjects[0];
+            var main = session.subjects[0];
             if (main) {
-              html += `<div class="sb-card-actions">`;
-              html += `  <a class="sb-action sb-action-subiect" href="${resolveHref(main.subiect)}" target="_blank" rel="noopener">`;
-              html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
-              html += `    Subiect C/C++`;
-              html += `  </a>`;
+              html += '<div class="sb-card-actions">';
+              html += '  <a class="sb-action sb-action-subiect" href="' + resolveHref(main.subiect) + '" target="_blank" rel="noopener">';
+              html += '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+              html += '    Subiect C/C++';
+              html += '  </a>';
               if (main.barem) {
-                html += `  <a class="sb-action sb-action-barem" href="${resolveHref(main.barem)}" target="_blank" rel="noopener">`;
-                html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>`;
-                html += `    Barem`;
-                html += `  </a>`;
+                html += '  <a class="sb-action sb-action-barem" href="' + resolveHref(main.barem) + '" target="_blank" rel="noopener">';
+                html += '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>';
+                html += '    Barem';
+                html += '  </a>';
               }
-              html += `</div>`;
+              html += '</div>';
             }
 
-            for (let i = 1; i < session.subjects.length; i++) {
-              const extra = session.subjects[i];
-              html += `<div class="sb-extra-label">${extra.label || 'Variantă suplimentară'}</div>`;
-              html += `<div class="sb-card-actions sb-extra-actions">`;
-              html += `  <a class="sb-action sb-action-subiect" href="${resolveHref(extra.subiect)}" target="_blank" rel="noopener">`;
-              html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
-              html += `    Subiect C/C++`;
-              html += `  </a>`;
+            for (var i = 1; i < session.subjects.length; i++) {
+              var extra = session.subjects[i];
+              html += '<p class="sb-extra-label">' + (extra.label || 'Variantă suplimentară') + '</p>';
+              html += '<div class="sb-card-actions">';
+              html += '  <a class="sb-action sb-action-subiect" href="' + resolveHref(extra.subiect) + '" target="_blank" rel="noopener">';
+              html += '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+              html += '    Subiect C/C++';
+              html += '  </a>';
               if (extra.barem) {
-                html += `  <a class="sb-action sb-action-barem" href="${resolveHref(extra.barem)}" target="_blank" rel="noopener">`;
-                html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>`;
-                html += `    Barem`;
-                html += `  </a>`;
+                html += '  <a class="sb-action sb-action-barem" href="' + resolveHref(extra.barem) + '" target="_blank" rel="noopener">';
+                html += '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>';
+                html += '    Barem';
+                html += '  </a>';
               }
-              html += `</div>`;
+              html += '</div>';
             }
           }
 
-          html += `</div>`;
+          html += '</div>';
         });
 
-        html += `</div>`;
+        html += '</div>';
       });
 
       if (!html) {
-        html = `<div class="sb-empty">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-          <p>Niciun subiect găsit pentru filtrul selectat.</p>
-        </div>`;
+        html = '<div class="sb-empty">';
+        html += '  <div class="sb-empty-icon">🔍</div>';
+        html += '  <p>Niciun subiect găsit pentru filtrele selectate.</p>';
+        html += '</div>';
       }
 
-      html += `<div class="sb-source">
-        Sursa datelor: <a href="https://www.pbinfo.ro/articole/16/subiecte-de-la-examene" target="_blank" rel="noopener">pbinfo.ro</a>
-        · Profil Matematică-Informatică · Limbajul C/C++
-      </div>`;
+      html += '<div class="sb-source">';
+      html += '  Sursa datelor: <a href="https://www.pbinfo.ro/articole/16/subiecte-de-la-examene" target="_blank" rel="noopener">pbinfo.ro</a>';
+      html += '  · Profil Matematică-Informatică · Limbajul C/C++';
+      html += '</div>';
 
       container.innerHTML = html;
     }
 
-    document.getElementById('type-filters').addEventListener('click', (e) => {
-      const btn = e.target.closest('.sb-chip');
+    // Type filter
+    document.getElementById('type-filters').addEventListener('click', function(e) {
+      var btn = e.target.closest('.sb-chip');
       if (!btn) return;
-      document.querySelectorAll('#type-filters .sb-chip').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#type-filters .sb-chip').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      currentFilter = btn.dataset.filter;
+      currentType = btn.dataset.filter;
       render();
     });
 
-    document.getElementById('sort-btn').addEventListener('click', () => {
-      sortDesc = !sortDesc;
-      document.getElementById('sort-label').textContent = sortDesc ? 'Cel mai recent' : 'Cel mai vechi';
-      document.getElementById('sort-arrow').style.transform = sortDesc ? '' : 'rotate(180deg)';
+    // Year filter
+    document.getElementById('year-filters').addEventListener('click', function(e) {
+      var btn = e.target.closest('.sb-chip');
+      if (!btn) return;
+      document.querySelectorAll('#year-filters .sb-chip').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentYear = btn.dataset.year;
       render();
+    });
+
+    // Sort toggle
+    document.getElementById('sort-btn').addEventListener('click', function() {
+      sortDesc = !sortDesc;
+      var btn = document.getElementById('sort-btn');
+      btn.textContent = sortDesc ? '↓ Cel mai recent' : '↑ Cel mai vechi';
+    render();
     });
 
     loadData();
