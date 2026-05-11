@@ -1,334 +1,365 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
 import Footer from '../components/Footer.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout
   title="Subiecte BAC Informatică C/C++ — InfoLiceu"
   description="Toate subiectele și baremele de la examenul de bacalaureat la informatică (C/C++, profil Matematică-Informatică) din 2010 până în prezent."
+  bodyClass="has-sidebar"
 >
-  <style>
-    .bac-hero {
-      text-align: center;
-      padding: 48px 24px 32px;
-    }
-    .bac-hero h1 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 8px;
-    }
-    .bac-hero p {
-      color: var(--text-2);
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .bac-stats {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-    .bac-stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 12px 20px;
-      text-align: center;
-    }
-    .bac-stat strong {
-      display: block;
-      font-size: 1.4rem;
-      color: var(--primary);
-    }
-    .bac-stat span {
-      font-size: 0.82rem;
-      color: var(--text-2);
-    }
-    .bac-controls {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0 24px;
-      margin-bottom: 28px;
-    }
-    .bac-filter-group {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .bac-filter-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-2);
-      cursor: pointer;
-      transition: all var(--transition);
-    }
-    .bac-filter-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-    .bac-filter-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-    .sort-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-2);
-      cursor: pointer;
-      transition: all var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .sort-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-    .bac-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-    }
-    .bac-year-group {
-      margin-bottom: 32px;
-    }
-    .bac-year-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      position: sticky;
-      top: 60px;
-      z-index: 5;
-      background: var(--bg);
-      padding: 8px 0;
-    }
-    .bac-year-badge {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white;
-      font-weight: 800;
-      font-size: 1.2rem;
-      padding: 6px 18px;
-      border-radius: 10px;
-      min-width: 70px;
-      text-align: center;
-    }
-    .bac-year-line {
-      flex: 1;
-      height: 2px;
-      background: var(--border);
-      border-radius: 1px;
-    }
-    .bac-year-count {
-      font-size: 0.82rem;
-      color: var(--text-2);
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .bac-session-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 22px;
-      margin-bottom: 10px;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-    .bac-session-card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
-    }
-    .bac-session-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .bac-session-name {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text);
-    }
-    .bac-session-date {
-      font-size: 0.82rem;
-      color: var(--text-2);
-    }
-    .bac-type-badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 3px 10px;
-      border-radius: 12px;
-      white-space: nowrap;
-    }
-    .bac-type-badge[data-type="iunie"]     { background: #dcfce7; color: #166534; }
-    .bac-type-badge[data-type="august"]    { background: #fef3c7; color: #92400e; }
-    .bac-type-badge[data-type="speciala"]  { background: #e0e7ff; color: #3730a3; }
-    .bac-type-badge[data-type="simulare"]  { background: #fce7f3; color: #9d174d; }
-    .bac-type-badge[data-type="model"]     { background: #f3e8ff; color: #6b21a8; }
-    .bac-type-badge[data-type="antrenament"] { background: #ffedd5; color: #9a3412; }
-    :global([data-theme="dark"]) .bac-type-badge[data-type="iunie"]     { background: #14532d; color: #86efac; }
-    :global([data-theme="dark"]) .bac-type-badge[data-type="august"]    { background: #78350f; color: #fde68a; }
-    :global([data-theme="dark"]) .bac-type-badge[data-type="speciala"]  { background: #312e81; color: #a5b4fc; }
-    :global([data-theme="dark"]) .bac-type-badge[data-type="simulare"]  { background: #831843; color: #f9a8d4; }
-    :global([data-theme="dark"]) .bac-type-badge[data-type="model"]     { background: #581c87; color: #d8b4fe; }
-    :global([data-theme="dark"]) .bac-type-badge[data-type="antrenament"] { background: #7c2d12; color: #fdba74; }
-    .bac-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .bac-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all var(--transition);
-    }
-    .bac-link-subiect {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white;
-    }
-    .bac-link-subiect:hover {
-      opacity: 0.88;
-      transform: translateY(-1px);
-    }
-    .bac-link-barem {
-      background: var(--surface-2, var(--bg));
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .bac-link-barem:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-    .bac-link-external {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: white;
-    }
-    .bac-link-external:hover {
-      opacity: 0.88;
-    }
-    .bac-subject-label {
-      font-size: 0.78rem;
-      color: var(--text-2);
-      font-weight: 600;
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-    .bac-empty {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-2);
-    }
-    .bac-empty svg {
-      width: 48px;
-      height: 48px;
-      stroke: var(--text-2);
-      margin-bottom: 12px;
-    }
-    .bac-source {
-      text-align: center;
-      margin-top: 32px;
-      padding: 16px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 0.85rem;
-      color: var(--text-2);
-    }
-    .bac-source a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .bac-source a:hover {
-      text-decoration: underline;
-    }
-  </style>
-
   <Header />
+  <Sidebar />
 
-  <main>
-    <section class="bac-hero">
-      <h1>📄 Subiecte BAC Informatică C/C++</h1>
-      <p>Toate subiectele și baremele de la bacalaureat, profil Matematică-Informatică, limbajul C/C++ — din 2010 până în prezent.</p>
-      <div class="bac-stats">
-        <div class="bac-stat">
-          <strong id="stat-years">17</strong>
-          <span>Ani disponibili</span>
-        </div>
-        <div class="bac-stat">
-          <strong id="stat-subjects">0</strong>
-          <span>Subiecte C/C++</span>
-        </div>
-        <div class="bac-stat">
-          <strong id="stat-barems">0</strong>
-          <span>Bareme</span>
+  <div class="app-shell">
+    <div class="app-content" id="main-content">
+
+      <!-- Hero -->
+      <div class="sb-hero">
+        <a href={`${base}/`} class="sb-back">← Înapoi acasă</a>
+        <div class="sb-hero-icon">📄</div>
+        <h1>Subiecte BAC Informatică C/C++</h1>
+        <p class="sb-hero-sub">
+          Toate subiectele și baremele de la bacalaureat, profil Matematică-Informatică,
+          limbajul C/C++ — din 2010 până în prezent. Descarcă direct din aplicație.
+        </p>
+        <div class="sb-stats" id="sb-stats">
+          <div class="sb-stat-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <strong id="stat-years">17</strong> ani
+          </div>
+          <div class="sb-stat-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <strong id="stat-subjects">0</strong> subiecte
+          </div>
+          <div class="sb-stat-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <strong id="stat-barems">0</strong> bareme
+          </div>
         </div>
       </div>
-    </section>
 
-    <div class="bac-controls">
-      <div class="bac-filter-group" id="type-filters">
-        <button class="bac-filter-btn active" data-filter="all">Toate</button>
-        <button class="bac-filter-btn" data-filter="iunie">Iunie</button>
-        <button class="bac-filter-btn" data-filter="august">August</button>
-        <button class="bac-filter-btn" data-filter="speciala">Specială</button>
-        <button class="bac-filter-btn" data-filter="simulare">Simulare</button>
-        <button class="bac-filter-btn" data-filter="model">Model</button>
+      <div class="sb-wrapper">
+
+        <!-- Controls -->
+        <div class="sb-controls">
+          <div class="sb-filters" id="type-filters">
+            <button class="sb-chip active" data-filter="all">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/></svg>
+              Toate
+            </button>
+            <button class="sb-chip" data-filter="iunie">
+              <span class="sb-chip-dot" style="background:#16a34a"></span>
+              Iunie
+            </button>
+            <button class="sb-chip" data-filter="august">
+              <span class="sb-chip-dot" style="background:#d97706"></span>
+              August
+            </button>
+            <button class="sb-chip" data-filter="speciala">
+              <span class="sb-chip-dot" style="background:#6366f1"></span>
+              Specială
+            </button>
+            <button class="sb-chip" data-filter="simulare">
+              <span class="sb-chip-dot" style="background:#db2777"></span>
+              Simulare
+            </button>
+            <button class="sb-chip" data-filter="model">
+              <span class="sb-chip-dot" style="background:#7c3aed"></span>
+              Model
+            </button>
+          </div>
+          <button class="sb-sort-btn" id="sort-btn" title="Schimbă ordinea">
+            <svg id="sort-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+            <span id="sort-label">Cel mai recent</span>
+          </button>
+        </div>
+
+        <!-- Year list -->
+        <div class="sb-list" id="bac-list">
+          <div class="sb-loading">
+            <div class="sb-spinner"></div>
+            <p>Se încarcă subiectele...</p>
+          </div>
+        </div>
+
       </div>
-      <button class="sort-btn" id="sort-btn" title="Schimbă ordinea">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-          <path d="M12 5v14M5 12l7 7 7-7"/>
-        </svg>
-        <span id="sort-label">Cel mai recent</span>
-      </button>
     </div>
-
-    <div class="bac-container" id="bac-list">
-      <div class="bac-empty" id="bac-loading">
-        <p>Se încarcă subiectele...</p>
-      </div>
-    </div>
-  </main>
+  </div>
 
   <Footer />
+
+  <style>
+    /* ─── Hero ─── */
+    .sb-hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
+      padding: 32px 28px 36px;
+      border-radius: 0 0 24px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .sb-back {
+      position: absolute; top: 16px; left: 20px;
+      color: rgba(255,255,255,.6); font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: color var(--transition);
+    }
+    .sb-back:hover { color: #fff; }
+    .sb-hero-icon { font-size: 2.4rem; margin-bottom: 8px; }
+    .sb-hero h1 {
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      font-weight: 800; color: #fff; margin: 0 0 8px;
+      font-family: var(--font-display);
+    }
+    .sb-hero-sub {
+      color: rgba(255,255,255,.7); font-size: 0.9rem;
+      max-width: 520px; margin: 0 auto 18px; line-height: 1.5;
+    }
+    .sb-stats {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    }
+    .sb-stat-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.1); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.15); border-radius: 20px;
+      padding: 6px 14px; color: rgba(255,255,255,.85); font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .sb-stat-pill strong { color: #fff; font-size: 1rem; }
+    .sb-stat-pill svg { opacity: .7; }
+
+    /* ─── Wrapper ─── */
+    .sb-wrapper {
+      max-width: 880px; margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    /* ─── Controls ─── */
+    .sb-controls {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 24px;
+    }
+    .sb-filters {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .sb-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 14px; border-radius: 999px;
+      border: 1.5px solid var(--border); background: var(--surface);
+      color: var(--text-muted); font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .sb-chip:hover { border-color: var(--primary); color: var(--primary); }
+    .sb-chip.active {
+      background: var(--primary); color: #fff;
+      border-color: var(--primary);
+    }
+    .sb-chip.active svg { stroke: #fff; }
+    .sb-chip-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .sb-chip.active .sb-chip-dot { background: #fff !important; }
+    .sb-sort-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 14px; border-radius: 999px;
+      border: 1.5px solid var(--border); background: var(--surface);
+      color: var(--text-muted); font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; transition: all var(--transition); white-space: nowrap;
+    }
+    .sb-sort-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .sb-sort-btn svg { transition: transform var(--transition); }
+
+    /* ─── Year group ─── */
+    .sb-year-group { margin-bottom: 28px; }
+    .sb-year-head {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 12px; position: sticky;
+      top: var(--header-h, 60px); z-index: 5;
+      background: var(--bg); padding: 6px 0;
+    }
+    .sb-year-tag {
+      background: linear-gradient(135deg, var(--primary), #7c3aed);
+      color: #fff; font-weight: 800; font-size: 1.15rem;
+      padding: 5px 16px; border-radius: 10px;
+      font-family: var(--font-display);
+      box-shadow: 0 2px 8px rgba(99,102,241,.25);
+    }
+    .sb-year-line { flex: 1; height: 1.5px; background: var(--border); }
+    .sb-year-count {
+      font-size: 0.78rem; color: var(--text-faint); font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ─── Session card ─── */
+    .sb-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .sb-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(99,102,241,.08);
+    }
+    .sb-card-top {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 18px; flex-wrap: wrap;
+    }
+    .sb-card-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .sb-card-icon[data-type="iunie"]     { background: #dcfce7; }
+    .sb-card-icon[data-type="august"]    { background: #fef3c7; }
+    .sb-card-icon[data-type="speciala"]  { background: #e0e7ff; }
+    .sb-card-icon[data-type="simulare"]  { background: #fce7f3; }
+    .sb-card-icon[data-type="model"]     { background: #f3e8ff; }
+    .sb-card-icon[data-type="antrenament"] { background: #ffedd5; }
+    :global([data-theme="dark"]) .sb-card-icon[data-type="iunie"]     { background: rgba(22,163,74,.15); }
+    :global([data-theme="dark"]) .sb-card-icon[data-type="august"]    { background: rgba(217,119,6,.15); }
+    :global([data-theme="dark"]) .sb-card-icon[data-type="speciala"]  { background: rgba(99,102,241,.15); }
+    :global([data-theme="dark"]) .sb-card-icon[data-type="simulare"]  { background: rgba(219,39,119,.15); }
+    :global([data-theme="dark"]) .sb-card-icon[data-type="model"]     { background: rgba(124,58,237,.15); }
+    :global([data-theme="dark"]) .sb-card-icon[data-type="antrenament"] { background: rgba(234,88,12,.15); }
+    .sb-card-info { flex: 1; min-width: 0; }
+    .sb-card-name {
+      font-weight: 700; font-size: 0.95rem; color: var(--text);
+      margin-bottom: 2px;
+    }
+    .sb-card-date {
+      font-size: 0.78rem; color: var(--text-faint);
+    }
+    .sb-badge {
+      font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 3px 10px; border-radius: 6px;
+      white-space: nowrap;
+    }
+    .sb-badge[data-type="iunie"]     { background: #dcfce7; color: #166534; }
+    .sb-badge[data-type="august"]    { background: #fef3c7; color: #92400e; }
+    .sb-badge[data-type="speciala"]  { background: #e0e7ff; color: #3730a3; }
+    .sb-badge[data-type="simulare"]  { background: #fce7f3; color: #9d174d; }
+    .sb-badge[data-type="model"]     { background: #f3e8ff; color: #6b21a8; }
+    .sb-badge[data-type="antrenament"] { background: #ffedd5; color: #9a3412; }
+    :global([data-theme="dark"]) .sb-badge[data-type="iunie"]     { background: #052e16; color: #86efac; }
+    :global([data-theme="dark"]) .sb-badge[data-type="august"]    { background: #451a03; color: #fde68a; }
+    :global([data-theme="dark"]) .sb-badge[data-type="speciala"]  { background: #1e1b4b; color: #a5b4fc; }
+    :global([data-theme="dark"]) .sb-badge[data-type="simulare"]  { background: #500724; color: #f9a8d4; }
+    :global([data-theme="dark"]) .sb-badge[data-type="model"]     { background: #2e1065; color: #d8b4fe; }
+    :global([data-theme="dark"]) .sb-badge[data-type="antrenament"] { background: #431407; color: #fdba74; }
+
+    /* Action bar */
+    .sb-card-actions {
+      display: flex; gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .sb-action {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      gap: 7px; padding: 11px 12px;
+      font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: all var(--transition);
+      cursor: pointer; border: none; background: none;
+    }
+    .sb-action + .sb-action {
+      border-left: 1px solid var(--border);
+    }
+    .sb-action-subiect { color: var(--primary); }
+    .sb-action-subiect:hover { background: var(--primary-dim); }
+    .sb-action-barem { color: var(--text-muted); }
+    .sb-action-barem:hover { background: rgba(0,0,0,.03); color: var(--text); }
+    :global([data-theme="dark"]) .sb-action-barem:hover { background: rgba(255,255,255,.05); }
+    .sb-action-external { color: #d97706; }
+    .sb-action-external:hover { background: rgba(217,119,6,.08); }
+    .sb-action svg { flex-shrink: 0; }
+
+    /* Extra subjects */
+    .sb-extra-label {
+      font-size: 0.72rem; color: var(--text-faint); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 6px 18px 0; margin: 0;
+    }
+    .sb-extra-actions { display: flex; gap: 0; }
+    .sb-extra-actions .sb-action { border-top: none; }
+
+    /* ─── Empty ─── */
+    .sb-empty {
+      text-align: center; padding: 48px 20px; color: var(--text-faint);
+    }
+    .sb-empty svg {
+      width: 48px; height: 48px; stroke: var(--text-faint); margin-bottom: 12px;
+    }
+    .sb-empty p { font-size: 0.9rem; }
+
+    /* ─── Loading ─── */
+    .sb-loading {
+      text-align: center; padding: 48px 20px;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .sb-spinner {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      animation: sb-spin .8s linear infinite;
+    }
+    @keyframes sb-spin { to { transform: rotate(360deg); } }
+    .sb-loading p { color: var(--text-faint); font-size: 0.85rem; }
+
+    /* ─── Source footer ─── */
+    .sb-source {
+      text-align: center; margin-top: 28px;
+      padding: 14px 16px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px;
+      font-size: 0.8rem; color: var(--text-faint);
+    }
+    .sb-source a {
+      color: var(--primary); font-weight: 600; text-decoration: none;
+    }
+    .sb-source a:hover { text-decoration: underline; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 640px) {
+      .sb-hero { padding: 24px 16px 28px; }
+      .sb-hero h1 { font-size: 1.3rem; }
+      .sb-wrapper { padding: 16px 12px 40px; }
+      .sb-controls { flex-direction: column; align-items: stretch; }
+      .sb-filters { justify-content: center; }
+      .sb-sort-btn { align-self: center; }
+      .sb-card-top { padding: 12px 14px; }
+      .sb-action { font-size: 0.78rem; padding: 10px 8px; }
+    }
+  </style>
 
   <script define:vars={{ base }}>
     let bacData = [];
     let currentFilter = 'all';
-    let sortDesc = true; // newest first
+    let sortDesc = true;
+
+    const typeIcons = {
+      iunie: '☀️', august: '🍂', speciala: '⭐',
+      simulare: '📝', model: '📋', antrenament: '🏋️'
+    };
+    const typeLabels = {
+      iunie: 'Iunie', august: 'August', speciala: 'Specială',
+      simulare: 'Simulare', model: 'Model', antrenament: 'Antrenament'
+    };
 
     async function loadData() {
-      const res = await fetch(`${base}/data/subiecte-bac.json`);
-      bacData = await res.json();
-      updateStats();
-      render();
+      try {
+        const res = await fetch(`${base}/data/subiecte-bac.json`);
+        bacData = await res.json();
+        updateStats();
+        render();
+      } catch(e) {
+        document.getElementById('bac-list').innerHTML =
+          '<div class="sb-empty"><p>Eroare la încărcarea datelor.</p></div>';
+      }
     }
 
     function updateStats() {
@@ -342,12 +373,9 @@ const base = import.meta.env.BASE_URL;
       document.getElementById('stat-barems').textContent = barems;
     }
 
-    function getTypeLabel(type) {
-      const map = {
-        iunie: 'Iunie', august: 'August', speciala: 'Specială',
-        simulare: 'Simulare', model: 'Model', antrenament: 'Antrenament'
-      };
-      return map[type] || type;
+    function resolveHref(path) {
+      if (!path) return '';
+      return path.startsWith('/') ? base + path : path;
     }
 
     function render() {
@@ -359,46 +387,69 @@ const base = import.meta.env.BASE_URL;
         const sessions = currentFilter === 'all'
           ? yearData.sessions
           : yearData.sessions.filter(s => s.type === currentFilter);
-
         if (sessions.length === 0) return;
 
-        html += `<div class="bac-year-group">`;
-        html += `<div class="bac-year-header">`;
-        html += `  <div class="bac-year-badge">${yearData.year}</div>`;
-        html += `  <div class="bac-year-line"></div>`;
-        html += `  <div class="bac-year-count">${sessions.length} sesiuni</div>`;
+        html += `<div class="sb-year-group">`;
+        html += `<div class="sb-year-head">`;
+        html += `  <span class="sb-year-tag">${yearData.year}</span>`;
+        html += `  <span class="sb-year-line"></span>`;
+        html += `  <span class="sb-year-count">${sessions.length} ${sessions.length === 1 ? 'sesiune' : 'sesiuni'}</span>`;
         html += `</div>`;
 
         sessions.forEach(session => {
-          html += `<div class="bac-session-card">`;
-          html += `  <div class="bac-session-top">`;
-          html += `    <span class="bac-session-name">${session.name}</span>`;
-          html += `    <span class="bac-type-badge" data-type="${session.type}">${getTypeLabel(session.type)}</span>`;
-          html += `    <span class="bac-session-date">📅 ${session.date}</span>`;
+          const icon = typeIcons[session.type] || '📄';
+          const label = typeLabels[session.type] || session.type;
+
+          html += `<div class="sb-card">`;
+          html += `  <div class="sb-card-top">`;
+          html += `    <div class="sb-card-icon" data-type="${session.type}">${icon}</div>`;
+          html += `    <div class="sb-card-info">`;
+          html += `      <div class="sb-card-name">${session.name}</div>`;
+          html += `      <div class="sb-card-date">${session.date}</div>`;
+          html += `    </div>`;
+          html += `    <span class="sb-badge" data-type="${session.type}">${label}</span>`;
           html += `  </div>`;
 
           if (session.externalLink && session.subjects.length === 0) {
-            html += `<div class="bac-links">`;
-            html += `  <a class="bac-link bac-link-external" href="${session.externalLink}" target="_blank" rel="noopener">`;
-            html += `    🔗 Vezi lista completă pe pbinfo.ro`;
+            html += `<div class="sb-card-actions">`;
+            html += `  <a class="sb-action sb-action-external" href="${session.externalLink}" target="_blank" rel="noopener">`;
+            html += `    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+            html += `    Vezi lista completă pe pbinfo.ro`;
             html += `  </a>`;
             html += `</div>`;
           } else {
-            session.subjects.forEach((sub, i) => {
-              if (sub.label) {
-                html += `<div class="bac-subject-label">${sub.label}</div>`;
-              }
-              html += `<div class="bac-links">`;
-              html += `  <a class="bac-link bac-link-subiect" href="${sub.subiect}" target="_blank" rel="noopener">`;
-              html += `    📄 Subiect C/C++`;
+            const main = session.subjects[0];
+            if (main) {
+              html += `<div class="sb-card-actions">`;
+              html += `  <a class="sb-action sb-action-subiect" href="${resolveHref(main.subiect)}" target="_blank" rel="noopener">`;
+              html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+              html += `    Subiect C/C++`;
               html += `  </a>`;
-              if (sub.barem) {
-                html += `  <a class="bac-link bac-link-barem" href="${sub.barem}" target="_blank" rel="noopener">`;
-                html += `    ✅ Barem`;
+              if (main.barem) {
+                html += `  <a class="sb-action sb-action-barem" href="${resolveHref(main.barem)}" target="_blank" rel="noopener">`;
+                html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>`;
+                html += `    Barem`;
                 html += `  </a>`;
               }
               html += `</div>`;
-            });
+            }
+
+            for (let i = 1; i < session.subjects.length; i++) {
+              const extra = session.subjects[i];
+              html += `<div class="sb-extra-label">${extra.label || 'Variantă suplimentară'}</div>`;
+              html += `<div class="sb-card-actions sb-extra-actions">`;
+              html += `  <a class="sb-action sb-action-subiect" href="${resolveHref(extra.subiect)}" target="_blank" rel="noopener">`;
+              html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+              html += `    Subiect C/C++`;
+              html += `  </a>`;
+              if (extra.barem) {
+                html += `  <a class="sb-action sb-action-barem" href="${resolveHref(extra.barem)}" target="_blank" rel="noopener">`;
+                html += `    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>`;
+                html += `    Barem`;
+                html += `  </a>`;
+              }
+              html += `</div>`;
+            }
           }
 
           html += `</div>`;
@@ -408,7 +459,7 @@ const base = import.meta.env.BASE_URL;
       });
 
       if (!html) {
-        html = `<div class="bac-empty">
+        html = `<div class="sb-empty">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
@@ -416,30 +467,27 @@ const base = import.meta.env.BASE_URL;
         </div>`;
       }
 
-      html += `<div class="bac-source">
+      html += `<div class="sb-source">
         Sursa datelor: <a href="https://www.pbinfo.ro/articole/16/subiecte-de-la-examene" target="_blank" rel="noopener">pbinfo.ro</a>
-        — Profil Matematică-Informatică, limbajul C/C++
+        · Profil Matematică-Informatică · Limbajul C/C++
       </div>`;
 
       container.innerHTML = html;
     }
 
-    // Filter buttons
     document.getElementById('type-filters').addEventListener('click', (e) => {
-      const btn = e.target.closest('.bac-filter-btn');
+      const btn = e.target.closest('.sb-chip');
       if (!btn) return;
-      document.querySelectorAll('.bac-filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#type-filters .sb-chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentFilter = btn.dataset.filter;
       render();
     });
 
-    // Sort button
     document.getElementById('sort-btn').addEventListener('click', () => {
       sortDesc = !sortDesc;
       document.getElementById('sort-label').textContent = sortDesc ? 'Cel mai recent' : 'Cel mai vechi';
-      const svg = document.querySelector('#sort-btn svg');
-      svg.style.transform = sortDesc ? '' : 'rotate(180deg)';
+      document.getElementById('sort-arrow').style.transform = sortDesc ? '' : 'rotate(180deg)';
       render();
     });
 

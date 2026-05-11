@@ -8,8 +8,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/simulare/E_d_Informatica_2026_sp_MI_C_var_simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/simulare/E_d_Informatica_2026_sp_MI_bar_simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2026/2026-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2026/2026-simulare-barem.pdf"
           }
         ]
       },
@@ -19,8 +19,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/E_d_informatica_2026_sp_MI_C_var_model.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/E_d_informatica_2026_sp_MI_bar_model.pdf"
+            "subiect": "/subiecte-bac/2026/2026-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2026/2026-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -35,8 +35,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_D_Informatica_2025_sp_MI_C_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2025/2025-sesiunea-august-subiect.pdf",
+            "barem": "/subiecte-bac/2025/2025-sesiunea-august-barem.pdf"
           }
         ]
       },
@@ -46,13 +46,13 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_01_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_01_LRO.pdf"
+            "subiect": "/subiecte-bac/2025/2025-sesiunea-iunie-subiect.pdf",
+            "barem": "/subiecte-bac/2025/2025-sesiunea-iunie-barem.pdf"
           },
           {
             "label": "Subiect de rezervă",
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_07_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_07_LRO.pdf"
+            "subiect": "/subiecte-bac/2025/2025-sesiunea-iunie-subiect-de-rezerv-subiect.pdf",
+            "barem": "/subiecte-bac/2025/2025-sesiunea-iunie-subiect-de-rezerv-barem.pdf"
           }
         ]
       },
@@ -62,8 +62,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_06_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_06_LRO.pdf"
+            "subiect": "/subiecte-bac/2025/2025-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2025/2025-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -73,8 +73,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_Simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_bar_Simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2025/2025-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2025/2025-simulare-barem.pdf"
           }
         ]
       },
@@ -84,8 +84,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_C_var_model.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_model.pdf"
+            "subiect": "/subiecte-bac/2025/2025-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2025/2025-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -100,8 +100,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_C_var_08_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_bar_08_LRO.pdf"
+            "subiect": "/subiecte-bac/2024/2024-sesiunea-august-subiect.pdf",
+            "barem": "/subiecte-bac/2024/2024-sesiunea-august-barem.pdf"
           }
         ]
       },
@@ -111,8 +111,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_C_var_03_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_bar_03_LRO.pdf"
+            "subiect": "/subiecte-bac/2024/2024-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2024/2024-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -122,8 +122,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_C_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2024/2024-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2024/2024-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -133,8 +133,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/sim/E_d_Informatica_2024_MI_C_var_simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/sim/E_d_Informatica_2024_MI_bar_simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2024/2024-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2024/2024-simulare-barem.pdf"
           }
         ]
       },
@@ -144,8 +144,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_D_Informatica_2024_sp_MI_C_var_model.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_D_Informatica_2024_sp_MI_bar_model.pdf"
+            "subiect": "/subiecte-bac/2024/2024-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2024/2024-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -160,8 +160,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_07_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_07_LRO.pdf"
+            "subiect": "/subiecte-bac/2023/2023-sesiunea-august-subiect.pdf",
+            "barem": "/subiecte-bac/2023/2023-sesiunea-august-barem.pdf"
           }
         ]
       },
@@ -171,8 +171,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_05_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_05_LRO.pdf"
+            "subiect": "/subiecte-bac/2023/2023-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2023/2023-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -182,8 +182,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_06_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_06_LRO.pdf"
+            "subiect": "/subiecte-bac/2023/2023-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2023/2023-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -193,8 +193,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2023/2023-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2023/2023-simulare-barem.pdf"
           }
         ]
       },
@@ -204,8 +204,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_D_Informatica_2023_sp_MI_C_var_model.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_D_Informatica_2023_sp_MI_bar_model.pdf"
+            "subiect": "/subiecte-bac/2023/2023-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2023/2023-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -220,8 +220,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_05_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_Informatica_2022_sp_MI_bar_05_LRO.pdf"
+            "subiect": "/subiecte-bac/2022/2022-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2022/2022-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -231,8 +231,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_01_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_Informatica_2022_sp_MI_bar_01_LRO.pdf"
+            "subiect": "/subiecte-bac/2022/2022-sesiunea-iunie-subiect.pdf",
+            "barem": "/subiecte-bac/2022/2022-sesiunea-iunie-barem.pdf"
           }
         ]
       },
@@ -242,8 +242,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_Informatica_2022_sp_MI_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2022/2022-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2022/2022-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -253,8 +253,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_bar_simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2022/2022-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2022/2022-simulare-barem.pdf"
           }
         ]
       }
@@ -269,8 +269,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/august/E_d_Informatica_2021_sp_MI_C_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/august/E_d_Informatica_2021_sp_MI_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2021/2021-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2021/2021-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -280,8 +280,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/iunie-iulie/E_d_Informatica_2021_sp_MI_C_var_01_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/iunie-iulie/E_d_Informatica_2021_sp_MI_bar_01_LRO.pdf"
+            "subiect": "/subiecte-bac/2021/2021-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2021/2021-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -291,8 +291,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/ses_speciala/E_d_Informatica_2021_sp_MI_C_var_07.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/ses_speciala/E_d_Informatica_2021_sp_MI_bar_07.pdf"
+            "subiect": "/subiecte-bac/2021/2021-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2021/2021-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -302,8 +302,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/simulare/E_d_Informatica_2021_sp_MI_C_var_Simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/simulare/E_d_Informatica_2021_sp_MI_bar_Simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2021/2021-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2021/2021-simulare-barem.pdf"
           }
         ]
       },
@@ -320,8 +320,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/E_d_Informatica_2021_sp_MI_C_var_model.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/E_d_Informatica_2021_sp_MI_bar_model.pdf"
+            "subiect": "/subiecte-bac/2021/2021-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2021/2021-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -336,8 +336,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_05_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_05.pdf"
+            "subiect": "/subiecte-bac/2020/2020-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2020/2020-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -347,8 +347,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_02_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_02_LRO.pdf"
+            "subiect": "/subiecte-bac/2020/2020-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2020/2020-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -358,8 +358,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_06_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_06.pdf"
+            "subiect": "/subiecte-bac/2020/2020-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2020/2020-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -376,8 +376,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_model_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_model_LRO.pdf"
+            "subiect": "/subiecte-bac/2020/2020-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2020/2020-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -392,8 +392,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-august-septembrie/E_d_Informatica_2019_sp_MI_C_var_02_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-august-septembrie/E_d_Informatica_2019_sp_MI_bar_02_LRO.pdf"
+            "subiect": "/subiecte-bac/2019/2019-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2019/2019-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -403,8 +403,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-iunie-iulie/E_d_Informatica_2019_sp_MI_C_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-iunie-iulie/E_d_Informatica_2019_sp_MI_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2019/2019-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2019/2019-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -414,8 +414,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-speciala/E_d_Informatica_2019_sp_MI_C_var_01_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-speciala/E_d_Informatica_2019_sp_MI_bar_01_LRO.pdf"
+            "subiect": "/subiecte-bac/2019/2019-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2019/2019-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -425,8 +425,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/simulare/E_d_Informatica_2019_sp_MI_C_var_simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/simulare/E_d_Informatica_2019_sp_MI_bar_simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2019/2019-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2019/2019-simulare-barem.pdf"
           }
         ]
       }
@@ -441,8 +441,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-august/E_d_Informatica_C_sp_MI_2018_var_01_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-august/E_d_Informatica_sp_MI_2018_bar_01_LRO.pdf"
+            "subiect": "/subiecte-bac/2018/2018-sesiunea-august-subiect.pdf",
+            "barem": "/subiecte-bac/2018/2018-sesiunea-august-barem.pdf"
           }
         ]
       },
@@ -452,8 +452,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-iunie/E_d_Informatica_C_sp_MI_2018_var_02_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-iunie/E_d_Informatica_sp_MI_2018_bar_02_LRO.pdf"
+            "subiect": "/subiecte-bac/2018/2018-sesiunea-iunie-subiect.pdf",
+            "barem": "/subiecte-bac/2018/2018-sesiunea-iunie-barem.pdf"
           }
         ]
       },
@@ -463,8 +463,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-special/E_d_Informatica_C_sp_MI_2018_var_09_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-special/E_d_Informatica_sp_MI_2018_bar_09_LRO.pdf"
+            "subiect": "/subiecte-bac/2018/2018-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2018/2018-sesiunea-special-barem.pdf"
           }
         ]
       }
@@ -479,8 +479,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-august/E_d_Informatica_C_sp_MI_2017_var_07_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-august/E_d_Informatica_sp_MI_2017_bar_07_LRO.pdf"
+            "subiect": "/subiecte-bac/2017/2017-sesiunea-august-subiect.pdf",
+            "barem": "/subiecte-bac/2017/2017-sesiunea-august-barem.pdf"
           }
         ]
       },
@@ -490,13 +490,13 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_C_sp_MI_2017_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_sp_MI_2017_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2017/2017-sesiunea-iunie-subiect.pdf",
+            "barem": "/subiecte-bac/2017/2017-sesiunea-iunie-barem.pdf"
           },
           {
             "label": "Subiect de rezervă",
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_C_sp_MI_2017_var_05_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_sp_MI_2017_bar_05_LRO.pdf"
+            "subiect": "/subiecte-bac/2017/2017-sesiunea-iunie-subiect-de-rezerv-subiect.pdf",
+            "barem": "/subiecte-bac/2017/2017-sesiunea-iunie-subiect-de-rezerv-barem.pdf"
           }
         ]
       },
@@ -506,8 +506,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-special/E_d_Informatica_C_sp_MI_2017_var_03_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-special/E_d_Informatica_sp_MI_2017_bar_03_LRO.pdf"
+            "subiect": "/subiecte-bac/2017/2017-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2017/2017-sesiunea-special-barem.pdf"
           }
         ]
       }
@@ -522,8 +522,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-august/E_d_informatica_C_sp_MI_2016_var_09_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-august/E_d_informatica_sp_MI_2016_bar_09_LRO.pdf"
+            "subiect": "/subiecte-bac/2016/2016-sesiunea-august-subiect.pdf",
+            "barem": "/subiecte-bac/2016/2016-sesiunea-august-barem.pdf"
           }
         ]
       },
@@ -533,8 +533,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-iunie/E_d_informatica_C_sp_MI_2016_var_10_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-iunie/E_d_informatica_sp_MI_2016_bar_10_LRO.pdf"
+            "subiect": "/subiecte-bac/2016/2016-sesiunea-iunie-subiect.pdf",
+            "barem": "/subiecte-bac/2016/2016-sesiunea-iunie-barem.pdf"
           }
         ]
       },
@@ -544,8 +544,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-special/E_d_informatica_C_sp_MI_2016_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-special/E_d_informatica_sp_MI_2016_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2016/2016-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2016/2016-sesiunea-special-barem.pdf"
           }
         ]
       }
@@ -560,8 +560,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-august/E_d_informatica_C_sp_MI_2015_var_02_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-august/E_d_Informatica_sp_MI_2015_bar_02_LRO.pdf"
+            "subiect": "/subiecte-bac/2015/2015-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2015/2015-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -571,8 +571,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-iunie/E_d_informatica_C_sp_MI_2015_var_09_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-iunie/E_d_Informatica_sp_MI_2015_bar_09_LRO.pdf"
+            "subiect": "/subiecte-bac/2015/2015-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2015/2015-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -582,8 +582,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-special/E_d_informatica_C_sp_MI_2015_var_05_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-special/E_d_Informatica_sp_MI_2015_bar_05_LRO.pdf"
+            "subiect": "/subiecte-bac/2015/2015-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2015/2015-sesiunea-special-barem.pdf"
           }
         ]
       },
@@ -593,8 +593,8 @@
         "type": "simulare",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-simulare-bac/E_d_informatica_C_sp_MI_2015_var_simulare_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-simulare-bac/E_d_informatica_sp_MI_2015_bar_simulare_LRO.pdf"
+            "subiect": "/subiecte-bac/2015/2015-simulare-subiect.pdf",
+            "barem": "/subiecte-bac/2015/2015-simulare-barem.pdf"
           }
         ]
       },
@@ -604,8 +604,8 @@
         "type": "model",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-model/E_d_informatica_C_sp_MI_2015_var_model.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-model/E_d_informatica_sp_MI_2015_bar_model.pdf"
+            "subiect": "/subiecte-bac/2015/2015-modele-de-subiecte-subiect.pdf",
+            "barem": "/subiecte-bac/2015/2015-modele-de-subiecte-barem.pdf"
           }
         ]
       }
@@ -620,8 +620,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_C_sp_MI_2014_var_10_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_sp_MI_2014_bar_10_LRO.pdf"
+            "subiect": "/subiecte-bac/2014/2014-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2014/2014-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -631,8 +631,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_C_sp_MI_2014_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_sp_MI_2014_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2014/2014-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2014/2014-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       },
@@ -642,8 +642,8 @@
         "type": "speciala",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_C_sp_MI_2014_var_02_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_sp_MI_2014_bar_02_LRO.pdf"
+            "subiect": "/subiecte-bac/2014/2014-sesiunea-special-subiect.pdf",
+            "barem": "/subiecte-bac/2014/2014-sesiunea-special-barem.pdf"
           }
         ]
       }
@@ -658,8 +658,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_C_sp_MI_var_06_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_sp_MI_bar_06_LRO.pdf"
+            "subiect": "/subiecte-bac/2013/2013-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2013/2013-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -669,8 +669,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_C_sp_MI_var_02_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_sp_MI_bar_02_LRO.pdf"
+            "subiect": "/subiecte-bac/2013/2013-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2013/2013-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       }
@@ -685,8 +685,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_C_sp_MI_var_04_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_sp_MI_bar_04_LRO.pdf"
+            "subiect": "/subiecte-bac/2012/2012-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2012/2012-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -696,8 +696,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_C_sp_MI_var_01_LRO.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_sp_MI_bar_01_LRO.pdf"
+            "subiect": "/subiecte-bac/2012/2012-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2012/2012-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       }
@@ -712,8 +712,8 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_C_sp_MI_var_03.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_sp_MI_bar_03.pdf"
+            "subiect": "/subiecte-bac/2011/2011-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2011/2011-sesiunea-august-septembrie-barem.pdf"
           }
         ]
       },
@@ -723,8 +723,8 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_C_sp_MI_var_09.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_sp_MI_bar_09.pdf"
+            "subiect": "/subiecte-bac/2011/2011-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2011/2011-sesiunea-iunie-iulie-barem.pdf"
           }
         ]
       }
@@ -739,13 +739,13 @@
         "type": "august",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_C_sp_MI_subiect_08.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_sp_MI_barem_08.pdf"
+            "subiect": "/subiecte-bac/2010/2010-sesiunea-august-septembrie-subiect.pdf",
+            "barem": "/subiecte-bac/2010/2010-sesiunea-august-septembrie-barem.pdf"
           },
           {
             "label": "Intensiv informatică",
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_C_sp_MI_INT_subiect_08.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_sp_MI_INT_barem_08.pdf"
+            "subiect": "/subiecte-bac/2010/2010-sesiunea-august-septembrie-intensiv-informatic-subiect.pdf",
+            "barem": "/subiecte-bac/2010/2010-sesiunea-august-septembrie-intensiv-informatic-barem.pdf"
           }
         ]
       },
@@ -755,13 +755,13 @@
         "type": "iunie",
         "subjects": [
           {
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_C_sp_MI_subiect_10.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_sp_MI_barem_10.pdf"
+            "subiect": "/subiecte-bac/2010/2010-sesiunea-iunie-iulie-subiect.pdf",
+            "barem": "/subiecte-bac/2010/2010-sesiunea-iunie-iulie-barem.pdf"
           },
           {
             "label": "Intensiv informatică",
-            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_C_sp_MI_INT_subiect_10.pdf",
-            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_sp_MI_INT_barem_10.pdf"
+            "subiect": "/subiecte-bac/2010/2010-sesiunea-iunie-iulie-intensiv-informatic-subiect.pdf",
+            "barem": "/subiecte-bac/2010/2010-sesiunea-iunie-iulie-intensiv-informatic-barem.pdf"
           }
         ]
       }
