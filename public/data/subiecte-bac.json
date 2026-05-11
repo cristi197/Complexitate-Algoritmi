@@ -1,0 +1,770 @@
+[
+  {
+    "year": 2026,
+    "sessions": [
+      {
+        "name": "Simulare",
+        "date": "25 martie 2025",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/simulare/E_d_Informatica_2026_sp_MI_C_var_simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/simulare/E_d_Informatica_2026_sp_MI_bar_simulare_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "1 noiembrie 2025",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/E_d_informatica_2026_sp_MI_C_var_model.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2026/E_d_informatica_2026_sp_MI_bar_model.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2025,
+    "sessions": [
+      {
+        "name": "Sesiunea august",
+        "date": "13 august 2025",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_D_Informatica_2025_sp_MI_C_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie",
+        "date": "13 iunie 2025",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_01_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_01_LRO.pdf"
+          },
+          {
+            "label": "Subiect de rezervă",
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_07_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_07_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "26 mai 2025",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_06_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_06_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "26 martie 2025",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_C_var_Simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_Informatica_2025_sp_MI_bar_Simulare_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "2 noiembrie 2024",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_C_var_model.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2025/E_d_informatica_2025_sp_MI_bar_model.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2024,
+    "sessions": [
+      {
+        "name": "Sesiunea august",
+        "date": "21 august 2024",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_C_var_08_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_bar_08_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "4 iulie 2024",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_C_var_03_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_bar_03_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "21 mai 2024",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_C_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_d_Informatica_2024_sp_MI_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "6 martie 2024",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/sim/E_d_Informatica_2024_MI_C_var_simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/sim/E_d_Informatica_2024_MI_bar_simulare_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "noiembrie 2023",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_D_Informatica_2024_sp_MI_C_var_model.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2024/E_D_Informatica_2024_sp_MI_bar_model.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "sessions": [
+      {
+        "name": "Sesiunea august",
+        "date": "18 august 2023",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_07_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_07_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "28 iunie 2023",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_05_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_05_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "mai 2023",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_06_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_06_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "29 martie 2023",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_C_var_simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_d_Informatica_2023_sp_MI_bar_simulare_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "noiembrie 2022",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_D_Informatica_2023_sp_MI_C_var_model.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2023/E_D_Informatica_2023_sp_MI_bar_model.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2022,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "18 august 2022",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_05_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_Informatica_2022_sp_MI_bar_05_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie",
+        "date": "22 iunie 2022",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_01_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_Informatica_2022_sp_MI_bar_01_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "20 mai 2022",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_Informatica_2022_sp_MI_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "30 martie 2022",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_C_var_simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2022/E_d_informatica_2022_sp_MI_bar_simulare_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2021,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "18 august 2021",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/august/E_d_Informatica_2021_sp_MI_C_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/august/E_d_Informatica_2021_sp_MI_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "30 iunie 2021",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/iunie-iulie/E_d_Informatica_2021_sp_MI_C_var_01_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/iunie-iulie/E_d_Informatica_2021_sp_MI_bar_01_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "20 mai 2021",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/ses_speciala/E_d_Informatica_2021_sp_MI_C_var_07.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/ses_speciala/E_d_Informatica_2021_sp_MI_bar_07.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "24 martie 2021",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/simulare/E_d_Informatica_2021_sp_MI_C_var_Simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/simulare/E_d_Informatica_2021_sp_MI_bar_Simulare_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Teste de antrenament",
+        "date": "februarie–mai 2021",
+        "type": "antrenament",
+        "externalLink": "https://www.pbinfo.ro/articole/23409/bac-2021",
+        "subjects": []
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "noiembrie 2020",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/E_d_Informatica_2021_sp_MI_C_var_model.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2021/E_d_Informatica_2021_sp_MI_bar_model.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2020,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "august 2020",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_05_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_05.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "iulie 2020",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_02_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_02_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "iunie-iulie 2020",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_06_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_06.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Teste propuse de MEC",
+        "date": "aprilie 2020",
+        "type": "antrenament",
+        "externalLink": "https://www.pbinfo.ro/articole/22222/subiecte-propuse-mec-aprilie-mai-2020",
+        "subjects": []
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "2020",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_C_var_model_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2020/E_d_Informatica_2020_sp_MI_bar_model_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2019,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "26 august 2019",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-august-septembrie/E_d_Informatica_2019_sp_MI_C_var_02_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-august-septembrie/E_d_Informatica_2019_sp_MI_bar_02_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "4 iulie 2019",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-iunie-iulie/E_d_Informatica_2019_sp_MI_C_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-iunie-iulie/E_d_Informatica_2019_sp_MI_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "29 mai 2019",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-speciala/E_d_Informatica_2019_sp_MI_C_var_01_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/2019-speciala/E_d_Informatica_2019_sp_MI_bar_01_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "martie 2019",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/simulare/E_d_Informatica_2019_sp_MI_C_var_simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2019/simulare/E_d_Informatica_2019_sp_MI_bar_simulare_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "sessions": [
+      {
+        "name": "Sesiunea august",
+        "date": "23 august 2018",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-august/E_d_Informatica_C_sp_MI_2018_var_01_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-august/E_d_Informatica_sp_MI_2018_bar_01_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie",
+        "date": "28 iunie 2018",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-iunie/E_d_Informatica_C_sp_MI_2018_var_02_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-iunie/E_d_Informatica_sp_MI_2018_bar_02_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "2018",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-special/E_d_Informatica_C_sp_MI_2018_var_09_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2018-special/E_d_Informatica_sp_MI_2018_bar_09_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2017,
+    "sessions": [
+      {
+        "name": "Sesiunea august",
+        "date": "24 august 2017",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-august/E_d_Informatica_C_sp_MI_2017_var_07_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-august/E_d_Informatica_sp_MI_2017_bar_07_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie",
+        "date": "30 iunie 2017",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_C_sp_MI_2017_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_sp_MI_2017_bar_04_LRO.pdf"
+          },
+          {
+            "label": "Subiect de rezervă",
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_C_sp_MI_2017_var_05_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-iunie/E_d_Informatica_sp_MI_2017_bar_05_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "8 iunie 2017",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-special/E_d_Informatica_C_sp_MI_2017_var_03_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2017-special/E_d_Informatica_sp_MI_2017_bar_03_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2016,
+    "sessions": [
+      {
+        "name": "Sesiunea august",
+        "date": "26 august 2016",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-august/E_d_informatica_C_sp_MI_2016_var_09_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-august/E_d_informatica_sp_MI_2016_bar_09_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie",
+        "date": "8 iunie 2016",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-iunie/E_d_informatica_C_sp_MI_2016_var_10_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-iunie/E_d_informatica_sp_MI_2016_bar_10_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "25 mai 2016",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-special/E_d_informatica_C_sp_MI_2016_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2016-special/E_d_informatica_sp_MI_2016_bar_04_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2015,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "28 august 2015",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-august/E_d_informatica_C_sp_MI_2015_var_02_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-august/E_d_Informatica_sp_MI_2015_bar_02_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "3 iulie 2015",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-iunie/E_d_informatica_C_sp_MI_2015_var_09_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-iunie/E_d_Informatica_sp_MI_2015_bar_09_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "27 mai 2015",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-special/E_d_informatica_C_sp_MI_2015_var_05_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-special/E_d_Informatica_sp_MI_2015_bar_05_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Simulare",
+        "date": "6 martie 2015",
+        "type": "simulare",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-simulare-bac/E_d_informatica_C_sp_MI_2015_var_simulare_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-simulare-bac/E_d_informatica_sp_MI_2015_bar_simulare_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Modele de subiecte",
+        "date": "2015",
+        "type": "model",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-model/E_d_informatica_C_sp_MI_2015_var_model.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2015-model/E_d_informatica_sp_MI_2015_bar_model.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2014,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "august 2014",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_C_sp_MI_2014_var_10_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_sp_MI_2014_bar_10_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "iunie-iulie 2014",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_C_sp_MI_2014_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_sp_MI_2014_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea specială",
+        "date": "2014",
+        "type": "speciala",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_C_sp_MI_2014_var_02_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2014/E_d_Informatica_sp_MI_2014_bar_02_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2013,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "august 2013",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_C_sp_MI_var_06_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_sp_MI_bar_06_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "iunie-iulie 2013",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_C_sp_MI_var_02_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2013/E_d_Informatica_sp_MI_bar_02_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2012,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "august 2012",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_C_sp_MI_var_04_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_sp_MI_bar_04_LRO.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "iunie-iulie 2012",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_C_sp_MI_var_01_LRO.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2012/E_d_Informatica_sp_MI_bar_01_LRO.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2011,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "august 2011",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_C_sp_MI_var_03.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_sp_MI_bar_03.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "iunie-iulie 2011",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_C_sp_MI_var_09.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2011/Proba_E_d_Informatica_sp_MI_bar_09.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2010,
+    "sessions": [
+      {
+        "name": "Sesiunea august-septembrie",
+        "date": "august 2010",
+        "type": "august",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_C_sp_MI_subiect_08.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_sp_MI_barem_08.pdf"
+          },
+          {
+            "label": "Intensiv informatică",
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_C_sp_MI_INT_subiect_08.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_informatica_sp_MI_INT_barem_08.pdf"
+          }
+        ]
+      },
+      {
+        "name": "Sesiunea iunie-iulie",
+        "date": "iunie-iulie 2010",
+        "type": "iunie",
+        "subjects": [
+          {
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_C_sp_MI_subiect_10.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_sp_MI_barem_10.pdf"
+          },
+          {
+            "label": "Intensiv informatică",
+            "subiect": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_C_sp_MI_INT_subiect_10.pdf",
+            "barem": "https://www.pbinfo.ro/resurse/9dc152/examene/2010/Proba_E_d_Informatica_sp_MI_INT_barem_10.pdf"
+          }
+        ]
+      }
+    ]
+  }
+]

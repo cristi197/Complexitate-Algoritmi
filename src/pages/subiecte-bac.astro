@@ -1,0 +1,448 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Subiecte BAC Informatică C/C++ — InfoLiceu"
+  description="Toate subiectele și baremele de la examenul de bacalaureat la informatică (C/C++, profil Matematică-Informatică) din 2010 până în prezent."
+>
+  <style>
+    .bac-hero {
+      text-align: center;
+      padding: 48px 24px 32px;
+    }
+    .bac-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .bac-hero p {
+      color: var(--text-2);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .bac-stats {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .bac-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 20px;
+      text-align: center;
+    }
+    .bac-stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+    .bac-stat span {
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+    .bac-controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 24px;
+      margin-bottom: 28px;
+    }
+    .bac-filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .bac-filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .bac-filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .bac-filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .sort-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sort-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .bac-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .bac-year-group {
+      margin-bottom: 32px;
+    }
+    .bac-year-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      position: sticky;
+      top: 60px;
+      z-index: 5;
+      background: var(--bg);
+      padding: 8px 0;
+    }
+    .bac-year-badge {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+      padding: 6px 18px;
+      border-radius: 10px;
+      min-width: 70px;
+      text-align: center;
+    }
+    .bac-year-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+    .bac-year-count {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bac-session-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .bac-session-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+    }
+    .bac-session-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .bac-session-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .bac-session-date {
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+    .bac-type-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .bac-type-badge[data-type="iunie"]     { background: #dcfce7; color: #166534; }
+    .bac-type-badge[data-type="august"]    { background: #fef3c7; color: #92400e; }
+    .bac-type-badge[data-type="speciala"]  { background: #e0e7ff; color: #3730a3; }
+    .bac-type-badge[data-type="simulare"]  { background: #fce7f3; color: #9d174d; }
+    .bac-type-badge[data-type="model"]     { background: #f3e8ff; color: #6b21a8; }
+    .bac-type-badge[data-type="antrenament"] { background: #ffedd5; color: #9a3412; }
+    :global([data-theme="dark"]) .bac-type-badge[data-type="iunie"]     { background: #14532d; color: #86efac; }
+    :global([data-theme="dark"]) .bac-type-badge[data-type="august"]    { background: #78350f; color: #fde68a; }
+    :global([data-theme="dark"]) .bac-type-badge[data-type="speciala"]  { background: #312e81; color: #a5b4fc; }
+    :global([data-theme="dark"]) .bac-type-badge[data-type="simulare"]  { background: #831843; color: #f9a8d4; }
+    :global([data-theme="dark"]) .bac-type-badge[data-type="model"]     { background: #581c87; color: #d8b4fe; }
+    :global([data-theme="dark"]) .bac-type-badge[data-type="antrenament"] { background: #7c2d12; color: #fdba74; }
+    .bac-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .bac-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .bac-link-subiect {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+    }
+    .bac-link-subiect:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+    .bac-link-barem {
+      background: var(--surface-2, var(--bg));
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .bac-link-barem:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .bac-link-external {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+    .bac-link-external:hover {
+      opacity: 0.88;
+    }
+    .bac-subject-label {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      font-weight: 600;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+    .bac-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-2);
+    }
+    .bac-empty svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--text-2);
+      margin-bottom: 12px;
+    }
+    .bac-source {
+      text-align: center;
+      margin-top: 32px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      color: var(--text-2);
+    }
+    .bac-source a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .bac-source a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <Header />
+
+  <main>
+    <section class="bac-hero">
+      <h1>📄 Subiecte BAC Informatică C/C++</h1>
+      <p>Toate subiectele și baremele de la bacalaureat, profil Matematică-Informatică, limbajul C/C++ — din 2010 până în prezent.</p>
+      <div class="bac-stats">
+        <div class="bac-stat">
+          <strong id="stat-years">17</strong>
+          <span>Ani disponibili</span>
+        </div>
+        <div class="bac-stat">
+          <strong id="stat-subjects">0</strong>
+          <span>Subiecte C/C++</span>
+        </div>
+        <div class="bac-stat">
+          <strong id="stat-barems">0</strong>
+          <span>Bareme</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="bac-controls">
+      <div class="bac-filter-group" id="type-filters">
+        <button class="bac-filter-btn active" data-filter="all">Toate</button>
+        <button class="bac-filter-btn" data-filter="iunie">Iunie</button>
+        <button class="bac-filter-btn" data-filter="august">August</button>
+        <button class="bac-filter-btn" data-filter="speciala">Specială</button>
+        <button class="bac-filter-btn" data-filter="simulare">Simulare</button>
+        <button class="bac-filter-btn" data-filter="model">Model</button>
+      </div>
+      <button class="sort-btn" id="sort-btn" title="Schimbă ordinea">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+        <span id="sort-label">Cel mai recent</span>
+      </button>
+    </div>
+
+    <div class="bac-container" id="bac-list">
+      <div class="bac-empty" id="bac-loading">
+        <p>Se încarcă subiectele...</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script define:vars={{ base }}>
+    let bacData = [];
+    let currentFilter = 'all';
+    let sortDesc = true; // newest first
+
+    async function loadData() {
+      const res = await fetch(`${base}/data/subiecte-bac.json`);
+      bacData = await res.json();
+      updateStats();
+      render();
+    }
+
+    function updateStats() {
+      let subjects = 0, barems = 0;
+      bacData.forEach(y => y.sessions.forEach(s => s.subjects.forEach(sub => {
+        if (sub.subiect) subjects++;
+        if (sub.barem) barems++;
+      })));
+      document.getElementById('stat-years').textContent = bacData.length;
+      document.getElementById('stat-subjects').textContent = subjects;
+      document.getElementById('stat-barems').textContent = barems;
+    }
+
+    function getTypeLabel(type) {
+      const map = {
+        iunie: 'Iunie', august: 'August', speciala: 'Specială',
+        simulare: 'Simulare', model: 'Model', antrenament: 'Antrenament'
+      };
+      return map[type] || type;
+    }
+
+    function render() {
+      const container = document.getElementById('bac-list');
+      const sorted = [...bacData].sort((a, b) => sortDesc ? b.year - a.year : a.year - b.year);
+      let html = '';
+
+      sorted.forEach(yearData => {
+        const sessions = currentFilter === 'all'
+          ? yearData.sessions
+          : yearData.sessions.filter(s => s.type === currentFilter);
+
+        if (sessions.length === 0) return;
+
+        html += `<div class="bac-year-group">`;
+        html += `<div class="bac-year-header">`;
+        html += `  <div class="bac-year-badge">${yearData.year}</div>`;
+        html += `  <div class="bac-year-line"></div>`;
+        html += `  <div class="bac-year-count">${sessions.length} sesiuni</div>`;
+        html += `</div>`;
+
+        sessions.forEach(session => {
+          html += `<div class="bac-session-card">`;
+          html += `  <div class="bac-session-top">`;
+          html += `    <span class="bac-session-name">${session.name}</span>`;
+          html += `    <span class="bac-type-badge" data-type="${session.type}">${getTypeLabel(session.type)}</span>`;
+          html += `    <span class="bac-session-date">📅 ${session.date}</span>`;
+          html += `  </div>`;
+
+          if (session.externalLink && session.subjects.length === 0) {
+            html += `<div class="bac-links">`;
+            html += `  <a class="bac-link bac-link-external" href="${session.externalLink}" target="_blank" rel="noopener">`;
+            html += `    🔗 Vezi lista completă pe pbinfo.ro`;
+            html += `  </a>`;
+            html += `</div>`;
+          } else {
+            session.subjects.forEach((sub, i) => {
+              if (sub.label) {
+                html += `<div class="bac-subject-label">${sub.label}</div>`;
+              }
+              html += `<div class="bac-links">`;
+              html += `  <a class="bac-link bac-link-subiect" href="${sub.subiect}" target="_blank" rel="noopener">`;
+              html += `    📄 Subiect C/C++`;
+              html += `  </a>`;
+              if (sub.barem) {
+                html += `  <a class="bac-link bac-link-barem" href="${sub.barem}" target="_blank" rel="noopener">`;
+                html += `    ✅ Barem`;
+                html += `  </a>`;
+              }
+              html += `</div>`;
+            });
+          }
+
+          html += `</div>`;
+        });
+
+        html += `</div>`;
+      });
+
+      if (!html) {
+        html = `<div class="bac-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <p>Niciun subiect găsit pentru filtrul selectat.</p>
+        </div>`;
+      }
+
+      html += `<div class="bac-source">
+        Sursa datelor: <a href="https://www.pbinfo.ro/articole/16/subiecte-de-la-examene" target="_blank" rel="noopener">pbinfo.ro</a>
+        — Profil Matematică-Informatică, limbajul C/C++
+      </div>`;
+
+      container.innerHTML = html;
+    }
+
+    // Filter buttons
+    document.getElementById('type-filters').addEventListener('click', (e) => {
+      const btn = e.target.closest('.bac-filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.bac-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      render();
+    });
+
+    // Sort button
+    document.getElementById('sort-btn').addEventListener('click', () => {
+      sortDesc = !sortDesc;
+      document.getElementById('sort-label').textContent = sortDesc ? 'Cel mai recent' : 'Cel mai vechi';
+      const svg = document.querySelector('#sort-btn svg');
+      svg.style.transform = sortDesc ? '' : 'rotate(180deg)';
+      render();
+    });
+
+    loadData();
+  </script>
+</BaseLayout>
