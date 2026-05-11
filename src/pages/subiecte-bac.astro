@@ -61,23 +61,18 @@ const base = import.meta.env.BASE_URL;
                 <button class="sb-chip sb-chip-speciala" data-filter="speciala">⭐ Specială</button>
                 <button class="sb-chip sb-chip-simulare" data-filter="simulare">📝 Simulare</button>
                 <button class="sb-chip sb-chip-model" data-filter="model">📋 Model</button>
+                <button class="sb-chip sb-chip-antrenament" data-filter="antrenament">🏋️ Antrenament</button>
               </div>
             </div>
 
-            <!-- Year filter -->
+            <!-- Year filter + Sort (inline) -->
             <div class="sb-filter-group">
-              <div class="sb-filter-label">📅 An</div>
-              <div class="sb-chips" id="year-filters">
-                <button class="sb-chip active" data-year="all">Toți anii</button>
-                <!-- populated dynamically -->
-              </div>
-            </div>
-
-            <!-- Sort -->
-            <div class="sb-filter-group">
-              <div class="sb-filter-label">🔃 Ordine</div>
-              <div class="sb-chips">
-                <button class="sb-chip active" id="sort-btn" data-dir="desc">↓ Cel mai recent</button>
+              <div class="sb-filter-label">📅 An / 🔃 Ordine</div>
+              <div class="sb-inline-controls">
+                <select class="sb-select" id="year-select">
+                  <option value="all">Toți anii</option>
+                </select>
+                <button class="sb-chip active" id="sort-btn">↓ Cel mai recent</button>
               </div>
             </div>
 
@@ -187,6 +182,28 @@ const base = import.meta.env.BASE_URL;
     .sb-chip-speciala.active { background: #6366f1; border-color: #6366f1; }
     .sb-chip-simulare.active { background: #db2777; border-color: #db2777; }
     .sb-chip-model.active   { background: #7c3aed; border-color: #7c3aed; }
+    .sb-chip-antrenament.active { background: #ea580c; border-color: #ea580c; }
+
+    /* ─── Year dropdown ─── */
+    .sb-inline-controls {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .sb-select {
+      padding: 6px 32px 6px 14px; border-radius: 999px;
+      border: 1.5px solid var(--border); background: var(--surface);
+      color: var(--text); font-size: 0.8rem; font-weight: 600;
+      font-family: inherit; cursor: pointer;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center;
+      transition: all var(--transition);
+    }
+    .sb-select:hover { border-color: var(--primary); }
+    .sb-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-dim); }
+    [data-theme="dark"] .sb-select {
+      background-color: var(--surface);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    }
 
     /* ─── Year group ─── */
     .sb-year-group { margin-bottom: 28px; }
@@ -291,8 +308,6 @@ const base = import.meta.env.BASE_URL;
     .sb-action-subiect:hover { background: var(--primary-dim); }
     .sb-action-barem:hover { background: rgba(0,0,0,.03); color: var(--text); }
     [data-theme="dark"] .sb-action-barem:hover { background: rgba(255,255,255,.05); color: var(--text); }
-    .sb-action-external { color: #d97706; }
-    .sb-action-external:hover { background: rgba(217,119,6,.08); }
     .sb-action svg { flex-shrink: 0; }
 
     /* Extra subjects */
@@ -363,7 +378,7 @@ const base = import.meta.env.BASE_URL;
       try {
         const res = await fetch(`${base}/data/subiecte-bac.json`);
         bacData = await res.json();
-        buildYearChips();
+        buildYearOptions();
         updateStats();
         render();
       } catch(e) {
@@ -372,14 +387,15 @@ const base = import.meta.env.BASE_URL;
       }
     }
 
-    function buildYearChips() {
-      const container = document.getElementById('year-filters');
-      const years = bacData.map(y => y.year).sort((a, b) => b - a);
-      let html = '<button class="sb-chip active" data-year="all">Toți anii</button>';
-      years.forEach(y => {
-        html += `<button class="sb-chip" data-year="${y}">${y}</button>`;
+    function buildYearOptions() {
+      var select = document.getElementById('year-select');
+      var years = bacData.map(function(y) { return y.year; }).sort(function(a, b) { return b - a; });
+      years.forEach(function(y) {
+        var opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        select.appendChild(opt);
       });
-      container.innerHTML = html;
     }
 
     function updateStats() {
@@ -436,16 +452,8 @@ const base = import.meta.env.BASE_URL;
           html += '    <span class="sb-badge sb-badge-' + session.type + '">' + label + '</span>';
           html += '  </div>';
 
-          if (session.externalLink && session.subjects.length === 0) {
-            html += '<div class="sb-card-actions">';
-            html += '  <a class="sb-action sb-action-external" href="' + session.externalLink + '" target="_blank" rel="noopener">';
-            html += '    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
-            html += '    Vezi lista completă pe pbinfo.ro';
-            html += '  </a>';
-            html += '</div>';
-          } else {
-            var main = session.subjects[0];
-            if (main) {
+          var main = session.subjects[0];
+          if (main) {
               html += '<div class="sb-card-actions">';
               html += '  <a class="sb-action sb-action-subiect" href="' + resolveHref(main.subiect) + '" target="_blank" rel="noopener">';
               html += '    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
@@ -476,7 +484,7 @@ const base = import.meta.env.BASE_URL;
               }
               html += '</div>';
             }
-          }
+
 
           html += '</div>';
         });
@@ -492,7 +500,7 @@ const base = import.meta.env.BASE_URL;
       }
 
       html += '<div class="sb-source">';
-      html += '  Sursa datelor: <a href="https://www.pbinfo.ro/articole/16/subiecte-de-la-examene" target="_blank" rel="noopener">pbinfo.ro</a>';
+      html += '  Mulțumim <a href="https://www.pbinfo.ro" target="_blank" rel="noopener">pbinfo.ro</a> pentru subiectele bine organizate.';
       html += '  · Profil Matematică-Informatică · Limbajul C/C++';
       html += '</div>';
 
@@ -510,12 +518,8 @@ const base = import.meta.env.BASE_URL;
     });
 
     // Year filter
-    document.getElementById('year-filters').addEventListener('click', function(e) {
-      var btn = e.target.closest('.sb-chip');
-      if (!btn) return;
-      document.querySelectorAll('#year-filters .sb-chip').forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      currentYear = btn.dataset.year;
+    document.getElementById('year-select').addEventListener('change', function(e) {
+      currentYear = e.target.value;
       render();
     });
 

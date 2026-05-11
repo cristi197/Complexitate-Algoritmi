@@ -311,8 +311,20 @@
         "name": "Teste de antrenament",
         "date": "februarie–mai 2021",
         "type": "antrenament",
-        "externalLink": "https://www.pbinfo.ro/articole/23409/bac-2021",
-        "subjects": []
+        "subjects": [
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-01-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-01-barem.pdf", "label": "Test 1" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-02-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-02-barem.pdf", "label": "Test 2" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-03-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-03-barem.pdf", "label": "Test 3" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-04-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-04-barem.pdf", "label": "Test 4" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-05-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-05-barem.pdf", "label": "Test 5" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-06-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-06-barem.pdf", "label": "Test 6" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-07-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-07-barem.pdf", "label": "Test 7" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-08-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-08-barem.pdf", "label": "Test 8" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-09-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-09-barem.pdf", "label": "Test 9" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-10-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-10-barem.pdf", "label": "Test 10" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-11-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-11-barem.pdf", "label": "Test 11" },
+          { "subiect": "/subiecte-bac/2021/2021-antrenament-test-12-subiect.pdf", "barem": "/subiecte-bac/2021/2021-antrenament-test-12-barem.pdf", "label": "Test 12" }
+        ]
       },
       {
         "name": "Modele de subiecte",
@@ -365,10 +377,30 @@
       },
       {
         "name": "Teste propuse de MEC",
-        "date": "aprilie 2020",
+        "date": "aprilie–mai 2020",
         "type": "antrenament",
-        "externalLink": "https://www.pbinfo.ro/articole/22222/subiecte-propuse-mec-aprilie-mai-2020",
-        "subjects": []
+        "subjects": [
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-01-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-01-barem.pdf", "label": "Test MEC 1" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-02-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-02-barem.pdf", "label": "Test MEC 2" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-03-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-03-barem.pdf", "label": "Test MEC 3" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-04-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-04-barem.pdf", "label": "Test MEC 4" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-05-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-05-barem.pdf", "label": "Test MEC 5" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-06-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-06-barem.pdf", "label": "Test MEC 6" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-07-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-07-barem.pdf", "label": "Test MEC 7" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-08-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-08-barem.pdf", "label": "Test MEC 8" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-09-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-09-barem.pdf", "label": "Test MEC 9" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-10-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-10-barem.pdf", "label": "Test MEC 10" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-11-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-11-barem.pdf", "label": "Test MEC 11" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-12-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-12-barem.pdf", "label": "Test MEC 12" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-13-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-13-barem.pdf", "label": "Test MEC 13" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-14-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-14-barem.pdf", "label": "Test MEC 14" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-15-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-15-barem.pdf", "label": "Test MEC 15" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-16-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-16-barem.pdf", "label": "Test MEC 16" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-17-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-17-barem.pdf", "label": "Test MEC 17" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-18-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-18-barem.pdf", "label": "Test MEC 18" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-19-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-19-barem.pdf", "label": "Test MEC 19" },
+          { "subiect": "/subiecte-bac/2020/2020-mec-test-20-subiect.pdf", "barem": "/subiecte-bac/2020/2020-mec-test-20-barem.pdf", "label": "Test MEC 20" }
+        ]
       },
       {
         "name": "Modele de subiecte",
