@@ -41,7 +41,22 @@ function markVisited(chapterId) {
   } else {
     saveProgress(data);
   }
+  // Sync with streak calendar — mark today as a study day
+  markStudyDay();
   updateSidebarUI(data);
+}
+
+function markStudyDay() {
+  var STUDY_KEY = 'infoStudyDays';
+  var now = new Date();
+  var today = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+  try {
+    var days = JSON.parse(localStorage.getItem(STUDY_KEY) || '[]');
+    if (!days.includes(today)) {
+      days.push(today);
+      localStorage.setItem(STUDY_KEY, JSON.stringify(days));
+    }
+  } catch(e) {}
 }
 
 function updateSidebarUI(data) {

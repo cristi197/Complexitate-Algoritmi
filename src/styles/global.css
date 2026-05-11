@@ -799,6 +799,19 @@ pre code { background: none; border: none; padding: 0; color: inherit; }
 .card.purple { border-left: 3px solid var(--purple); }
 .card.teal   { border-left: 3px solid var(--teal, #14b8a6); }
 .card table  { overflow-x: auto; display: block; font-variant-ligatures: none; }
+.card-link-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+}
+.card-link-btn:hover { opacity: .85; transform: translateY(-1px); }
 
 /* ─── Beginner box ─────────────────────────────────────────────── */
 .beginner-box {

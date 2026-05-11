@@ -47,7 +47,10 @@ const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculat
       </div>
 
       <div class="callout info">
-        <strong>De ce studiem informatica?</strong> În lumea modernă, orice domeniu (medicină, economie, arte, biologie) utilizează software. Abilitatea de a programa îţi permite să automatizezi sarcini repetitive, să analizezi date mari şi să construieşti soluţii digitale.
+        <div>
+          <strong>De ce studiem informatica?</strong>
+          <p style="margin:8px 0 0;">În lumea modernă, orice domeniu (medicină, economie, arte, biologie) utilizează software. Abilitatea de a programa îţi permite să automatizezi sarcini repetitive, să analizezi date mari şi să construieşti soluţii digitale.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -112,22 +115,22 @@ const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculat
         <div class="card blue">
           <strong>🌐 OnlineGDB</strong>
           <p>Rulează direct în browser, fără instalare. Perfect pentru început.</p>
-          <small>onlinegdb.com</small>
+          <a href="https://www.onlinegdb.com/online_c++_compiler" target="_blank" rel="noopener noreferrer" class="card-link-btn">Deschide →</a>
         </div>
         <div class="card teal">
           <strong>🔧 Code::Blocks</strong>
           <p>IDE gratuit, complet, cu compilator MinGW inclus. Recomandat pentru BAC.</p>
-          <small>codeblocks.org</small>
+          <a href="https://www.codeblocks.org/downloads/" target="_blank" rel="noopener noreferrer" class="card-link-btn">Descarcă →</a>
         </div>
         <div class="card orange">
           <strong>⚡ Dev-C++</strong>
           <p>IDE clasic, simplu şi uşor de instalat. Foarte popular în licee româneşti.</p>
-          <small>sourceforge.net/p/orwelldevcpp</small>
+          <a href="https://sourceforge.net/projects/orwelldevcpp/" target="_blank" rel="noopener noreferrer" class="card-link-btn">Descarcă →</a>
         </div>
         <div class="card purple">
           <strong>✏️ VS Code</strong>
           <p>Editor modern, extensibil. Necesită configurare manuală a compilatorului g++.</p>
-          <small>code.visualstudio.com</small>
+          <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer" class="card-link-btn">Descarcă →</a>
         </div>
       </div>
     </div>
@@ -260,7 +263,10 @@ cout &lt;&lt; mx;</pre>
 &#125;</pre>
 
       <div class="callout warning">
-        <strong>La BAC</strong>, datele sunt întotdeauna citite din fişier (<code>date.in</code> sau similar) şi scrise în fişier (<code>date.out</code>). Antrenati-vă cu <code>ifstream</code>/<code>ofstream</code>!
+        <div>
+          <strong>La BAC</strong>
+          <p style="margin:6px 0 0;">Datele sunt întotdeauna citite din fişier (<code>date.in</code> sau similar) şi scrise în fişier (<code>date.out</code>). Antrenaţi-vă cu <code>ifstream</code>/<code>ofstream</code>!</p>
+        </div>
       </div>
 
       <h3 style="margin:20px 0 10px;font-size:15px;">▶️ Testează codul C++ direct în browser</h3>
@@ -400,10 +406,13 @@ cout &lt;&lt; INT_MIN;  <span class="cm">// -2147483648</span></pre>
 <span class="kw">if</span> (n % k == <span class="nu">0</span>) cout &lt;&lt; <span class="st">"n este divizibil cu k"</span>;</pre>
 
       <div class="callout info">
-        <strong>Operatorul ternar <code>? :</code></strong> — Este o prescurtare a structurii <code>if-else</code> pe o singură linie.<br/>
-        Sintaxa: <code>conditie ? valoare_daca_adevarat : valoare_daca_fals</code><br/>
-        Exemplu: <code>int maxim = (a > b) ? a : b;</code> este echivalent cu:<br/>
-        <code>if (a > b) maxim = a; else maxim = b;</code>
+        <div>
+          <strong>Operatorul ternar <code>? :</code></strong>
+          <p style="margin:6px 0 4px;">Este o prescurtare a structurii <code>if-else</code> pe o singură linie.</p>
+          <p style="margin:4px 0;">Sintaxa: <code>conditie ? valoare_daca_adevarat : valoare_daca_fals</code></p>
+          <p style="margin:4px 0;">Exemplu: <code>int maxim = (a > b) ? a : b;</code> este echivalent cu:<br/>
+          <code>if (a > b) maxim = a; else maxim = b;</code></p>
+        </div>
       </div>
 
       <h3 style="margin-bottom:10px;font-size:15px;">Operatorul ternar — exemple</h3>
@@ -571,7 +580,10 @@ cin >> n;
 
       <h3 style="margin:20px 0 10px;font-size:15px;">Structura subiectului BAC Informatică</h3>
       <div class="callout info">
-        <strong>📌 Conform programei oficiale MEN</strong> — Examenul de bacalaureat la Informatică (profil Matematică-Informatică) durează <strong>3 ore</strong> şi are 3 subiecte, totalizând 90 puncte + 10 puncte din oficiu = 100 puncte.
+        <div>
+          <strong>📌 Conform programei oficiale MEN</strong>
+          <p style="margin:6px 0 0;">Examenul de bacalaureat la Informatică (profil Matematică-Informatică) durează <strong>3 ore</strong> şi are 3 subiecte, totalizând 90 puncte + 10 puncte din oficiu = 100 puncte.</p>
+        </div>
       </div>
       <table>
         <thead><tr><th>Subiect</th><th>Nr. cerințe</th><th>Conţinut</th><th>Punctaj</th></tr></thead>
@@ -612,11 +624,17 @@ cin >> n;
       </table>
 
       <div class="callout warning">
-        <strong>Important:</strong> La Subiectele II și III se scrie cod C++ <strong>compilabil</strong>. Codul trebuie să includă <code>#include</code>, <code>using namespace std;</code>, funcţia <code>main()</code> şi citire/scriere din <strong>fişier</strong> (nu <code>cin/cout</code>). Punctajul se acordă parţial dacă logica este corectă dar codul nu compilează.
+        <div>
+          <strong>Important:</strong>
+          <p style="margin:6px 0 0;">La Subiectele II și III se scrie cod C++ <strong>compilabil</strong>. Codul trebuie să includă <code>#include</code>, <code>using namespace std;</code>, funcţia <code>main()</code> şi citire/scriere din <strong>fişier</strong> (nu <code>cin/cout</code>). Punctajul se acordă parţial dacă logica este corectă dar codul nu compilează.</p>
+        </div>
       </div>
 
       <div class="callout info">
-        <strong>Sfat strategic:</strong> Subiectul I este mai &ldquo;teoretic&rdquo; — studiază complexitate şi trasare algoritm. Subiectele II şi III cer cod C++ complet, compilabil şi corect. Exersează zilnic probleme de pe pbinfo.ro sau infoarena.ro!
+        <div>
+          <strong>Sfat strategic:</strong>
+          <p style="margin:6px 0 0;">Subiectul I este mai &ldquo;teoretic&rdquo; — studiază complexitate şi trasare algoritm. Subiectele II şi III cer cod C++ complet, compilabil şi corect. Exersează zilnic probleme de pe pbinfo.ro sau infoarena.ro!</p>
+        </div>
       </div>
 
       <h3 style="margin:20px 0 10px;font-size:15px;">📚 Resurse oficiale &amp; platforme de exersare</h3>
