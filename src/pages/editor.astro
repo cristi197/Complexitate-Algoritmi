@@ -406,22 +406,18 @@ int main() {
       outputArea.innerHTML = '<span class="editor-output__placeholder">⏳ Execuție în curs...</span>';
       execInfo.style.display = 'none';
 
-      fetch('https://emkc.org/api/v2/piston/execute', {
+      fetch('https://wandbox.org/api/compile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          language: 'cpp',
-          version: '10.2.0',
-          files: [{ name: 'main.cpp', content: code }],
+          compiler: 'gcc-head',
+          code: code,
+          options: 'warning,c++17',
           stdin: stdin,
-          run_timeout: 10000,
-          compile_timeout: 10000
+          'compiler-option-raw': '-O2'
         })
       })
       .then(function(res) {
-        if (res.status === 401 || res.status === 403) {
-          throw new Error('Serverul de execuție necesită autentificare (HTTP ' + res.status + '). Încearcă din nou mai târziu.');
-        }
         if (res.status === 429) {
           throw new Error('Prea multe cereri. Așteaptă câteva secunde și încearcă din nou (HTTP 429).');
         }
@@ -435,32 +431,27 @@ int main() {
         var out = '';
         var hasError = false;
 
-        if (data.compile && data.compile.stderr && data.compile.stderr.trim()) {
-          out += '⚠️ EROARE COMPILARE:\n' + data.compile.stderr + '\n';
+        if (data.compiler_error && data.compiler_error.trim()) {
+          out += '⚠️ EROARE COMPILARE:\n' + data.compiler_error + '\n';
           hasError = true;
         }
 
-        if (data.run) {
-          if (data.run.stdout && data.run.stdout.trim()) {
-            out += data.run.stdout;
-          }
-          if (data.run.stderr && data.run.stderr.trim()) {
-            out += '\n⚠️ STDERR:\n' + data.run.stderr;
-            hasError = true;
-          }
-
-          var code_exit = data.run.code;
-          if (data.run.signal) {
-            out += '\n⚠️ Semnal: ' + data.run.signal;
-            hasError = true;
-          }
-
-          execCode.textContent = code_exit !== null ? code_exit : '—';
-          if (data.run.cpu_time !== undefined) {
-            execTime.textContent = (data.run.cpu_time / 1000).toFixed(3) + 's';
-          }
-          execInfo.style.display = 'flex';
+        if (data.program_output && data.program_output.trim()) {
+          out += data.program_output;
         }
+        if (data.program_error && data.program_error.trim()) {
+          out += '\n⚠️ STDERR:\n' + data.program_error;
+          hasError = true;
+        }
+        if (data.signal) {
+          out += '\n⚠️ Semnal: ' + data.signal;
+          hasError = true;
+        }
+
+        var exitCode = data.status !== undefined ? data.status : '—';
+        execCode.textContent = exitCode;
+        execTime.textContent = 'N/A';
+        execInfo.style.display = 'flex';
 
         if (!out.trim()) out = '(fără output)';
         outputArea.textContent = out;

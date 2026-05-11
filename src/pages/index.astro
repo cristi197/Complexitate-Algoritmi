@@ -1,256 +1,153 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import Sidebar from '../components/Sidebar.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
 
-const chapters = [
+const categories = [
   {
-    num: 0, file: 'introducere', color: 'ch-blue', icon: '🖥️', difficulty: 'easy',
-    title: 'Introducere în Informatică', subtitle: 'Bazele absolute, program C++, programa BAC 2026',
-    topics: ['Ce este informatica și algoritmul','Structura unui program C++','Tipuri de date: int, double, char, bool','Operatori și structuri de control','Programa completă BAC 2026'],
-    time: '~25 min'
+    id: 'fundamente',
+    label: 'Fundamente',
+    desc: 'Punct de start — noțiuni esențiale pentru orice elev de informatică.',
+    chapters: [
+      { file: 'introducere',  icon: '🖥️', title: 'Introducere în Informatică', subtitle: 'C++, tipuri de date, structuri de control, BAC 2026', difficulty: 'easy',   time: '25 min' },
+      { file: 'functii',      icon: '⚙️', title: 'Funcții și Subprograme',     subtitle: 'Parametri, referințe, variabile locale/globale',     difficulty: 'easy',   time: '30 min' },
+      { file: 'complexitate', icon: '📊', title: 'Eficiența Algoritmilor',      subtitle: 'Notația Big-O, complexitate timp și spațiu',          difficulty: 'medium', time: '45 min' },
+    ],
   },
   {
-    num: 8, file: 'functii', color: 'ch-blue', icon: '⚙️', difficulty: 'easy',
-    title: 'Funcții și Subprograme', subtitle: 'Parametri, referințe, variabile locale/globale',
-    topics: ['Declarare, definire, apel de funcție','Parametri prin valoare vs. referință (&)','Variabile locale vs. globale','Funcții void și cu return','Overloading și funcții inline'],
-    time: '~30 min'
+    id: 'structuri',
+    label: 'Structuri de Date',
+    desc: 'Organizarea și manipularea datelor — capabilități esențiale la BAC.',
+    chapters: [
+      { file: 'vectori',   icon: '📦', title: 'Vectori (Tablouri 1D)',       subtitle: 'Sortare, căutare, interclasare, algoritmi clasici',  difficulty: 'easy',   time: '35 min' },
+      { file: 'matrici',   icon: '🔲', title: 'Matrici (Tablouri 2D)',       subtitle: 'Diagonale, triunghiuri, zone, operații pe 2D',       difficulty: 'medium', time: '35 min' },
+      { file: 'siruri',    icon: '🔤', title: 'Șiruri de Caractere',         subtitle: 'char[], funcții cstring, palindrom, cifru Caesar',   difficulty: 'medium', time: '35 min' },
+      { file: 'fisiere',   icon: '📁', title: 'Fișiere',                     subtitle: 'ifstream, ofstream, citire EOF, prelucrare date',    difficulty: 'easy',   time: '30 min' },
+      { file: 'structuri', icon: '🗂️', title: 'Structuri (struct)',           subtitle: 'Tipuri definite de utilizator, sortare câmpuri',     difficulty: 'medium', time: '30 min' },
+      { file: 'pointeri',  icon: '🔗', title: 'Pointeri & Alocare Dinamică', subtitle: 'new/delete, aritmetica pointerilor, liste',           difficulty: 'hard',   time: '35 min' },
+    ],
   },
   {
-    num: 1, file: 'complexitate', color: 'ch-blue', icon: '📊', difficulty: 'medium',
-    title: 'Eficiența Algoritmilor', subtitle: 'Complexitate timp & spațiu, notații Big-O',
-    topics: ['Notația Big-O, Ω, Θ','Clase de complexitate comparate','Algoritmi de sortare analizați','Animație Bubble Sort interactivă','Probleme tip BAC rezolvate'],
-    time: '~45 min'
-  },
-  {
-    num: 2, file: 'recursivitate', color: 'ch-green', icon: '🔄', difficulty: 'medium',
-    title: 'Recursivitate', subtitle: 'Funcții recursive și stiva de apeluri',
-    topics: ['Cum funcționează recursivitatea','Stiva de apeluri vizualizată','Factorial, Fibonacci, putere','Recursiv vs. iterativ — comparație','Memoizare și introducere DP'],
-    time: '~35 min'
-  },
-  {
-    num: 3, file: 'backtracking', color: 'ch-purple', icon: '🌳', difficulty: 'hard',
-    title: 'Backtracking', subtitle: 'Căutare exhaustivă cu revenire',
-    topics: ['Șablonul general backtracking','Animație N-Regine pas cu pas','Permutări și combinări','Labirint — căutarea ieșirii','Probleme BAC complete'],
-    time: '~40 min'
-  },
-  {
-    num: 4, file: 'vectori', color: 'ch-orange', icon: '📦', difficulty: 'easy',
-    title: 'Vectori (Tablouri 1D)', subtitle: 'Operații, algoritmi, aplicații clasice',
-    topics: ['Declarare, inițializare, citire','Parcurgere, căutare, sortare','Interclasare, ștergere, inserare','Ciurul lui Eratostene','Probleme clasice BAC cu vectori'],
-    time: '~35 min'
-  },
-  {
-    num: 5, file: 'matrici', color: 'ch-teal', icon: '🔲', difficulty: 'medium',
-    title: 'Matrici (Tablouri 2D)', subtitle: 'Operații pe tablouri bidimensionale',
-    topics: ['Declarare și parcurgere completă','Diagonale, triunghi sup/inf','Transpusa și rotirea matricei','Matrice pătratice speciale','Spirală, borduri, probleme BAC'],
-    time: '~35 min'
-  },
-  {
-    num: 6, file: 'siruri', color: 'ch-red', icon: '🔤', difficulty: 'medium',
-    title: 'Șiruri de Caractere', subtitle: 'Prelucrarea textelor în C++',
-    topics: ['char[] vs. string în C++','Funcții standard strlen, strcpy, strcat','Palindrom, anagramă, cifru Caesar','Numărare caractere și cuvinte','Probleme BAC cu șiruri'],
-    time: '~35 min'
-  },
-  {
-    num: 7, file: 'fisiere', color: 'ch-pink', icon: '📁', difficulty: 'easy',
-    title: 'Fișiere', subtitle: 'Citire și scriere din/în fișiere C++',
-    topics: ['Deschidere, citire, scriere, închidere','fstream, ifstream, ofstream','Citire până la EOF','Procesare date din fișiere','Probleme BAC cu fișiere'],
-    time: '~30 min'
-  },
-  {
-    num: 9, file: 'programare-dinamica', color: 'ch-teal', icon: '🧮', difficulty: 'hard',
-    title: 'Programare Dinamică', subtitle: 'De la memoizare la DP tabelar',
-    topics: ['Fibonacci: naiv → memoizare → DP','DP tabelar bottom-up','Cel mai lung subșir crescător (LIS)','Triunghi de numere — sum maximă','Probleme BAC M-I intensiv'],
-    time: '~40 min'
-  },
-  {
-    num: 10, file: 'structuri', color: 'ch-purple', icon: '🗂️', difficulty: 'medium',
-    title: 'Structuri (struct)', subtitle: 'Tipuri de date definite de utilizator',
-    topics: ['Declararea și inițializarea struct','Accesarea câmpurilor cu . și ->','Array de structuri','Sortare după un câmp','Structuri ca parametri de funcție'],
-    time: '~30 min'
-  },
-  {
-    num: 11, file: 'pointeri', color: 'ch-green', icon: '🔗', difficulty: 'hard',
-    title: 'Pointeri & Alocare Dinamică', subtitle: 'Referințe, new/delete, liste',
-    topics: ['Ce este un pointer — *, &, ->','Aritmetica pointerilor','Alocare dinamică: new și delete','Pointeri și funcții','Introducere în liste simplu înlănțuite'],
-    time: '~35 min'
+    id: 'algoritmi',
+    label: 'Algoritmi & Tehnici Avansate',
+    desc: 'Tehnicile de rezolvare a problemelor — miezul examenului de bacalaureat.',
+    chapters: [
+      { file: 'recursivitate',       icon: '🔄', title: 'Recursivitate',      subtitle: 'Stiva de apeluri, factorial, Fibonacci, memoizare',   difficulty: 'medium', time: '35 min' },
+      { file: 'backtracking',        icon: '🌳', title: 'Backtracking',        subtitle: 'Căutare cu revenire, N-Regine, permutări, labirint',  difficulty: 'hard',   time: '40 min' },
+      { file: 'programare-dinamica', icon: '🧮', title: 'Programare Dinamică', subtitle: 'DP tabelar, LIS, triunghi de numere, sume optime',    difficulty: 'hard',   time: '40 min' },
+    ],
   },
 ];
 ---
 <BaseLayout
-  title="Informatică Liceu — Algoritmi & Structuri de Date"
-  description="Ghid complet de informatică pentru liceu și bacalaureat: algoritmi, complexitate, recursivitate, backtracking, vectori, matrici, șiruri, fișiere."
+  title="InfoLiceu — Algoritmi & Structuri de Date BAC 2026"
+  description="Ghid complet de informatică pentru liceu și bacalaureat: 12 capitole cu teorie, animații interactive, quiz-uri BAC și probleme rezolvate în C++."
 >
   <Header />
-  <Sidebar />
 
-      <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-bg-radial" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <span class="hero-eyebrow">
-        <span class="hero-eyebrow-dot"></span>
-        🎓 BAC Informatică · România · C++
-      </span>
-      <h1>Informatică Liceu<br /><span>Algoritmi &amp; Structuri de Date</span></h1>
-      <p class="hero-desc">
-        Ghid complet pas cu pas pentru bacalaureat. De la noțiuni fundamentale
-        la probleme rezolvate, cu animații interactive și exemple din practică.
+  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <div class="ix-hero">
+    <div class="ix-hero-inner">
+      <p class="ix-eyebrow">BAC Informatică · C++ · România 2026</p>
+      <h1 class="ix-title">Algoritmi &amp;<br>Structuri de Date</h1>
+      <p class="ix-lead">
+        Ghid complet pentru bacalaureat — 12 capitole cu teorie, animații
+        interactive, quiz-uri și probleme rezolvate pas cu pas.
       </p>
-      <div class="hero-badges">
-        <span class="hero-badge">📊 12 capitole</span>
-        <span class="hero-badge">🎬 Animații interactive</span>
-        <span class="hero-badge">⏱ Complexitate timp &amp; spațiu</span>
-        <span class="hero-badge">📝 Probleme rezolvate</span>
-        <span class="hero-badge">🔊 Audio lecții</span>
+      <div class="ix-actions">
+        <a href="#capitole" class="ix-btn-primary">Explorează capitolele →</a>
+        <a href={`${base}/analiza-bac`} class="ix-btn-ghost">🤖 Analiză BAC cu AI</a>
       </div>
-      <div class="hero-actions">
-        <a href="#capitole"     class="btn-hero-primary">Începe să înveți →</a>
-        <a href="#complexitate" class="btn-hero-secondary">Big-O Referință</a>
-        <a href={`${base}/analiza-bac`} class="btn-hero-secondary btn-hero-ghost">
-          🤖 Analizează-ți varianta BAC
-        </a>
+      <div class="ix-stats">
+        <span><strong>12</strong> capitole</span>
+        <span class="ix-stats-sep" aria-hidden="true"></span>
+        <span><strong>800+</strong> exerciții</span>
+        <span class="ix-stats-sep" aria-hidden="true"></span>
+        <span><strong>5+</strong> animații</span>
+        <span class="ix-stats-sep" aria-hidden="true"></span>
+        <span><strong>~8h</strong> conținut</span>
       </div>
-      <!-- Onboarding hint for first-time visitors -->
-      <p class="hero-onboarding">
-        <strong>Ești la început?</strong> Urmează capitolele în ordine:
-        <a href={`${base}/capitole/introducere`}>Introducere</a> →
-        <a href={`${base}/capitole/functii`}>Funcții</a> →
-        <a href={`${base}/capitole/recursivitate`}>Recursivitate</a> → ...
-      </p>
-
-      <!-- Decorative code preview -->
-      <div class="hero-graphic" aria-hidden="true">
-        <div class="hero-code-preview">
-          <div class="hcp-bar">
-            <span class="hcp-dot r"></span>
-            <span class="hcp-dot y"></span>
-            <span class="hcp-dot g"></span>
-            <span class="hcp-title">cautare_binara.cpp</span>
-          </div>
-          <pre class="hcp-code"><span class="kw">int</span> cautareBinara(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> x) {"{"}
-  <span class="kw">int</span> st = <span class="nu">0</span>, dr = n - <span class="nu">1</span>;
-  <span class="kw">while</span> (st &lt;= dr) {"{"}
-    <span class="kw">int</span> mij = (st + dr) / <span class="nu">2</span>;
-    <span class="kw">if</span> (v[mij] == x) <span class="kw">return</span> mij;
-    <span class="kw">if</span> (v[mij] &lt; x) st = mij + <span class="nu">1</span>;
-    <span class="kw">else</span>            dr = mij - <span class="nu">1</span>;
-  {"}"}
-  <span class="kw">return</span> -<span class="nu">1</span>; <span class="cm">// O(log n) ✓</span>
-{"}"}
-
-<span class="cm">// Complexitate: O(log n) timp · O(1) spațiu</span>
-<span class="cm">// vs. căutare liniară: O(n) — de 1000x mai rapid</span></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats strip -->
-  <div class="stats-strip">
-    <div class="stat-item">
-      <span class="stat-num">12</span>
-      <span class="stat-lbl">Capitole</span>
-    </div>
-    <div class="stat-sep" aria-hidden="true"></div>
-    <div class="stat-item">
-      <span class="stat-num">800+</span>
-      <span class="stat-lbl">Quiz-uri BAC</span>
-    </div>
-    <div class="stat-sep" aria-hidden="true"></div>
-    <div class="stat-item">
-      <span class="stat-num">5+</span>
-      <span class="stat-lbl">Animații</span>
-    </div>
-    <div class="stat-sep" aria-hidden="true"></div>
-    <div class="stat-item">
-      <span class="stat-num">~8h</span>
-      <span class="stat-lbl">Conținut total</span>
     </div>
   </div>
 
-  <!-- Chapters grid -->
-  <div id="capitole" role="main" aria-label="Conținut principal">
-    <div class="section-heading">
-      <h2 class="section-title">📚 Capitolele cursului</h2>
-      <p class="section-subtitle">Parcurge lecțiile în ordine sau sari direct la capitolul care te interesează.</p>
-    </div>
-
-    <div class="chapters-grid">
-      {chapters.map(ch => (
-        <a href={`${base}/capitole/${ch.file}`} class={`chapter-card ${ch.color} slide`} data-chapter={ch.file}>
-          <div class="chapter-card-stripe"></div>
-          <div class="chapter-card-header">
-            <div class="chapter-num-icon">
-              <span class="card-icon" aria-hidden="true">{ch.icon}</span>
-            </div>
-            <div style="flex:1">
-              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:2px;">
-                <h2>{ch.title}</h2>
-                <span class={`difficulty-badge ${ch.difficulty === 'easy' ? 'easy' : ch.difficulty === 'medium' ? 'medium' : 'hard'}`}>
-                  {ch.difficulty === 'easy' ? 'Ușor' : ch.difficulty === 'medium' ? 'Mediu' : 'Dificil'}
-                </span>
+  <!-- ─── Chapters ─────────────────────────────────────────── -->
+  <main id="capitole" class="ix-main">
+    {categories.map(cat => (
+      <section class="ix-section">
+        <header class="ix-section-head">
+          <h2 class="ix-section-title">{cat.label}</h2>
+          <p class="ix-section-desc">{cat.desc}</p>
+        </header>
+        <div class="ix-grid">
+          {cat.chapters.map(ch => (
+            <a href={`${base}/capitole/${ch.file}`} class="ix-card" data-chapter={ch.file}>
+              <div class="ix-card-top">
+                <span class="ix-card-icon" aria-hidden="true">{ch.icon}</span>
+                <span class={`ix-badge diff-${ch.difficulty}`}>{ch.difficulty === 'easy' ? 'Ușor' : ch.difficulty === 'medium' ? 'Mediu' : 'Dificil'}</span>
               </div>
-              <p>{ch.subtitle}</p>
-            </div>
-          </div>
-          <div class="chapter-card-body">
-            <ul class="chapter-topics">
-              {ch.topics.map(t => <li>{t}</li>)}
-            </ul>
-          </div>
-          <div class="chapter-card-footer">
-            <span>⏱ {ch.time} lectură</span>
-            <span class="go">Deschide →</span>
-          </div>
-          <div class="card-progress">
-            <div class="card-progress-fill" data-chapter-file={ch.file}></div>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
+              <h3 class="ix-card-title">{ch.title}</h3>
+              <p class="ix-card-sub">{ch.subtitle}</p>
+              <div class="ix-card-foot">
+                <span class="ix-time">⏱ {ch.time}</span>
+                <span class="ix-go" aria-hidden="true">→</span>
+              </div>
+              <div class="ix-progress-bar" aria-hidden="true">
+                <div class="ix-progress-fill" data-chapter-file={ch.file}></div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
 
-  <!-- BAC AI CTA -->
-  <div class="bac-cta">
-    <div class="bac-cta-inner">
-      <div class="bac-cta-text">
-        <h2>🤖 Analiză BAC cu AI</h2>
-        <p>
-          Încarcă subiectul tău de BAC în format PDF și primește o analiză completă,
-          cu teorie, pași de rezolvare și link-uri directe la capitolele relevante.
-        </p>
+  <!-- ─── Quick-access tools ──────────────────────────────── -->
+  <div class="ix-tools" aria-label="Instrumente rapide">
+    <a href={`${base}/analiza-bac`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">🤖</span>
+      <div>
+        <strong>Analiză BAC cu AI</strong>
+        <p>Încarci subiectul, primești teorie + soluții + capitole relevante</p>
       </div>
-      <a href={`${base}/analiza-bac`} class="bac-cta-btn">
-        Încearcă gratuit →
-      </a>
-    </div>
+    </a>
+    <a href={`${base}/exercitii`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📝</span>
+      <div>
+        <strong>Exerciții BAC</strong>
+        <p>800+ întrebări grilă și probleme rezolvate cu explicații</p>
+      </div>
+    </a>
+    <a href={`${base}/editor`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">💻</span>
+      <div>
+        <strong>Editor C++ Online</strong>
+        <p>Compilare și rulare C++ direct în browser, fără instalare</p>
+      </div>
+    </a>
   </div>
 
-  <!-- Big-O reference section -->
-  <div id="complexitate" class="wrapper">
-    <div class="section-heading">
-      <h2 class="section-title">📊 Referință Big-O</h2>
-      <p class="section-subtitle">Complexitățile cele mai întâlnite la examen.</p>
-    </div>
-    <div class="table-scroll">
-      <table class="o-table">
-        <thead>
-          <tr><th>Notație</th><th>Nume</th><th>Exemplu</th><th>n=1000</th></tr>
-        </thead>
-        <tbody>
-          <tr class="row-green"><td>O(1)</td><td>Constant</td><td>Accesare element array</td><td>1 op</td></tr>
-          <tr class="row-green"><td>O(log n)</td><td>Logaritmic</td><td>Căutare binară</td><td>10 op</td></tr>
-          <tr class="row-yellow"><td>O(n)</td><td>Liniar</td><td>Parcurgere array</td><td>1 000 op</td></tr>
-          <tr class="row-yellow"><td>O(n log n)</td><td>Liniar-log</td><td>Merge sort, Quick sort</td><td>10 000 op</td></tr>
-          <tr class="row-red"><td>O(n²)</td><td>Pătratic</td><td>Bubble sort, selecție</td><td>1 000 000 op</td></tr>
-          <tr class="row-red"><td>O(2ⁿ)</td><td>Exponențial</td><td>Backtracking naiv</td><td>~ ∞</td></tr>
-        </tbody>
-      </table>
+  <!-- ─── Big-O quick reference ───────────────────────────── -->
+  <div id="complexitate" class="ix-bigo">
+    <div class="ix-bigo-inner">
+      <h2 class="ix-section-title">Referință Big-O</h2>
+      <p class="ix-section-desc" style="margin-bottom:28px">Complexitățile cele mai frecvente la examen.</p>
+      <div class="table-scroll">
+        <table class="ix-table">
+          <thead>
+            <tr><th>Notație</th><th>Nume</th><th>Exemplu tipic</th><th>n = 1 000</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>O(1)</code></td><td>Constant</td><td>Accesare element array</td><td>1 op</td></tr>
+            <tr><td><code>O(log n)</code></td><td>Logaritmic</td><td>Căutare binară</td><td>~10 op</td></tr>
+            <tr><td><code>O(n)</code></td><td>Liniar</td><td>Parcurgere array</td><td>1 000 op</td></tr>
+            <tr><td><code>O(n log n)</code></td><td>Liniar-log</td><td>Merge sort, Quick sort</td><td>~10 000 op</td></tr>
+            <tr class="ix-row-warn"><td><code>O(n²)</code></td><td>Pătratic</td><td>Bubble sort, selecție</td><td>1 000 000 op</td></tr>
+            <tr class="ix-row-bad"><td><code>O(2ⁿ)</code></td><td>Exponențial</td><td>Backtracking naiv</td><td>~ ∞</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -258,42 +155,186 @@ const chapters = [
 
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
-      // Scroll reveal for chapter cards
-      if (typeof initScrollReveal === 'function') initScrollReveal();
-      if (typeof initCopyButtons === 'function') initCopyButtons();
-      // Animate card progress bars based on visited localStorage
-      document.querySelectorAll('.card-progress-fill').forEach(function(bar) {
+      document.querySelectorAll('.ix-progress-fill').forEach(function(bar) {
         var chFile = bar.getAttribute('data-chapter-file');
         var visited = localStorage.getItem('visited_' + chFile) === '1';
         var quizDone = parseInt(localStorage.getItem('quiz_score_' + chFile) || '0', 10);
         var pct = visited ? (quizDone > 0 ? Math.min(100, quizDone) : 30) : 0;
         if (pct > 0) {
-          setTimeout(function() { bar.style.width = pct + '%'; }, 400);
+          setTimeout(function() { bar.style.width = pct + '%'; }, 300);
         }
       });
     });
   </script>
-  <script is:inline src={`${import.meta.env.BASE_URL}/js/animations.js`}></script>
 
   <style>
-    .hero-bg-radial {
-      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .ix-hero {
+      padding: calc(var(--header-h) + 72px) 24px 72px;
+      text-align: center;
+      position: relative;
+      background: var(--bg);
+    }
+    [data-theme="dark"] .ix-hero {
+      background: linear-gradient(180deg, #080c14 0%, var(--bg) 100%);
+    }
+    .ix-hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(168,85,247,0.1) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(99,102,241,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 80% 80%, rgba(168,85,247,0.05) 0%, transparent 55%);
     }
-    .hero { position: relative; overflow: hidden; }
-    .hero-inner { position: relative; z-index: 1; }
-    .chapter-num-icon {
-      width: 48px; height: 48px; flex-shrink: 0;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
+    .ix-hero-inner { position: relative; max-width: 660px; margin: 0 auto; }
+
+    .ix-eyebrow {
+      display: inline-block;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 22px; opacity: 0.85;
     }
-    .chapter-card-header { display: flex; align-items: flex-start; gap: 14px; }
-    .chapter-card-header h2 { font-size: 15px; font-weight: 700; margin: 0; }
-    .chapter-card-header p  { font-size: 12.5px; color: var(--text-muted); margin: 0; }
+    .ix-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 8vw, 76px);
+      font-weight: 900; line-height: 1.0; letter-spacing: -3px;
+      color: var(--text); margin-bottom: 24px;
+    }
+    [data-theme="dark"] .ix-title { color: #eef2ff; }
+    .ix-lead {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--text-muted); line-height: 1.75;
+      margin-bottom: 36px; max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .ix-actions {
+      display: flex; gap: 12px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 44px;
+    }
+    .ix-btn-primary {
+      display: inline-block; padding: 13px 30px;
+      background: var(--primary); color: white; border-radius: 10px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 18px rgba(99,102,241,0.3);
+    }
+    .ix-btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(99,102,241,0.4); }
+    .ix-btn-ghost {
+      display: inline-block; padding: 12px 26px;
+      background: transparent; border: 1.5px solid var(--border);
+      color: var(--text); border-radius: 10px;
+      font-weight: 600; font-size: 14px; text-decoration: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .ix-btn-ghost:hover { border-color: var(--primary); background: var(--primary-dim); }
+    .ix-stats {
+      display: flex; justify-content: center; align-items: center;
+      gap: 12px 24px; flex-wrap: wrap;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .ix-stats strong { color: var(--text); font-weight: 800; }
+    .ix-stats-sep { display: block; width: 1px; height: 14px; background: var(--border); flex-shrink: 0; }
+
+    /* ── Sections ──────────────────────────────────────────────── */
+    .ix-main {
+      max-width: 1080px; margin: 0 auto;
+      padding: 64px 24px 20px;
+      display: flex; flex-direction: column; gap: 56px;
+    }
+    .ix-section-head { margin-bottom: 20px; }
+    .ix-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2.5vw, 22px);
+      font-weight: 800; color: var(--text); margin-bottom: 4px;
+    }
+    .ix-section-desc { font-size: 13.5px; color: var(--text-muted); }
+
+    /* ── Cards ────────────────────────────────────────────────── */
+    .ix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 12px;
+    }
+    .ix-card {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px 14px;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+      position: relative; overflow: hidden;
+    }
+    .ix-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(99,102,241,0.11); }
+    [data-theme="dark"] .ix-card:hover { box-shadow: 0 8px 28px rgba(129,140,248,0.14); }
+    .ix-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .ix-card-icon { font-size: 20px; line-height: 1; }
+    .ix-badge {
+      font-size: 10.5px; font-weight: 700; padding: 2px 8px;
+      border-radius: 999px; letter-spacing: 0.3px; flex-shrink: 0;
+    }
+    .diff-easy   { background: rgba(22,163,74,0.1);  color: #16a34a; }
+    .diff-medium { background: rgba(234,88,12,0.1);  color: #ea580c; }
+    .diff-hard   { background: rgba(124,58,237,0.1); color: #7c3aed; }
+    [data-theme="dark"] .diff-easy   { background: rgba(74,222,128,0.12);  color: #4ade80; }
+    [data-theme="dark"] .diff-medium { background: rgba(251,146,60,0.12);  color: #fb923c; }
+    [data-theme="dark"] .diff-hard   { background: rgba(167,139,250,0.12); color: #a78bfa; }
+    .ix-card-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.3; }
+    .ix-card-sub { font-size: 12px; color: var(--text-muted); line-height: 1.5; flex: 1; margin-bottom: 12px; }
+    .ix-card-foot { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .ix-time { font-size: 11.5px; color: var(--text-faint); }
+    .ix-go { font-size: 14px; color: var(--primary); opacity: 0; transform: translateX(-4px); transition: opacity 0.18s, transform 0.18s; }
+    .ix-card:hover .ix-go { opacity: 1; transform: translateX(0); }
+    .ix-progress-bar { height: 2px; background: var(--border-faint); border-radius: 99px; overflow: hidden; }
+    .ix-progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, #a855f7 100%); border-radius: 99px; width: 0; transition: width 0.7s cubic-bezier(.4,0,.2,1); }
+
+    /* ── Tools strip ───────────────────────────────────────────── */
+    .ix-tools {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      margin-top: 20px;
+    }
+    .ix-tool-card {
+      display: flex; align-items: center; gap: 16px;
+      padding: 22px 28px; text-decoration: none; color: inherit;
+      border-right: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .ix-tool-card:last-child { border-right: none; }
+    .ix-tool-card:hover { background: var(--surface2); }
+    .ix-tool-icon { font-size: 22px; flex-shrink: 0; }
+    .ix-tool-card strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .ix-tool-card p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.45; }
+
+    /* ── Big-O ────────────────────────────────────────────────── */
+    .ix-bigo { padding: 60px 24px 80px; }
+    .ix-bigo-inner { max-width: 720px; margin: 0 auto; }
+    .ix-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .ix-table th { text-align: left; padding: 10px 14px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1.5px solid var(--border); }
+    .ix-table td { padding: 11px 14px; border-bottom: 1px solid var(--border-faint); }
+    .ix-table tr:last-child td { border-bottom: none; }
+    .ix-table code { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--primary); }
+    .ix-row-warn td { background: rgba(234,88,12,0.03); }
+    .ix-row-warn code { color: var(--orange); }
+    .ix-row-bad  td { background: rgba(220,38,38,0.03); }
+    .ix-row-bad  code { color: var(--red); }
+    [data-theme="dark"] .ix-row-warn code { color: #fb923c; }
+    [data-theme="dark"] .ix-row-bad  code { color: #f87171; }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .ix-hero { padding: calc(var(--header-h) + 48px) 20px 48px; }
+      .ix-title { letter-spacing: -1.5px; }
+      .ix-main { padding: 44px 16px 16px; gap: 40px; }
+      .ix-tools { grid-template-columns: 1fr; }
+      .ix-tool-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .ix-tool-card:last-child { border-bottom: none; }
+    }
+    @media (max-width: 540px) {
+      .ix-grid { grid-template-columns: 1fr; gap: 8px; }
+      .ix-stats { gap: 8px 16px; font-size: 12px; }
+      .ix-stats-sep { display: none; }
+    }
   </style>
 </BaseLayout>
