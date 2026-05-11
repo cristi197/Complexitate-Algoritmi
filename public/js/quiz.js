@@ -7,48 +7,19 @@
 (function () {
 
 /* ── XP System ── */
-var XP_KEY    = 'infoXP';
+/* XP is managed centrally by progress.js. Quiz awards XP via window.addXPFromQuiz(). */
 var XP_PER_Q  = 10; // XP per correct answer
-var LEVELS    = [0, 100, 250, 500, 900, 1400, 2000, 3000, 5000];
-var LEVEL_NAMES = ['Începător', 'Elev', 'Cunoscător', 'Avansat', 'Expert', 'Master', 'Campion', 'Legend', 'Profesional'];
 
-function getXP() { return parseInt(localStorage.getItem(XP_KEY) || '0', 10); }
-function addXP(amount) {
-  var xp = getXP() + amount;
-  localStorage.setItem(XP_KEY, xp);
-  updateXPUI(xp);
-  return xp;
-}
-function getLevelInfo(xp) {
-  var lvl = 0;
-  for (var i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i]) lvl = i; }
-  var nextXP = LEVELS[lvl + 1] || LEVELS[LEVELS.length - 1];
-  var prevXP = LEVELS[lvl] || 0;
-  var pct    = Math.min(100, Math.round(((xp - prevXP) / Math.max(1, nextXP - prevXP)) * 100));
-  return { level: lvl + 1, name: LEVEL_NAMES[lvl] || 'Profesional', pct: pct, next: nextXP, xp: xp };
-}
-function updateXPUI(xp) {
-  if (xp === undefined) xp = getXP();
-  var info   = getLevelInfo(xp);
-  var valEl  = document.getElementById('xp-value');
-  var fillEl = document.getElementById('xp-fill');
-  var lvlEl  = document.getElementById('xp-level');
-  if (valEl)  valEl.textContent  = xp;
-  if (fillEl) fillEl.style.width = info.pct + '%';
-  if (lvlEl)  lvlEl.textContent  = 'Nivel ' + info.level + ' — ' + info.name;
+function updateXPUI() {
+  /* Delegate to progress.js which manages the sidebar XP display */
+  if (typeof window.refreshProgressUI === 'function') window.refreshProgressUI();
 }
 
-/* ── Chapter completion dots ── */
-var CHAPTER_XP_KEY = 'infoChXP'; // JSON object: {chapterId: xp_earned}
+/* ── Chapter completion ── */
 function markChapterProgress(chapterId, score, total) {
-  try {
-    var data = JSON.parse(localStorage.getItem(CHAPTER_XP_KEY) || '{}');
-    data[chapterId] = (data[chapterId] || 0) + score * XP_PER_Q;
-    localStorage.setItem(CHAPTER_XP_KEY, JSON.stringify(data));
-    // Update sidebar dot for this chapter
-    var dot = document.getElementById('dot-' + chapterId);
-    if (dot) dot.classList.add('completed');
-  } catch (e) {}
+  if (typeof window.addXPFromQuiz === 'function') {
+    window.addXPFromQuiz(score * XP_PER_Q, chapterId);
+  }
 }
 
 var DIFF_LABEL = ['', 'Facil', 'Mediu', 'Dificil'];
@@ -117,9 +88,9 @@ function renderQuiz(container, questions, chapterId) {
     if (done && idx === total - 1) {
       navHtml += '<button class="quiz-btn-nav primary" data-goto="finish">&#x1F3C6; Vezi scorul</button>';
     }
-    // Check if all answered (might be skipped)
+    // Check if all answered (might be skipped) — show finish only if not already shown
     var allAnswered = answered.every(function (a) { return a !== null; });
-    if (allAnswered && done) {
+    if (allAnswered && done && idx !== total - 1) {
       navHtml += '<button class="quiz-btn-nav primary" data-goto="finish">&#x1F3C6; Vezi scorul</button>';
     }
     navHtml += '</div>';
@@ -179,9 +150,8 @@ function renderQuiz(container, questions, chapterId) {
               : pct >= 50 ? 'Bine! Recitește teoria și încearcă din nou.'
               :              'Continuă să studiezi — progresul vine cu practica!';
 
-    // Award XP
+    // Award XP via progress.js
     var xpEarned = score * XP_PER_Q;
-    var totalXP  = addXP(xpEarned);
     if (chapterId) markChapterProgress(chapterId, score, total);
 
     var skippedHtml = skipped > 0

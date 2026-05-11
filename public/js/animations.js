@@ -47,12 +47,16 @@ function initTreeReveal() {
 /* ── 4. Copy button for code blocks ──────────────────────────── */
 function initCopyButtons() {
   document.querySelectorAll('pre').forEach(pre => {
+    if (pre.querySelector('.copy-btn')) return; /* avoid duplicates */
     const btn = document.createElement('button');
     btn.className = 'copy-btn'; btn.textContent = 'Copiază';
     pre.style.position = 'relative';
     pre.appendChild(btn);
     btn.addEventListener('click', () => {
-      const code = pre.innerText.replace('Copiază','').replace('Copiat!','').trim();
+      const clone = pre.cloneNode(true);
+      const copyBtn = clone.querySelector('.copy-btn');
+      if (copyBtn) copyBtn.remove();
+      const code = clone.textContent.trim();
       navigator.clipboard.writeText(code).then(() => {
         btn.textContent = 'Copiat! ✓'; btn.classList.add('copied');
         setTimeout(() => { btn.textContent = 'Copiază'; btn.classList.remove('copied'); }, 1800);
@@ -295,11 +299,7 @@ function initPageTransitions() {
 
 /* ── 10. Init everything on DOMContentLoaded ─────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  initScrollReveal();
-  initBarCharts();
-  initTreeReveal();
-  initCopyButtons();
-  initNavHighlight();
+
   initPageTransitions();
 
   // page-specific demos (check by ID)

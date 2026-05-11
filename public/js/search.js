@@ -15,12 +15,12 @@ var SEARCH_INDEX = [
   { title: 'Programare Dinamică',         subtitle: 'Memoizare, DP tabelar, LIS',            url: 'programare-dinamica', icon: '🧮' },
   { title: 'Structuri (struct)',           subtitle: 'Tipuri definite, array de structuri',    url: 'structuri',  icon: '🗂️' },
   { title: 'Pointeri & Alocare Dinamică', subtitle: 'new/delete, aritmetică pointeri',        url: 'pointeri',   icon: '🔗' },
-  { title: 'Exerciții & Filtrare',        subtitle: 'Quiz-uri BAC pe capitol și dificultate', url: '../../exercitii', icon: '📝' },
-  { title: 'Analiză BAC cu AI',           subtitle: 'Analizează subiectul tău cu AI',        url: '../../analiza-bac', icon: '🤖' },
-  { title: 'Simulator Trasare',           subtitle: 'Urmărește pas cu pas execuția unui algoritm', url: '../../trasare', icon: '🔍' },
-  { title: 'Cheat Sheet',                 subtitle: 'Referință rapidă printabilă',            url: '../../cheat-sheet', icon: '📄' },
-  { title: 'Editor C++ Online',           subtitle: 'Scrie și compilează C++ în browser',     url: '../../editor', icon: '⌨️' },
-  { title: 'Examen Alb 3h',               subtitle: 'Simulare completă BAC la timp',          url: '../../examen-alb', icon: '⏱️' },
+  { title: 'Exerciții & Filtrare',        subtitle: 'Quiz-uri BAC pe capitol și dificultate', url: 'exercitii', icon: '📝', isPage: true },
+  { title: 'Analiză BAC cu AI',           subtitle: 'Analizează subiectul tău cu AI',        url: 'analiza-bac', icon: '🤖', isPage: true },
+  { title: 'Simulator Trasare',           subtitle: 'Urmărește pas cu pas execuția unui algoritm', url: 'trasare', icon: '🔍', isPage: true },
+  { title: 'Cheat Sheet',                 subtitle: 'Referință rapidă printabilă',            url: 'cheat-sheet', icon: '📄', isPage: true },
+  { title: 'Editor C++ Online',           subtitle: 'Scrie și compilează C++ în browser',     url: 'editor', icon: '⌨️', isPage: true },
+  { title: 'Examen Alb 3h',               subtitle: 'Simulare completă BAC la timp',          url: 'examen-alb', icon: '⏱️', isPage: true },
 ];
 
 var _searchSelectedIdx = -1;
@@ -68,8 +68,8 @@ function doSearch(query) {
       '<span><span class="sr-title">' + item.title + '</span><br>' +
       '<span style="font-size:12px;color:var(--text-muted)">' + item.subtitle + '</span></span>';
 
-    var href = item.url.startsWith('../../')
-      ? base + '/' + item.url.replace('../../', '')
+    var href = item.isPage
+      ? base + '/' + item.url
       : base + '/capitole/' + item.url;
 
     li.addEventListener('click', function() { window.location.href = href; closeSearch(); });

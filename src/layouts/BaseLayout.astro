@@ -57,6 +57,7 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" />
 
   <!-- Favicon & PWA manifest -->
   <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
@@ -106,15 +107,6 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
   <script is:inline>
     // Expose base URL for search.js
     window.__BASE_URL = {JSON.stringify(base)};
-  </script>
-  <script is:inline>
-    // Scroll progress bar
-    window.addEventListener('scroll', function() {
-      var el = document.getElementById('scroll-progress');
-      if (!el) return;
-      var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      el.style.transform = 'scaleX(' + Math.min(1, pct) + ')';
-    }, { passive: true });
   </script>
   <script is:inline src={`${base}/js/search.js`}></script>
   <script is:inline src={`${base}/js/progress.js`}></script>

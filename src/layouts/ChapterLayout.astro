@@ -30,17 +30,17 @@ const {
 const base = import.meta.env.BASE_URL;
 const readingTime = 12; // fallback; scripts will update dynamically
 
-// Chapter order for prev/next navigation
+// Chapter order for prev/next navigation (sequential numbering)
 const CHAPTER_ORDER = [
   { num: 0,  file: 'introducere',        title: 'Introducere în Informatică' },
-  { num: 8,  file: 'functii',            title: 'Funcții și Subprograme' },
-  { num: 1,  file: 'complexitate',       title: 'Eficiența Algoritmilor' },
-  { num: 2,  file: 'recursivitate',      title: 'Recursivitate' },
-  { num: 3,  file: 'backtracking',       title: 'Backtracking' },
-  { num: 4,  file: 'vectori',            title: 'Vectori (1D)' },
-  { num: 5,  file: 'matrici',            title: 'Matrici (2D)' },
-  { num: 6,  file: 'siruri',             title: 'Șiruri de Caractere' },
-  { num: 7,  file: 'fisiere',            title: 'Fișiere' },
+  { num: 1,  file: 'functii',            title: 'Funcții și Subprograme' },
+  { num: 2,  file: 'complexitate',       title: 'Eficiența Algoritmilor' },
+  { num: 3,  file: 'recursivitate',      title: 'Recursivitate' },
+  { num: 4,  file: 'backtracking',       title: 'Backtracking' },
+  { num: 5,  file: 'vectori',            title: 'Vectori (1D)' },
+  { num: 6,  file: 'matrici',            title: 'Matrici (2D)' },
+  { num: 7,  file: 'siruri',             title: 'Șiruri de Caractere' },
+  { num: 8,  file: 'fisiere',            title: 'Fișiere' },
   { num: 9,  file: 'programare-dinamica',title: 'Programare Dinamică' },
   { num: 10, file: 'structuri',          title: 'Structuri (struct)' },
   { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică' },
@@ -141,6 +141,7 @@ const nextCh = currentIdx < CHAPTER_ORDER.length - 1 ? CHAPTER_ORDER[currentIdx 
       initSectionXP();
       initSectionReadingTime();
       initGlobalReadingTime();
+      if (typeof initScrollProgress === 'function') initScrollProgress();
     });
   </script>
 </BaseLayout>

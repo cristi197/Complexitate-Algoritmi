@@ -9,14 +9,14 @@ const base = import.meta.env.BASE_URL;
 // color maps to one of the semantic CSS variables
 const chapters = [
   { num: 0, file: 'introducere',    title: 'Introducere în Informatică', icon: '🖥️',  colorVar: 'blue'   },
-  { num: 8, file: 'functii',         title: 'Funcții și Subprograme',     icon: '⚙️',  colorVar: 'blue'   },
-  { num: 1, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  colorVar: 'teal'   },
-  { num: 2, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  colorVar: 'green'  },
-  { num: 3, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  colorVar: 'purple' },
-  { num: 4, file: 'vectori',        title: 'Vectori',                    icon: '📦',  colorVar: 'orange' },
-  { num: 5, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  colorVar: 'teal'   },
-  { num: 6, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  colorVar: 'red'    },
-  { num: 7, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  colorVar: 'pink'   },
+  { num: 1, file: 'functii',         title: 'Funcții și Subprograme',     icon: '⚙️',  colorVar: 'blue'   },
+  { num: 2, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  colorVar: 'teal'   },
+  { num: 3, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  colorVar: 'green'  },
+  { num: 4, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  colorVar: 'purple' },
+  { num: 5, file: 'vectori',        title: 'Vectori',                    icon: '📦',  colorVar: 'orange' },
+  { num: 6, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  colorVar: 'teal'   },
+  { num: 7, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  colorVar: 'red'    },
+  { num: 8, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  colorVar: 'pink'   },
   { num: 9, file: 'programare-dinamica', title: 'Programare Dinamică',      icon: '🧮',  colorVar: 'teal'   },
   { num: 10, file: 'structuri',         title: 'Structuri (struct)',          icon: '🗂️', colorVar: 'purple' },
   { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică',  icon: '🔗', colorVar: 'green'  },
@@ -51,7 +51,7 @@ const chapters = [
           {ch.icon}
         </span>
         <span class="ch-title">{ch.title}</span>
-        <span class="sidebar-progress-dot" id={`dot-${ch.num}`} aria-hidden="true"></span>
+        <span class="sidebar-progress-dot" id={`dot-${ch.file}`} aria-hidden="true"></span>
       </a>
     ))}
 
@@ -97,49 +97,7 @@ const chapters = [
 <!-- Mobile sidebar backdrop overlay -->
 <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
 
-<script is:inline>
-(function() {
-  var XP_KEY = 'infoXP';
-  var CHAPTER_XP_KEY = 'infoChXP';
-  var LEVELS = [0,100,250,500,900,1400,2000,3000,5000];
-  var LEVEL_NAMES = ['Începător','Elev','Cunoscător','Avansat','Expert','Master','Campion','Legend','Profesional'];
-
-  function initSidebarXP() {
-    var xp = parseInt(localStorage.getItem(XP_KEY) || '0', 10);
-    var lvl = 0;
-    for (var i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i]) lvl = i; }
-    var nextXP = LEVELS[lvl+1] || LEVELS[LEVELS.length-1];
-    var prevXP = LEVELS[lvl] || 0;
-    var pct = Math.min(100, Math.round(((xp - prevXP) / Math.max(1, nextXP - prevXP)) * 100));
-
-    var valEl  = document.getElementById('xp-value');
-    var fillEl = document.getElementById('xp-fill');
-    var lvlEl  = document.getElementById('xp-level');
-    var xpBar  = document.querySelector('.xp-bar');
-    if (valEl)  valEl.textContent  = xp;
-    if (fillEl) fillEl.style.width = pct + '%';
-    if (lvlEl)  lvlEl.textContent  = 'Nivel ' + (lvl+1) + ' — ' + (LEVEL_NAMES[lvl] || 'Pro');
-    if (xpBar)  xpBar.setAttribute('aria-valuenow', pct);
-
-    // Chapter dots
-    try {
-      var chData = JSON.parse(localStorage.getItem(CHAPTER_XP_KEY) || '{}');
-      Object.keys(chData).forEach(function(ch) {
-        if (chData[ch] > 0) {
-          var dot = document.getElementById('dot-' + ch);
-          if (dot) dot.classList.add('completed');
-        }
-      });
-    } catch(e) {}
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSidebarXP);
-  } else {
-    initSidebarXP();
-  }
-})();
-</script>
+<!-- XP display is managed by progress.js (loaded in BaseLayout.astro) -->
 
 <style>
   /* Icon color variants using CSS variables — no inline styles needed */
@@ -182,28 +140,3 @@ const chapters = [
     flex-shrink: 0;
   }
 </style>
-
-<script is:inline>
-  (function() {
-    // Mark completed chapters
-    for (var i = 0; i < 8; i++) {
-      var done = localStorage.getItem('ch_done_' + i) === '1';
-      var dot  = document.getElementById('dot-' + i);
-      if (dot && done) dot.classList.add('done');
-    }
-
-    // XP system
-    var xp     = parseInt(localStorage.getItem('xp') || '0');
-    var xpGoal = 800;
-    var level  = Math.floor(Math.sqrt(xp / 100)) + 1;
-    var xpEl   = document.getElementById('xp-value');
-    var xpFill = document.getElementById('xp-fill');
-    var xpLvl  = document.getElementById('xp-level');
-    var xpBar  = xpFill && xpFill.parentElement;
-
-    if (xpEl)   xpEl.textContent   = xp;
-    if (xpFill) xpFill.style.width = Math.min(100, Math.round(xp / xpGoal * 100)) + '%';
-    if (xpLvl)  xpLvl.textContent  = 'Nivel ' + level;
-    if (xpBar)  xpBar.setAttribute('aria-valuenow', Math.round(xp / xpGoal * 100));
-  })();
-</script>

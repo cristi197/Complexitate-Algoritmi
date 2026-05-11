@@ -109,6 +109,10 @@ textarea:focus-visible {
   --mono:    'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
   --transition: 0.22s cubic-bezier(.4,0,.2,1);
 
+  /* Aliases for backward compatibility (some pages use hyphenated names) */
+  --surface-2: var(--surface2);
+  --text-2:    var(--text-muted);
+
   /* Light-mode: cyber vars are subtle / transparent */
   --neon-blue:   #6366f1;
   --neon-purple: #7c3aed;

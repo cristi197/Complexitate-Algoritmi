@@ -342,13 +342,17 @@ const base = import.meta.env.BASE_URL;
 
     var CHAPTERS = [
       { url: base + '/capitole/introducere.html',  label: '📘 Introducere în Informatică',  keywords: ['introducere','tipuri de date','structuri de control','if','for','while','bac 2026','algoritm'] },
+      { url: base + '/capitole/functii.html',      label: '⚙️ Funcții și Subprograme',     keywords: ['functie','functii','subprogram','parametru','referinta','variabila locala','variabila globala','overloading'] },
       { url: base + '/capitole/complexitate.html', label: '⏱ Complexitatea Algoritmilor',   keywords: ['complexitate','big-o','timp','spatiu','eficienta','o(n)','o(log']  },
       { url: base + '/capitole/vectori.html',      label: '📊 Vectori',                     keywords: ['vector','tablou','array','sortare','cautare binara','suma','maxim','minim','frecventa','inversare'] },
       { url: base + '/capitole/matrici.html',      label: '🔢 Matrici',                     keywords: ['matrice','matric','bidimensional','tablou 2d','transpusa','spirala','diagonala'] },
       { url: base + '/capitole/siruri.html',       label: '🔤 Șiruri de Caractere',         keywords: ['sir','string','caracter','palindrom','anagram','litera','cuvant','text'] },
       { url: base + '/capitole/recursivitate.html',label: '🔁 Recursivitate',               keywords: ['recursiv','recursivitate','divide','impera','memoizare','hanoi','fibonacci','factorial'] },
       { url: base + '/capitole/backtracking.html', label: '🔀 Backtracking',                keywords: ['backtracking','permutari','combinari','submultime','subset','generare','aranjamente'] },
-      { url: base + '/capitole/fisiere.html',      label: '💾 Fișiere',                     keywords: ['fisier','fstream','ifstream','ofstream','citire','scriere','txt'] }
+      { url: base + '/capitole/fisiere.html',      label: '💾 Fișiere',                     keywords: ['fisier','fstream','ifstream','ofstream','citire','scriere','txt'] },
+      { url: base + '/capitole/programare-dinamica.html', label: '🧮 Programare Dinamică', keywords: ['programare dinamica','dp','memoizare','lis','subsir','tabelar','triunghi'] },
+      { url: base + '/capitole/structuri.html',    label: '🗂️ Structuri (struct)',           keywords: ['struct','structura','camp','tip definit','array de structuri'] },
+      { url: base + '/capitole/pointeri.html',     label: '🔗 Pointeri & Alocare Dinamică', keywords: ['pointer','alocare','new','delete','adresa','referinta','dinamic'] }
     ];
 
     var SYSTEM_PROMPT = 'Ești un profesor expert de informatică pentru liceu din România.\nElevul ți-a trimis o variantă de bacalaureat la informatică (C++).\n\nSarcina ta: identifică TOATE exercițiile/subiectele din varianta de BAC și pentru fiecare generează o explicație completă.\n\nReguli:\n- Răspunde EXCLUSIV cu un JSON valid, fără niciun text în afara JSON-ului.\n- Dacă nu poți identifica exercițiile, returnează {"eroare": "Nu am putut identifica exercițiile"}.\n- Teoria trebuie să fie clară, în română, potrivită pentru un elev de liceu.\n- capitol_cheie: introducere, complexitate, vectori, matrici, siruri, recursivitate, backtracking sau fisiere.\n\nFormat JSON obligatoriu:\n{\n  "varianta": "Varianta XX / identificare",\n  "exercitii": [\n    {\n      "numar": "I.1",\n      "enunt": "Textul exact",\n      "ce_cere": "Explicație simplă",\n      "teorie": "Teoria necesară (2-4 paragrafe)",\n      "pasi_rezolvare": "Abordare pas cu pas cu cod C++",\n      "capitol_cheie": "vectori",\n      "dificultate": "Ușor"\n    }\n  ]\n}';

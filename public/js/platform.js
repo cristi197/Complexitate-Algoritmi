@@ -3,6 +3,8 @@
    Importat de TOATE paginile platformei.
 ═══════════════════════════════════════════════════════════════ */
 
+function noop() {}
+
 /* ── 1. Buton "Go to Top" ────────────────────────────────────── */
 function initGoToTop() {
   var btn = document.createElement('button');
@@ -25,88 +27,19 @@ function initGoToTop() {
   });
 }
 
-/* ── 2. Navigare capitole — footer fix ───────────────────────── */
-var CHAPTERS = [
-  { file: 'introducere.html',  num: 0, title: 'Introducere în Informatică' },
-  { file: 'functii.html',      num: 8, title: 'Funcții și Subprograme' },
-  { file: 'complexitate.html', num: 1, title: 'Eficiența Algoritmilor' },
-  { file: 'recursivitate.html',num: 2, title: 'Recursivitate' },
-  { file: 'backtracking.html', num: 3, title: 'Backtracking' },
-  { file: 'vectori.html',      num: 4, title: 'Vectori' },
-  { file: 'matrici.html',      num: 5, title: 'Matrici' },
-  { file: 'siruri.html',       num: 6, title: 'Șiruri de Caractere' },
-  { file: 'fisiere.html',           num: 7,  title: 'Fișiere' },
-  { file: 'programare-dinamica.html', num: 9,  title: 'Programare Dinamică' },
-  { file: 'structuri.html',           num: 10, title: 'Structuri (struct)' },
-  { file: 'pointeri.html',            num: 11, title: 'Pointeri & Alocare Dinamică' }
-];
+/* ── 2. Navigare capitole — ELIMINAT ─────────────────────────── */
+/* Navigarea prev/next este gestionată server-side de ChapterLayout.astro */
 
-function initChapterNav() {
-  var path = window.location.pathname.replace(/\\/g, '/');
-  var curFile = path.split('/').pop();
-  var curIdx  = CHAPTERS.findIndex(function (c) { return c.file === curFile; });
-  if (curIdx === -1) return; /* not a chapter page (e.g. index.html) */
+/* ── 3. Injectare statistici — ELIMINAT ──────────────────────── */
+/* Elementele like/views sunt deja în ChapterLayout.astro */
 
-  /* Body needs padding so content isn't hidden behind the footer */
-  document.body.classList.add('has-chapter-nav');
-  document.body.style.paddingBottom = '56px';
-
-  var prev = curIdx > 0 ? CHAPTERS[curIdx - 1] : null;
-  var next = curIdx < CHAPTERS.length - 1 ? CHAPTERS[curIdx + 1] : null;
-
-  var prevHtml = prev
-    ? '<a class="cfn-btn cfn-prev" href="' + prev.file + '" title="Capitol anterior">' +
-        '<span class="cfn-arrow">&#8592;</span>' +
-        '<span class="cfn-label"><small>Cap. ' + prev.num + '</small><strong>' + prev.title + '</strong></span>' +
-      '</a>'
-    : '<span class="cfn-btn cfn-prev cfn-disabled"></span>';
-
-  var nextHtml = next
-    ? '<a class="cfn-btn cfn-next" href="' + next.file + '" title="Capitol următor">' +
-        '<span class="cfn-label"><small>Cap. ' + next.num + '</small><strong>' + next.title + '</strong></span>' +
-        '<span class="cfn-arrow">&#8594;</span>' +
-      '</a>'
-    : '<span class="cfn-btn cfn-next cfn-disabled"></span>';
-
-  var bar = document.createElement('nav');
-  bar.id  = 'chapter-footer-nav';
-  bar.className = 'chapter-footer-nav';
-  bar.setAttribute('aria-label', 'Navigare capitole');
-  bar.innerHTML =
-    prevHtml +
-    '<a class="cfn-btn cfn-home" href="../index.html" title="Pagina principală">&#127968;</a>' +
-    nextHtml;
-  document.body.appendChild(bar);
-}
-
-/* ── 3. Injectare statistici (Like + Vizualizări) ────────────── */
-function injectPageStats() {
-  /* Caută .page-cover-inner sau .hero */
-  var target = document.querySelector('.page-cover-inner') ||
-               document.querySelector('.hero');
-  if (!target) return;
-
-  var stats = document.createElement('div');
-  stats.className = 'page-stats';
-  stats.innerHTML =
-    '<button id="like-btn" class="like-btn" title="Îmi place!">' +
-      '<span class="like-icon">&#x1F90D;</span>' +
-      '<span class="like-count">0</span>' +
-    '</button>' +
-    '<span class="view-counter">' +
-      '<span>&#128065;</span>' +
-      '<span id="view-num">\u00a0\u2014</span>' +
-    '</span>';
-  target.appendChild(stats);
-}
-
-/* ── 4. Contor vizualizări ────────────────────────────────────── */
+/* ── 4. Contor vizualizări (local, doar vizitele tale) ────────── */
 function initViewCounter() {
   var key = 'pv_' + window.location.pathname;
   var n = (parseInt(localStorage.getItem(key)) || 0) + 1;
   try { localStorage.setItem(key, n); } catch (e) { /* incognito */ }
   var el = document.getElementById('view-num');
-  if (el) el.textContent = '\u00a0' + n.toLocaleString() + ' vizualizări';
+  if (el) el.textContent = '\u00a0' + n.toLocaleString();
 }
 
 /* ── 5. Buton Like ───────────────────────────────────────────── */
@@ -174,14 +107,12 @@ function upgradeBackLinks() {
 document.addEventListener('DOMContentLoaded', function () {
   upgradeBackLinks();
   initGoToTop();
-  initChapterNav();
-  injectPageStats();
   initViewCounter();
   initLikeButton();
   initGlobalSpeedSlider();
   initAudioPlayer();
   initQuizModal();
-  initScrollProgress(); /* bara de progres la scroll */
+  /* scroll progress handled by BaseLayout.astro inline script */
 });
 
 /* ── 8. Audio Player (Web Speech API) ──────────────────────────── */
@@ -209,8 +140,11 @@ function initAudioPlayer() {
   }
 
   /* ── Online TTS fallback: StreamElements (Amazon Polly Ioana — Romanian) ──
-     Free, no API key, no installation. Text is chunked because the endpoint
-     has a ~400-char limit per request.                                       */
+     IMPORTANT: This is an undocumented public API by StreamElements. It may
+     be blocked or rate-limited at any time without notice. Primary TTS should
+     use Web Speech API (canUseWebSpeech() path). This fallback exists for
+     browsers without a Romanian voice installed.
+     Text is chunked because the endpoint has a ~400-char limit per request. */
   var olAudio   = null;   /* current HTMLAudioElement for online TTS */
   var olChunks  = [];     /* text chunks queued for playback */
   var olIdx     = 0;      /* current chunk index */

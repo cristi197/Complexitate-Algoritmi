@@ -90,6 +90,24 @@ function showXPToast(msg) {
   setTimeout(function() { toast.classList.remove('show'); }, 3000);
 }
 
+/* ── API for quiz.js to award XP ── */
+function addXPFromQuiz(amount, chapterId) {
+  if (!amount || amount <= 0) return;
+  var data = getProgress();
+  data.xp = (data.xp || 0) + amount;
+  if (chapterId) {
+    data.quizScores = data.quizScores || {};
+    data.quizScores[chapterId] = (data.quizScores[chapterId] || 0) + amount;
+  }
+  saveProgress(data);
+  updateSidebarUI(data);
+  showXPToast('+' + amount + ' XP — Quiz completat!');
+}
+
+/* ── Expose globally for quiz.js and sidebar ── */
+window.addXPFromQuiz = addXPFromQuiz;
+window.refreshProgressUI = function() { updateSidebarUI(); };
+
 // Auto-detect chapter from URL and mark visited
 document.addEventListener('DOMContentLoaded', function() {
   // Detect chapter from URL path (e.g. /capitole/vectori)
