@@ -85,30 +85,6 @@
       "diff": 1
     },
     {
-      "q": "Concatenarea a două string-uri std::string în C++ se face cu:",
-      "opts": [
-        "+",
-        "strcat",
-        "concat",
-        "append only"
-      ],
-      "ans": 0,
-      "exp": "Operatorul + concatenează două std::string.",
-      "diff": 1
-    },
-    {
-      "q": "s.substr(2, 3) extrage:",
-      "opts": [
-        "Primele 3 caractere",
-        "3 caractere începând de la indexul 2",
-        "Caracterele de la 2 la 3",
-        "Ultimele 2 caractere"
-      ],
-      "ans": 1,
-      "exp": "substr(pos, len) = len caractere de la poziția pos.",
-      "diff": 2
-    },
-    {
       "q": "Un șir C-style char s[10] poate stoca cel mult:",
       "opts": [
         "10 caractere",
@@ -121,18 +97,6 @@
       "diff": 2
     },
     {
-      "q": "Funcția getline(cin, s) citește:",
-      "opts": [
-        "Un cuvânt",
-        "O linie întreagă inclusiv spații",
-        "Un număr",
-        "Primele 100 caractere"
-      ],
-      "ans": 1,
-      "exp": "getline citește o linie întreagă până la '\\n', inclusiv spații.",
-      "diff": 1
-    },
-    {
       "q": "Un șir este palindrom dacă:",
       "opts": [
         "Toate literele sunt la fel",
@@ -142,18 +106,6 @@
       ],
       "ans": 1,
       "exp": "Palindrom: s = reverse(s). Exemplu: 'radar', 'level'.",
-      "diff": 1
-    },
-    {
-      "q": "Câte cifre are numărul 12345 reprezentat ca șir?",
-      "opts": [
-        "4",
-        "5",
-        "6",
-        "Depinde de sistem"
-      ],
-      "ans": 1,
-      "exp": "'1','2','3','4','5' → 5 cifre.",
       "diff": 1
     },
     {
@@ -169,18 +121,6 @@
       "diff": 1
     },
     {
-      "q": "Funcția s.find(\"cat\") returnează string::npos dacă:",
-      "opts": [
-        "\"cat\" este la final",
-        "\"cat\" nu există în s",
-        "s este gol",
-        "\"cat\" apare de 2 ori"
-      ],
-      "ans": 1,
-      "exp": "find() returnează string::npos când substringul nu este găsit.",
-      "diff": 2
-    },
-    {
       "q": "Verificarea dacă un caracter c este literă se face cu:",
       "opts": [
         "isalpha(c)",
@@ -191,30 +131,6 @@
       "ans": 0,
       "exp": "isalpha(c) returnează non-zero pentru litere (funcție din <cctype>).",
       "diff": 1
-    },
-    {
-      "q": "strrev(s) (MSVC) inversează:",
-      "opts": [
-        "Cuvintele din s",
-        "Caracterele din s",
-        "Codul ASCII al fiecărei litere",
-        "Bitul din fiecare caracter"
-      ],
-      "ans": 1,
-      "exp": "strrev inversează caracterele șirului C-style.",
-      "diff": 2
-    },
-    {
-      "q": "Algoritmul KMP caută un pattern de lungime m în text de lungime n în:",
-      "opts": [
-        "O(n*m)",
-        "O(n+m)",
-        "O(n log m)",
-        "O(m²)"
-      ],
-      "ans": 1,
-      "exp": "Knuth-Morris-Pratt: preprocesare O(m) + căutare O(n) → O(n+m).",
-      "diff": 3
     },
     {
       "q": "Numărul de vocale din șirul \"informatica\" este:",
@@ -229,30 +145,6 @@
       "diff": 2
     },
     {
-      "q": "Anagramele sunt șiruri care:",
-      "opts": [
-        "Sunt palindroame",
-        "Au aceleași caractere cu aceleași frecvențe",
-        "Sunt identice",
-        "Diferă prin un singur caracter"
-      ],
-      "ans": 1,
-      "exp": "Două șiruri sunt anagrame dacă au aceleași caractere cu aceleași frecvențe.",
-      "diff": 2
-    },
-    {
-      "q": "Verificarea dacă două șiruri sunt anagrame se face eficient în:",
-      "opts": [
-        "O(n²)",
-        "O(n log n) prin sortare",
-        "O(n) cu vector de frecvență",
-        "O(1)"
-      ],
-      "ans": 2,
-      "exp": "Contorizăm frecvența fiecărui caracter (O(n)) și comparăm vectorii → O(n).",
-      "diff": 2
-    },
-    {
       "q": "Câte apariții ale caracterului 'a' are \"banana\"?",
       "opts": [
         "2",
@@ -263,114 +155,6 @@
       "ans": 1,
       "exp": "b-a-n-a-n-a → 'a' apare la pozițiile 1,3,5 → 3 ori.",
       "diff": 1
-    },
-    {
-      "q": "Funcția strtol(s, NULL, 10) convertește:",
-      "opts": [
-        "Un număr în șir",
-        "Un șir în număr întreg (long)",
-        "Baza zecimală în hexazecimal",
-        "Un șir în double"
-      ],
-      "ans": 1,
-      "exp": "strtol convertește șirul s în long integer în baza specificată (10 = zecimal).",
-      "diff": 3
-    },
-    {
-      "q": "Operatorul == compară două std::string:",
-      "opts": [
-        "Prin adresă de memorie",
-        "Lexicografic, caracter cu caracter",
-        "Prin lungime",
-        "Prin primul caracter"
-      ],
-      "ans": 1,
-      "exp": "== pentru std::string compară conținutul (caracter cu caracter).",
-      "diff": 1
-    },
-    {
-      "q": "Cel mai lung prefix care este și sufix al unui șir se numește:",
-      "opts": [
-        "KMP failure function / border",
-        "Palindrom maxim",
-        "Substring comun maxim",
-        "Anagramă"
-      ],
-      "ans": 0,
-      "exp": "KMP failure function calculează cel mai lung prefix propriu care este și sufix.",
-      "diff": 3
-    },
-    {
-      "q": "Numărul de cuvinte dintr-o propoziție se poate număra prin:",
-      "opts": [
-        "Numărul de spații + 1",
-        "strlen / 2",
-        "Numărul de '.' + 1",
-        "Depinde de propoziție"
-      ],
-      "ans": 0,
-      "exp": "Numărul de cuvinte ≈ numărul de spații + 1 (pentru propoziție non-vidă fără spații multiple).",
-      "diff": 2
-    },
-    {
-      "q": "Funcția toupper(c) convertește:",
-      "opts": [
-        "Minusculă → majusculă",
-        "Majusculă → minusculă",
-        "Cifră → literă",
-        "Literă → cifră"
-      ],
-      "ans": 0,
-      "exp": "toupper convertește minuscula în majusculă (returnează caracter nemodificat altfel).",
-      "diff": 1
-    },
-    {
-      "q": "Distanța Levenshtein (edit distance) măsoară:",
-      "opts": [
-        "Diferența de lungime",
-        "Numărul minim de inserări/ștergeri/înlocuiri pentru a transforma un șir în altul",
-        "Numărul de caractere comune",
-        "Numărul de anagrame posibile"
-      ],
-      "ans": 1,
-      "exp": "Edit distance = numărul minim de operații elementare pentru a transforma s1 în s2.",
-      "diff": 3
-    },
-    {
-      "q": "Algoritmul Rabin-Karp caută un pattern folosind:",
-      "opts": [
-        "Automat finit",
-        "Funcții hash",
-        "Arbore de sufix",
-        "Trie"
-      ],
-      "ans": 1,
-      "exp": "Rabin-Karp hașuiază pattern-ul și fereastra din text → O(n+m) mediu.",
-      "diff": 3
-    },
-    {
-      "q": "Cel mai lung substring comun a două șiruri se calculează cu:",
-      "opts": [
-        "Programare dinamică O(n*m)",
-        "Sortare",
-        "KMP",
-        "Hashing O(n)"
-      ],
-      "ans": 0,
-      "exp": "DP: dp[i][j] = lungimea LCS care se termină la s1[i] și s2[j] → O(n*m).",
-      "diff": 3
-    },
-    {
-      "q": "Numărul de subșiruri distincte ale unui șir de lungime n este:",
-      "opts": [
-        "n",
-        "n²",
-        "Până la n(n+1)/2+1",
-        "2^n"
-      ],
-      "ans": 2,
-      "exp": "Există n(n+1)/2 subșiruri (incluzând repetatele) + șirul vid → până la n(n+1)/2+1 distincte.",
-      "diff": 3
     },
     {
       "q": "Funcția isdigit(c) returnează true pentru:",
@@ -409,400 +193,16 @@
       "diff": 2
     },
     {
-      "q": "Algoritmul de compresie run-length encoding (RLE) comprimă:",
+      "q": "Funcția toupper(c) convertește:",
       "opts": [
-        "Literele rare",
-        "Secvențele de caractere repetate consecutive",
-        "Șirurile lungi",
-        "Cifrele"
-      ],
-      "ans": 1,
-      "exp": "RLE: 'aaabbb' → '3a3b'. Eficient pentru secvențe repetate.",
-      "diff": 2
-    },
-    {
-      "q": "Inversarea unui șir C-style fără funcții auxiliare se face în:",
-      "opts": [
-        "O(n) cu variabilă temporară",
-        "O(n log n)",
-        "O(n²)",
-        "O(1)"
+        "Minusculă → majusculă",
+        "Majusculă → minusculă",
+        "Cifră → literă",
+        "Literă → cifră"
       ],
       "ans": 0,
-      "exp": "Two-pointer: swap s[i] și s[n-1-i] pentru i < n/2 → O(n).",
+      "exp": "toupper convertește minuscula în majusculă (returnează caracter nemodificat altfel).",
       "diff": 1
-    },
-    {
-      "q": "Câte litere are alfabetul latin (majuscule)? Se stochează în:",
-      "opts": [
-        "25",
-        "26",
-        "27",
-        "24"
-      ],
-      "ans": 1,
-      "exp": "26 litere: A-Z (ASCII 65-90).",
-      "diff": 1
-    },
-    {
-      "q": "Prefixul unui șir este:",
-      "opts": [
-        "Orice subsir",
-        "Subșirul care începe de la indexul 0",
-        "Subșirul care se termină la final",
-        "Caracterele distincte"
-      ],
-      "ans": 1,
-      "exp": "Prefix = subșir care începe de la indexul 0: s[0..k].",
-      "diff": 1
-    },
-    {
-      "q": "Sufixul unui șir este:",
-      "opts": [
-        "Subșirul de la 0 la k",
-        "Subșirul care se termină la ultimul caracter",
-        "Ultimul caracter",
-        "Subșirul din mijloc"
-      ],
-      "ans": 1,
-      "exp": "Sufix = subșir care se termină la finalul șirului: s[k..n-1].",
-      "diff": 1
-    },
-    {
-      "q": "Funcția strtok(s, delimitatori) împarte:",
-      "opts": [
-        "Șirul în caractere",
-        "Șirul în token-uri/cuvinte separate de delimitatori",
-        "Șirul după lungime",
-        "Șirul în jumătăți"
-      ],
-      "ans": 1,
-      "exp": "strtok tokenizează șirul după delimitatorii specificați.",
-      "diff": 2
-    },
-    {
-      "q": "Algoritmul Z-function calculează pentru fiecare poziție i:",
-      "opts": [
-        "Codul ASCII",
-        "Lungimea celui mai lung substring care începe la i și este prefix al întregului șir",
-        "Numărul de apariții ale caracterului",
-        "Distanța față de centru"
-      ],
-      "ans": 1,
-      "exp": "Z[i] = lungimea celui mai lung prefix al s care coincide cu s[i..].",
-      "diff": 3
-    },
-    {
-      "q": "Trie-ul (arbore de prefixe) este util pentru:",
-      "opts": [
-        "Sortare numerică",
-        "Căutare și inserare de șiruri în O(|s|)",
-        "Compresie",
-        "Calcul de distanțe"
-      ],
-      "ans": 1,
-      "exp": "Trie: fiecare nod reprezintă un caracter → operații în O(|s|) per șir.",
-      "diff": 3
-    },
-    {
-      "q": "Verificarea dacă un șir conține numai cifre:",
-      "opts": [
-        "strlen(s) > 0",
-        "Parcurgere cu isdigit",
-        "strcmp(s, \"0\") >= 0",
-        "Există funcție directă in C"
-      ],
-      "ans": 1,
-      "exp": "Parcurgem fiecare caracter cu isdigit → dacă vreunul e false, nu e numai cifre.",
-      "diff": 1
-    },
-    {
-      "q": "Cel mai scurt superstring al unui set de șiruri este:",
-      "opts": [
-        "Concatenarea tuturor",
-        "Cel mai scurt șir care conține toate șirurile ca substring",
-        "Cel mai lung șir din set",
-        "Media lungimilor"
-      ],
-      "ans": 1,
-      "exp": "Superstring = cel mai scurt șir care conține toate șirurile ca subșiruri.",
-      "diff": 3
-    },
-    {
-      "q": "Funcția memcpy(dst, src, n) copiază:",
-      "opts": [
-        "n caractere + '\\0'",
-        "Exact n bytes",
-        "Întreg șirul src",
-        "n cuvinte"
-      ],
-      "ans": 1,
-      "exp": "memcpy copiază exact n bytes, fără să verifice '\\0'.",
-      "diff": 2
-    },
-    {
-      "q": "Șirul vid are lungimea:",
-      "opts": [
-        "-1",
-        "0",
-        "1",
-        "Nedefinit"
-      ],
-      "ans": 1,
-      "exp": "Șirul vid \"\" are lungimea 0 (zero caractere).",
-      "diff": 1
-    },
-    {
-      "q": "Rotația unui șir cu k poziții la stânga mută:",
-      "opts": [
-        "Ultimele k caractere la început",
-        "Primele k caractere la final",
-        "Mijlocul la start",
-        "Toate cu +k"
-      ],
-      "ans": 1,
-      "exp": "Rotație stânga k: s[k..n-1] + s[0..k-1].",
-      "diff": 2
-    },
-    {
-      "q": "Algoritmul pentru a verifica dacă s2 este rotație a lui s1:",
-      "opts": [
-        "Sortare + comparare",
-        "Verificare dacă s2 este substring în s1+s1",
-        "Inversare + comparare",
-        "Permutare"
-      ],
-      "ans": 1,
-      "exp": "s2 este rotație a s1 dacă și numai dacă s2 apare ca substring în s1+s1.",
-      "diff": 3
-    },
-    {
-      "q": "Numărul de substring-uri ale lui s cu lungimea k este:",
-      "opts": [
-        "k",
-        "n-k",
-        "n-k+1",
-        "n/k"
-      ],
-      "ans": 2,
-      "exp": "Substring-uri de lungime k: de la pozițiile 0,1,...,n-k → total n-k+1.",
-      "diff": 2
-    },
-    {
-      "q": "Funcția s.erase(2, 3) din std::string:",
-      "opts": [
-        "Șterge caracterul de la 2",
-        "Șterge 3 caractere începând de la indexul 2",
-        "Șterge ultimele 3 caractere",
-        "Inserează la 2"
-      ],
-      "ans": 1,
-      "exp": "erase(pos, len) șterge len caractere de la poziția pos.",
-      "diff": 2
-    },
-    {
-      "q": "Palindromul maxim (Manacher's algorithm) se calculează în:",
-      "opts": [
-        "O(n²)",
-        "O(n log n)",
-        "O(n)",
-        "O(n³)"
-      ],
-      "ans": 2,
-      "exp": "Algoritmul lui Manacher calculează cel mai lung palindrom din fiecare centru → O(n).",
-      "diff": 3
-    },
-    {
-      "q": "Funcția atoi(\"123abc\") returnează:",
-      "opts": [
-        "Eroare",
-        "123",
-        "0",
-        "12"
-      ],
-      "ans": 1,
-      "exp": "atoi convertește prefixul numeric → 123 (se oprește la 'a').",
-      "diff": 2
-    },
-    {
-      "q": "Cel mai lung prefix comun a doi șiri se calculează în:",
-      "opts": [
-        "O(min(n,m))",
-        "O(n+m)",
-        "O(n*m)",
-        "O(log n)"
-      ],
-      "ans": 0,
-      "exp": "Comparăm caracter cu caracter până la prima diferență → O(min(n,m)).",
-      "diff": 2
-    },
-    {
-      "q": "Operatorul < pe std::string compară:",
-      "opts": [
-        "Prin lungime",
-        "Lexicografic",
-        "Prin suma codurilor ASCII",
-        "Prin primul caracter"
-      ],
-      "ans": 1,
-      "exp": "< pe std::string este comparare lexicografică.",
-      "diff": 2
-    },
-    {
-      "q": "Cifra zecimală ca șir: 7 → \"7\". In C++ cu std::string:",
-      "opts": [
-        "to_string(7)",
-        "itoa(7)",
-        "string(7)",
-        "char(7)"
-      ],
-      "ans": 0,
-      "exp": "to_string(7) convertește int în std::string.",
-      "diff": 1
-    },
-    {
-      "q": "Câte prefixe proprii are șirul \"abc\"?",
-      "opts": [
-        "2",
-        "3",
-        "4",
-        "1"
-      ],
-      "ans": 0,
-      "exp": "Prefixe proprii (fără șirul întreg): \"\", \"a\", \"ab\" → 3... dar proprii fără vid = \"a\", \"ab\" → 2.",
-      "diff": 3
-    },
-    {
-      "q": "Algoritmul pentru cel mai lung palindrom substring rulează optim în:",
-      "opts": [
-        "O(n²) DP sau O(n) Manacher",
-        "O(n log n)",
-        "O(n³)",
-        "O(2^n)"
-      ],
-      "ans": 0,
-      "exp": "DP clasic O(n²) sau Manacher O(n).",
-      "diff": 2
-    },
-    {
-      "q": "Verificarea dacă șirul s1 este substring al lui s2 folosind STL:",
-      "opts": [
-        "s2.find(s1) != string::npos",
-        "strcmp(s1, s2)",
-        "strstr(s2, s1) != NULL",
-        "Ambele a și c"
-      ],
-      "ans": 3,
-      "exp": "Atât s2.find(s1) != string::npos cât și strstr(s2, s1) != NULL verifică substring.",
-      "diff": 2
-    },
-    {
-      "q": "Reprezentarea bazei 2 a lui 'A' (ASCII 65) este:",
-      "opts": [
-        "01000001",
-        "10000000",
-        "11111111",
-        "00110001"
-      ],
-      "ans": 0,
-      "exp": "65 în binar = 64+1 = 01000001.",
-      "diff": 3
-    },
-    {
-      "q": "Metoda s.replace(1, 2, \"XY\") pe s=\"abcde\" produce:",
-      "opts": [
-        "\"aXYde\"",
-        "\"XYbcde\"",
-        "\"abXYe\"",
-        "\"aXYcde\""
-      ],
-      "ans": 0,
-      "exp": "replace(1, 2, \"XY\"): înlocuiește 2 caractere de la poz 1 (\"bc\") cu \"XY\" → \"aXYde\".",
-      "diff": 2
-    },
-    {
-      "q": "Numărul de cuvinte care încep cu 'a' dintr-un text necesită:",
-      "opts": [
-        "Sortare",
-        "Parcurgere cu verificare după spațiu/început",
-        "Hashing",
-        "Arbore de sufix"
-      ],
-      "ans": 1,
-      "exp": "Parcurgem textul și numărăm caracterele 'a' precedate de spațiu sau la început.",
-      "diff": 2
-    },
-    {
-      "q": "Complexitatea construirii unui suffix array al unui șir de lungime n:",
-      "opts": [
-        "O(n)",
-        "O(n log n) sau O(n log²n)",
-        "O(n²)",
-        "O(n!"
-      ],
-      "ans": 1,
-      "exp": "Algoritmii moderni construiesc suffix array în O(n log n) sau O(n).",
-      "diff": 3
-    },
-    {
-      "q": "Funcția isspace(c) returnează true pentru:",
-      "opts": [
-        "' ' doar",
-        " ' ', '\\t', '\\n', '\\r', '\\f', '\\v'",
-        "'\\n' și '\\t'",
-        "Spații și cifre"
-      ],
-      "ans": 1,
-      "exp": "isspace detectează orice caracter alb: spațiu, tab, newline, etc.",
-      "diff": 2
-    },
-    {
-      "q": "Hashing-ul unui șir transformă:",
-      "opts": [
-        "Șirul în număr",
-        "Numărul în șir",
-        "Șirul în vector",
-        "Vectorul în șir"
-      ],
-      "ans": 0,
-      "exp": "Funcția hash asociază un număr unui șir, util pentru comparare rapidă.",
-      "diff": 2
-    },
-    {
-      "q": "Dacă s = \"hello\", s.back() returnează:",
-      "opts": [
-        "'h'",
-        "'e'",
-        "'o'",
-        "'l'"
-      ],
-      "ans": 2,
-      "exp": "back() returnează referință la ultimul caracter: 'o'.",
-      "diff": 1
-    },
-    {
-      "q": "Metoda s.insert(2, \"XY\") pe s=\"abcd\" produce:",
-      "opts": [
-        "\"XYabcd\"",
-        "\"abXYcd\"",
-        "\"abcdXY\"",
-        "\"aXYbcd\""
-      ],
-      "ans": 1,
-      "exp": "insert(pos, str) inserează str la poziția pos: \"ab\" + \"XY\" + \"cd\" = \"abXYcd\".",
-      "diff": 2
-    },
-    {
-      "q": "Cel mai lung subșir comun (LCS) a doi șiruri de lungimi n și m are complexitatea:",
-      "opts": [
-        "O(n+m)",
-        "O(n*m)",
-        "O(n log m)",
-        "O((n+m) log(n+m))"
-      ],
-      "ans": 1,
-      "exp": "DP clasic pentru LCS: tabel n×m → O(n*m) timp și spațiu.",
-      "diff": 3
     },
     {
       "q": "Funcția strncpy(dest, src, n) copiază:",
@@ -817,232 +217,16 @@
       "diff": 2
     },
     {
-      "q": "Verificarea unui email valid simplu necesită cel puțin:",
+      "q": "Funcția strcat(dest, src) din <cstring> face:",
       "opts": [
-        "Prezența '@' și '.'",
-        "Lungime > 5",
-        "Numai litere",
-        "Prezența '_'"
-      ],
-      "ans": 0,
-      "exp": "Un email minimal valid conține '@' și cel puțin un '.' după '@'.",
-      "diff": 2
-    },
-    {
-      "q": "Algoritmul Aho-Corasick este o extensie a KMP pentru:",
-      "opts": [
-        "Un singur pattern",
-        "Mai multe pattern-uri simultan",
-        "Șiruri circulare",
-        "Palindroame"
+        "Compară dest cu src",
+        "Concatenează src la sfârșitul lui dest",
+        "Copiază src în dest",
+        "Returnează lungimea lui dest"
       ],
       "ans": 1,
-      "exp": "Aho-Corasick construiește un automat pentru a căuta simultan mai multe pattern-uri.",
-      "diff": 3
-    },
-    {
-      "q": "Câte subșiruri distincte are \"aaa\"?",
-      "opts": [
-        "6",
-        "3",
-        "4",
-        "9"
-      ],
-      "ans": 2,
-      "exp": "\"\", \"a\", \"aa\", \"aaa\" → 4 substring-uri distincte (incluzând vidul).",
-      "diff": 3
-    },
-    {
-      "q": "Funcția s.c_str() returnează:",
-      "opts": [
-        "Lungimea șirului",
-        "const char* (pointer la buffer C-style)",
-        "Un nou std::string",
-        "Codul ASCII"
-      ],
-      "ans": 1,
-      "exp": "c_str() returnează const char* pentru compatibilitate cu funcțiile C.",
-      "diff": 2
-    },
-    {
-      "q": "Numărul cuvintelor palindrom dintr-o propoziție necesită:",
-      "opts": [
-        "Tokenizare + verificare palindrom pentru fiecare cuvânt",
-        "Sortare + comparare",
-        "Hash de frecvențe",
-        "Arbore de sufix"
-      ],
-      "ans": 0,
-      "exp": "Extragem fiecare cuvânt și verificăm dacă e palindrom.",
-      "diff": 2
-    },
-    {
-      "q": "Reprezentarea hexazecimală a caracterului 'Z' (ASCII 90) este:",
-      "opts": [
-        "0x5A",
-        "0x41",
-        "0x7A",
-        "0x61"
-      ],
-      "ans": 0,
-      "exp": "90 dec = 5*16 + 10 = 5A hex.",
-      "diff": 3
-    },
-    {
-      "q": "Algoritmul pentru a verifica dacă un șir are paranteze echilibrate:",
-      "opts": [
-        "Sortare",
-        "Stivă",
-        "Numărul '(' = numărul ')'",
-        "Ambele b și c (stiva e mai precisă)"
-      ],
-      "ans": 3,
-      "exp": "Stiva verifică echilibrul și ordinea corectă. Simplul count nu e suficient pentru paranteze mixte.",
-      "diff": 2
-    },
-    {
-      "q": "Cel mai mic șir lexicografic format din caracterele unui șir dat:",
-      "opts": [
-        "Sortare crescătoare a caracterelor",
-        "Inversare",
-        "Primul caracter repetat",
-        "Jumătatea stângă"
-      ],
-      "ans": 0,
-      "exp": "Sortăm caracterele crescător → cel mai mic șir lexicografic.",
-      "diff": 2
-    },
-    {
-      "q": "Funcția s.size() este echivalentă cu:",
-      "opts": [
-        "s.length()",
-        "strlen(s)",
-        "s.capacity()",
-        "sizeof(s)"
-      ],
-      "ans": 0,
-      "exp": "Pentru std::string, size() și length() sunt sinonime.",
+      "exp": "strcat() adaugă șirul src la sfârșitul lui dest (suprascrie terminatorul '\\0' al lui dest și adaugă un nou '\\0' la final).",
       "diff": 1
-    },
-    {
-      "q": "Compresia unui șir prin RLE: \"aaabbbcc\" devine:",
-      "opts": [
-        "\"3a3b2c\"",
-        "\"a3b3c2\"",
-        "\"aaa3bbb3cc2\"",
-        "\"a3b3c2\""
-      ],
-      "ans": 0,
-      "exp": "RLE: numărăm consecuțiile → 3a + 3b + 2c = \"3a3b2c\".",
-      "diff": 2
-    },
-    {
-      "q": "Funcția s.find_last_of(\"aeiou\") returnează:",
-      "opts": [
-        "Poziția primei vocale",
-        "Poziția ultimei vocale din s",
-        "Numărul vocalelor",
-        "Dacă s are vocale"
-      ],
-      "ans": 1,
-      "exp": "find_last_of(chars) returnează poziția ultimei apariții a oricărui caracter din chars.",
-      "diff": 2
-    },
-    {
-      "q": "Interclasarea alfabetică a două șiruri sortate produce:",
-      "opts": [
-        "Un șir sortat",
-        "Anagrama celei mai lungi",
-        "Concatenarea",
-        "Un palindrom"
-      ],
-      "ans": 0,
-      "exp": "Interclasarea a două șiruri sortate → un șir sortat (ca la Merge Sort).",
-      "diff": 2
-    },
-    {
-      "q": "Diferența de frecvență a două caractere distincte necesită:",
-      "opts": [
-        "Vector de frecvență de 26",
-        "Sortare",
-        "strlen",
-        "strcmp"
-      ],
-      "ans": 0,
-      "exp": "Array de frecvențe int freq[26] pentru literele a-z.",
-      "diff": 1
-    },
-    {
-      "q": "Verificarea unui IP v4 valid (simplificat) necesită:",
-      "opts": [
-        "4 segmente numerice 0-255 separate de '.'",
-        "Lungime = 15",
-        "Numai cifre",
-        "Prezența ':'"
-      ],
-      "ans": 0,
-      "exp": "IPv4 valid: 4 numere 0-255 separate de '.' → tokenizare + validare numerică.",
-      "diff": 3
-    },
-    {
-      "q": "Cel mai bun caz al căutării KMP:",
-      "opts": [
-        "O(n)",
-        "O(n+m)",
-        "O(m)",
-        "O(1)"
-      ],
-      "ans": 1,
-      "exp": "KMP: preprocesare O(m) + căutare O(n) → O(n+m) și în cel mai bun caz.",
-      "diff": 3
-    },
-    {
-      "q": "Funcția s.empty() returnează true dacă:",
-      "opts": [
-        "s are numai spații",
-        "s.size() == 0",
-        "s == NULL",
-        "s are numai '\\0'"
-      ],
-      "ans": 1,
-      "exp": "empty() → true dacă și numai dacă lungimea este 0.",
-      "diff": 1
-    },
-    {
-      "q": "Șirul \"abcba\" este palindrom. Ce verifică algoritmul two-pointer?",
-      "opts": [
-        "s[0]==s[4], s[1]==s[3]",
-        "s[0]==s[1], ...",
-        "s[2]==s[2] (centru)",
-        "Toate perechile de caractere"
-      ],
-      "ans": 0,
-      "exp": "Two-pointer: s[0] vs s[4] → 'a'='a' ✓, s[1] vs s[3] → 'b'='b' ✓, centru s[2] ignorat.",
-      "diff": 2
-    },
-    {
-      "q": "Caesar cipher cu shift 3: 'A' devine:",
-      "opts": [
-        "'C'",
-        "'D'",
-        "'B'",
-        "'Z'"
-      ],
-      "ans": 1,
-      "exp": "'A' + 3 = 'D'.",
-      "diff": 2
-    },
-    {
-      "q": "Decodificarea ROT13 a 'Uryyb' este:",
-      "opts": [
-        "Hello",
-        "World",
-        "Helln",
-        "Hallb"
-      ],
-      "ans": 0,
-      "exp": "ROT13: H->U, e->r, l->y, l->y, o->b -> 'Hello'.",
-      "diff": 3
     },
     {
       "q": "Funcția strstr(haystack, needle) returnează:",
@@ -1057,111 +241,39 @@
       "diff": 2
     },
     {
-      "q": "Cel mai lung subșir care se repetă de cel puțin 2 ori se calculează cu:",
+      "q": "Funcția strtok(s, delimitatori) împarte:",
       "opts": [
-        "Suffix Array + LCP",
-        "Brut O(n³)",
-        "KMP",
-        "Trie simplu"
+        "Șirul în caractere",
+        "Șirul în token-uri/cuvinte separate de delimitatori",
+        "Șirul după lungime",
+        "Șirul în jumătăți"
       ],
-      "ans": 0,
-      "exp": "Suffix Array + LCP array permite găsirea eficientă a repetițiilor.",
-      "diff": 3
+      "ans": 1,
+      "exp": "strtok tokenizează șirul după delimitatorii specificați.",
+      "diff": 2
     },
     {
-      "q": "Inițializarea string s=\"\"; are s.size() egal cu:",
+      "q": "Funcția memcpy(dst, src, n) copiază:",
       "opts": [
-        "1",
+        "n caractere + '\\0'",
+        "Exact n bytes",
+        "Întreg șirul src",
+        "n cuvinte"
+      ],
+      "ans": 1,
+      "exp": "memcpy copiază exact n bytes, fără să verifice '\\0'.",
+      "diff": 2
+    },
+    {
+      "q": "Funcția atoi(\"123abc\") returnează:",
+      "opts": [
+        "Eroare",
+        "123",
         "0",
-        "-1",
-        "Nedefinit"
+        "12"
       ],
       "ans": 1,
-      "exp": "Șirul vid are size() = 0.",
-      "diff": 1
-    },
-    {
-      "q": "Funcția s.clear() pe std::string:",
-      "opts": [
-        "Dezalocă memoria",
-        "Setează size la 0 (șterge conținutul)",
-        "Eliberează buffer-ul",
-        "Atribuie '\\0' la s[0]"
-      ],
-      "ans": 1,
-      "exp": "clear() setează size la 0 (conținut șters), capacity poate rămâne.",
-      "diff": 2
-    },
-    {
-      "q": "Verificarea dacă un șir conține numai majuscule:",
-      "opts": [
-        "isupper(s)",
-        "Parcurgere cu isupper pe fiecare caracter",
-        "s >= \"A\" && s <= \"Z\"",
-        "toupper(s) == s"
-      ],
-      "ans": 1,
-      "exp": "Iterăm fiecare caracter cu isupper(c) → false la primul non-majusculă.",
-      "diff": 1
-    },
-    {
-      "q": "Conversia unui număr în baza 16 (hex) ca șir în C++:",
-      "opts": [
-        "printf(\"%x\", n)",
-        "to_hex(n)",
-        "itoa(n, buf, 16)",
-        "Ambele a și c"
-      ],
-      "ans": 3,
-      "exp": "Atât printf/sprintf cu %x cât și itoa(n, buf, 16) convertesc în hex.",
-      "diff": 2
-    },
-    {
-      "q": "Numărul de subșiruri palindrome ale unui șir de lungime n:",
-      "opts": [
-        "n",
-        "n²",
-        "Θ(n) cu Manacher",
-        "Θ(n²) în cel mai rău caz, O(n) cu Manacher"
-      ],
-      "ans": 3,
-      "exp": "Numărul de subșiruri palindrome distincte poate fi Θ(n²), dar Manacher le numără în O(n).",
-      "diff": 3
-    },
-    {
-      "q": "Funcția s.rfind(\"ab\") caută:",
-      "opts": [
-        "Prima apariție a \"ab\" din stânga",
-        "Ultima apariție a \"ab\"",
-        "\"ba\" (inversul)",
-        "Cel mai lung prefix \"ab\""
-      ],
-      "ans": 1,
-      "exp": "rfind caută din dreapta → returnează poziția ultimei apariții.",
-      "diff": 2
-    },
-    {
-      "q": "Algoritmul pentru a număra cuvintele unice dintr-un text:",
-      "opts": [
-        "Tokenizare + std::set sau hash set",
-        "Sortare + compactare",
-        "Stivă",
-        "Coadă"
-      ],
-      "ans": 0,
-      "exp": "Inserăm fiecare cuvânt într-un set (elimină duplicatele automat) → O(n log n).",
-      "diff": 2
-    },
-    {
-      "q": "Cel mai mic/mare caracter al unui șir se găsește cu:",
-      "opts": [
-        "min_element / max_element din STL",
-        "strcmp",
-        "Sortare",
-        "strlen"
-      ],
-      "ans": 0,
-      "exp": "min_element(s.begin(), s.end()) / max_element → O(n).",
+      "exp": "atoi convertește prefixul numeric → 123 (se oprește la 'a').",
       "diff": 2
     },
     {
@@ -1177,27 +289,567 @@
       "diff": 2
     },
     {
-      "q": "Algoritmul pentru cel mai lung prefix palindrom (adăugăm minim de caractere la final):",
+      "q": "Șirul vid are lungimea:",
       "opts": [
-        "KMP + palindrom check",
-        "Manacher",
-        "Hashing",
-        "Forță brută O(n²)"
+        "-1",
+        "0",
+        "1",
+        "Nedefinit"
+      ],
+      "ans": 1,
+      "exp": "Șirul vid \"\" are lungimea 0 (zero caractere).",
+      "diff": 1
+    },
+    {
+      "q": "Verificarea dacă un șir conține numai cifre:",
+      "opts": [
+        "strlen(s) > 0",
+        "Parcurgere cu isdigit",
+        "strcmp(s, \"0\") >= 0",
+        "Există funcție directă in C"
+      ],
+      "ans": 1,
+      "exp": "Parcurgem fiecare caracter cu isdigit → dacă vreunul e false, nu e numai cifre.",
+      "diff": 1
+    },
+    {
+      "q": "Verificarea dacă un șir conține numai majuscule:",
+      "opts": [
+        "isupper(s)",
+        "Parcurgere cu isupper pe fiecare caracter",
+        "s >= \"A\" && s <= \"Z\"",
+        "toupper(s) == s"
+      ],
+      "ans": 1,
+      "exp": "Iterăm fiecare caracter cu isupper(c) → false la primul non-majusculă.",
+      "diff": 1
+    },
+    {
+      "q": "Numărul de cuvinte dintr-o propoziție se poate număra prin:",
+      "opts": [
+        "Numărul de spații + 1",
+        "strlen / 2",
+        "Numărul de '.' + 1",
+        "Depinde de propoziție"
       ],
       "ans": 0,
-      "exp": "Construim s + '#' + reverse(s), calculăm KMP failure → O(n).",
+      "exp": "Numărul de cuvinte ≈ numărul de spații + 1 (pentru propoziție non-vidă fără spații multiple).",
+      "diff": 2
+    },
+    {
+      "q": "strrev(s) (MSVC) inversează:",
+      "opts": [
+        "Cuvintele din s",
+        "Caracterele din s",
+        "Codul ASCII al fiecărei litere",
+        "Bitul din fiecare caracter"
+      ],
+      "ans": 1,
+      "exp": "strrev inversează caracterele șirului C-style.",
+      "diff": 2
+    },
+    {
+      "q": "Câte litere are alfabetul latin (majuscule)?",
+      "opts": [
+        "25",
+        "26",
+        "27",
+        "24"
+      ],
+      "ans": 1,
+      "exp": "26 litere: A-Z (ASCII 65-90).",
+      "diff": 1
+    },
+    {
+      "q": "Funcția isspace(c) returnează true pentru:",
+      "opts": [
+        "' ' doar",
+        "' ', '\\t', '\\n', '\\r', '\\f', '\\v'",
+        "'\\n' și '\\t'",
+        "Spații și cifre"
+      ],
+      "ans": 1,
+      "exp": "isspace detectează orice caracter alb: spațiu, tab, newline, etc.",
+      "diff": 2
+    },
+    {
+      "q": "Variabila s memorează \"muzeu\". Ce se afișează după: strcpy(s,\"muzeu\"); s[0]=s[0]+1; cout<<s[1]<<s[0]<<endl;?",
+      "opts": [
+        "mu",
+        "un",
+        "um",
+        "nu"
+      ],
+      "ans": 2,
+      "exp": "s=\"muzeu\", s[0]='m'+1='n'. s[1]='u', s[0]='n' → se afișează \"un\".",
+      "diff": 2
+    },
+    {
+      "q": "Variabila s memorează \"muzeu\". După strcpy(s,\"muzeu\"); s[0]=s[0]+1; strcpy(s,\"muzeu\"+2); cout<<s;, ce se afișează?",
+      "opts": [
+        "muzeu",
+        "zeu",
+        "nuzeu",
+        "eu"
+      ],
+      "ans": 1,
+      "exp": "strcpy(s,\"muzeu\"+2) copiază de la adresa \"muzeu\"+2, adică \"zeu\". Se afișează \"zeu\".",
+      "diff": 2
+    },
+    {
+      "q": "Variabila s memorează \"muzeu\". După: strcpy(s,\"muzeu\"); s[0]=s[0]+1; printf(\"%c%c\\n\",s[1],s[0]);, ce se afișează?",
+      "opts": [
+        "mu",
+        "un",
+        "um",
+        "nu"
+      ],
+      "ans": 1,
+      "exp": "s[0]='m'+1='n', s[1]='u'. printf(\"%c%c\",s[1],s[0]) → 'u' apoi 'n' → \"un\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează secvența: char s[]=\"examen\"; printf(\"%c\",s[strlen(s)-1]);?",
+      "opts": [
+        "e",
+        "n",
+        "x",
+        "a"
+      ],
+      "ans": 1,
+      "exp": "strlen(\"examen\")=6, s[5]='n'. Se afișează 'n'.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"ABCDEF\"; s[3]='\\0'; printf(\"%s\",s);?",
+      "opts": [
+        "ABCDEF",
+        "ABC",
+        "DEF",
+        "ABCD"
+      ],
+      "ans": 1,
+      "exp": "s[3]='\\0' trunchiază șirul la \"ABC\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"test\"; for(int i=strlen(s)-1;i>=0;i--) printf(\"%c\",s[i]);?",
+      "opts": [
+        "test",
+        "tset",
+        "tse",
+        "ttes"
+      ],
+      "ans": 1,
+      "exp": "Se parcurge de la s[3]='t' la s[0]='t': t,s,e,t → \"tset\".",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"bacalaureat\"; int k=0; for(int i=0;i<strlen(s);i++) if(strchr(\"aeiou\",s[i])) k++; printf(\"%d\",k);?",
+      "opts": [
+        "4",
+        "5",
+        "6",
+        "3"
+      ],
+      "ans": 2,
+      "exp": "b-a-c-a-l-a-u-r-e-a-t: vocalele sunt a,a,a,u,e,a → 6 vocale.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"ABCabc\"; for(int i=0;i<strlen(s);i++) if(s[i]>='a'&&s[i]<='z') printf(\"%c\",s[i]-32);?",
+      "opts": [
+        "ABCabc",
+        "ABC",
+        "abcABC",
+        "ABCABC"
+      ],
+      "ans": 1,
+      "exp": "Se afișează doar literele mici convertite la majuscule: a→A, b→B, c→C → \"ABC\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[20]; strcpy(s,\"abc\"); strcat(s,\"def\"); printf(\"%d\",strlen(s));?",
+      "opts": [
+        "3",
+        "6",
+        "7",
+        "9"
+      ],
+      "ans": 1,
+      "exp": "strcpy pune \"abc\", strcat adaugă \"def\" → \"abcdef\", strlen=6.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"CALCULATOARE\"; int k=0; for(int i=0;i<strlen(s);i++) if(s[i]=='A') k++; printf(\"%d\",k);?",
+      "opts": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "ans": 1,
+      "exp": "C-A-L-C-U-L-A-T-O-A-R-E: 'A' la pozițiile 1,6,9 → 3 apariții.",
+      "diff": 1
+    },
+    {
+      "q": "Variabila s memorează un șir de cel mult 20 de caractere (litere mari). Secvența care numără consoanele este:",
+      "opts": [
+        "for(i=0;i<strlen(s);i++) if(strchr(\"AEIOU\",s[i])==NULL) k++;",
+        "for(i=0;i<strlen(s);i++) if(strchr(\"AEIOU\",s[i])) k++;",
+        "for(i=0;i<strlen(s);i++) if(s[i]>'E') k++;",
+        "for(i=0;i<strlen(s);i++) k++;"
+      ],
+      "ans": 0,
+      "exp": "Consoanele sunt literele care NU sunt vocale: strchr(\"AEIOU\",s[i])==NULL.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"program\"; strcpy(s+3,\"a\"); printf(\"%s\",s);?",
+      "opts": [
+        "proa",
+        "program",
+        "proga",
+        "pro"
+      ],
+      "ans": 0,
+      "exp": "strcpy(s+3,\"a\") copiază \"a\" (inclusiv '\\0') de la poziția 3 → s=\"proa\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"examen\"; char d[20]; strcpy(d,s+2); printf(\"%s\",d);?",
+      "opts": [
+        "examen",
+        "amen",
+        "ex",
+        "men"
+      ],
+      "ans": 1,
+      "exp": "s+2 pointează la \"amen\". strcpy(d,s+2) copiază \"amen\" în d.",
+      "diff": 2
+    },
+    {
+      "q": "Ce valoare are strcmp(\"abc\",\"abd\")?",
+      "opts": [
+        "Valoare negativă",
+        "0",
+        "Valoare pozitivă",
+        "1"
+      ],
+      "ans": 0,
+      "exp": "'c' < 'd' (99 < 100), deci strcmp returnează valoare negativă.",
+      "diff": 2
+    },
+    {
+      "q": "Dacă s=\"PREafrUMoASA\", secvența care afișează vocalele care NU apar în s este:",
+      "opts": [
+        "Parcurgem \"aeiouAEIOU\" și verificăm cu strchr dacă fiecare nu apare în s",
+        "Parcurgem s și afișăm vocalele",
+        "Parcurgem s și afișăm consoanele",
+        "Comparăm s cu \"AEIOU\" folosind strcmp"
+      ],
+      "ans": 0,
+      "exp": "Pentru fiecare vocală din \"aeiouAEIOU\", dacă strchr(s,vocala)==NULL, o afișăm.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"CALCULATOARE\"; for(int i=0;i<strlen(s);i++) if(strchr(\"OAU\",s[i])==NULL && strchr(\"AEIOU\",s[i])) printf(\"%c\",s[i]);?",
+      "opts": [
+        "OAU",
+        "E",
+        "AEIOU",
+        "AE"
+      ],
+      "ans": 1,
+      "exp": "Se afișează vocalele din {A,E,I,O,U} care NU sunt din {O,A,U}. Din CALCULATOARE, singura vocală E (nu A,O,U) este E. → \"E\".",
       "diff": 3
     },
     {
-      "q": "Funcția strcat(dest, src) din <cstring> face:",
+      "q": "Variabila i este int, s permite 50 de caractere (litere mari). Secvența care afișează consoanele și pune * în loc de vocalele {O,A,U}: for(i=0;i<strlen(s);i++) if(...) cout<<s[i]; else cout<<'*';. Ce condiție lipsește?",
       "opts": [
-        "Compară dest cu src",
-        "Concatenează src la sfârșitul lui dest",
-        "Copiază src în dest",
-        "Returnează lungimea lui dest"
+        "strchr(\"OAU\",s[i])==NULL",
+        "strchr(\"OAU\",s[i])!=NULL",
+        "s[i]>='A' && s[i]<='Z'",
+        "strchr(\"AEIOU\",s[i])==NULL"
+      ],
+      "ans": 0,
+      "exp": "Dacă s[i] NU e vocală din {O,A,U} → afișăm s[i] (consoana); altfel → '*'. Condiția: strchr(\"OAU\",s[i])==NULL.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abac\"; int i,j; for(i=0;i<strlen(s);i++) { int ok=1; for(j=0;j<i;j++) if(s[j]==s[i]) ok=0; if(ok) printf(\"%c\",s[i]); }?",
+      "opts": [
+        "abac",
+        "abc",
+        "ab",
+        "a"
       ],
       "ans": 1,
-      "exp": "strcat() adaugă șirul src la sfârșitul lui dest (suprascrie terminatorul '\\\\0' al lui dest și adaugă un nou '\\\\0' la final).",
+      "exp": "Se afișează fiecare caracter doar la prima apariție: a(ok), b(ok), a(deja), c(ok) → \"abc\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abcba\"; int pal=1; for(int i=0;i<strlen(s)/2;i++) if(s[i]!=s[strlen(s)-1-i]) pal=0; printf(\"%d\",pal);?",
+      "opts": [
+        "0",
+        "1",
+        "5",
+        "2"
+      ],
+      "ans": 1,
+      "exp": "\"abcba\" este palindrom: s[0]='a'==s[4]='a', s[1]='b'==s[3]='b' ✓. pal rămâne 1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"bac2025\"; int k=0; for(int i=0;i<strlen(s);i++) if(s[i]>='0'&&s[i]<='9') k++; printf(\"%d\",k);?",
+      "opts": [
+        "3",
+        "4",
+        "7",
+        "0"
+      ],
+      "ans": 1,
+      "exp": "Cifrele din \"bac2025\": '2','0','2','5' → 4 cifre.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char a[]=\"mare\",b[]=\"mic\"; if(strcmp(a,b)<0) printf(\"%s\",a); else printf(\"%s\",b);?",
+      "opts": [
+        "mare",
+        "mic",
+        "mareamic",
+        "0"
+      ],
+      "ans": 0,
+      "exp": "strcmp(\"mare\",\"mic\"): 'a'<'i' → valoare negativă → se afișează \"mare\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[30]; strcpy(s,\"info\"); strcat(s,\"rma\"); strcat(s,\"tica\"); printf(\"%d %s\",strlen(s),s);?",
+      "opts": [
+        "11 informatica",
+        "10 informatica",
+        "4 info",
+        "11 informa"
+      ],
+      "ans": 0,
+      "exp": "\"info\" + \"rma\" + \"tica\" = \"informatica\" cu strlen=11.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"aBcDeF\"; for(int i=0;i<strlen(s);i++) if(s[i]>='A'&&s[i]<='Z') printf(\"%c\",s[i]+32);?",
+      "opts": [
+        "aBcDeF",
+        "bdf",
+        "ABCDEF",
+        "abcdef"
+      ],
+      "ans": 1,
+      "exp": "Se afișează doar majusculele convertite la minuscule: B→b, D→d, F→f → \"bdf\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abcdef\"; strncpy(s,\"XY\",2); printf(\"%s\",s);?",
+      "opts": [
+        "XY",
+        "XYcdef",
+        "abXYef",
+        "XYcde"
+      ],
+      "ans": 1,
+      "exp": "strncpy(s,\"XY\",2) suprascrie primele 2 caractere: s=\"XYcdef\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"proGRAMare\"; int k=0; for(int i=0;i<strlen(s);i++) if(s[i]>='A'&&s[i]<='Z') k++; printf(\"%d\",k);?",
+      "opts": [
+        "3",
+        "4",
+        "7",
+        "10"
+      ],
+      "ans": 1,
+      "exp": "Majusculele din \"proGRAMare\": G,R,A,M → 4.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abcabc\"; char *p=strstr(s,\"bc\"); printf(\"%ld\",p-s);?",
+      "opts": [
+        "0",
+        "1",
+        "3",
+        "4"
+      ],
+      "ans": 1,
+      "exp": "strstr găsește prima apariție a \"bc\" la adresa s+1. p-s=1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"Bac 2025!\"; int c=0,l=0,a=0; for(int i=0;i<strlen(s);i++) { if(isdigit(s[i])) c++; else if(isalpha(s[i])) l++; else a++; } printf(\"%d %d %d\",l,c,a);?",
+      "opts": [
+        "3 4 2",
+        "4 3 2",
+        "2 4 3",
+        "3 4 1"
+      ],
+      "ans": 0,
+      "exp": "\"Bac 2025!\": litere=B,a,c→3; cifre=2,0,2,5→4; altele=spațiu,'!'→2.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abcdef\"; int n=strlen(s); char aux; for(int i=0;i<n/2;i++) { aux=s[i]; s[i]=s[n-1-i]; s[n-1-i]=aux; } printf(\"%s\",s);?",
+      "opts": [
+        "abcdef",
+        "fedcba",
+        "abcfed",
+        "dcbafe"
+      ],
+      "ans": 1,
+      "exp": "Se inversează șirul prin swap: a↔f, b↔e, c↔d → \"fedcba\".",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"ana are mere\"; char *p=strtok(s,\" \"); int k=0; while(p) { k++; p=strtok(NULL,\" \"); } printf(\"%d\",k);?",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "12"
+      ],
+      "ans": 1,
+      "exp": "strtok separă \"ana are mere\" după spații: \"ana\", \"are\", \"mere\" → 3 cuvinte.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"aabbc\"; for(int i=0;i<strlen(s)-1;i++) if(s[i]==s[i+1]) printf(\"%c\",s[i]);?",
+      "opts": [
+        "aabbc",
+        "ab",
+        "abc",
+        "aa"
+      ],
+      "ans": 1,
+      "exp": "s[0]='a'==s[1]='a'→afișăm 'a'; s[2]='b'==s[3]='b'→afișăm 'b'; s[3]='b'!=s[4]='c'. Rezultat: \"ab\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"informatica\"; char d[20]=\"\"; int j=0; for(int i=0;i<strlen(s);i++) if(strchr(\"aeiou\",s[i])==NULL) d[j++]=s[i]; d[j]='\\0'; printf(\"%s\",d);?",
+      "opts": [
+        "informatica",
+        "nfrmtc",
+        "ioaia",
+        "nfrm"
+      ],
+      "ans": 1,
+      "exp": "Se copiază doar consoanele: n,f,r,m,t,c → \"nfrmtc\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"AaBbCc\"; for(int i=0;i<strlen(s);i++) s[i]=toupper(s[i]); printf(\"%s\",s);?",
+      "opts": [
+        "AaBbCc",
+        "AABBCC",
+        "aabbcc",
+        "AbBcCa"
+      ],
+      "ans": 1,
+      "exp": "toupper convertește fiecare caracter la majusculă: A,A,B,B,C,C → \"AABBCC\".",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abc123\"; char d[10]=\"\"; int j=0; for(int i=0;i<strlen(s);i++) if(isalpha(s[i])) d[j++]=s[i]; d[j]='\\0'; printf(\"%s\",d);?",
+      "opts": [
+        "abc123",
+        "abc",
+        "123",
+        "a1b2c3"
+      ],
+      "ans": 1,
+      "exp": "Se copiază doar literele: a,b,c → \"abc\".",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"mama\"; for(int i=0;i<strlen(s);i++) s[i]=s[i]+1; printf(\"%s\",s);?",
+      "opts": [
+        "mama",
+        "nbnb",
+        "nbna",
+        "oaoa"
+      ],
+      "ans": 1,
+      "exp": "Fiecare caracter crește cu 1: m→n, a→b, m→n, a→b → \"nbnb\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abcdef\"; s[2]='\\0'; strcat(s,\"xyz\"); printf(\"%s\",s);?",
+      "opts": [
+        "abcdefxyz",
+        "abxyz",
+        "xyz",
+        "abcxyz"
+      ],
+      "ans": 1,
+      "exp": "s[2]='\\0' → s=\"ab\". strcat adaugă \"xyz\" → s=\"abxyz\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"ANA\"; if(strcmp(s,\"ana\")==0) printf(\"egal\"); else if(strcmp(s,\"ana\")<0) printf(\"mai mic\"); else printf(\"mai mare\");?",
+      "opts": [
+        "egal",
+        "mai mic",
+        "mai mare",
+        "eroare"
+      ],
+      "ans": 1,
+      "exp": "'A'=65 < 'a'=97, deci strcmp(\"ANA\",\"ana\") < 0 → \"mai mic\".",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"12345\"; int suma=0; for(int i=0;i<strlen(s);i++) suma+=s[i]-'0'; printf(\"%d\",suma);?",
+      "opts": [
+        "12345",
+        "15",
+        "5",
+        "49"
+      ],
+      "ans": 1,
+      "exp": "1+2+3+4+5=15. Fiecare s[i]-'0' dă cifra corespunzătoare.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"abcba\"; int i=0,j=strlen(s)-1,ok=1; while(i<j) { if(s[i]!=s[j]) ok=0; i++; j--; } printf(\"%d\",ok);?",
+      "opts": [
+        "0",
+        "1",
+        "5",
+        "-1"
+      ],
+      "ans": 1,
+      "exp": "Verificare palindrom cu two-pointer: \"abcba\" e palindrom → ok=1.",
+      "diff": 2
+    },
+    {
+      "q": "Ce afișează: char s[]=\"ana are mere\"; int k=1; for(int i=0;i<strlen(s);i++) if(s[i]==' ') k++; printf(\"%d\",k);?",
+      "opts": [
+        "2",
+        "3",
+        "12",
+        "4"
+      ],
+      "ans": 1,
+      "exp": "Numărăm spațiile (2) și adăugăm 1 → 3 cuvinte.",
+      "diff": 1
+    },
+    {
+      "q": "Ce afișează: char s[]=\"aXbYcZ\"; char d[10]=\"\"; int j=0; for(int i=0;i<strlen(s);i++) if(s[i]>='a'&&s[i]<='z') d[j++]=s[i]; d[j]='\\0'; printf(\"%s\",d);?",
+      "opts": [
+        "aXbYcZ",
+        "abc",
+        "XYZ",
+        "abcXYZ"
+      ],
+      "ans": 1,
+      "exp": "Se copiază doar literele mici: a,b,c → \"abc\".",
       "diff": 1
     }
   ]

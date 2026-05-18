@@ -18,7 +18,13 @@ const chapters = [
   { id: 'programare-dinamica', label: 'Prog. Dinamică', color: 'teal' },
   { id: 'structuri',     label: 'Structuri',      color: 'purple' },
   { id: 'pointeri',      label: 'Pointeri',       color: 'green'  },
-  { id: 'grafuri',       label: 'Grafuri',        color: 'purple' },
+  { id: 'grafuri',       label: 'Grafuri',        color: 'purple',
+    subcategories: [
+      { id: 'neorientate', label: 'Neorientate', cat: 0 },
+      { id: 'orientate',   label: 'Orientate',   cat: 1 },
+      { id: 'arbori',      label: 'Arbori',      cat: 2 },
+    ]
+  },
 ];
 ---
 <BaseLayout
@@ -75,6 +81,20 @@ const chapters = [
               </div>
             </div>
 
+            <!-- Subcategory selector (for grafuri) -->
+            <div class="filter-group" id="subcategoryGroup" style="display:none">
+              <div class="filter-label">🔀 Subcategorii Grafuri</div>
+              <div class="subcat-chips" id="subcatChips">
+                <button class="chip chip-subcat active" data-subcat="all">Toate (mix)</button>
+                <button class="chip chip-subcat chip-neorientate" data-subcat="0">Neorientate</button>
+                <button class="chip chip-subcat chip-orientate" data-subcat="1">Orientate</button>
+                <button class="chip chip-subcat chip-arbori" data-subcat="2">Arbori</button>
+              </div>
+              <div class="subcat-mix-hint" id="subcatMixHint">
+                <small>💡 Selectează mai multe subcategorii pentru a le mixa</small>
+              </div>
+            </div>
+
             <!-- Difficulty selector -->
             <div class="filter-group">
               <div class="filter-label">🎯 Dificultate</div>
@@ -98,6 +118,20 @@ const chapters = [
               </div>
             </div>
 
+            <!-- Timer selector -->
+            <div class="filter-group">
+              <div class="filter-label">⏱️ Timp alocat (opțional)</div>
+              <div class="timer-chips" id="timerChips">
+                <button class="chip chip-timer active" data-timer="0">Fără timp</button>
+                <button class="chip chip-timer" data-timer="5">5 min</button>
+                <button class="chip chip-timer" data-timer="10">10 min</button>
+                <button class="chip chip-timer" data-timer="15">15 min</button>
+                <button class="chip chip-timer" data-timer="20">20 min</button>
+                <button class="chip chip-timer" data-timer="30">30 min</button>
+                <button class="chip chip-timer" data-timer="45">45 min</button>
+              </div>
+            </div>
+
             <div class="filter-actions">
               <button id="btnGenerate" class="btn-generate">
                 ▶ Generează exerciții
@@ -107,7 +141,7 @@ const chapters = [
               </button>
               <label id="answersToggleWrap" class="answers-toggle" style="display:none">
                 <input type="checkbox" id="showAnswers" />
-                <span>Cu răspunsuri</span>
+                <span>Arată toate răspunsurile</span>
               </label>
               <span id="loadingSpinner" style="display:none;opacity:.6;font-size:13px">Se încarcă…</span>
             </div>
@@ -120,6 +154,19 @@ const chapters = [
           <div id="phMeta" class="ph-meta"></div>
           <div id="phDate" class="ph-date"></div>
           <hr class="ph-divider" />
+        </div>
+
+        <!-- ── Timer bar ─────────────────────────────────── -->
+        <div id="timerBar" class="timer-bar" style="display:none">
+          <div class="timer-inner">
+            <span class="timer-icon">⏱️</span>
+            <span id="timerDisplay" class="timer-display">00:00</span>
+            <div class="timer-progress-wrap">
+              <div id="timerProgress" class="timer-progress"></div>
+            </div>
+            <button id="timerPause" class="timer-btn" title="Pauză/Continuă">⏸</button>
+            <button id="timerReset" class="timer-btn" title="Oprește cronometru">⏹</button>
+          </div>
         </div>
 
         <!-- ── Results ─────────────────────────────────────── -->
@@ -178,6 +225,14 @@ const chapters = [
     .chip-type.active   { background: linear-gradient(135deg,#0d9488,#14b8a6); }
     .chip-type:disabled { opacity: 0.4; cursor: not-allowed; }
     .type-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .subcat-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .timer-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip-subcat.active { background: linear-gradient(135deg,#7c3aed,#a855f7); }
+    .chip-neorientate.active { background: #2563eb; }
+    .chip-orientate.active { background: #dc2626; }
+    .chip-arbori.active { background: #16a34a; }
+    .chip-timer.active { background: linear-gradient(135deg,#d97706,#f59e0b); }
+    .subcat-mix-hint { margin-top: 8px; color: #64748b; font-size: 12px; }
 
     /* Action buttons */
     .filter-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
@@ -203,6 +258,46 @@ const chapters = [
     .answers-toggle input[type=checkbox] {
       width: 16px; height: 16px; cursor: pointer; accent-color: #7c3aed;
     }
+
+    /* Timer bar */
+    .timer-bar {
+      background: var(--surface, #1e293b); border-radius: 14px;
+      border: 1.5px solid rgba(251,191,36,.3); margin-top: 20px;
+      padding: 14px 20px; position: sticky; top: 70px; z-index: 90;
+    }
+    .timer-inner { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .timer-icon { font-size: 20px; }
+    .timer-display { font-size: 22px; font-weight: 800; color: #fbbf24; font-family: monospace; min-width: 60px; }
+    .timer-progress-wrap {
+      flex: 1; min-width: 100px; height: 6px; border-radius: 3px;
+      background: rgba(255,255,255,.1); overflow: hidden;
+    }
+    .timer-progress { height: 100%; background: linear-gradient(90deg,#16a34a,#fbbf24,#dc2626); border-radius: 3px; transition: width .5s linear; width: 100%; }
+    .timer-btn {
+      width: 32px; height: 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.07); color: #e2e8f0; cursor: pointer;
+      font-size: 14px; display: flex; align-items: center; justify-content: center;
+    }
+    .timer-btn:hover { background: rgba(255,255,255,.15); }
+    .timer-bar.timer-expired { border-color: rgba(220,38,38,.5); animation: timer-pulse 1s ease-in-out 3; }
+    @keyframes timer-pulse { 0%,100% { box-shadow: none; } 50% { box-shadow: 0 0 20px rgba(220,38,38,.4); } }
+
+    /* Per-problem answer toggle */
+    .ex-answer-toggle {
+      margin-top: 10px; padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05); color: #94a3b8; cursor: pointer;
+      font-size: 12px; font-weight: 600; transition: all .2s;
+    }
+    .ex-answer-toggle:hover { background: rgba(124,58,237,.15); color: #a78bfa; border-color: rgba(124,58,237,.3); }
+    .ex-answer-section {
+      margin-top: 12px; padding: 12px 14px; border-radius: 10px;
+      background: rgba(22,163,74,.08); border: 1px solid rgba(22,163,74,.2);
+      display: none;
+    }
+    .ex-answer-section.visible { display: block; }
+    .ex-answer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #16a34a; margin-bottom: 4px; }
+    .ex-answer-text { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+    .ex-answer-correct { font-weight: 700; color: #4ade80; }
 
     /* Print-only header (hidden on screen) */
     #printHeader { display: none; }
@@ -270,7 +365,7 @@ const chapters = [
       @page { margin: 18mm 16mm; }
       .sidebar, .header, .site-header, #filtreSection,
       .ex-results-header, .chapter-hero, .chapter-hero-back,
-      #scroll-progress, #page-overlay { display: none !important; }
+      #scroll-progress, #page-overlay, .timer-bar, .ex-answer-toggle { display: none !important; }
       .app-shell { padding: 0 !important; display: block !important; }
       .app-content { padding: 0 !important; margin: 0 !important; }
       .wrapper { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
@@ -321,6 +416,10 @@ const chapters = [
         print-color-adjust: exact; -webkit-print-color-adjust: exact;
       }
       body.print-answers .ex-correct-mark { display: flex !important; }
+      body.print-answers .ex-answer-section { display: block !important; background: #f0fdf4 !important; border-color: #86efac !important; }
+      body.print-answers .ex-answer-label { color: #16a34a !important; }
+      body.print-answers .ex-answer-text { color: #1f2937 !important; }
+      body.print-answers .ex-answer-correct { color: #16a34a !important; }
     }
   </style>
 
@@ -342,16 +441,26 @@ const chapters = [
       { id: 'programare-dinamica', label: 'Prog. Dinamică' },
       { id: 'structuri',     label: 'Structuri'     },
       { id: 'pointeri',      label: 'Pointeri'      },
+      { id: 'grafuri',       label: 'Grafuri'       },
     ];
 
     var DIFF_LABELS = ['','Facil','Mediu','Dificil'];
     var DIFF_CLS    = ['','ex-diff-facil','ex-diff-mediu','ex-diff-dificil'];
+    var SUBCAT_LABELS = ['Neorientate','Orientate','Arbori'];
 
     // State
     var selectedChapters = []; // empty = all
+    var selectedSubcats  = []; // empty = all subcats for grafuri
     var selectedDiff     = 'all';
     var selectedCount    = 10;
-    var loadedData       = {}; // { chapterId: [{q,opts,ans,diff}, ...] }
+    var selectedTimer    = 0; // minutes, 0 = no timer
+    var loadedData       = {}; // { chapterId: [{q,opts,ans,diff,category}, ...] }
+
+    // Timer state
+    var timerInterval = null;
+    var timerRemaining = 0;
+    var timerTotal = 0;
+    var timerPaused = false;
 
     /* ── Chip logic ── */
     function setupChips() {
@@ -371,9 +480,33 @@ const chapters = [
             } else {
               selectedChapters = selectedChapters.filter(function(x) { return x !== ch; });
             }
-            // If none selected, reactivate "All"
             if (selectedChapters.length === 0) {
               document.querySelector('#chapterChips .chip-all').classList.add('active');
+            }
+          }
+          updateSubcatVisibility();
+        });
+      });
+
+      // Subcategory chips (multi-select for mixing)
+      document.querySelectorAll('#subcatChips .chip').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var val = btn.dataset.subcat;
+          if (val === 'all') {
+            selectedSubcats = [];
+            document.querySelectorAll('#subcatChips .chip').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+          } else {
+            document.querySelector('#subcatChips [data-subcat="all"]').classList.remove('active');
+            btn.classList.toggle('active');
+            var catNum = parseInt(val, 10);
+            if (btn.classList.contains('active')) {
+              selectedSubcats.push(catNum);
+            } else {
+              selectedSubcats = selectedSubcats.filter(function(x) { return x !== catNum; });
+            }
+            if (selectedSubcats.length === 0) {
+              document.querySelector('#subcatChips [data-subcat="all"]').classList.add('active');
             }
           }
         });
@@ -396,6 +529,25 @@ const chapters = [
           selectedCount = btn.dataset.count === 'all' ? 'all' : parseInt(btn.dataset.count, 10);
         });
       });
+
+      // Timer chips
+      document.querySelectorAll('#timerChips .chip').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#timerChips .chip').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedTimer = parseInt(btn.dataset.timer, 10);
+        });
+      });
+    }
+
+    function updateSubcatVisibility() {
+      var show = selectedChapters.indexOf('grafuri') !== -1;
+      document.getElementById('subcategoryGroup').style.display = show ? '' : 'none';
+      if (!show) {
+        selectedSubcats = [];
+        document.querySelectorAll('#subcatChips .chip').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelector('#subcatChips [data-subcat="all"]').classList.add('active');
+      }
     }
 
     /* ── Determine base URL for data fetching ── */
@@ -403,18 +555,14 @@ const chapters = [
       var canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
         var url = new URL(canonical.href);
-        // Remove path segments after base
         var parts = url.pathname.split('/').filter(Boolean);
-        // e.g. /Complexitate-Algoritmi/exercitii → base is /Complexitate-Algoritmi/
         if (parts.length > 0) {
           return url.origin + '/' + parts[0] + '/';
         }
         return url.origin + '/';
       }
-      // Fallback: derive from current URL
       var loc = window.location;
       var path = loc.pathname;
-      // Remove last segment (exercitii)
       var pathBase = path.substring(0, path.lastIndexOf('/') + 1);
       return loc.origin + pathBase;
     }
@@ -424,12 +572,7 @@ const chapters = [
       var needed = chapterIds.filter(function(id) { return !loadedData[id]; });
       if (needed.length === 0) return Promise.resolve();
       var loc = window.location;
-      // Figure out the data path relative to current page
-      var baseUrl = loc.origin + loc.pathname.replace(/\/[^/]+$/, '/');
-      // We're at /Complexitate-Algoritmi/exercitii, so go up one: ../data/exercises/
-      // But to be safe, use absolute path construction
       var pathParts = loc.pathname.split('/').filter(Boolean);
-      // Remove last segment (exercitii or exercitii.html)
       pathParts.pop();
       var dataPrefix = loc.origin + '/' + pathParts.join('/') + '/data/exercises/';
 
@@ -441,7 +584,6 @@ const chapters = [
           })
           .then(function(json) {
             var arr = Array.isArray(json) ? json : (json.quiz || []);
-            // Annotate with chapter id
             arr = arr.map(function(q) { return Object.assign({}, q, { _chapter: id }); });
             loadedData[id] = arr;
           })
@@ -472,6 +614,10 @@ const chapters = [
         var diffCls   = DIFF_CLS[q.diff] || '';
         var diffLabel = DIFF_LABELS[q.diff] || '';
         var chLabel   = q._chapter || '';
+        var subcatLabel = '';
+        if (chLabel === 'grafuri' && typeof q.category !== 'undefined') {
+          subcatLabel = SUBCAT_LABELS[q.category] || '';
+        }
 
         var optsHtml = q.opts.map(function(opt, i) {
           var isCorrect = (typeof q.ans !== 'undefined') && i === q.ans;
@@ -482,18 +628,112 @@ const chapters = [
             '</div>';
         }).join('');
 
+        // Per-problem answer section
+        var answerHtml = '';
+        if (typeof q.ans !== 'undefined') {
+          var correctLetter = String.fromCharCode(65 + q.ans);
+          var explanation = q.exp || '';
+          answerHtml = '<button class="ex-answer-toggle" data-idx="' + idx + '">👁 Arată răspunsul</button>' +
+            '<div class="ex-answer-section" id="ans-' + idx + '">' +
+              '<div class="ex-answer-label">Răspuns corect</div>' +
+              '<div class="ex-answer-text"><span class="ex-answer-correct">' + correctLetter + '. ' + q.opts[q.ans] + '</span></div>' +
+              (explanation ? '<div class="ex-answer-text" style="margin-top:6px;color:#94a3b8;font-size:12px">💡 ' + explanation + '</div>' : '') +
+            '</div>';
+        }
+
         var card = document.createElement('div');
         card.className = 'ex-card';
         card.innerHTML =
           '<div class="ex-card-header">' +
             '<span class="ex-num">' + (idx + 1) + '.</span>' +
             '<span class="ex-chapter-badge cb-' + chLabel + '">' + chLabel + '</span>' +
+            (subcatLabel ? '<span class="ex-chapter-badge" style="background:rgba(124,58,237,.12);color:#a78bfa">' + subcatLabel + '</span>' : '') +
             (diffLabel ? '<span class="ex-diff ' + diffCls + '">' + diffLabel + '</span>' : '') +
           '</div>' +
           '<div class="ex-q">' + q.q + '</div>' +
-          '<div class="ex-opts">' + optsHtml + '</div>';
+          '<div class="ex-opts">' + optsHtml + '</div>' +
+          answerHtml;
 
         list.appendChild(card);
+      });
+
+      // Setup per-problem answer toggles
+      list.querySelectorAll('.ex-answer-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = btn.dataset.idx;
+          var section = document.getElementById('ans-' + idx);
+          if (section.classList.contains('visible')) {
+            section.classList.remove('visible');
+            btn.textContent = '👁 Arată răspunsul';
+          } else {
+            section.classList.add('visible');
+            btn.textContent = '🙈 Ascunde răspunsul';
+          }
+        });
+      });
+    }
+
+    /* ── Timer functions ── */
+    function startTimer(minutes) {
+      stopTimer();
+      timerTotal = minutes * 60;
+      timerRemaining = timerTotal;
+      timerPaused = false;
+      var bar = document.getElementById('timerBar');
+      bar.style.display = '';
+      bar.classList.remove('timer-expired');
+      document.getElementById('timerPause').textContent = '⏸';
+      updateTimerDisplay();
+
+      timerInterval = setInterval(function() {
+        if (!timerPaused) {
+          timerRemaining--;
+          updateTimerDisplay();
+          if (timerRemaining <= 0) {
+            stopTimer();
+            bar.classList.add('timer-expired');
+            document.getElementById('timerDisplay').textContent = '00:00 ⏰';
+          }
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      var mins = Math.floor(timerRemaining / 60);
+      var secs = timerRemaining % 60;
+      document.getElementById('timerDisplay').textContent =
+        (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+      var pct = timerTotal > 0 ? (timerRemaining / timerTotal) * 100 : 100;
+      document.getElementById('timerProgress').style.width = pct + '%';
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    /* ── Global show/hide answers ── */
+    function setupGlobalAnswers() {
+      document.getElementById('showAnswers').addEventListener('change', function() {
+        var checked = this.checked;
+        document.querySelectorAll('.ex-answer-section').forEach(function(s) {
+          if (checked) {
+            s.classList.add('visible');
+          } else {
+            s.classList.remove('visible');
+          }
+        });
+        document.querySelectorAll('.ex-answer-toggle').forEach(function(btn) {
+          btn.textContent = checked ? '🙈 Ascunde răspunsul' : '👁 Arată răspunsul';
+        });
+        // Also toggle correct mark highlights
+        if (checked) {
+          document.body.classList.add('print-answers');
+        } else {
+          document.body.classList.remove('print-answers');
+        }
       });
     }
 
@@ -509,36 +749,44 @@ const chapters = [
         : CHAPTERS.map(function(c) { return c.id; });
 
       loadAllChapters(chapterIds).then(function() {
-        // Collect all matching questions
         var pool = [];
         chapterIds.forEach(function(id) {
           var qs = (loadedData[id] || []).filter(function(q) {
-            if (selectedDiff === 'all') return true;
-            return q.diff === parseInt(selectedDiff, 10);
+            // Difficulty filter
+            if (selectedDiff !== 'all' && q.diff !== parseInt(selectedDiff, 10)) return false;
+            // Subcategory filter (only for grafuri)
+            if (id === 'grafuri' && selectedSubcats.length > 0) {
+              if (selectedSubcats.indexOf(q.category) === -1) return false;
+            }
+            return true;
           });
           pool = pool.concat(qs);
         });
 
-        // Shuffle and slice
         pool = shuffle(pool);
         var count = selectedCount === 'all' ? pool.length : Math.min(selectedCount, pool.length);
         pool = pool.slice(0, count);
 
-        // Render
         renderCards(pool);
 
         // Show results section
         var resultsEl = document.getElementById('exResults');
         resultsEl.style.display = '';
         document.getElementById('exCount').textContent = pool.length + ' întrebări';
-        // Update print header meta
+
         var chStr = selectedChapters.length === 0 ? 'Toate capitolele'
           : selectedChapters.join(', ');
         var diffStr = selectedDiff === 'all' ? 'Orice dificultate'
           : (DIFF_LABELS[parseInt(selectedDiff,10)] || '');
-        document.getElementById('exSubtitle').textContent = chStr + ' · ' + diffStr;
+        var subcatStr = '';
+        if (selectedChapters.indexOf('grafuri') !== -1 && selectedSubcats.length > 0) {
+          subcatStr = ' · ' + selectedSubcats.map(function(c) { return SUBCAT_LABELS[c]; }).join('+');
+        }
+        var timerStr = selectedTimer > 0 ? ' · ' + selectedTimer + ' min' : '';
+
+        document.getElementById('exSubtitle').textContent = chStr + ' · ' + diffStr + subcatStr + timerStr;
         document.getElementById('phMeta').textContent =
-          pool.length + ' întrebări · ' + chStr + ' · ' + diffStr;
+          pool.length + ' întrebări · ' + chStr + ' · ' + diffStr + subcatStr;
         document.getElementById('phDate').textContent =
           'Generat pe ' + new Date().toLocaleDateString('ro-RO', { day: '2-digit', month: 'long', year: 'numeric' });
 
@@ -546,9 +794,19 @@ const chapters = [
         document.getElementById('btnPDF').style.display = '';
         document.getElementById('answersToggleWrap').style.display = 'flex';
 
-        // Scroll to results
-        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Start timer if set
+        if (selectedTimer > 0) {
+          startTimer(selectedTimer);
+        } else {
+          document.getElementById('timerBar').style.display = 'none';
+          stopTimer();
+        }
 
+        // Reset global answers toggle
+        document.getElementById('showAnswers').checked = false;
+        document.body.classList.remove('print-answers');
+
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         spinner.style.display = 'none';
         btn.disabled = false;
       });
@@ -562,16 +820,26 @@ const chapters = [
         document.body.classList.remove('print-answers');
       }
       window.print();
-      // Clean up class after print dialog closes
       setTimeout(function() {
-        document.body.classList.remove('print-answers');
+        if (!withAnswers) document.body.classList.remove('print-answers');
       }, 1000);
     }
 
     document.addEventListener('DOMContentLoaded', function() {
       setupChips();
+      setupGlobalAnswers();
       document.getElementById('btnGenerate').addEventListener('click', onGenerate);
       document.getElementById('btnPDF').addEventListener('click', onPDF);
+
+      // Timer controls
+      document.getElementById('timerPause').addEventListener('click', function() {
+        timerPaused = !timerPaused;
+        this.textContent = timerPaused ? '▶' : '⏸';
+      });
+      document.getElementById('timerReset').addEventListener('click', function() {
+        stopTimer();
+        document.getElementById('timerBar').style.display = 'none';
+      });
     });
   })();
   </script>

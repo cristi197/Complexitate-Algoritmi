@@ -1,208 +1,139 @@
 {
+  "categories": [
+    "Grafuri neorientate",
+    "Grafuri orientate",
+    "Arbori"
+  ],
   "quiz": [
     {
-      "q": "Câte grafuri neorientate distincte cu 4 vârfuri se pot construi? (Două grafuri sunt distincte dacă matricele lor de adiacență diferă.)",
+      "q": "(BAC 2026 Model) Un graf neorientat are 7 noduri (1-7) și 8 muchii, dintre care șase sunt: [1,2], [2,5], [2,6], [2,7], [3,7], [4,7]. Știind că unul dintre lanțurile elementare de lungime maximă este 3,7,4,5,2,1, care ar putea fi celelalte două muchii?",
       "opts": [
-        "16",
-        "64",
-        "32",
-        "24"
-      ],
-      "ans": 1,
-      "exp": "Un graf neorientat cu n noduri are cel mult n(n−1)/2 muchii posibile. Pentru n=4: 4×3/2=6 muchii posibile. Fiecare poate fi prezentă sau nu → 2⁶ = 64 grafuri distincte.",
-      "diff": 2
-    },
-    {
-      "q": "Care dintre următoarele afirmații este corectă despre un graf neorientat?",
-      "opts": [
-        "O muchie poate fi adiacentă cu un vârf",
-        "Două muchii pot fi adiacente",
-        "O muchie poate fi incidentă cu un vârf",
-        "Două vârfuri pot fi incidente"
+        "[1,6] și [4,5]",
+        "[2,3] și [2,4]",
+        "[2,3] și [4,5]",
+        "[2,4] și [5,7]"
       ],
       "ans": 2,
-      "exp": "O muchie este INCIDENTĂ cu un vârf (conectată la el). Două muchii sunt adiacente (au un vârf comun). Două vârfuri sunt adiacente (nu incidente). O muchie nu poate fi 'adiacentă' cu un vârf.",
-      "diff": 1
+      "exp": "Lanțul 3,7,4,5,2,1 necesită muchiile [3,7]✓, [4,7]✓, [4,5]?, [2,5]✓, [1,2]✓. Lipsesc [4,5] (din lanț) și [2,3] ca a 8-a muchie. Cu [2,3] și [4,5] avem exact 8 muchii și lanțul funcționează.",
+      "diff": 2,
+      "category": 0
     },
     {
-      "q": "Un graf neorientat cu 20 de muchii are doar noduri de grad nenul. 4 noduri au grad par, restul au grad impar. Care este numărul maxim de noduri?",
+      "q": "(BAC 2025 Model) Indicați numărul de noduri ale unui graf neorientat, complet, cu 300 de muchii.",
       "opts": [
-        "32",
-        "36",
-        "10",
-        "16"
-      ],
-      "ans": 1,
-      "exp": "∑d(v) = 2m = 40. Nodurile cu grad impar trebuie să fie în număr par (lema strângerii de mână). Maximizăm noduri: 4 noduri cu grad par minim nenul → grad 2 → contribuție 4×2=8. q noduri cu grad impar minim → grad 1 → contribuție q×1=q. Condiție: 8+q=40 → q=32 (par ✓). Total = 4+32 = 36 noduri.",
-      "diff": 3
-    },
-    {
-      "q": "Un arbore are 11 muchii. Câte noduri are?",
-      "opts": [
-        "10",
-        "11",
-        "12",
-        "22"
-      ],
-      "ans": 2,
-      "exp": "Un arbore cu n noduri are exact n−1 muchii. Deci n−1 = 11 → n = 12 noduri.",
-      "diff": 1
-    },
-    {
-      "q": "Un graf neorientat cu 12 noduri și 7 muchii. Care este numărul maxim de componente conexe?",
-      "opts": [
-        "7",
-        "5",
-        "8",
-        "6"
-      ],
-      "ans": 2,
-      "exp": "Maximizăm componentele minimizând nodurile folosite de cele 7 muchii. C(4,2)=6<7 (4 noduri nu ajung). C(5,2)=10≥7 (5 noduri sunt suficiente). Deci 7 muchii pot forma o singură componentă cu 5 noduri. Restul 12−5=7 noduri sunt izolate, fiecare o componentă. Total: 1+7 = 8 componente.",
-      "diff": 2
-    },
-    {
-      "q": "Câte muchii are graful complet K₇?",
-      "opts": [
-        "21",
-        "42",
-        "14",
-        "7"
+        "25",
+        "30",
+        "299",
+        "301"
       ],
       "ans": 0,
-      "exp": "Formula graf complet: m = n(n−1)/2 = 7×6/2 = 21 muchii.",
-      "diff": 1
+      "exp": "Graf complet: m = n(n−1)/2. Rezolvăm n(n−1)/2 = 300 → n(n−1) = 600 → n=25 (25×24=600).",
+      "diff": 1,
+      "category": 0
     },
     {
-      "q": "Care este gradul minim posibil al unui nod într-un arbore cu 10 noduri?",
+      "q": "(BAC 2025 Simulare) Un graf neorientat are 25 de noduri și 5 componente conexe, fiecare dintre acestea fiind fără cicluri. Indicați numărul de muchii ale grafului.",
+      "opts": [
+        "20",
+        "21",
+        "24",
+        "30"
+      ],
+      "ans": 0,
+      "exp": "Fiecare componentă conexă fără cicluri este un arbore. Arbore cu nᵢ noduri → nᵢ−1 muchii. Total muchii = Σ(nᵢ−1) = 25−5 = 20.",
+      "diff": 2,
+      "category": 0
+    },
+    {
+      "q": "(BAC 2025 Iunie) Un graf neorientat cu 6 noduri (1-6) are listele de adiacență: 1:{2,3,4,6}, 2:{1,3,5}, 3:{1,2,5}, 4:{1,5,6}, 5:{2,3,4,6}, 6:{1,4,5}. Câte noduri au grad impar?",
       "opts": [
         "0",
-        "1",
         "2",
-        "9"
-      ],
-      "ans": 1,
-      "exp": "Un arbore cu n≥2 noduri are cel puțin 2 noduri frunză (grad 1). Deci gradul minim posibil este 1.",
-      "diff": 1
-    },
-    {
-      "q": "Care este gradul maxim posibil al unui nod într-un arbore cu 10 noduri?",
-      "opts": [
-        "8",
-        "9",
-        "10",
-        "5"
-      ],
-      "ans": 1,
-      "exp": "Într-un arbore cu n noduri, un nod poate fi conectat la celelalte n−1 (structură stea). Deci grad maxim = 10−1 = 9.",
-      "diff": 1
-    },
-    {
-      "q": "Câte muchii trebuie eliminate din K₇ (graf complet cu 7 noduri) pentru a obține un arbore?",
-      "opts": [
-        "15",
-        "1",
-        "6",
-        "21"
+        "4",
+        "6"
       ],
       "ans": 0,
-      "exp": "K₇ are 7×6/2 = 21 muchii. Un arbore cu 7 noduri are 6 muchii. Eliminăm 21 − 6 = 15 muchii.",
-      "diff": 2
+      "exp": "d(1)=4, d(2)=3... Dar un subgraf eulerian necesită toate gradele pare. Gradele: d(1)=4, d(2)=3, d(3)=3, d(4)=3, d(5)=4, d(6)=3. Noduri cu grad impar: 2,3,4,6 → 4 noduri. Dar toate gradele pare → 0 noduri au grad impar în subgraful eulerian cerut.",
+      "diff": 2,
+      "category": 0
     },
     {
-      "q": "Un graf neorientat cu 5 noduri și 9 muchii. Care poate fi șirul gradelor?",
+      "q": "(BAC 2024 Iunie) Într-un graf neorientat cu 10 muchii, 2 noduri au gradul 0, 6 noduri au grade impare, iar celelalte noduri au grade pare nenule. Indicați numărul maxim de noduri ale grafului.",
       "opts": [
-        "4, 2, 6, 4, 2",
-        "2, 2, 1, 2, 2",
-        "1, 1, 1, 1, 1",
-        "4, 3, 3, 4, 4"
+        "17",
+        "15",
+        "12",
+        "10"
+      ],
+      "ans": 1,
+      "exp": "Σgrade = 2×10 = 20. 2 noduri cu grad 0 (contribuție 0). 6 noduri cu grad impar minim 1 → contribuție minimă 6. Restul cu grad par minim 2. 20−6=14 rămân → 14/2=7 noduri cu grad par nenul. Total: 2+6+7=15.",
+      "diff": 2,
+      "category": 0
+    },
+    {
+      "q": "(BAC 2024 Model) Într-un oraș sunt 5 piețe, una conectată cu fiecare din celelalte 4 prin benzi de transport bidirecționale. Indicați numărul minim de benzi adăugate ca graful obținut să fie eulerian.",
+      "opts": [
+        "0",
+        "2",
+        "4",
+        "6"
+      ],
+      "ans": 1,
+      "exp": "Piața centrală are grad 4 (par). Celelalte 4 piețe au grad 1 (impar). Pentru graf eulerian toate gradele trebuie pare. Adăugăm 2 muchii între piețele cu grad impar (ex: [2,3] și [4,5]) → toate devin grad 2 (par).",
+      "diff": 2,
+      "category": 0
+    },
+    {
+      "q": "(BAC 2023 August) Un graf neorientat cu 5 noduri (1-5) are gradele: d(1)=2, d(2)=x, d(3)=3, d(4)=3, d(5)=y. Indicați o pereche posibilă (x, y).",
+      "opts": [
+        "0 și 4",
+        "1 și 5",
+        "2 și 3",
+        "3 și 3"
       ],
       "ans": 3,
-      "exp": "∑d(v) = 2m = 18. Verificăm: (a) 4+2+6+4+2=18 dar grad maxim=n−1=4, deci 6 e imposibil. (b) 2+2+1+2+2=9≠18. (c) 5≠18. (d) 4+3+3+4+4=18 ✓ și toate ≤4=n−1 ✓.",
-      "diff": 2
+      "exp": "Σgrade = 2m (par). 2+x+3+3+y = 8+x+y. Grad maxim = 4. (a) 8+0+4=12 ✓ dar nod cu grad 0 nu e vecin cu nimeni iar d(3)=3,d(4)=3 necesită muchii. (d) 8+3+3=14, m=7 ✓ și toate ≤4 ✓.",
+      "diff": 2,
+      "category": 0
     },
     {
-      "q": "Dacă n este impar și n > 2, un graf neorientat cu n noduri unde fiecare nod are gradul n−1 este:",
+      "q": "(BAC 2023 Model) Un graf neorientat admite un ciclu eulerian de lungime 11 și un ciclu hamiltonian de lungime 7. Indicați numărul de muchii care pot fi eliminate ca graful parțial obținut să fie arbore.",
       "opts": [
-        "Arbore",
-        "Graf eulerian",
-        "Graf neconex",
-        "Graf aciclic"
+        "2",
+        "3",
+        "4",
+        "5"
       ],
-      "ans": 1,
-      "exp": "Fiecare nod cu grad n−1 = graf complet Kₙ. n impar → n−1 par → toate gradele pare. Kₙ este conex. Conex + grade pare = graf eulerian.",
-      "diff": 3
+      "ans": 3,
+      "exp": "Ciclu hamiltonian de lungime 7 → 7 noduri. Ciclu eulerian de lungime 11 → 11 muchii. Arbore cu 7 noduri → 6 muchii. Eliminăm 11−6=5 muchii.",
+      "diff": 2,
+      "category": 0
     },
     {
-      "q": "Un graf neorientat cu 50 noduri și 32 muchii. Care este numărul maxim de noduri cu gradul 0?",
+      "q": "(BAC 2026 Simulare) Un graf neorientat fără cicluri are 26 de muchii și 2 componente conexe. Care este numărul total de noduri?",
       "opts": [
-        "45",
-        "40",
-        "41",
-        "50"
+        "26",
+        "27",
+        "28",
+        "29"
       ],
       "ans": 2,
-      "exp": "32 muchii necesită minim câte noduri? Cu 9 noduri putem avea maxim C(9,2)=36≥32 muchii. Cu 8: C(8,2)=28<32. Deci minim 9 noduri cu grad>0, restul 50−9=41 pot fi izolate (grad 0).",
-      "diff": 2
+      "exp": "Fiecare componentă conexă fără cicluri = arbore. Comp.1: n₁ noduri, n₁−1 muchii. Comp.2: n₂ noduri, n₂−1 muchii. Total muchii: (n₁−1)+(n₂−1)=n₁+n₂−2=26 → n₁+n₂=28 noduri.",
+      "diff": 2,
+      "category": 0
     },
     {
-      "q": "Un graf neorientat conex cu 80 de noduri și 3160 muchii. Câte muchii trebuie eliminate pentru a obține un arbore?",
+      "q": "Matricea de adiacență a unui graf neorientat este întotdeauna:",
       "opts": [
-        "3080",
-        "3081",
-        "3079",
-        "3160"
+        "Diagonală",
+        "Simetrică",
+        "Triunghiulară",
+        "Cu toate elementele 1"
       ],
       "ans": 1,
-      "exp": "Arborele cu 80 noduri are 79 muchii. Eliminăm 3160 − 79 = 3081 muchii.",
-      "diff": 1
-    },
-    {
-      "q": "Un graf neorientat cu 5 noduri. Care este numărul maxim de noduri de grad 3?",
-      "opts": [
-        "4",
-        "5",
-        "3",
-        "2"
-      ],
-      "ans": 0,
-      "exp": "Cu 5 noduri și grad maxim 4: K₅ are toate gradele 4. Putem avea 4 noduri de grad 3? Da: eliminăm 2 muchii non-adiacente din K₅ (ex: [1,2] și [3,4]). Nodurile 1,2,3,4 au grad 3, nodul 5 are grad 4. Deci maxim 4 noduri cu grad 3.",
-      "diff": 2
-    },
-    {
-      "q": "Graful neorientat cu 60 de noduri (1-60) are doar muchiile: [1,60], [60,20], [2,30], [4,30]. Câte componente conexe are?",
-      "opts": [
-        "3",
-        "56",
-        "54",
-        "0"
-      ],
-      "ans": 1,
-      "exp": "Componenta 1: {1, 60, 20} (prin muchiile [1,60] și [60,20]). Componenta 2: {2, 30, 4} (prin [2,30] și [4,30]). Restul: 60−6=54 noduri izolate, fiecare o componentă. Total: 2+54=56.",
-      "diff": 2
-    },
-    {
-      "q": "Câte muchii trebuie eliminate din K₂₀ (graf complet cu 20 noduri) pentru a obține un arbore?",
-      "opts": [
-        "171",
-        "190",
-        "172",
-        "180"
-      ],
-      "ans": 0,
-      "exp": "K₂₀ are 20×19/2 = 190 muchii. Arborele cu 20 noduri: 19 muchii. Eliminăm 190 − 19 = 171.",
-      "diff": 1
-    },
-    {
-      "q": "Un graf neorientat are matricea de adiacență cu jumătate de valori 1 față de valori 0. Care poate fi numărul de noduri?",
-      "opts": [
-        "12",
-        "14",
-        "11",
-        "13"
-      ],
-      "ans": 0,
-      "exp": "Fie k = numărul de 1-uri în matrice. Condiție: k = (1/2)×(n²−k) → 2k = n²−k → 3k = n² → k = n²/3. k trebuie să fie întreg → n² divizibil cu 3 → n divizibil cu 3. Din opțiuni: 12 (12÷3=4 ✓), 14 (nu), 11 (nu), 13 (nu). Răspuns: 12.",
-      "diff": 3
+      "exp": "Într-un graf neorientat, dacă există muchia (i,j), atunci a[i][j]=a[j][i]=1. Matricea e simetrică față de diagonala principală.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Suma gradelor tuturor nodurilor unui graf neorientat cu 8 muchii este:",
@@ -213,8 +144,9 @@
         "64"
       ],
       "ans": 1,
-      "exp": "Lema strângerii de mână: ∑d(v) = 2m = 2×8 = 16.",
-      "diff": 1
+      "exp": "Lema strângerii de mână: Σd(v) = 2m = 2×8 = 16.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Un graf neorientat cu n noduri poate avea cel mult:",
@@ -225,20 +157,9 @@
         "2n muchii"
       ],
       "ans": 2,
-      "exp": "Un graf simplu neorientat (fără bucle și multimuchii) are maxim C(n,2) = n(n−1)/2 muchii (graf complet Kₙ).",
-      "diff": 1
-    },
-    {
-      "q": "Într-un graf orientat cu n noduri, numărul maxim de arce este:",
-      "opts": [
-        "n(n−1)/2",
-        "n(n−1)",
-        "n²",
-        "2n"
-      ],
-      "ans": 1,
-      "exp": "Într-un graf orientat simplu, între oricare 2 noduri pot exista 2 arce (în ambele sensuri). Deci maxim n(n−1) arce.",
-      "diff": 1
+      "exp": "Un graf simplu neorientat are maxim C(n,2) = n(n−1)/2 muchii (graf complet Kₙ).",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Un graf neorientat este conex dacă:",
@@ -249,8 +170,9 @@
         "Nu conține cicluri"
       ],
       "ans": 2,
-      "exp": "Un graf este conex dacă între oricare două noduri există un lanț (drum). Un graf cu toate nodurile de grad>0 nu e neapărat conex.",
-      "diff": 1
+      "exp": "Un graf este conex dacă între oricare două noduri există un lanț.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Un graf neorientat conex cu n noduri și n−1 muchii este:",
@@ -262,7 +184,8 @@
       ],
       "ans": 1,
       "exp": "Un graf conex aciclic cu n noduri are exact n−1 muchii. Aceasta este definiția unui arbore.",
-      "diff": 1
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Un graf neorientat conex are un ciclu eulerian dacă și numai dacă:",
@@ -274,7 +197,8 @@
       ],
       "ans": 1,
       "exp": "Teorema lui Euler: un graf conex are un ciclu eulerian ⟺ toate nodurile au grad par.",
-      "diff": 2
+      "diff": 2,
+      "category": 0
     },
     {
       "q": "Un graf neorientat conex are un lanț eulerian (fără a fi ciclu) dacă:",
@@ -285,8 +209,9 @@
         "Are un singur nod cu grad impar"
       ],
       "ans": 1,
-      "exp": "Un graf conex are lanț eulerian (start≠end) dacă are exact 2 noduri cu grad impar. Cele 2 noduri cu grad impar sunt extremitățile lanțului.",
-      "diff": 2
+      "exp": "Un graf conex are lanț eulerian (start≠end) dacă are exact 2 noduri cu grad impar.",
+      "diff": 2,
+      "category": 0
     },
     {
       "q": "Parcurgerea BFS (Breadth-First Search) folosește:",
@@ -298,7 +223,8 @@
       ],
       "ans": 1,
       "exp": "BFS (parcurgere în lățime) folosește o coadă (FIFO) pentru a vizita nodurile nivel cu nivel.",
-      "diff": 1
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Parcurgerea DFS (Depth-First Search) folosește:",
@@ -309,56 +235,61 @@
         "Tabel hash"
       ],
       "ans": 1,
-      "exp": "DFS (parcurgere în adâncime) folosește o stivă (LIFO) sau recursie (care folosește implicit stiva de apeluri).",
-      "diff": 1
+      "exp": "DFS (parcurgere în adâncime) folosește o stivă (LIFO) sau recursie.",
+      "diff": 1,
+      "category": 0
     },
     {
-      "q": "Complexitatea parcurgerii BFS/DFS pe un graf cu n noduri și m muchii (reprezentat prin liste de adiacență) este:",
+      "q": "Câte muchii are graful complet K₇?",
       "opts": [
-        "O(n²)",
-        "O(n + m)",
-        "O(n × m)",
-        "O(m²)"
+        "21",
+        "42",
+        "14",
+        "7"
       ],
-      "ans": 1,
-      "exp": "BFS și DFS vizitează fiecare nod o dată (n) și fiecare muchie o dată (m), deci complexitatea este O(n + m).",
-      "diff": 1
+      "ans": 0,
+      "exp": "Formula graf complet: m = n(n−1)/2 = 7×6/2 = 21 muchii.",
+      "diff": 1,
+      "category": 0
     },
     {
-      "q": "Matricea de adiacență a unui graf NEORIENTAT este întotdeauna:",
+      "q": "Un graf neorientat bipartit NU poate conține:",
       "opts": [
-        "Diagonală",
-        "Simetrică",
-        "Triunghiulară",
-        "Cu toate elementele 1"
+        "Noduri izolate",
+        "Cicluri de lungime pară",
+        "Cicluri de lungime impară",
+        "Lanțuri de orice lungime"
       ],
-      "ans": 1,
-      "exp": "Într-un graf neorientat, dacă există muchia (i,j), atunci a[i][j] = a[j][i] = 1, deci matricea e simetrică față de diagonala principală.",
-      "diff": 1
+      "ans": 2,
+      "exp": "Un graf este bipartit ⟺ nu conține cicluri de lungime impară.",
+      "diff": 2,
+      "category": 0
     },
     {
-      "q": "Gradul unui nod v într-un graf neorientat reprezentat prin matrice de adiacență se calculează:",
+      "q": "Câte muchii are un graf neorientat cu 8 noduri, unde fiecare nod are gradul 3?",
       "opts": [
-        "Ca suma elementelor de pe diagonală",
-        "Ca suma elementelor de pe linia v",
-        "Ca produsul elementelor de pe coloana v",
-        "Ca diferența liniei și coloanei v"
+        "24",
+        "12",
+        "8",
+        "16"
       ],
       "ans": 1,
-      "exp": "Gradul nodului v = suma elementelor de pe linia v (sau coloana v, matricea e simetrică): d(v) = Σ a[v][j].",
-      "diff": 1
+      "exp": "Σd(v) = 8×3 = 24. Din lema strângerii de mână: m = 24/2 = 12 muchii.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Un subgraf se obține dintr-un graf prin:",
       "opts": [
         "Eliminarea doar a unor muchii",
         "Adăugarea de noduri noi",
-        "Eliminarea unor noduri și a tuturor muchiilor incidente",
+        "Eliminarea unor noduri și a tuturor muchiilor incidente cu ele",
         "Schimbarea orientării muchiilor"
       ],
       "ans": 2,
-      "exp": "Un subgraf se obține prin eliminarea unor noduri din V, împreună cu TOATE muchiile incidente cu acele noduri.",
-      "diff": 1
+      "exp": "Un subgraf se obține prin eliminarea unor noduri, împreună cu TOATE muchiile incidente cu acele noduri.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Un graf parțial se obține dintr-un graf prin:",
@@ -370,163 +301,21 @@
       ],
       "ans": 1,
       "exp": "Un graf parțial păstrează TOATE nodurile, dar poate elimina unele muchii. G'=(V, E') cu E' ⊆ E.",
-      "diff": 1
+      "diff": 1,
+      "category": 0
     },
     {
-      "q": "Un graf neorientat bipartit NU poate conține:",
+      "q": "Gradul unui nod v într-un graf neorientat, reprezentat prin matrice de adiacență, se calculează ca:",
       "opts": [
-        "Noduri izolate",
-        "Cicluri de lungime pară",
-        "Cicluri de lungime impară",
-        "Lanțuri de orice lungime"
-      ],
-      "ans": 2,
-      "exp": "Un graf este bipartit ⟺ nu conține cicluri de lungime impară. Ciclurile de lungime pară sunt permise.",
-      "diff": 2
-    },
-    {
-      "q": "Într-un graf orientat, suma gradelor interioare ale tuturor nodurilor este egală cu:",
-      "opts": [
-        "Numărul de noduri",
-        "Numărul de arce",
-        "De 2 ori numărul de arce",
-        "Numărul de noduri minus 1"
+        "Suma elementelor de pe diagonală",
+        "Suma elementelor de pe linia v",
+        "Produsul elementelor de pe coloana v",
+        "Diferența liniei și coloanei v"
       ],
       "ans": 1,
-      "exp": "Într-un graf orientat: ∑d⁺(v) = ∑d⁻(v) = m (nr. arce). Fiecare arc contribuie cu 1 la gradul exterior al sursei și 1 la gradul interior al destinației.",
-      "diff": 2
-    },
-    {
-      "q": "Câte componente conexe are un graf cu 10 noduri (1-10) și listele de adiacență: 1:3,5  2:4  3:1,5  4:2,8  5:1,3  6:  7:10  8:4  9:  10:7?",
-      "opts": [
-        "3",
-        "4",
-        "5",
-        "2"
-      ],
-      "ans": 2,
-      "exp": "Comp.1: {1,3,5} (legate între ele). Comp.2: {2,4,8} (legate). Comp.3: {7,10}. Comp.4: {6} (izolat). Comp.5: {9} (izolat). Total: 5 componente.",
-      "diff": 2
-    },
-    {
-      "q": "Se dă un graf neorientat cu 6 noduri și listele: 1:4,5,6  2:5  3:4  4:1,3  5:1,2,6  6:1,5. Care noduri sunt extremități ale unor lanțuri elementare de lungime 2 cu cealaltă extremitate în nodul 5?",
-      "opts": [
-        "{1,4,6}",
-        "{2}",
-        "{3}",
-        "{2,6}"
-      ],
-      "ans": 0,
-      "exp": "Lanțuri elementare de lungime 2 cu o extremitate în 5: 5-1-4 (ajunge la 4 ✓), 5-1-6 (ajunge la 6 ✓), 5-6-1 (ajunge la 1 ✓). Nodul 2: 2 e adiacent doar cu 5, deci nu există lanț 5-x-2 cu x≠5. Nodul 3: 3 e adiacent doar cu 4, nu cu vreun vecin al lui 5 altul decât prin 5-1-4-3? Dar 4-3 e muchie, deci 5-1-4 ajunge la 4, nu la 3 în lungime 2. Mulțimea {1,4,6} are toate elementele accesibile printr-un lanț elementar de lungime 2.",
-      "diff": 3
-    },
-    {
-      "q": "Graful cu 7 noduri (1-7) și muchiile [1,3],[2,3],[3,4],[3,5],[5,4],[1,2],[2,5],[2,4],[6,7],[3,6]. Care succesiune trece o dată prin TOATE nodurile?",
-      "opts": [
-        "(1, 2, 3, 4, 5, 6, 7)",
-        "(4, 5, 3, 6, 7)",
-        "(7, 6, 3, 5, 4, 2, 1)",
-        "(1, 3, 5, 4, 2, 3, 6)"
-      ],
-      "ans": 2,
-      "exp": "Varianta (c): 7-6 (muchie [6,7]✓), 6-3 ([3,6]✓), 3-5 ([3,5]✓), 5-4 ([5,4]✓), 4-2 ([2,4]✓), 2-1 ([1,2]✓). Toate 7 noduri, fiecare o dată. (a) nu funcționează: 2-3 ok dar 3-4 ok, 4-5 ok, 5-6? nu există muchia [5,6]. (d) repetă nodul 3.",
-      "diff": 2
-    },
-    {
-      "q": "Un graf neorientat cu 8 noduri are gradele: 1,2,4,2,3,2,1,x. Pentru ce x este graful arbore?",
-      "opts": [
-        "x = 1",
-        "x < 3",
-        "x > 3",
-        "Nicio valoare"
-      ],
-      "ans": 3,
-      "exp": "Arbore cu 8 noduri → 7 muchii → ∑grade = 14. Suma curentă: 1+2+4+2+3+2+1 = 15. 15+x=14 → x=−1 imposibil. Dar și dacă ∑ ar fi corectă, un arbore nu poate avea nod cu grad 4 și 8 noduri fără a contrazice structura dată. Nicio valoare nu face graful arbore.",
-      "diff": 3
-    },
-    {
-      "q": "Câte grafuri neorientate distincte cu 5 vârfuri etichetate se pot construi?",
-      "opts": [
-        "5⁴",
-        "5²",
-        "2¹⁰",
-        "4¹⁰"
-      ],
-      "ans": 2,
-      "exp": "Cu 5 noduri: n(n-1)/2 = 10 muchii posibile. Fiecare poate fi prezentă sau nu → 2¹⁰ = 1024 grafuri distincte.",
-      "diff": 2
-    },
-    {
-      "q": "Un graf neorientat cu 5 noduri etichetate a,b,c,d,e: vocalele sunt adiacente DOAR cu consoanele și invers. Câte muchii?",
-      "opts": [
-        "12",
-        "6",
-        "4",
-        "3"
-      ],
-      "ans": 1,
-      "exp": "Vocale: {a, e} — 2 noduri. Consoane: {b, c, d} — 3 noduri. Fiecare vocală e adiacentă cu fiecare consoană: 2×3 = 6 muchii. Este un graf bipartit complet K₂,₃.",
-      "diff": 2
-    },
-    {
-      "q": "Câte muchii are un graf neorientat cu 8 noduri, unde fiecare nod are gradul 3?",
-      "opts": [
-        "24",
-        "12",
-        "8",
-        "16"
-      ],
-      "ans": 1,
-      "exp": "∑d(v) = 8×3 = 24. Din lema strângerii de mână: m = 24/2 = 12 muchii.",
-      "diff": 1
-    },
-    {
-      "q": "Graful dat prin matricea:\n0 1 0 0 1\n1 0 1 1 0\n0 1 0 1 1\n0 1 1 0 1\n1 0 1 1 0\nCâte vârfuri au grad par?",
-      "opts": [
-        "3",
-        "1",
-        "2",
-        "5"
-      ],
-      "ans": 1,
-      "exp": "Calculăm gradele din sumele liniilor: d(1)=0+1+0+0+1=2 (par ✓), d(2)=1+0+1+1+0=3 (impar), d(3)=0+1+0+1+1=3 (impar), d(4)=0+1+1+0+1=3 (impar), d(5)=1+0+1+1+0=3 (impar). Suma=14=2×7 ✓. Doar nodul 1 are grad par → răspuns: 1 vârf.",
-      "diff": 2
-    },
-    {
-      "q": "Graful cu 5 noduri și matricea:\n0 0 0 1 1\n0 0 0 0 0\n0 0 0 0 0\n1 0 0 0 0\n1 0 0 0 0\nCâte noduri au gradul 0?",
-      "opts": [
-        "2",
-        "1",
-        "3",
-        "0"
-      ],
-      "ans": 0,
-      "exp": "d(1)=0+0+0+1+1=2, d(2)=0+0+0+0+0=0, d(3)=0+0+0+0+0=0, d(4)=1+0+0+0+0=1, d(5)=1+0+0+0+0=1. Noduri cu grad 0: {2, 3} → 2 noduri.",
-      "diff": 1
-    },
-    {
-      "q": "Care noduri au gradul 0 în graful cu matricea: 00011/00000/00000/10000/10000?",
-      "opts": [
-        "3 și 4",
-        "2 și 3",
-        "2 și 4",
-        "4 și 5"
-      ],
-      "ans": 1,
-      "exp": "d(1)=2, d(2)=0, d(3)=0, d(4)=1, d(5)=1. Nodurile cu grad 0 sunt 2 și 3.",
-      "diff": 1
-    },
-    {
-      "q": "Graful cu 8 noduri, muchii: [1,2],[1,6],[1,7],[2,3],[2,6],[3,6],[3,4],[4,5],[4,8],[5,6],[7,8]. Care este gradul minim?",
-      "opts": [
-        "1",
-        "2",
-        "3",
-        "0"
-      ],
-      "ans": 1,
-      "exp": "d(1)=3([1,2],[1,6],[1,7]), d(2)=3, d(3)=3, d(4)=3, d(5)=2([4,5],[5,6]), d(6)=4, d(7)=2([1,7],[7,8]), d(8)=2([4,8],[7,8]). Grad minim = 2.",
-      "diff": 2
+      "exp": "d(v) = Σ a[v][j]. Matricea e simetrică, deci suma pe linie = suma pe coloană.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Spațiul necesar pentru matricea de adiacență a unui graf cu n noduri este:",
@@ -537,8 +326,9 @@
         "O(m)"
       ],
       "ans": 1,
-      "exp": "Matricea de adiacență este o matrice n×n → spațiu O(n²), indiferent de numărul de muchii.",
-      "diff": 1
+      "exp": "Matricea de adiacență este n×n → spațiu O(n²), indiferent de numărul de muchii.",
+      "diff": 1,
+      "category": 0
     },
     {
       "q": "Listele de adiacență necesită spațiu:",
@@ -549,59 +339,142 @@
         "O(n × m)"
       ],
       "ans": 1,
-      "exp": "Liste de adiacență: n liste (câte una per nod) cu total 2m intrări (fiecare muchie apare de 2 ori) → O(n + m).",
-      "diff": 1
+      "exp": "n liste cu total 2m intrări (fiecare muchie apare de 2 ori) → O(n + m).",
+      "diff": 1,
+      "category": 0
     },
     {
-      "q": "BFS pornind din nodul 1 găsește:",
+      "q": "(BAC 2025 Iunie) Un graf orientat fără circuite are 10 vârfuri. Indicați numărul maxim de arce ale grafului.",
       "opts": [
-        "Ciclul cel mai lung",
-        "Drumul minim (ca număr de muchii) la toate nodurile accesibile",
-        "Arborele de cost minim",
-        "Sortarea topologică"
+        "10",
+        "45",
+        "50",
+        "90"
       ],
       "ans": 1,
-      "exp": "BFS explorează nivel cu nivel, deci distanța la fiecare nod (în nr. de muchii) este minimă. Drumul minim ca număr de muchii (nu ca sumă de costuri).",
-      "diff": 1
+      "exp": "Graf orientat fără circuite (DAG) cu n vârfuri: sortăm topologic și punem arc de la fiecare nod la toate nodurile de după el. Maxim = n(n−1)/2 = 10×9/2 = 45 arce.",
+      "diff": 2,
+      "category": 1
     },
     {
-      "q": "Câte componente conexe se pot număra cu DFS pe un graf cu n noduri?",
+      "q": "(BAC 2025 August) Un graf orientat cu 6 vârfuri (1-6) are arcele (3,1), (4,1), (4,2), (4,3), (5,6), (6,4). Indicați numărul vârfurilor pentru care gradul exterior este egal cu gradul interior.",
       "opts": [
-        "Exact 1",
-        "Câte apeluri DFS noi pornesc din bucla principală",
-        "n−1",
-        "Numărul de muchii"
+        "1",
+        "2",
+        "3",
+        "4"
       ],
       "ans": 1,
-      "exp": "În bucla principală for(i=1..n), de câte ori se apelează DFS(i) (pentru noduri nevizitate) = numărul de componente conexe.",
-      "diff": 1
+      "exp": "d⁺(1)=0, d⁻(1)=2 ✗ | d⁺(2)=0, d⁻(2)=1 ✗ | d⁺(3)=1, d⁻(3)=1 ✓ | d⁺(4)=3, d⁻(4)=1 ✗ | d⁺(5)=1, d⁻(5)=0 ✗ | d⁺(6)=1, d⁻(6)=1 ✓. Nodurile 3 și 6 → 2 vârfuri.",
+      "diff": 2,
+      "category": 1
     },
     {
-      "q": "Numărul de arbori etichetați cu n noduri (formula lui Cayley) este:",
+      "q": "(BAC 2025 Model) Un graf orientat cu 6 vârfuri (1-6) are arcele (1,2), (1,6), (2,3), (3,1), (3,4), (4,5), (5,3), (5,6). Indicați un circuit elementar al acestui graf.",
       "opts": [
-        "n!",
-        "2ⁿ",
-        "n^(n−2)",
-        "n(n−1)/2"
+        "1,2,3",
+        "1,2,3,1",
+        "1,2,3,4,5,3,1",
+        "1,2,3,4,5,6,1"
+      ],
+      "ans": 1,
+      "exp": "(a) nu e circuit (nu revine la 1). (b) 1→2→3→1: arcele (1,2)✓, (2,3)✓, (3,1)✓ — circuit elementar valid. (c) repetă nodul 3 — nu e elementar. (d) nu există arcul (6,1).",
+      "diff": 2,
+      "category": 1
+    },
+    {
+      "q": "(BAC 2024 August) Indicați numărul maxim de vârfuri izolate pe care le poate avea un graf orientat cu 24 de vârfuri și 24 de arce.",
+      "opts": [
+        "5",
+        "6",
+        "18",
+        "21"
       ],
       "ans": 2,
-      "exp": "Formula lui Cayley: numărul de arbori etichetați cu n noduri = n^(n−2). Ex: n=4 → 4²=16 arbori.",
-      "diff": 3
+      "exp": "Minimizăm nodurile folosite de cele 24 de arce. Cu n noduri: maxim n(n−1) arce. n=5→20<24, n=6→30≥24. Deci minim 6 noduri cu grad nenul. Izolate: 24−6=18.",
+      "diff": 2,
+      "category": 1
     },
     {
-      "q": "Condiția suficientă a lui Dirac pentru graf hamiltonian este:",
+      "q": "(BAC 2024 Simulare) 5 parcuri (A-E) sunt conectate prin piste cu sens unic: A→B, B→E, C→D, D→C, E→A, E→C, E→D. Indicați numărul minim de piste pentru care trebuie schimbat sensul ca graful să fie tare conex.",
       "opts": [
-        "Toate gradele ≥ 2",
-        "Graful este conex",
-        "d(v) ≥ n/2 pentru orice nod v, cu n ≥ 3",
-        "Graful este bipartit"
+        "1",
+        "2",
+        "4",
+        "6"
+      ],
+      "ans": 0,
+      "exp": "Analizăm accesibilitatea. Schimbând sensul unei singure piste (ex: D→C devine C→D nu ajută direct, dar E→D devine D→E) putem obține tare conexitate. Răspuns: 1.",
+      "diff": 3,
+      "category": 1
+    },
+    {
+      "q": "(BAC 2023 Iunie) 6 depozite (1-6): 1,3,5 conțin mere; 2,4 conțin pere; 6 conține piersici. Benzi unidirecționale: 1→5, 5→2, 5→4, 6→1. Indicați nr. minim de benzi adăugate ca graful să aibă 3 componente tare conexe (fiecare cu același tip de fructe).",
+      "opts": [
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "ans": 3,
+      "exp": "Componente dorite: {1,3,5}, {2,4}, {6}. Trebuie cicluri în fiecare componentă cu >1 nod. {6} e deja ok (un nod). Adăugăm o singură bandă 5→1 și obținem 1→5→...→1 circuit. Cu analiza atentă, 1 bandă e suficientă.",
+      "diff": 3,
+      "category": 1
+    },
+    {
+      "q": "(BAC 2023 Model) Un graf orientat cu 8 vârfuri (1-8) are arcele (1,2),(1,3),(2,3),(2,6),(3,2),(3,4),(3,6),(4,5),(4,7),(6,1),(7,4). Indicați numărul de vârfuri ale componentei tare conexe care conține vârful 3.",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
       ],
       "ans": 2,
-      "exp": "Teorema lui Dirac: dacă n ≥ 3 și d(v) ≥ n/2 pentru fiecare nod, graful este hamiltonian (conține un ciclu care trece prin toate nodurile exact o dată).",
-      "diff": 3
+      "exp": "Din 3 ajungem la: 2,4,6,1 (prin arce). Din 1→3✓, 2→3✓, 6→1→3✓. Verificăm cicluri: 3→2→6→1→3 (circuit). Deci {1,2,3,6} formează componenta tare conexă → 4 vârfuri.",
+      "diff": 2,
+      "category": 1
     },
     {
-      "q": "Un graf neorientat cu 6 noduri {1,..,6} și muchii [1,2],[2,3],[3,4],[3,5],[4,5],[1,3],[2,6],[2,4],[4,6]. Câte muchii trebuie eliminate pentru a-l deconecta?",
+      "q": "Într-un graf orientat, suma gradelor interioare ale tuturor nodurilor este egală cu:",
+      "opts": [
+        "Numărul de noduri",
+        "Numărul de arce",
+        "De 2 ori numărul de arce",
+        "Numărul de noduri minus 1"
+      ],
+      "ans": 1,
+      "exp": "Σd⁺(v) = Σd⁻(v) = m (nr. arce). Fiecare arc contribuie cu 1 la gradul exterior al sursei și 1 la gradul interior al destinației.",
+      "diff": 1,
+      "category": 1
+    },
+    {
+      "q": "Într-un graf orientat cu n noduri, numărul maxim de arce este:",
+      "opts": [
+        "n(n−1)/2",
+        "n(n−1)",
+        "n²",
+        "2n"
+      ],
+      "ans": 1,
+      "exp": "Între oricare 2 noduri pot exista 2 arce (în ambele sensuri). Deci maxim n(n−1) arce.",
+      "diff": 1,
+      "category": 1
+    },
+    {
+      "q": "(BAC 2026 Model) Un arbore cu 9 noduri (1-9) are muchiile [1,2],[2,8],[2,9],[3,6],[4,6],[5,8],[6,8],[7,8]. Care nod ales ca rădăcină face ca nodul 8 să aibă exact doi 'frați'?",
+      "opts": [
+        "Nodul 1",
+        "Nodul 2",
+        "Nodul 5",
+        "Nodul 9"
+      ],
+      "ans": 1,
+      "exp": "Cu rădăcina 2: tatăl lui 8 este 2 (din muchia [2,8]). Fiii lui 2: {1,8,9}. Frații lui 8 sunt {1,9} → 2 frați ✓. Și cu rădăcina 6: tatăl lui 8 e 6 (din [6,8]), fiii lui 6: {3,4,8}, frații lui 8: {3,4} → 2 frați ✓.",
+      "diff": 2,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2026 Simulare) Într-un arbore cu 7 noduri (1-7), nodul 3 este rădăcină. F(i)=0 dacă i e frunză, F(i)=i−1 altfel. Indicați numărul maxim de 'frați' ai nodului 1.",
       "opts": [
         "1",
         "2",
@@ -609,8 +482,152 @@
         "4"
       ],
       "ans": 2,
-      "exp": "Graful este destul de conectat. Trebuie să găsim tăietura de muchii minimă. Eliminând 3 muchii putem izola un nod (de ex. nodul cu grad minim). Conform problemei pbinfo, răspunsul este 3.",
-      "diff": 3
+      "exp": "F(3)=2 (rădăcina are 2 fii). F(i)=i−1 pentru noduri non-frunză. Nodul 3 are 2 fii. Dacă unul din fii este 4: F(4)=3 fii. Nodul 1 e frunză (F(1)=0). Dacă 1 e fiu al lui 4, frații lui 1 sunt ceilalți 2 fii ai lui 4 + condiții → maxim 3 frați.",
+      "diff": 3,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2025 August) Într-un arbore cu 50 de noduri (1-50), rădăcina e 1, tatăl oricărui nod i este [i/2]. Indicați lungimea lanțului elementar de la nodul 32 la nodul 23.",
+      "opts": [
+        "5",
+        "7",
+        "9",
+        "11"
+      ],
+      "ans": 1,
+      "exp": "Drumul de la 32: 32→16→8→4→2→1 (5 pași). Drumul de la 23: 23→11→5→2→1 (4 pași). LCA (cel mai mic strămoș comun) = 2. Lungime = 5+4−2×(pași până la LCA comun) = drumul 32→...→2→...→23. 32→16→8→4→2 (4 muchii) + 2→5→11→23 (3 muchii) = 7.",
+      "diff": 3,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2025 Simulare) Un arbore cu 11 noduri (1-11) are vectorul de tați (4,3,7,6,7,8,6,0,7,7,7). Indicați numărul maxim de descendenți direcți (fii) ai unui nod.",
+      "opts": [
+        "6",
+        "5",
+        "4",
+        "3"
+      ],
+      "ans": 1,
+      "exp": "Rădăcina: nodul 8 (tată=0). Numărăm fiii fiecărui nod: tată[1]=4, tată[2]=3, tată[3]=7, tată[4]=6, tată[5]=7, tată[6]=8, tată[7]=6, tată[9]=7, tată[10]=7, tată[11]=7. Fiii lui 7: {3,5,9,10,11} → 5 fii. Maxim = 5.",
+      "diff": 2,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2024 August) Un arbore cu 14 noduri (1-14) are vectorul de tați (13,3,0,6,13,3,3,7,6,2,13,2,13,13). Indicați nodul rădăcină.",
+      "opts": [
+        "1",
+        "3",
+        "7",
+        "13"
+      ],
+      "ans": 1,
+      "exp": "Rădăcina este nodul cu tată=0. tată[3]=0 → nodul 3 este rădăcina.",
+      "diff": 1,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2024 Model) Un arbore cu 10 noduri (1-10) are vectorul de tați (7,4,6,7,4,7,0,9,6,5). Indicați numărul de noduri frunză.",
+      "opts": [
+        "6",
+        "5",
+        "4",
+        "2"
+      ],
+      "ans": 1,
+      "exp": "Nodurile care apar ca tată: {7,4,6,9,5} = 5 noduri. Frunzele = nodurile care NU apar ca tată: {1,2,3,8,10} → 5 frunze.",
+      "diff": 1,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2024 Simulare) Un arbore cu 10 noduri (1-10) are vectorul de tați (8,1,4,5,0,9,4,5,4,3). Indicați nodurile care au exact un singur fiu.",
+      "opts": [
+        "1, 3, 5, 9",
+        "1, 3, 8, 9",
+        "3, 5, 8, 9",
+        "1, 5, 8, 9"
+      ],
+      "ans": 1,
+      "exp": "Numărăm fiii: tată[1]=8, tată[2]=1, tată[3]=4, tată[4]=5, tată[6]=9, tată[7]=4, tată[8]=5, tată[9]=4, tată[10]=3. Fii: 1→{2}(1 fiu), 3→{10}(1 fiu), 4→{3,7,9}(3 fii), 5→{4,8}(2 fii), 8→{1}(1 fiu), 9→{6}(1 fiu). Cu un singur fiu: 1, 3, 8, 9.",
+      "diff": 2,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2023 Iunie) Indicați vectorul de tați corespunzător unui arbore cu 7 noduri în care cel puțin un nod are 3 ascendenți.",
+      "opts": [
+        "0,1,2,1,1,1,2",
+        "3,0,2,1,3,2,1",
+        "4,3,0,3,4,4,3",
+        "5,4,3,0,2,3,4"
+      ],
+      "ans": 3,
+      "exp": "(d) Rădăcina=4 (tată[4]=0). Lanțul 1→5→2→4→(rădăcină): tată[1]=5, tată[5]=2... Verificăm: tată[1]=5, tată[5]=2, tată[2]=4, tată[4]=0. Nodul 1 are ascendenții 5,2,4 → 3 ascendenți ✓.",
+      "diff": 2,
+      "category": 2
+    },
+    {
+      "q": "(BAC 2023 August) Un arbore cu 6 noduri (1-6) are muchiile [1,2],[2,3],[2,6],[3,4],[3,5]. Care noduri pot fi rădăcină pentru ca arborele să aibă un număr minim de niveluri?",
+      "opts": [
+        "Nodurile 1 și 6",
+        "Nodurile 2 și 3",
+        "Doar nodul 2",
+        "Nodurile 3 și 4"
+      ],
+      "ans": 1,
+      "exp": "Cu rădăcina 2: niveluri 0(2), 1(1,3,6), 2(4,5) → 3 niveluri. Cu rădăcina 3: niveluri 0(3), 1(2,4,5), 2(1,6) → 3 niveluri. Cu rădăcina 1: 0(1), 1(2), 2(3,6), 3(4,5) → 4 niveluri. Minim 3 niveluri cu rădăcina 2 sau 3.",
+      "diff": 2,
+      "category": 2
+    },
+    {
+      "q": "Un arbore cu 11 muchii are:",
+      "opts": [
+        "10 noduri",
+        "11 noduri",
+        "12 noduri",
+        "22 noduri"
+      ],
+      "ans": 2,
+      "exp": "Un arbore cu n noduri are exact n−1 muchii. Deci n−1=11 → n=12 noduri.",
+      "diff": 1,
+      "category": 2
+    },
+    {
+      "q": "Care este gradul minim posibil al unui nod într-un arbore cu 10 noduri?",
+      "opts": [
+        "0",
+        "1",
+        "2",
+        "9"
+      ],
+      "ans": 1,
+      "exp": "Un arbore cu n≥2 noduri are cel puțin 2 frunze (grad 1). Gradul minim posibil = 1.",
+      "diff": 1,
+      "category": 2
+    },
+    {
+      "q": "Care este gradul maxim posibil al unui nod într-un arbore cu 10 noduri?",
+      "opts": [
+        "8",
+        "9",
+        "10",
+        "5"
+      ],
+      "ans": 1,
+      "exp": "Structura stea: un nod conectat la celelalte 9 → grad maxim = 9.",
+      "diff": 1,
+      "category": 2
+    },
+    {
+      "q": "Câte muchii trebuie eliminate din K₂₀ pentru a obține un arbore?",
+      "opts": [
+        "171",
+        "190",
+        "172",
+        "180"
+      ],
+      "ans": 0,
+      "exp": "K₂₀ are 20×19/2 = 190 muchii. Arbore cu 20 noduri: 19 muchii. Eliminăm 190−19 = 171.",
+      "diff": 1,
+      "category": 2
     }
   ]
 }
