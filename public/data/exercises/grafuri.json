@@ -52,8 +52,8 @@
         "4",
         "6"
       ],
-      "ans": 0,
-      "exp": "d(1)=4, d(2)=3... Dar un subgraf eulerian necesită toate gradele pare. Gradele: d(1)=4, d(2)=3, d(3)=3, d(4)=3, d(5)=4, d(6)=3. Noduri cu grad impar: 2,3,4,6 → 4 noduri. Dar toate gradele pare → 0 noduri au grad impar în subgraful eulerian cerut.",
+      "ans": 2,
+      "exp": "Calculăm gradele: d(1)=|{2,3,4,6}|=4, d(2)=|{1,3,5}|=3, d(3)=|{1,2,5}|=3, d(4)=|{1,5,6}|=3, d(5)=|{2,3,4,6}|=4, d(6)=|{1,4,5}|=3. Verificare: Σd=4+3+3+3+4+3=20=2×10 muchii ✓. Noduri cu grad impar (3): nodurile 2, 3, 4, 6 → 4 noduri.",
       "diff": 2,
       "category": 0
     },
@@ -404,7 +404,7 @@
         "6"
       ],
       "ans": 0,
-      "exp": "Analizăm accesibilitatea. Schimbând sensul unei singure piste (ex: D→C devine C→D nu ajută direct, dar E→D devine D→E) putem obține tare conexitate. Răspuns: 1.",
+      "exp": "SCC actuale: {A,B,E} (ciclu A→B→E→A) și {C,D} (ciclu C→D→C). Din {A,B,E} ajungem la {C,D} prin E→C și E→D, dar din {C,D} nu putem ajunge la {A,B,E}. Inversăm E→C → C→E: acum C→E→A→B ✓ și E→D→C→E ✓, graful devine tare conex. O singură schimbare e suficientă.",
       "diff": 3,
       "category": 1
     },
@@ -416,8 +416,8 @@
         "2",
         "1"
       ],
-      "ans": 3,
-      "exp": "Componente dorite: {1,3,5}, {2,4}, {6}. Trebuie cicluri în fiecare componentă cu >1 nod. {6} e deja ok (un nod). Adăugăm o singură bandă 5→1 și obținem 1→5→...→1 circuit. Cu analiza atentă, 1 bandă e suficientă.",
+      "ans": 0,
+      "exp": "Componente dorite: {1,3,5} (mere), {2,4} (pere), {6} (piersici). Nodul 3 e izolat (fără arce). Pentru {1,3,5} SCC: avem 1→5, adăugăm 5→3 și 3→1 → ciclu 1→5→3→1 (2 arce). Pentru {2,4} SCC: niciun arc intern, adăugăm 2→4 și 4→2 (2 arce). Verificăm: 5→2 și 5→4 leagă comp. dar nu creează cicluri inter-componente. Total minim: 4 benzi.",
       "diff": 3,
       "category": 1
     },

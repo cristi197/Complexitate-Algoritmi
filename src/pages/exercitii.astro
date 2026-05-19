@@ -136,9 +136,9 @@ const chapters = [
               <button id="btnGenerate" class="btn-generate">
                 ▶ Generează exerciții
               </button>
-              <button id="btnStartTest" class="btn-test">
-                🎯 Start Test (mod examen)
-              </button>
+              <a id="btnTestLink" href={`${base}/test-exercitii`} class="btn-test">
+                🎯 Mod Examen
+              </a>
               <button id="btnPDF" class="btn-pdf" style="display:none">
                 ⬇ Descarcă PDF
               </button>
@@ -171,43 +171,6 @@ const chapters = [
             <button id="timerReset" class="timer-btn" title="Oprește cronometru">⏹</button>
           </div>
         </div>
-
-        <!-- ── TEST MODE interface ─────────────────────────── -->
-        <section id="testMode" style="display:none">
-          <!-- Test header with timer + progress -->
-          <div class="test-header" id="testHeader">
-            <div class="test-header-left">
-              <span class="test-timer-icon">⏱️</span>
-              <span id="testTimerDisplay" class="test-timer-display">00:00</span>
-              <span id="testTimerLabel" class="test-timer-label"></span>
-            </div>
-            <div class="test-progress-info">
-              <span id="testProgressText" class="test-progress-text">0 / 0</span>
-              <div class="test-progress-bar-wrap">
-                <div id="testProgressBar" class="test-progress-bar"></div>
-              </div>
-            </div>
-            <div class="test-header-right">
-              <button id="testSubmitBtn" class="test-submit-btn">✅ Predă testul</button>
-            </div>
-          </div>
-
-          <!-- Navigation dots -->
-          <div class="test-nav-dots" id="testNavDots"></div>
-
-          <!-- Question display (one at a time) -->
-          <div class="test-question-area" id="testQuestionArea"></div>
-
-          <!-- Bottom nav -->
-          <div class="test-bottom-nav" id="testBottomNav">
-            <button id="testPrevBtn" class="test-nav-btn">← Precedenta</button>
-            <button id="testSkipBtn" class="test-nav-btn test-skip-btn">Sari peste →</button>
-            <button id="testNextBtn" class="test-nav-btn test-next-btn">Următoarea →</button>
-          </div>
-
-          <!-- Results overlay -->
-          <div id="testResults" class="test-results" style="display:none"></div>
-        </section>
 
         <!-- ── Results ─────────────────────────────────────── -->
         <section id="exResults" style="display:none">
@@ -285,7 +248,8 @@ const chapters = [
     .btn-test {
       padding: 11px 28px; border-radius: 12px; border: none; cursor: pointer;
       background: linear-gradient(135deg,#16a34a,#22c55e); color: #fff;
-      font-size: 14px; font-weight: 700; transition: opacity .2s;
+      font-size: 14px; font-weight: 700; transition: opacity .2s; text-decoration: none;
+      display: inline-flex; align-items: center;
     }
     .btn-test:hover { opacity: .88; }
     .btn-pdf {
@@ -344,115 +308,6 @@ const chapters = [
     .ex-answer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #16a34a; margin-bottom: 4px; }
     .ex-answer-text { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
     .ex-answer-correct { font-weight: 700; color: #4ade80; }
-
-    /* ── Test Mode Styles ── */
-    .test-header {
-      position: sticky; top: 0; z-index: 95;
-      background: var(--surface, #1e293b); border-bottom: 2px solid rgba(255,255,255,.08);
-      padding: 14px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-      box-shadow: 0 4px 20px rgba(0,0,0,.3); backdrop-filter: blur(12px);
-      border-radius: 0 0 14px 14px; margin-bottom: 16px;
-    }
-    .test-header-left { display: flex; align-items: center; gap: 10px; }
-    .test-timer-icon { font-size: 20px; }
-    .test-timer-display { font-size: 24px; font-weight: 800; color: #22c55e; font-family: monospace; min-width: 70px; }
-    .test-timer-display.warning { color: #f59e0b; }
-    .test-timer-display.danger { color: #ef4444; animation: timer-pulse 1s infinite; }
-    .test-timer-label { font-size: 12px; color: #64748b; font-weight: 600; }
-    .test-progress-info { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 150px; }
-    .test-progress-text { font-size: 13px; font-weight: 700; color: #e2e8f0; white-space: nowrap; }
-    .test-progress-bar-wrap { flex: 1; height: 8px; border-radius: 4px; background: rgba(255,255,255,.1); overflow: hidden; }
-    .test-progress-bar { height: 100%; background: linear-gradient(90deg,#22c55e,#16a34a); border-radius: 4px; transition: width .3s; width: 0; }
-    .test-header-right { display: flex; gap: 8px; }
-    .test-submit-btn {
-      padding: 8px 20px; border-radius: 10px; border: none; cursor: pointer;
-      background: linear-gradient(135deg,#f59e0b,#d97706); color: #fff;
-      font-size: 13px; font-weight: 700; transition: opacity .2s;
-    }
-    .test-submit-btn:hover { opacity: .85; }
-
-    /* Navigation dots */
-    .test-nav-dots {
-      display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px;
-      background: var(--surface, #1e293b); border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.06); margin-bottom: 16px;
-      justify-content: center;
-    }
-    .test-dot {
-      width: 32px; height: 32px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04); color: #64748b; cursor: pointer;
-      font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;
-      transition: all .2s;
-    }
-    .test-dot:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); }
-    .test-dot.current { background: #1d4ed8; border-color: #3b82f6; color: #fff; box-shadow: 0 0 10px rgba(59,130,246,.4); }
-    .test-dot.answered { background: rgba(34,197,94,.15); border-color: rgba(34,197,94,.4); color: #4ade80; }
-    .test-dot.skipped { background: rgba(251,191,36,.1); border-color: rgba(251,191,36,.3); color: #fbbf24; }
-
-    /* Question area */
-    .test-question-area {
-      background: var(--surface, #1e293b); border-radius: 16px;
-      border: 1.5px solid rgba(255,255,255,.08); padding: 24px; min-height: 200px;
-    }
-    .test-q-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
-    .test-q-num { font-size: 13px; font-weight: 800; color: #3b82f6; }
-    .test-q-badge { font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 6px; text-transform: uppercase; }
-    .test-q-text { font-size: 16px; font-weight: 600; color: #e2e8f0; line-height: 1.6; margin-bottom: 18px; }
-    .test-q-options { display: flex; flex-direction: column; gap: 10px; }
-    .test-q-option {
-      display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px;
-      border-radius: 12px; border: 1.5px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.03); cursor: pointer; transition: all .2s;
-    }
-    .test-q-option:hover { background: rgba(59,130,246,.06); border-color: rgba(59,130,246,.25); }
-    .test-q-option.selected { background: rgba(59,130,246,.12); border-color: #3b82f6; }
-    .test-q-option.correct { background: rgba(34,197,94,.1); border-color: #22c55e; }
-    .test-q-option.wrong { background: rgba(239,68,68,.1); border-color: #ef4444; }
-    .test-q-option-letter {
-      width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.08); color: #e2e8f0; font-size: 12px; font-weight: 800; flex-shrink: 0;
-    }
-    .test-q-option.selected .test-q-option-letter { background: #1d4ed8; color: #fff; }
-    .test-q-option.correct .test-q-option-letter { background: #16a34a; color: #fff; }
-    .test-q-option.wrong .test-q-option-letter { background: #dc2626; color: #fff; }
-    .test-q-option-text { font-size: 14px; color: #cbd5e1; line-height: 1.5; padding-top: 3px; }
-
-    /* Bottom nav */
-    .test-bottom-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
-    .test-nav-btn {
-      padding: 10px 22px; border-radius: 10px; border: 1.5px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.06); color: #e2e8f0; cursor: pointer;
-      font-size: 13px; font-weight: 600; transition: all .2s;
-    }
-    .test-nav-btn:hover { background: rgba(255,255,255,.12); }
-    .test-nav-btn:disabled { opacity: .3; cursor: not-allowed; }
-    .test-skip-btn { border-color: rgba(251,191,36,.3); color: #fbbf24; }
-    .test-skip-btn:hover { background: rgba(251,191,36,.1); }
-    .test-next-btn { border-color: rgba(59,130,246,.3); color: #60a5fa; }
-    .test-next-btn:hover { background: rgba(59,130,246,.1); }
-
-    /* Test Results */
-    .test-results {
-      background: var(--surface, #1e293b); border-radius: 16px;
-      border: 1.5px solid rgba(255,255,255,.08); padding: 32px; text-align: center;
-      margin-top: 20px;
-    }
-    .test-results-emoji { font-size: 48px; margin-bottom: 12px; }
-    .test-results-score { font-size: 36px; font-weight: 800; color: #e2e8f0; }
-    .test-results-pct { font-size: 18px; font-weight: 700; color: #22c55e; margin-top: 4px; }
-    .test-results-msg { font-size: 14px; color: #94a3b8; margin-top: 12px; line-height: 1.5; }
-    .test-results-stats { display: flex; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
-    .test-results-stat { text-align: center; }
-    .test-results-stat-val { font-size: 20px; font-weight: 800; color: #e2e8f0; }
-    .test-results-stat-label { font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600; }
-    .test-results-actions { display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
-    .test-results-btn {
-      padding: 10px 24px; border-radius: 10px; border: none; cursor: pointer;
-      font-size: 13px; font-weight: 700; transition: opacity .2s;
-    }
-    .test-results-btn-review { background: linear-gradient(135deg,#1d4ed8,#7c3aed); color: #fff; }
-    .test-results-btn-retry { background: linear-gradient(135deg,#16a34a,#22c55e); color: #fff; }
-    .test-results-btn-back { background: rgba(255,255,255,.08); color: #e2e8f0; border: 1.5px solid rgba(255,255,255,.15); }
 
     /* Print-only header (hidden on screen) */
     #printHeader { display: none; }
@@ -520,7 +375,7 @@ const chapters = [
       @page { margin: 18mm 16mm; }
       .sidebar, .header, .site-header, #filtreSection,
       .ex-results-header, .chapter-hero, .chapter-hero-back,
-      #scroll-progress, #page-overlay, .timer-bar, .ex-answer-toggle, #testMode { display: none !important; }
+      #scroll-progress, #page-overlay, .timer-bar, .ex-answer-toggle { display: none !important; }
       .app-shell { padding: 0 !important; display: block !important; }
       .app-content { padding: 0 !important; margin: 0 !important; }
       .wrapper { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
@@ -980,327 +835,10 @@ const chapters = [
       }, 1000);
     }
 
-    /* ═══════════════════════════════════════════════════════
-       TEST MODE — Exam-like interface
-    ═══════════════════════════════════════════════════════ */
-    var testState = {
-      questions: [],
-      answers: [],    // null = not answered, number = chosen index
-      skipped: [],    // boolean array
-      current: 0,
-      score: 0,
-      timerInterval: null,
-      timerRemaining: 0,
-      timerTotal: 0,
-      paused: false,
-      finished: false,
-      reviewMode: false
-    };
-
-    function onStartTest() {
-      var spinner = document.getElementById('loadingSpinner');
-      spinner.style.display = 'inline';
-
-      var chapterIds = selectedChapters.length > 0
-        ? selectedChapters
-        : CHAPTERS.map(function(c) { return c.id; });
-
-      loadAllChapters(chapterIds).then(function() {
-        var pool = [];
-        chapterIds.forEach(function(id) {
-          var qs = (loadedData[id] || []).filter(function(q) {
-            if (selectedDiff !== 'all' && q.diff !== parseInt(selectedDiff, 10)) return false;
-            if (id === 'grafuri' && selectedSubcats.length > 0) {
-              if (selectedSubcats.indexOf(q.category) === -1) return false;
-            }
-            return true;
-          });
-          pool = pool.concat(qs);
-        });
-
-        pool = shuffle(pool);
-        var count = selectedCount === 'all' ? pool.length : Math.min(selectedCount, pool.length);
-        pool = pool.slice(0, count);
-
-        if (pool.length === 0) {
-          spinner.style.display = 'none';
-          alert('Nu s-au găsit exerciții cu filtrele selectate.');
-          return;
-        }
-
-        // Initialize test state
-        testState.questions = pool;
-        testState.answers = new Array(pool.length).fill(null);
-        testState.skipped = new Array(pool.length).fill(false);
-        testState.current = 0;
-        testState.score = 0;
-        testState.finished = false;
-        testState.reviewMode = false;
-        testState.paused = false;
-
-        // Timer
-        var minutes = selectedTimer > 0 ? selectedTimer : 15; // default 15 min if none set
-        testState.timerTotal = minutes * 60;
-        testState.timerRemaining = testState.timerTotal;
-
-        // Hide other sections, show test mode
-        document.getElementById('exResults').style.display = 'none';
-        document.getElementById('timerBar').style.display = 'none';
-        document.getElementById('testMode').style.display = '';
-        document.getElementById('testResults').style.display = 'none';
-        document.getElementById('testQuestionArea').style.display = '';
-        document.getElementById('testBottomNav').style.display = '';
-        document.getElementById('testHeader').style.display = '';
-        document.getElementById('testNavDots').style.display = '';
-
-        // Set timer label
-        document.getElementById('testTimerLabel').textContent = pool.length + ' probleme · ' + minutes + ' min';
-
-        // Render dots
-        renderTestDots();
-        renderTestQuestion();
-        startTestTimer();
-
-        spinner.style.display = 'none';
-
-        document.getElementById('testMode').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-
-    function renderTestDots() {
-      var dots = document.getElementById('testNavDots');
-      dots.innerHTML = '';
-      testState.questions.forEach(function(_, i) {
-        var dot = document.createElement('button');
-        dot.className = 'test-dot';
-        if (i === testState.current) dot.className += ' current';
-        if (testState.answers[i] !== null) dot.className += ' answered';
-        else if (testState.skipped[i]) dot.className += ' skipped';
-        dot.textContent = i + 1;
-        dot.addEventListener('click', function() {
-          if (!testState.finished) {
-            testState.current = i;
-            renderTestDots();
-            renderTestQuestion();
-          }
-        });
-        dots.appendChild(dot);
-      });
-    }
-
-    function renderTestQuestion() {
-      var area = document.getElementById('testQuestionArea');
-      var q = testState.questions[testState.current];
-      var idx = testState.current;
-      var chosen = testState.answers[idx];
-      var isReview = testState.reviewMode;
-
-      var diffLabel = DIFF_LABELS[q.diff] || '';
-      var diffCls = DIFF_CLS[q.diff] || '';
-      var chLabel = q._chapter || '';
-      var subcatLabel = '';
-      if (chLabel === 'grafuri' && typeof q.category !== 'undefined') {
-        subcatLabel = SUBCAT_LABELS[q.category] || '';
-      }
-
-      var optsHtml = q.opts.map(function(opt, i) {
-        var cls = 'test-q-option';
-        if (chosen === i) cls += ' selected';
-        if (isReview) {
-          if (i === q.ans) cls += ' correct';
-          else if (chosen === i && i !== q.ans) cls += ' wrong';
-        }
-        return '<div class="' + cls + '" data-opt="' + i + '">' +
-          '<span class="test-q-option-letter">' + String.fromCharCode(65 + i) + '</span>' +
-          '<span class="test-q-option-text">' + opt + '</span>' +
-          '</div>';
-      }).join('');
-
-      var reviewHtml = '';
-      if (isReview && q.exp) {
-        var isCorrect = chosen === q.ans;
-        reviewHtml = '<div style="margin-top:14px;padding:12px 14px;border-radius:10px;' +
-          'background:' + (isCorrect ? 'rgba(34,197,94,.08)' : 'rgba(239,68,68,.08)') + ';' +
-          'border:1px solid ' + (isCorrect ? 'rgba(34,197,94,.25)' : 'rgba(239,68,68,.25)') + ';' +
-          'font-size:13px;color:' + (isCorrect ? '#4ade80' : '#f87171') + ';line-height:1.5">' +
-          (isCorrect ? '✅ Corect! ' : '❌ Greșit. Răspuns: <strong>' + String.fromCharCode(65 + q.ans) + '</strong>. ') +
-          q.exp + '</div>';
-      }
-
-      area.innerHTML =
-        '<div class="test-q-header">' +
-          '<span class="test-q-num">Întrebarea ' + (idx + 1) + ' / ' + testState.questions.length + '</span>' +
-          '<span class="test-q-badge cb-' + chLabel + '">' + chLabel + '</span>' +
-          (subcatLabel ? '<span class="test-q-badge" style="background:rgba(124,58,237,.12);color:#a78bfa">' + subcatLabel + '</span>' : '') +
-          (diffLabel ? '<span class="ex-diff ' + diffCls + '">' + diffLabel + '</span>' : '') +
-        '</div>' +
-        '<div class="test-q-text">' + q.q + '</div>' +
-        '<div class="test-q-options">' + optsHtml + '</div>' +
-        reviewHtml;
-
-      // Bind option clicks (only if not finished)
-      if (!testState.finished) {
-        area.querySelectorAll('.test-q-option').forEach(function(opt) {
-          opt.addEventListener('click', function() {
-            var i = parseInt(opt.dataset.opt, 10);
-            testState.answers[idx] = i;
-            testState.skipped[idx] = false;
-            renderTestDots();
-            renderTestQuestion();
-            updateTestProgress();
-          });
-        });
-      }
-
-      // Update nav buttons
-      document.getElementById('testPrevBtn').disabled = idx === 0;
-      var hasUnanswered = testState.answers.some(function(a, i) { return a === null && i !== idx; });
-      document.getElementById('testSkipBtn').style.display = (testState.finished || chosen !== null) ? 'none' : '';
-      document.getElementById('testNextBtn').style.display = idx < testState.questions.length - 1 ? '' : 'none';
-    }
-
-    function updateTestProgress() {
-      var answered = testState.answers.filter(function(a) { return a !== null; }).length;
-      var total = testState.questions.length;
-      document.getElementById('testProgressText').textContent = answered + ' / ' + total + ' răspunse';
-      var pct = total > 0 ? (answered / total) * 100 : 0;
-      document.getElementById('testProgressBar').style.width = pct + '%';
-    }
-
-    function startTestTimer() {
-      stopTestTimer();
-      testState.paused = false;
-      updateTestTimerDisplay();
-
-      testState.timerInterval = setInterval(function() {
-        if (!testState.paused && !testState.finished) {
-          testState.timerRemaining--;
-          updateTestTimerDisplay();
-          if (testState.timerRemaining <= 0) {
-            finishTest(true);
-          }
-        }
-      }, 1000);
-    }
-
-    function stopTestTimer() {
-      if (testState.timerInterval) {
-        clearInterval(testState.timerInterval);
-        testState.timerInterval = null;
-      }
-    }
-
-    function updateTestTimerDisplay() {
-      var mins = Math.floor(testState.timerRemaining / 60);
-      var secs = testState.timerRemaining % 60;
-      var display = document.getElementById('testTimerDisplay');
-      display.textContent = (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
-
-      // Color coding
-      var pct = testState.timerTotal > 0 ? testState.timerRemaining / testState.timerTotal : 1;
-      display.className = 'test-timer-display';
-      if (pct <= 0.1) display.className += ' danger';
-      else if (pct <= 0.25) display.className += ' warning';
-    }
-
-    function finishTest(timeExpired) {
-      testState.finished = true;
-      stopTestTimer();
-
-      // Calculate score
-      var correct = 0;
-      var answered = 0;
-      var skippedCount = 0;
-      testState.questions.forEach(function(q, i) {
-        if (testState.answers[i] !== null) {
-          answered++;
-          if (testState.answers[i] === q.ans) correct++;
-        } else {
-          skippedCount++;
-        }
-      });
-      testState.score = correct;
-
-      var total = testState.questions.length;
-      var pct = total > 0 ? Math.round((correct / total) * 100) : 0;
-      var emoji = pct >= 90 ? '🏆' : pct >= 70 ? '🎉' : pct >= 50 ? '😊' : '📚';
-      var msg = pct >= 90 ? 'Excelent! Ești pregătit/ă!'
-        : pct >= 70 ? 'Foarte bine! Recapitulează ce ai greșit.'
-        : pct >= 50 ? 'Bine! Exersează mai mult pe temele dificile.'
-        : 'Nu te descuraja! Revizuiește teoria și încearcă din nou.';
-
-      var timeUsed = testState.timerTotal - testState.timerRemaining;
-      var timeMin = Math.floor(timeUsed / 60);
-      var timeSec = timeUsed % 60;
-
-      document.getElementById('testResults').style.display = '';
-      document.getElementById('testResults').innerHTML =
-        '<div class="test-results-emoji">' + emoji + '</div>' +
-        '<div class="test-results-score">' + correct + ' / ' + total + '</div>' +
-        '<div class="test-results-pct">' + pct + '%</div>' +
-        (timeExpired ? '<div style="color:#f87171;font-size:13px;margin-top:6px">⏰ Timpul a expirat!</div>' : '') +
-        '<div class="test-results-msg">' + msg + '</div>' +
-        '<div class="test-results-stats">' +
-          '<div class="test-results-stat"><div class="test-results-stat-val" style="color:#4ade80">' + correct + '</div><div class="test-results-stat-label">Corecte</div></div>' +
-          '<div class="test-results-stat"><div class="test-results-stat-val" style="color:#f87171">' + (answered - correct) + '</div><div class="test-results-stat-label">Greșite</div></div>' +
-          '<div class="test-results-stat"><div class="test-results-stat-val" style="color:#fbbf24">' + skippedCount + '</div><div class="test-results-stat-label">Nerezolvate</div></div>' +
-          '<div class="test-results-stat"><div class="test-results-stat-val">' + timeMin + ':' + (timeSec < 10 ? '0' : '') + timeSec + '</div><div class="test-results-stat-label">Timp folosit</div></div>' +
-        '</div>' +
-        '<div class="test-results-actions">' +
-          '<button class="test-results-btn test-results-btn-review" id="testReviewBtn">🔍 Revizuiește</button>' +
-          '<button class="test-results-btn test-results-btn-retry" id="testRetryBtn">🔄 Reia testul</button>' +
-          '<button class="test-results-btn test-results-btn-back" id="testBackBtn">← Înapoi la filtre</button>' +
-        '</div>';
-
-      // Hide question area during results
-      document.getElementById('testQuestionArea').style.display = 'none';
-      document.getElementById('testBottomNav').style.display = 'none';
-
-      // Bind result buttons
-      document.getElementById('testReviewBtn').addEventListener('click', function() {
-        testState.reviewMode = true;
-        testState.current = 0;
-        document.getElementById('testResults').style.display = 'none';
-        document.getElementById('testQuestionArea').style.display = '';
-        document.getElementById('testBottomNav').style.display = '';
-        document.getElementById('testSkipBtn').style.display = 'none';
-        renderTestDots();
-        renderTestQuestion();
-      });
-
-      document.getElementById('testRetryBtn').addEventListener('click', function() {
-        // Restart with same questions, reshuffled
-        testState.questions = shuffle(testState.questions);
-        testState.answers = new Array(testState.questions.length).fill(null);
-        testState.skipped = new Array(testState.questions.length).fill(false);
-        testState.current = 0;
-        testState.score = 0;
-        testState.finished = false;
-        testState.reviewMode = false;
-        testState.timerRemaining = testState.timerTotal;
-        document.getElementById('testResults').style.display = 'none';
-        document.getElementById('testQuestionArea').style.display = '';
-        document.getElementById('testBottomNav').style.display = '';
-        renderTestDots();
-        renderTestQuestion();
-        updateTestProgress();
-        startTestTimer();
-      });
-
-      document.getElementById('testBackBtn').addEventListener('click', function() {
-        document.getElementById('testMode').style.display = 'none';
-        stopTestTimer();
-      });
-
-      renderTestDots();
-      updateTestProgress();
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
       setupChips();
       setupGlobalAnswers();
       document.getElementById('btnGenerate').addEventListener('click', onGenerate);
-      document.getElementById('btnStartTest').addEventListener('click', onStartTest);
       document.getElementById('btnPDF').addEventListener('click', onPDF);
 
       // Timer controls (for browse mode)
@@ -1313,49 +851,17 @@ const chapters = [
         document.getElementById('timerBar').style.display = 'none';
       });
 
-      // Test mode navigation
-      document.getElementById('testPrevBtn').addEventListener('click', function() {
-        if (testState.current > 0) {
-          testState.current--;
-          renderTestDots();
-          renderTestQuestion();
-        }
-      });
-      document.getElementById('testNextBtn').addEventListener('click', function() {
-        if (testState.current < testState.questions.length - 1) {
-          testState.current++;
-          renderTestDots();
-          renderTestQuestion();
-        }
-      });
-      document.getElementById('testSkipBtn').addEventListener('click', function() {
-        testState.skipped[testState.current] = true;
-        // Go to next unanswered
-        var next = -1;
-        for (var i = testState.current + 1; i < testState.questions.length; i++) {
-          if (testState.answers[i] === null) { next = i; break; }
-        }
-        if (next === -1) {
-          // Wrap around
-          for (var j = 0; j < testState.current; j++) {
-            if (testState.answers[j] === null) { next = j; break; }
-          }
-        }
-        if (next !== -1) {
-          testState.current = next;
-        } else {
-          // All answered or skipped, go to next
-          if (testState.current < testState.questions.length - 1) testState.current++;
-        }
-        renderTestDots();
-        renderTestQuestion();
-      });
-      document.getElementById('testSubmitBtn').addEventListener('click', function() {
-        var unanswered = testState.answers.filter(function(a) { return a === null; }).length;
-        var msg = unanswered > 0
-          ? 'Ai ' + unanswered + ' întrebări nerezolvate. Predai testul?'
-          : 'Predai testul?';
-        if (confirm(msg)) finishTest(false);
+      // Dynamic link to exam mode with current filters
+      document.getElementById('btnTestLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        var params = [];
+        if (selectedChapters.length > 0) params.push('ch=' + selectedChapters.join(','));
+        if (selectedSubcats.length > 0) params.push('sub=' + selectedSubcats.join(','));
+        if (selectedDiff !== 'all') params.push('diff=' + selectedDiff);
+        if (selectedCount !== 10) params.push('count=' + selectedCount);
+        if (selectedTimer > 0) params.push('timer=' + selectedTimer);
+        var base = this.getAttribute('href').split('?')[0];
+        window.location.href = base + (params.length ? '?' + params.join('&') : '');
       });
     });
   })();

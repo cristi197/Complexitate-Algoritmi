@@ -380,8 +380,8 @@
         "um",
         "nu"
       ],
-      "ans": 2,
-      "exp": "s=\"muzeu\", s[0]='m'+1='n'. s[1]='u', s[0]='n' → se afișează \"un\".",
+      "ans": 1,
+      "exp": "s=\"muzeu\", s[0]='m'+1='n' → s=\"nuzeu\". cout<<s[1]<<s[0] → s[1]='u', s[0]='n' → se afișează \"un\".",
       "diff": 2
     },
     {
