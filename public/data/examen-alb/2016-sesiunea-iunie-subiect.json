@@ -1,0 +1,85 @@
+{
+  "id": "2016-sesiunea-iunie-subiect",
+  "year": 2016,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2016/2016-sesiunea-iunie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2016/2016-sesiunea-iunie-barem.pdf",
+  "variant": 10,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg. Indica ţ i o expresie C/C++ care are valoarea 1 dac ă ş i numai dac ă valoarea variabilei x are exact trei cifre. (4p.)",
+        "options": {
+          "a": "x%1000==0 || x%100!=0",
+          "b": "x/1000==0 || x/100!=0",
+          "c": "x%1000==0 && x%100!=0",
+          "d": "x/1000==0 && x/100!=0"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Matricea de adiacen ţă a unui graf neorientat cu 5 noduri are 6 elemente nenule. Num ă rul minim de componente conexe ale grafului este: a. 1 b. 2 c. 3 d. 5 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , are drept r ă d ă cin ă nodul numerotat cu 7 ş i muchiile [1,7] , [2,5] , [3,5] , [3,6] , [4,7] , [5,7] , [5,8] . Enumera ţ i nodurile care sunt descenden ţ i direc ţ i („fii”) ai nodului 5 . 4. În secven ţ a de instruc ț iuni de mai jos variabilele s1 ș i s2 memoreaz ă câte un ş ir cu cel mult 20 de caractere. Scrie ţ i ce se afi ş eaz ă pe ecran în urma execut ă rii secven ţ ei. strcpy(s1,”informatica”); cout<<strlen(s1); | printf(”%d”,strlen(s1)); strcpy(s2,”mate”); strcat(s2,strstr(s1,”ma”)); cout<<s2; | printf(”%s”,s2); (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un num ă r natural, n ( n ∈ ∈ ∈ ∈ [2,10 2 ] ), ş i construie ş te în memorie un tablou bidimensional, cu n linii ş i n coloane, astfel: • prima coloan ă con ţ ine, în ordine strict cresc ă toare, numerele naturale din intervalul [1 , n] ; • toate elementele ultimei linii au valoarea n ; • oricare alt element este ob ţ inut prin însumarea celor dou ă elemente vecine cu el, aflate pe coloana anterioar ă , unul pe aceea ş i linie cu el, iar cel ă lalt pe linia urm ă toare, ca în exemplu. Programul afi ş eaz ă pe ecran tabloul ob ţ inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele fiec ă rei linii fiind separate prin câte un spa ţ iu. Exemplu: pentru n=4 pe ecran se afi ş eaz ă : 1 3 8 20 2 5 12 23 3 7 11 15 4 4 4 4 (10p.) Ministerul Educa ţ iei Na ț ionale ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 10 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul f este definit al ă turat. Indica ţ i ce se afi ş eaz ă în urma apelului de mai jos. f(2016); void f(int n) { if (n!=0) { cout<<n; | printf(”%d”,n); f(n/10); } } a. 6102 b. 2202012016 c. 2016201202 d. 20162012020 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Având la dispozi ţ ie cinci tipuri de pr ă jituri, cu pere , cu mure , cu afine , cu fragi , cu zmeur ă , se utilizeaz ă metoda backtracking pentru a ob ţ ine toate posibilit ăţ ile de a forma platouri cu câte trei tipuri de pr ă jituri diferite, ş tiind c ă în cadrul unui platou nu conteaz ă ordinea de a ş ezare a pr ă jiturilor ş i c ă pr ă jiturile cu mure nu vor fi plasate pe acela ş i platou cu pr ă jiturile cu fragi . Primele patru solu ţ ii ob ţ inute sunt, în aceast ă ordine: ( pere , mure , afine ), ( pere , mure , zmeur ă ), ( pere , afine , fragi ), ( pere , afine , zmeur ă ). Scrie ţ i cea de a cincea ş i cea de a ş asea solu ţ ie, în ordinea ob ţ inerii lor.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul cifreImpare are un singur parametru, n , prin care prime ş te un num ă r natural cu toate cifrele nenule ( n ∈ ∈ ∈ ∈ [1,10 9 ] ). Subprogramul returneaz ă num ă rul ob ţ inut prin eliminarea tuturor cifrelor impare din n , respectiv -1 dac ă nu exist ă astfel de cifre sau dac ă toate cifrele lui n sunt impare. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=23541 subprogramul returneaz ă 24 , iar dac ă n=28 subprogramul returneaz ă -1 . 4. Fi ş ierul numere.in con ţ ine pe prima linie un num ă r natural n ( n ∈ ∈ ∈ ∈ [2,10 9 ] ), iar pe a doua linie un ş ir de cel mult 10 9 numere naturale din intervalul [1,n] . Numerele din ş ir sunt ordonate cresc ă tor ş i sunt separate prin câte un spa ţ iu. Se cere s ă se determine valorile naturale distincte din intervalul [1,n] care NU se g ă sesc în ş irul men ţ ionat mai sus. Valorile determinate se afi ş eaz ă pe ecran în ordine strict cresc ă toare, separate prin câte un spa ţ iu. Dac ă nu exist ă astfel de valori, se afi ş eaz ă pe ecran mesajul Nu exista . Pentru determinarea valorilor cerute se utilizeaz ă un algoritm eficient din punctul de vedere al memoriei ş i al timpului de executare. Exemplu: dac ă fi ş ierul con ţ ine numerele 10 3 4 4 8 se afi ş eaz ă pe ecran valorile 1 2 5 6 7 9 10 a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "2018-sesiunea-iunie-subiect",
+  "year": 2018,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2018/2018-sesiunea-iunie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2018/2018-sesiunea-iunie-barem.pdf",
+  "variant": 2,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x ș i y sunt de tip întreg ș i memoreaz ă câte un num ă r natural nenul. O expresie echivalent ă cu cea al ă turat ă poate fi: (4p.) !(x%y!=0 || y<2)",
+        "options": {
+          "a": "x%y==y%x && y>1",
+          "b": "(x+y)%y==0 || y>=1",
+          "c": "(x/y)*y==x && y>=2",
+          "d": "x%y==0 || y>2"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Într-un graf orientat cel pu ț in dou ă vârfuri au gradul intern 2 , cel pu ț in un vârf are gradul intern 3 ș i cel pu ț in un vârf are gradul extern 3 . Num ă rul minim de vârfuri ale grafului este: a. 3 b. 4 c. 5 d. 6 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un arbore are 9 noduri, numerotate de la 1 la 9 , ş i muchiile [1,2] , [1,6] , [1,8] , [1,9] , [2,3] , [2,7] , [4,5] , [5,7] . Scrie ț i trei noduri care ar putea fi alese drept r ă d ă cin ă astfel încât nodul 2 s ă aib ă un num ă r minim de descenden ț i. 4. Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 9 linii ş i 9 coloane, numerotate de la 0 la 8 , având ini ţ ial toate elementele egale cu -1 . F ă r ă a utiliza alte variabile, scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=0;i<9;i++) for(j=0;j<9;j++) .................. (6p.) 0 1 2 3 4 5 6 7 0 1 0 3 4 5 6 7 0 1 2 3 0 5 6 7 0 1 2 3 4 5 0 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 0 3 4 5 6 7 0 1 2 3 0 5 6 7 0 1 2 3 4 5 0 7 0 1 2 3 4 5 6 7 0 5. Fiind dat un cuvânt s , format numai din litere, ș i un cod c , de aceea ș i lungime cu s , format numai din cifre, numim codificare a lui s pe baza codului c opera ț ia de construire a unui nou ș ir, în care ini ț ial se copiaz ă prima liter ă din s , apoi, parcurgând de la stânga la dreapta restul ș irului s , se adaug ă litera curent ă la începutul noului ș ir, dac ă cifra corespunz ă toare de pe aceea ș i pozi ț ie în c este par ă , sau la finalul noului ș ir, în caz contrar. Exemplu: dac ă ș irul s este etalon , iar codul este 025843 se ob ț ine cuvântul oltean (ini ț ial ș irul con ț ine litera e , apoi se adaug ă , în ordinea parcurgerii lui s , literele t , l ș i o la început, iar restul literelor la final). Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă cuvinte, notate cu s ș i c , fiecare având cel mult 10 2 caractere, s fiind format doar din litere mici ale alfabetului englez, iar c fiind format doar din cifre. Dup ă primul cuvânt se tasteaz ă Enter. Programul construie ș te în memorie ș i afi ș eaz ă pe ecran cuvântul ob ț inut prin codificarea lui s pe baza lui c , dac ă cele dou ă cuvinte au aceea ș i lungime, sau mesajul cod incorect , în caz contrar. Exemplu : dac ă se citesc cuvintele al ă turate, se afi ş eaz ă pe ecran cuvântul oltean (10p.) etalon 025843 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 2 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "O companie organizeaz ă cursuri de programare în limbaje din mul ț imea { PHP , Java , Python , C# , SQL }, astfel încât o persoan ă poate opta pentru un curs în care se studiaz ă un num ă r par de limbaje, dar nu poate alege Java ș i Python în acela ș i curs. Utilizând metoda backtracking se genereaz ă toate posibilit ăț ile unei persoane de a opta pentru un curs în cadrul ofertei companiei. Dou ă cursuri sunt distincte dac ă difer ă prin cel pu ț in un limbaj sau prin ordinea în care se studiaz ă limbajele. Primele cinci solu ț ii generate sunt, în aceast ă ordine: (PHP , Java) , (PHP , Java , C# , SQL) , (PHP , Java , SQL , C#) , (PHP , Python) , (PHP , Python , C# , SQL) . Solu ț ia generat ă imediat dup ă (Java , PHP , SQL , C#) este: a. (Java , C#) b. (Java , PHP , C# , SQL) c. (SQL , Python) d. (SQL , Java , C# , PHP) Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Scrie ț i trei valori naturale pe care le poate avea variabila întreag ă x astfel încât, în urma apelului de mai jos, pentru fiecare dintre acestea, s ă NU se afi ș eze niciun caracter * f('e',x); void f(char ch, int x) { cout<<ch; | printf(\"c\",ch); if(x==0) cout<<'*'; | printf(\"*\"); else if(ch=='a') cout<<x; | printf(\"%d\",x); else f(ch-1,x-1); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul resturi are patru parametri, n , x , y ș i r , prin care prime ş te câte un num ă r natural din intervalul [1,10 9 ] , r<x<y<n . Subprogramul returneaz ă num ă rul de valori naturale din intervalul [1,n] pentru care atât restul împ ă r ț irii la x , cât ș i restul împ ă r ț irii la y , sunt egale cu r . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: pentru n=200 , x=5 , y=14 ș i r=2 , subprogramul returneaz ă num ă rul 3 (pentru numerele 2 , 72 ș i 142 atât restul împ ă r ț irii la 5 , cât ș i restul împ ă r ț irii la 14 , este 2 ). 4. Numim secven ță neuniform ă a unui ș ir de numere naturale un sub ș ir al acestuia, format din termeni afla ț i pe pozi ț ii consecutive în ș irul dat, cu proprietatea c ă oricare trei termeni afla ț i pe pozi ț ii consecutive sunt diferi ț i. Lungimea secven ț ei este egal ă cu num ă rul de termeni ai acesteia. Fi ș ierul bac.txt con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [ 0 , 9 ]. Numerele sunt separate prin câte un spa ț iu, iar în ș ir exist ă cel pu ț in trei termeni diferi ț i pe pozi ț ii consecutive. Se cere s ă se afi ș eze pe ecran lungimea maxim ă a unei secven ț e neuniforme a ș irului aflat în fi ș ier. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei utilizate. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 7 7 1 3 7 7 5 3 3 3 7 8 9 atunci pe ecran se afi ș eaz ă valoarea 4 a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

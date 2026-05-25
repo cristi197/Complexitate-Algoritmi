@@ -1,0 +1,172 @@
+{
+  "id": "2021-antrenament-test-06-subiect",
+  "year": 2021,
+  "session": "antrenament-test-06",
+  "type": "antrenament",
+  "pdfUrl": "/subiecte-bac/2021/2021-antrenament-test-06-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2021/2021-antrenament-test-06-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x și y sunt de tip întreg. Indicați o expresie C/C++ echivalentă cu expresia alăturată. !(x<3 && y>5)",
+        "options": {
+          "a": "x>=3 && y<=5",
+          "b": "!(x<3) && y>5",
+          "c": "x<3 || y>5",
+          "d": "x>=3 || !(y>5)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicaţi valoarea lui f(2121,19) . (6p.) int f(int x, int y) { if(x==0) return 0; if(y==0) return 1; return x%2+y%2+f(x/10, y/10); }",
+        "options": {
+          "a": "4",
+          "b": "5",
+          "c": "14",
+          "d": "17"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Pe parcursul vacanței au loc mai multe reprezentații online ale unei piese de teatru; pentru o reprezentație sunt necesari trei copii, unul pentru rolul principal, iar fiecare dintre ceilalți doi pentru câte un rol secundar. Pentru oricare două reprezentații distincte cel puțin un rol este atribuit, în cele două distribuții, unor copii diferiți. În urma audițiilor au fost selectați șase copii, Alex , Cezar , Tudor , Daria , Ela și Maria : doar Alex poate primi rolul principal, iar fiecare dintre ceilalți cinci copii poate interpreta oricare dintre cele două roluri secundare. De exemplu, pentru patru reprezentații sunt distribuiți, în ordinea rolurilor, copiii: ( Alex , Ela , Maria ), ( Alex , Maria , Ela ), ( Alex , Maria , Cezar ), ( Alex , Cezar , Tudor ). Indicați numărul maxim de reprezentații distincte în care poate fi distribuită Daria .",
+        "options": {
+          "a": "5",
+          "b": "8",
+          "c": "16",
+          "d": "24"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 7 noduri, numerotate de la 1 la 7 , are drept rădăcină nodul numerotat cu 4 și este reprezentat în figura alăturată. Indicați vectorul de “tați\" al arborelui.",
+        "options": {
+          "a": "(0,0,0,3,2,0,1)",
+          "b": "(0,5,7,2,3,6,1)",
+          "c": "(2,1,2,0,1,2,1)",
+          "d": "(7,4,5,0,4,5,4)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 10 noduri, numerotate de la 1 la 10 , și muchiile [1,2] , [2,3] , [2,10] , [3,10] , [4,5] , [4,6] , [5,6] , [6,9] , [7,8] , [7,9] , [8,9] . Indicați numărul minim de muchii care trebuie adăugate pentru ca în graful obținut toate nodurile să aibă drept grade numere pare.",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "2",
+          "d": "1 Ministerul Educaţiei Centrul Național de Politici și Evaluare în Educație Probă scrisă la INFORMATICĂ Testul 6 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește x,y (numere naturale, x≤y ) k  0; i  x ┌cât timp i  y execută │ n  i; c  0 │┌cât timp n>0 și c=0 execută ││┌dacă n%2=1 atunci c  1 ││└■ ││ n  [n/10] │└■ │ k  k+c │ i  i+1 └■ scrie k a. Scrieți valoarea afișată în urma executării algoritmului dacă se citesc, în această ordine, numerele 404 și 413 . (6p.) b. Dacă pentru x se citește valoarea 58 , scrieți două numere care pot fi citite pentru y astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului să se afișeze valoarea 3 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat prima structură repetitivă cu o structură de tip pentru...execută . (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . citește x,y (numere naturale, x≤y ) k  0; i  x ┌cât timp i  y execută │ n  i; c  0 │┌cât timp n>0 și c=0 execută ││┌dacă n%2=1 atunci c  1 ││└■ ││ n  [n/10] │└■ │ k  k+c │ i  i+1 └■ scrie k",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți valoarea afișată în urma executării algoritmului dacă se citesc, în această ordine, numerele 404 și 413 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dacă pentru x se citește valoarea 58 , scrieți două numere care pot fi citite pentru y astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului să se afișeze valoarea 3 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat prima structură repetitivă cu o structură de tip pentru...execută .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Pentru un cerc se memorează date specifice: coordonatele reale (abscisa și ordonata), în sistemul de coordonate xOy , ale centrului cercului, precum și lungimea diametrului acestuia. Știind că expresiile de mai jos au ca valori numere reale reprezentând datele specifice ale unui cerc, scrieți definiția unei structuri cu eticheta figura , care permite memorarea datelor specifice ale unui cerc, și declarați corespunzător variabila c . c.centru.x c.centru.y c.diametru",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila i este de tip întreg, iar variabilele s și t permit memorarea câte un șir de cel mult 20 de caractere. Scrieți șirul accesat prin variabila s în urma executării secvenței alăturate. strcpy(s,\"PRASLEA*CEL*VOINIC\"); i=0; while (i<strlen(s)) if (strchr(\"ACEI\",s[i])!=NULL) { strcpy(t,s+i+1); strcpy(s+i,t);} else i=i+1;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul numar are trei parametri: • n și c , prin care primește câte un număr natural ( n  [0,10 9 ] , c  [0,9] ); • m , prin care furnizează numărul obținut din n , prin eliminarea din acesta a tuturor cifrelor egale cu c , sau -1 dacă toate cifrele lui n sunt egale cu c . Cifrele nule nesemnificative sunt ignorate, ca în exemplu. Scrieți definiția completă a subprogramului. Exemplu: dacă n=50752 sau n=72 și c=5 , după apel m=72 , dacă n=500 și c=5 , după apel m=0 , iar dacă n=55 și c=5 , după apel m=-1 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural, n ( n ∈ [3,20] ), și construiește în memorie un tablou bidimensional cu n linii și n coloane, având proprietățile: • toate elementele situate pe diagonala secundară sunt nule; • prima linie conține un șir strict descrescător de numere consecutive, iar ultima linie conține un șir strict crescător de numere consecutive; • fiecare dintre celelalte linii conține, începând cu prima poziție, până la diagonala secundară inclusiv, de la stânga la dreapta, un șir strict descrescător de numere consecutive, iar începând de la diagonala secundară, inclusiv, până la ultima poziție, de la stânga la dreapta, un șir strict crescător de numere consecutive. Programul afișează pe ecran tabloul construit, fiecare linie a tabloului pe câte o linie a ecranului, cu elementele aflate pe aceeași linie separate prin câte un spațiu. Exemplu: dacă n=4 se afișează pe ecran tabloul alăturat. 3 2 1 0 2 1 0 1 1 0 1 2 0 1 2 3",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=4",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.in conține un șir de cel puțin patru și cel mult 10 5 numere întregi nenule din intervalul [-10 9 ,10 9 ] , dintre care trei sunt negative, iar restul pozitive. Numerele sunt separate prin câte un spațiu. O secvență este formată din termeni aflați pe poziții consecutive în șir, iar lungimea secvenței este egală cu numărul de termeni ai acesteia. Se cere să se afișeze pe ecran lungimea unei secvențe din șirul aflat în fișier care conține o singură valoare negativă și un număr maxim de valori pozitive. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul conține numerele 15 21 -61 9 870 -23 11 5 8 -81 5 14 pe ecran se afișează 6 (corespunzător secvențelor 9 870 -23 11 5 8 sau 11 5 8 -81 5 14 ). a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fișierul conține numerele 15 21 -61 9 870 -23 11 5 8 -81 5 14 pe ecran",
+        "exampleOutput": "6",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

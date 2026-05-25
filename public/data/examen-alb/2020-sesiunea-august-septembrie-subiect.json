@@ -1,0 +1,172 @@
+{
+  "id": "2020-sesiunea-august-septembrie-subiect",
+  "year": 2020,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2020/2020-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-sesiunea-august-septembrie-barem.pdf",
+  "variant": 5,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg ș i poate memora un num ă r natural din intervalul [0,10 9 ) . Indica ț i valoarea maxim ă pe care o poate avea expresia C/C++ al ă turat ă . x%2020",
+        "options": {
+          "a": "20.2",
+          "b": "2019",
+          "c": "2020",
+          "d": "495049"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i apelul în urma c ă ruia simbolul * se afi ș eaz ă de trei ori. void f(int x) { cout<<\"*\"; | printf(\"*\"); if(x>5) f((x+1)/2); }",
+        "options": {
+          "a": "f(30);",
+          "b": "f(21);",
+          "c": "f(17);",
+          "d": "f(8);"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se genereaz ă toate modalit ăț ile de a prepara o b ă utur ă din câte 3 sau 4 tipuri de fructe distincte din mul ț imea { c ă p ș une , mere , pepene , pere , portocale }. Primele patru solu ț ii generate sunt, în aceast ă ordine: ( c ă p ș une , mere , pepene ), ( c ă p ș une , mere , pepene , pere ), ( c ă p ș une , mere , pepene , portocale ), ( c ă p ș une , mere , pere ). Indica ț i cea de a ș asea solu ț ie generat ă .",
+        "options": {
+          "a": "( pepene , pere , portocale )",
+          "b": "( mere , pepene , pere , portocale )",
+          "c": "( c ă p ș une , mere , portocale )",
+          "d": "( c ă p ș une , mere , pere , pepene )"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 9 noduri, numerotate de la 1 la 9 , este reprezentat prin vectorul de „ta ț i” ( 8 , 6 , 4 , 2 , 3 , 0 , 4 , 2,7 ). Indica ț i un „frate” al nodului 4 .",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "7",
+          "d": "8"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat eulerian cu 5 noduri are un nod cu gradul 4 . Indica ț i num ă rul minim de muchii ale grafului.",
+        "options": {
+          "a": "4",
+          "b": "6",
+          "c": "8",
+          "d": "10"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ș te n (num ă r natural) m \u0001 \u0001 \u0001 \u0001 0 ┌ repet ă │ c \u0001 \u0001 \u0001 \u0001 n%10; n \u0001 \u0001 \u0001 \u0001 [n/10] │┌ dac ă c<5 atunci m \u0001 \u0001 \u0001 \u0001 m-2*c ││ altfel m \u0001 \u0001 \u0001 \u0001 m+c │└■ └ pân ă când n=0 ┌ dac ă m=0 atunci scrie ‘DA’ │ altfel scrie m, ‘NU’ └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i ce se afi ș eaz ă dac ă se cite ș te num ă rul 247388 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i dou ă numere din intervalul [10 2 ,10 3 ) , cu cifre distincte, care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, s ă se afi ș eze DA .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat structura repet ă ...pân ă când cu o structur ă repetitiv ă cu test ini ț ial. Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 5 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila p memoreaz ă simultan, pentru fiecare dintre cele 20 de tipuri de procesoare dintr-un depozit, urm ă toarele date: produc ă torul (o liter ă mare a alfabetului englez), frecven ț a procesorului (num ă r natural) ș i pre ț ul produsului (num ă r real). Ș tiind c ă expresiile C/C++ de mai jos au ca valori produc ă torul primului procesor, respectiv frecven ț a ș i pre ț ul acestuia, scrie ț i defini ț ia unei structuri cu eticheta procesor , care permite memorarea datelor despre un procesor, ș i declara ț i corespunz ă tor variabila p . p[0].producator p[0].frecventa p[0].pret",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i , j ș i k sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 6 linii ș i 4 coloane, numerotate începând de la 0 , cu elemente numere naturale din intervalul [0,50] . Scrie ț i o secven ță de instruc ț iuni în urma execut ă rii c ă reia s ă se rearanjeze elementele pare situate pe coloana a 3 -a a tabloului, astfel încât acestea s ă fie ordonate cresc ă tor, de sus în jos, în cadrul aceleia ș i coloane, iar celelalte elemente ale tabloului s ă î ș i p ă streze pozi ț iile, ca în exemplu. Exemplu: pentru tabloul 2 3 4 5 8 7 8 5 1 3 5 7 3 0 2 9 3 5 1 6 7 3 0 2 se ob ț ine tabloul 2 3 0 5 8 7 2 5 1 3 5 7 3 0 4 9 3 5 1 6 7 3 8 2",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un num ă r natural nenul se nume ș te p-num ă r dac ă are aceea ș i paritate cu suma divizorilor s ă i pozitivi. Exemplu: 10 ș i 25 sunt p-numere ( 10 are aceea ș i paritate cu 18=1+2+5+10 , iar 25 are aceea ș i paritate cu 31=1+5+25 ). Subprogramul kpn , are trei parametri, a , b ș i k , prin care prime ș te câte un num ă r natural din intervalul [1,10 6 ] ( a ≤ b ). Subprogramul returneaz ă cel de al k -lea p-num ă r din intervalul [a,b] sau -1 , dac ă nu exist ă cel pu ț in k astfel de numere în acest interval. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă a=27 , b=50 ș i k=3 , atunci subprogramul returneaz ă 34 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Dou ă cuvinte distincte se numesc în oglind ă dac ă fiecare dintre ele se ob ț ine prin citirea literelor celuilalt de la dreapta la stânga. Exemplu: animate ș i etamina sunt în oglind ă , iar pentru cuvântul reper nu exist ă un cuvânt cu care s ă fie în oglind ă . Se consider ă un text cu cel mult 100 de caractere, în care cuvintele sunt formate din litere mici ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un text de tipul men ț ionat mai sus ș i îl transform ă în memorie, înlocuind fiecare cuvânt cu num ă r impar de litere cu acel cuvânt cu care el este în oglind ă , dac ă acesta exist ă , ca în exemplu. Programul afi ș eaz ă pe ecran textul ob ț inut sau mesajul nu exista , dac ă în text nu s-a înlocuit niciun cuvânt. Exemplu : pentru textul era o selectie reper de desene animate prezenta se ob ț ine textul are o selectie reper de desene etamina prezenta iar pentru textul un reper pentru desene se afi ș eaz ă pe ecran mesajul nu exista",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fi ș ierul bac.txt con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [0,10 9 ] , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran, separate printr-un spa ț iu, dou ă numere naturale a ș i b ( a<b ), astfel încât oricare termen al ș irului care are exact dou ă cifre s ă apar ț in ă intervalului (a,b) , iar valoarea expresiei b-a s ă fie minim ă . Dac ă ș irul nu are niciun termen de dou ă cifre, pe ecran se afi ș eaz ă mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al spa ț iului de memorie utilizat. Exemplu: dac ă fi ș ierul con ț ine valorile 7 2 40 5 11 15 10 122 18 350 se afi ș eaz ă pe ecran numerele 9 41 . a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

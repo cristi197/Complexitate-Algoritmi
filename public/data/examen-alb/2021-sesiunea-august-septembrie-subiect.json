@@ -1,0 +1,172 @@
+{
+  "id": "2021-sesiunea-august-septembrie-subiect",
+  "year": 2021,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2021/2021-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2021/2021-sesiunea-august-septembrie-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x ș i y sunt de tip real ( x ≠ -2 ). Indica ț i o expresie C/C++ corespunz ă toare expresiei aritmetice al ă turate. \u0001 + \u0003 \u0004 + \u0001 − \u0003 \u0006 \u0001 + \u0006",
+        "options": {
+          "a": "( x+y/5+x-y/2)/x+2",
+          "b": "(x+y)/5+(x-y)/2/(x+2)",
+          "c": "((x+y)/5+(x-y)/2)/x+2",
+          "d": "((x+y)/5+(x-y)/2)/(x+2)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i valoarea lui f(1234) . int f(int n) { if (n!=0) return (n%2)*(n%10)+f(n/10); return 0; }",
+        "options": {
+          "a": "0",
+          "b": "4",
+          "c": "6",
+          "d": "10"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se genereaz ă toate numerele formate din cifre distincte, cifre a c ă ror sum ă s ă fie 6 . Primele patru solu ț ii generate sunt, în aceast ă ordine: 1023 , 1032 , 105 ș i 1203 . Indica ț i cea de a ș asea solu ț ie generat ă .",
+        "options": {
+          "a": "1230",
+          "b": "132",
+          "c": "123",
+          "d": "15"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Unui arbore cu 10 noduri i se adaug ă o muchie, cu extremit ăț ile în dou ă dintre nodurile sale. Indica ț i num ă rul ciclurilor elementare pe care le con ț ine graful ob ț inut.",
+        "options": {
+          "a": "0",
+          "b": "1",
+          "c": "9",
+          "d": "10"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 21 de noduri, numerotate de la 1 la 21 ; pentru oricare dou ă noduri distincte ale sale, numerotate cu i , respectiv cu j , exist ă muchia [i,j] dac ă ș i numai dac ă ultima cifr ă a lui i este egal ă cu ultima cifr ă a lui j . Indica ț i num ă rul valorilor nule din matricea de adiacen ță a grafului.",
+        "options": {
+          "a": "2 ∙ 21-10 2",
+          "b": "21 2 -11",
+          "c": "21 2 -2 ∙ 12",
+          "d": "2 ∙ 21 2 -13"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b . cite ș te n,x,y ( numere naturale nenule, x ≤ n , y ≤ n ) ok  0 ┌ pentru i  1,n execut ă │┌ dac ă (i%x=0 ș i i%y ≠ 0) sau ││ (i%x ≠ 0 ș i i%y=0) atunci ││ scrie i, ' ' ││ ok  1 │└■ └■ ┌ dac ă ok=0 atunci scrie 0 └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i ce se afi ș eaz ă în urma execut ă rii algoritmului dac ă se citesc, în aceast ă ordine, numerele 15 , 3 , 4 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i dou ă seturi distincte de date de intrare, astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea s ă se afi ș eze valoarea 0 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind structura pentru...execut ă cu o structur ă repetitiv ă cu test ini ț ial. Ministerul Educa ț iei Na ț ionale Centrul Na ț ional de Evaluare ș i Examinare Prob ă scris ă la INFORMATIC Ă Varianta 4 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila s poate memora un ș ir de cel mult 20 de caractere, variabila aux este de tip char , iar celelalte variabile sunt de tip întreg. Scrie ț i ș irul memorat prin intermediul variabilei s în urma execut ă rii secven ț ei al ă turate. strcpy(s,\"ROMANIA\"); i=strlen(s)-1; for(j=3;j>=0;j--) { aux=s[i]; s[i]=s[i-j]; s[i-j]=aux; i=i-j; }",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila a memoreaz ă datele personale ale fiec ă ruia dintre cei 30 de angaja ț i (codul numeric personal – CNP, anul na ș terii) ș i venitul lunar al acestuia. Scrie ț i o secven ță de instruc ț iuni în urma execut ă rii c ă reia pentru primul angajat s ă se ini ț ializeze anul na ș terii cu valoarea 2000 , iar venitul cu valoarea 4000 . struct date { char CNP[14]; int anNastere; }; struct angajat { struct date dp; int venit; }a[30];",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un num ă r natural n se nume ș te cub perfect dac ă exist ă un num ă r natural b , astfel încât n=b 3 . Subprogramul cuburi are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ [1,10 3 ] ). Subprogramul afi ș eaz ă pe ecran, separate prin câte un spa ț iu, în ordine descresc ă toare, primele n cuburi perfecte nenule. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=5 atunci, dup ă apel, se afi ș eaz ă pe ecran numerele 125 64 27 8 1",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrie ț i un program C/C++ care cite ș te de la tastatur ă dou ă numere naturale din intervalul [2,10 2 ] , k ș i n , ș i construie ș te în memorie un tablou bidimensional cu n linii ș i n coloane, astfel încât parcurgând diagonala principal ă , de sus în jos, s ă se ob ț in ă un ș ir strict cresc ă tor format din primii n multipli naturali nenuli ai lui k ș i parcurgând fiecare linie a sa, de la stânga la dreapta, s ă se ob ț in ă câte un ș ir strict cresc ă tor de numere naturale consecutive. Programul afi ș eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: pentru k=3 ș i n=4 se ob ț ine tabloul de mai jos 3 4 5 6 5 6 7 8 7 8 9 10 9 10 11 12",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Numim pereche asemenea (x,y) dou ă numere naturale cu cel pu ț in dou ă cifre, x ș i y , cu proprietatea c ă ultimele dou ă cifre ale lui x sunt egale cu ultimele dou ă cifre ale lui y , dispuse eventual în alt ă ordine. Fi ș ierul numere.in con ț ine numere naturale din intervalul [10,10 5 ] : pe prima linie dou ă numere na ș i nb , pe a doua linie un ș ir A de na numere, iar pe a treia linie un ș ir B de nb numere. Numerele aflate pe aceea ș i linie a fi ș ierului sunt separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran num ă rul de perechi asemenea (x,y) , cu proprietatea c ă x este un termen al ș irului A , iar y este un termen al ș irului B . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 9 7 112 20 42 112 5013 824 10012 55 155 402 1024 321 521 57 6542 255 se afi ș eaz ă pe ecran num ă rul 13 deoarece sunt 13 perechi asemenea: (112,321) , (112,521) , (20,402) , ( 42,1024) , (42,6542) , (112,321) , (112,521) , (824,1024) , (824,6542) , (10012,321) , (10012,521) , (55,255) , (155,255) . a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

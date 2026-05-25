@@ -1,0 +1,96 @@
+{
+  "id": "2011-sesiunea-august-septembrie-subiect",
+  "year": 2011,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2011/2011-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2011/2011-sesiunea-august-septembrie-barem.pdf",
+  "variant": 3,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Expresia C/C++ !(-20>=x) && (x<=-10) || (x>=-5) && !(x>5) are valoarea 1 dacă şi numai dacă valoarea memorată de variabila reală x aparŃine reuniunii de intervale: (4p.)",
+        "options": {
+          "a": "(- ∞ ∞ ∞ ∞ ,-10] ∪ ∪ ∪ ∪ [5, ∞ ∞ ∞ ∞ )",
+          "b": "[-20,-10] ∪ ∪ ∪ ∪ (-5,5)",
+          "c": "(-20,-10) ∪ ∪ ∪ ∪ (-5,5)",
+          "d": "(-20,-10] ∪ ∪ ∪ ∪ [-5,5]"
+        },
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărŃirii numărului natural x la numărul natural nenul y şi cu [z] partea întreagă a numărului real z .",
+        "options": {
+          "d": "ScrieŃi programul C/C++ corespunzător algoritmului dat. (10p.) Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la Informatică Varianta 3 Limbajul C/C++ Filiera teoretică, profilul real, specializările matematică – informatică, matematică – informatică intensiv informatică Filiera vocaŃională, profilul militar, specializarea matematică – informatică 2",
+          "a": "ScrieŃi numărul care se afişează în urma executării algoritmului dacă pentru variabila n se citeşte valoarea 1034 , iar pentru variabila m valoarea 1234 . (6p.)",
+          "b": "ScrieŃi toate perechile distincte de valori naturale, de câte două cifre fiecare, valori care pot fi citite pentru variabilele n şi m astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea, numărul afişat să fie 86 . (6p.) citeşte n,m (numere naturale) ┌dacă n<m atunci │ x \u0001 \u0001 \u0001 \u0001 n │ n \u0001 \u0001 \u0001 \u0001 m │ m \u0001 \u0001 \u0001 \u0001 x └■ p \u0001 \u0001 \u0001 \u0001 1 ┌cât timp m>0 execută │ c \u0001 \u0001 \u0001 \u0001 m%10 │ m \u0001 \u0001 \u0001 \u0001 [m/10] │ n \u0001 \u0001 \u0001 \u0001 n-p*c │ p \u0001 \u0001 \u0001 \u0001 p*10 └■ scrie n",
+          "c": "ScrieŃi în pseudocod un algoritm care să nu folosească structuri repetitive şi care să fie echivalent cu cel dat. (4p.)"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Frunzele arborelui cu rădăcină, având 8 noduri, numerotate de la 1 la 8 , reprezentat prin vectorul ”de taŃi” (6,6,5,0,6,4,4,7) sunt: a. 1,2,3,8 b. 1,2,8 c. 3,7 d. 4,6,7 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Structura cu numele CARTE permite memorarea unui număr real, reprezentând valoarea exprimată în euro a unei cărŃi, a unui număr întreg, reprezentând numărul de pagini ale cărŃii, şi a unui şir de caractere reprezentând titlul cărŃii, format din cel mult 50 de caractere. ScrieŃi în limbajul C/C++ o definiŃie a structurii menŃionate şi declaraŃi o variabilă x de acest tip. DenumiŃi sugestiv câmpurile acestei structuri. 4. În secvenŃa de program alăturată variabila a memorează un şir cu cel mult 100 de caractere, iar variabilele i şi k sunt de tip întreg. ScrieŃi şirul afişat pe ecran în urma executării secvenŃei. (6p.) k=’a’-’A’; strcpy(a,”bacalaureat”); for(i=0;i<strlen(a);i++) if(strchr(”aeiou”,a[i])!=NULL) a[i]=a[i]-k; cout<<a; | printf(”%s”,a); ScrieŃi un program C/C++ care citeşte de la tastatură două numere naturale n şi m ( 2<n ≤ ≤ ≤ ≤ 24 , 2<m ≤ ≤ ≤ ≤ 24 ) şi construieşte în memorie un tablou bidimensional cu n linii şi m coloane, în care orice element aflat pe ultima linie sau pe ultima coloană are valoarea 1 şi oricare alt element este egal cu ultima cifră a sumei celor două elemente alăturate lui, aflate pe aceeaşi linie şi pe coloana din dreapta, respectiv pe aceeaşi coloană şi pe linia următoare, ca în exemplu. Programul afişează pe ecran tabloul obŃinut, câte o linie a tabloului pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spaŃiu. (10p.) 5. Exemplu: pentru n=4 şi m=5 se afişează tabloul alăturat. 5 0 0 4 1 5 0 6 3 1 5 4 3 2 1 1 1 1 1 1 Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la Informatică Varianta 3 Limbajul C/C++ Filiera teoretică, profilul real, specializările matematică – informatică, matematică – informatică intensiv informatică Filiera vocaŃională, profilul militar, specializarea matematică – informatică 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează în ordine crescătoare numere naturale de câte patru cifre din mulŃimea A={1,2,3,4,5} , numere care nu conŃin două cifre impare alăturate. Primele opt numere generate sunt, în această ordine, 1212 , 1214 , 1221 , 1222 , 1223 , 1224 , 1225 , 1232 . Numărul de valori generate care au cifra miilor egală cu 2 şi cifra unităŃilor egală cu 4 este: a. 20 b. 16 c. 12 d. 9 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "ScrieŃi ce se afişează în urma apelului de mai jos pentru subprogramul f , definit alăturat. f(12345); void f (int x) { cout<<”*”; | printf(”*”); if(x>0) { cout<<x; | printf(”%d”,x); f(x/100); cout<<”*”; | printf(”*”); } }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "în",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul inter are patru parametri: • na , nb prin care primeşte câte un număr natural ( 0<na<100 , 0<nb<100 ); • a , b prin care primeşte câte un tablou unidimensional care memorează câte o mulŃime de na , respectiv nb numere naturale, fiecare având cel mult patru cifre. Subprogramul returnează numărul de elemente aparŃinând intersecŃiei celor două mulŃimi menŃionate. ScrieŃi în limbajul C/C++ definiŃia completă a subprogramului inter . Exemplu: pentru na=4 , a=(35 , 149 , 72 , 3798) , nb=5 , b=(72 , 151 , 149,9 , 623) , în urma apelului, subprogramul returnează valoarea 2 . 4. Fişierul BAC.TXT conŃine un şir de cel puŃin 11 şi cel mult un milion de numere naturale, despărŃite prin câte un spaŃiu. Fiecare număr are cel puŃin două şi cel mult nouă cifre. Primul termen al şirului are numărul de ordine 1 , al doilea are numărul de ordine 2 etc. Se citeşte şirul din fişier şi se cere ca, utilizând un algoritm eficient din punct de vedere al timpului de executare, să se determine şi să se afişeze pe ecran numărul de ordine al unui termen al şirului care este precedat în fişier de un număr maxim de valori care au cifra zecilor egală cu a sa. Dacă sunt mai mulŃi termeni cu această proprietate, se afişează numărul de ordine doar al unuia dintre ei. Exemplu: dacă fişierul BAC.TXT conŃine numerele 12 36 265 18 139 19 32 34 112 14 68 pe ecran se afişează 10 (numărul de ordine al termenului 14 ). a) DescrieŃi în limbaj natural algoritmul utilizat, justificând eficienŃa acestuia. (4p.) b) ScrieŃi programul C/C++ corespunzător algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "sunt mai mulŃi termeni cu această proprietate,",
+        "exampleOutput": "numărul",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

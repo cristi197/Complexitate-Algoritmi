@@ -1,0 +1,171 @@
+{
+  "id": "2020-mec-test-02-subiect",
+  "year": 2020,
+  "session": "mec-test-02",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-02-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-02-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați o expresie care are valoarea 1 dacă şi numai dacă numărul memorat în variabila întreagă x aparţine intervalului închis [-20,20] .",
+        "options": {
+          "a": "!(x<-20) || (x>20)",
+          "b": "x>-20 || x<20",
+          "c": "!(x+20<0 && x-20>0)",
+          "d": "x+20 > =0 && x-20<=0"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Valoarea lui f(2020,15) este: (6p.) int f(int x, int y) { if(x==0) return y; if(y==0) return x; return f(x-y, x%y); }",
+        "options": {
+          "a": "14",
+          "b": "200",
+          "c": "1990",
+          "d": "2020"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se generează toate grupele de accesorii pentru tenis de câmp din mulțimea { bentiță , fileu , grip , manșete , mingi , rachetă , racordaj , șapcă }. Accesoriile au preţurile următoare, exprimate în lei: bentiță - 40 , fileu - 400 , grip - 30 , manșete - 30 , mingi - 10 , rachetă - 400 , racordaj - 70 , șapcă - 60 . Într-o grupă accesoriile sunt distincte, nu contează ordinea lor și costă, în total, exact 500 de lei. Primele trei soluții generate sunt, în această ordine: ( bentiță , fileu , grip , manșete ), ( bentiță , fileu , șapcă ), ( bentiță , grip , manșete , rachetă ). A cincea soluție generată este:",
+        "options": {
+          "a": "( bentiță , rachetă , șapcă )",
+          "b": "(fileu , grip , mingi , șapcă)",
+          "c": "(grip , rachetă , racordaj)",
+          "d": "(manșete , mingi , rachetă , șapcă)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Într-un arbore cu rădăcină un nod se află pe nivelul x dacă lanţul elementar care are o extremitate în nodul respectiv şi cealaltă extremitate în rădăcina arborelui are lungimea x . Pe nivelul 0 se află un singur nod (rădăcina). Într-un arbore cu rădăcină cu 6 de noduri, numerotate de la 1 la 6 , sunt 3 noduri situate pe ultimul nivel. Indicați un vector de „tați” care poate corespunde arborelui.",
+        "options": {
+          "a": "(0,3,1,6,6,2)",
+          "b": "(2,0,1,1,2,1)",
+          "c": "(3,5,5,6,0,5)",
+          "d": "(5,1,1,1,0,1)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , are arcele (1,6) , (2,1) , (2,3) , (2,5) , (3,4) , (3,5) , (4,6) . Indicați numărul minim de arce care pot fi adăugate astfel încât graful obținut să aibă cel puțin două circuite. Un circuit este format numai din arce distincte, iar două circuite sunt distincte dacă diferă prin cel puţin un arc.",
+        "options": {
+          "c": "3",
+          "b": "2",
+          "d": "4 Ministerul Educaţiei și Cercetării Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică Testul 2 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n (număr natural) m  0 ┌repetă │ c  n%10; n  [n/10] │┌dacă c =0 atunci c  2 ││altfel ││┌dacă c%2=0 atunci │││c  0 ││└■ │└■ │ m  m*10+c └până când n=0 scrie m a. Scrieţi valoarea afişată dacă se citeşte numărul 25940464 . (6p.) b. Scrieţi trei numere de cinci cifre care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului să se afișeze 2020 . (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă...până când cu o structură repetitivă cu test inițial. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n (număr natural) m  0 ┌repetă │ c  n%10; n  [n/10] │┌dacă c =0 atunci c  2 ││altfel ││┌dacă c%2=0 atunci │││c  0 ││└■ │└■ │ m  m*10+c └până când n=0 scrie m",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi valoarea afişată dacă se citeşte numărul 25940464 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieţi trei numere de cinci cifre care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului să se afișeze 2020 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă...până când cu o structură repetitivă cu test inițial.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila s memorează simultan următoarele date despre fiecare dintre cele 20 de specii de animale dintr-o rezervație: un cod, reprezentând specia, numărul de exemplare din specia respectivă și vârstele acestora. În rezervație sunt maximum 10 exemplare din fiecare specie. Știind că expresiile C/C++ de mai jos au ca valori numere naturale și reprezintă codul și numărul de exemplare din prima specie, respectiv vârsta celui de al 4 -lea exemplar din această specie, scrieți definiția unei structuri cu eticheta specie , care permite memorarea datelor despre o specie, și declarați corespunzător variabila s . s[0] .cod s[0].nrExemplare s[0].varsta[3]",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i şi j sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 5 linii şi 7 coloane, numerotate începând de la 0 , cu elemente numere întregi, inițial toate egale cu 1 . Fără a utiliza alte variabile decât cele menționate, scrieţi o secvenţă de instrucţiuni prin care se transformă în memorie tabloul, astfel încât orice element aflat pe prima linie sau pe prima coloană să aibă valoarea 1 şi oricare alt element din tablou să fie egal cu ultima cifră a sumei celor două elemente alăturate lui, aflate pe aceeaşi linie dar pe coloana din stânga, respectiv pe aceeaşi coloană, dar pe linia anterioară. 1 1 1 1 1 1 1 1 2 3 4 5 6 7 1 3 6 0 5 1 8 1 4 0 0 5 6 4 1 5 5 5 0 6 0",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Două numere distincte a și b sunt numite d- fii ai unui număr natural n dacă a∙b=n . Subprogramul fii are un singur parametru, n , prin care primește un număr natural ( n  [2,10 9 ] ). Subprogramul afișează pe ecran toate perechile distincte de numere naturale cu proprietatea că sunt d-fii ai lui n . Fiecare pereche este afișată încadrată între paranteze rotunde, numerele din pereche fiind afișate în ordine strict descrescătoare, separate printr-un spațiu. Scrieți definiția completă a subprogramului. Exemplu: dacă n=12 se afișează pe ecran, nu neapărat în această ordine, (12 1)(6 2)(4 3) iar dacă n=16 se afișează pe ecran (16 1)(8 2)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "a∙b=n . Subprogramul fii are un singur parametru, n , prin care primește un număr natural ( n  [2,10 9 ] ). Subprogramul afișează pe ecran toate perechile distincte de numere naturale cu proprietatea că sunt d-fii ai lui n . Fiecare pereche este afișată încadrată între paranteze rotunde, numerele din pereche fiind afișate în ordine strict descrescătoare, separate printr-un spațiu. Scrieți definiția completă a subprogramului. Exemplu: dacă n=12",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un text are cel mult 100 de caractere și este format din cuvinte şi numere, separate prin câte un spațiu. Cuvintele sunt formate numai din litere ale alfabetului englez. Toate numerele sunt reale şi sunt formate numai din parte întreagă sau din parte întreagă şi parte fracţionară, separate prin virgulă ( , ), numerele negative fiind precedate de semnul minus ( - ). Scrieţi un program C/C++ care citeşte de la tastatură textul, pe care îl transformă, eliminând din componenţa sa toate numerele negative. Programul afişează apoi pe ecran textul obţinut. Exemplu: pentru textul 2,7 minus 3,5 minus 2 egal 2,7 plus -3,5 plus -2 egal -0,2 rezultat se va afişa pe ecran textul : 2,7 minus 3,5 minus 2 egal 2,7 plus plus egal rezultat",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fişierul bac.in conţine un şir de numere naturale distincte, din intervalul [1,10 9 ] . Numerele din şir sunt separate prin câte un spaţiu şi cel puţin trei dintre ele au penultima cifră 2 și ultima cifră 0 . Se cere să se afișeze pe ecran cele mai mari trei numere din şir cu proprietatea că au penultima cifră 2 și ultima cifră 0 . Numerele determinate sunt afişate în ordine crescătoare, separate prin câte un spaţiu. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate şi al timpului de executare. Exemplu : dacă fişierul conţine numerele 9731 50 112 20 8 16 8520 3 2520 1520 pe ecran se vor afişa, în această ordine, numerele: 1520 2520 8520 a. Scrieți programul C/C++ corespunzător algoritmului proiectat. b. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. (2p.)",
+        "points": 8,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "2024-sesiunea-iunie-iulie-subiect",
+  "year": 2024,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2024/2024-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2024/2024-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 3,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i expresia C/C++ care are valoarea 1 dac ă ș i numai dac ă numerele memorate în variabilele întregi x ș i y sunt pare.",
+        "options": {
+          "a": "x%2==0 && (y+1)%2!=0",
+          "b": "(x-y)%2==0",
+          "c": "(x+y)%2==0",
+          "d": "x%2==y%2"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(2020,0); void f(int x, int y) { if (x<10) cout<<x; | printf(\"%d\",x); else { f(x/10,y+1); cout<<x%10; | printf(\"%d\",x%10); } cout<<y; | printf(\"%d\",y); }",
+        "options": {
+          "a": "23020",
+          "b": "2022100",
+          "c": "02023210",
+          "d": "23022100"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se genereaz ă toate permut ă rile elementelor mul ț imii ordonate astfel: { 1 , 2 , 3 , 4 , 5 , 6} ; pentru fiecare permutare, pe primele trei pozi ț ii sunt doar valori pare, iar pe ultimele trei pozi ț ii sunt doar valori impare. Primele ș ase permut ă ri generate sunt, în aceast ă ordine: ( 2 , 4 , 6 , 1 , 3 , 5) , ( 2 , 4 , 6 , 1 , 5 , 3) , ( 2 , 4 , 6 , 3 , 1 , 5) , ( 2 , 4 , 6 , 3 , 5 , 1) , ( 2 , 4 , 6 , 5 , 1 , 3) , ( 2 , 4 , 6 , 5 , 3 , 1) . Indica ț i a ș aptea permutare generat ă .",
+        "options": {
+          "a": "( 4 , 2 , 6 , 1 , 5 , 3 )",
+          "b": "( 4 , 2 , 6 , 1 , 3 , 5 )",
+          "c": "( 2 , 6 , 4 , 1 , 3 , 5)",
+          "d": "( 2 , 4 , 6 , 5 , 3 , 2 )"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Variabila x memoreaz ă , pentru fiecare dintre cele 20 de sortimente de ciocolat ă , urm ă toarele date: tipul (litera N pentru ciocolat ă neagr ă ș i litera L pentru ciocolat ă cu lapte) ș i pre ț ul produsului. Indica ț i o expresie a c ă rei valoare este egal ă cu tipul celui de al 11 -lea sortiment de ciocolat ă . struct ciocolata { char tip; float pret; }x[20];",
+        "options": {
+          "a": "x.ciocolata[10].tip",
+          "b": "x.tip[10]",
+          "c": "x[10].ciocolata.tip",
+          "d": "x[10].tip"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un graf neorientat, cu 10 muchii, dou ă noduri au gradul 0 , ș ase noduri au grade impare, iar celelalte noduri au grade pare, nenule. Indica ț i num ă rul maxim de noduri ale grafului.",
+        "options": {
+          "a": "17",
+          "b": "15",
+          "c": "12",
+          "d": "10 Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la INFORMATIC Ă Varianta 3 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu [c] partea întreag ă a num ă rului real c . cite ș te n ( num ă r natural nenul ) p  1 ┌ pentru i  1,n execut ă │ cite ș te x │ ( num ă r natural ) │┌ repet ă ││ x  [x/3] │└ pân ă când x ≤ 3 │┌ dac ă x ≠ 0 atunci ││ p  p*x │└■ └■ scrie p",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valoarea afi ș at ă dac ă se citesc, în aceast ă ordine, numerele 5 , 15 , 27 , 10 , 1 , 17 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă pentru n se cite ș te valoarea 2 , scrie ț i un set de numere distincte din intervalul [0,10 3 ] care pot fi citite în continuare, astfel încât, în urma execut ă rii algoritmului, s ă se afi ș eze valoarea 4 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat structura pentru...execut ă cu o structur ă repetitiv ă de tip cât timp...execut ă .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin vectorul de „ta ț i”: ( 3 , 0 , 2 , 5 , 2 , 5 , 1 , 5 ). Enumera ț i, în ordinea parcurgerii lor, nodurile celui mai lung lan ț elementar care are extremitatea ini ț ial ă în r ă d ă cin ă .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 9 linii ş i 9 coloane, numerotate începând de la 0 , având ini ţ ial toate elementele nule. Scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie cu instruc ț iuni adecvate, dintre care cel mult patru de atribuire, astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=0;i<9;i++) for(j=0;j<9;j++) .................. 4 4 4 4 2 2 2 2 2 4 4 4 2 2 2 2 2 2 4 4 2 2 2 2 2 2 2 4 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 4 2 2 2 2 2 2 2 4 4 2 2 2 2 2 2 4 4 4 2 2 2 2 2 4 4 4 4",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un num ă r natural se nume ș te major impar dac ă suma divizorilor s ă i proprii impari este strict mai mare decât suma divizorilor s ă i proprii pari. Divizorii proprii ai unui num ă r sunt divizorii s ă i naturali diferi ț i de 1 ș i de el însu ș i. Exemplu: 18 este num ă r major impar (divizorii s ă i proprii pari sunt 2 , 6 , cei impari 3 , 9 , iar 3+9>2+6 ). Subprogramul majImp are doi parametri, a ș i b , prin care prime ș te câte un num ă r natural ( 2 ≤ a ≤ b ≤ 10 4 ). Subprogramul returneaz ă cel mai mic num ă r major impar din intervalul [a,b] , sau valoarea 0 , dac ă în interval nu exist ă un astfel de num ă r. Scrie ţ i în C/C++ defini ţ ia complet ă a subprogramului. Exemplu: dac ă a=16 , b=30 , atunci subprogramul returneaz ă 18 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text, de cel mult 100 de caractere, cuvintele sunt formate din litere ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Textul are cel pu ț in dou ă cuvinte. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un text de tipul precizat mai sus ș i afi ș eaz ă pe ecran mesajul DA ș i un num ă r natural n , separate printr-un spa ț iu, dac ă toate cuvintele din text au câte n litere, sau mesajul NU în cazul în care nu toate cuvintele au acela ș i num ă r de litere. Exemplu : dac ă textul citit este Ana are cel mai bun mar se afi ș eaz ă pe ecran DA 3 iar dac ă textul citit este Ana are cel mai dulce mar se afi ș eaz ă pe ecran NU",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "De-a lungul unui traseu montan este utilizat ă o succesiune de marcaje turistice, care trebuie urmate în acea ordine. Pentru fiecare marcaj se cunoa ș te cota (în ă l ț imea, m ă surat ă în metri) la care este plasat. Numim scar ă într-un traseu o secven ță de marcaje aflate pe pozi ț ii consecutive în cadrul traseului, care au drept cote numere consecutive, ordonate strict cresc ă tor. O scar ă este format ă din cel pu ț in dou ă marcaje, iar lungimea acesteia este egal ă cu num ă rul de marcaje care o compun. Fi ș ierul bac.txt con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [10,10 4 ] , separate prin câte un spa ț iu, reprezentând cotele marcajelor turistice din cadrul unui traseu, în ordinea în care se succed în acesta. Se cere s ă se afi ș eze pe ecran, separate prin câte un spa ț iu, în ordine strict cresc ă toare, cotele corespunz ă toare marcajelor unei sc ă ri de lungime maxim ă pe acest traseu. Dac ă în cadrul traseului exist ă mai multe astfel de sc ă ri, se afi ș eaz ă doar cotele corespunz ă toare marcajelor uneia dintre ele, iar dac ă nu exist ă nicio scar ă , pe ecran se afi ș eaz ă mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al spa ț iului de memorie utilizat. Exemplu: dac ă fi ș ierul con ț ine numerele 500 600 601 405 569 570 700 701 625 626 627 520 atunci pe ecran se afi ș eaz ă 625 626 627 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

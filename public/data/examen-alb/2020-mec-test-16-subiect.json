@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-16-subiect",
+  "year": 2020,
+  "session": "mec-test-16",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-16-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-16-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Expresia C/C++ (x<17) || !(x<=18 || x>=20) || (x>21) are valoarea 0 pentru orice valoare a variabilei întregi x din mulțimea:",
+        "options": {
+          "a": "{17,18,19}",
+          "b": "{17,18,20,21}",
+          "c": "{18,19,20}",
+          "d": "{18,19,20,21}"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking sunt generate toate numerele din intervalul [100,999] cu proprietatea că au cifrele în ordine crescătoare și cifrele aflate pe poziții consecutive sunt de paritate diferită. Primele cinci soluții generate sunt, în această ordine, 123 , 125 , 127 , 129 , 145 . Indicați cel de al 9 -lea număr generat.",
+        "options": {
+          "a": "149",
+          "b": "167",
+          "c": "169",
+          "d": "189"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Fiecare dintre variabilele A și B , declarate alăturat, memorează coordonatele ( x abscisa, iar y ordonata) câte unui punct în sistemul de coordonate xOy . Indicați o expresie C/C++ care are valoarea 1 dacă și numai dacă segmentul cu extremitățile în punctele corespunzătoare variabilelor A și B intersectează axa Ox a sistemului de coordonate. struct punct { int x,y; }A,B;",
+        "options": {
+          "a": "(A-y)*(B-y)<=0",
+          "b": "A.y*B.y<=0",
+          "c": "punct.y(A,B)<=0",
+          "d": "y.A*y.B<=0"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , are arcele (1,2) , (1,6) , (1,5) , (2,3) , (3,1) , (3,5) , (4,6) , (5,6) , (6,2) . Indicați numărul de vârfuri care au gradul extern mai mare decât gradul intern.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 50 de noduri și 32 de muchii. Indicați numărul maxim de componente conexe pe care le poate avea graful.",
+        "options": {
+          "a": "25",
+          "b": "31",
+          "c": "33",
+          "d": "42 Ministerul Educației Naționale Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Testul 16 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește numărul 1 , scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite pentru n , astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze un număr format din două cifre identice. (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n,k (numere naturale) ┌dacă k=0 atunci nr  -1 │altfel │ nr  0 │ p  1 │┌repetă ││ c  n%10; n  [n/10] ││┌dacă c %2=0 atunci │││ nr  nr+c*p; p  p*10 │││altfel k  k-1 ││└■ │└până când n=0 sau k=0 └■ scrie nr",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți numărul afișat în urma executării algoritmului dacă se citesc, în această ordine, numerele 812302105 și 4 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dacă pentru k se citește numărul 1 , scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite pentru n , astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze un număr format din două cifre identice.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Subprogramul f este definit alăturat. Scrieți ce se afișează în urma apelului de mai jos. f(5); void f(int n) { if (n!=0) { if (n%2==1) cout<<n<<' '; | printf(\"%d \",n); f(n-1); cout<<n<<' '; | printf(\"%d \",n); } else cout<<endl; | printf(\"\\n\"); }",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele s1 și s2 pot memora câte un șir cu cel mult 20 de caractere. Scrieți ce se afișează în urma executării secvenței alăturate. strcpy(s1,\"bacalaureat2020\"); cout<<strlen(s1); | printf(\"%d\",strlen(s1)); strcpy(s2,s1+11); strcpy(s1+3,s2); cout<<s1; | printf(\"%s\",s1);",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul nrDivPrimi are un singur parametru, n , prin care primește un număr natural ( n  [2,10 9 ] ). Subprogramul returnează numărul divizorilor care, în descompunerea în factori primi a lui n , apar la o putere impară. Scrieți definiția completă a subprogramului. Exemplu: dacă n=9000 , subprogramul returnează 2 ( 9000=2 3  3 2  5 3 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "numărul",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieți un program C/C++ care citește de la tastatură două numere naturale din intervalul [2,10 2 ] , n și m , și construiește în memorie un tablou bidimensional cu n linii și m coloane, cu proprietatea că parcurgându-l linie cu linie de sus în jos și fiecare linie de la stânga la dreapta, se obține șirul primelor n*m pătrate perfecte impare, ordonat strict descrescător, ca în exemplu. Elementele tabloului obținut se afișează pe ecran, fiecare linie a tabloului pe câte o linie a ecranului, valorile de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: pentru n=2 , m=3 se obține tabloul alăturat. 121 81 49 25 9 1",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.in conține numere naturale: pe prima linie două numere din intervalul [1,10 6 ] , m și n , pe a doua linie un șir de m numere din intervalul [1,10 9 ] , iar pe a treia linie un șir de n numere din intervalul [1,10 9 ] . Numerele aflate pe aceeași linie a fișierului sunt separate prin câte un spațiu, și ambele șiruri sunt ordonate crescător. Se cere să se afișeze pe ecran, în ordine strict crescătoare, un șir format dintr-un număr maxim de termeni care aparțin cel puțin unuia dintre cele două șiruri, astfel încât oricare două elemente aflate pe poziții consecutive să fie de paritate diferită. Numerele afișate sunt separate prin câte un spațiu. Proiectați un algoritm eficient din punctul de vedere al timpului de executare. Exemplu : dacă fișierul are conținutul alăturat, s e afișează pe ecran 2 3 4 5 8 11 14 sau 2 3 4 5 10 11 14 8 5 2 4 5 8 8 11 14 14 3 4 5 5 10 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

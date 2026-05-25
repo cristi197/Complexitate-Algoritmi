@@ -1,0 +1,144 @@
+{
+  "id": "2019-sesiunea-august-septembrie-subiect",
+  "year": 2019,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2019/2019-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2019/2019-sesiunea-august-septembrie-barem.pdf",
+  "variant": 2,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "O expresie C/C++ care are valoarea 0 este:",
+        "options": {
+          "a": "’m’<’n’",
+          "b": "’m’==’M’",
+          "c": "’M’==’m’+’N’-’n’",
+          "d": "’N’=='M’+1"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ţ i ce se afi ş eaz ă în urma apelului de mai jos. f(75,30 ); void f(int i, int j) { cout<<i<<\" \"; | printf(\"%d \",i); if(i!=j) { if(i<j){ i=i+j; j=i-j; i=i-j; } f(i-j,j); } }",
+        "options": {
+          "a": "75 30 45",
+          "b": "75 45 15",
+          "c": "75 45 15 15",
+          "d": "75 30 45 15"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate torturile formate din trei straturi de tipuri distincte de crem ă din mul ţ imea { caramel , ciocolat ă , fri ș c ă , nuci , vanilie }. Ultimul strat este de fri ș c ă sau de vanilie, iar aceste tipuri de crem ă nu pot ap ă rea pe primele dou ă straturi. Dou ă torturi cu straturi din acelea ș i tipuri de crem ă sunt diferite dac ă acestea sunt dispuse în alt ă ordine. Primele patru solu ț ii generate sunt, în aceast ă ordine: ( caramel , ciocolat ă , fri ș c ă ), ( caramel , ciocolat ă , vanilie ), ( caramel , nuci , fri ș c ă ), ( caramel , nuci , vanilie ). A cincea solu ț ie este:",
+        "options": {
+          "a": "( ciocolat ă , caramel , fri ș c ă )",
+          "b": "( ciocolat ă , nuci , fri ș c ă )",
+          "c": "( nuci , caramel , vanilie )",
+          "d": "( nuci , ciocolat ă , vanilie )"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Num ă rul de noduri ale unui arbore cu 4 muchii este:",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "4",
+          "d": "5"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Valorile care pot reprezenta gradele nodurilor unui graf neorientat, cu 6 noduri, sunt:",
+        "options": {
+          "a": "1,0,0,2,2,2",
+          "b": "2,2,3,4,0,3",
+          "c": "2,2,5,5,0,1",
+          "d": "6,5,4,3,2,1 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 2 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ţ irii num ă rului natural a la num ă rul natural nenul b ş i cu [c] partea întreag ă a num ă rului real c . cite ş te n (num ă r natural) m \u0001 \u0001 \u0001 \u0001 0; x \u0001 \u0001 \u0001 \u0001 1 ┌ cât timp x ≤ 9 execut ă │ cp \u0001 \u0001 \u0001 \u0001 n │┌ cât timp cp ≠ 0 execut ă ││┌ dac ă cp%10=x atunci │││ m \u0001 \u0001 \u0001 \u0001 m*10+x ││└■ ││ cp \u0001 \u0001 \u0001 \u0001 [cp/10] │└■ │ x \u0001 \u0001 \u0001 \u0001 x+1 └■ scrie m a) Scrie ţ i valoarea afi ş at ă dac ă se cite ș te num ă rul 27102 . b) Scrie ţ i trei numere distincte din intervalul [10,9999] care pot fi citite, astfel încât în urma execut ă rii algoritmului, pentru fiecare dintre acestea, valoarea afi ş at ă s ă fie 11 . (6p.) c) Scrie ţ i programul C/C++ corespunz ă tor algoritmului dat. (10p.) d) Scrie ţ i în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structur ă cât timp…execut ă cu o structur ă de tip pentru…execut ă . (6p.)",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Fiind date dou ă ș iruri de caractere a ş i b , îl numim pe a sufix al lui b dac ă a este egal cu b sau dac ă b se poate ob ţ ine din a prin alipirea la stânga a unor noi caractere. Variabilele a ş i b pot memora câte un ș ir cu cel mult 20 de caractere. Scrie ţ i o secven ţă de instruc ţ iuni în urma execut ă rii c ă reia variabila a s ă memoreze un sufix al lui b format din trei caractere, sau ș irul nedeterminat , dac ă nu exist ă un astfel de sufix. Exemplu : dac ă b memoreaz ă ş irul centaur , atunci a memoreaz ă ş irul aur , iar dac ă b memoreaz ă ş irul au , atunci a memoreaz ă ş irul nedeterminat .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În declar ă rile al ă turate, variabila p memoreaz ă coordonatele unui punct în sistemul de coordonate xOy , iar variabila c memoreaz ă datele caracteristice ale unui cerc: lungimea razei ș i coordonatele centrului s ă u. Scrie ț i o expresie care are valoarea 1 dac ă ş i numai dac ă punctul corespunz ă tor variabilei p coincide cu centrul cercului corespunz ă tor variabilei c . struct punct { int x,y; }p; struct cerc { struct punct centru; float raza; }c;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul MaxImp are doi parametri, a ș i b , prin care prime ş te câte un num ă r natural ( 2 ≤ a<b ≤ 400 ). Subprogramul returneaz ă cel mai mare num ă r natural din intervalul [a,b] pentru care produsul divizorilor s ă i impari pozitivi este strict mai mare decât el însu ș i sau 0 , dac ă nu exist ă niciun astfel de num ă r. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă a=14 ș i b=19 , atunci subprogramul returneaz ă 18 ( 1 · 3 · 9=27>18 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Numim p ă trat de dimensiune m al unui tablou bidimensional tabloul ob ț inut din acesta p ă strând doar elementele aflate pe primele m linii ş i pe primele m coloane ale sale. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un num ă r natural, n ( n ∈ ∈ ∈ ∈ [2,20] ), apoi elementele unui tablou bidimensional cu n linii ş i n coloane, numere naturale din intervalul [0,10 4 ] . Programul determin ă un p ă trat de dimensiune maxim ă al tabloului citit, cu toate elementele egale, ș i afi ș eaz ă pe ecran valoarea acestei dimensiuni. Exemplu: pentru n=5 ș i tabloul al ă turat, se afi ş eaz ă pe ecran 3 . 2 2 2 2 2 2 2 2 2 8 2 2 2 2 2 2 1 2 8 7 3 5 2 1 2",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fi ş ierul bac.txt con ţ ine un ş ir de cel pu ț in dou ă ș i cel mult 10 6 numere naturale din intervalul [0,10 3 ] , separate prin câte un spa ţ iu. Ș irul are cel pu ț in un termen par ș i cel pu ț in un termen impar. Se cere s ă se afi ș eze pe ecran termenii ș irului, separa ț i prin câte un spa ţ iu, astfel încât to ț i cei impari s ă apar ă înaintea tuturor celor pari, ş i atât sub ș irul format din cei impari, cât ş i sub ș irul format din cei pari, s ă fie în ordine cresc ă toare, ca în exemplu. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ş ierul con ţ ine numerele 12 2 3 1 2 5 se afi ş eaz ă pe ecran: 1 3 5 2 2 12 a) Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b) Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

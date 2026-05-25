@@ -1,0 +1,85 @@
+{
+  "id": "2014-sesiunea-special-subiect",
+  "year": 2014,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2014/2014-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2014/2014-sesiunea-special-barem.pdf",
+  "variant": 2,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x , y ș i z sunt de tip întreg ș i memoreaz ă câte un num ă r natural nenul. Dac ă expresia C/C++ al ă turat ă are valoarea 1 , indica ț i ș irul cresc ă tor format cu valorile acestor variabile, în ordinea precizat ă mai jos. (4p.) !(z<=y) && y>x",
+        "options": {
+          "a": "x , y , z",
+          "b": "y , z , x",
+          "c": "z , x , y",
+          "d": "z , y , x"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă un graf neorientat conex ş i f ă r ă cicluri, în care gradul oric ă rui nod este mai mic sau egal cu 4 . Dac ă ș ase dintre nodurile sale au gradul egal cu 1 , atunci num ă rul maxim de noduri cu gradul egal cu 4 este: a. 0 b. 1 c. 2 d. 3 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Scrie ț i matricea de adiacen ță prin care poate fi reprezentat graful orientat cu 5 vârfuri, numerotate de la 1 la 5 , ilustrat în figura al ă turat ă . 4. Se consider ă urm ă toarea opera ț ie prin care se transform ă un arbore cu r ă d ă cin ă : se elimin ă din arbore nodul „frunz ă ” numerotat cu valoarea minim ă , marcându-se nodul „tat ă ” al acestuia. Scrie ț i vectorul de „ta ț i” al unui arbore cu 6 noduri, numerotate de la 1 la 6 , în care nodul 1 este r ă d ă cin ă , ș tiind c ă dac ă asupra acestui arbore se efectueaz ă de patru ori succesiv opera ț ia de transformare men ț ionat ă mai sus, se marcheaz ă , în aceast ă ordine, nodurile 5 , 1 , 1 , 1 . (6p.) 5. Se consider ă un text cu cel mult 100 de caractere, în care cuvintele sunt formate numai din litere mici ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul men ţ ionat mai sus ş i determin ă transformarea acestuia în memorie, astfel încât din fiecare cuvânt format dintr-un num ă r impar de litere (cel pu ț in trei) s ă se elimine litera aflat ă pe pozi ț ia din mijloc, ca în exemplu. Programul afi ş eaz ă pe ecran textul ob ţ inut, iar dac ă nu exist ă niciun cuvânt modificat, afi ș eaz ă pe ecran mesajul nu exista . Exemplu : pentru textul pictura prin aceea arata o pace profunda se afi ş eaz ă picura prin acea arta o pace profunda (10p) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 2 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a ob ț ine suma 4 cu numere naturale nenule. Dou ă sume sunt distincte dac ă difer ă prin cel pu ț in un termen. Solu ţ iile generate sunt, în aceast ă ordine, 1+1+1+1 , 1+1+2 , 1+3 , 2+2 . Aplicând acela ș i algoritm pentru a genera toate posibilit ăț ile de a ob ț ine suma 6 , dac ă prima solu ț ie generat ă este 1+1+1+1+1+1 , atunci solu ț ia 1+2+3 este generat ă : a. a 6 -a b. a 7 -a c. a 8 -a d. a 9 -a Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Scrie ţ i valorile f(5,5) ş i f(10,21) . int f(int a, int b) { if (a==b) return 0; if (b/a==0) return a+b; return f(a+2,b-3); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un num ă r natural nenul se nume ș te perfect dac ă este egal cu suma divizorilor s ă i naturali strict mai mici decât el. Exemplu: 28 este num ă r perfect pentru c ă 28=1+2+4+7+14 . Se consider ă subprogramul perfect , cu doi parametri, a ș i b , prin care prime ş te câte un num ă r natural ( 2 ≤ a<b ≤ 10 9 ). Subprogramul afi ș eaz ă pe ecran, separate prin câte un spa ț iu, în ordine descresc ă toare, toate numerele perfecte din intervalul [a,b] . Dac ă în interval nu exist ă astfel de numere, subprogramul afi ș eaz ă pe ecran mesajul nu exista . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: pentru a=5 ș i b=30 , se afi ș eaz ă pe ecran: 28 6 4. Numim secven ță uniform ă a unui ș ir de numere naturale un sub ș ir al acestuia, format din termeni cu aceea ș i valoare, afla ț i pe pozi ț ii consecutive în ș irul dat. Lungimea secven ț ei este egal ă cu num ă rul de termeni ai acesteia. Fi ș ierul bac.txt con ț ine un ș ir de cel pu ț in dou ă ș i cel mult 1000000000 de numere naturale din intervalul [ 0 , 10 9 ]. Numerele sunt separate prin câte un spa ț iu, iar în ș ir exist ă cel pu ț in doi termeni egali pe pozi ț ii consecutive. Se cere s ă se determine o secven ță uniform ă de lungime maxim ă în ș irul aflat în fi ș ier ș i s ă se afi ș eze pe ecran lungimea acestei secven ț e ș i, pe o linie nou ă , separa ț i prin câte un spa ț iu, termenii acesteia. Dac ă sunt mai multe astfel de secven ț e, se afi ș eaz ă doar termenii ultimei dintre acestea. Pentru determinarea numerelor cerute se utilizeaz ă un algoritm eficient din punctul de vedere al memoriei necesare ș i al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 2 3 3 3 3 5 4 4 11 11 11 11 16 11 11 11 11 15 15 atunci pe ecran se afi ș eaz ă valorile 4 11 11 11 11 a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

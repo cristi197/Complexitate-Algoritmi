@@ -1,0 +1,172 @@
+{
+  "id": "2021-antrenament-test-01-subiect",
+  "year": 2021,
+  "session": "antrenament-test-01",
+  "type": "antrenament",
+  "pdfUrl": "/subiecte-bac/2021/2021-antrenament-test-01-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2021/2021-antrenament-test-01-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați o expresie C/C++ echivalentă cu cea alăturată. (x>5) && (x<20) || (x!=y)",
+        "options": {
+          "a": "(x>5 || x<20) && (x==y)",
+          "b": "!(x<=5 || x>=20) || (x!=y)",
+          "c": "(x>5 || x<20) && (x!=y)",
+          "d": "!(x<5 || x>20) && (x!=y)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea f(4770777,7) . int f (int n, int k) { if (n!=0) if(n%10==k) return 1+f(n/10,k); return 0; }",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "4",
+          "d": "5"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila x este declarată alăturat. Indicați secvența care, în urma executării, memorează în variabila x ziua, luna și anul corespunzătoare unei date calendaristice citite de la tastatură. struct data { int zi, luna, an; }x;",
+        "options": {
+          "a": "cin>>x.zi>>x.luna>>x.an ; | scanf(”%d%d %d ”,&x. zi,&x.luna,&x.an);",
+          "b": "cin>>zi.x>>luna.x>>an.x ; | scanf(”%d%d %d ”,& zi.x,&luna.x,&an.x);",
+          "c": "cin>>x(zi,luna,an) ; | scanf(”%d %d%d ”,&x (zi,luna,an));",
+          "d": "cin>>x(zi)>>x(luna)>>x(an) ; | scanf(”%d%d %d ”, &x(zi),&x(luna),&x(an));"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu rădăcină are 8 noduri, numerotate de la 1 la 8 , și muchiile [1,3] , [1,7] , [1,8] , [2,4] , [3,5] , [3,6] , [4,5] . Știind că rădăcina arborelui este nodul numerotat cu 6 , indicați nodurile de tip frunză ale arborelui dat.",
+        "options": {
+          "a": "6,8",
+          "b": "2,6",
+          "c": "4,7,8",
+          "d": "2,7,8"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 6 noduri și fiecare dintre acestea are gradul egal cu 1 . Indicați numărul de componente conexe ale grafului.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4 Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Testul 1 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește valoarea 205579 . (6p.) b. Scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 7 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n (număr natural) m  10 ┌dacă n=0 atunci │ m  0 │altfel │┌repetă ││ c  n%10; n  [n/10] ││┌dacă c <=m atunci m  c │││altfel m  -1 ││└■ │└până când n=0 └■ scrie m",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți numărul afișat în urma executării algoritmului dacă pentru n se citește valoarea 205579 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 7 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Utilizând metoda backtracking, sunt generate toate numerele din intervalul [100,999] , cu proprietatea că au cifrele în ordine crescătoare, cifrele aflate pe poziții consecutive sunt de paritate diferită, iar suma lor este egală cu 14 . Scrieți toate numerele generate, în ordinea obținerii lor.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele s1 și s2 pot memora câte un șir de cel mult 50 de caractere. Scrieți ce se afișează în urma executării secvenței alăturate. strcpy(s1,\"bac2021\"); cout<<strlen(s1)<<endl; | printf(\"%d\\n\",lengtf(s1)); strcpy(s2,s1+3); strcpy(s2+2,\"20-\"); strcat(s2,s1+3); cout<<s2; | printf(\"%s\",s2);",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul divX are doi parametri, n și x , prin care primește câte un număr natural din intervalul [2,50] . Subprogramul afișează pe ecran, în ordine descrescătoare, separate prin câte un spațiu, primele n numere naturale nenule divizibile cu x . Scrieți definiția completă a subprogramului. Exemplu : dacă n=4 și x=15 în urma apelului se afișează numerele 60 45 30 15",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=4 și x=15 în urma apelului",
+        "exampleOutput": "numerele",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieți un program C/C++ care citește de la tastatură numărul natural n ( n  [2,10 2 ] ) și elementele unui tablou bidimensional cu n linii și n coloane, numere naturale din intervalul [0,10 9 ] . Programul afișează pe ecran, separate prin câte un spațiu, elementele primului pătrat concentric, parcurs în sens invers al acelor de ceasornic, începând din colțul său stânga- sus, ca în exemplu. Primul pătrat concentric este format din prima și ultima linie, prima și ultima coloană a tabloului. Exemplu: pentru n=5 și tabloul alăturat, se afișează pe ecran numerele 1 2 3 4 5 6 7 8 9 0 2 4 6 8 1 3 1 3 1 8 6 2 9 2 7 4 3 5 8 5 2 4 1 6 3 0 5 6 7 8 9",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.in conține cel mult 10 6 numere naturale din intervalul [0,10 9 ] , separate prin câte un spațiu. Se cere să se afișeze pe ecran, în ordine descrescătoare, cele mai mari două numere de două cifre distincte care NU se află în fișier. Numerele afișate sunt separate printr-un spațiu, iar dacă nu există două astfel de numere, se afișează pe ecran mesajul nu exista . Proiectați un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dacă fișierul bac.in conține numerele 12 235 123 67 98 6 96 94 123 67 98 100 se afișează pe ecran, în această ordine, numerele 97 95 . a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "nu există două astfel de numere,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

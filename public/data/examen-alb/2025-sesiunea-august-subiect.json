@@ -1,0 +1,172 @@
+{
+  "id": "2025-sesiunea-august-subiect",
+  "year": 2025,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2025/2025-sesiunea-august-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2025/2025-sesiunea-august-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i intervalul c ă ruia îi apar ț ine valoarea memorat ă în variabila întreag ă x , dac ă ș i numai dac ă expresia C/C++ al ă turat ă are valoarea 1 . !(x<=2020) && !(x>2025)",
+        "options": {
+          "a": "(2020,2025]",
+          "b": "(2020,2025)",
+          "c": "[2020,2025]",
+          "d": "(2021,2025)"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Variabila k este de tip întreg, iar variabila s permite memorarea unui ș ir de maximum 20 de caractere. Indica ț i valoarea variabilei k în urma execut ă rii secven ț ei al ă turate. strcpy(s,\"calculator\"); k=strchr(s,s[1])-strchr(s,s[3]);",
+        "options": {
+          "a": "9",
+          "b": "3",
+          "c": "2",
+          "d": "1"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "La o prob ă de dans a unui concurs s-au calificat 6 perechi, notate cu litere distincte din mul ț imea ordonat ă { A , B , C , D , E , F }, fiecare pereche prezentând câte un dans. Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a stabili ordinea sus ț inerii probei, astfel încât perechea A s ă prezinte prima, iar perechea F s ă prezinte ultima. Primele trei solu ț ii generate sunt ( A , B , C , D , E , F ), ( A , B , C , E , D , F ), ( A , B , D , C , E , F ). Indica ț i ultima solu ț ie generat ă .",
+        "options": {
+          "a": "( A , D , B , C , E , F )",
+          "b": "( A , E , D , B , C , F )",
+          "c": "( A , E , D , C , B , F )",
+          "d": "( A , F , E , D , C , B )"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , are arcele (3,1) , (4,1) , (4,2) , (4,3) , (5,6) , (6,4) . Indica ț i num ă rul vârfurilor pentru care gradul exterior este egal cu gradul interior.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un arbore cu 50 de noduri, numerotate de la 1 la 50 , r ă d ă cina este nodul numerotat cu 1 , iar tat ă l oric ă rui alt nod i al s ă u este nodul numerotat cu [i/2] . Indica ț i lungimea lan ț ului elementar cu o extremitate în nodul 32 ș i cealalt ă extremitate în nodul 23 .",
+        "options": {
+          "a": "5",
+          "b": "7",
+          "c": "9",
+          "d": "11"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ş te x,y ( numere naturale distincte ) cx  0; cy  0 ┌ cât timp x ≥ 10 sau y ≥ 10 execut ă │┌ cât timp x+y ≠ 0 execut ă ││ cx  cx+x%10; x  [x/10] ││ cy  cy+y%10; y  [y/10] │└■ │ x  cx; cx  0; y  cy; cy  0 └■ ┌ dac ă x=y atunci scrie \"DA \",x │ altfel scrie \"NU \",x,\" \",y └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i ce se afi ș eaz ă în urma execut ă rii algoritmului dac ă se citesc, în aceast ă ordine, numerele 9767 ș i 8204 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă primul num ă r citit este 2025 , scrie ţ i dou ă valori distincte din intervalul [10,99] care pot fi citite pentru y astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, mesajul afi ş at s ă fie DA , urmat de o valoare numeric ă .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind prima structur ă cât timp...execut ă cu o structur ă repetitiv ă cu test final. Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional pentru Curriculum ș i Evaluare Prob ă scris ă la INFORMATIC Ă Varianta 4 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Subprogramul f este definit al ă turat. Scrie ț i valorile f(3,9) ș i f(1,1000) . int f(int x,int y) { if(x*5>y/5) return x; return f(x*5,y/5); }",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila b memoreaz ă simultan date despre o bijuterie: greutatea acesteia, exprimat ă în grame, ș i metalul pre ț ios din care este confec ț ionat ă (denumirea ș i pre ț ul unui gram din acel metal). Greutatea bijuteriei ș i pre ț ul unui gram de metal sunt numere naturale din intervalul [1,10 4 ] , iar denumirea este un ș ir de maximum 30 de caractere. Ș tiind c ă expresiile C/C++ de mai jos au ca valori numele metalului din care este confec ț ionat ă bijuteria, respectiv pre ț ul acesteia, scrie ț i defini ț ia unei structuri cu eticheta bijuterie , care permite memorarea datelor precizate mai sus, ș i declara ț i corespunz ă tor variabila b . b.metal.denumire b.greutate*b.metal.pret",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un fermier are un teren de form ă dreptunghiular ă , pe care vrea s ă îl împart ă în parcele de arie egal ă , astfel încât num ă rul de parcele ș i aria s ă fie valori naturale, iar num ă rul de parcele s ă fie par ș i strict mai mic decât aria unei parcele. Subprogramul teren are doi parametri, x ș i y , prin care prime ș te dou ă numere naturale din intervalul [2,100] , reprezentând lungimea ș i l ăț imea terenului, m ă surate în metri. Subprogramul afi ș eaz ă toate solu ț iile posibile de împ ă r ț ire a terenului, fiecare solu ț ie pe câte o linie a ecranului, sub forma a dou ă numere, separate prin mesajul parcele de arie ș i spa ț ii adecvate, unde primul num ă r reprezint ă num ă rul de parcele ob ț inute, iar al doilea aria unei parcele corespunz ă toare, ca în exemplu. Dac ă nu exist ă nicio astfel de solu ț ie, subprogramul afi ș eaz ă pe ecran mesajul nu exista . Scrie ț i defini ț ia complet ă a subprogramului C/C++. Exemplu: pentru x=6 ș i y=8 , subprogramul afi ș eaz ă pe ecran valorile al ă turate, nu neap ă rat în aceast ă ordine (terenul poate fi împ ă r ț it ș i în 3 parcele de arie 16 sau 8 parcele de arie 6 , dar nu corespund cerin ț ei). 2 parcele de arie 24 4 parcele de arie 12 6 parcele de arie 8",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrie ț i un program C/C++ care cite ș te de la tastatur ă dou ă numere naturale din intervalul [2,10 2 ] , m ș i n , ș i elementele unui tablou bidimensional cu m linii ș i n coloane, numere naturale distincte din intervalul [0,10 9 ] . Programul modific ă tabloul în memorie, înlocuind valorile tuturor elementelor aflate pe coloana care con ț ine num ă rul minim memorat în tablou cu valoarea elementului aflat pe ultima linie ș i ultima coloan ă . Tabloul ob ț inut este afi ș at pe ecran, câte o linie a tabloului pe câte o linie a ecranului, elementele fiec ă rei linii fiind separate prin câte un spa ț iu. Exemplu: pentru m=3 , n=4 ș i tabloul 17 12 5 19 10 16 2 4 11 21 8 9 se ob ț ine tabloul 17 12 9 19 10 16 9 4 11 21 9 9",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "La o central ă solar ă se monitorizeaz ă stocul zilnic de energie produs ă ș i stocul total calculat pentru fiecare perioad ă . Zilele de monitorizare sunt numerotate cu valori naturale consecutive, în ordine cronologic ă , începând cu ziua 1 . O perioad ă este format ă din cel pu ț in dou ă zile de monitorizare, consecutive, iar stocul total calculat pentru ea este suma stocurilor zilnice corespunz ă toare. O zi este validat ă dac ă stocul zilnic este cel pu ț in egal cu limita zilnic ă , minZ ; o perioad ă este validat ă dac ă stocul total calculat pentru ea este cel pu ț in egal cu limita stabilit ă pentru perioade, minP , fiecare zi a perioadei este validat ă , iar perioada este maximal ă în raport cu aceast ă proprietate (nu i se mai poate ad ă uga nicio zi validat ă ). Fi ș ierul text bac.in con ț ine cel mult 10 6 numere naturale din intervalul [1,10 3 ] : pe prima linie minZ ș i minP , reprezentând limitele precizate pentru validare, iar pe a doua linie stocurile zilnice de energie produse în zile consecutive, în ordinea monitoriz ă rii. Numerele aflate pe aceea ș i linie a fi ș ierului sunt separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran, pentru fiecare perioad ă de produc ț ie validat ă , corespunz ă toare datelor din fi ș ier, câte un triplet de numere, reprezentând prima ș i ultima zi a perioadei, respectiv stocul total calculat pentru ea. Valorile din fiecare triplet se afi ș eaz ă pe câte o linie a ecranului, separate prin câte un spa ț iu, iar dac ă nu exist ă nicio astfel de perioad ă , se afi ș eaz ă mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al memoriei utilizate ș i al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine valorile al ă turate, se afi ș eaz ă pe ecran 3 6 71 13 15 90 10 40 65 9 20 25 12 14 7 3 11 15 12 8 19 50 21 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

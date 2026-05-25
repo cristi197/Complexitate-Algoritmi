@@ -1,0 +1,85 @@
+{
+  "id": "2015-sesiunea-iunie-iulie-subiect",
+  "year": 2015,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2015/2015-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2015/2015-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 9,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila întreag ă x memoreaz ă un num ă r natural cu cel pu ț in patru cifre nenule distincte. Expresia C/C++ a c ă rei valoare este egal ă cu cifra sutelor acestui num ă r este: (4p.)",
+        "options": {
+          "a": "x/100",
+          "b": "x%100",
+          "c": "(x/10)%10",
+          "d": "(x/100)%10"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 37 de noduri, numerotate de la 1 la 37 , are ca r ă d ă cin ă nodul numerotat cu 1 , iar tat ă l fiec ă rui nod i ( i ∈ ∈ ∈ ∈ [2,37] ) este numerotat cu partea întreag ă a r ă d ă cinii p ă trate a lui i ([ √\u0002 ]). Num ă rul de frunze ale arborelui este: a. 36 b. 31 c. 21 d. 6 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un graf neorientat cu 8 noduri, numerotate de la 1 la 8 , are muchiile [1,2] , [1,6] , [4,6] , [3,6] , [6,5] , [5,3] , [3,4] , [7,8] , [8,2] . Enumera ț i trei noduri care nu apar ţ in niciunui ciclu în acest graf. 4. Fiind date dou ă ș iruri de caractere a ş i b , îl numim pe a prefix al lui b dac ă a este egal cu b sau dac ă b se poate ob ţ ine din a prin alipirea la dreapta a unor noi caractere. Variabilele a ş i b pot memora câte un ș ir cu cel mult 20 de caractere. Ș tiind c ă variabila b a fost ini ț ializat ă cu un ș ir format dintr-un num ă r par de caractere, scrie ţ i o secven ţă de instruc ţ iuni în urma execut ă rii c ă reia variabila a s ă memoreze un prefix al lui b a c ă rui lungime s ă fie jum ă tate din lungimea lui b . Exemplu : dac ă b memoreaz ă ş irul aurari , atunci a memoreaz ă ş irul aur . (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un num ă r natural, n ( n ∈ ∈ ∈ ∈ [2,20] ), apoi n numere naturale din intervalul [0,10 4 ] , reprezentând, de la stânga la dreapta, în aceast ă ordine, valorile elementelor aflate pe prima linie a unui tablou bidimensional cu n linii ş i n coloane. Programul construie ş te în memorie tabloul, ini ţ ializând celelalte elemente, astfel încât fiecare linie s ă se ob ț in ă prin permutarea circular ă a elementelor liniei anterioare, de la stânga spre dreapta, cu o pozi ţ ie, ca în exemplu. Programul afi ş eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: dac ă se citesc numerele n=4 , apoi 1 , 1 , 3 , 2 , se ob ţ ine tabloul al ă turat. (10p.) 1 1 3 2 2 1 1 3 3 2 1 1 1 3 2 1 1. Variabila c , declarat ă al ă turat, memoreaz ă titlul ş i pre ţ ul unei c ă r ţ i. Expresia C/C++ a c ă rei valoare reprezint ă pre ţ ul c ă r ţ ii respective majorat cu 50% este: (4p.) struct carte { char titlu[21]; float pret; }c; Ministerul Educa ţ iei ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 9 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă Pagina 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate numerele naturale din intervalul [100,999] care au suma cifrelor egal ă cu 5 . Primele cinci solu ţ ii ob ţ inute sunt, în aceast ă ordine 104 , 113 , 122 , 131 , 140 . Utilizând acela ş i algoritm, se genereaz ă toate numerele naturale din intervalul [1000,9999] care au suma cifrelor egal ă cu 6 . Al treilea num ă r generat este: a. 1005 b. 1023 c. 1031 d. 1041 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul F este definit al ă turat. Scrie ţ i ce se afi ş eaz ă în urma apelului de mai jos. F(’d’); void F(char c) { if(c>=’a’) { cout<<c; | printf(\"%c\",c); F(c-1); } }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Ș irul lui Fibonacci ( 1 , 1 , 2 , 3 , 5 , 8 , 13 , 21 ,…) se define ș te astfel: f 1 =1 , f 2 =1 ș i f i =f i-1 +f i-2 pentru orice num ă r natural i , i ≥ 3 . Subprogramul Fibo are un singur parametru, n , prin care prime ş te un num ă r natural ( n ∈ ∈ ∈ ∈ [1,30] ). Subprogramul returneaz ă al n -lea termen impar al ș irului lui Fibonacci. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=6 , subprogramul returneaz ă num ă rul 21 . 4. Fi ș ierul bac.txt con ț ine un ș ir de cel mult un milion de numere naturale din intervalul [0,10 2 ] , separate prin câte un spa ț iu. Se cere s ă se determine toate perechile distincte formate din termeni ai ș irului aflat în fi ș ier, x ș i y ( y-x ≥ 2 ), astfel încât s ă nu existe niciun termen al ș irului care s ă apar ț in ă intervalului (x,y) . Numerele din fiecare pereche sunt afi ș ate pe câte o linie a ecranului, în ordine strict cresc ă toare, separate printr-un spa ț iu, iar dac ă nu exist ă nicio astfel de pereche, se afi ș eaz ă pe ecran mesajul nu exista . Pentru determinarea numerelor cerute utiliza ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 5 9 0 8 10 11 12 13 15 14 6 7 40 10 0 0 5 41 95 7 atunci pe ecran se afi ș eaz ă , nu neap ă rat în aceast ă ordine, perechile 0 5 15 40 41 95 a) Descrie ț i în limbaj natural algoritmul utilizat, justificând eficien ț a acestuia. (4p.) b) Scrie ț i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

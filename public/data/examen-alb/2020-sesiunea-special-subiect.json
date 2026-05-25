@@ -1,0 +1,172 @@
+{
+  "id": "2020-sesiunea-special-subiect",
+  "year": 2020,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2020/2020-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-sesiunea-special-barem.pdf",
+  "variant": 2,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg ș i poate memora un num ă r din intervalul [1000,2000] . Indica ț i valoarea minim ă pe care o poate avea expresia C/C++ al ă turat ă . (x-999)%1000",
+        "options": {
+          "a": "0",
+          "b": "2",
+          "c": "999",
+          "d": "1000"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(9); void f(int x) { if(x>=2) { if(x%2==0) cout<<0; | printf(”0”); f(x/2); } else cout<<7; | printf(”7”); cout<<x; | printf(”%d”,x); }",
+        "options": {
+          "a": "91",
+          "b": "942",
+          "c": "0071",
+          "d": "0071249"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate meniurile care cuprind câte patru feluri distincte de mâncare din mul ț imea { aperitiv , desert , legume , paste , salat ă , sup ă }, fiecare meniu respectând urm ă toarele condi ț ii: • dac ă exist ă aperitiv, este servit primul; • dac ă exist ă desert, este servit ultimul; • NU sunt servite legume ș i salat ă în acela ș i meniu; • dac ă exist ă paste ș i sup ă în acela ș i meniu, pastele NU sunt servite înainte de sup ă . Dou ă meniuri sunt distincte dac ă difer ă prin cel pu ț in un fel de mâncare sau prin ordinea servirii acestora. Primele cinci meniuri generate sunt, în aceast ă ordine: ( aperitiv , legume , paste , desert ), ( aperitiv , legume , sup ă , desert ), ( aperitiv , legume , sup ă , paste ), ( aperitiv , paste , legume , desert ), ( aperitiv , paste , salat ă , desert ). Indica ț i al ș aselea meniu generat.",
+        "options": {
+          "a": "( aperitiv , salat ă , paste , desert )",
+          "b": "( aperitiv , salat ă , sup ă , desert )",
+          "c": "( aperitiv , salat ă , sup ă , paste )",
+          "d": "( aperitiv , sup ă , legume , desert )"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf orientat cu 5 vârfuri, numerotate de la 1 la 5 , este reprezentat al ă turat. Indica ț i num ă rul de componente tare conexe ale grafului.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un arbore cu r ă d ă cin ă are 20 de noduri, dintre care 10 noduri de tip “frunz ă ”. Indica ț i num ă rul maxim de noduri care au acela ș i “tat ă ” în acest arbore.",
+        "options": {
+          "a": "5",
+          "b": "7",
+          "c": "10",
+          "d": "15 Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 2 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ș te n (num ă r natural nenul) m \u0001 \u0001 \u0001 \u0001 0 ┌ pentru i \u0001 \u0001 \u0001 \u0001 1,n execut ă │ cite ș te x (num ă r natural) │┌ cât timp x%10 > [x/10]%10 execut ă ││ x \u0001 \u0001 \u0001 \u0001 [x/10] │└■ │ m \u0001 \u0001 \u0001 \u0001 m+x └■ ┌ dac ă m>0 atunci scrie m │ altfel scrie „niciunul” └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i ce se afi ș eaz ă dac ă se citesc, în aceast ă ordine, numerele 5 , 127 , 2019 , 1005 , 7 , 1900 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă primul num ă r citit este 2 , scrie ț i un set de numere distincte din intervalul [10 3 ,10 4 ) care pot fi citite în continuare astfel încât, în urma execut ă rii algoritmului, s ă se afi ș eze mesajul niciunul .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat structura pentru...execut ă cu o structur ă repetitiv ă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila c memoreaz ă date specifice unui cerc: coordonatele reale (abscisa ș i ordonata), în planul xOy , ale centrului cercului, precum ș i lungimea razei acestuia. Ș tiind c ă expresiile C/C++ de mai jos au ca valori numere reale reprezentând datele specifice ale unui cerc, scrie ț i defini ț ia unei structuri cu eticheta figura , care permite memorarea datelor precizate, ș i declara ț i corespunz ă tor variabila c . c.centru.x c.centru.y c.raza",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i ș i j sunt de tip întreg, iar variabila m memoreaz ă un tablou bidimensional cu 7 linii ș i 7 coloane, numerotate de la 0 la 6 , cu elemente de tip char . Ini ț ial, fiecare element memoreaz ă caracterul * . F ă r ă a utiliza alte variabile, scrie ț i secven ț a de instruc ț iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ț ei ob ț inute, variabila m s ă memoreze tabloul al ă turat. for(i=0;i<7;i++) for(j=0;j<7;j++) .................. a b c d e f g + a b c d e f + + a b c d e + + + a b c d + + + + a b c + + + + + a b + + + + + + a",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul multiplu are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ ∈ ∈ ∈ [1,10 4 ] ). Subprogramul returneaz ă cel mai mic multiplu nenul al lui n cu proprietatea c ă este p ă trat perfect. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=72 sau n=144 , subprogramul returneaz ă num ă rul 144 ( 144=12 2 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Numim citat într-un text o secven ță de caractere din acel text care începe cu un caracter < ș i se termin ă cu un caracter > , celelalte caractere ale secven ț ei fiind diferite de < ș i > . Un text de cel mult 100 de caractere (litere mici ale alfabetului englez, spa ț ii ș i caracterele < ş i > ) con ț ine cel pu ț in un citat. Textul nu con ț ine alte caractere < ş i > decât cele care m ă rginesc citatele, ș i oricare dou ă citate nu au nici caractere < ş i > ș i nici alte caractere în comun. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un text de tipul precizat ș i îl transform ă în memorie prin înlocuirea tuturor literelor mici cuprinse în citate cu literele mari corespunz ă toare, celelalte r ă mânând nemodificate, ca în exemplu. Programul afi ș eaz ă pe ecran textul ob ț inut. Exemplu : pentru textul mai bine sa fii un <om de valoare> decat un <om de succes> se afi ș eaz ă mai bine sa fii un <OM DE VALOARE> decat un <OM DE SUCCES>",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se nume ș te vârf într-un ș ir de numere naturale un termen al ș irului care este strict mai mare decât fiecare dintre cei doi termeni vecini cu el, afla ț i în ș ir pe pozi ț ia din stânga, respectiv din dreapta sa. Fi ș ierul bac.in con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [0,10 9 ] , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran vârful din ș irul aflat în fi ș ier pentru care valoarea absolut ă a diferen ț ei dintre cei doi vecini ai s ă i este minim ă . Dac ă exist ă mai multe astfel de numere, se afi ș eaz ă cel mai mare dintre ele, iar dac ă nu exist ă niciun vârf, se afi ș eaz ă pe ecran mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al spa ț iului de memorie utilizat. Exemplu: dac ă fi ș ierul con ț ine ș irul 2 7 10 5 6 2 1 3 20 17 9 11 7 3 10 6 2 se afi ș eaz ă pe ecran 11 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

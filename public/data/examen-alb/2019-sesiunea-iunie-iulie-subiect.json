@@ -1,0 +1,144 @@
+{
+  "id": "2019-sesiunea-iunie-iulie-subiect",
+  "year": 2019,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2019/2019-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2019/2019-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i numerele pe care le pot memora variabilele întregi x ş i y , astfel încât valoarea expresiei C/C++ al ă turate s ă fie 1 . x/2+x%y-x/y==0",
+        "options": {
+          "a": "x=4 ş i y=2",
+          "b": "x=6 ş i y=3",
+          "c": "x=8 ş i y=4",
+          "d": "x=10 ş i y=0"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Valoarea lui f(6) este: int f(int n) { if (n<=2) return n; if (n%2==1) return f(n-2)-f(n-1); return f(n-1)-f(n-2); }",
+        "options": {
+          "a": "6",
+          "b": "5",
+          "c": "2",
+          "d": "1"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila x este de tip char ş i memoreaz ă o liter ă mic ă a alfabetului englez. Indica ț i expresia C/C++ care are valoare nenul ă dac ă ş i numai dac ă litera memorat ă în variabila x este o vocal ă . Se consider ă vocale literele a , e , i , o , u .",
+        "options": {
+          "a": "strcmp(x,\"aeiou\")==0",
+          "b": "strchr(\"aeiou\",x)",
+          "c": "’a’<=x && x<=’u’",
+          "d": "x==a || x==e || x==i || x==o || x==u"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Utilizând metoda backtracking, se genereaz ă , în ordine strict descresc ă toare, toate numerele naturale de câte patru cifre distincte din mul ţ imea { 0 , 1 , 2 , 3 , 4 , 5 }. Primele ș ase numere generate sunt, în aceast ă ordine: 5432 , 5431 , 5430 , 5423 , 5421 , 5420 . Al ş aptelea num ă r generat este:",
+        "options": {
+          "a": "5415",
+          "b": "5413",
+          "c": "5342",
+          "d": "5340"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 20 de noduri ş i 10 muchii. Num ă rul maxim de componente conexe pe care le poate avea acest graf este:",
+        "options": {
+          "a": "5",
+          "b": "10",
+          "c": "16",
+          "d": "20 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 4 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ţ irii num ă rului natural a la num ă rul natural nenul b . cite ş te m,n,p,q ( numere naturale nenule, p ≤ ≤ ≤ ≤ q ) s1 \u0001 \u0001 \u0001 \u0001 0; s2 \u0001 \u0001 \u0001 \u0001 0 ┌ cât timp p ≤ ≤ ≤ ≤ q execut ă │┌ dac ă p%m=0 sau p%n=0 atunci ││ s1 \u0001 \u0001 \u0001 \u0001 s1+1 │└■ │┌ dac ă p%m=0 ş i p%n=0 atunci ││ s2 \u0001 \u0001 \u0001 \u0001 s2+1 │└■ │ p \u0001 \u0001 \u0001 \u0001 p+1 └■ s \u0001 \u0001 \u0001 \u0001 s1-2*s2 scrie s a) Scrie ţ i valoarea afi ş at ă dac ă se citesc, în aceast ă ordine, numerele 4 , 3 , 11 ș i 25 . b) Dac ă pentru m , n ș i p se citesc numerele 3 , 5 , respectiv 1 , scrie ţ i dou ă numere care pot fi citite pentru q astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, valoarea afi ş at ă s ă fie 10 . (6p.) c) Scrie ţ i programul C/C++ corespunz ă tor algoritmului dat. (10p.) d) Scrie ţ i în pseudocod un algoritm, echivalent cu cel dat, înlocuind structura cât timp...execut ă cu o structur ă repetitiv ă de tip pentru...execut ă . (6p.)",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , are arcele (1,2) , (1,4) , (2,5) , (2,6) , (3,5) , (4,1) , (5,1) , (6,5) . Scrie ţ i un drum elementar de lungime maxim ă din graful dat.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila fig , declarat ă al ă turat, memoreaz ă lungimea razei unui cerc ș i coordonatele centrului acestuia, în sistemul de coordonate xOy . Scrie ț i o secven ță de instruc ț iuni prin care se ini ţ ializeaz ă variabila fig , astfel încât cercul corespunz ă tor acesteia s ă aib ă raza 1 ș i centrul în originea sistemului de coordonate. struct punct { float x,y; }; struct cerc { struct punct centru; float raza; }fig;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul Impare are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ ∈ ∈ ∈ [1,10 9 ] ), cu cel pu ț in o cifr ă impar ă . Subprogramul înlocuie ș te fiecare cifr ă impar ă a lui n cu cea mai mare cifr ă par ă strict mai mic ă decât ea (astfel cifra 1 se înlocuie ş te cu cifra 0 , cifra 3 cu cifra 2 etc.) ș i furnizeaz ă num ă rul ob ț inut tot prin parametrul n . Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=235690 , atunci, dup ă apel, n=224680 , iar dac ă n=15690 , atunci, dup ă apel, n=4680 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un tablou bidimensional cu num ă r impar de coloane este numit simetric fa ţă de coloana din mijloc dac ă , pe fiecare linie a tabloului, elementele dispuse simetric fa ţă de elementul din mijloc al liniei respective au valori egale. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale din intervalul [3,21] , m ş i n ( n impar), ş i elementele unui tablou bidimensional cu m linii ş i n coloane, numere naturale din intervalul [0,10 4 ] . Programul afi ş eaz ă pe ecran mesajul DA , dac ă tabloul este simetric fa ţă de coloana din mijloc, sau mesajul NU în caz contrar. Exemplu: pentru m=4 , n=5 ș i tabloul al ă turat, se afi ş eaz ă pe ecran DA",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un termen al unui ș ir de numere se nume ș te vârf local al acestuia dac ă nu exist ă niciun alt termen mai mare sau egal cu el care s ă îl precead ă în ș ir sau dac ă este egal cu termenul vecin anterior, iar acesta este vârf local. Fi ș ierul bac.txt con ț ine un ș ir format din cel pu ț in dou ă ș i cel mult 10 6 numere naturale din intervalul [0,10 3 ] , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran, separate prin câte un spa ț iu, toate vârfurile locale ale ș irului aflat în fi ș ier. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al spa ț iului de memorie utilizat. Exemplu: dac ă fi ș ierul con ț ine numerele 7 4 9 10 10 10 8 10 10 8 30 se afi ș eaz ă pe ecran 7 9 10 10 10 30 a) Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b) Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

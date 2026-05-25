@@ -1,0 +1,172 @@
+{
+  "id": "2025-sesiunea-iunie-subiect-de-rezerv-subiect",
+  "year": 2025,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2025/2025-sesiunea-iunie-subiect-de-rezerv-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2025/2025-sesiunea-iunie-subiect-de-rezerv-barem.pdf",
+  "variant": 7,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i valoarea expresiei C/C++ al ă turate. 15.4/2+15/2",
+        "options": {
+          "a": "14",
+          "b": "14.7",
+          "c": "15",
+          "d": "15.2"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Variabila m , declarat ă al ă turat memoreaz ă , pentru un medicament codul, procentul de compensare ș i data expir ă rii (ziua, luna ș i anul). Indica ț i o expresie C/C++ cu valoarea 1 dac ă ș i numai dac ă medicamentul expir ă în anul 2025 , dup ă luna octombrie. struct data { int zi , luna , an;}; struct medicament { int cod; float compensare; data expira; }m;",
+        "options": {
+          "a": "m.data.an==2025 && m.data.luna>10",
+          "b": "data.an.m==2025 && data.luna.m>10",
+          "c": "m.expira.an==2025 && m.expira.luna>10",
+          "d": "m.an.expira==2025 && m.luna.expira>10"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Un site de vânz ă ri online ofer ă reduceri la înc ă l ță minte pentru fiecare comand ă care con ț ine trei perechi de articole din categorii diferite din mul ț imea ordonat ă {balerini , botine , cizme , ghete , sandale , teni ș i} , astfel încât o comand ă s ă nu con ț in ă simultan ghete ș i cizme , respectiv balerini ș i sandale . Dou ă solu ț ii difer ă prin cel pu ț in o categorie. Utilizând metoda backtracking, se genereaz ă toate comenzile posibile, iar primele patru solu ț ii generate sunt: ( balerini , botine , cizme ), ( balerini , botine , ghete ), ( balerini , botine , teni ș i ), ( balerini , cizme , teni ș i ). Indica ț i solu ț ia generat ă imediat înainte de ( cizme , sandale , teni ș i ).",
+        "options": {
+          "a": "( botine , ghete , sandale )",
+          "b": "( botine , cizme , sandale )",
+          "c": "( botine , cizme , teni ș i )",
+          "d": "( botine , sandale , teni ș i )"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 6 noduri, numerotate de la 1 la 6 , are muchiile [1,2] , [1,3] , [2,4] , [2,5] , [2,6] . Indica ț i dou ă noduri care pot fi alese drept r ă d ă cin ă , astfel încât arborele ob ț inut, pentru fiecare dintre acestea, s ă aib ă trei frunze.",
+        "options": {
+          "a": "1,3",
+          "b": "2,4",
+          "c": "2,5",
+          "d": "4,6"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , are arcele (1,3) , (2,1) , (2,5) , (2,6) , (4,3) , (6,4) , (6,5) . Indica ț i num ă rul minim de arce care trebuie ad ă ugate pentru ca graful ob ț inut s ă aib ă dou ă componente tare conexe.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4 Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional pentru Curriculum ș i Evaluare Prob ă scris ă la INFORMATIC Ă Varianta 7 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ş te n ( num ă r natural, n ≥ 2 ) d  2; x  1; y  1 ┌ cât timp n>1 execut ă │┌ dac ă n%d=0 atunci ││ x  d; y  y*d ││┌ cât timp n%d=0 execut ă │││ n  [n/d] ││└■ │└■ │ d  d+1 └■ scrie x,' ',y",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valorile afi ș ate în urma execut ă rii algoritmului, dac ă se cite ș te num ă rul 252 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i dou ă numere distincte din intervalul [10,10 2 ] care pot fi citite, astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, s ă se afi ș eze dou ă valori egale.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind a doua structur ă cât timp...execut ă cu o structur ă repetitiv ă cu test final.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Subprogramul f este definit al ă turat. Scrie ț i valoarea f(2) , respectiv valoarea f(17) . int f(int x) { if (x<=4) return x; else return x-f(x-2); }",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele s1 ș i s2 permit accesarea câte unui ș ir de cel mult 50 de caractere, iar variabila n este de tip întreg. Scrie ț i ș irul accesat prin variabila s1 , precum ș i valoarea lui n , în urma execut ă rii secven ț ei al ă turate. strcpy(s1,\"parcarea\"); strcpy(s2,strstr(s1,\"car\")); n=strlen(s2); strcpy(s1+n-2, s2+n-2);",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul consecutiv are doi parametri: • n , prin care prime ș te un num ă r natural ( n ∈ [1,10 4 ] ); • f , prin care furnizeaz ă un num ă r natural cu proprietatea: ( f-1) ∙ f < n ≤ f ∙ (f+1) . Scrie ț i defini ț ia complet ă a subprogramului C/C++. Exemplu: dac ă n=19 atunci f=4 ( 3 ∙ 4 < 19 ≤ 4 ∙ 5 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Parcarea unui mall are locuri de parcare dispuse pe nr rânduri, câte np pe fiecare rând, unul lâng ă altul. Trei prieteni vin cu câte o ma ș in ă la mall ș i caut ă un triplet de locuri libere al ă turate, plasate toate trei doar pe primul sau toate trei doar pe ultimul rând al parc ă rii. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale din intervalul [3,50] , nr ș i np , reprezentând num ă rul de rânduri din parcare, respectiv num ă rul de locuri de pe fiecare rând, apoi nr ∙ np valori din mul ț imea {0,1} , elemente ale unui tablou bidimensional cu nr linii ș i np coloane, reprezentând, în ordinea dispunerii lor pe rânduri, starea locurilor de parcare ( 0 , pentru loc liber, sau 1 , pentru loc ocupat). Programul afi ș eaz ă pe ecran num ă rul de triplete de locuri libere pe care le pot g ă si prietenii. Exemplu: pentru nr=4 , np=5 ș i tabloul al ă turat, se afi ș eaz ă pe ecran valoarea 3 (pe prima linie pot g ă si tripletul format din al doilea, al treilea ș i al patrulea loc, iar pe ultima linie pot g ă si tripletul format din primul, al doilea ș i al treilea loc sau tripletul format din al doilea, al treilea, ș i al patrulea loc). 1 0 0 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 1",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "La o loterie se genereaz ă aleatoriu un ș ir de numere naturale ș i pentru fiecare num ă r generat, se inverseaz ă ordinea cifrelor. Dintre valorile distincte ob ț inute se extrag trei numere, în aceast ă ordine: cel mai mic, cel mai mare dintre cele r ă mase, apoi cel mai mic dintre cele r ă mase. Fi ș ierul text bac.in con ț ine cel mult 10 6 numere naturale din intervalul [1001,9999] , cu cifra unit ăț ilor nenul ă , separate prin câte un spa ț iu, reprezentând termenii ș irului generat aleatoriu în vederea extragerii. Scrie ț i un program C/C++ care afi ș eaz ă pe ecran cele trei numere, în ordinea extragerii acestora. Numerele afi ș ate sunt separate prin câte un spa ț iu, iar dac ă nu exist ă trei astfel de numere distincte, se afi ș eaz ă pe ecran mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei utilizate. Exemplu: dac ă fi ș ierul con ț ine numerele 1114 3212 3217 2855 7309 2131 2131 1238 7893 se afi ș eaz ă pe ecran, în aceast ă ordine, numerele 1312 9037 2123 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

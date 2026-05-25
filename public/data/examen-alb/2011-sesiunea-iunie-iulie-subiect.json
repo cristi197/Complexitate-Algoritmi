@@ -1,0 +1,95 @@
+{
+  "id": "2011-sesiunea-iunie-iulie-subiect",
+  "year": 2011,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2011/2011-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2011/2011-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 9,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 2,
+        "text": "Se consideră algoritmul alăturat, descris în pseudocod.",
+        "options": {
+          "d": "ScrieŃi programul C/C++ corespunzător algoritmului dat. (10p.) citeşte n,k (numere naturale nenule) t \u0001 \u0001 \u0001 \u0001 0 ┌cât timp n ≥ ≥ ≥ ≥ 1 execută │┌dacă n>k atunci i \u0001 \u0001 \u0001 \u0001 k ││altfel i \u0001 \u0001 \u0001 \u0001 n │└■ │ t \u0001 \u0001 \u0001 \u0001 t+1 │ n \u0001 \u0001 \u0001 \u0001 n-i │┌cât timp i ≥ ≥ ≥ ≥ 1 execută ││ scrie t,' ' ││ i \u0001 \u0001 \u0001 \u0001 i-1 │└■ └■",
+          "b": "Dacă pentru variabila k se citeşte valoarea 5 , scrieŃi cea mai mică şi cea mai mare valoare care pot fi citite pentru variabila n astfel încât, în urma executării algoritmului, ultimul număr care se afişează, pentru fiecare dintre aceste valori, să fie 7 . (6p.)",
+          "c": "ScrieŃi în pseudocod un algoritm care să conŃină o singură structură repetitivă în loc de două şi care să fie echivalent cu cel dat. (4p.)"
+        },
+        "correctAnswer": null
+      },
+      {
+        "nr": 1,
+        "text": "IndicaŃi care dintre expresiile C/C++ de mai jos are valoarea 1 dacă şi numai dacă numărul memorat în variabila întreagă x aparŃine reuniunii de intervale [-3,-1] ∪ ∪ ∪ ∪ [1,3] . (4p.)",
+        "options": {
+          "a": "x>=-3 && x<=-1 && x>=1 && x<=3",
+          "b": "!(x<-3 || x>-1) || !(x<1 || x>3)",
+          "c": "x>=-3 || x<=-1 || x>=1 || x<=3",
+          "d": "!(x<-3 && x>3 && x>-1 || x<1) Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la Informatică Varianta 9 Limbajul C/C++ Filiera teoretică, profilul real, specializările matematică – informatică, matematică – informatică intensiv informatică Filiera vocaŃională, profilul militar, specializarea matematică – informatică 2"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consideră graful orientat cu 6 vârfuri, numerotate de la 1 la 6 , şi mulŃimea arcelor { (1,4) , (2,1) , (2,4) , (2,6) , (4,1) , (4,6) }. Numărul de subgrafuri ale sale, fiecare având mulŃimea arcelor { (1,4) , (2,1) , (2,4) , (4,1) }, este: a. 2 b. 3 c. 4 d. 5 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consideră graful neorientat cu 5 noduri, numerotate de la 1 la 5 , reprezentat prin listele de adiacenŃă alăturate. EnumeraŃi nodurile care fac parte din componenta conexă a grafului dat care are cele mai puŃine noduri. 1: 4, 5 2: 3 3: 2 4: 1 5: 1 În secvenŃa de instrucŃiuni de mai jos variabilele i şi j sunt de tip întreg şi variabila A este de tip tablou bidimensional cu 5 linii şi 5 coloane, numerotate de la 0 la 4 , cu elemente numere întregi. Fără a utiliza alte variabile, scrieŃi o instrucŃiune care poate înlocui punctele de suspensie astfel încât, în urma executării secvenŃei obŃinute, tabloul memorat în variabila A să aibă elementele din figura de mai jos. Înainte de executarea secvenŃei toate elementele tabloului sunt nule. 4. for(i=0;i<5;i++) for(j=0;j<5;j++) .............. 0 1 2 3 4 1 2 3 4 5 2 3 4 5 6 3 4 5 6 7 4 5 6 7 8 (6p.) 5. ScrieŃi un program C/C++ care citeşte de la tastatură un număr natural n ( 2≤n≤20 ) şi apoi n cuvinte distincte, fiecare fiind format din cel mult 20 de caractere, numai litere mici ale alfabetului englez. La introducerea datelor, după fiecare cuvânt se tastează Enter. Programul afişează pe ecran numărul de cuvinte dintre ultimele n-1 citite, care încep cu primul cuvânt citit. Exemplu: dacă n=5 şi cuvintele citite sunt: bun buncar bunici abundent bunavoie pe ecran se afişează 3 (deoarece numai cuvintele buncar , bunici şi bunavoie încep cu bun ). (10p.) Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la Informatică Varianta 9 Limbajul C/C++ Filiera teoretică, profilul real, specializările matematică – informatică, matematică – informatică intensiv informatică Filiera vocaŃională, profilul militar, specializarea matematică – informatică 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "La apel, returnează valoarea celui mai mare divizor comun al celor două numere naturale nenule primite ca parametri: a. numai C1 b. numai C2 c. atât C1 cât şi C2 d. nici C1 nici C2 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "valoarea",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Având la dispoziŃie cinci mărgele de culori diferite, roşu , galben , verde , albastru , violet , se utilizează metoda backtracking pentru a obŃine toate posibilităŃile de a forma şiruri de câte trei mărgele, ştiind că în cadrul unui şir contează ordinea de aşezare a mărgelelor. Culorile mărgelelor, corespunzătoare primelor patru soluŃii obŃinute sunt, în această ordine: ( roşu , galben , verde ), ( roşu , galben , albastru ), ( roşu , galben , violet ), ( roşu , verde , galben ). ScrieŃi ultimele două soluŃii generate, în ordinea obŃinerii lor.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul inserare are doi parametri: \u0002 n , prin care primeşte un număr natural ( 2≤n≤20 ); \u0002 a , prin care primeşte un tablou unidimensional care memorează un şir de n numere naturale, fiecare cu cel mult 4 cifre. Cel puŃin un element al tabloului este număr par. Subprogramul modifică tabloul astfel încât după fiecare termen par al şirului inserează valoarea 2011 şi furnizează, tot prin parametrii n şi a , valorile actualizate ale datelor primite. ScrieŃi în limbajul C/C++ definiŃia completă a subprogramului. Exemplu: dacă n=7 şi a=(1,4,5,3,82,6,2) atunci, după apel, n=11 şi a=(1,4,2011,5,3,82,2011,6,2011,2,2011) . 4. Se citesc de la tastatură două numere naturale s1 şi s2 ( 0<s1 ≤ ≤ ≤ ≤ 18 , 0 ≤ ≤ ≤ ≤ s2 ≤ ≤ ≤ ≤ 18 ) şi se cere scrierea în fişierul BAC.TXT , fiecare pe câte o linie, în ordine strict crescătoare, a tuturor numerelor naturale cu exact 5 cifre, pentru care suma primelor două cifre este egală cu s1 , iar suma ultimelor două cifre este egală cu s2 . Pentru determinarea numerelor indicate se utilizează un algoritm eficient din punct de vedere al timpului de executare. Exemplu: dacă s1=8 , iar s2=7 , atunci 35725 este unul dintre numerele care respectă proprietatea cerută ( 3+5=8 şi 2+5=7 ). a) DescrieŃi în limbaj natural algoritmul utilizat, justificând eficienŃa acestuia. (4p.) b) ScrieŃi programul C/C++ corespunzător algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=7 şi a=(1,4,5,3,82,6,2)",
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

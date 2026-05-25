@@ -1,0 +1,172 @@
+{
+  "id": "2021-antrenament-test-04-subiect",
+  "year": 2021,
+  "session": "antrenament-test-04",
+  "type": "antrenament",
+  "pdfUrl": "/subiecte-bac/2021/2021-antrenament-test-04-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2021/2021-antrenament-test-04-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x și y sunt de tip întreg, x memorând valoarea 8 , iar y valoarea 6 . Indicați expresia C/C++ care are valoarea 0 .",
+        "options": {
+          "a": "3*x-4*y==0",
+          "b": "(x+y)/2 > x%y+1",
+          "c": "!(x/2+2==y)",
+          "d": "x-y+3!=0"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea f(38627) . int f(int n) { int c; if (n==0) return 9; c=f(n/10); if (n%10<c) return n%10; return c; }",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "7",
+          "d": "8"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se generează, în ordine crescătoare, toate numerele de câte 5 cifre, toate din mulțimea { 1,2} cu proprietatea că nu există mai mult de două cifre 1 pe poziţii consecutive. Primele 5 soluţii generate sunt, în această ordine: 11211 , 11212 , 11221 , 11222 , 12112 . Indicaţi cea de a 8 -a soluţie generată.",
+        "options": {
+          "a": "12122",
+          "b": "12211",
+          "c": "12212",
+          "d": "12221"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore are 10 noduri, numerotate de la 1 la 10 , și muchiile [1,2] , [1,3] , [1,5] , [1,6] , [2,8] , [2,9] , [3,4] , [3,10] , [4,7] . Indicați lungimea unui lanț elementar care are ca extremități nodurile 6 și 7 .",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Indicați numărul grafurilor neorientate, distincte, cu 5 noduri, care se pot construi. Două grafuri sunt distincte dacă matricele lor de adiacență sunt diferite.",
+        "options": {
+          "a": "5 4",
+          "b": "5 2",
+          "c": "2 10",
+          "d": "4 10"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n, k ( numere naturale) p  1 ┌cât timp n > 0 execută │ c  n%10 │┌dacă k>0 atunci ││ ┌dacă c%2=1 atunci ││ │ p  p*c ││ └■ │└■ │ n  [n/10]; k  k-1 └ ■ scrie p a. Scrieţi valoarea care se afişează în urma executării algoritmului dacă se citesc, în această ordine, numerele 296385 și 3 . (6p.) b. Dacă pentru k se citește numărul 4 , scrieți cel mai mic și cel mai mare număr din intervalul [10 4 ,10 5 ) care pot fi citite pentru n , astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 1 . (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura cât timp...execută cu o structură repetitivă cu test final. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n, k ( numere naturale) p  1 ┌cât timp n > 0 execută │ c  n%10 │┌dacă k>0 atunci ││ ┌dacă c%2=1 atunci ││ │ p  p*c ││ └■ │└■ │ n  [n/10]; k  k-1 └ ■ scrie p",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi valoarea care se afişează în urma executării algoritmului dacă se citesc, în această ordine, numerele 296385 și 3 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dacă pentru k se citește numărul 4 , scrieți cel mai mic și cel mai mare număr din intervalul [10 4 ,10 5 ) care pot fi citite pentru n , astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 1 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura cât timp...execută cu o structură repetitivă cu test final. Ministerul Educaţiei Centrul Național de Politici și Evaluare în Educație Probă scrisă la INFORMATICĂ Testul 4 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila c memorează date despre o ciocolată: gramajul și data expirării. Știind că expresiile C/C++ de mai jos au ca valori numere naturale reprezentând gramajul, respectiv data (ziua, luna și anul) expirării produsului, scrieți definiția unei structuri cu eticheta ciocolata , care permite memorarea datelor precizate pentru o ciocolată, și declarați corespunzător variabila c . c.gramaj c.datae.zi c.datae.luna c.datae.an",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În secvenţa alăturată, variabila i este de tip întreg, iar variabilele s și t pot memora câte un şir cu cel mult 20 de caractere. Scrieţi ce se afișează pe ecran în urma executării secvenţei. strcpy(s,\"sanataTEA\"); cout<<strlen(s); | printf(\"%d\", strlen(s)); i=0; while(i<strlen(s)) if(s[i]=='a') { strcpy(t, s+i+1); strcpy(s+i, t);} else i=i+1; cout<<s; | printf(\"%s\",s);",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un joc online cu n jetoane poate fi jucat de un grup de k ( k ≥2 ) jucători, numai dacă toate cele n jetoane pot fi distribuite în mod egal celor k jucători. Subprogramul joc are un singur parametru, n , prin care primește un număr natural ( n  [2,10 4 ] ), reprezentând numărul de jetoane ale unui joc de tipul precizat. Subprogramul returnează numărul valorilor distincte pe care le poate avea k pentru acest joc. Scrieți definiția completă a subprogramului. Exemplu: dacă n=12 , atunci subprogramul returnează numărul 5 (cele 12 jetoane se pot distribui în mod egal pentru o grupă de 2 jucători, de 3 jucători, de 4 jucători, de 6 jucători sau de 12 jucători).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "toate cele n jetoane pot fi distribuite în mod egal celor k jucători. Subprogramul joc are un singur parametru, n , prin care primește un număr natural ( n  [2,10 4 ] ), reprezentând numărul de jetoane ale unui joc de tipul precizat. Subprogramul returnează numărul valorilor distincte pe care le poate avea k pentru acest joc. Scrieți definiția completă a subprogramului. Exemplu: dacă n=12 ,",
+        "exampleOutput": "numărul",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieţi un program C/C++ care citeşte de la tastatură numere naturale din intervalul [2,10 2 ] : m , n şi elementele unui tablou bidimensional cu m linii şi n coloane. Programul afișează pe ecran, pentru fiecare linie a sa, cea mai mare dintre valorile strict mai mici decât 21 memorate în aceasta, sau mesajul nu exista , dacă nu există nicio astfel de valoare pe linia respectivă. Numerele, respectiv mesajele, sunt afișate pe linii separate ale ecranului, în ordinea liniilor corespunzătoare din tablou. Exemplu: pentru m=3 , n=5 și tabloul alăturat se afişează pe ecran 16 nu exista 9 6 16 21 4 90 92 26 36 95 80 5 2 9 7 3",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "nu există nicio astfel de valoare pe linia respectivă. Numerele, respectiv mesajele, sunt afișate pe linii separate ale ecranului, în ordinea liniilor corespunzătoare din tablou. Exemplu: pentru m=3 , n=5 și tabloul alăturat",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fişierele bac1.txt și bac2.txt conţin numere naturale din intervalul [1,10 5 ] : fișierul bac1.txt conține pe prima linie un număr n1 , iar pe a doua linie un șir de n1 numere, iar fișierul bac2.txt conține pe prima linie un număr n2 , iar pe a doua linie un șir de n2 numere. Numerele aflate pe aceeași linie a unui fișier sunt ordonate crescător și sunt separate prin câte un spațiu. Se cere să se afișeze pe ecran, în ordine crescătoare, separate prin câte un spațiu, numerele divizibile cu 5 care se găsesc doar în unul dintre șirurile aflate în cele două fișiere. Dacă nu există niciun astfel de număr, se afișează pe ecran mesajul nu exista . Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate şi al timpului de executare. Exemplu : dacă fişierul bac1.txt conţine numerele 7 1 2 3 4 7 20 60 iar fişierul bac2.txt conţine numerele 9 3 5 7 8 9 10 12 20 24 pe ecran se afișează, în această ordine, numerele 5 10 60 . a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "nu există niciun astfel de număr,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

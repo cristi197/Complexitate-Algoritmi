@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-01-subiect",
+  "year": 2020,
+  "session": "mec-test-01",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-01-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-01-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați o expresie C/C++ care are valoarea 1 dacă şi numai dacă numărul natural memorat în variabila întreagă n este divizibil cu 2 şi cu 5 .",
+        "options": {
+          "a": "!(n%2==1 || n%5!=0)",
+          "b": "!(n/2==1 && n/5!=0)",
+          "c": "n%2==0 || !(n%5==0)",
+          "d": "n/2==0 && !(n/5==0)"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea f(102030) . (6p.) int f (int x) { if(x>20) return 20+f(x/10); return 2020; }",
+        "options": {
+          "a": "1010",
+          "b": "2020",
+          "c": "2100",
+          "d": "3200"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se generează toate numerele impare de cel mult trei cifre din mulţimea {0 , 1 , 2 , 3} . Primele 8 soluţii generate sunt, în această ordine: 1 , 101 , 103 , 11 , 111 , 113 , 121 , 123 . Cea de a 12 -a soluţie generată este:",
+        "options": {
+          "a": "13",
+          "b": "31",
+          "c": "133",
+          "d": "201"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „taţi” (2,8,2,9,8,9,0,7,7,9) . Indicați câte dintre nodurile arborelui au exact doi fii.",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "5",
+          "d": "6"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat cu 20 de noduri are 100 de muchii. Numărul de muchii ce trebuie adăugate, pentru ca graful obţinut să fie complet, este:",
+        "options": {
+          "a": "10",
+          "b": "50",
+          "c": "90",
+          "d": "100"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n ( număr natural) p  1; m  0; k  0 ┌c â t timp n ≠0 execută │ citește x ( număr natural) │┌pentru i  1,k execut ă ││ x  [x/10] │ └■ │┌dacă x ≠0 atunci c  x %10 ││altfel c  n%10 │ └■ │ m  c*p+m │ n  [n/10] │ p  p*10; k  k+1 └ ■ scrie m a. Scrieţi valoarea care se afişează în urma executării algoritmului dacă se citesc, în această ordine, numerele 12345 , 780 , 921 , 4013 , 75 , 100214 . (6p.) b. Dacă pentru n se citește numărul 49 , scrieți două seturi de date care pot fi citite în continuare astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afi ș eze 49 . (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, care să conțină o singură instrucțiune repetitivă. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n ( număr natural) p  1; m  0; k  0 ┌c â t timp n ≠0 execută │ citește x ( număr natural) │┌pentru i  1,k execut ă ││ x  [x/10] │ └■ │┌dacă x ≠0 atunci c  x %10 ││altfel c  n%10 │ └■ │ m  c*p+m │ n  [n/10] │ p  p*10; k  k+1 └ ■ scrie m",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi valoarea care se afişează în urma executării algoritmului dacă se citesc, în această ordine, numerele 12345 , 780 , 921 , 4013 , 75 , 100214 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dacă pentru n se citește numărul 49 , scrieți două seturi de date care pot fi citite în continuare astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afi ș eze 49 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, care să conțină o singură instrucțiune repetitivă. Ministerul Educaţiei și Cercetării Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică Testul 1 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila t memorează coordonatele reale (abscisa și ordonata), în planul xOy , ale fiecăruia dintre cele trei vârfuri A , B şi C ale unui triunghi. Știind că expresiile C/C++ de mai jos au ca valori abscisa vârfului A respectiv ordonatele vârfurilor B și C ale triunghiului, scrieți definiția unei structuri cu eticheta triunghi , care permite memorarea datelor precizate, și declarați corespunzător variabila t . t.A.x t.B.y t.C.y",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În secvenţa alăturată, variabila a memorează un şir cu cel mult 100 de caractere, iar variabilele i şi k sunt de tip întreg. Scrieţi ce se afișează pe ecran în urma executării secvenţei. k=’a’ - ’A’; strcpy(a,” VIcToriE ”); cout<<strlen(a); | printf( ”%d”, strlen(a) ); for(i=0;i<strlen(a);i++) if(a[i]>=’ A ’ && a[i]<=’ Z ’) a[i]=a[i]+k; else a[i]=a[i]-k; cout<<a; | printf(”%s”,a);",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul putere are trei parametri : • n , prin care primește un număr natural din intervalul [2,10 9 ] ; • d și p , prin care furnizează divizorul prim, d , care apare la cea mai mare putere, p , în descompunerea în factori primi a lui n ; dacă există mai mulți astfel de divizori se afișează cel mai mare dintre ei. Scrieți definiția completă a subprogramului. Exemplu: dacă n=10780 , atunci, în urma apelului, d=7 şi p=2 ( 10780=2 2  5  7 2  11 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "există mai mulți astfel de divizori",
+        "exampleOutput": "cel",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieţi un program C/C++ care citeşte de la tastatură două numere naturale din intervalul [2,20] , n și k , şi construieşte în memorie un tablou bidimensional cu n linii şi n∙k coloane, numerotate începând cu 1 , astfel încât fiecare linie i ( i ∈ [1,n] ) memorează un şir crescător de termeni cu proprietatea că primul termen este i , fiecare valoare apare în şir de exact k ori și oricare doi termeni alăturați au valori egale sau consecutive. Programul afişează pe ecran tabloul construit, fiecare linie a tabloului pe câte o linie a ecranului, cu valorile aflate pe aceeaşi linie separate prin câte un spaţiu. Exemplu: dacă n=4 și k=3 , se afişează pe ecran tabloul alăturat. 1 1 1 2 2 2 3 3 3 4 4 4 2 2 2 3 3 3 4 4 4 5 5 5 3 3 3 4 4 4 5 5 5 6 6 6 4 4 4 5 5 5 6 6 6 7 7 7",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=4 și k=3 ,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consideră șirul 1 , 1 , 2 , 5 , 13 , 34 , 89 , 233 , 610 .... definit astfel: f 1 =f 2 =1 , f n =3∙f n-1 -f n-2 (unde n este un număr natural n≥3 ): Se citesc de la tastatură două numere naturale x și y ( x ≤ y  10 9 ), valorile a doi termeni aflați pe poziții consecutive în şirul dat, şi se cere să se scrie în fişierul text bac.txt , în ordine descrescătoare, separați prin câte un spațiu, toţi termenii şirului care sunt mai mici sau egali cu y . Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate şi al timpului de executare. Exemplu: dacă se citesc numerele 89 233 fişierul bac.txt conţine numerele 233 89 34 13 5 2 1 1 a. Scrieți programul C/C++ corespunzător algoritmului proiectat. b. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. (2p.)",
+        "points": 8,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

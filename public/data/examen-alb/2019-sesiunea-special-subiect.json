@@ -1,0 +1,144 @@
+{
+  "id": "2019-sesiunea-special-subiect",
+  "year": 2019,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2019/2019-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2019/2019-sesiunea-special-barem.pdf",
+  "variant": 1,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x ș i y sunt întregi. Indica ț i expresia C/C++ echivalent ă cu cea al ă turat ă . (x<3)&&(y>=5)",
+        "options": {
+          "a": "!((x<3)||(y>=5))",
+          "b": "!(x>=3)&&(y<5)",
+          "c": "!(!(x<3)||!(y>=5))",
+          "d": "!((x>=3)&&(y<5))"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este incomplet definit al ă turat. Indica ț i expresia cu care pot fi înlocuite punctele de suspensie, astfel încât, în urma apelului de mai jos, s ă se afi ș eze cel mai mare divizor comun al numerelor nenule memorate în variabilele întregi x ș i y . f(x,y,x); void f(int m, int n, int d) { if(n%d==0 && m%d==0) cout<<d; | printf(”%d”,d); else f(.........); }",
+        "options": {
+          "a": "m,n,d+1",
+          "b": "m,n,d-1",
+          "c": "m+1,n+1,d",
+          "d": "m-1,n-1,d"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate b ă uturile ob ț inute amestecând sucurile a cel pu ț in dou ă fructe distincte din mul ţ imea { afine , caise , l ă mâi , mere , pere }. Primele cinci solu ţ ii ob ţ inute sunt, în aceast ă ordine: ( afine , caise ), ( afine , caise , l ă mâi ), ( afine , caise , l ă mâi , mere ), ( afine , caise , l ă mâi , mere , pere ) ş i ( afine , caise , l ă mâi , pere ). A ș asea solu ţ ie este:",
+        "options": {
+          "a": "( afine , caise , mere )",
+          "b": "( afine , caise , mere , pere )",
+          "c": "( afine , mere , pere )",
+          "d": "( afine , l ă mâi , mere , pere )"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Indica ț i un lan ț elementar în graful neorientat cu 5 noduri, numerotate de la 1 la 5 , reprezentat al ă turat.",
+        "options": {
+          "a": "1,2,3,1",
+          "b": "1,2,3,4",
+          "c": "1,2,3,4,5",
+          "d": "1,3,2,1,5"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Indica ț i valorile ce pot reprezenta num ă rul de fii ai fiec ă ruia dintre cele ș ase noduri ale unui arbore cu r ă d ă cin ă .",
+        "options": {
+          "a": "0,0,0,1,2,3",
+          "b": "0,0,0,0,2,3",
+          "c": "0,0,0,3,3,3",
+          "d": "1,1,1,1,1,1 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 1 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ţ irii num ă rului natural a la num ă rul natural nenul b ş i cu [c] partea întreag ă a num ă rului real c . cite ş te n,k (numere naturale, k num ă r prim) p \u0001 \u0001 \u0001 \u0001 0; i \u0001 \u0001 \u0001 \u0001 1 ┌ cât timp i ≤ n execut ă │ x \u0001 \u0001 \u0001 \u0001 i │┌ cât timp x%k=0 execut ă ││ x \u0001 \u0001 \u0001 \u0001 [x/k]; p \u0001 \u0001 \u0001 \u0001 p+1 │└■ │ i \u0001 \u0001 \u0001 \u0001 i+1 └■ scrie p a) Scrie ţ i valoarea afi ş at ă dac ă se citesc, în aceast ă ordine, numerele 10 ș i 3 . b) Dac ă pentru k se cite ş te num ă rul 5 , scrie ţ i trei numere care pot fi citite pentru n astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, valoarea afi ş at ă s ă fie 10 . (6p.) c) Scrie ţ i programul C/C++ corespunz ă tor algoritmului dat. (10p.) d) Scrie ţ i în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structur ă cât timp...execut ă cu o structur ă de tip pentru...execut ă . (6p.)",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila e , declarat ă al ă turat, memoreaz ă informa ț ii despre un eveniment din anul 2019 (num ă rul de ordine ș i data desf ăș ur ă rii sale), iar variabila d memoreaz ă o dat ă calendaristic ă din acela ș i an. Scrie ț i o expresie care are valoarea 1 dac ă ș i numai dac ă data memorat ă în variabila d este anterioar ă datei desf ăș ur ă rii evenimentului corespunz ă tor variabilei e . struct tdata { int zi,luna; }d; struct eveniment { int nr; struct tdata dev; }e;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 5 linii ş i 5 coloane, numerotate de la 1 la 5 , având ini ţ ial toate elementele nule. F ă r ă a utiliza alte variabile decât cele men ț ionate, scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=1;i<=5;i++) for(j=1;j<=5;j++) .................. 4 4 4 4 4 4 3 3 3 3 4 3 2 2 2 4 3 2 1 1 4 3 2 1 0",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul Egal are un parametru, n , prin care prime ş te un num ă r natural cu cel pu ț in o cifr ă impar ă ( n ∈ ∈ ∈ ∈ [10 , 10 9 ] ). Subprogramul returneaz ă valoarea 1 dac ă toate cifrele impare ale lui n sunt egale între ele sau valoarea 0 în caz contrar. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=7727470 sau n=7240 atunci subprogramul returneaz ă 1 , iar dac ă n=7921470 atunci subprogramul returneaz ă 0 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text cu cel mult 100 de caractere cuvintele sunt formate numai din litere mari ș i mici ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul precizat, apoi un num ă r natural, n ( n ∈ ∈ ∈ ∈ [1 , 10 2 ) ), ş i afi ş eaz ă pe ecran, pe linii separate, cuvintele din text care au exact n litere. Cuvintele sunt afi ş ate în ordinea apari ţ iei lor în text, iar dac ă nu exist ă niciun astfel de cuvânt, se afi ș eaz ă pe ecran mesajul nu exista . Exemplu: dac ă se cite ș te textul Fat Frumos este cel mai viteaz iar n=6 , se afi ş eaz ă pe ecran: Frumos viteaz",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Ș irul f este definit astfel: f 1 =x ; f 2 =y ; f 3 =z ; f i =f i-1 +f i-2 -f i-3 , unde x , y , z ș i i sunt numere naturale nenule, i>3 . De exemplu, dac ă x=1 , y=2 ș i z=4 ș irul este: 1 , 2 , 4 , 5 , 7 , 8 , 10 , 11 , 13 , 14 , 16 , ... Se citesc de la tastatur ă un num ă r natural, n ( n ∈ ∈ ∈ ∈ [1,10 4 ] ), apoi trei numere naturale din intervalul [1,10 2 ) , x , y ș i z , reprezentând, în aceast ă ordine, primii trei termeni ai ș irului precizat mai sus. Se cere s ă se scrie în fi ș ierul bac.txt primii n termeni ai ș irului, separa ț i prin câte un spa ț iu, în ordine invers ă a apari ț iei lor în ș ir. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al spa ț iului de memorie utilizat. Exemplu: dac ă n=10 , x=1 , y=2 ș i z=4 fi ș ierul con ț ine numerele: 14 13 11 10 8 7 5 4 2 1 a) Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b) Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

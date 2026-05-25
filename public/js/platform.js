@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* ── 8. Audio Player (Web Speech API) ──────────────────────────── */
 function initAudioPlayer() {
+  return; /* audio disabled */
   if (!window.speechSynthesis) return;
 
   /* ── Chromium detection (Chrome + Edge use online voices → ro-RO works natively) ── */

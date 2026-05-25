@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-03-subiect",
+  "year": 2020,
+  "session": "mec-test-03",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-03-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-03-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x și y sunt de tip întreg și memorează numere naturale nenule. Indicaţi o expresie C/C++ care are valoarea 1 dacă şi numai dacă numărul memorat în x are cifra unităţilor egală cu 2 şi este un multiplu al numărului memorat în y .",
+        "options": {
+          "a": "x%2==10 || y%x==0",
+          "b": "x%10==2 || y%x==0",
+          "c": "x%2 ==10 && x%y==0",
+          "d": "x%10==2 && x%y==0"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicaţi ce se afişează în urma apelului de mai jos. f(3); void f(int x) { cout<<x; | printf(”%d”,x); while(x >0){ f(x-1); x=x-1;} }",
+        "options": {
+          "a": "321021010",
+          "b": "32100100",
+          "c": "3210",
+          "d": "321"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se generează toate posibilit ățile de a forma șiraguri din câte 4 pietre prețioase din mulțimea {rubin,opal,safir,smarald,topaz} , astfel încât pe oricare două poziții alăturate să nu se afle două pietre din submulțimea {rubin,safir,topaz} . Primele opt șiraguri generate sunt, în această ordine, (rubin,opal,rubin,opal) , (rubin,opal,rubin,smarald) , (rubin,opal,opal,rubin) , (rubin,opal,opal,opal) , (rubin,opal,opal,safir) , (rubin,opal,opal,smarald) , (rubin,opal,opal,topaz) , (rubin,opal,safir,opal) . Ultimul șirag generat este:",
+        "options": {
+          "a": "(topaz,smarald,topaz,topaz)",
+          "b": "(topaz,smarald,topaz,opal)",
+          "c": "(topaz,smarald,topaz,smarald)",
+          "d": "(topaz,smarald,smarald,topaz)"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „taţi” t=(2,5,1,1,0,3,3,7,4,6) . Indicați numărul de frunze ale arborelui.",
+        "options": {
+          "a": "3",
+          "b": "4",
+          "c": "5",
+          "d": "6"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 10 noduri, numerotate de la 1 la 10 , și muchiile [1,2] , [2,3] , [2,10] , [3,10] , [4,5] , [4,6] , [5,6] , [6,9] , [7,8] , [7,9] , [8,9] . Indicați numărul minim de muchii care trebuie adăugate pentru ca graful obținut să fie eulerian.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4 Ministerul Educaţiei și Cercetării Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică Testul 3 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n (număr natural, n>9 ) c1  n%10; n  [n/10]; c2  n%10 ┌dacă c1 =c2 atunci s  0 │altfel │┌dacă c1>c2 atunci s  1 ││altfel s  -1 │└■ └■ ┌repetă │ c1  n%10; n  [n/10]; c2  n%10 └până când (c1 -c2)*s ≤ 0 scrie s, ' ',n a. Scrieţi ce se afișează dacă se citeşte valoarea 2754578 . (6p.) b. Scrieţi două numere care pot fi citite astfel încât, în urma executării algoritmului pentru primul dintre ele să se afișeze 1 0 , iar pentru al doilea să se afișeze -1 0 . (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă...până când cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n (număr natural, n>9 ) c1  n%10; n  [n/10]; c2  n%10 ┌dacă c1 =c2 atunci s  0 │altfel │┌dacă c1>c2 atunci s  1 ││altfel s  -1 │└■ └■ ┌repetă │ c1  n%10; n  [n/10]; c2  n%10 └până când (c1 -c2)*s ≤ 0 scrie s, ' ',n",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi ce se afișează dacă se citeşte valoarea 2754578 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieţi două numere care pot fi citite astfel încât, în urma executării algoritmului pentru primul dintre ele să se afișeze 1 0 , iar pentru al doilea să se afișeze -1 0 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă...până când cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila fig memorează date specifice unui cerc: coordonatele reale (abscisa și ordonata), în planul xOy , ale centrului cercului, precum şi lungimea razei acestuia. Știind că expresiile C/C++ de mai jos au ca valori numere reale reprezentând datele specifice ale cercului, scrieți definiția unei structuri cu eticheta cerc , care permite memorarea datelor precizate, și declarați corespunzător variabila fig . fig.centru.x fig.centru.y fig.raza",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila p este de tip întreg, iar variabila s memorează un şir de cel mult 20 de caractere, numai litere mari ale alfabetului englez. Fără a utiliza alte variabile, scrieţi o secvență de instrucțiuni în urma executării căreia să se afişeze pe ecran toate literele şirului memorat de variabila s , cu excepţia vocalei A , dacă în șirul inițial aceasta este alături de vocala I . Literele se afişează în ordinea apariţiei lor în şir. Exemplu: dacă şirul memorat în variabila s este ALIANTA sau ALAINTA se va afişa ALINTA .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul factori are doi parametri , n şi m , prin care primește câte un număr natural din intervalul [1,10 9 ] . Subprogramul returnează numărul valorilor prime care se regăsesc atât în descompunerea în factori primi a lui n , cât și în descompunerea în factori primi a lui m . Scrieți definiția completă a subprogramului. Exemplu: dacă n=750 şi m=490 , atunci subprogramul returnează 2 ( 750=2  3  5 3 , 490=2  5  7 2 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=750 şi m=490 ,",
+        "exampleOutput": "numărul",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieţi un program C/C++ care citeşte de la tastatură un număr natural, n ( n ∈ [2,20] ), şi construieşte în memorie un tablou bidimensional cu n linii şi n coloane, având proprietăţile: • toate elementele situate pe diagonala secundară sunt nule; • fiecare linie conţine, începând cu diagonala secundară, de la dreapta la stânga, un şir strict crescător de numere consecutive, iar începând cu diagonala secundară, de la stânga la dreapta, tot un şir strict crescător de numere consecutive. Programul afişează pe ecran tabloul construit, fiecare linie a tabloului pe câte o linie a ecranului, cu elementele aflate pe aceeaşi linie separate prin câte un spaţiu. Exemplu: dacă n=5 se afişează pe ecran tabloul alăturat. 4 3 2 1 0 3 2 1 0 1 2 1 0 1 2 1 0 1 2 3 0 1 2 3 4",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=5",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fişierul bac.in conţine un şir de cel mult 10 6 numere întregi din intervalul [-10 9 ,10 9 ] , separate prin câte un spaţiu. Cel puţin un număr din șir este negativ. Se cere să se afişeze pe ecran lungimea maximă a unei secvenţe a şirului care fie începe, fie se încheie cu un număr negativ. O secvenţă este formată din termeni aflaţi pe poziţii consecutive în şir, iar lungimea secvenței este egală cu numărul de termeni ai acesteia. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate şi al timpului de executare. Exemplu: dacă fişierul conţine numerele 12 25 -6 7 80 -75 101 -6 52 -124 87 99 210 pe ecran se afişează 11 (corespunzător secvenţei -6 7 80 -75 101 -6 52 -124 87 99 210 ). a. Scrieți programul C/C++ corespunzător algoritmului proiectat. b. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. (2p.)",
+        "points": 8,
+        "type": "code",
+        "exampleInput": "fişierul conţine numerele 12 25 -6 7 80 -75 101 -6 52 -124 87 99 210 pe ecran",
+        "exampleOutput": "11",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

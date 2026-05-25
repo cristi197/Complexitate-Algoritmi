@@ -1,0 +1,85 @@
+{
+  "id": "2012-sesiunea-august-septembrie-subiect",
+  "year": 2012,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2012/2012-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2012/2012-sesiunea-august-septembrie-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg ş i memoreaz ă un num ă r natural. Expresia al ă turat ă are valoarea 0 dac ă ş i numai dac ă expresia x%5 are valoarea: (4p.) ((x%5+1)%5+1)%5",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă graful neorientat cu ş ase noduri, reprezentat al ă turat. Num ă rul minim de muchii ce trebuie ad ă ugate, astfel încât în graful ob ţ inut fiecare nod s ă apar ţ in ă unui ciclu, este: a. 1 b. 2 c. 4 d. 5 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă declararea al ă turat ă , în care variabilele t1 ş i t2 memoreaz ă lungimile laturilor a dou ă triunghiuri. Scrie ţ i o expresie C/C++ care are valoarea 1 dac ă ş i numai dac ă triunghiul corespunz ă tor variabilei t1 are perimetrul strict mai mare decât perimetrul triunghiului corespunz ă tor variabilei t2 . struct triunghi { int a,b,c; } t1, t2; 4. Se consider ă dou ă ş iruri de caractere a , de lungime na ş i b , de lungime nb . Ş irul a este numit sufix al ş irului b dac ă na ≤ nb ş i sub ş irul lui b determinat de ultimele sale na caractere coincide cu a . În secven ţ a de instruc ţ iuni de mai jos variabila i este de tip întreg, iar variabila s memoreaz ă un ş ir cu cel mult 20 de caractere. F ă r ă a utiliza alte variabile, scrie ţ i una sau mai multe instruc ţ iuni care pot înlocui punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, s ă se afi ş eze pe ecran, în ordinea descresc ă toare a lungimii, separate prin câte un spa ţ iu, toate sufixele ş irului memorat în variabila s , ca în exemplu. Exemplu : pentru ş irul elevi se afi ş eaz ă : elevi levi evi vi i for(i=0;i<strlen(s);i++) .................. (6p.) Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un num ă r natural n ( 2<n ≤ 15 ) ş i construie ş te în memorie un tablou bidimensional cu n linii ş i n coloane în care: - toate elementele din prima coloan ă au valoarea 1 ; - ultima linie con ţ ine, în ordine strict cresc ă toare, numerele naturale din intervalul [1 , n] ; - oricare alt element este ob ţ inut prin însumarea celor dou ă elemente vecine cu el, aflate pe linia imediat urm ă toare ş i pe aceea ş i coloan ă cu el, respectiv pe aceea ş i linie cu el ş i pe coloana anterioar ă , ca în exemplu. 5. Programul afi ş eaz ă pe ecran tabloul ob ţ inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele fiec ă rei linii fiind separate prin câte un spa ţ iu. Exemplu: pentru n=4 pe ecran se afi ş eaz ă tabloul al ă turat. (10p.) 1 5 15 35 1 4 10 20 1 3 6 10 1 2 3 4 Ministerul Educa ţ iei, Cercet ă rii, Tineretului ş i Sportului Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la Informatic ă Varianta 4 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se genereaz ă , în ordine lexicografic ă , toate ş irurile de maximum 4 litere distincte din mul ţ imea { a , v , i , o , n }. Primele 5 ş iruri generate sunt, în aceast ă ordine: a , ai , ain , aino , ainv . Imediat dup ă ş irul avn se genereaz ă : a. avi b. avni c. avo d. iano Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Scrie ţ i valorile f(3,4) ş i f(2,20) . int f(int x,int y) { if(x*2>y) return x; return f(x*2,y); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consider ă subprogramul zero , cu doi parametri: • n , prin care prime ş te o valoare natural ă 2<n<50 ; • v , prin care prime ş te un tablou unidimensional cu 2•n elemente, numere naturale cu cel mult 4 cifre. Num ă rul de elemente pare este egal cu num ă rul de elemente impare. Elementele au indici de la 1 la 2•n . Subprogramul modific ă tabloul astfel încât elementele impare s ă aib ă indici impari, iar elementele pare s ă aib ă indici pari. Tabloul modificat este furnizat tot prin parametrul v . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=5 ş i v=(4 , 5 , 0 , 9 , 10 , 7 , 15 , 3 , 8 , 10) , atunci dup ă apel o solu ţ ie posibil ă este: v=(5 , 4 , 9 , 0 , 15 , 10 , 7 , 8 , 3 , 10) . 4. Fi ş ierul bac.txt con ţ ine pe prima linie un num ă r natural par n cu cel mult 3 cifre, iar pe urm ă toarea linie un ş ir de n numere naturale cu cel mult nou ă cifre. Numerele din ş ir sunt separate prin câte un spa ţ iu. Se cere s ă se afi ş eze pe ecran mesajul Da dac ă în ş ir exist ă un element care s ă fie strict mai mare decât jum ă tate dintre numerele din ş ir. Dac ă în ş ir nu se afl ă o astfel de valoare, pe ecran se afi ş eaz ă mesajul Nu . Pentru determinarea num ă rului cerut se utilizeaz ă un algoritm eficient din punctul de vedere al memoriei ş i al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt are con ţ inutul 6 8 34 34 34 5 34 atunci pe ecran se afi ş eaz ă Nu , iar dac ă fi ş ierul are con ţ inutul 8 1 5 6 12 3 12 12 9 atunci pe ecran se afi ş eaz ă Da . a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

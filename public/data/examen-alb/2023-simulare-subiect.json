@@ -1,0 +1,172 @@
+{
+  "id": "2023-simulare-subiect",
+  "year": 2023,
+  "session": "Simulare",
+  "type": "simulare",
+  "pdfUrl": "/subiecte-bac/2023/2023-simulare-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2023/2023-simulare-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați numerele pe care le pot memora variabilele întregi x şi y , astfel încât valoarea expresiei C/C++ alăturate să fie 23 . x/2+y%3",
+        "options": {
+          "a": "x=8 şi y=23",
+          "b": "x=20 şi y=39",
+          "c": "x=23 şi y=66",
+          "d": "x=43 şi y=20"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea lui f(2023) . int f(int n) { if(n==0) return 0; if(n%10==2) return f(n/10)*10+3; return f(n/10)*10+2; }",
+        "options": {
+          "a": "2303",
+          "b": "3232",
+          "c": "3332",
+          "d": "5355"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Expresiile alăturate au ca valori trei numere naturale reprezentând, în această ordine, următoarele informații memorate pentru o motocicletă: anul fabricației și dimensiuni specifice (garda la sol și lungimea). Indicați o declarare corespunzătoare a variabilei m . m.an m.dm.garda m.dm.lungime",
+        "options": {
+          "a": "struct { int an; struct{int garda, lungime;}dm; }m;",
+          "b": "struct { int m.an; struct{int garda, lungime;}m.dm; };",
+          "c": "struct { int an, dm.garda, dm.lungime; }m;",
+          "d": "struct m { int an, dm (garda,lungime); };"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Utilizând metoda backtracking, se generează toate pachetele formate din câte 3 tipuri distincte de ceai din mulţimea { matcha , mate , moringa , oolong , tulsi }. Două amestecuri sunt distincte dacă diferă prin cel puțin un tip de ceai. Primele patru soluţii obţinute sunt, în această ordine: ( matcha , mate , moringa ), ( matcha , mate , oolong ), ( matcha , mate , tulsi ) şi ( matcha , moringa , oolong ). Indicați succesiunea care NU se obține, prin această metodă, în ordinea dată.",
+        "options": {
+          "a": "( matcha , moringa , tulsi )",
+          "b": "( moringa , oolong , tulsi )",
+          "c": "( mate , moringa , oolong )",
+          "d": "( oolong , tulsi , mate )"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un magazin sunt 8 raioane, distribuite în trei zone importante, în fiecare zonă fiind un număr par, nenul, de raioane. În scopul fluidificării deplasării clienților se marchează unele culoare, astfel încât fiecare culoar să conecteze două raioane, iar deplasarea pe el să se facă într-un singur sens. Se realizează o hartă, sub forma unui graf orientat, în care vârfurile reprezintă raioanele din magazin, iar arcele reprezintă culoarele marcate. Indicați numărul maxim de culoare care se pot marca, astfel încât graful să aibă trei componente tare conexe, fiecare componentă fiind reprezentarea pe hartă a câte uneia dintre cele trei zone importante din magazin.",
+        "options": {
+          "a": "20",
+          "b": "28",
+          "c": "36",
+          "d": "56 Ministerul Educaţiei Centrul Naţional de Politici și Evaluare în Educație Probă scrisă la informatică Simulare Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n (număr natural) x  5 ┌repetă │ c n  n; n  0; p  1 │┌repetă ││ c  cn%10 ││┌dacă c=x atunci c  5-c ││└■ ││ n  c*p+n; cn  [cn/10]; p  p*10 │└până când c n=0 │ x  x-1 └până când x =0 scrie n a. Scrieţi valoarea afişată dacă se citește numărul 5174 . (6p.) b. Scrieţi trei numere impare , cu cifre distincte, din intervalul [10 2 ,10 4 ) care pot fi citite astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea, să se afișeze valoarea 34 . (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structură repetă ... până când cu o structură de tip pentru... execută . (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n (număr natural) x  5 ┌repetă │ c n  n; n  0; p  1 │┌repetă ││ c  cn%10 ││┌dacă c=x atunci c  5-c ││└■ ││ n  c*p+n; cn  [cn/10]; p  p*10 │└până când c n=0 │ x  x-1 └până când x =0 scrie n",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi valoarea afişată dacă se citește numărul 5174 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieţi trei numere impare , cu cifre distincte, din intervalul [10 2 ,10 4 ) care pot fi citite astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea, să se afișeze valoarea 34 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structură repetă ... până când cu o structură de tip pentru... execută .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 7 noduri, numerotate de la 1 la 7 , este reprezentat prin vectorul de „tați” (4,1,1,0,7,4,4) . Scrieți trei muchii care i se pot adăuga, astfel încât graful obținut să fie eulerian.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i şi j sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 5 linii şi 5 coloane, numerotate de la 1 la 5 , având iniţial toate elementele nule. Fără a utiliza alte variabile decât cele menționate, scrieţi secvenţa de instrucţiuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma executării secvenţei obţinute, variabila a să memoreze tabloul alăturat. for(i=1;i<=5;i++) for(j=1;j<=5;j++) .................. 4 3 2 1 0 4 3 2 1 1 4 3 2 2 2 4 3 3 3 3 4 4 4 4 4",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul NrImp are trei parametri: • x și y , prin care primeşte câte un număr natural ( 2≤x<y≤ 10 9 ) • nr , prin care furnizeaz ă numărul valorilor naturale din intervalul [x,y] cu trei divizori pozitivi impari. Scrieţi definiţia completă a subprogramului. Exemplu: dacă x=4 și y=50 , după apel nr=6 (pentru valorile 9 , 18 , 25 , 36 , 49 , 50 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text de cel mult 100 de caractere cuvintele sunt separate prin câte un spațiu și sunt formate din litere mari ale alfabetului englez, iar dacă sunt scrise prescurtat sunt urmate de caracterul . (punct). Textul reprezintă denumirea științifică a unei păsări și doar cuvintele din mulțimea { FAMILIA , GENUL , SPECIA }, specifice sistemului de clasificare a organismelor, sunt mereu prescurtate, prin eliminarea ultimelor lor litere. Scrieţi un program C/C++ care citeşte de la tastatură un text de tipul precizat și construiește în memorie, apoi afișează pe ecran denumirea științifică, în care pentru cuvintele specifice sistemului de clasificare a organismelor se păstrează doar primele trei litere, scrise cu litere mici, și urmate de punct, ca în exemplu. Exemplu: pentru textul FAMIL. PHASIANIDAE GEN. MELEAGRIS SP. GALLOPAVO sau pentru textul FAM. PHASIANIDAE G. MELEAGRIS SPECI. GALLOPAVO se obține fam. PHASIANIDAE gen. MELEAGRIS spe. GALLOPAVO",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Pentru a studia un metal, s-a urmărit comportamentul său într-o succesiune de pași, la fiecare pas metalul fiind supus unei anumite temperaturi. Pașii sunt numerotați cu valori naturale consecutive, începând de la 1 . Un pas se numește reprezentativ dacă la niciunul dintre pașii anteriori nu este utilizată o temperatură strict mai mare decât la acest pas. Dacă există o secvență de pași consecutivi la care se utilizează aceeași temperatură, se consideră reprezentativ doar primul pas din secvență. Fișierul bac.txt conține cel mult 10 6 numere naturale din intervalul [0,10 4 ] , separate prin câte un spațiu, reprezentând temperaturile la care este supus metalul, în ordinea pașilor corespunzători. Se cere să se afișeze pe ecran, separați prin câte un spațiu, pașii reprezentativi pentru datele din fișier. Proiectați un algoritm eficient din punctul de vedere al timpului de executare și al spațiului de memorie utilizat. Exemplu: dacă fișierul conține numerele 7 4 9 10 10 10 3 9 2 10 10 8 2 30 se afișează pe ecran 1 3 4 10 14 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.) 2",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "la niciunul dintre pașii anteriori nu este utilizată o temperatură strict mai mare decât la acest pas. Dacă există o secvență de pași consecutivi la care se utilizează aceeași temperatură, se consideră reprezentativ doar primul pas din secvență. Fișierul bac.txt conține cel mult 10 6 numere naturale din intervalul [0,10 4 ] , separate prin câte un spațiu, reprezentând temperaturile la care este supus metalul, în ordinea pașilor corespunzători. Se cere să se afișeze pe ecran, separați prin câte un spațiu, pașii reprezentativi pentru datele din fișier. Proiectați un algoritm eficient din punctul de vedere al timpului de executare și al spațiului de memorie utilizat. Exemplu: dacă fișierul conține numerele 7 4 9 10 10 10 3 9 2 10 10 8 2 30",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

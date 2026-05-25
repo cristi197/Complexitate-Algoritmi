@@ -1,0 +1,85 @@
+{
+  "id": "2018-sesiunea-august-subiect",
+  "year": 2018,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2018/2018-sesiunea-august-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2018/2018-sesiunea-august-barem.pdf",
+  "variant": 1,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x , y ș i z sunt de tip întreg ș i memoreaz ă câte un num ă r natural nenul. Dac ă expresia C/C++ al ă turat ă are valoarea 1 , indica ț i ș irul cresc ă tor format cu valorile acestor variabile, în ordinea precizat ă mai jos. (4p.) z<x && 2*z==3*y",
+        "options": {
+          "a": "x , y , z",
+          "b": "y , z , x",
+          "c": "z , x , y",
+          "d": "z , y , x"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf orientat este complet dac ă pentru oricare dou ă vârfuri i ș i j ale sale exist ă fie ambele arce (i,j) ș i (j,i) , fie doar unul dintre acestea. Un graf orientat are 5 vârfuri ș i 20 de arce. Pentru a ob ț ine un graf par ț ial al s ă u cu dou ă componente tare conexe, fiecare dintre acestea fiind grafuri complete, unul cu 3 vârfuri, iar cel ă lalt cu 2 vârfuri, num ă rul minim de arce care pot fi eliminate este: a. 2 b. 3 c. 6 d. 10 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În declararea al ă turat ă , câmpurile cat ş i rest memoreaz ă câtul, respectiv restul împ ă r ț irii a dou ă numere naturale nenule. struct impartire { int cat; int rest; }rezultat; int x; Scrie ţ i o secven ță de instruc ț iuni în urma execut ă rii c ă reia se memoreaz ă în variabila rezultat câtul ș i restul împ ă r ț irii întregi a num ă rului 2018 la num ă rul natural memorat în variabila x , dac ă acesta este nenul, sau se afi ș eaz ă pe ecran mesajul impartire nepermisa , în caz contrar. 4. Un arbore cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin matricea de adiacen ță al ă turat ă . Scrie ţ i trei noduri care pot fi alese drept r ă d ă cin ă astfel încât fiecare nod s ă admit ă cel mult doi descenden ț i direc ț i (fii). (6p.) 0 1 1 1 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un num ă r natural n ( n ∈ ∈ ∈ ∈ [2,10 2 ] ) ș i un ș ir de n numere naturale din intervalul [0,10 4 ] ș i construie ș te în memorie un tablou bidimensional cu n linii ş i n coloane, numerotate începând de la 0 , astfel încât parcurgând orice coloan ă numerotat ă cu un num ă r par, de jos în sus, sau orice coloan ă numerotat ă cu un num ă r impar, de sus în jos, se ob ț ine ș irul citit, ca în exemplu. Programul afi ș eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: dac ă n=4 , iar ș irul citit este 7 2 5 3 , se ob ț ine tabloul al ă turat. (10p.) 3 7 3 7 5 2 5 2 2 5 2 5 7 3 7 3 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 1 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(7); void f(int n) { cout<<n%2; | printf(\"%d\",n%2); if(n>=3) f(n-3); } a. 10 b. 010 c. 101 d. 1010 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a forma seturi de câte 5 instrumente de scris distincte din mul ţ imea { stilou , pan ă , toc , creion , pensul ă }, astfel încât în fiecare set creionul precede stiloul ș i pana. Dou ă seturi sunt distincte dac ă instrumentele sunt dispuse în alt ă ordine. Primele cinci solu ţ ii generate sunt, în aceast ă ordine, ( toc , creion , stilou , pan ă , pensul ă ), ( toc , creion , stilou , pensul ă , pan ă ), ( toc , creion , pan ă , stilou , pensul ă ), ( toc , creion , pan ă , pensul ă , stilou ), ( toc , creion , pensul ă , stilou , pan ă ). Scrie ţ i cea de a ş asea ş i cea de a ş aptea solu ţ ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul interval are un singur parametru, n , prin care prime ş te un num ă r natural ( n ∈ ∈ ∈ ∈ [3,10 6 ] ). Subprogramul returneaz ă cel mai mic num ă r natural x ( n<x ) care NU este prim, cu proprietatea c ă în intervalul [n,x] exist ă un singur num ă r prim. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=8 , subprogramul returneaz ă num ă rul 12 . 4. Primii termeni ai ș irului definit al ă turat (unde n este un num ă r natural nenul) sunt: 0 , 3 , 8 , 15 , 24 , 35 , 48 , 63 , 80 .... f n = \u0001 0 dac ă n = = = = 1 3 dac ă n = = = = 2 2 ∙ ∙ ∙ ∙ f n-1 -f n-2 + + + + 2 altfel Se citesc de la tastatur ă dou ă numere naturale din intervalul [0,10 9 ] , x ș i y , reprezentând valorile a doi termeni afla ț i pe pozi ț ii consecutive în ş irul dat ( x < y ), ş i se cere s ă se scrie în fi ş ierul text bac.txt , în ordine strict descresc ă toare, separa ț i prin câte un spa ț iu, to ţ i termenii ş irului mai mici sau egali cu y . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei utilizate. Exemplu: dac ă se citesc numerele 48 63 fi ş ierul bac.txt con ţ ine numerele 63 48 35 24 15 8 3 0 a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

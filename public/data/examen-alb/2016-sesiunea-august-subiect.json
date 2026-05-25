@@ -1,0 +1,85 @@
+{
+  "id": "2016-sesiunea-august-subiect",
+  "year": 2016,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2016/2016-sesiunea-august-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2016/2016-sesiunea-august-barem.pdf",
+  "variant": 9,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x ş i y sunt de tip real. Expresia C/C++ al ă turat ă este echivalent ă cu expresia: (4p.) !(x>0 && y>0)",
+        "options": {
+          "a": "x<=0 || y<=0",
+          "b": "x<=0 && y<=0",
+          "c": "x>0 || y>0",
+          "d": "!(x>0) && !(y>0)"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Matricea de adiacen ţă a unui graf neorientat cu 7 noduri are 10 elemente nenule. Num ă rul maxim de componente conexe ale grafului este: a. 2 b. 3 c. 4 d. 5 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În secven ţ a de instruc ț iuni de mai jos variabilele s1 ș i s2 memoreaz ă câte un ş ir cu cel mult 20 de caractere. Scrie ţ i ce se afi ş eaz ă pe ecran în urma execut ă rii secven ţ ei. strcpy(s1,”bacalaureat”); cout<<strlen(s1); | printf(”%d”,strlen(s1)); strcpy(s2,s1+5); s2[3]=’\\0’; cout<<s2; | printf(”%s”,s2); 4. Într-un graf orientat cu 7 vârfuri, numerotate de la 1 la 7 , pentru oricare dou ă vârfuri ale sale i ș i j exist ă arcul (i,j) fie dac ă j este divizor al lui i ( i ≠ ≠ ≠ ≠ j ), fie dac ă i ș i j au aceea ș i paritate, iar i<j . Enumera ț i vârfurile pentru care gradul interior este mai mare sau egal cu cel exterior. (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă numere naturale din intervalul [3,10 2 ] , în aceast ă ordine: n ş i m , apoi elementele unui tablou bidimensional cu n linii ş i m coloane, iar la final un num ă r x . Programul afi ş eaz ă pe ecran mesajul DA , dac ă exist ă cel pu ț in un element egal cu x aflat pe conturul tabloului (format din prima linie, ultima linie, prima coloan ă ș i ultima coloan ă ), sau mesajul NU în caz contrar. Exemplu: pentru n=4 , m=5 , tabloul al ă turat ş i x=12 , se afi ş eaz ă pe ecran mesajul DA . (10p.) 12 5 12 11 4 3 20 10 20 12 4 5 30 12 6 8 13 7 12 14 Ministerul Educa ţ iei Na ț ionale ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 9 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramele f1 ş i f2 sunt definite mai jos. int f1(int n) { if(n==0) return 1; else return n*f1(n-1); } int f2(int n) { if(n!=1) return n*f2(n-1); else return 0; } La apel, pentru parametrul n=5 , returneaz ă valoarea 120 : a. atât f1 , cât ş i f2 b. numai f1 c. numai f2 d. nici f1 , nici f2 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda bactracking se genereaz ă în ordine lexicografic ă toate ş irurile de 5 litere distincte din mul ţ imea { C , A , R , T , E }, astfel încât în fiecare ş ir litera T precede litera A . Primele trei solu ţ ii generate sunt, în aceast ă ordine: CERTA , CETAR , CETRA . Scrie ţ i cea de a patra ş i cea de a cincea solu ţ ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul duplicare are doi parametri: • n , prin care prime ş te un num ă r natural ( n ∈ ∈ ∈ ∈ [1,10 4 ] ); • d , prin care furnizeaz ă num ă rul ob ţ inut prin duplicarea fiec ă rei cifre pare a lui n sau -1 dac ă acesta nu are nicio cifr ă par ă . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=2380 , dup ă apel d=2238800 . 4. Fi ş ierul bac.txt con ţ ine un ş ir de cel mult 10 6 numere naturale distincte din intervalul [0,10 9 ] . Numerele din ş ir sunt separate prin câte un spa ţ iu. Se cere s ă se determine cei mai mari doi termeni pari din ş ir care sunt preceda ţ i de doar trei termeni impari. Termenii determina ț i se afi ș eaz ă pe ecran, în ordine strict cresc ă toare, separa ț i printr-un spa ț iu, iar dac ă în ş ir nu exist ă doi astfel de termeni, se afi ş eaz ă pe ecran mesajul Nu exista . Pentru determinarea termenilor ceru ţ i se utilizeaz ă un algoritm eficient din punctul de vedere al spa ț iului de memorie ş i al timpului de executare. Exemplu: dac ă fi ş ierul con ţ ine numerele 4 3 5 312 27 30 14 212 11 15 17 400 se afi ş eaz ă pe ecran numerele 30 212 ( 4 este precedat de 0 numere impare, 312 este precedat de 2 numere impare, 30 , 14 ș i 212 sunt precedate de 3 numere impare, iar 400 este precedat de 6 numere impare; dintre numerele 30 , 14 ș i 212 cele mai mari sunt 30 ș i 212 ). a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

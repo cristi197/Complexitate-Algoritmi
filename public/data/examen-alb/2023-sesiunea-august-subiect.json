@@ -1,0 +1,172 @@
+{
+  "id": "2023-sesiunea-august-subiect",
+  "year": 2023,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2023/2023-sesiunea-august-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2023/2023-sesiunea-august-barem.pdf",
+  "variant": 7,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i numerele pe care le pot memora variabilele întregi x ș i y , astfel încât valoarea expresiei C/C++ al ă turate s ă fie 1 . y%x–(x/y)*3!=0",
+        "options": {
+          "a": "x=25 ș i y=75",
+          "b": "x=25 ș i y=15",
+          "c": "x=15 ș i y=0",
+          "d": "x=10 ș i y=30"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i valoarea f(3,2) . int f(int x, int y) { int z; if (y==0) return 1; z=f(x,y/2); if (y%2!=0) return z*z*x; return z*z; }",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "9",
+          "d": "18"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila s poate accesa un ș ir cu cel mult 20 de caractere. Indica ț i ș irul accesat prin s în urma execut ă rii secven ț ei al ă turate. strcpy(s,\"2019\"); strcpy(s+3,\"23\");",
+        "options": {
+          "a": "20123",
+          "b": "201923",
+          "c": "202223",
+          "d": "2023"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate parfumurile formate prin amestecarea a câte 3 esen ț e distincte din mul ț imea { bergamot ă , cire ș , iris , l ă mâie , salcâm }. Dou ă parfumuri sunt distincte dac ă difer ă prin cel pu ț in o esen ță . Primele patru solu ț ii ob ț inute sunt, în aceast ă ordine: ( bergamot ă , cire ș , iris ), ( bergamot ă , cire ș , l ă mâie ), ( bergamot ă , cire ș , salcâm ) ș i ( bergamot ă , iris , l ă mâie ). Indica ț i penultima solu ț ie generat ă .",
+        "options": {
+          "a": "( cire ș , iris , salcâm )",
+          "b": "( cire ș , l ă mâie , salcâm )",
+          "c": "( l ă mâie , iris , salcâm )",
+          "d": "( iris , l ă mâie , salcâm )"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 5 noduri, numerotate de la 1 la 5 , cu gradele figurate în tabelul al ă turat. Indica ț i o pereche de valori posibile pentru x ș i y . Nod 1 2 3 4 5 Grad 2 x 3 3 y",
+        "options": {
+          "a": "0 ș i 4",
+          "b": "1 ș i 5",
+          "c": "2 ș i 3",
+          "d": "3 ș i 3 Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 7 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "d"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu [c] partea întreag ă a num ă rului real c . cite ș te n ( num ă r natural nenul ) x  0 ┌ cât timp n>0 execut ă │ cite ș te a , b (numere naturale) │ c  a; p  1 │┌ cât timp a>9 execut ă ││ a  [a/10]; p  p*10 │└■ │ a  a*p+b │┌ dac ă a ≠ c atunci ││ x  x+1 │└■ │ n  n-1 └■ scrie x",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valoarea afi ș at ă dac ă se citesc, în aceast ă ordine, numerele 3 , 746 , 82 , 3067 , 67 , 78 , 178 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă pentru n se cite ș te num ă rul 2 , scrie ț i un ș ir de numere naturale din intervalul [0,9] care pot fi citite în continuare, în acea ordine, astfel încât, în urma execut ă rii algoritmului, s ă se afi ș eze valoarea 0 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structur ă cât timp...execut ă cu o structur ă repetitiv ă de tip pentru...execut ă .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Într-un arbore cu r ă d ă cin ă un nod se afl ă pe nivelul x dac ă lan ț ul elementar care are o extremitate în nodul respectiv ș i cealalt ă extremitate în r ă d ă cina arborelui are lungimea x . Pe nivelul 0 se afl ă un singur nod (r ă d ă cina). Un arbore cu 6 noduri, numerotate de la 1 la 6 , are muchiile [1,2] , [2,3] , [2,6] , [3,4] , [3,5] . Scrie ț i nodurile care pot fi desemnate ca r ă d ă cin ă , astfel încât fiecare dintre arborii ob ț inu ț i s ă aib ă un num ă r minim de niveluri.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila p , declarat ă al ă turat, memoreaz ă caracteristicile unui produs: denumire ș i pre ț . Scrie ț i o secven ță de instruc ț iuni C/C++ prin care variabila a memoreaz ă valoarea primei litere a denumirii produsului respectiv, dac ă acesta are pre ț ul strict mai mic decât 100 , sau caracterul * în caz contrar. struct produs { char denumire[20]; int pret; }p; char a;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul DNPI are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ [1,10 9 ] ), ș i afi ș eaz ă pe ecran, separa ț i prin câte un spa ț iu, to ț i divizorii pozitivi impari ai lui n care NU sunt primi. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=90 , se afi ș eaz ă pe ecran, nu neap ă rat în aceast ă ordine, numerele 1 9 15 45",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un joc folose ș te o tabl ă dreptunghiular ă , pe care sunt reprezentate celule de dimensiune egal ă , dispuse pe m linii ș i pe n coloane. În fiecare celul ă este înscris un num ă r natural. Numim p ă trat de valoare p patru celule ale tablei, situate pe dou ă linii consecutive ș i pe dou ă coloane consecutive, cu proprietatea c ă suma valorilor înscrise în aceste celule este egal ă cu p . Scopul jocului este determinarea unui p ă trat de valoare maxim ă . Scrie ț i un program C/C++ care cite ș te de la tastatur ă dou ă numere naturale din intervalul [2,20] , m ș i n , apoi elementele unui tablou bidimensional cu m linii ș i n coloane, numere naturale din intervalul [0,10 4 ] , reprezentând numerele înscrise pe tabla de joc, în ordinea dispunerii celulelor corespunz ă toare. Programul determin ă un p ă trat de valoare maxim ă al tablei ș i afi ș eaz ă pe ecran aceast ă valoare. 1 1 2 30 3 10 1 2 1 13 12 1 1 2 3 1 7 1 20 1 Exemplu: pentru m=5 , n=4 ș i tabloul al ă turat, se afi ș eaz ă pe ecran valoarea 36 , corespunz ă toare p ă tratului eviden ț iat în figur ă .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fi ș ierul date.in con ț ine pe prima linie dou ă numere naturale din intervalul [1,10 6 ] , m ș i n , iar pe urm ă toarele dou ă linii numere naturale din intervalul [0,10 2 ) : pe a doua linie un ș ir A , de m numere, iar pe a treia linie un ș ir B , de n numere. Numerele aflate pe aceea ș i linie sunt separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran num ă rul maxim de perechi de forma (pa,pb) ( pa ∈ [1,m] , pb ∈ [1,n] ), cu proprietatea c ă termenul de pe pozi ț ia pa din ș irul A are aceea ș i valoare cu termenul de pe pozi ț ia pb din ș irul B ș i c ă fiecare pozi ț ie, corespunz ă toare ș irului A , respectiv ș irului B , apare în cel mult o pereche, ca în exemplu. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu : dac ă fi ș ierul con ț ine numerele al ă turate, se afi ș eaz ă pe ecran 6 (de exemplu, pentru perechile (1,1) , (2,9) , (4,2) , (5,5) , (6,6) , (7,7) sau pentru perechile (1,2) , (2,9) , (4,1) , (5,7) , (6,8) , (8,5) ). 8 9 1 0 4 1 5 3 5 5 1 1 1 7 5 3 5 3 0 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

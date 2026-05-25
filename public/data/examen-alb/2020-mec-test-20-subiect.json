@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-20-subiect",
+  "year": 2020,
+  "session": "mec-test-20",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-20-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-20-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați o expresie C/C++ care are valoarea 1 dacă și numai dacă numărul natural memorat în variabila întreagă x are exact două cifre.",
+        "options": {
+          "a": "x/100!=0 || x/10==0",
+          "b": "x/100==0 && x/10!=0",
+          "c": "x%100!=0 || x%10==0",
+          "d": "x%100==0 && x%10!=0"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Scrieți valoarea lui f(3) . int f(int n) { int r, i; r=0; for(i=1;i<=n;i++) r=r+i+f(n-i); return r; }",
+        "options": {
+          "a": "3",
+          "b": "6",
+          "c": "9",
+          "d": "11"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se generează toate modalitățile de a pregăti o masă festivă, servind, într-o anumită ordine, preparatele din mulțimea { ciuperci cu spanac , legume la cuptor , pere umplute cu nucă , panna cotta de cocos cu vanilie , salată cu smochine , tort de lămâie }, având în vedere următoarele restricții: ciupercile vor fi servite înaintea legumelor, legumele înaintea salatei și atât tortul, cât și perele umplute, înainte de panna cotta. Două soluții sunt distincte dacă ordinea servirii preparatelor este diferită. Primele trei soluții generate sunt, în această ordine: (ciuperci cu spanac , legume la cuptor , pere umplute cu nucă , salată cu smochine , tort de lămâie , panna cotta de cocos cu vanilie) , (ciuperci cu spanac , legume la cuptor , pere umplute cu nucă , tort de lămâie , panna cotta de cocos cu vanilie , salată cu smochine) , (ciuperci cu spanac , legume la cuptor , pere umplute cu nucă , tort de lămâie , salată cu smochine , panna cotta de cocos cu vanilie) . Indicați cea de a șasea soluție generată.",
+        "options": {
+          "a": "(ciuperci cu spanac , legume la cuptor , salată cu smochine , tort de lămâie , pere umplute cu nucă , panna cotta de cocos cu vanilie)",
+          "b": "(ciuperci cu spanac , legume la cuptor , tort de lămâie , pere umplute cu nucă , salată cu smochine , panna cotta de cocos cu vanilie)",
+          "c": "(ciuperci cu spanac , legume la cuptor , tort de lămâie , pere umplute cu nucă , panna cotta de cocos cu vanilie , salată cu smochine)",
+          "d": "(ciuperci cu spanac , legume la cuptor , tort de lămâie , salată cu smochine , pere umplute cu nucă , panna cotta de cocos cu vanilie)"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 9 noduri, numerotate de la 1 la 9 , este reprezentat prin vectorul de „tați” ( 8 , 7 , 0 , 6 , 2 , 8 , 3 , 3,2 ). Indicați rădăcina arborelui.",
+        "options": {
+          "a": "1",
+          "b": "3",
+          "c": "5",
+          "d": "9"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Matricea de adiacență a unui graf neorientat cu 100 de noduri are 9900 de elemente nule. Indicați numărul maxim de componente conexe ale grafului.",
+        "options": {
+          "a": "50",
+          "b": "90",
+          "c": "1000",
+          "d": "9800 Ministerul Educaţiei și Cercetării Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Testul 20 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește numărul 12 . (6p.) b. Scrieți două numere din intervalul [2,10 2 ] , unul par și unul impar, care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 9 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura cât timp...execută cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n ( număr natural nenul ) d  1; s  0 ┌cât timp d*d <n execută │┌dacă n%d=0 și d%2≠[n/d]%2 atunci ││ s  s+d+[n/d] │└■ │ d  d+1 └■ ┌dacă d*d=n atunci s  s+d └■ scrie s",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți ce se afișează dacă se citește numărul 12 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți două numere din intervalul [2,10 2 ] , unul par și unul impar, care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 9 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura cât timp...execută cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila p memorează simultan date specifice pentru prepararea unei prăjituri: numărul de ingrediente necesare și, pentru fiecare ingredient, codul acestuia și cantitatea necesară. Știind că expresiile C/C++ de mai jos au ca valori numere naturale din intervalul [2,20] , reprezentând numărul de ingrediente necesare pentru prepararea unei prăjituri, codul primului ingredient și cantitatea necesară din acesta, scrieți definiția unei structuri cu eticheta prajitura , care permite memorarea datelor specifice pentru prepararea unei prăjituri, și declarați corespunzător variabila p . p.numar p.ingredient[0].cod p.ingredient[0].cantitate",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i și j sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 7 linii și 7 coloane, numerotate de la 0 la 6 , având inițial toate elementele egale cu caracterul * . Fără a utiliza alte variabile, scrieți secvența de instrucțiuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma executării secvenței obținute, variabila a să memoreze tabloul alăturat. for(i=0;i<7;i++) for(j=0;j<7;j++) .................. b a a a a a b b b a a a b b b b b a b b b b b b b b b b b b b a b b b b b a a a b b b a a a a a b",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul transformareBaza10 are doi parametri, b și n , prin care primește câte un număr natural ( b  [2,10] , n  [0,10 9 ] ). Subprogramul returnează suma tuturor produselor de forma c∙b k , unde c este cifra de pe poziția k în scrierea numărului n ; pozițiile sunt numerotate de la dreapta la stânga, iar cifra unităților este pe poziția 0 . Scrieți definiția completă a subprogramului. Exemplu: dacă b=2 și n=10010 , subprogramul returnează 18 ( 18 =1∙2 4 +0∙2 3 +0∙2 2 +1∙2 1 +0∙2 0 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "suma",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un text cu cel mult 100 de caractere conține cuvinte și numere, separate prin câte un spațiu. Cuvintele sunt formate numai din litere mici ale alfabetului englez, iar numerele sunt reale, pozitive, cu partea întreagă și partea zecimală separate prin simbolul virgulă, sau numai cu partea întreagă, ca în exemplu. Scrieți un program C/C++ care citește de la tastatură un text de tipul precizat și îl transformă în memorie, înlocuind fiecare număr real cu partea întreagă a acestuia. Exemplu: pentru textul partea intreaga a lui 5,75 este egala cu a lui 5,25 si cu a lui 5 si este 5 se afișează pe ecran partea intreaga a lui 5 este egala cu a lui 5 si cu a lui 5 si este 5",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.txt conține un șir de cel mult 10 6 numere naturale din intervalul [0,10 3 ] , separate prin câte un spațiu. Se cere să se afișeze pe ecran suma maximă obținută adunând numere cu aceeași paritate, aflate pe poziții consecutive în șirul aflat în fișier. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul bac.txt conține valorile 10 115 1 5 2 2 2 4 7 3 100 20 2 7 se afișează pe ecran numărul 122 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fișierul bac.txt conține valorile 10 115 1 5 2 2 2 4 7 3 100 20 2 7",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

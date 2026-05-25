@@ -40,6 +40,7 @@
 
   /* ─── Init ──────────────────────────────────────────────────── */
   function init() {
+    return; /* audio disabled */
     var anchor = document.querySelector('[data-audiobook]');
     if (!anchor) return;
 

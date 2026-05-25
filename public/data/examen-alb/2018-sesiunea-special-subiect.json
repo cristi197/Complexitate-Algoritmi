@@ -1,0 +1,85 @@
+{
+  "id": "2018-sesiunea-special-subiect",
+  "year": 2018,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2018/2018-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2018/2018-sesiunea-special-barem.pdf",
+  "variant": 9,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg. Indica ț i o expresie care are valoarea 1 dac ă ș i numai dac ă expresia C/C++ al ă turat ă are valoarea 1 . (4p.) x<=3 || x>10",
+        "options": {
+          "a": "!(x<3 && x<10)",
+          "b": "x>=3 && !(x>=10)",
+          "c": "!(x<3 || x<=10)",
+          "d": "!(x>3) || !(x<=10)"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Num ă rul de noduri ale unui graf neorientat f ă r ă cicluri, cu 26 de muchii ș i 12 componente conexe este: a. 18 b. 28 c. 38 d. 48 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila d , declarat ă al ă turat, memoreaz ă în câmpul mic cel mai mic divizor, strict mai mare decât 1 , al num ă rului natural din intervalul [2,10 2 ] , memorat în câmpul nr . struct divizor { int nr, mic; } d; Scrie ţ i o secven ță de instruc ț iuni în urma execut ă rii c ă reia, pentru num ă rul memorat în câmpul nr al variabilei d , se afi ș eaz ă pe ecran mesajul prim , dac ă num ă rul este prim, mesajul patrat dac ă num ă rul este p ă tratul unui num ă r prim, sau dou ă numere naturale, separate printr-un spa ț iu, reprezentând cel mai mic ș i cel mai mare dintre divizorii proprii pozitivi ai s ă i. Divizorii proprii pozitivi ai unui num ă r sunt divizori pozitivi diferi ţ i de 1 ş i de el însu ş i. Exemplu: dac ă în câmpul nr se memoreaz ă num ă rul 12 , iar în câmpul mic se memoreaz ă num ă rul 2 , se afi ș eaz ă pe ecran 2 6 iar dac ă în câmpul nr se memoreaz ă num ă rul 9 , iar în câmpul mic se memoreaz ă num ă rul 3 , se afi ș eaz ă pe ecran mesajul patrat 4. Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 9 linii ş i 9 coloane, numerotate de la 1 la 9 , având ini ţ ial toate elementele nule. F ă r ă a utiliza alte variabile, scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=1;i<=9;i++) for(j=1;j<=9;j++) .................. (6p.) 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 1 2 3 3 3 3 3 3 3 1 2 3 4 4 4 4 4 4 1 2 3 4 5 5 5 5 5 1 2 3 4 5 6 6 6 6 1 2 3 4 5 6 7 7 7 1 2 3 4 5 6 7 8 8 1 2 3 4 5 6 7 8 9 5. Un text are cel mult 100 de caractere ș i este format din cuvinte, numere naturale ş i spa ţ ii. Cuvintele sunt formate numai din litere mici ale alfabetului englez. Cuvintele ş i numerele sunt separate prin câte un spa ţ iu, ca în exemplu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul men ţ ionat mai sus ş i afi ş eaz ă pe ecran num ă rul din text care începe cu cea mai mare cifr ă , ca în exemplu. Dac ă exist ă mai multe astfel de numere, se afi ș eaz ă doar unul dintre acestea, iar dac ă textul nu con ț ine niciun num ă r, se afi ș eaz ă pe ecran mesajul nu exista . Exemplu : pentru textul am 190 de nuci si 70 de castane se afi ş eaz ă 70 (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 9 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramele f1 ş i f2 sunt definite mai jos. int f1 (int x, int y) { if(x%2!=0 || y%2!=0)return 1; else return 2*f1(x/2,y/2); } int f2 (int x, int y) { if (x==y) return x; else if(x>y) return f2(x-y,y); else return f2(x, y-x); } Cel mai mare divizor comun al lui 30 ș i 50 se ob ț ine în urma apelului: a. f1(30,50) b. f2(30,50) c. f1(30/2,50) d. f2(30/2,50) Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a forma cutii cu bomboane de tipuri distincte din mul ț imea { fondante , caramele , dropsuri , acadele }. Într-o cutie sunt cel pu ț in dou ă tipuri de bomboane, dar nu pot fi ș i dropsuri ș i acadele simultan. Dou ă cutii sunt distincte dac ă ele con ț in cel pu ț in un tip diferit de bomboane. Primele patru solu ţ ii generate sunt, în aceast ă ordine, ( fondante , caramele ), ( fondante , caramele , dropsuri ), ( fondante , caramele , acadele ), ( fondante , dropsuri ). Scrie ţ i a cincea ș i a ș asea solu ț ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un num ă r natural este numit echilibrat dac ă suma cifrelor sale de pe pozi ț ii pare este un num ă r par, iar suma cifrelor sale de pe pozi ţ ii impare este un num ă r impar. Pozi ț iile cifrelor sunt numerotate de la dreapta la stânga, astfel: cifra unit ăț ilor este pe pozi ț ia 0 , cifra zecilor este pe pozi ț ia 1 ș .a.m.d. Subprogramul echilibrat are un singur parametru, n , prin care prime ş te un num ă r natural ( n ∈ ∈ ∈ ∈ [10,10 9 ] ). Subprogramul returneaz ă valoarea 1 dac ă n este echilibrat sau valoarea 0 în caz contrar. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=25163912 , subprogramul returneaz ă valoarea 1 , iar dac ă n=11211 , subprogramul returneaz ă valoarea 0 . 4. Numim secven ță încadrat ă a unui ș ir de numere naturale un sub ș ir al acestuia, format din termeni afla ț i pe pozi ț ii consecutive în ș irul dat, sub ș ir care începe ș i se termin ă cu aceea ș i valoare. Lungimea secven ț ei este egal ă cu num ă rul de termeni ai acesteia. Fi ș ierul bac.txt con ț ine un ș ir de cel pu ț in dou ă ș i cel mult 10 6 numere naturale din intervalul [ 0 , 9 ]. Numerele sunt separate prin câte un spa ț iu. În ș ir exist ă cel pu ț in doi termeni egali. Se cere s ă se determine secven ț ele încadrate din acest ș ir care au lungime maxim ă ș i s ă se afi ș eze pe prima linie a ecranului lungimea maxim ă determinat ă , iar pe urm ă toarea linie, pentru fiecare astfel de secven ţă , valoarea primului s ă u termen. Numerele de pe a doua linie sunt afi ş ate în ordine strict cresc ă toare, separate prin câte un spa ţ iu. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 3 1 5 2 4 5 5 2 5 9 5 7 4 6 8 0 8 atunci pe ecran se afi ș eaz ă valorile: 9 4 5 a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

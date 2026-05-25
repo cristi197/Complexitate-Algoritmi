@@ -1,0 +1,144 @@
+{
+  "id": "2019-simulare-subiect",
+  "year": 2019,
+  "session": "Simulare",
+  "type": "simulare",
+  "pdfUrl": "/subiecte-bac/2019/2019-simulare-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2019/2019-simulare-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați expresia C/C++ cu valoarea 1 .",
+        "options": {
+          "a": "21/3*19==3/19*21",
+          "b": "21/19*3==19/3*21",
+          "c": "19/3*21==3/21*19",
+          "d": "19/21*3==3/19*21"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking, se generează toate drapelele formate din câte 3 culori distincte din mulţimea { alb , galben , negru , roșu , verde }. Două drapele sunt distincte dacă diferă prin cel puțin o culoare sau prin ordinea culorilor. Primele patru soluţii obţinute sunt, în această ordine: ( alb , galben , negru ), ( alb , galben , roșu ), ( alb , galben , verde ) şi ( alb , negru , galben ). Indicaţi soluția generată imediat înainte de ( galben , verde , alb ).",
+        "options": {
+          "a": "( negru , roșu , verde )",
+          "b": "( negru , alb , galben )",
+          "c": "( galben , verde , roșu )",
+          "d": "( galben , roșu , verde )"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul f alăturat este incomplet definit. Indicați expresia cu care pot fi înlocuite punctele de suspensie, astfel încât valoarea lui f ( 2019,1) să fie egală cu numărul divizorilor pozitivi ai lui 2019 . int f(int n, int d) { if(..........) return 0; if(d*d==n) return 1; if(n%d==0) return 2+f(n,d+1); return f(n,d+1); }",
+        "options": {
+          "a": "d*d>n",
+          "b": "d>n/2",
+          "c": "d>n",
+          "d": "d>2*n"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf neorientat cu 8 noduri, numerotate de la 1 la 8 , are muchiile [1,2] , [1,6] , [4,6] , [3,6] , [6,5] , [5,3] , [3,4] , [7,8] , [8,2] . Trei noduri care nu aparţin niciunui ciclu în acest graf pot fi:",
+        "options": {
+          "a": "1, 3, 4",
+          "b": "2, 7, 8",
+          "c": "3, 5, 6",
+          "d": "5, 6, 8"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un arbore cu 19 noduri, numerotate de la 1 la 19 , are ca rădăcină nodul numerotat cu 1 ; nodul 1 are un singur fiu, și anume nodul 2 , iar fiecare nod i ( i≥2 ) fie este frunză, fie are drept fii (descendenți direcți) noduri numerotate cu valori din intervalul [i+1,2·i-1] . Numărul maxim de frunze ale arborelui este:",
+        "options": {
+          "a": "9",
+          "b": "12",
+          "c": "13",
+          "d": "16 Ministerul Educaţiei Naționale Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică - Limbajul C/C++ Simulare Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte a,b,k (numere naturale, 1≤a≤b , k>1 ) pm \u0001 \u0001 \u0001 \u0001 0; y \u0001 \u0001 \u0001 \u0001 0; i \u0001 \u0001 \u0001 \u0001 b ┌cât timp i≥a execută │ x \u0001 \u0001 \u0001 \u0001 i; p \u0001 \u0001 \u0001 \u0001 0 │┌cât timp x%k=0 execută ││ x \u0001 \u0001 \u0001 \u0001 [x/k]; p \u0001 \u0001 \u0001 \u0001 p+1 │└■ │┌dacă p≠0 și (p<pm sau pm=0)atunci ││ pm \u0001 \u0001 \u0001 \u0001 p; y \u0001 \u0001 \u0001 \u0001 i │└■ │ i \u0001 \u0001 \u0001 \u0001 i-1 └■ scrie y a) Scrieţi valoarea afişată dacă se citesc, în această ordine, numerele 5 , 19 și 4 . (6p.) b) Dacă pentru variabila b se citeşte numărul 2019 , iar pentru variabila k se citeşte numărul 5 , scrieţi cea mai mică şi cea mai mare valoare care pot fi citite pentru variabila a astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea, valoarea afişată să fie 0 . (6p.) c) Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d) Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structură cât timp...execută cu o structură repetitivă de tip pentru...execută . (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte a,b,k (numere naturale, 1≤a≤b , k>1 ) pm \u0001 \u0001 \u0001 \u0001 0; y \u0001 \u0001 \u0001 \u0001 0; i \u0001 \u0001 \u0001 \u0001 b ┌cât timp i≥a execută │ x \u0001 \u0001 \u0001 \u0001 i; p \u0001 \u0001 \u0001 \u0001 0 │┌cât timp x%k=0 execută ││ x \u0001 \u0001 \u0001 \u0001 [x/k]; p \u0001 \u0001 \u0001 \u0001 p+1 │└■ │┌dacă p≠0 și (p<pm sau pm=0)atunci ││ pm \u0001 \u0001 \u0001 \u0001 p; y \u0001 \u0001 \u0001 \u0001 i │└■ │ i \u0001 \u0001 \u0001 \u0001 i-1 └■ scrie y a) Scrieţi valoarea afişată dacă se citesc, în această ordine, numerele 5 , 19 și 4 . b) Dacă pentru variabila b se citeşte numărul 2019 , iar pentru variabila k se citeşte numărul 5 , scrieţi cea mai mică şi cea mai mare valoare care pot fi citite pentru variabila a astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea, valoarea afişată să fie 0 . (6p.) c) Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d) Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind prima structură cât timp...execută cu o structură repetitivă de tip pentru...execută . (6p.)",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Expresiile de mai jos au ca valori numere naturale, reprezentând următoarele informații memorate pentru un eveniment din anul 2019 : data desfășurării sale (ziua și luna) și un identificator. Scrieți definiția unei structuri cu eticheta eveniment , care să permită memorarea informațiilor menționate pentru un eveniment, și declarați corespunzător variabila e , de acest tip. e.data.zi e.data.luna e.id",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i şi j sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 5 linii şi 5 coloane, numerotate de la 0 la 4 , având iniţial toate elementele nule. Fără a utiliza alte variabile decât cele menționate, scrieţi secvenţa de instrucţiuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma executării secvenţei obţinute, variabila a să memoreze tabloul alăturat. for(i=0;i<5;i++) for(j=0;j<5;j++) .................. 0 1 2 3 4 2 3 4 5 6 4 5 6 7 8 6 7 8 9 10 8 9 10 11 12",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul inserare are un singur parametru, n , prin care primeşte un număr natural ( n ∈ ∈ ∈ ∈ [10 , 10 5 ) ). Subprogramul furnizează prin același parametru numărul obținut din n prin inserarea, între oricare două cifre alăturate ale sale, a valorii absolute a diferenței acestora. Scrieți definiția completă a subprogramului. Exemplu: dacă n=7255 , atunci, după apel, n=7523505 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=7255 ,",
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text de cel mult 50 de caractere cuvintele sunt separate prin câte un spațiu și sunt formate din litere mari ale alfabetului englez, urmate eventual de caracterul . (punct), dacă sunt scrise prescurtat. Textul reprezintă numele unei instituții de învățământ și doar cuvintele din mulțimea { COLEGIUL , LICEUL , NATIONAL , TEORETIC } pot fi prescurtate, eliminându-se ultimele lor litere. Scrieţi un program C/C++ care citeşte de la tastatură un text de tipul precizat și construiește în memorie, apoi afișează pe ecran, numele instituției scris fără prescurtări. Exemplu: dacă se citește textul COLEG. NATIONAL DE INFORMATICA sau textul COLEG. NAT. DE INFORMATICA se obține COLEGIUL NATIONAL DE INFORMATICA",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un șir format din 2·n numere naturale se numește paritar dacă fiecare dintre primii săi n termeni fie are aceeași paritate cu oricare dintre ultimii săi n termeni, fie este strict mai mic decât oricare număr de paritate diferită aflat printre aceștia. Fișierul bac.txt conține numere naturale din intervalul [0,10 6 ] : pe prima linie un număr nenul, n , iar pe a doua linie un șir de 2·n numere, separate prin câte un spațiu. Se cere să se afișeze pe ecran mesajul DA , în cazul în care șirul aflat în fișier este paritar, sau mesajul NU , în caz contrar. Proiectați un algoritm eficient din punctul de vedere al timpului de executare și al memoriei utilizate. Exemplu: dacă fișierul are unul dintre conținuturile de mai jos, se afișează pe ecran mesajul DA . 5 20 3 11 4 15 25 49 18 53 16 5 20 3 11 4 15 25 49 81 53 61 a) Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b) Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fiecare dintre primii săi n termeni fie are aceeași paritate cu oricare dintre ultimii săi n termeni, fie este strict mai mic decât oricare număr de paritate diferită aflat printre aceștia. Fișierul bac.txt conține numere naturale din intervalul [0,10 6 ] : pe prima linie un număr nenul, n , iar pe a doua linie un șir de 2·n numere, separate prin câte un spațiu. Se cere să se afișeze pe ecran mesajul DA , în cazul în care șirul aflat în fișier este paritar, sau mesajul NU , în caz contrar. Proiectați un algoritm eficient din punctul de vedere al timpului de executare și al memoriei utilizate. Exemplu: dacă fișierul are unul dintre conținuturile de mai jos,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

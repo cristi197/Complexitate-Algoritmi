@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-12-subiect",
+  "year": 2020,
+  "session": "mec-test-12",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-12-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-12-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x și y sunt întregi și memorează câte un număr natural. Indicați o expresie C/C++ care are valoarea 1 dacă și numai dacă numărul memorat în x este strict mai mare decât 0 și numărul memorat în y este strict mai mare decât 20 .",
+        "options": {
+          "a": "x*y-20!=0",
+          "b": "x*(y-20)!=0",
+          "c": "x*(y-20)>=0",
+          "d": "!(x*(y-20)<=0)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Indicați o declarare a unui tablou bidimensional cu exact 40 de elemente, numere întregi cu cel mult 2 cifre.",
+        "options": {
+          "a": "int m[20][2];",
+          "b": "float m[80];",
+          "c": "int m[2][40];",
+          "d": "int m[80];"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul f este definit alăturat. Indicați ce se va afișa în urma apelului de mai jos. f(54321); void f(int n) { if (n!=0) { f(n/10); if (n%2==0) cout<<n%10; | printf(“%d”,n%10); } }",
+        "options": {
+          "a": "24",
+          "b": "42",
+          "c": "315",
+          "d": "513"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , este reprezentat prin matricea de adiacență alăturată. Indicați arcele care trebuie eliminate, astfel încât în graful parțial obținut fiecare vârf să aibă gradul exterior egal cu gradul interior. (6p.) 0 1 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0",
+        "options": {
+          "a": "(1,4) , (3,4)",
+          "b": "(1,4) , (6,3)",
+          "c": "(3,4) , (5,4)",
+          "d": "(4,2) , (6,3)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat cu 6 noduri, numerotate de la 1 la 6 , are muchiile [1,2] , [1,3] , [2,3] , [2,4] , [2,6] , [3,4] , [3,5] , [4,5] , [4,6] . Indicați numărul minim de muchii ce pot fi eliminate, astfel încât graful parțial obținut să nu mai fie conex.",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "2",
+          "d": "1 Ministerul Educației Naționale Centrul Național de Evaluare și Examinare Probă scrisă la informatică Testul 12 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește valoarea 2592 . (6p.) b. Scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 20 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat prima structură cât timp...execută cu o structură de tip pentru...execută . (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n (număr natural nenul) nr  0 c  9 ┌cât timp c≥0 execută │ m  n │┌cât timp m≠ 0 ș i m%10  c execută ││ m  [m/10] │└■ │┌dacă m  0 atunci ││ nr  nr*10+m%10 │└■ │ c  c-1 └■ scrie nr",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți numărul afișat în urma executării algoritmului dacă se citește valoarea 2592 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 20 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat prima structură cât timp...execută cu o structură de tip pentru...execută .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila f memorează simultan următoarele date despre fiecare dintre cele 20 de specii de flori dintr-o florărie: un cod, reprezentând specia, numărul de varietăți ale speciei respective și numărul de exemplare din fiecare dintre acestea. În florărie sunt maximum 10 varietăți din fiecare specie. Știind că expresiile C/C++ de mai jos au ca valori numere naturale și reprezintă codul și numărul de varietăți ale primei specii, respectiv numărul de exemplare din cea de a 4 -a varietate din această specie, scrieți definiția unei structuri cu eticheta flori , care permite memorarea datelor despre o specie de flori, și declarați corespunzător variabila f . f[0].cod f[0].nrVarietati f[0].nrExemplare[3]",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Utilizând metoda bactracking, se generează toate numerele de câte 5 cifre, cu proprietatea că aceste cifre sunt în ordine strict crescătoare, iar cifra unităților este 6 . Scrieți ultimele trei numere generate.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul pDoi are un singur parametru, n , prin care primește un număr natural ( n  [1,10 9 ] ). Subprogramul returnează cea mai mare valoare din intervalul [1,n] , cu proprietatea că este o putere a lui 2 . Scrieți definiția completă a subprogramului. Exemplu : dacă n=20 , subprogramul returnează 16 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "cea",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text cu cel mult 10 2 caractere, cuvintele sunt formate din litere mici ale alfabetului englez și sunt separate prin câte un spațiu. Scrieți un program C/C++ care citește de la tastatură un text de tipul precizat, pe care îl transformă în memorie, eliminând numai ultima vocală care apare în text, ca în exemplu. Programul afișează pe ecran textul obținut sau mesajul nu exista , dacă în text nu există nicio vocală. Se consideră vocale literele a , e , i , o , u . Exemplu : dacă se citește textul: cuvantul ritm poate fi tradus rhythm se obține textul cuvantul ritm poate fi trads rhythm",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Șirul de mai jos este definit alăturat: 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 20 , 21 , 42 , 43 , 86 .... f n = { n dacă n≤10 2∙f n-1 dacă n>10 și n impar 1 + f n-1 altfel Se citește de la tastatură un număr natural x ( x  [1,10 9 ] ), termen al șirului dat, și se cere să se scrie în fișierul bac.out , separați prin câte un spațiu, în ordine strict descrescătoare, toți termenii șirului mai mici sau egali cu x . Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă valoarea citită de la tastatură este 43 se scriu în fișier numerele 43 42 21 20 10 9 8 7 6 5 4 3 2 1 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

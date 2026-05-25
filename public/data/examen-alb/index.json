@@ -1,0 +1,572 @@
+[
+  {
+    "id": "2026-modele-de-subiecte-subiect",
+    "year": 2026,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2026-simulare-subiect",
+    "year": 2026,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2025-modele-de-subiecte-subiect",
+    "year": 2025,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2025-sesiunea-august-subiect",
+    "year": 2025,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2025-sesiunea-iunie-subiect",
+    "year": 2025,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2025-sesiunea-iunie-subiect-de-rezerv-subiect",
+    "year": 2025,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2025-sesiunea-special-subiect",
+    "year": 2025,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2025-simulare-subiect",
+    "year": 2025,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2024-modele-de-subiecte-subiect",
+    "year": 2024,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2024-sesiunea-august-subiect",
+    "year": 2024,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2024-sesiunea-iunie-iulie-subiect",
+    "year": 2024,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2024-sesiunea-special-subiect",
+    "year": 2024,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2024-simulare-subiect",
+    "year": 2024,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2023-modele-de-subiecte-subiect",
+    "year": 2023,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2023-sesiunea-august-subiect",
+    "year": 2023,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2023-sesiunea-iunie-iulie-subiect",
+    "year": 2023,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2023-sesiunea-special-subiect",
+    "year": 2023,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2023-simulare-subiect",
+    "year": 2023,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2022-sesiunea-august-septembrie-subiect",
+    "year": 2022,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2022-sesiunea-iunie-subiect",
+    "year": 2022,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2022-sesiunea-special-subiect",
+    "year": 2022,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2022-simulare-subiect",
+    "year": 2022,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2021-antrenament-test-01-subiect",
+    "year": 2021,
+    "session": "antrenament-test-01",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-02-subiect",
+    "year": 2021,
+    "session": "antrenament-test-02",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-03-subiect",
+    "year": 2021,
+    "session": "antrenament-test-03",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-04-subiect",
+    "year": 2021,
+    "session": "antrenament-test-04",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-05-subiect",
+    "year": 2021,
+    "session": "antrenament-test-05",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-06-subiect",
+    "year": 2021,
+    "session": "antrenament-test-06",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-07-subiect",
+    "year": 2021,
+    "session": "antrenament-test-07",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-08-subiect",
+    "year": 2021,
+    "session": "antrenament-test-08",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-09-subiect",
+    "year": 2021,
+    "session": "antrenament-test-09",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-10-subiect",
+    "year": 2021,
+    "session": "antrenament-test-10",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-11-subiect",
+    "year": 2021,
+    "session": "antrenament-test-11",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-antrenament-test-12-subiect",
+    "year": 2021,
+    "session": "antrenament-test-12",
+    "type": "antrenament"
+  },
+  {
+    "id": "2021-modele-de-subiecte-subiect",
+    "year": 2021,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2021-sesiunea-august-septembrie-subiect",
+    "year": 2021,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2021-sesiunea-iunie-iulie-subiect",
+    "year": 2021,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2021-sesiunea-special-subiect",
+    "year": 2021,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2021-simulare-subiect",
+    "year": 2021,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2020-mec-test-01-subiect",
+    "year": 2020,
+    "session": "mec-test-01",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-02-subiect",
+    "year": 2020,
+    "session": "mec-test-02",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-03-subiect",
+    "year": 2020,
+    "session": "mec-test-03",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-04-subiect",
+    "year": 2020,
+    "session": "mec-test-04",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-05-subiect",
+    "year": 2020,
+    "session": "mec-test-05",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-06-subiect",
+    "year": 2020,
+    "session": "mec-test-06",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-07-subiect",
+    "year": 2020,
+    "session": "mec-test-07",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-08-subiect",
+    "year": 2020,
+    "session": "mec-test-08",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-09-subiect",
+    "year": 2020,
+    "session": "mec-test-09",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-10-subiect",
+    "year": 2020,
+    "session": "mec-test-10",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-11-subiect",
+    "year": 2020,
+    "session": "mec-test-11",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-12-subiect",
+    "year": 2020,
+    "session": "mec-test-12",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-13-subiect",
+    "year": 2020,
+    "session": "mec-test-13",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-14-subiect",
+    "year": 2020,
+    "session": "mec-test-14",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-15-subiect",
+    "year": 2020,
+    "session": "mec-test-15",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-16-subiect",
+    "year": 2020,
+    "session": "mec-test-16",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-17-subiect",
+    "year": 2020,
+    "session": "mec-test-17",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-18-subiect",
+    "year": 2020,
+    "session": "mec-test-18",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-19-subiect",
+    "year": 2020,
+    "session": "mec-test-19",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-mec-test-20-subiect",
+    "year": 2020,
+    "session": "mec-test-20",
+    "type": "test-mec"
+  },
+  {
+    "id": "2020-modele-de-subiecte-subiect",
+    "year": 2020,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2020-sesiunea-august-septembrie-subiect",
+    "year": 2020,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2020-sesiunea-iunie-iulie-subiect",
+    "year": 2020,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2020-sesiunea-special-subiect",
+    "year": 2020,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2019-sesiunea-august-septembrie-subiect",
+    "year": 2019,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2019-sesiunea-iunie-iulie-subiect",
+    "year": 2019,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2019-sesiunea-special-subiect",
+    "year": 2019,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2019-simulare-subiect",
+    "year": 2019,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2018-sesiunea-august-subiect",
+    "year": 2018,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2018-sesiunea-iunie-subiect",
+    "year": 2018,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2018-sesiunea-special-subiect",
+    "year": 2018,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2017-sesiunea-august-subiect",
+    "year": 2017,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2017-sesiunea-iunie-subiect",
+    "year": 2017,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2017-sesiunea-iunie-subiect-de-rezerv-subiect",
+    "year": 2017,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2017-sesiunea-special-subiect",
+    "year": 2017,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2016-sesiunea-august-subiect",
+    "year": 2016,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2016-sesiunea-iunie-subiect",
+    "year": 2016,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2016-sesiunea-special-subiect",
+    "year": 2016,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2015-modele-de-subiecte-subiect",
+    "year": 2015,
+    "session": "Modele de subiecte",
+    "type": "model"
+  },
+  {
+    "id": "2015-sesiunea-august-septembrie-subiect",
+    "year": 2015,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2015-sesiunea-iunie-iulie-subiect",
+    "year": 2015,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2015-sesiunea-special-subiect",
+    "year": 2015,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2015-simulare-subiect",
+    "year": 2015,
+    "session": "Simulare",
+    "type": "simulare"
+  },
+  {
+    "id": "2014-sesiunea-august-septembrie-subiect",
+    "year": 2014,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2014-sesiunea-iunie-iulie-subiect",
+    "year": 2014,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2014-sesiunea-special-subiect",
+    "year": 2014,
+    "session": "Sesiunea specială",
+    "type": "special"
+  },
+  {
+    "id": "2013-sesiunea-august-septembrie-subiect",
+    "year": 2013,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2013-sesiunea-iunie-iulie-subiect",
+    "year": 2013,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2012-sesiunea-august-septembrie-subiect",
+    "year": 2012,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2012-sesiunea-iunie-iulie-subiect",
+    "year": 2012,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2011-sesiunea-august-septembrie-subiect",
+    "year": 2011,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2011-sesiunea-iunie-iulie-subiect",
+    "year": 2011,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2010-sesiunea-august-septembrie-intensiv-informatic-subiect",
+    "year": 2010,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2010-sesiunea-august-septembrie-subiect",
+    "year": 2010,
+    "session": "Sesiunea august-septembrie",
+    "type": "august"
+  },
+  {
+    "id": "2010-sesiunea-iunie-iulie-intensiv-informatic-subiect",
+    "year": 2010,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  },
+  {
+    "id": "2010-sesiunea-iunie-iulie-subiect",
+    "year": 2010,
+    "session": "Sesiunea iunie-iulie",
+    "type": "iunie"
+  }
+]

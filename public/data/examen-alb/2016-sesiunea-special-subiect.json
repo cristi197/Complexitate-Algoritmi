@@ -1,0 +1,85 @@
+{
+  "id": "2016-sesiunea-special-subiect",
+  "year": 2016,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2016/2016-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2016/2016-sesiunea-special-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x , y ș i z sunt de tip întreg ș i memoreaz ă numere naturale din intervalul [1,10 3 ] . Indica ț i o expresie C/C++ care are valoarea 1 dac ă ș i numai dac ă valoarea variabilei x este strict mai mare decât valoarea oric ă reia dintre variabilele y ș i z . (4p.)",
+        "options": {
+          "a": "x*y>y*z && x*z>y*z",
+          "b": "x*z>x*y && y*z>y*x",
+          "c": "y*z>x*z && y*x>z*x",
+          "d": "y*z>y*x && y*z>z*x"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf orientat are 12 arce, 3 componente tare conexe, iar fiecare vârf al s ă u are gradul interior un num ă r nenul. Num ă rul maxim de noduri pe care le poate avea graful este: a. 12 b. 11 c. 9 d. 8 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin urm ă torul vector de „ta ţ i” ( 3 , 0 , 2 , 5 , 2 , 5 , 1 , 5 ). Determina ț i cel mai lung lan ţ elementar care are o extremitate în r ă d ă cin ă ș i enumera ț i nodurile sale, în ordinea apari ț iei în acesta. 4. Variabilele i ș i s sunt întregi, iar variabila p memoreaz ă , pentru fiecare dintre cele 20 de zone de parcare ale unui ora ș , num ă rul de locuri închiriate pe parcursul orei curente, precum ș i pre ț ul practicat de zona respectiv ă pentru închirierea unui loc pentru o or ă . struct parcare { int nrLocuriInchiriate; int pretOra; } p[20]; F ă r ă a utiliza alte variabile decât cele men ț ionate, scrie ț i o secven ță de instruc ț iuni în urma execut ă rii c ă reia variabila s s ă memoreze suma total ă ob ț inut ă în urma închirierii locurilor de parcare din ora ș pe parcursul orei curente. (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă , în aceast ă ordine, un num ă r natural n , apoi n cuvinte, separate prin Enter, urmate de un num ă r natural k . Numerele citite sunt din intervalul [1,20] , iar fiecare cuvânt este format din cel mult 20 de caractere, numai litere mici ale alfabetului englez. Cel pu ţ in unul dintre cuvinte are k litere. Programul construie ș te în memorie, apoi afi ș eaz ă pe ecran, un ș ir care s ă cuprind ă cuvintele citite, separate prin câte un spa ț iu, astfel încât toate cele care au k litere s ă ocupe primele pozi ţ ii, iar celelalte s ă se reg ă seasc ă în continuarea acestora, într-o ordine oarecare. Exemplu : dac ă se citesc, în aceast ă ordine, datele al ă turate, unul dintre ș irurile ob ț inute poate fi: am un de cires mai (10p.) 5 am un cires de mai 2 Ministerul Educa ţ iei Na ț ionale ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 4 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i cea mai mare valoare din intervalul [20,25] pe care o poate avea variabila întreag ă x , astfel încât, în urma apelului de mai jos, s ă se afi ș eze numerele 2 4 16 . f(x,1); void f(int n, int p) { if(n>0) { if(n%2==1) cout<<p<<\" \"; | printf(\" \",p); f(n/2, p*2); } } a. 21 b. 22 c. 23 d. 24 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking se genereaz ă , în ordine lexicografic ă , toate ş irurile de câte 6 cifre din mul ţ imea { 0 , 1 } cu proprietatea c ă au cel mult dou ă cifre cu valori egale pe pozi ţ ii consecutive. Primele 5 solu ț ii generate sunt, în aceast ă ordine: 001001 , 001010 , 001011 , 001100 , 001101 . Scrie ț i a 7-a ș i a 8-a solu ț ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul minDivPrim are un singur parametru, n , prin care prime ş te un num ă r natural ( n ∈ ∈ ∈ ∈ [2,10 9 ] ). Subprogramul returneaz ă cel mai mic num ă r natural care are aceia ș i divizori primi ca n . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=75 , subprogramul returneaz ă num ă rul 15 , iar dac ă n=7 , subprogramul returneaz ă num ă rul 7 . 4. Se consider ă ș irul 1 , -1 , 2 ... definit astfel: f 1 =1 , f 2 =-1 , iar f n =1-2 · f n-1 -f n-2 , dac ă n ≥ 3 (unde n este un num ă r natural). Se cite ș te de la tastatur ă un num ă r natural, n ( n ∈ ∈ ∈ ∈ [1,10 9 ] ), ș i se cere s ă se scrie în fi ș ierul text bac.out , separa ț i prin câte un spa ț iu, primii n termeni ai ș irului, în ordine invers ă apari ț iei lor în acesta. Pentru determinarea ș i afi ș area numerelor cerute se utilizeaz ă un algoritm eficient din punctul de vedere al spa ț iului de memorie ș i al timpului de executare. Exemplu: dac ă n=3 , fi ş ierul con ţ ine valorile 2 -1 1 a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

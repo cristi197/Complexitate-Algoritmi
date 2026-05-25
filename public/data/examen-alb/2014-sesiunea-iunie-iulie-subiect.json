@@ -1,0 +1,85 @@
+{
+  "id": "2014-sesiunea-iunie-iulie-subiect",
+  "year": 2014,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2014/2014-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2014/2014-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Valoarea expresiei C/C++ al ă turate este: (4p.) 42/10*29/10",
+        "options": {
+          "a": "6",
+          "b": "8",
+          "c": "11",
+          "d": "18"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila s poate memora un ș ir cu maximum 20 de caractere. În urma execut ă rii secven ț ei de instruc ț iuni al ă turate se afi ș eaz ă : strcpy(s,\"1b2d3\"); s[2]='a'+2; strcpy(s,s+1); strcpy(s+3,s+4); cout<<s; | printf(\"%s\",s); a. 1b438 b. 1bcd8 c. ba2 d. bcd Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă declararea al ă turat ă . Scrie ţ i o secven ţă de instruc ţ iuni în urma execut ă rii c ă reia s ă se afi ș eze pe ecran mesajul acceptat , dac ă momentul de timp corespunz ă tor variabilei start precede momentul de timp din aceea ș i or ă , corespunz ă tor variabilei stop , sau mesajul respins în caz contrar. struct timp { int minut; int secunda; } start,stop; 4. Consider ă m c ă în ă l ț imea unui arbore cu r ă d ă cin ă este egal ă cu cea mai mare dintre lungimile lan ț urilor elementare care au o extremitate în r ă d ă cin ă ș i cealalt ă extremitate în oricare dintre “frunzele” arborelui. Se consider ă arborele cu 9 noduri, numerotate de la 1 la 9 , ș i muchiile [1,2] , [2,3] , [2,5] , [3,7] , [4,5] , [5,6] , [5,8] , [8,9] . Scrie ț i nodurile care pot fi alese drept r ă d ă cin ă , astfel încât în ă l ț imea arborelui s ă fie maxim ă . (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale, m ș i n ( 3 ≤ m ≤ 50 , 3 ≤ n ≤ 50 ), ş i elementele unui tablou bidimensional cu m linii ş i n coloane, numere naturale cu cel mult patru cifre, apoi modific ă tabloul în memorie, eliminând penultima linie ș i penultima coloan ă a acestuia, ca în exemplu. Programul afi ş eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: pentru m=4 , n=5 ş i tabloul 5 1 2 3 4 8 2 2 5 3 2 1 7 3 9 3 0 9 8 5 se afi ş eaz ă pe ecran tabloul de mai jos: 5 1 2 4 8 2 2 3 3 0 9 5 (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 4 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Indica ț i ce valoare are f(15) . int f(int n) { if (n<10) return f(n+1)+3; else if (n==10) return 7; else return f(n-2)-1; } a. 1 b. 7 c. 8 d. 10 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a forma ș iraguri de câte 4 m ă rgele de culori distincte din mul ţ imea { ro ș u , galben , roz , albastru , violet }, astfel încât în fiecare ș irag nu pot fi pe pozi ț ii al ă turate m ă rgele ro ș ii ș i galbene. Dou ă ș iraguri sunt distincte dac ă au cel pu ț in o m ă rgea de culoare diferit ă sau dac ă ordinea culorilor m ă rgelelor este diferit ă . Primele cinci solu ţ ii generate sunt, în aceast ă ordine, ( ro ș u , roz , galben , albastru ), ( ro ș u , roz , galben , violet ), ( ro ș u , roz , albastru , galben ), ( ro ș u , roz , albastru , violet ), ( ro ș u , roz , violet , galben ). Scrie ţ i cea de a ş asea ş i cea de a ş aptea solu ţ ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un interval cu proprietatea c ă exist ă un singur num ă r natural, n ( 2 ≤ n ), pentru care valoarea produsului 1 · 2 · 3 · … · n apar ț ine acestui interval este numit interval factorial al lui n . Exemplu: [5,8] ș i [3,23] sunt intervale factoriale ale lui 3 , dar [1,15] ș i [7,10] nu sunt intervale factoriale ale niciunui num ă r. Se consider ă subprogramul interval , cu trei parametri: • n , prin care prime ș te un num ă r natural din intervalul [2,10] . • a ș i b , prin care furnizeaz ă câte un num ă r natural, astfel încât expresia b-a s ă aib ă valoare maxim ă , iar [a,b] s ă fie interval factorial al lui n . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=3 , dup ă apel a=3 ș i b=23 . 4. Un num ă r natural x , format din exact dou ă cifre, este numit sub-num ă r al unui num ă r natural y dac ă cifrele lui x apar, în aceea ș i ordine, pe ranguri consecutive, în num ă rul y . Exemplu: 21 este sub-num ă r al lui 12145 , al lui 213 , al lui 21 , dar nu ș i al lui 123 sau al lui 231 . Fi ș ierul bac.txt con ț ine cel mult 1000000 de numere naturale din intervalul [ 10 , 10 9 ], separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran, separate prin câte un spa ț iu, sub-numerele care apar de cele mai multe ori în scrierea numerelor din fi ș ier. Pentru determinarea sub-numerelor cerute se utilizeaz ă un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 3 9 3 1 7 7 7 5 7 8 7 7 2 1 9 4 9 4 2 1 2 1 2 1 7 7 4 atunci pe ecran se afi ș eaz ă valorile de mai jos, nu neap ă rat în aceast ă ordine: 77 21 a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

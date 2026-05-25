@@ -1,0 +1,172 @@
+{
+  "id": "2020-modele-de-subiecte-subiect",
+  "year": 2020,
+  "session": "Modele de subiecte",
+  "type": "model",
+  "pdfUrl": "/subiecte-bac/2020/2020-modele-de-subiecte-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-modele-de-subiecte-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x , y ș i z sunt de tip întreg ș i memoreaz ă numere naturale din intervalul [1,10 3 ] . Indica ț i o expresie C/C++ care are valoarea 1 dac ă ș i numai dac ă valoarea variabilei x este strict mai mic ă decât valoarea oric ă reia dintre variabilele y ș i z .",
+        "options": {
+          "a": "z+x<x+y && x+z>z+y",
+          "b": "z+x<x+y && z+y>y+x",
+          "c": "x+z<z+y && z+y>y+x",
+          "d": "x+y<y+z && x+z>z+y"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramele f1 , f2 ș i f3 sunt definite mai jos. int f1(int n) { if(n==0) return 1; return n*f1(n-1); } int f3(int n) { int f=1; while(n!=0) { f=f*n; n=n-1; } return f; } int f2(int n) { if(n>1) return n*(n-1)*f2(n-2); return 1; } Pentru n=12 , se ob ț ine aceea ș i valoare la apelul subprogramelor:",
+        "options": {
+          "a": "f1 ș i f2",
+          "b": "f1 ș i f3",
+          "c": "f2 ș i f3",
+          "d": "f1 , f2 ș i f3"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Având la dispozi ț ie cinci tipuri de pr ă jituri, cu caise , cu c ă p ș une , cu prune , cu piersici , respectiv cu cire ș e , se utilizeaz ă metoda backtracking pentru a ob ț ine toate posibilit ăț ile de a forma platouri cu câte trei tipuri de pr ă jituri diferite, ș tiind c ă în cadrul unui platou nu conteaz ă ordinea de a ș ezare a pr ă jiturilor ș i c ă pr ă jiturile cu c ă p ș une nu vor fi plasate pe acela ș i platou cu pr ă jiturile cu piersici . Primele patru solu ț ii ob ț inute sunt, în aceast ă ordine: ( caise , c ă p ș une , prune ), ( caise , c ă p ș une , cire ș e ), ( caise , prune , piersici ), ( caise , prune , cire ș e ). A ș asea solu ț ie generate este:",
+        "options": {
+          "a": "{ caise , prune , c ă p ș une }",
+          "b": "{ caise , piersici , cire ș e }",
+          "c": "{ c ă p ș une , prune , cire ș e }",
+          "d": "{ prune , piersici , cire ș e }"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , are drept r ă d ă cin ă nodul numerotat cu 5 ș i muchiile [1,5] , [2,7] , [3,7] , [3,6] , [4,5] , [5,7] , [7,8] . Indica ț i num ă rul de noduri care sunt descenden ț i direc ț i („fii”) ai nodului 7 .",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "4",
+          "d": "5"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf orientat are 10 arce, 3 componente tare conexe, iar fiecare vârf al s ă u are atât gradul interior, cât ș i gradul exterior nenule. Num ă rul minim de noduri pe care le poate avea graful este:",
+        "options": {
+          "a": "4",
+          "b": "5",
+          "c": "6",
+          "d": "7 Ministerul Educa ț iei Na ț ionale Centrul Na ț ional de Evaluare ș i Examinare Prob ă scris ă la INFORMATIC Ă MODEL Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b . cite ș te m,n,x (numere naturale nenule, m ≤ n ) s \u0001 \u0001 \u0001 \u0001 0; pm \u0001 \u0001 \u0001 \u0001 1; pn \u0001 \u0001 \u0001 \u0001 1 ┌ repet ă │┌ dac ă m%x=0 atunci ││ s \u0001 \u0001 \u0001 \u0001 s+m; pm \u0001 \u0001 \u0001 \u0001 x │└■ │┌ dac ă n%x=0 ş i m ≠ n atunci ││ s \u0001 \u0001 \u0001 \u0001 s+n; pn \u0001 \u0001 \u0001 \u0001 x │└■ │ m \u0001 \u0001 \u0001 \u0001 m+pm │ n \u0001 \u0001 \u0001 \u0001 n-pn └ pân ă când m>n scrie s",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valoarea afi ș at ă în urma execut ă rii algoritmului dac ă se citesc, în aceast ă ordine, numerele 21 , 38 ș i 4 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă pentru m ş i x se citesc numerele 20 , respectiv 2020 , scrie ț i cea mai mic ă ş i cea mai mare valoare care pot fi citite pentru variabila n , astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, s ă se afi ş eze 2020 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm, echivalent cu cel dat, înlocuind structura repet ă ...pân ă când cu o structur ă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila p memoreaz ă , pentru fiecare dintre cele 20 de zone de parcare ale unui ora ș , urm ă toarele date specifice: identificatorul zonei, num ă rul de locuri închiriate pe parcursul lunii curente, precum ș i pre ț ul practicat în zona respectiv ă pentru închirierea unui loc pentru o lun ă . Ș tiind c ă expresiile C/C++ de mai jos au ca valori câte un num ă r natural, reprezentând identificatorul primei zone, respectiv suma ob ț inut ă în urma închirierii pe parcursul lunii curente a tuturor locurilor de parcare din aceast ă zon ă , scrie ț i defini ț ia unei structuri cu eticheta parcare , care s ă permit ă memorarea datelor specifice unei zone de parcare, ș i declara ț i corespunz ă tor variabila p . p[0].id p[0].numar*p[0].pret",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila i este de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 5 linii ș i 7 coloane, numerotate începând cu 0 , cu elemente numere întregi. F ă r ă a utiliza alte variabile decât cele men ț ionate, scrie ț i o secven ță de instruc ț iuni în urma execut ă rii c ă reia s ă se afi ș eze pe ecran, separate prin câte un spa ț iu, indicii liniilor cu proprietatea c ă primul sau ultimul lor element are valoarea 2020 .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul duplicare are doi parametri: • n , prin care prime ș te un num ă r natural ( n ∈ ∈ ∈ ∈ [1,10 4 ] ); • d , prin care furnizeaz ă num ă rul ob ț inut prin duplicarea fiec ă rei cifre impare a lui n sau -1 dac ă acesta nu are nicio cifr ă impar ă . Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=2019 , dup ă apel d=201199 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un text are cel mult 100 de caractere, iar cuvintele sale sunt formate numai din litere mici ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un num ă r natural n ( n ∈ ∈ ∈ ∈ [1,10 2 ] ), apoi un text de tipul precizat mai sus, ș i afi ș eaz ă pe ecran cuvintele acestuia, pe rânduri separate, astfel încât primele pozi ț ii s ă fie ocupate de mul ț imea format ă de cele care au cel pu ț in n litere, iar urm ă toarele pozi ț ii, în continuarea acestora, s ă fie ocupate de mul ț imea celorlalte cuvinte. Cuvintele din aceea ș i mul ț ime sunt afi ș ate într-o ordine oarecare, iar dac ă una dintre cele dou ă mul ț imi este vid ă , se afi ș eaz ă pe ecran doar mesajul nu exista . Exemplu : pentru n=5 ș i textul el mergea tot spre aleea pietruita datele afi ș ate pot fi cele al ă turate. mergea aleea pietruita el tot spre",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fi ș ierul numere.in con ț ine pe prima linie un num ă r natural n ( n ∈ ∈ ∈ ∈ [2,10 9 ] ), iar pe a doua linie un ș ir de cel mult 10 9 numere naturale din intervalul [1,n] . Numerele din ș ir sunt ordonate descresc ă tor ș i sunt separate prin câte un spa ț iu. Se cere s ă se determine num ă rul valorilor naturale distincte din intervalul [1,n] care NU se g ă sesc în ș irul men ț ionat mai sus. Num ă rul determinat se afi ș eaz ă pe ecran. Proiecta ț i un algoritm eficient din punctul de vedere al spa ț iului de memorie ș i al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 10 8 8 8 5 3 3 se afi ș eaz ă pe ecran 7 (în ș ir nu se g ă sesc valorile 10 9 7 6 4 2 1 ). a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

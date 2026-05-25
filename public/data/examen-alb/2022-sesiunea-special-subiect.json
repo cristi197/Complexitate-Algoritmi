@@ -1,0 +1,172 @@
+{
+  "id": "2022-sesiunea-special-subiect",
+  "year": 2022,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2022/2022-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2022/2022-sesiunea-special-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați expresia C/C++ cu valoarea 2022 .",
+        "options": {
+          "a": "4044/4/2",
+          "b": "4044/(4*2)",
+          "c": "1011*1+1",
+          "d": "1011*(1+1)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea parametrului x pentru care f(x,3) are valoarea 2022 . int f(int n,int p) { if(n==0) return 0; else if(p==0) return n*10+2; else return f(n/10,p-1); }",
+        "options": {
+          "a": "120234",
+          "b": "122023",
+          "c": "202345",
+          "d": "220223"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se generează toate posibilitățile de a expune câte trei mașini produse în România, din gama Dacia, din mulţimea { Dokker (negru), Duster (negru), Lodgy (gri), Logan (alb), Sandero (roșu)}, astfel încât să nu fie expuse simultan două mașini de aceeași culoare, Sandero să NU apară pe prima poziție, iar Logan să NU fie înainte de Dokker sau Duster. Două soluții sunt distincte dacă au cel puțin o mașină diferită sau dacă ordinea mașinilor este diferită. Primele cinci soluţii generate sunt, în această ordine ( Dokker , Lodgy , Logan ), ( Dokker , Lodgy , Sandero ), ( Dokker , Logan , Lodgy ), ( Dokker , Logan , Sandero ), ( Dokker , Sandero , Lodgy ). Indicaţi penultima soluție, în ordinea generării acestora.",
+        "options": {
+          "a": "a. Logan , Lodgy , Sandero",
+          "b": "Logan , Sandero , Lodgy",
+          "c": "Lodgy , Dokker , Logan",
+          "d": "Lodgy , Logan , Dokker"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Variabilele s și d permit memorarea câte unui șir cu maximum 50 de caractere. Indicați șirul memorat prin intermediul variabilei d în urma executării secvenței alăturate. strcpy(s,\"info@rocnee.eu\"); s[strlen(s)-3]='\\0'; strcpy(d,strchr(s,'@')+1);",
+        "options": {
+          "a": "inf@r",
+          "b": "info@",
+          "c": "rocnee",
+          "d": "rocnu"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un arbore cu 7 noduri, numerotate de la 1 la 7 , nodul 1 este rădăcină și pentru orice nod numerotat cu i ( i  [1,7] ), dacă se notează cu F(i) numărul de descendenți direcți („fii”) ai săi, atunci F(i)=0 , dacă i este „frunză”, altfel F(i)=i+1 . Indicați numărul maxim de „frați” ai nodului 7 .",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "2",
+          "d": "1 Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Varianta 4 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n (număr natural) ┌repetă │ x  n%100 │┌dacă x>1 atunci ││ p  (x%2)*(x%3)*(x%5)*(x%7) ││┌dacă p  0 atunci │││ scrie x,’ ’ ││└■ │└■ │ n  [n/10] └până când n<10 a. Scrieţi ce se afișează în urma executării algoritmului dacă se citeşte numărul 1237518 . (6p.) b. Scrieţi două numere din intervalul [100,999] care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afişeze două numere. (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind structura repetă...până când cu o structură repetitivă cu test inițial. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n (număr natural) ┌repetă │ x  n%100 │┌dacă x>1 atunci ││ p  (x%2)*(x%3)*(x%5)*(x%7) ││┌dacă p  0 atunci │││ scrie x,’ ’ ││└■ │└■ │ n  [n/10] └până când n<10",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi ce se afișează în urma executării algoritmului dacă se citeşte numărul 1237518 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieţi două numere din intervalul [100,999] care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afişeze două numere.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind structura repetă...până când cu o structură repetitivă cu test inițial.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf neorientat cu 6 noduri, numerotate de la 1 la 6 , are muchiile [1,2] , [1,3] , [1,4] , [1,5] , [2,3] , [2,4] , [2,5] , [3,5] , [4,6] , [5,6] . Scrieți mulțimea muchiilor unui subgraf al acestui graf, care să fie complet și să aibă un număr maxim de noduri.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Pentru o sală de spectacole se memorează următoarele informații specifice: numărul de locuri disponibile și prețul biletului pentru un loc. Variabilele i și s sunt întregi, iar variabila t memorează informațiile specifice pentru fiecare dintre cele 15 săli de spectacole dintr-un oraș. struct sala { int nrLocuri; int pret; } t[15]; Scrieți o secvență de instrucțiuni în urma executării căreia variabila s să memoreze suma totală obținută în urma vânzării biletelor pentru un festival de teatru care s-ar desfășura simultan în toate sălile, iar acestea ar fi ocupate complet.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul patrate are trei parametri: • n , prin care primeşte un număr natural ( n ∈ [2,10 9 ] ); • x și y , prin care furnizează câte un număr natural cu proprietatea că x 2 ∙y 2 =n și 2≤x<y sau valoarea 0 , prin fiecare dintre aceștia, dacă nu există două astfel de numere. Dacă sunt mai multe astfel de valori, se furnizează cele corespunzătoare unei valori minime a lui x . Scrieţi definiţia completă a subprogramului. Exemplu: pentru n=400 , după apel, x=2 şi y=10 , iar pentru n=16 sau n=24 , după apel, x=0 şi y=0 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Suprafața unei scene a fost împărțită în zone dispuse ca elementele unui tablou bidimensional cu număr egal de linii și coloane. Fiecare instrument are alocată o zonă și este identificat printr-un număr natural. Dirijorul hotărăște eliminarea tuturor instrumentelor plasate pe diagonala principală a tabloului și rearanjarea celor păstrate, prin deplasarea unora dintre acestea cu câte o poziție spre stânga, astfel încât să nu existe zone intermediare libere, ca în exemplu. Scrieţi un program C/C++ care citeşte de la tastatură numere naturale din intervalul [2,10 2 ] , și anume n şi elementele unui tablou bidimensional cu n linii şi n coloane, reprezentând numerele de identificare ale instrumentelor, în ordinea plasării lor inițiale pe scenă. Programul modifică apoi tabloul în memorie corespunzător hotărârii dirijorului și afişează pe ecran tabloul obținut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: pentru n=4 şi tabloul 20 30 80 52 71 93 64 51 62 81 55 49 90 65 32 22 se obține tabloul 30 80 52 71 64 51 62 81 49 90 65 32",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Numim secvență progresivă a unui șir crescător de numere naturale un subșir al acestuia, format din termeni aflați pe poziții consecutive în șirul dat, cu proprietatea că fiecare termen apare în subșir de un număr de ori egal cu valoarea sa. Lungimea secvenței este egală cu numărul de termeni ai acesteia. Fișierul bac.txt conține un șir crescător de cel mult 10 6 numere naturale din intervalul [ 1 , 10 6 ], astfel încât orice termen al șirului apare de un număr de ori cel mult egal cu valoarea sa. Numerele sunt separate prin câte un spațiu. Se cere să se afișeze pe ecran lungimea maximă a unei secvențe progresive din șirul aflat în fișier. Proiectați un algoritm eficient din punctul de vedere al timpului de executare și al memoriei utilizate. Exemplu: dacă fişierul conţine numerele 1 2 2 3 4 4 4 4 6 6 6 6 6 6 7 7 7 8 8 8 8 8 8 8 8 atunci pe ecran se afișează valoarea 10 . a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fişierul conţine numerele 1 2 2 3 4 4 4 4 6 6 6 6 6 6 7 7 7 8 8 8 8 8 8 8 8",
+        "exampleOutput": "valoarea",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

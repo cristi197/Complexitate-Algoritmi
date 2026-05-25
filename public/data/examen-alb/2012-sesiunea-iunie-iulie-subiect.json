@@ -1,0 +1,85 @@
+{
+  "id": "2012-sesiunea-iunie-iulie-subiect",
+  "year": 2012,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2012/2012-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2012/2012-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 1,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ţ i expresia care are valoarea 1 dac ă ş i numai dac ă num ă rul memorat în variabila întreag ă x apar ţ ine mul ţ imii {1,2,3} . (4p.)",
+        "options": {
+          "a": "x==1 && x==2 && x==3",
+          "b": "!( x<=1 && x>=3 )",
+          "c": "x==1 || x==2 || x==3",
+          "d": "!( x<=1 || x>=3 )"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă graful neorientat cu cinci noduri, reprezentat al ă turat. Num ă rul minim de muchii ce trebuie ad ă ugate astfel încât, în graful ob ţ inut, între oricare dou ă noduri distincte s ă existe cel pu ţ in un lan ţ elementar de lungime 2 , este: a. 1 b. 2 c. 3 d. 4 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă declar ă rile al ă turate, în care variabila s memoreaz ă coordonatele, în sistemul de coordonate xOy , ale extremit ăţ ilor unui segment. Scrie ţ i o instruc ţ iune care afi ş eaz ă pe ecran p ă tratul lungimii segmentului corespunz ă tor variabilei s . struct punct { float x,y; }; struct segment { punct A,B; }s; 4. În secven ţ a de instruc ţ iuni de mai jos variabilele i ş i j sunt de tip întreg, iar variabila A memoreaz ă un tablou bidimensional cu 5 linii ş i 5 coloane, numerotate de la 1 la 5 . Elementele tabloului sunt numere întregi. F ă r ă a utiliza alte variabile, scrie ţ i una sau mai multe instruc ţ iuni care pot înlocui punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, tabloul memorat în variabila A s ă aib ă elementele din figura de mai jos. for(i=1;i<=5;i++) for(j=1;j<=5;j++) .................. (6p.) 2 3 4 0 1 3 4 0 1 2 4 0 1 2 3 0 1 2 3 4 1 2 3 4 0 5. Se consider ă dou ă ş iruri de caractere a , de lungime na ş i b , de lungime nb . Ş irul a este numit prefix al ş irului b dac ă na ≤ nb ş i sub ş irul lui b determinat de primele sale na caractere coincide cu a . Ş irul a este numit sufix al ş irului b dac ă na ≤ nb ş i sub ş irul lui b determinat de ultimele sale na caractere coincide cu a . Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă cuvinte, fiecare fiind format din cel mult 30 de caractere, numai litere mici ale alfabetului englez. Dup ă primul cuvânt se tasteaz ă Enter. Programul afi ş eaz ă pe ecran, separate prin câte un spa ţ iu, toate sufixele primului cuvânt care sunt prefixe ale celui de al doilea cuvânt, ca în exemplu. Dac ă nu exist ă astfel de sub ş iruri, se afi ş eaz ă pe ecran mesajul NU EXISTA . Exemple : dac ă se citesc, în ordine, cuvintele rebele elegant se afi ş eaz ă (nu neap ă rat în aceast ă ordine) sub ş irurile: e ele iar dac ă se citesc, în ordine, cuvintele strai rai se afi ş eaz ă sub ş irul rai (10p.) Ministerul Educa ţ iei, Cercet ă rii, Tineretului ş i Sportului Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la Informatic ă Varianta 1 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se genereaz ă , în ordine lexicografic ă , toate ş irurile de 5 cifre din mul ţ imea { 0 , 1 , 2 }, cu proprietatea c ă nu exist ă dou ă cifre pare pe pozi ţ ii consecutive. Primele opt ş iruri generate sunt, în aceast ă ordine: 01010 , 01011 , 01012 , 01101 , 01110 , 01111 , 01112 , 01121 . Al nou ă lea ş ir generat este: a. 01120 b. 01201 c. 01210 d. 10101 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Scrie ţ i ce se afi ş eaz ă în urma apelului de mai jos. f(9) ; void f(int x) { cout<<x; | printf(”%d”,x); if(x>0) { if(x%2==0) cout<<'*'; | printf(”*”); f(x/2); } }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consider ă subprogramul dublu , cu doi parametri: • n , prin care prime ş te o valoare natural ă 2<n<50 ; • v , prin care prime ş te un tablou unidimensional cu n elemente, numere întregi cu cel mult 4 cifre. Cel pu ţ in unul dintre elementele tabloului este strict pozitiv. Dup ă fiecare element strict pozitiv din tablou, subprogramul insereaz ă câte un nou element, cu aceea ş i valoare, ca în exemplu. Tabloul modificat, precum ş i valoarea actualizat ă a lui n , sunt furnizate tot prin parametrii v , respectiv n . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=6 ş i v=(4 , -5 , 0 , 9 , 9 , -2) , atunci dup ă apel n=9 , iar v=(4 , 4 , -5 , 0 , 9 , 9 , 9 , 9 , -2) . 4. Un num ă r natural cu cel pu ţ in dou ă cifre se nume ş te x-ordonat dac ă toate cifrele sale sunt în ordine cresc ă toare ş i valoarea absolut ă a diferen ţ ei dintre oricare dou ă cifre aflate pe pozi ţ ii consecutive este egal ă cu x . Exemple: num ă rul 2468 este 2-ordonat, num ă rul 147 este 3-ordonat; numerele 179 sau 131 nu sunt de tipul men ţ ionat. Se cite ş te de la tastatur ă un num ă r natural x ( 1 ≤ x ≤ 8 ) ş i se cere scrierea în fi ş ierul BAC.TXT a tuturor numerelor naturale distincte x-ordonate . Fiecare num ă r este scris pe câte o linie a fi ş ierului. Pentru determinarea numerelor cerute se utilizeaz ă un algoritm eficient din punctul de vedere al timpului de executare. a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

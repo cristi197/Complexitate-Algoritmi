@@ -1,0 +1,85 @@
+{
+  "id": "2014-sesiunea-august-septembrie-subiect",
+  "year": 2014,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2014/2014-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2014/2014-sesiunea-august-septembrie-barem.pdf",
+  "variant": 10,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg ș i poate memora un num ă r natural cu cel mult dou ă cifre. Valoarea maxim ă pe care o poate avea expresia C/C++ al ă turat ă este: (4p.) x%7",
+        "options": {
+          "a": "6",
+          "b": "14.14",
+          "c": "93",
+          "d": "693"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă un graf neorientat complet, cu 9 noduri. Pentru a ob ț ine un graf par ț ial al s ă u cu dou ă componente conexe, fiecare dintre acestea fiind grafuri complete, num ă rul maxim de muchii care pot fi eliminate este: a. 14 b. 18 c. 20 d. 24 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă graful orientat cu 6 vârfuri, numerotate de la 1 la 6 , reprezentat prin matricea de adiacen ță al ă turat ă . Scrie ț i un drum elementar din graf, cu extremitatea ini ț ial ă în vârful 4 ș i extremitatea final ă în vârful 6 . 0 0 0 0 1 0 1 0 0 1 0 1 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1 0 4. Variabila s poate memora un ș ir cu maximum 20 de caractere, iar variabila i este de tip întreg. Scrie ț i ce se afi ș eaz ă în urma execut ă rii secven ț ei de instruc ț iuni de mai jos. strcpy(s,\"BACALAUREAT\"); cout<<strlen(s); | printf(\"%d\",strlen(s)); i=0; while (i<strlen(s)-1) { if(strchr(\"EAIOU\",s[i])!=NULL) strcpy(s+i+1,s+i+2); i++; } cout<<s; | printf(\"%s\",s); (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale, m ș i n ( 2 ≤ m ≤ 20 , 2 ≤ n ≤ 20 ), ş i construie ș te în memorie un tablou bidimensional A , cu m linii ş i n coloane, astfel încât parcurgându-l linie cu linie, de sus în jos, ș i fiecare linie de la stânga la dreapta, s ă se ob ț in ă ș irul primelor n·m numere naturale, pare, care NU sunt divizibile cu 5 , ordonat strict cresc ă tor. Programul afi ș eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: pentru m=4 ş i n=3 se ob ț ine tabloul al ă turat. (10p.) 2 4 6 8 12 14 16 18 22 24 26 28 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 10 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a forma succesiuni de câte 5 genuri muzicale distincte din mul ț imea { jazz , rock , latino , house , pop }, astfel încât în fiecare succesiune genul latino precede genul house. Dou ă succesiuni sunt distincte dac ă genurile muzicale sunt în alt ă ordine. Primele cinci solu ţ ii generate sunt, în aceast ă ordine, ( jazz , rock , latino , house , pop ), ( jazz , rock , latino , pop , house ), ( jazz , rock , pop , latino , house ), ( jazz , latino , rock , house , pop ), ( jazz , latino , rock , pop , house ). Imediat înainte de ( pop , latino , house , jazz , rock ) este generat ă solu ț ia: a. ( rock , jazz , house , latino , pop ) b. ( rock , jazz , latino , house , pop ) c. ( pop , latino , rock , house , jazz ) d. ( pop , rock , latino , house , jazz ) Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Scrie ț i dou ă valori naturale distincte din intervalul [1,50] pe care le poate avea variabila întreag ă x , astfel încât f(30,x) s ă aib ă valoarea 5 . int f(int a,int b) { if (b==0) return a; else return f(b,a%b); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consider ă subprogramul triplete , cu un singur parametru, n , prin care prime ş te o valoare natural ă din intervalul [2,10 4 ] . Subprogramul afi ș eaz ă pe ecran toate tripletele de numere naturale (x , y , z) cu proprietatea c ă x<y<z ș i x · y+y · z=n . Fiecare triplet se afi ș eaz ă pe câte o linie a ecranului, iar numerele din fiecare triplet sunt separate prin câte o virgul ă ș i încadrate între paranteze rotunde, ca în exemplu. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: pentru n=8 se afi ș eaz ă pe ecran, nu neap ă rat în aceast ă ordine, tripletele: (0,1,8) (0,2,4) (1,2,3) 4. Fi ș ierul bac.txt con ț ine pe prima linie un num ă r natural n ( 1 ≤ n ≤ 10 6 ), iar pe a doua linie cel mult 1000000 de numere naturale de forma 10 p ( 0 ≤ p ≤ 9 ), separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran num ă rul care ar ap ă rea pe pozi ț ia n în ș irul ordonat cresc ă tor ob ț inut din toate numerele aflate pe a doua linie a fi ș ierului. Dac ă ș irul are mai pu ț in de n termeni, se afi ș eaz ă pe ecran mesajul Nu exista . Pentru determinarea num ă rului cerut se utilizeaz ă un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 5 100 100000 1 100000 1000 100 10 atunci pe ecran se afi ș eaz ă valoarea 1000 a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

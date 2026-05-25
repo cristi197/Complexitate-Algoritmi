@@ -1,0 +1,85 @@
+{
+  "id": "2010-sesiunea-august-septembrie-subiect",
+  "year": 2010,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2010/2010-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2010/2010-sesiunea-august-septembrie-barem.pdf",
+  "variant": 8,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Se consideră definite trei variabile de tip int : x , y şi z . O expresie C/C++ care are valoarea 1 dacă şi numai dacă x , y şi z au valori identice este: (4p.)",
+        "options": {
+          "a": "x==y && x==z",
+          "b": "x==y==z",
+          "c": "x==y || x==z || y==z",
+          "d": "!( x!=y && x!=z)"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consideră secvenŃa de instrucŃiuni alăturată, în care variabilele i şi j sunt de tip întreg, iar variabila s poate memora un şir de cel mult 20 de caractere. Şirul afişat în urma executării secvenŃei este: strcpy(s,\"bacalaureat\"); j=strlen(s); for(i=0;i<3;i++) if(s[i]!=s[j-i-1]) s[i]=s[j-i-1]; cout<<s; | printf(\"%s\",s); a. aureatbacal b. bacalaureab c. taealaureat d. taerualacab ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consideră un arbore cu rădăcină având 6 noduri, numerotate de la 1 la 6 , şi muchiile [1 , 2] , [1 , 3] , [2 , 4] , [3 , 5] , [3 , 6] . Considerând că rădăcina este nodul numerotat cu 1 şi că ea este situată pe nivelul 0 al arborelui, scrieŃi toate nodurile situate pe nivelul 2 al arborelui dat. 4. Variabilele e1 şi e2 , declarate alăturat, memorează numele şi data naşterii pentru câte un elev. Ştiind că cei doi elevi sunt născuŃi în ani diferiŃi, scrieŃi secvenŃa de instrucŃiuni care afişează pe ecran numele elevului de vârstă mai mare. (6p.) struct data_n { int an, luna, zi; }; struct elev{ char nume[20]; data_n d; } e1, e2; ScrieŃi un program C/C++ care citeşte de la tastatură un număr natural, n ( 2≤n≤20 ), şi construieşte în memorie tabloul bidimensional cu n linii şi n coloane, având proprietăŃile: • toate elementele situate pe diagonala principală sunt nule; • fiecare linie conŃine, începând cu diagonala principală, de la dreapta la stânga, un şir strict crescător de numere consecutive, iar începând cu diagonala principală, de la stânga la dreapta, tot un şir strict crescător de numere consecutive. 5. Programul afişează pe ecran tabloul construit, fiecare linie a tabloului pe câte o linie a ecranului, cu elementele aflate pe aceeaşi linie separate prin câte un spaŃiu. Exemplu: dacă n=5 se afişează pe ecran tabloul alăturat. (10p.) 0 1 2 3 4 1 0 1 2 3 2 1 0 1 2 3 2 1 0 1 4 3 2 1 0 Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la INFORMATICĂ Varianta 8 Specializarea matematică-informatică Limbajul C/C++ 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează toate numerele pare cu câte trei cifre, cifre care aparŃin mulŃimii {7 , 8 , 1 , 6 , 2 , 3} . Primele 4 soluŃii generate sunt, în această ordine: 778 , 776 , 772 , 788 . Cea de a 8 -a soluŃie generată este: a. 712 b. 716 c. 718 d. 782 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră subprogramul f , definit alăturat. ScrieŃi două numere naturale din intervalul deschis (20,30) , care pot fi memorate în variabilele întregi x1 , şi respectiv x2 , astfel încât valoarea lui f(x1,3) să fie 29 , iar valoarea lui f(3,x2) să fie 1 . int f(int a, int b) { if(a>=b) return (a-b)+f(a/b,b); return 1; }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consideră şirul s , construit după regula alăturată. Subprogramul sir primeşte prin parametrul n un număr natural ( 3<n<20 ) şi furnizează prin parametrul a un tablou unidimensional care memorează primii n termeni ai şirului s , definit după regula de mai sus, astfel încât numerele impare să ocupe primele poziŃii în tablou, iar cele pare să fie memorate în continuarea celor impare. ScrieŃi definiŃia completă a subprogramului sir . Exemplu: dacă n=6 , primii şase termeni ai şirului sunt 1 , 1 , 2 , 5 , 13 , 34 , iar, după apel, tabloul construit poate fi (1,1,5,13,2,34) . Fişierul bac.in conŃine pe prima linie un număr natural n ( 3<n<1000 ), iar pe următoarea linie, un şir de n numere naturale distincte, de cel mult nouă cifre fiecare. Numerele din şir sunt separate prin câte un spaŃiu şi cel puŃin două dintre ele au ultima cifră egală cu 5 . a) ScrieŃi un program C/C++ care citeşte toate numerele din fişier şi, utilizând un algoritm eficient din punct de vedere al timpului de executare şi al memoriei utilizate, determină şi afişează pe ecran cele mai mari două numere din şir care au ultima cifră egală cu 5 . Numerele determinate sunt afişate în ordine crescătoare, separate printr-un spaŃiu. (6p.) 4. Exemplu : dacă fişierul bac.in are conŃinutul alăturat, pe ecran se vor afişa, în această ordine, numerele: 25 85 10 97 5 11 1 8 6 85 3 25 15 b) DescrieŃi succint, în limbaj natural (3-4 rânduri), algoritmul utilizat la punctul a) şi justificaŃi eficienŃa acestuia. (4p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

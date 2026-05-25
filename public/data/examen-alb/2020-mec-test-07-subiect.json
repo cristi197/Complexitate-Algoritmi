@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-07-subiect",
+  "year": 2020,
+  "session": "mec-test-07",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-07-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-07-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Expresia C/C++ !(x<2001) && (x<=2002) || (x>=2019) && !(x>2020) are valoarea 1 dacă și numai dacă valoarea memorată de variabila reală x aparține reuniunii:",
+        "options": {
+          "a": "{2001}  [2002,2019]  {2020}",
+          "b": "[2001,2002]  {2019}  {2020}",
+          "c": "[2001,2002]  {2019,2020}",
+          "d": "[2001,2002]  [2019,2020]"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați ce se afișează în urma apelului de mai jos. f(12345); void f (int x) { cout<<” + ”; | printf(” + ”); if(x>0) { f(x/100); cout<<x; | printf(”%d”,x); } cout<<” + ”; | printf(” + ”); }",
+        "options": {
+          "a": "+++++1+123+12345+",
+          "b": "++++112312345",
+          "c": "+12345+123+1+++++",
+          "d": "+1+123+12345+"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se generează toate modalitățile de forma un grup de patru arbori cu flori din mulțimea { albizia , jacaranda , laburnum , magnolie , mimoza , sakura }. Două grupuri diferă prin cel puțin un arbore. Primele cinci soluții generate sunt, în această ordine: (albizia , jacaranda , laburnum , magnolie) , (albizia , jacaranda , laburnum , mimoza) , (albizia , jacaranda , laburnum , sakura) , (albizia , jacaranda , magnolie , mimoza) , (albizia , jacaranda , magnolie , sakura) . Indicați o enumerare care este generată ca soluție.",
+        "options": {
+          "a": "(magnolie , mimoza , laburnum , sakura)",
+          "b": "(jacaranda , magnolie , mimoza , sakura)",
+          "c": "(jacaranda , laburnum , magnolie , mimoza , sakura)",
+          "d": "(albizia , jacaranda , magnolie , laburnum)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf orientat cu 5 vârfuri este reprezentat prin matricea de adiacență alăturată. Indicați numărul vârfurilor cu gradul interior 2 . 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 1 1 0 1 1 0",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 20 de noduri și 5 componente conexe, fiecare dintre acestea fiind arbore. Indicați numărul de muchii ale grafului.",
+        "options": {
+          "a": "7",
+          "b": "11",
+          "c": "15",
+          "d": "19 Ministerul Educației și Cercetării Centrul Național de Evaluare și Examinare Probă scrisă la informatică Testul 7 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește numărul 253387 . (6p.) b. Scrieți cel mai mic și cel mai mare număr din intervalul [10,10 2 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 0 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat prima structură repetitivă cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n ( număr natural nenul ) x  1; m  0; p  1 ┌ cât timp x<10 execută │ cn  n │┌cât timp c n≠0 execută ││ c  cn%10; cn  [cn/10] ││┌dacă c=x atunci │││ m  c*p+m; p  p*10 ││└■ │└■ │ x  x+2 └■ scrie m",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți ce se afișează dacă se citește numărul 253387 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți cel mai mic și cel mai mare număr din intervalul [10,10 2 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 0 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat prima structură repetitivă cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila c memorează simultan numărul de cărți dintr-o bibliotecă (număr natural din intervalul [3,10 2 ) ) și date despre fiecare carte (titlu și autor, șiruri de cel mult 20 de caractere). Expresiile C/C++ de mai jos au ca valori numărul de cărți, titlul și numele autorului celei de a treia cărți. Scrieți definiția unei structuri cu eticheta biblio , care permite memorarea datelor despre o bibliotecă, și declarați corespunzător variabila c . c.numar c.carte[2].titlu c.carte[2].autor",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila s poate memora un șir de cel mult 20 de caractere. Scrieți ce se afișează în urma executării secvenței alăturate. strcpy(s,\"stilou\"); cout<<s+4<<endl; | printf(\"%s\\n\",s+4); s[0]=s[0]-1; s[1]=s[0]-3; s[2]=s[0]+1; s[3]=s[0]+3; s[4]='\\0'; cout<<s; | printf(\"%s\",s);",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul putere are doi parametri, n și p , prin care primește câte un număr natural ( n  [2,10 9 ] , p  [0,10 9 ] ). Subprogramul returnează puterea la care apare numărul p în descompunerea în factori primi a lui n , dacă p este număr prim, sau valoarea -1 în caz contrar. Scrieți definiția completă a subprogramului. Exemplu : dacă n=80 și p=2 , subprogramul returnează numărul 4 ( 80=2 4  5 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "puterea",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "O valoare k polarizează două șiruri dacă există doi termeni care au acea valoare, unul fiind în primul șir, iar celălalt în al doilea șir. Scrieți un program C/C++ care citește de la tastatură numere naturale din intervalul [1,20] : m , n și elementele unui tablou bidimensional cu m linii și n coloane, cu proprietatea că nu există două elemente egale situate pe aceeași linie sau pe aceeași coloană. Programul afișează pe ecran valorile care pot polariza două șiruri, și anume șirul format din elementele de pe prima coloană, respectiv șirul format din elementele ultimei coloane a tabloului. Valorile sunt afișate într-o ordine oarecare, separate prin câte un spațiu, iar dacă nu există astfel de valori se afișează pe ecran mesajul nepolarizate . Exemplu: pentru m=4 , n=5 și tabloul alăturat se afișează pe ecran, nu neapărat în această ordine, numerele 5 6 3 7 1 2 5 2 4 5 9 6 6 2 7 8 1 5 3 2 7 8",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "există doi termeni care au acea valoare, unul fiind în primul șir, iar celălalt în al doilea șir. Scrieți un program C/C++ care citește de la tastatură numere naturale din intervalul [1,20] : m , n și elementele unui tablou bidimensional cu m linii și n coloane, cu proprietatea că nu există două elemente egale situate pe aceeași linie sau pe aceeași coloană. Programul afișează pe ecran valorile care pot polariza două șiruri, și anume șirul format din elementele de pe prima coloană, respectiv șirul format din elementele ultimei coloane a tabloului. Valorile sunt afișate într-o ordine oarecare, separate prin câte un spațiu, iar dacă nu există astfel de valori",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.txt conține un șir de cel mult 10 6 numere întregi din intervalul [-10 3 ,10 3 ] , separate prin câte un spațiu. Se cere să se afișeze pe ecran suma minimă obținută adunând numere de pe poziții consecutive în șirul aflat în fișier. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul bac.txt conține valorile - 4 6 -7 -2 1 -4 10 3 -9 -2 2 se afișează pe ecran numărul - 12 a. Scrieți programul C/C++ corespunzător algoritmului proiectat. b. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. (2p.)",
+        "points": 8,
+        "type": "code",
+        "exampleInput": "fișierul bac.txt conține valorile - 4 6 -7 -2 1 -4 10 3 -9 -2 2",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

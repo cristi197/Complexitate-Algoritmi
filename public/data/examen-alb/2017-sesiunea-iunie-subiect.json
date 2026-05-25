@@ -1,0 +1,85 @@
+{
+  "id": "2017-sesiunea-iunie-subiect",
+  "year": 2017,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2017/2017-sesiunea-iunie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2017/2017-sesiunea-iunie-barem.pdf",
+  "variant": 4,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ţ i o expresie C/C++ care are valoarea 1 dac ă ş i numai dac ă num ă rul natural memorat în variabila întreag ă x are exact o cifr ă . (4p.)",
+        "options": {
+          "a": "x%10==x",
+          "b": "x/10==x",
+          "c": "x%10==x/10",
+          "d": "(x%10)/10==x"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă un graf neorientat cu 7 noduri ş i 21 de muchii. Indica ţ i num ă rul minim de muchii care pot fi eliminate, astfel încât graful par ţ ial ob ţ inut s ă aib ă dou ă componente conexe, cu cel pu ţ in dou ă noduri fiecare. a. 6 b. 8 c. 10 d. 12 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În declararea al ă turat ă , variabila x memoreaz ă numele unui elev ş i cele dou ă medii semestriale ob ț inute de acesta la informatic ă . Scrie ţ i o secven ță de instruc ț iuni C/C++ în urma execut ă rii c ă reia s ă se afi ş eze pe ecran prima liter ă a numelui ș i, pe linia urm ă toare, media anual ă la informatic ă a acestui elev. struct elev { char nume[30]; int media1, media2; } x; Exemplu: dac ă elevul are numele Popescu , iar cele dou ă medii sunt sunt 9 , respectiv 10 , se afi ș eaz ă pe ecran P 9.5 4. Într-un graf orientat dou ă circuite sunt distincte dac ă ele difer ă prin cel pu ţ in un arc. Scrie ț i matricea de adiacen ță a unui graf orientat cu 5 vârfuri ş i 6 arce, care are dou ă circuite elementare distincte. (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale din intervalul [3,50] , n ş i m , ș i elementele unui tablou bidimensional cu n linii ş i m coloane, numere naturale din intervalul [0,10 4 ] . Programul modific ă în memorie tabloul dat, atribuind valoarea elementului aflat pe ultima linie ș i pe ultima coloan ă a tabloului fiec ă rui element aflat pe conturul acestuia (pe prima linie, ultima linie, prima coloan ă , ultima coloan ă ), apoi afi ş eaz ă pe ecran tabloul modificat, câte o linie a tabloului pe câte o linie a ecranului, elementele fiec ă rei linii fiind separate prin câte un spa ţ iu. Exemplu: dac ă n=5 , m=4 ș i tabloul este 0 5 2 11 atunci se ob ţ ine tabloul urm ă tor: 5 5 5 5 3 2 10 2 5 2 10 5 7 3 1 4 5 3 1 5 4 5 0 12 5 5 0 5 8 13 7 5 5 5 5 5 (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 4 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se genereaz ă , în ordine strict cresc ă toare, toate numerele de trei cifre din mul ţ imea { 1 , 2 , 5 , 7 , 8 }, numere cu proprietatea c ă au cel mult dou ă cifre impare. Primele ş apte numere generate sunt, în aceast ă ordine: 112 , 118 , 121 , 122 , 125 , 127 , 128 . Al optulea num ă r generat este: a. 151 b. 152 c. 157 d. 158 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Scrie ţ i valorile f(3,9) ş i f(1,1000) . int f(int x,int y) { if(x*5>y/5) return x; return f(x*5,y/5); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul duplicare are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ ∈ ∈ ∈ [1,10 4 ) ). Subprogramul furnizeaz ă , prin acela ș i parametru, num ă rul ob ţ inut din n prin inserarea, dup ă fiecare cifr ă par ă din scrierea lui, a unei cifre egale cu jum ă tate din aceasta. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=2380 dup ă apel, n=2138400 , iar dac ă n=35 dup ă apel, n=35 . 4. Numim secven ță par ă într-un ș ir o succesiune de termeni ai ș irului cu proprietatea c ă sunt numere pare ș i c ă se afl ă pe pozi ț ii consecutive în ș ir; orice secven ță are cel pu ț in doi termeni ș i este maximal ă în raport cu proprietatea precizat ă (dac ă i se adaug ă un alt termen, secven ț a î ș i pierde aceast ă proprietate). Lungimea secven ț ei este egal ă cu num ă rul termenilor s ă i. Fi ş ierul bac.txt con ţ ine un ş ir de cel mult 10 6 numere naturale din intervalul [0,10 9 ] . Numerele din ş ir sunt separate prin câte un spa ţ iu. Se cere s ă se afi ş eze pe ecran num ă rul de secven ț e pare de lungime maxim ă din ș ir. Proiecta ț i un algoritm eficient din punctul de vedere al spa ț iului de memorie utilizat ş i al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine valorile 1 2 3 4 6 10 2 8 5 7 9 4 6 10 121 20 4 11 10 2 5 2 6 8 10 16 se afi ş eaz ă pe ecran num ă rul 2 . a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

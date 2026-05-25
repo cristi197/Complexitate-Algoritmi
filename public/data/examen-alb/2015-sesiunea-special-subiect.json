@@ -1,0 +1,85 @@
+{
+  "id": "2015-sesiunea-special-subiect",
+  "year": 2015,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2015/2015-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2015/2015-sesiunea-special-barem.pdf",
+  "variant": 5,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Expresia C/C++ al ă turat ă are valoarea: (4p.) 4+5%7*2",
+        "options": {
+          "a": "4",
+          "b": "8",
+          "c": "9",
+          "d": "14"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf orientat cu 5 vârfuri, numerotate de la 1 la 5 , este reprezentat al ă turat. Num ă rul maxim de arce care se pot elimina, astfel încât graful par ţ ial ob ţ inut s ă fie tare conex este: a. 2 b. 3 c. 4 d. 5 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin vectorul de „ta ţ i” ( 4 , 4 , 0 , 3 , 6 , 3 , 2 , 7 ) . Scrie ț i un lan ţ elementar care are o extremitate în r ă d ă cina arborelui ș i cealalt ă extremitate în una dintre frunzele acestuia. 4. Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 5 linii ş i 5 coloane, numerotate de la 1 la 5 , având ini ţ ial toate elementele nule. F ă r ă a utiliza alte variabile decât cele men ț ionate, scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=1;i<=5;i++) for(j=1;j<=5;j++) .................. (6p.) 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 5. Se consider ă un text cu cel mult 100 de caractere, în care cuvintele sunt formate numai din litere mari ș i mici ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Textul reprezint ă numele unei institu ţ ii sau al unei organiza ţ ii. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul precizat ş i construie ş te în memorie, apoi afi ş eaz ă pe ecran, un ş ir de caractere ce reprezint ă acronimul corespunz ă tor numelui citit. Acronimul este format din primul caracter al fiec ă rui cuvânt al numelui care începe cu majuscul ă . Exemplu: dac ă ş irul citit este Universitatea de Arte Plastice BUCURESTI se va ob ţ ine ş irul UAPB (10p.) Ministerul Educa ţ iei ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 5 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă Pagina 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate ș iragurile formate din câte 5 pietre distincte din mul ţ imea { opal , rubin , safir , smarald , topaz }. Dou ă ș iraguri sunt distincte dac ă pietrele sunt dispuse în alt ă ordine. Primele patru solu ţ ii ob ţ inute sunt, în aceast ă ordine: ( opal , rubin , safir , smarald , topaz ), ( opal , rubin , safir , topaz , smarald ), ( opal , rubin , smarald , safir , topaz ) ş i ( opal , rubin , smarald , topaz , safir ). Indica ț i solu ț ia care trebuie eliminat ă din enumerarea urm ă toare, astfel încât cele r ă mase s ă apar ă în ordinea gener ă rii lor, pe pozi ț ii consecutive: ( smarald , safir , opal , topaz , rubin ) ( smarald , safir , topaz , opal , rubin ) ( smarald , safir , topaz , rubin , opal ) ( smarald , topaz , opal , rubin , safir ). a. ( smarald , safir , opal , topaz , rubin ) b. ( smarald , safir , topaz , opal , rubin ) c. ( smarald , safir , topaz , rubin , opal ) d. ( smarald , topaz , opal , rubin , safir ) Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul F este definit al ă turat. Scrie ţ i ce se afi ş eaz ă în urma apelului de mai jos. F(154678,3); void F (long a, int b) { if(a*b!=0) if(a%2==0) { cout<<a%10; | printf(”%d”,a%10); F(a/10,b-1); } else { F(a/10,b+1); cout<<a%10; | printf(”%d”,a%10); } }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul DivImpar are doi parametri, a ş i b , prin care prime ş te dou ă numere naturale din intervalul [1,10 5 ] . Subprogramul returneaz ă cel mai mare divizor comun impar al numerelor a ş i b . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă a=30 ş i b=60 , subprogramul returneaz ă valoarea 15 . 4. Fi ş ierul date.in con ţ ine un ş ir de cel mult un milion de numere naturale din intervalul [0,10 9 ] , separate prin câte un spa ț iu. Ș irul are cel pu ț in doi termeni pari ș i cel pu ț in doi termeni impari. Se cere s ă se afi ș eze pe ecran mesajul DA dac ă ș irul aflat în fi ș ier are un sub ș ir ordonat cresc ă tor, format din to ț i termenii pari ai s ă i, ș i un sub ș ir ordonat descresc ă tor, format din to ț i termenii impari ai s ă i. Dac ă nu exist ă dou ă astfel de sub ș iruri, programul afi ș eaz ă pe ecran mesajul NU . Pentru verificarea propriet ăț ii cerute utiliza ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei necesare. Exemplu: dac ă fi ş ierul date.in con ţ ine numerele 7 2 5 2 4 3 8 se afi ş eaz ă pe ecran mesajul DA iar dac ă fi ș ierul con ț ine numerele 5 2 7 2 4 3 8 se afi ş eaz ă pe ecran mesajul NU a) Descrie ț i în limbaj natural algoritmul utilizat, justificând eficien ț a acestuia. (4p.) b) Scrie ț i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

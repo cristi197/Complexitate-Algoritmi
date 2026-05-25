@@ -1,0 +1,85 @@
+{
+  "id": "2013-sesiunea-iunie-iulie-subiect",
+  "year": 2013,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2013/2013-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2013/2013-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 2,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg ș i poate memora un num ă r natural cu cel mult dou ă cifre. Valoarea maxim ă pe care o poate avea expresia C/C++ al ă turat ă este: (4p.) x%4",
+        "options": {
+          "a": "3",
+          "b": "24.75",
+          "c": "95",
+          "d": "396"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă un graf orientat cu 6 vârfuri ş i f ă r ă circuite. Num ă rul maxim de arce ale grafului este: a. 5 b. 7 c. 10 d. 15 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă declararea al ă turat ă . Scrie ţ i o secven ţă de instruc ţ iuni în urma execut ă rii c ă reia câmpul paritate al variabilei x s ă memoreze litera p , dac ă num ă rul memorat în câmpul v al acesteia este par, sau litera i dac ă num ă rul memorat în câmpul v al acesteia este impar. struct numar { int v; char paritate; } x; 4. Se consider ă un arbore cu 5 noduri, dintre care doar trei au gradul egal cu 1 . Scrie ţ i dou ă valori care s ă reprezinte gradele celorlalte dou ă noduri. (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale m ş i n ( 2 ≤ m ≤ 50 , 2 ≤ n ≤ 50 ) ş i elementele unui tablou bidimensional cu m linii ş i n coloane, numere naturale cu cel mult patru cifre fiecare. Programul determin ă coloanele care au toate elementele egale cu aceea ş i valoare ş i, pentru fiecare astfel de coloan ă afi ș eaz ă pe ecran valoarea respectiv ă . Valorile afi ș ate sunt separate prin câte un spa ț iu, iar dac ă nu exist ă astfel de valori, programul afi ş eaz ă pe ecran mesajul Nu exista . Exemplu: pentru m=4 , n=5 ş i tabloul al ă turat, se afi ş eaz ă pe ecran numerele 3 7 7 , nu neap ă rat în aceast ă ordine. (10p.) 2 3 7 5 7 3 3 7 4 7 7 3 7 1 7 8 3 7 6 7 Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 2 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Se consider ă subprogramele f1 ş i f2 , definite mai jos. int f1 (int x, int y) { return x*y; } int f2 (int x, int y) { if (y==1) return x; else return x*f2(x, y-1); } La apel, pentru parametrii x=2 ş i y=3 , returneaz ă x y : a. atât f1 , cât ş i f2 b. numai f1 c. numai f2 d. nici f1 , nici f2 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking se genereaz ă toate cuvintele de 5 litere din mul ţ imea { A , M }, cuvinte care încep ş i se termin ă cu M . Primele patru solu ţ ii generate sunt, în aceast ă ordine: MAAAM , MAAMM , MAMAM , MAMMM . Scrie ţ i cea de a cincea ş i cea de a ş asea solu ţ ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consider ă subprogramul valuri , cu doi parametri: • n , prin care prime ş te o valoare natural ă 2<n<50 ; • v , prin care furnizeaz ă un tablou unidimensional cu 2 · n elemente, valori întregi din intervalul [1, 2 · n] . Subprogramul construie ş te tabloul v astfel încât, în acesta, ş irul elementelor impare s ă fie strict cresc ă tor, iar ş irul elementelor pare s ă fie strict descresc ă tor. Primul element al tabloului este impar, iar dou ă elemente cu aceea ş i paritate nu pot ocupa pozi ţ ii consecutive în tablou, ca în exemplu. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=4 atunci, dup ă apel, v=( 1 , 8 , 3 , 6 , 5 , 4 , 7 , 2) . 4. Se consider ă ş irul definit al ă turat (unde n este un num ă r natural nenul), în care nu exist ă doi termeni cu aceea ș i paritate afla ț i pe pozi ț ii consecutive: 1 , 2 , 3 , 4 , 7 , 8 , 15 , 16 ....      ⋅ + + = = altfel , 2 - n f 2 1 par n dac ă , 1 - n f 1 1 n dac ă 1, n f Se cite ş te de la tastatur ă un num ă r natural x , cu cel mult nou ă cifre, termen al ş irului dat, ş i se cere s ă se scrie în fi ş ierul text bac.txt , în ordine strict descresc ă toare, separa ț i prin câte un spa ț iu, to ţ i termenii ş irului care sunt mai mici sau egali cu x . Pentru determinarea termenilor ceru ţ i se utilizeaz ă un algoritm eficient din punctul de vedere al memoriei utilizate ş i al timpului de executare. Exemplu: dac ă x=15 , fi ş ierul bac.txt con ţ ine numerele 15 8 7 4 3 2 1 a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

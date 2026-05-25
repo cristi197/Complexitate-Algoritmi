@@ -1,0 +1,85 @@
+{
+  "id": "2017-sesiunea-august-subiect",
+  "year": 2017,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2017/2017-sesiunea-august-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2017/2017-sesiunea-august-barem.pdf",
+  "variant": 7,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Expresia C/C++ al ă turat ă are valoarea: (4p.) 3+7/4+3",
+        "options": {
+          "a": "1",
+          "b": "5.5",
+          "c": "7",
+          "d": "7.75"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Într-un arbore cu 50 de noduri, numerotate de la 1 la 50 , r ă d ă cina este nodul 1 , iar tat ă l oric ă rui alt nod i al s ă u este nodul numerotat cu [i/2] . Lungimea lan ţ ului cu o extremitate în nodul 14 ș i cealalt ă extremitate în nodul 47 este: a. 5 b. 8 c. 16 d. 33 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un graf neorientat cu 4 noduri, numerotate de la 1 la 4 , este reprezentat prin matricea de adiacen ță al ă turat ă . Scrie ț i mul ț imea nodurilor ș i mul ț imea muchiilor unui subgraf al acestui graf, diferit de el însu ș i, în care cel pu ț in un nod s ă aib ă gradul 1 ș i cel pu ț in un nod s ă aib ă gradul 2 . 0 1 0 1 1 0 0 1 0 0 0 1 1 1 1 0 4. În secven ț a al ă turat ă variabilele n ș i i sunt de tip întreg, iar variabila s permite memorarea unui cuvânt, ș ir de cel mult 20 de caractere. Cuvintele citite sunt formate din litere mici ale alfabetului englez ș i sunt separate prin Enter. n=.....; for(i=1;i<=11;i++) { cin>>s; | scanf(“%s”,s); ............ } F ă r ă a utiliza alte variabile, scrie ț i secven ț a înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ț ei ob ț inute, variabila n s ă memoreze num ă rul de cuvinte citite pentru care sub ș irul format din ultimele trei caractere ale lor coincide cu ș irul are , iar acesta NU mai apare pe alte pozi ț ii în cuvânt. Exemplu: dac ă se citesc cuvintele al ă turate, variabila n are valoarea 3 . (6p.) la proiectare se are in vedere evitarea deformatiilor areolare si liniare 5. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un num ă r natural par n ( n ∈ ∈ ∈ ∈ [2,50] ) ș i elementele unui tablou bidimensional cu n linii ș i n coloane, numere reale, apoi transform ă tabloul în memorie, inserând o linie nou ă , la mijlocul s ă u, valoarea fiec ă rui element al acesteia fiind egal ă cu media aritmetic ă a elementelor aflate pe coloana corespunz ă toare lui în tabloul citit. Tabloul ob ț inut se afi ş eaz ă pe ecran, câte o linie a tabloului pe câte o linie a ecranului, elementele fiec ă rei linii fiind separate prin câte un spa ţ iu. Exemplu: pentru n=4 ș i tabloul 1.5 0.75 3 1.2 2.75 1.25 2.25 1.5 4.5 1.15 3 4.5 0.25 0.85 1.75 3 se ob ț ine tabloul: 1.5 0.75 3 1.2 2.75 1.25 2.25 1.5 2.25 1 2.5 2.55 4.5 1.15 3 4.5 0.25 0.85 1.75 3 (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 7 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul f este definit al ă turat. Valoarea lui f(1234) este: int f(int n) { if (n!=0) return (n%2)*(n%10)+f(n/10); return 0; } a. 0 b. 4 c. 6 d. 10 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Fiind date o mul ț ime finit ă ș i un set de perechi de forma (i,j) , unde i ș i j sunt elemente ale mul ț imii, se nume ş te ș ir sortat topologic asociat mul ț imii un ș ir format din toate elementele mul ț imii, astfel încât pentru orice pereche (i,j) dintre cele date, elementul i s ă se g ă seasc ă înaintea lui j în ş ir. Utilizând metoda backtracking, se genereaz ă toate ș irurile sortate topologic ale mul ţ imii { 1 , 2 , 3 , 4 , 5 , 6 }, având în vedere perechile (4,6) , (3,4) , (3,1) , (2,5) . Primele trei solu ţ ii generate sunt, în aceast ă ordine: (2,3,1,4,5,6) , (2,3,1,4,6,5) , (2,3,1,5,4,6) . Scrie ţ i cea de a patra ş i cea de a cincea solu ţ ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul triplete are trei parametri, a , b ș i c , prin care prime ș te câte un num ă r natural din intervalul [0,10 4 ] ( a<b ). Subprogramul afi ș eaz ă pe ecran toate tripletele de numere naturale, x , y ş i z , solu ţ ii ale ecua ţ iei x+y+z=c , cu proprietatea c ă a ≤ ≤ ≤ ≤ x ≤ ≤ ≤ ≤ y ≤ ≤ ≤ ≤ z ≤ ≤ ≤ ≤ b . Fiecare triplet afi ș at este încadrat între acolade, iar numerele x , y ș i z sunt afi ș ate în aceast ă ordine, separate prin câte o virgul ă . Dac ă nu exist ă niciun triplet cu proprietatea cerut ă , se afi ş eaz ă mesajul nu exista . Scrie ț i defini ț ia complet ă a subprogramului. Exemplu : dac ă a=2 , b=4 ş i c=8 , se afi ș eaz ă pe ecran tripletele {2,2,4}{2,3,3} iar dac ă a=5 , b=8 , c=8 se afi ş eaz ă pe ecran mesajul nu exista . 4. Un ș ir de numere este o progresie aritmetic ă de ra ț ie r dac ă oricare termen al s ă u, cu excep ț ia primului, se ob ț ine din cel care îl precede, prin adunarea la acesta a num ă rului r . Exemplu: ș irul 12 , 14 , 16 , 18 , 20 este o progresie de ra ț ie 2 . Fi ș ierul bac.in con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [0,10 3 ] , separate prin câte un spa ț iu. Se cere s ă se verifice dac ă exist ă un num ă r natural r , astfel încât toate numerele distincte din ș ir s ă poat ă fi rearanjate, pentru a forma o progresie aritmetic ă de ra ț ie r . Se afi ș eaz ă pe ecran num ă rul r , sau mesajul NU , dac ă nu exist ă un astfel de num ă r. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 180 30 80 280 130 330 230 30 30 330 80 se afi ș eaz ă pe ecran 50 a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

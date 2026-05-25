@@ -1,0 +1,172 @@
+{
+  "id": "2022-sesiunea-august-septembrie-subiect",
+  "year": 2022,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2022/2022-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2022/2022-sesiunea-august-septembrie-barem.pdf",
+  "variant": 5,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg. Indica ț i o expresie care are valoarea 1 dac ă ș i numai dac ă expresia C/C++ al ă turat ă are valoarea 1 . x>=3 && x<10",
+        "options": {
+          "a": "!(x<3 && x>=10)",
+          "b": "!(x<3 || x>=10)",
+          "c": "x<3 && !(x>=10)",
+          "d": "!(x<3) || x>=10"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit incomplet, al ă turat. Indica ț i o expresie cu care pot fi înlocuite punctele de suspensie pentru ca f(n,3) s ă aib ă valoarea 1 pentru orice num ă r prim n ( n ∈ [2,10 4 ] ) ș i valoarea 0 în caz contrar. int f(int x, int y) { if(x!=2 && x%2==0) return 0; if(y*y>x) return 1; if(x%y==0) return 0; return f(x,.........); }",
+        "options": {
+          "a": "y+2",
+          "b": "y-2",
+          "c": "y*2",
+          "d": "y/2"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate posibilit ăț ile de a forma platouri de câte trei fructe distincte din mul ţ imea { m ă r , gutuie , prun ă , cais ă , piersic ă }, astfel încât pe acela ș i platou nu se afl ă o gutuie ș i o piersic ă simultan. Dou ă platouri sunt distincte dac ă ele con ț in cel pu ț in un fruct diferit. Primele patru solu ţ ii generate sunt, în aceast ă ordine, ( m ă r , gutuie , prun ă ), ( m ă r , gutuie , cais ă ), ( m ă r , prun ă , cais ă ), ( m ă r , prun ă , piersic ă ). Indica ț i solu ţ ia generat ă imediat dup ă ( gutuie , prun ă , cais ă ).",
+        "options": {
+          "a": "( cais ă , piersic ă , m ă r )",
+          "b": "( gutuie , prun ă , piersic ă )",
+          "c": "( mar , cais ă , piersic ă )",
+          "d": "( prun ă , cais ă , piersic ă )"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 4,
+        "text": "Variabila j este de tip întreg, iar variabila A memoreaz ă un tablou bidimensional cu 100 de linii ș i 100 de coloane, numerotate de la 0 la 99 . Indica ț i valoarea variabilei j , dac ă elementul A[20][j] se afl ă pe diagonala secundar ă a tabloului.",
+        "options": {
+          "a": "20",
+          "b": "49",
+          "c": "79",
+          "d": "80"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 7 noduri, numerotate de la 1 la 7 , ș i 8 muchii, dintre care ș ase sunt: [1,2] , [2,4] , [2,7] , [3,4] , [4,5] , [4,6] . Ș tiind c ă unul dintre lan ț urile elementare care au lungimea maxim ă este 1 , 2 , 7 , 5 , 4 , 6 , indica ț i care ar putea fi celelalte dou ă muchii ale grafului.",
+        "options": {
+          "a": "[1,4] ș i [4,7]",
+          "b": "[1,4] ș i [5,7]",
+          "c": "[2,5] ș i [4,7]",
+          "d": "[3,6] ș i [5,7] Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 5 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "cite ş te m,n (numere naturale nenule, m<n ) x  1 ┌ cât timp x=1 execut ă │ x  m; y  n; n  n-1 │┌ cât timp x ≠ y execut ă ││┌ dac ă x>y atunci x  x-y │││ altfel y  y-x ││└■ │└■ └■ scrie n+1",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ţ i ce se afi ș eaz ă în urma execut ă rii algoritmului dac ă se citesc, în aceast ă ordine, valorile 21 ș i 47 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă pentru variabila m se cite ş te num ă rul 5 , scrie ţ i dou ă valori care pot fi citite pentru variabila n astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, valoarea afi ş at ă s ă fie 10 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ţ i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ţ i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat prima structur ă cât timp...execut ă cu o structur ă repetitiv ă cu test final.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 9 noduri, numerotate de la 1 la 9 , are muchiile [1,8] , [2,3] , [2,5] , [2,7] , [4,5] , [5,6] , [5,8] , [8,9] . Scrie ț i dou ă noduri care pot fi alese drept r ă d ă cin ă , astfel încât nodul 5 s ă aib ă doi “fra ț i”.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila x , declarat ă al ă turat, memoreaz ă simultan un an calendaristic ș i temperatura medie a aerului, m ă surat ă în grade Celsius, înregistrat ă în Bucure ș ti în anul respectiv. struct meteo { int an, temperatura; }x; Scrie ţ i o secven ță de instruc ț iuni în urma execut ă rii c ă reia s ă se afi ș eze pe ecran mesajul CALDUROS dac ă temperatura men ț ionat ă a fost strict mai mare decât 11 o C , mesajul RACOROS dac ă temperatura men ț ionat ă a fost strict mai mic ă decât 10 o C , sau mesajul NORMAL în orice alt caz.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul schimb are trei parametri: • n ş i x , prin care prime ş te câte un num ă r natural ( n ∈ [0,10 8 ] , x ∈ [1,9] ); • p , prin care prime ș te un num ă r natural reprezentând pozi ț ia unei cifre a num ă rului n ( 0 ≤ p ). Pozi ț iile cifrelor sunt numerotate de la dreapta la stânga, astfel: cifra unit ăț ilor este pe pozi ț ia 0 , cifra zecilor este pe pozi ț ia 1 ș .a.m.d. Subprogramul transform ă num ă rul n , înlocuind cifra de pe pozi ț ia p cu cifra x , ș i furnizeaz ă num ă rul ob ț inut tot prin parametrul n . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=12587 , x=6 ș i p=3 , dup ă apel, n=16587 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consider ă o vocal ă oarecare a alfabetului englez, notat ă cu v , ș i o consoan ă oarecare a alfabetului englez, notat ă cu c . Litera v se nume ş te vocal ă prieten ă a lui c dac ă în ş irul literelor alfabetului englez, ordonat lexicografic, v îl precede pe c , iar între v ș i c nu exist ă nicio vocal ă . Se consider ă vocale literele a , e , i , o , u . Exemplu: e este vocal ă prieten ă pentru consoanele f , g ș i h , dar nu este vocal ă prieten ă pentru consoanele d ș i j . Un elev vrea s ă transmit ă unui prieten o parol ă , codificat ă . Parola este format ă dintr-un singur cuvânt de cel mult 50 de caractere, litere mici ale alfabetului englez, cel pu ț in una fiind consoan ă . Codificarea se face prin înlocuirea fiec ă rei consoane cu vocala sa prieten ă , ca în exemplu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un cuvânt, reprezentând o parol ă de tipul precizat ş i determin ă , în memorie, forma codificat ă a acesteia. Programul afi ş eaz ă pe ecran parola codificat ă ob ţ inut ă . Exemplu : pentru parola rame se afi ş eaz ă oaie , iar pentru parola sport se afi ș eaz ă ooooo",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Numim secven ță paritar ă a unui ș ir de numere naturale un sub ș ir al acestuia, format din termeni cu aceea ș i paritate, afla ț i pe pozi ț ii consecutive în ș irul dat. Lungimea secven ț ei este egal ă cu num ă rul de termeni ai acesteia. Fi ș ierul bac.txt con ț ine un ș ir de cel pu ț in dou ă ș i cel mult 10 6 numere naturale din intervalul [ 0 , 10 9 ]. Numerele sunt separate prin câte un spa ț iu, iar în ș ir exist ă cel pu ț in doi termeni cu aceea ș i paritate pe pozi ț ii consecutive. Se cere s ă se afi ş eze pe ecran num ă rul secven ț elor paritare de lungime maxim ă din ș irul aflat în fi ș ier, precum ș i aceast ă lungime maxim ă . Numerele afi ş ate sunt separate printr-un spa ț iu. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei utilizate. Exemplu: dac ă fi ş ierul con ţ ine numerele 2 3 5 1 7 9 8 4 4 11 15 17 21 11 6 11 15 17 21 11 6 5 2 6 4 0 16 atunci pe ecran se afi ș eaz ă valorile 4 5 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

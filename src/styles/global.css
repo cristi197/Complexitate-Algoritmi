@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -103,9 +103,9 @@ textarea:focus-visible {
   --shadow2: 0 8px 40px rgba(30,41,59,0.13);
   --radius:  14px;
   --max-w:   860px;
-  --font:         'DM Sans', 'Inter', 'Segoe UI', system-ui, Arial, sans-serif;
-  --font-display: 'Syne', 'Inter', sans-serif;
-  --font-body:    'DM Sans', 'Inter', system-ui, sans-serif;
+  --font:         'Manrope', 'Inter', 'Segoe UI', system-ui, Arial, sans-serif;
+  --font-display: 'Manrope', 'Inter', sans-serif;
+  --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
   --mono:    'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
   --transition: 0.22s cubic-bezier(.4,0,.2,1);
 
@@ -1117,7 +1117,8 @@ tr:nth-child(even) td { background: var(--border-faint); }
 /* Small score shortcut button */
 .qb-small { padding: 6px 12px; font-size: 12px; }
 
-/* ─── Audio Player (floating) ──────────────────────────────────── */
+/* ─── Audio Player (floating) — disabled ───────────────────────── */
+.audio-toggle-btn, #audio-player, .ab-player, .ab-reopen-fab { display: none !important; }
 .audio-toggle-btn {
   position: fixed; bottom: 80px; right: 20px;
   width: 48px; height: 48px;

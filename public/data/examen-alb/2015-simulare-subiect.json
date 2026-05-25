@@ -1,0 +1,85 @@
+{
+  "id": "2015-simulare-subiect",
+  "year": 2015,
+  "session": "Simulare",
+  "type": "simulare",
+  "pdfUrl": "/subiecte-bac/2015/2015-simulare-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2015/2015-simulare-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ţ i expresia C/C++ care are valoarea 1 dac ă ş i numai dac ă cifra zecilor num ă rului natural memorat în variabila întreag ă n este 2 sau 7 . (4p.)",
+        "options": {
+          "a": "(n/10)%10==2 || (n/10)%10==7",
+          "b": "(n/10)%10==2 && (n/10)%10==7",
+          "c": "(n%10)/10==2 || (n%10)/10==7",
+          "d": "(n%10)/10==2 && (n%10)/10==7"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "În figura al ă turat ă este reprezentat un graf orientat cu trei vârfuri. O matrice de adiacen ţă prin care poate fi reprezentat acesta este: a. 0 1 0 0 0 1 0 0 0 b. 0 1 0 0 0 0 0 1 0 c. 0 0 0 0 0 0 1 1 0 d. 0 0 0 0 1 0 1 0 0 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „ta ţ i” ( 9 , 7 , 10 , 7 , 2 , 2 , 0 , 4 , 10 , 4 ). Enumera ţ i trei noduri ale arborelui care au exact doi fii. 4. În secven ţ a al ă turat ă , variabila i este de tip întreg, iar variabila s memoreaz ă un ş ir de cel mult 20 de caractere, numai litere mici ale alfabetului englez. i=0; while(i<strlen(s)) { ......... } Scrie ţ i instruc ț iunile care pot înlocui punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ț inute, s ă se afi ş eze pe ecran toate literele ş irului memorat în variabila s , cu excep ţ ia grupului de litere ae . Literele se afi ş eaz ă în ordinea apari ţ iei lor în ş ir. Exemplu: dac ă ş irul memorat în variabila s este elaeagnaceae se afi ş eaz ă pe ecran elagnace (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale, m ş i n , din intervalul [2,50] ş i construie ș te în memorie un tablou bidimensional cu m linii ş i n coloane, astfel încât prima coloan ă con ț ine primele m numere naturale impare, în ordine strict cresc ă toare, ș i parcurgând orice linie a tabloului, de la stânga la dreapta, se ob ț in numere naturale consecutive, în ordine strict cresc ă toare. Programul afi ș eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: pentru m=4 ș i n=5 , se ob ț ine tabloul al ă turat. (10p.) 1 2 3 4 5 3 4 5 6 7 5 6 7 8 9 7 8 9 10 11 Ministerul Educa ţ iei ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Simulare Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă Pagina 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate aranjamentele florale de câte 5 flori distincte din mul ţ imea { frezie , iris , lalea , mac , nard }. Dou ă aranjamente sunt distincte dac ă florile sunt dispuse în alt ă ordine. Primele patru solu ţ ii ob ţ inute sunt, în aceast ă ordine: ( frezie , iris , lalea , mac , nard ), ( frezie , iris , lalea , nard , mac ), ( frezie , iris , mac , lalea , nard ), ( frezie , iris , mac , nard , lalea ). A cincea solu ț ie generat ă este: a. ( frezie , iris , nard , lalea , mac ) b. ( frezie , iris , nard , mac , lalea ) c. ( frezie , lalea , iris , mac , nard ) d. ( frezie , lalea , iris , nard , mac ) Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul F este definit al ă turat. Scrie ţ i ce valori au F(105,105 ) respectiv F(105,42) . int F(int x, int y) { if(x==y) return 1; else { if(x<y) { x=x+y; y=x-y; x=x-y; } return 1+F(x-y,y); } }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul Cifre are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ ∈ ∈ ∈ [0,10 9 ] ). Subprogramul afi ș eaz ă pe ecran toate cifrele distincte care apar în scrierea lui n , separate prin câte un spa ț iu. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=24207 , se afi ș eaz ă cifrele 0 2 4 7 , nu neap ă rat în aceast ă ordine. 4. Fi ș ierul bac.txt con ț ine numere naturale din intervalul [1,10 4 ] : pe prima linie num ă rul n , pe a doua linie un ș ir de n numere ordonate strict descresc ă tor, iar pe a treia linie dou ă numere, x ș i y ( x ≤ ≤ ≤ ≤ y ). Numerele de pe aceea ș i linie sunt separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran cel mai mare num ă r din ș ir care apar ț ine intervalului [x,y] . Dac ă nu exist ă un astfel de num ă r, se afi ș eaz ă pe ecran mesajul nu exista . Pentru determinarea num ă rului cerut se utilizeaz ă un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 5 100 49 16 7 2 10 30 atunci pe ecran se afi ș eaz ă 16 a) Descrie ț i în limbaj natural algoritmul utilizat, justificând eficien ț a acestuia. (4p.) b) Scrie ț i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

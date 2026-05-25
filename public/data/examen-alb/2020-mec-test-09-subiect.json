@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-09-subiect",
+  "year": 2020,
+  "session": "mec-test-09",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-09-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-09-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg și memorează un număr nenul. Indicați expresia C/C++ cu valoarea 1 dacă 2020 este divizor al lui x .",
+        "options": {
+          "a": "x/(x/2020)==0",
+          "b": "x/(x%2020)==0",
+          "c": "x%(x%2020)==0",
+          "d": "x%(x/2020)==0"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Variabila a memorează un tablou bidimensional cu 6 linii și 6 coloane, numerotate de la 0 la 5 , cu elemente numere întregi, iar toate celelalte variabile sunt întregi. for(i=0;i<6;i++) for(j=0;j<6;j++) a[i][j]=(i%2)*j+(j%2)*i; Indicați valoarea sumei elementelor de pe diagonala secundară a tabloului construit în urma executării secvenței de mai sus.",
+        "options": {
+          "a": "6",
+          "b": "12",
+          "c": "18",
+          "d": "30"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se generează toate posibilitățile de a forma șiraguri din câte 3 mărgele de culori distincte din mulțimea {ro ș u,galben,verde,albastru,violet} . Două șiraguri sunt distincte dacă diferă prin cel puțin o culoare a mărgelelor sau prin ordinea acestora. Primele patru soluții generate sunt, în această ordine: ( ro ș u , galben , verde ), ( ro ș u , galben , albastru ), ( ro ș u , galben , violet ), ( ro ș u , verde , galben ). Indicați penultima soluție generată.",
+        "options": {
+          "a": "(violet,albastru,galben)",
+          "b": "(violet,verde,albastru)",
+          "c": "(verde,albastru,galben)",
+          "d": "(verde,violet,albastru)"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „tați” (2,5,4,0,4,1,5,5,3,4) . Indicați numărul de descendenți direcți (“fii”) ai nodului 5 .",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , este reprezentat prin matricea de adiacență ale cărei prime 5 linii sunt scrise alăturat. Două drumuri sunt distincte dacă diferă prin cel puțin un arc traversat. Indicați gradul exterior maxim al vârfului 6 , astfel încât să existe doar trei drumuri elementare cu extremitatea inițială în vârful 2 și extremitatea finală în vârful 4 . 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 ...........",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4 Ministerul Educației și Cercetării Centrul Național de Evaluare și Examinare Probă scrisă la informatică Testul 9 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește valoarea 5 , scrieți cea mai mică și cea mai mare valoare care pot fi citite pentru variabila n astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, ultimul număr afișat să fie 10 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat ultima structură pentru...execută cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n,k (numere naturale nenule) t  1 ┌ pentru i  1,[n/k] execută │┌ pentru j  1,k execută ││ scrie t,' ' │└■ │ t  t+1 └■ ┌ pentru i  n%k,1,-1 execută │ scrie t,' ' └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți ce se afișează dacă se citesc, în această ordine, numerele 8 și 3 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dacă pentru variabila k se citește valoarea 5 , scrieți cea mai mică și cea mai mare valoare care pot fi citite pentru variabila n astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, ultimul număr afișat să fie 10 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat ultima structură pentru...execută cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Subprogramul f este definit alăturat. Scrieți ce valori au f(0) , respectiv f(2020) . int f (int n) { if (n!=0) return n%20+f(n/20); return 0; }",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un graf neorientat cu 9 noduri, numerotate de la 1 la 9 , are muchiile [1,3] , [1,5] , [2,6] , [2,8] , [2,9] , [3,5] , [4,7] , [6,9] , [8,9] . Scrieți numărul componentelor conexe ale grafului și enumerați nodurile care fac parte din componenta conexă cu cele mai puține noduri.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul suma are doi parametri: • n , prin care primește un număr natural din intervalul [0,10 9 ] ; • s , prin care furnizează suma cifrelor impare distincte din scrierea acestuia. Scrieți definiția completă a subprogramului. Exemplu: dacă n=4713835 , după apel s=16 ( 16=7+1+3+5 ), iar dacă n=48 , după apel s=0 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un cuvânt este prefix al unui alt cuvânt dacă se obține din acesta, prin eliminarea ultimelor sale litere. Scrieți un program C/C++ care citește de la tastatură un număr natural n ( n  [2,20] ) și apoi n cuvinte distincte, fiecare fiind format din cel mult 20 de caractere, numai litere mici ale alfabetului englez. La introducerea datelor, după fiecare cuvânt se tastează Enter. Programul afișează pe ecran, separate prin câte un spațiu, cuvintele care îl au drept prefix pe ultimul cuvânt citit. Dacă nu există astfel de cuvinte, se afișează pe ecran mesajul nu exista . Exemplu: dacă n=6 și se citesc cuvintele alăturate, pe ecran se afișează raita raid raion raita grai raid raion straie rai",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "se obține din acesta, prin eliminarea ultimelor sale litere. Scrieți un program C/C++ care citește de la tastatură un număr natural n ( n  [2,20] ) și apoi n cuvinte distincte, fiecare fiind format din cel mult 20 de caractere, numai litere mici ale alfabetului englez. La introducerea datelor, după fiecare cuvânt se tastează Enter. Programul afișează pe ecran, separate prin câte un spațiu, cuvintele care îl au drept prefix pe ultimul cuvânt citit. Dacă nu există astfel de cuvinte,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Numim k-secvență într-un șir de numere naturale, o succesiune de termeni aflați pe poziții consecutive în șir, cu proprietatea că sunt divizibili cu numărul natural nenul k . Lungimea secvenței este egală cu numărul de termeni ai săi. Fișierul bac.txt conține numere naturale din intervalul [0,10 9 ] : pe prima linie un număr nenul k , iar pe a doua linie un șir de cel mult 10 6 numere, separate prin câte un spațiu. Cel puțin un termen din șir este divizibil cu k . Se cere să se afișeze pe ecran două valori, separate printr-un spațiu, reprezentând lungimea maximă a unei k-secvențe din șirul aflat în fișier, respectiv numărul de astfel de secvențe. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul are conținutul alăturat, se afișează 4 2 5 2 10 5 20 21 0 10 60 15 3 9 20 20 5 45 a. Scrieți programul C/C++ corespunzător algoritmului proiectat. b. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. (2p.)",
+        "points": 8,
+        "type": "code",
+        "exampleInput": "fișierul are conținutul alăturat,",
+        "exampleOutput": "4",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

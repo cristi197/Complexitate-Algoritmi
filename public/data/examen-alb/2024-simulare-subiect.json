@@ -1,0 +1,172 @@
+{
+  "id": "2024-simulare-subiect",
+  "year": 2024,
+  "session": "Simulare",
+  "type": "simulare",
+  "pdfUrl": "/subiecte-bac/2024/2024-simulare-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2024/2024-simulare-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i valoarea expresiei C/C++ al ă turate. 6.3/20+24",
+        "options": {
+          "a": "0",
+          "b": "24",
+          "c": "24.315",
+          "d": "24.9"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(2024); void f(int x) { if(x>=24) if(x%2==0) { cout<<2; | printf(\"2\"); f(x/2); } else { f(x/2); cout<<4; | printf(\"4\"); } else cout<<0; | printf(\"0\"); }",
+        "options": {
+          "a": "04424222",
+          "b": "22220444",
+          "c": "22242440",
+          "d": "44402222"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se genereaz ă toate variantele prin care patru persoane pot pl ă ti o consuma ț ie total ă de 24 de lei în urm ă toarele condi ț ii: • fiecare pl ă te ș te o sum ă nenul ă , strict mai mic ă decât 10 ; • primul pl ă te ș te mai pu ț in decât al doilea, al doilea mai pu ț in decât al treilea, iar acesta mai pu ț in decât al patrulea. O solu ț ie const ă în patru valori, reprezentând, în ordine, sumele pl ă tite de fiecare dintre cele patru persoane. Primele patru solu ț ii generate sunt, în aceast ă ordine: ( 1 , 6 , 8 , 9 ), ( 2 , 5 , 8 , 9 ), ( 2 , 6 , 7 , 9 ), ( 3 , 4 , 8 , 9 ). Indica ț i solu ț ia generat ă imediat dup ă ( 3 , 6 , 7 , 8 ).",
+        "options": {
+          "a": "( 3 , 5 , 7 , 9 )",
+          "b": "( 4 , 5 , 6 , 9 )",
+          "c": "( 4 , 5 , 7 , 8 )",
+          "d": "( 5 , 5 , 6 , 8 )"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "În declararea de mai jos, câmpurile structurii memoreaz ă date referitoare la un joc video: categoria, num ă rul de niveluri de dificultate (maximum cinci) ș i num ă rul maxim de puncte care pot fi ob ț inute la fiecare nivel. Indica ț i expresia C/C++ care are valoarea 1 dac ă ș i numai dac ă num ă rul maxim de puncte care se pot ob ț ine pe nivelul notat cu 2 este strict mai mare decât 4 . struct joc { int categorie, nrNiveluri; int puncte[5]; }g;",
+        "options": {
+          "a": "joc(puncte[2])>4",
+          "b": "puncte.joc[2]>4",
+          "c": "puncte[2].g>4",
+          "d": "g.puncte[2]>4"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un ora ș sunt 5 parcuri, notate cu A , B , C , D ș i E , care sunt conectate prin piste pentru biciclete, pe care se circul ă într-un singur sens, astfel: o pist ă de la parcul A c ă tre parcul B , o pist ă de la parcul B c ă tre parcul E , o pist ă de la parcul C c ă tre parcul D , o pist ă de la parcul D c ă tre parcul C , o pist ă de la parcul E c ă tre parcul A , o pist ă de la parcul E c ă tre parcul C ș i o pist ă de la parcul E c ă tre parcul D . Indica ț i num ă rul minim de piste pentru care trebuie schimbat sensul de circula ț ie, astfel încât graful orientat ob ț inut, în care parcurile reprezint ă vârfurile, iar pistele reprezint ă arcele, s ă fie tare conex.",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "4",
+          "d": "6 Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la INFORMATIC Ă Simulare Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ș te n (num ă r natural nenul) s  0; d  2 ┌ cât timp d*d ≤ n execut ă │ p  0 │┌ cât timp n%d=0 execut ă ││ n  [n/d]; p  1 │└■ │ s  s+d*p; d  d+1 └■ ┌ dac ă n ≠ 1 atunci │ s  s+n └■ scrie s",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valoarea afi ș at ă în urma execut ă rii algoritmului dac ă se cite ș te num ă rul 32625 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i dou ă numere din intervalul [10,100] care pot fi citite pentru variabila n , astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, s ă se afi ş eze valoarea 2 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat a doua structur ă cât timp...execut ă cu o structur ă repetitiv ă cu test final.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „ta ț i” (8,1,4,5,0,9,4,5,4,3) . Enumera ț i toate nodurile arborelui care au câte un singur descendent direct („fiu”).",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 5 linii ş i 5 coloane, numerotate începând de la 0 , având ini ţ ial toate elementele egale cu 1 . Scrie ţ i secven ţ a de instruc ţ iuni C/C++ de mai jos, înlocuind punctele de suspensie cu instruc ț iuni adecvate, dintre care cel mult patru de atribuire , astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=0;i<5;i++) for(j=0;j<5;j++) .................. 0 0 0 0 0 0 2 2 2 2 0 2 4 4 4 0 2 4 6 6 0 2 4 6 8",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul Impare are un parametru, n , prin care prime ș te un num ă r natural ( n ∈ [1,10 4 ] ). Subprogramul returneaz ă num ă rul ob ț inut prin duplicarea fiec ă rei cifre impare a lui n sau -1 dac ă acesta nu are nicio cifr ă impar ă . Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=3361 , subprogramul returneaz ă 3333611 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un ș ablon este un text în care cuvintele sunt separate prin câte un spa ț iu ș i sunt formate fie numai din litere mici ș i mari ale alfabetului englez, fie numai din caractere * , în ultimul caz numindu-se cuvinte generice . Lungimea unui cuvânt este egal ă cu num ă rul de caractere care îl compun. Un computer genereaz ă o fraz ă pe baza unui astfel de ș ablon, prin înlocuirea fiec ă rui cuvânt generic cu unul dintre cuvintele de aceea ș i lungime, preluat dintr-o list ă dat ă . Scrie ț i un program C/C++ care cite ș te de la tastatur ă un num ă r natural, n ( n ∈ [1,100] ), ș i o list ă de n cuvinte, urmat ă de un ș ablon de tipul precizat. Fiecare cuvânt din list ă este format din maximum 10 litere mici ș i mari ale alfabetului englez ș i la citire este introdus singur pe linie. Ș ablonul con ț ine maximum 100 de caractere. Programul ob ț ine în memorie ș i apoi afi ș eaz ă pe ecran una dintre frazele care pot fi generate pe baza ș ablonului ș i a listei citite sau mesajul imposibil dac ă nu se poate genera o astfel de fraz ă . Exemplu : dac ă n=6 , iar lista de cuvinte este cea al ă turat ă , pentru ș ablonul Era o vreme ******* si ***** din belsug ***** se genereaz ă fraza Era o vreme placuta si soare din belsug soare sau fraza Era o vreme calduta si soare din belsug acasa etc., iar pentru ș ablonul *** o vreme ******* si ************ se afi ș eaz ă mesajul imposibil rece placuta acasa calduta innorata soare",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un ș ir se nume ș te de tip api dac ă num ă rul de apari ț ii ale fiec ă rui termen este mai mic sau egal cu acel termen ș i are o paritate egal ă cu a acestuia. Fi ș ierul bac.in con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [1,10 3 ] , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran mesajul DA , dac ă ș irul este de tip api, sau mesajul NU în caz contrar. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 6 27 2 6 27 6 6 14 14 2 27 se afi ș eaz ă pe ecran DA (termenul par 6 apare de 4 ori, 4 fiind tot num ă r par ș i 4 ≤ 6 , termenii pari 2 ș i 14 apar de câte 2 ori, 2 fiind tot num ă r par ș i 2 ≤ 2 , respectiv 2 ≤ 14 , iar termenul impar 27 apare de 3 ori, 3 fiind tot num ă r impar ș i 3 ≤ 27 ). a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

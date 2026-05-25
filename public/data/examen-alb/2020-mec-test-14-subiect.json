@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-14-subiect",
+  "year": 2020,
+  "session": "mec-test-14",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-14-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-14-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați o expresie care are valoarea 1 dacă și numai dacă numărul memorat în variabila întreagă x aparține intervalului [-2002,2020] .",
+        "options": {
+          "a": "!(x<-2002 || x>2020)",
+          "b": "x>-2002 || x<2020",
+          "c": "!(x+2020<0 && x-2002>0)",
+          "d": "x+2020>=0 && x-2002<=0"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Valoarea lui f(2020,20) este: (6p.) int f(int x, int y) { if(x<=0) return y; if(y<=0) return x; return f(x/y, x-y); }",
+        "options": {
+          "a": "0",
+          "b": "-1",
+          "c": "-1899",
+          "d": "-2000"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se generează toate grupele de accesorii pentru înot din mulțimea { cască , costum de înot , cleme , dopuri de urechi , plută , mască de snorkeling , ochelari , snorkel }. Accesoriile au prețurile următoare, exprimate în lei: cască - 40 , costum de înot - 400 , cleme - 30 , dopuri de urechi - 30 , plută - 10 , mască de snorkeling - 400 , ochelari - 70 , snorkel - 60 . Într-o grupă accesoriile sunt distincte, nu contează ordinea lor și costă, în total, exact 500 de lei. Primele trei soluții generate sunt, în această ordine: ( cască , costum de înot , cleme , dopuri de urechi ), ( cască , costum de înot , snorkel ), ( cască , cleme , dopuri de urechi , mască de snorkeling ). A cincea soluție generată este:",
+        "options": {
+          "a": "( cască , mască de snorkeling , snorkel )",
+          "b": "(costum de înot , cleme , plută , snorkel)",
+          "c": "(cleme , mască de snorkeling , ochelari)",
+          "d": "(dopuri de urechi , plută , mască de snorkeling , snorkel)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Într-un arbore cu rădăcină cu 6 noduri, numerotate de la 1 la 6 , sunt 3 noduri de tip „frunză”. Indicați un vector de „tați” care poate corespunde arborelui.",
+        "options": {
+          "a": "(0,3,1,6,6,2)",
+          "b": "(2,0,1,1,2,1)",
+          "c": "(3,5,5,6,0,5)",
+          "d": "(5,5,1,1,0,1)"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , este reprezentat prin matricea de adiacență alăturată. Indicați numărul minim de arce care pot fi adăugate astfel încât graful obținut să aibă cel puțin două circuite. Un circuit este format numai din arce distincte, iar două circuite sunt distincte dacă diferă prin cel puțin un arc. 0 0 0 0 0 1 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0",
+        "options": {
+          "c": "3",
+          "a": "1",
+          "b": "2",
+          "d": "4 Ministerul Educaţiei și Cercetării Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică Testul 14 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește numărul 1527894 . (6p.) b. Scrieți trei numere care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului să se afișeze 1 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă...până când cu o structură repetitivă cu test inițial. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n (număr natural) m  0 ┌repetă │ c  n%10; n  [n/10] │┌dacă c=9 atunci c  1 ││altfel ││┌dacă c%2=1 atunci │││c  c+1 ││└■ │└■ │ m  m*10+c └până când n=0 scrie m",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți valoarea afișată dacă se citește numărul 1527894 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți trei numere care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului să se afișeze 1 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă...până când cu o structură repetitivă cu test inițial.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila r memorează simultan următoarele date despre fiecare dintre cele 20 de rase de porumbei dintr-o volieră: un cod, reprezentând rasa, numărul de exemplare din rasa respectivă și vârstele acestora. În volieră sunt maximum 10 exemplare din fiecare rasă. Știind că expresiile C/C++ de mai jos au ca valori numere naturale și reprezintă codul și numărul de exemplare din prima rasă, respectiv vârsta celui de al 4 -lea exemplar din această rasă, scrieți definiția unei structuri cu eticheta rasa , care permite memorarea datelor despre o rasă de porumbei, și declarați corespunzător variabila r . r[0].cod r[0].nrExemplare r[0].varsta[3]",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i și j sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 5 linii și 7 coloane, numerotate începând de la 0 , cu elemente numere întregi, inițial toate egale cu 0 . Fără a utiliza alte variabile decât cele menționate, scrieți o secvență de instrucțiuni prin care se transformă în memorie tabloul, astfel încât orice element aflat pe prima linie sau pe ultima coloană să aibă valoarea 1 și oricare alt element din tablou să fie egal cu ultima cifră a sumei celor două elemente alăturate lui, aflate pe aceeași linie dar pe coloana din dreapta, respectiv pe aceeași coloană, dar pe linia anterioară. 1 1 1 1 1 1 1 7 6 5 4 3 2 1 8 1 5 0 6 3 1 4 6 5 0 0 4 1 0 6 0 5 5 5 1",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Două numere a și b ( a<b ) sunt numite divizori pereche ai unui număr natural n dacă a∙b=n . Subprogramul perechi are un singur parametru, n , prin care primește un număr natural ( n  [2,10 9 ] ). Subprogramul afișează pe ecran toate perechile distincte de numere naturale cu paritate diferită cu proprietatea că sunt divizori pereche ai lui n . Fiecare pereche este afișată încadrată între paranteze drepte, numerele din pereche fiind afișate în ordine strict crescătoare, separate printr-un spațiu, iar dacă nu există astfel de perechi, se afișează pe ecran mesajul nu exista . Scrieți definiția completă a subprogramului. Exemplu: dacă n=12 se afișează pe ecran, nu neapărat în această ordine, [1 12][3 4] iar dacă n=9 se afișează pe ecran nu exista",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "a∙b=n . Subprogramul perechi are un singur parametru, n , prin care primește un număr natural ( n  [2,10 9 ] ). Subprogramul afișează pe ecran toate perechile distincte de numere naturale cu paritate diferită cu proprietatea că sunt divizori pereche ai lui n . Fiecare pereche este afișată încadrată între paranteze drepte, numerele din pereche fiind afișate în ordine strict crescătoare, separate printr-un spațiu, iar dacă nu există astfel de perechi,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un text are cel mult 100 de caractere și este format din cuvinte și numere, separate prin câte un spațiu. Cuvintele sunt formate numai din litere ale alfabetului englez. Toate numerele sunt reale și sunt formate numai din parte întreagă sau din parte întreagă și parte fracționară, separate prin virgulă ( , ), numerele negative fiind precedate de semnul minus ( - ). Cel puțin unul dintre numerele reale este negativ. Scrieți un program C/C++ care citește de la tastatură textul, pe care îl transformă în memorie, înlocuind fiecare număr negativ cu valoarea sa absolută. Programul afișează apoi pe ecran textul obținut. Exemplu: pentru textul Modul de -3,24 este 3,24 si modul de -15 este 15 se va afișa pe ecran textul: Modul de 3,24 este 3,24 si modul de 15 este 15",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.in conține un șir de numere naturale distincte, din intervalul [1,10 9 ] . Numerele din șir sunt separate prin câte un spațiu și cel puțin trei dintre ele au penultima cifră 2 și ultima cifră 0 . Se cere să se afișeze pe ecran cele mai mici trei numere din șir cu proprietatea că au penultima cifră 2 și ultima cifră 0 . Numerele determinate sunt afișate în ordine crescătoare, separate prin câte un spațiu. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu : dacă fișierul conține numerele 9731 50 112 20 8 16 8520 3 2520 1520 pe ecran se vor afișa, în această ordine, numerele: 20 1520 2520 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

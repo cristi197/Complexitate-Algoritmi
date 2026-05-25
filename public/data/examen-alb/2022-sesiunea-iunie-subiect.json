@@ -1,0 +1,172 @@
+{
+  "id": "2022-sesiunea-iunie-subiect",
+  "year": 2022,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2022/2022-sesiunea-iunie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2022/2022-sesiunea-iunie-barem.pdf",
+  "variant": 1,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i valoarea expresiei C/C++ al ă turate. 22/20*20/2",
+        "options": {
+          "a": "0",
+          "b": "0.55",
+          "c": "10",
+          "d": "55"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Variabilele x ș i valoare sunt declarate al ă turat. Indica ț i o instruc ț iune de atribuire corect ă din punctul de vedere sintactic. struct produs { char denumire[50]; float cantitate, pret; }x; float valoare;",
+        "options": {
+          "c": "x.denumire[5]= \"Borsec\";",
+          "a": "x=(\"apa minerala\",10,2.5);",
+          "b": "x.produs.pret=2.5;",
+          "d": "valoare=2*x.cantitate*x.pret;"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "La o sal ă de sport se organizeaz ă antrenamente pentru sporturi din mul ț imea { tenis , fotbal , volei , handbal , baschet }, astfel încât o persoan ă poate opta pentru un pachet de antrenamente pentru dou ă sau trei sporturi, dar nu poate alege fotbal ș i baschet în acela ș i pachet. Utilizând metoda backtracking se genereaz ă toate posibilit ăț ile unei persoane de a opta pentru un pachet de antrenamente în cadrul s ă lii de sport. Dou ă pachete sunt distincte dac ă difer ă prin cel pu ț in un sport ales. Primele cinci solu ț ii generate sunt, în aceast ă ordine: {tenis , fotbal} , {tenis , fotbal , volei} , {tenis , fotbal , handbal} , {tenis , volei} , {tenis , volei , handbal} . Indica ț i solu ț ia generat ă imediat dup ă {fotbal , handbal} .",
+        "options": {
+          "a": "{volei , handbal}",
+          "b": "{fotbal , handbal , baschet}",
+          "c": "{handbal , baschet}",
+          "d": "{volei , handbal , baschet}"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf neorientat cu 6 noduri, numerotate de la 1 la 6 , are muchiile [1,2] , [1,3] , [2,3] , [4,6] . Indica ț i num ă rul de componente conexe ale acestuia.",
+        "options": {
+          "a": "a. 1",
+          "b": "3",
+          "c": "5",
+          "d": "6"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un arbore cu r ă d ă cin ă un nod se afl ă pe nivelul n dac ă lan ț ul elementar care are o extremitate în nodul respectiv ș i cealalt ă extremitate în r ă d ă cina arborelui are lungimea n . Pe nivelul 0 se afl ă un singur nod (r ă d ă cina). Un arbore cu r ă d ă cin ă are 12 noduri, numerotate de la 1 la 12 , ș i este reprezentat prin vectorul de „ta ț i” (2,4,2,0,4,4,x,6,x,x,y,y) . Indica ț i un set de valori pe care le pot avea x ș i y , ș tiind c ă pe ultimul nivel exist ă cinci noduri frunz ă ș i c ă un singur nod este numerotat cu o valoare egal ă cu num ă rul s ă u de descenden ț i direc ț i („fii”) de tip „frunz ă ”.",
+        "options": {
+          "a": "x=11 y=12",
+          "b": "x=8 y=3",
+          "c": "x=3 y=8",
+          "d": "x=3 y=3 Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 1 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ţ irii num ă rului natural a la num ă rul natural nenul b ş i cu [c] partea întreag ă a num ă rului real c . cite ş te n (num ă r natural) i  2; k  0 ┌ cât timp n ≥ i execut ă │┌ cât timp n%i=0 execut ă ││ k  k+1 ││ n  [n/i] │└■ │┌ dac ă i=2 atunci i  i+1 ││ altfel i  i+2 │└■ └■ scrie k",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ţ i ce se afi ș eaz ă în urma execut ă rii algoritmului dac ă se cite ş te num ă rul 56 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ţ i dou ă numere din intervalul [10,99] care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, s ă se afi ş eze valoarea 1 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ţ i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ţ i în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat a doua structur ă cât timp...execut ă cu o structur ă repetitiv ă cu test final.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Subprogramul f este definit al ă turat. Scrie ț i dou ă valori din intervalul [2000,2025] pentru variabila întreag ă x , astfel încât, pentru fiecare dintre acestea, f(2022,x) s ă aib ă valoarea 2022 . int f(int a,int b) { if(a<=b) return a; return f(a-1,b+1); }",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele s ș i id permit accesul la câte un ș ir de maximum 50 de caractere, ș irul accesat prin id fiind ini ț ial vid, iar cel accesat prin s memorând, în aceast ă ordine, separate printr-un spa ț iu, prenumele ș i numele unei persoane, fiecare fiind format numai din litere ale alfabetului englez. Scrie ț i o secven ță de instruc ț iuni C/C++ astfel încât, în urma execut ă rii acesteia, ș irul accesat prin id s ă memoreze numele persoanei men ț ionate, urmat de 2022 . Declara ț i corespunz ă tor eventualele alte variabile utilizate. Exemplu: dac ă ș irul accesat prin variabila s este Ana Popescu atunci ș irul accesat prin variabila id este Popescu2022",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul secventa are un singur parametru, n , prin care prime ş te un num ă r natural ( n ∈ [10,10 9 ) ) în care nu exist ă secven ț e de mai mult de dou ă cifre identice aflate pe pozi ț ii consecutive. Subprogramul înlocuie ș te în n fiecare secven ță 22 cu câte o secven ță 20 ș i furnizeaz ă , prin acela ș i parametru, num ă rul ob ț inut. Dac ă nu se înlocuie ș te nicio secven ță , subprogramul furnizeaz ă num ă rul nemodificat. Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=202233228 , dup ă apel n=202033208 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Pentru prevenirea eroziunii la Marea Neagr ă , autorit ăț ile au hot ă rât înnisiparea unei plaje. Plaja a fost împ ă r ț it ă în parcele de form ă p ă trat ă cu latura de 1 metru, dispuse ca elementele unui tablou bidimensional, re ț inându-se nivelul fiec ă rei parcele, m ă surat în metri, de la nivelul m ă rii. Înnisiparea se realizeaz ă doar pe acele parcele care au nivelul strict mai mic decât al celei mai joase dintre parcelele vecine cu ea, ad ă ugând nisip, astfel încât cele dou ă s ă aib ă acela ș i nivel. Dou ă parcele sunt vecine dac ă au o latur ă comun ă . Scrie ț i un program C/C++ care cite ș te de la tastatur ă dou ă numere naturale din intervalul [2,10 2 ] , m ș i n , apoi elementele unui tablou bidimensional cu m linii ş i n coloane, numere naturale din intervalul [1,10] , reprezentând nivelurile parcelelor, în ordinea dispunerii acestora pe plaj ă . Programul afi ș eaz ă pe ecran cantitatea total ă de nisip ad ă ugat ă , m ă surat ă în metri cubi. Exemplu : pentru m=5 , n=4 ș i tabloul al ă turat, se vor înnisipa parcelele marcate, pentru a fi aduse la nivelul parcelelor vecine corespunz ă toare, ș i se va afi ș a valoarea 7 ( 1+3+1+2 ). 5 3 4 6 7 5 9 3 6 8 3 9 4 5 2 3 3 1 4 4",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fi ș ierul bac.txt con ț ine numere naturale din intervalul [1,10 9 ] , astfel: pe prima linie dou ă numere, x ș i y ( x<y ), iar pe a doua linie un ș ir de cel mult 10 6 numere, ordonate cresc ă tor. Numerele aflate pe aceea ș i linie a fi ș ierului sunt separate prin câte un spa ț iu. Se cere s ă se afi ş eze pe ecran num ă rul de valori distincte din ș irul aflat pe a doua linie a fi ș ierului care apar ț in intervalului [x,y] . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei utilizate. Exemplu: dac ă fi ş ierul are con ț inutul al ă turat, pe ecran se afi ș eaz ă 6 2 9 1 1 1 2 2 3 5 5 5 5 6 6 7 8 10 10 12 15 21 21 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

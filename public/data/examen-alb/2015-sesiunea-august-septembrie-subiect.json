@@ -1,0 +1,85 @@
+{
+  "id": "2015-sesiunea-august-septembrie-subiect",
+  "year": 2015,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2015/2015-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2015/2015-sesiunea-august-septembrie-barem.pdf",
+  "variant": 2,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i expresia C/C++ care are valoarea 1 dac ă ş i numai dac ă num ă rul natural memorat în variabila întreag ă n este divizibil cu 2 , dar NU ş i cu 5 . (4p.)",
+        "options": {
+          "a": "!((n%2==1) || (n%5==0))",
+          "b": "(n%2==0) && (n%5==0)",
+          "c": "(n%10==0) || (n%5!=0)",
+          "d": "(n%10==0) && (n%2==0)"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Num ă rul maxim de muchii ale unui graf neorientat, cu 100 de noduri, care nu con ţ ine niciun ciclu, este: a. 50 b. 99 c. 100 d. 4950 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „ta ţ i” (3 , 3 , 8 , 0 , 8 , 9 , 9 , 4 , 4 , 9) . Enumera ţ i toate nodurile de tip frunz ă ale arborelui. 4. Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 5 linii ş i 5 coloane, numerotate de la 1 la 5 , având ini ţ ial toate elementele nule. F ă r ă a utiliza alte variabile decât cele men ț ionate, scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=1;i<=5;i++) for(j=1;j<=5;j++) .................. (6p.) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 5. Se consider ă un cuvânt format din cel pu ț in dou ă ș i cel mult 100 de caractere, numai litere mici ale alfabetului englez. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un cuvânt de tipul precizat ș i afi ș eaz ă pe ecran mesajul DA în cazul în care cuvântul con ț ine doar consoane ş i, eventual, vocala i , sau mesajul NU în caz contrar. Exemplu : pentru cuvântul inscriptibil sau cuvântul brr se afi ş eaz ă mesajul DA iar pentru cuvântul inestimabil sau cuvântul iii se afi ş eaz ă mesajul NU (10p.) Ministerul Educa ţ iei ș i Cercet ă rii Ș tiin ț ifice Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 2 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă Pagina 3 din 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se genereaz ă toate parfumurile formate prin amestecarea a câte 3 esen ț e distincte din mul ţ imea { ambr ă , cedru , iris , mosc , santal }. Primele patru solu ţ ii ob ţ inute sunt, în aceast ă ordine: ( ambr ă , cedru , iris ), ( ambr ă , cedru , mosc ), ( ambr ă , cedru , santal ) ş i ( ambr ă , iris , mosc ). Indica ţ i submul ţ imea care trebuie eliminat ă din enumerarea urm ă toare, astfel încât solu ţ iile r ă mase s ă apar ă în ordinea gener ă rii lor: ( ambr ă , mosc , santal ), ( cedru , mosc , santal ), ( cedru , iris , mosc ), ( cedru , iris , santal ). a. ( ambr ă , mosc , santal ) b. ( cedru , mosc , santal ) c. ( cedru , iris , mosc ) d. ( cedru , iris , santal ) Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul F este definit al ă turat. Scrie ţ i instruc ţ iunea prin care se poate apela subprogramul pentru a afi ş a, în ordine strict descresc ă toare, to ţ i divizorii pozitivi proprii ai num ă rului 2015 (divizori naturali diferi ț i de 1 ș i de 2015 ). void F (int n, int d) { if(d<n/2) F(n, d+1); if(n%d==0) cout<<d<<’ ’; | printf(”%d ”,d); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul NrPrime are un singur parametru, n , prin care prime ş te un num ă r natural ( n ∈ ∈ ∈ ∈ [0,10 9 ] ). Subprogramul returneaz ă num ă rul de cifre prime ale lui n . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=1233405 , atunci subprogramul returneaz ă valoarea 4 . 4. Fi ş ierul BAC.TXT con ţ ine pe prima linie un num ă r natural, n ( n ∈ ∈ ∈ ∈ [2,5000] ), ș i pe a doua linie un ș ir de 2·n numere naturale din intervalul [0,5] . Numerele aflate pe aceea ș i linie a fi ș ierului sunt separate prin câte un spa ţ iu. Se cere s ă se afi ş eze pe ecran valoarea ob ț inut ă însumând toate produsele de forma x·y , unde x ș i y sunt numere de paritate diferit ă , x fiind printre primii n termeni ai ș irului aflat în fi ș ier, iar y printre ultimii n termeni ai acestui ș ir. Dac ă nu exist ă niciun astfel de produs, valoarea cerut ă este nul ă . Pentru determinarea num ă rului cerut utiliza ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei necesare. Exemplu: dac ă fi ş ierul are con ţ inutul de mai jos 5 1 2 0 0 5 4 2 3 1 0 pe ecran se afi ş eaz ă num ă rul 44 ( 1·4+1·2+1·0+2·3+2·1+0·3+0·1+0·3+0·1+5·4+5·2+5·0=44 ). a) Descrie ț i în limbaj natural algoritmul utilizat, justificând eficien ț a acestuia. (4p.) b) Scrie ț i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

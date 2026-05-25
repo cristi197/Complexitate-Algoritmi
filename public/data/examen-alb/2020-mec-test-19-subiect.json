@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-19-subiect",
+  "year": 2020,
+  "session": "mec-test-19",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-19-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-19-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabile x , y și z sunt de tip întreg. Indicați o expresie C/C++ care are valoarea 1 dacă și numai dacă x , y și z au valori identice.",
+        "options": {
+          "a": "!(x!=y) || !(y!=z)",
+          "b": "!(x!=y!=z)",
+          "c": "!( x!=y) || (y!=z)",
+          "d": "!(x!=y || y!=z)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați de câte ori se execută subprogramul pentru apelul f(10,20) . int f(int x, int y) { if(x<=1 || y<=1) return 0; if(x>y) return 1+f(f(x-y,y),y-1); return 1+f(x-1,f(x,y-x)); }",
+        "options": {
+          "a": "de 2 ori",
+          "b": "de 5 ori",
+          "c": "de 10 ori",
+          "d": "de 20 de ori"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se generează toate modalitățile de a pregăti o lucrare pentru un proiect, utilizând, într-o anumită ordine, toate sursele de documentare din mulțimea { culegeri , manuale , noti ț e } pentru o primă informare, apoi una dintre sursele de documentare din mulțimea { web , interviuri } pentru dezvoltarea temei, și, la final, una dintre resursele din mulțimea { imagine , sunet , text , video } pentru realizarea tehnică a lucrării, având în vedere următoarele restricții: imaginea și textul se pot folosi numai împreună cu site-urile web, iar sunetul și video numai împreună cu interviurile. Primele cinci soluții generate sunt, în această ordine: (culegeri , manuale , noti ț e , web , imagine) , (culegeri , manuale , noti ț e , web , text) , (culegeri , manuale , noti ț e , interviuri , sunet) , (culegeri , manuale , noti ț e , interviuri , video) , (culegeri , noti ț e , manuale, web , imagine) . Indicați a șaptea soluție generată.",
+        "options": {
+          "a": "(culegeri , noti ț e , manuale , interviuri , sunet)",
+          "b": "(culegeri , noti ț e , manuale , interviuri , video)",
+          "c": "(culegeri , noti ț e , manuale , web , text)",
+          "d": "(manuale , culegeri , noti ț e , web , imagine)"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu rădăcină, cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin vectorul de „tați” (2,5,6,2,0,5,3,1) . Indicați un lanț cu o extremitate în rădăcină, iar cealaltă extremitate în nodul 1 .",
+        "options": {
+          "a": "6,5,2,1",
+          "b": "5,3,1",
+          "c": "5,2,1",
+          "d": "3,1"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat cu 7 noduri, numerotate de la 1 la 7 , are muchiile [1,3] , [1,6] , [1,7] , [2,4] , [3,6] , [3,7] , [5,6] , [6,7] . Indicați un set format dintr-un număr minim de muchii care i se pot adăuga grafului, astfel încât graful obținut să fie hamiltonian.",
+        "options": {
+          "a": "[4,5]",
+          "b": "[1,2]",
+          "c": "[1,2],[4,5]",
+          "d": "[1,2],[2,3],[4,5] Ministerul Educaţiei și Cercetării Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Testul 19 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește numărul 60534 . (6p.) b. Scrieți trei numere din intervalul [0,10 2 ] care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 88 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat a doua structură cât timp ...execută cu o structură repetitivă de alt tip. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ș te n (număr natural nenul) ┌cât timp n≠0 execută │ c  n%10; n  [n/10] │┌dacă c %2 ≠ 0 atunci ││ c  c+1 │└■ │┌ cât timp c>0 ș i c<10 execută ││ scrie c ││ c  c*2 │└■ └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți ce se afișează în urma executării algoritmului dacă se citește numărul 60534 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți trei numere din intervalul [0,10 2 ] care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 88 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat a doua structură cât timp ...execută cu o structură repetitivă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila p memorează date despre un proiect: tema (un șir de maximum 20 de caractere), numărul surselor de documentare (maximum 10 ) și, pentru fiecare astfel de sursă, denumirea/adresa web (un șir de maximum 100 de caractere). Știind că expresiile C/C++ de mai jos au ca valori tema unui proiect, numărul de surse de documentare ale acestuia și denumirea/adresa web a primei astfel de surse, scrieți definiția unei structuri cu eticheta proiect , care permite memorarea datelor precizate pentru un proiect, și declarați corespunzător variabila p . p.tema p.nrSurse p.denAdrSursa[0]",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i și j sunt de tip întreg, iar variabila s poate memora un șir de cel mult 20 de caractere. Scrieți șirul memorat de variabila s în urma executării secvenței de mai jos. strcpy(s,\"informatie\"); n=strlen(s)-1; for(i=0;i<n/2;i++) if(strchr(\"aeiou\",s[i])!=NULL && strchr(\"aeiou\",s[n-i])!=NULL) { s[i]=s[i+1]; s[n-i]=s[n-i-1];}",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul paritate are doi parametri: • n , prin care primește un număr natural ( n  [1,10 9 ] ); • nr prin care furnizează numărul de divizori naturali ai lui n cu aceeași paritate ca n . • Scrieți definiția completă a subprogramului. Exemplu: dacă n=20 , după apel nr=4 (divizorii lui 20 sunt 1 , 2 , 4 , 5 , 10 , 20 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un tablou bidimensional, cu elemente având valori numai în mulțimea {0 , 1} , numim linii „complementare” două linii cu proprietatea că oricare două elemente ale acestora, aflate pe aceeași coloană, sunt diferite. Scrieți un program C/C++ care citește de la tastatură trei numere naturale m , n și k ( m,n  [2,20] , k  [1,m] ) și elementele unui tablou bidimensional cu m linii și n coloane, numere naturale din mulțimea {0 , 1} . Programul afișează pe ecran mesajul DA dacă există cel puțin o linie „complementară\" cu linia a k-a a acestuia, sau mesajul NU în caz contrar. Exemplu: pentru m=7 , n=3 , k=2 și tabloul alăturat se afișează pe ecran mesajul DA . 0 1 0 1 1 0 0 0 0 0 0 1 0 0 1 1 1 1 0 0 1",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "există cel puțin o linie „complementară\" cu linia a k-a a acestuia, sau mesajul NU în caz contrar. Exemplu: pentru m=7 , n=3 , k=2 și tabloul alăturat",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.txt conține, în ordine crescătoare , cel mult 10 6 numere naturale din intervalul [0 , 10 9 ] , separate prin câte un spațiu. Se cere să se afișeze pe ecran, în ordine strict crescătoare, separate prin câte un spațiu, numerele pare distincte care apar în fișier. Dacă nu există niciun astfel de număr, se afișează pe ecran mesajul nu exista . Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul conține numerele 5 5 6 7 8 8 8 8 10 15 16 16 25 25 49 pe ecran se afișează, în această ordine, numerele 6 8 10 16 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "nu există niciun astfel de număr,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

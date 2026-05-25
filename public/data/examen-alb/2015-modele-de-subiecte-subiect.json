@@ -1,0 +1,85 @@
+{
+  "id": "2015-modele-de-subiecte-subiect",
+  "year": 2015,
+  "session": "Modele de subiecte",
+  "type": "model",
+  "pdfUrl": "/subiecte-bac/2015/2015-modele-de-subiecte-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2015/2015-modele-de-subiecte-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Valoarea expresiei C/C++ alăturate este: (4p.) 5*9/2*3",
+        "options": {
+          "a": "7",
+          "b": "7.5",
+          "c": "66",
+          "d": "67.5"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila s poate memora un șir cu maximum 20 de caractere. În urma executării secvenței de instrucțiuni alăturate se afișează: strcpy(s,\"3x2y1\"); s[2]='x'+2; strcpy(s,s+1); strcpy(s+3,s+4); cout<<s; | printf(\"%s\",s); a. xzy b. xyy c. 3x417 d. 42241 Scrieţi pe foaia de examen răspunsul pentru fiecare dintre cerinţele următoare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Scrieți listele de adiacență prin care poate fi reprezentat graful orientat cu 5 vârfuri, numerotate de la 1 la 5 , ilustrat în figura alăturată. 4. Se consideră graful neorientat cu 9 noduri, numerotate de la 1 la 9 , și muchiile [1,2] , [1,4] , [2,3] , [2,5] , [2,7] , [3,7] , [4,5] , [5,6] , [5,8] , [6,9] , [8,9] . Scrieți muchiile care pot forma un graf parțial al său care să fie arbore. (6p.) 5. Scrieţi un program C/C++ care citeşte de la tastatură două numere naturale, m și n ( 2≤m≤20 , 2≤n≤20 ), şi construiește în memorie un tablou bidimensional A , cu m linii şi n coloane, astfel încât parcurgându-l linie cu linie, de jos în sus, și fiecare linie de la dreapta la stânga, să se obțină șirul primelor n·m numere naturale, impare, care NU sunt divizibile cu 3 , ordonat strict crescător. Programul afișează pe ecran tabloul obținut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: pentru m=4 şi n=3 se obține tabloul alăturat. (10p.) 35 31 29 25 23 19 17 13 11 7 5 1 Ministerul Educaţiei Naționale Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică MODEL Limbajul C/C++ Filiera teoretică, profilul real, specializările: matematică-informatică, matematică-informatică intensiv informatică Filiera vocaţională, profilul militar, specializarea matematică-informatică 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking, se generează toate posibilitățile de a forma succesiuni de câte 5 tipuri de creații literare din mulțimea { baladă , basm , eseu , epopee , poem }, astfel încât în fiecare succesiune eseul precede epopeea. Două succesiuni sunt distincte dacă tipurile de creații literare sunt în altă ordine. Primele cinci soluţii generate sunt, în această ordine, ( baladă , basm , eseu , epopee , poem ), ( baladă , basm , eseu , poem , epopee ), ( baladă , basm , poem , eseu , epopee ), ( baladă , eseu , basm , epopee , poem ), ( baladă , eseu , basm , poem , epopee ). Imediat înainte de ( poem , eseu , epopee , baladă , basm ) este generată soluția: a. ( basm , baladă , epopee , eseu , poem ) b. ( basm , baladă , eseu , epopee , poem ) c. ( poem , eseu , basm , epopee , baladă ) d. ( poem , basm , eseu , epopee , baladă ) Scrieţi pe foaia de examen răspunsul pentru fiecare dintre cerinţele următoare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră subprogramul f , definit alăturat. Scrieţi valorile f(10,5) şi f(20,9) . int f(int a, int b) { if (a<b) return a; if (a%b==0) return b; return f(a-1,b+2); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un număr natural nenul se numește subperfect dacă este strict mai mic decât suma divizorilor săi proprii (divizori naturali diferiți de 1 și de el însuși). Exemplu: 12 este număr subperfect pentru că 12<2+3+4+6 . Se consideră subprogramul subperfect , cu doi parametri, a și b , prin care primeşte câte un număr natural ( 2≤a<b≤10 9 ). Subprogramul afișează pe ecran, separate prin câte un spațiu, în ordine descrescătoare, toate numerele subperfecte din intervalul [a,b] . Dacă în interval nu există astfel de numere, subprogramul afișează pe ecran mesajul nu exista . Scrieţi definiţia completă a subprogramului. Exemplu: pentru a=10 și b=20 , se afișează pe ecran: 20 18 12 4. Fișierul bac.txt conține pe prima linie un număr natural, n ( 1≤n≤10 6 ), iar pe a doua linie cel mult 1000000 de numere naturale de forma 2 p ( 0≤p≤9 ), separate prin câte un spațiu. Se cere să se afișeze pe ecran numărul care ar apărea pe poziția n în șirul ordonat descrescător obținut din toate numerele aflate pe a doua linie a fișierului. Dacă șirul are mai puțin de n termeni, se afișează pe ecran mesajul Nu exista . Pentru determinarea numărului cerut se utilizează un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dacă fişierul bac.txt conţine numerele 5 16 32 1 64 128 32 128 32 atunci pe ecran se afișează valoarea 32 a) Descrieţi în limbaj natural algoritmul utilizat, justificând eficienţa acestuia. (4p.) b) Scrieţi programul C/C++ corespunzător algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "este strict mai mic decât suma divizorilor săi proprii (divizori naturali diferiți de 1 și de el însuși). Exemplu: 12 este număr subperfect pentru că 12<2+3+4+6 . Se consideră subprogramul subperfect , cu doi parametri, a și b , prin care primeşte câte un număr natural ( 2≤a<b≤10 9 ). Subprogramul afișează pe ecran, separate prin câte un spațiu, în ordine descrescătoare, toate numerele subperfecte din intervalul [a,b] . Dacă în interval nu există astfel de numere, subprogramul afișează pe ecran mesajul nu exista . Scrieţi definiţia completă a subprogramului. Exemplu: pentru a=10 și b=20 ,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

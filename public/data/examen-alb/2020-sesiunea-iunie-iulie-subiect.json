@@ -1,0 +1,172 @@
+{
+  "id": "2020-sesiunea-iunie-iulie-subiect",
+  "year": 2020,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2020/2020-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 6,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i valoarea expresiei C/C++ al ă turate. 3+5.0/2+2",
+        "options": {
+          "a": "2",
+          "b": "5",
+          "c": "6",
+          "d": "7.5"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Variabila v memoreaz ă un tablou unidimensional cu 4 elemente, numerotate începând de la 0 . Subprogramul f este definit al ă turat. void f(int i, int v[4]) { if(i>=3) v[i]=v[i]+1; else f(i+1,v); cout<<v[i]; | printf(\"%d\",v[i]); } Indica ț i setul de elemente pe care le poate avea tabloul memorat în v , în ordinea în care apar în acesta, astfel încât, în urma apelului de mai jos, s ă se afi ș eze pe ecran 2020 . f(0,v);",
+        "options": {
+          "a": "-1,1,0,2",
+          "b": "0,2,0,1",
+          "c": "1,-1,0,1",
+          "d": "2,0,1,0"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking se genereaz ă toate variantele prin care patru persoane pot pl ă ti o consuma ț ie total ă de 200 de lei în urm ă toarele condi ț ii: • fiecare pl ă te ș te o sum ă nenul ă , divizibil ă cu 10 ; • primul pl ă te ș te mai mult decât al doilea, al doilea mai mult decât al treilea, iar acesta mai mult decât al patrulea. O solu ț ie const ă în patru valori, reprezentând, în ordine, sumele pl ă tite de fiecare dintre cele patru persoane. Primele patru solu ț ii generate sunt, în aceast ă ordine: ( 70 , 60 , 40 , 30 ), ( 70 , 60 , 50 , 20 ), ( 80 , 50 , 40 , 30 ), ( 80 , 60 , 40 , 20 ). Indica ț i cea de a ș asea solu ț ie, în ordinea gener ă rii acestora.",
+        "options": {
+          "a": "(80,60,45,15)",
+          "b": "(80,60,50,10)",
+          "c": "(80,70,30,20)",
+          "d": "(80,70,40,10)"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 10 noduri, numerotate de la 1 la 10 , este reprezentat prin vectorul de „ta ț i” (7,5,6,5,7,0,6,3,3,8) . Indica ț i num ă rul de noduri „frunz ă ” ale acestui arbore.",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "5",
+          "d": "6"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat cu 5 noduri este reprezentat prin matricea de adiacen ță al ă turat ă . Indica ț i num ă rul grafurilor par ț iale conexe ale acestuia care sunt diferite de graful dat. 0 1 0 1 1 1 0 1 0 0 0 1 0 1 0 1 0 1 0 0 1 0 0 0 0",
+        "options": {
+          "a": "4",
+          "b": "6",
+          "c": "8",
+          "d": "30 Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 6 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ș te a ( num ă r natural ) c ← ← ← ← 0 ┌ repet ă │ b ← ← ← ← a; x ← ← ← ← 0 │┌ repet ă ││┌ dac ă b%10=c atunci │││ x ← ← ← ← 1 ││└■ ││ b ← ← ← ← [b/10] │└ pân ă când b=0 sau x=1 │ scrie x,’ ’ │ c ← ← ← ← c+2 └ pân ă când c>9",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valorile afi ș ate dac ă se cite ș te num ă rul 240107 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i cel mai mic ș i cel mai mare num ă r din intervalul [10 5 ,10 6 ) , cu cifre distincte, care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, toate valorile afi ș ate s ă fie nenule.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat a doua structur ă repet ă ...pân ă când cu o structur ă repetitiv ă de alt tip.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila c memoreaz ă , pentru un calculator, capacitatea memoriei (interne ș i externe), m ă surat ă în GB , ș i o liter ă , corespunz ă toare tipului monitorului acestuia. Ș tiind c ă expresiile C/C++ de mai jos au ca valori litera corespunz ă toare tipul monitorului ș i dou ă numere naturale din intervalul [1,10 6 ] , reprezentând capacitatea memoriei interne, respectiv capacitatea memoriei externe a calculatorului, scrie ț i defini ț ia unei structuri cu eticheta calculator , care permite memorarea datelor despre un calculator, ș i declara ț i corespunz ă tor variabila c . c.monitor c.memorie.interna c.memorie.externa",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i ș i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 9 linii ș i 9 coloane, numerotate de la 0 la 8 , având ini ț ial toate elementele egale cu simbolul egal ( = ). Scrie ț i secven ț a de mai jos, înlocuind punctele de suspensie, astfel încât, în urma execut ă rii secven ț ei ob ț inute, variabila a s ă memoreze tabloul al ă turat. for(i=0;i<9;i++) for(j=0;j<9;j++) .................. > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > < < < > > > > > < < < < < > > > < < < < < < < >",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul suma are doi parametri, a ș i b , prin care prime ș te câte un num ă r natural din intervalul [1,10 4 ] . Subprogramul returneaz ă suma divizorilor naturali comuni lui a ș i b . Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă a=20 ș i b=12 , atunci subprogramul returneaz ă valoarea 7 ( 1+2+4=7 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Numim rotire spre stânga a unui cuvânt format din cel pu ț in trei litere opera ț ia prin care prima sa liter ă se mut ă la final, iar toate celelalte litere se mut ă cu o pozi ț ie spre stânga. Exemplu: în urma rotirii spre stânga a cuvântului ilumina se ob ț ine cuvântul luminai . Un text are cel mult 100 de caractere, iar cuvintele sale sunt formate din litere mici ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un text de tipul men ț ionat mai sus ș i îl transform ă în memorie prin rotirea spre stânga a fiec ă rui cuvânt al s ă u format din cel pu ț in trei litere, ca în exemplu. Programul afi ș eaz ă pe ecran textul ob ț inut sau mesajul nu exista , dac ă în text nu exist ă niciun cuvânt de cel pu ț in trei litere. Exemplu : pentru textul un palc mic de scolarite ilumina sala se afi ș eaz ă pe ecran un alcp icm de colarites luminai alas",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un ș ir finit se nume ș te palindromic dac ă parcurgându-l termen cu termen, de la stânga la dreapta sau de la dreapta la stânga se ob ț ine acela ș i ș ir de valori. Exemplu: ș irul 12 , 13 , 16 , 13 , 12 este palindromic. Fi ș ierul bac.in con ț ine un ș ir de cel mult 10 6 numere naturale din intervalul [1,10 3 ] , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran mesajul DA , dac ă numerele din ș ir pot fi rearanjate, astfel încât s ă formeze un ș ir palindromic, sau mesajul NU în caz contrar. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 100 30 100 30 500 30 30 se afi ș eaz ă pe ecran DA a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

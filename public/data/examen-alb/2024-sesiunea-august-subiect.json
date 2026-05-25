@@ -1,0 +1,172 @@
+{
+  "id": "2024-sesiunea-august-subiect",
+  "year": 2024,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2024/2024-sesiunea-august-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2024/2024-sesiunea-august-barem.pdf",
+  "variant": 8,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x ș i y memoreaz ă câte un num ă r natural ( x ≤ y ). Indica ț i expresia C/C++ cu valoarea 1 dac ă ș i numai dac ă intervalul [x,y] NU con ț ine niciun num ă r de dou ă cifre.",
+        "options": {
+          "a": "!(x>=10 || y>99)",
+          "b": "!(x<=99 && y>=10)",
+          "c": "x>=10 || y<=99",
+          "d": "x>99 && y<10"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i un apel în urma c ă ruia se afi ș eaz ă pe ecran secven ț a: 13579 void f(int x,int y,int z) { if(z<x) { cout<<y; | printf(\"%d\",y); f(x,y+2,z+1); } }",
+        "options": {
+          "a": "f(5,0,0);",
+          "b": "f(5,1,1);",
+          "c": "f(6,1,6);",
+          "d": "f(6,1,1);"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Variabilele s , x ș i y permit memorarea câte unui ș ir de cel mult 15 caractere. Indica ț i ș irul accesat prin variabila s în urma execut ă rii secven ț ei al ă turate. strcpy(x,\"soare\"); strcpy(y,\"ploaie\"); if (strcmp(x,y)>0) strcpy(s,x+1); else strcpy(s,y+2);",
+        "options": {
+          "a": "oare",
+          "b": "oaie",
+          "c": "ploaie",
+          "d": "soare"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 14 noduri, numerotate de la 1 la 14 , este reprezentat prin vectorul de “ta ț i” (13,3,0,6,13,3,3,7,6,2,13,2,6,13) . Indica ț i nodul care este r ă d ă cina arborelui.",
+        "options": {
+          "a": "1",
+          "b": "3",
+          "c": "7",
+          "d": "13"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Indica ț i num ă rul maxim de vârfuri izolate pe care le poate avea un graf orientat cu 24 de vârfuri ș i 24 de arce pozi ț ionate adecvat.",
+        "options": {
+          "a": "5",
+          "b": "6",
+          "c": "18",
+          "d": "21"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ş te n ( num ă r natural nenul ) x  -1; y  -1 ┌ cât timp n>9 execut ă │┌ dac ă x=-1 atunci x  n%100 ││ altfel y  n%100 │└■ │ n  [n/10] └■ ┌ dac ă x<y atunci n  (n*100+x)*100+y │ altfel n  (n*100+y)*100+x └■ scrie n",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i valoarea afi ș at ă în urma execut ă rii algoritmului dac ă se cite ș te num ă rul 412531 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i dou ă numere din intervalul [1,11110] care pot fi citite pentru variabila n , astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, s ă se afi ş eze valoarea 11111 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat structura cât timp...execut ă cu o structur ă repetitiv ă cu test final. Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la INFORMATIC Ă Varianta 8 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Utilizând metoda backtracking, se genereaz ă toate buchetele formate din câte trei flori distincte din mul ț imea ordonat ă astfel: { trandafir , crin , gerbera , iris , eustoma , orhidee , zambil ă }; în acela ș i buchet crinul nu poate fi împreun ă cu eustoma sau cu zambila. Dou ă buchete difer ă prin cel pu ț in o floare. Primele cinci solu ț ii sunt, în ordinea gener ă rii: (trandafir , crin , gerbera) , (trandafir , crin , iris) , (trandafir , crin , orhidee) , (trandafir , gerbera , iris) , (trandafir , gerbera , eustoma) . Scrie ț i dou ă solu ț ii, una generat ă imediat înainte, iar cealalt ă generat ă imediat dup ă (crin , gerbera , orhidee) .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Gama muzical ă con ț ine, în aceast ă ordine, notele do , re , mi , fa , sol , la , si . Dou ă note formeaz ă un interval muzical, iar acesta este numit ter ță dac ă , în ordinea din gam ă , între cele dou ă note exist ă o singur ă alt ă not ă muzical ă . În nota ț ia englezeasc ă se folosesc unele litere mari ale alfabetului pentru notele muzicale, astfel: litera A pentru nota la , litera B pentru nota si , apoi, în ordine, litera C pentru nota do , litera D pentru nota re , litera E pentru nota mi , litera F pentru nota fa ș i litera G pentru nota sol . Variabila m , declarat ă al ă turat, memoreaz ă literele corespunz ă toare nota ț iei engleze ș ti pentru dou ă note care formeaz ă un interval muzical, date în ordinea din gam ă . Ș tiind c ă în câmpul nota1 se memoreaz ă una dintre literele C , D , E , F sau G , scrie ț i o secven ță de instruc ț iuni C/C++ în urma execut ă rii c ă reia s ă se afi ș eze pe ecran mesajul TERTA , dac ă intervalul respectiv formeaz ă o ter ță , sau mesajul NU , în caz contrar. struct interval { char nota1; char nota2; }m; Exemplu: dac ă în câmpul nota1 se memoreaz ă litera G (pentru nota sol ), iar în câmpul nota2 se memoreaz ă litera B (pentru nota si ), se afi ș eaz ă mesajul TERTA .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un num ă r natural nenul, n , se nume ș te moderat dac ă este egal cu produsul a dou ă numere prime, iar acestea sunt consecutive în ș irul numerelor prime ( 2 , 3 , 5 , 7 , 11 , 13 , 17 ...). Subprogramul moderat are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ [1,10 5 ] ). Subprogramul returneaz ă valoarea 1 , dac ă n este un num ă r moderat, sau valoarea 0 , în caz contrar. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=35 , subprogramul returneaz ă 1 ( 35=5·7 ), iar dac ă n=18 sau n=55 sau n=4 , subprogramul returneaz ă 0 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "O gr ă din ă este împ ă r ţ it ă în parcele p ă trate identice, dispuse pe rânduri succesive. Toate parcelele de pe un rând con ț in acela ș i tip de plante (doar flori sau doar gazon) ș i oricare dou ă rânduri al ă turate con ț in tipuri diferite de plante, pe primul rând fiind gazon . Pentru fiecare parcel ă se memoreaz ă în ă l ţ imea acesteia, egal ă cu în ă l ț imea medie a plantelor con ț inute, exprimat ă în decimetri. Pentru a pune în valoare florile, fiecare parcel ă cu flori trebuie s ă fie mai înalt ă cu cel pu ț in un decimetru decât oricare dintre parcelele cu gazon de pe rândul vecin anterior. S-a hot ă rât tunderea parcelelor cu gazon prea înalte, astfel încât ele s ă fie aduse la în ă l ț imea maxim ă permis ă . Scrie ț i un program C/C++ care cite ș te de la tastatur ă dou ă numere naturale din intervalul [2,10 2 ] , m ș i n , apoi elementele unui tablou bidimensional cu m linii ş i n coloane, numere naturale din intervalul [2,10] , reprezentând în ă l ţ imile parcelelor, în ordinea dispunerii acestora în gr ă din ă , rând dup ă rând, ș i pe fiecare rând de la stânga la dreapta. Programul modific ă apoi tabloul în memorie corespunz ă tor situa ț iei terenului dup ă tunderea gazonului ș i afi ş eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu : pentru m=4 , n=6 ș i tabloul 6 2 3 7 9 4 7 8 5 9 8 5 8 7 2 6 2 9 7 2 5 9 3 8 se ob ț ine tabloul 4 2 3 4 4 4 7 8 5 9 8 5 1 1 1 1 1 1 7 2 5 9 3 8",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Ș irul 0 , 0 , 1 , 4 , 13 , 38 , 105 , 280 , 729 .... este definit astfel: f 1 =f 2 =0 , f 3 =1 , f n =4 ∙ f n-1 -3 ∙ f n-2 -2 ∙ f n-3 (unde n este un num ă r natural n ≥ 4 ). Se citesc de la tastatur ă trei numere naturale x , y ș i z ( x ≤ y < z ≤ 10 9 ), valorile a trei termeni afla ț i pe pozi ț ii consecutive în ş irul dat, ş i se cere s ă se scrie în fi ş ierul bac.txt , în ordine descresc ă toare, separa ț i prin câte un spa ț iu, to ţ i termenii ş irului care sunt mai mici sau egali cu z . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al spa ț iului de memorie utilizat. Exemplu: dac ă se citesc numerele 38 105 280 fi ş ierul con ţ ine numerele 280 105 38 13 4 1 0 0 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "2026-simulare-subiect",
+  "year": 2026,
+  "session": "Simulare",
+  "type": "simulare",
+  "pdfUrl": "/subiecte-bac/2026/2026-simulare-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2026/2026-simulare-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg. Indicați o expresie care are valoarea 1 dacă și numai dacă expresia C/C++ alăturată are valoarea 1 . x<=20 || x>26",
+        "options": {
+          "a": "!(x>20) || !(x<=26)",
+          "b": "!(x>=20) && !(x>=26)",
+          "c": "!(x<20 || x<=26)",
+          "d": "!(x<20 && x<26)"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Un mozaic este alcătuit din plăcuțe de formă pătrată, cu dimensiuni egale, de culoare albă sau roșie, așezate pe două rânduri și aliniate ca în exemplu. Mozaicul are un model în zig-zag dacă oricare două plăcuțe cu o latură comună au culoare diferită. Se știe că plăcuțele de pe latura din dreapta au culori diferite. Variabilele j și ok sunt întregi, iar variabila a este un tablou bidimensional cu două linii și 12 coloane, cu elemente de tip char , în care fiecare linie, în ordine, memorează succesiunea de plăcuțe aflate pe un rând al mozaicului, notându-se cu litera R cele roșii și cu litera A cele albe. Liniile și coloanele sunt numerotate începând de la 0 . Indicați expresia care poate înlocui punctele de suspensie astfel încât, în urma executării secvenței C/C++ obținute, variabila ok să aibă valoarea 1 , dacă mozaicul are un model în zig-zag, sau valoarea 0 în caz contrar. Exemplu : în urma executării secvenței pentru tabloul de mai jos, unde sunt evidențiate două zone în care nu se respectă modelul, ok=0 . ok=1; for(j=0;j<11;j++) if(........ ) ok=0; R A A R A R A R A R A R A R R A R A R A R R R A",
+        "options": {
+          "a": "a [0][j]==a[0][j-1] || a [0][j]==a[1][j-1]",
+          "b": "a [0][j]==a[0][j+1] || a [0][j]==a[1][j+1]",
+          "c": "a [0][j]==a[0][j-1] || a [0][j]==a[1][j+1]",
+          "d": "a [0][j]==a[0][j+1] || a [0][j]==a[1][j]"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul f este definit alăturat, iar variabila x este de tip întreg. Indicați ce se afișează în urma executării secvenței C/C++ de mai jos. x=3 ; f(x) ; void f(int &n) { if(n>0) {cout<<n; | printf(\"%d\",n); n=n-1; f(n); cout<<n; | printf(\"%d\",n); } }",
+        "options": {
+          "a": "321000",
+          "b": "321012",
+          "c": "321123",
+          "d": "3210123"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "La balul absolvenților se acordă șase premii pe baza unei tombole cu 30 de bilete, numerotate de la 30 la 1 , în această ordine. Utilizând metoda backtracking, se generează toate variantele de a alege biletele celor șase câștigători, care sunt anunțați în ordine descrescătoare a numerelor de pe bilete. Două soluții diferă prin cel puțin un bilet. Primele trei soluții generate sunt, în această ordine: ( 30,29,28,27,26,25 ), ( 30,29,28,27,26,24 ), ( 30,29,28,27,26,23 ). Indicați penultima soluție generată.",
+        "options": {
+          "a": "( 7,6,5,4,3,2 )",
+          "b": "( 7,6,5,3,2,1 )",
+          "c": "( 7,6,4,3,2,1 )",
+          "d": "( 7,5,4,3,2,1 )"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Într-un arbore cu 7 noduri, numerotate de la 1 la 7 , nodul 3 este rădăcină și pentru orice nod numerotat cu i ( i  [1,7] ), dacă se notează cu F(i) numărul de descendenți direcți („fii”) ai lui, atunci F(i)=0 , dacă i este „frunză”, sau F(i)=i-1 , în caz contrar. Indicați numărul maxim de „frați” ai nodului 1 .",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4 Ministerul Educației și Cercetării Centrul Național pentru Curriculum și Evaluare Probă scrisă la INFORMATICĂ Simulare Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citeşte n (număr natural) x  0; y  0; p  1 ┌repetă │ c  n%10; n  [n/10] │┌dacă c%2=0 atunci ││ x  x*10+c ││ y  c*p+y; p  p*10 │└■ └până când n=0 ┌dacă x < y atunci scrie x │altfel scrie y └■ a. Scrieţi ce se afișează în urma executării algoritmului dacă se citeşte numărul 250326 . (6p.) b. Scrieţi două numere din intervalul [1000,9999] care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afişeze valoarea 64 . (6p.) c. Scrieţi programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă cu test inițial. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . citeşte n (număr natural) x  0; y  0; p  1 ┌repetă │ c  n%10; n  [n/10] │┌dacă c%2=0 atunci ││ x  x*10+c ││ y  c*p+y; p  p*10 │└■ └până când n=0 ┌dacă x < y atunci scrie x │altfel scrie y └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieţi ce se afișează în urma executării algoritmului dacă se citeşte numărul 250326 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieţi două numere din intervalul [1000,9999] care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afişeze valoarea 64 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieţi programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieţi în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă cu test inițial.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf neorientat, fără cicluri, are 26 de muchii și două componente conexe. Pentru fiecare dintre cele două componente, scrieți un exemplu de număr de noduri, respectiv de număr de muchii.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Pentru o sală de examen se memorează următoarele date specifice: numărul de locuri disponibile și durata examenului, exprimată în ore. Variabila s memorează datele specifice pentru fiecare dintre cele 10 săli ale unui centru de testare, iar expresiile de mai jos au valori întregi și reprezintă numărul de locuri ale primei săli, respectiv durata examenului din această sală. Definiți o structură C/C++ cu eticheta sala , care să permită memorarea datelor pentru o sală de examen, și declarați corespunzător variabila s . s [0] .nrLocuri s[0].durata",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Într-un depozit se montează un raft cu trei polițe de aceeași lungime și de lățimi x , y respectiv z . Pe fiecare poliță se plasează, una lângă alta, cutii de forma unui cub cu latura egală cu lățimea poliței. În depozit există suficiente cutii de fiecare tip, iar raftul este echilibrat doar dacă fiecare poliță este ocupată complet de cutii. Subprogramul depozit are trei parametri, x , y și z , prin care primește trei numere naturale din intervalul [10,100] , reprezentând lățimile celor trei polițe, exprimate în centimetri. Subprogramul returnează un număr natural, reprezentând lungimea minimă, exprimată în centimetri, a unei polițe a raftului echilibrat. Scrieți definiția completă a subprogramului C/C++. Exemplu : pentru x=40 , y=20 și z=30 , subprogramul returnează valoarea 120 (raftul are trei polițe, fiecare cu lungime de 120 cm : prima poate conține 3 cutii cu latura de 40 cm , a doua 6 cutii cu latura de 20 cm , iar a treia 4 cutii cu latura de 30 cm ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "un",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "O metodă de criptare a unui text se bazează pe un cifru format din mai multe coduri, numere naturale. Prin criptare se elimină spațiile, apoi la fiecare pas se ia în considerare o pereche formată dintr-o literă a textului și un cod al cifrului, iar această literă se înlocuiește cu cea obținută prin deplasarea circulară, spre dreapta, în alfabetul limbii engleze, cu un număr de poziții egal cu codul din pereche. Prima pereche este formată din prima literă a textului și primul cod al cifrului, iar după fiecare pereche urmează cea formată din litera următoare a textului, parcurs de la stânga la dreapta, respectiv din codul următor din cifru, parcurs circular, spre dreapta, ca în exemplu. Într-un text de cel mult 100 de caractere cuvintele sunt formate din litere mari ale alfabetului limbii engleze și sunt separate prin unul sau mai multe spații. Alfabetul limbii engleze are 26 de litere. Scrieţi un program C/C++ care citeşte de la tastatură trei numere naturale din intervalul [0,25] , reprezentând, în această ordine, codurile unui cifru, apoi un text de tipul precizat. Programul modifică textul în memorie, criptându-l cu cifrul dat, apoi afişează pe ecran textul obţinut. Exemplu : pentru cifrul cu codurile 3 , 1 , 6 și textul PIXEL BINE MAPAT se obține textul SJDHMHLOKPBVDU (primele patru perechi sunt P-3 , I-1 , X-6 , E-3 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.txt conține numere naturale din intervalul [1,10 9 ] : pe prima linie două numere, x și y ( x <y ), iar pe a doua linie un șir de cel mult 10 6 numere, ordonate crescător, separate prin câte un spațiu. Se cere să se afişeze pe ecran numărul de valori pare distincte, din șirul aflat pe a doua linie a fișierului, care aparțin intervalului [x,y ] . Proiectați un algoritm eficient din punctul de vedere al timpului de executare și al memoriei utilizate. Exemplu: dacă fişierul are conținutul alăturat, pe ecran se afișează 3 6 11 1 1 1 2 2 3 5 5 5 5 6 6 7 8 10 10 12 15 15 21 21 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fişierul are conținutul alăturat, pe ecran",
+        "exampleOutput": "3",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

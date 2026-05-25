@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-11-subiect",
+  "year": 2020,
+  "session": "mec-test-11",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-11-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-11-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele x şi y sunt întregi și memorează câte un număr natural. Indicați o expresie C/C++ care are valoarea 1 dacă şi numai dacă numărul memorat în x aparține intervalului [ 0,2019] , iar numărul memorat în y aparține intervalului [ 2019,2020] .",
+        "options": {
+          "a": "x<=2019 || y==2019 && y==2020",
+          "b": "x<=2019 && y==2019 || y==2020",
+          "c": "!(x>2019 || y!=2019) && !(y>2020)",
+          "d": "!(x>2019) && !(y<2019 || y>2020)"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking se generează toate posibilitățile de a planta în trei ghivece, așezate de-a lungul unui pervaz, plante distincte din mulțimea { azalea , begonia , vriesea , busuioc , ferigă } , astfel încât în oricare două ghivece alăturate să nu fie două plante cu flori sau două plante fără flori ; primele trei plante din mulțime sunt cu flori, iar celelalte sunt f ără flori . Două soluții diferă prin cel puțin o plantă sau prin ordinea plantelor. Primele şase soluţii generate sunt, în această ordine, ( azalea , busuioc , begonia ) , ( azalea , busuioc , vriesea ) , ( azalea , ferigă , begonia ) , ( azalea , ferigă , vriesea ) , ( begonia , busuioc , azalea ) , ( begonia , busuioc , vriesea ) . Indicați a noua soluţie generată.",
+        "options": {
+          "a": "( begonia , ferigă , vriesea )",
+          "b": "( ferigă , azalea , begonia )",
+          "c": "( busuioc , azalea , ferigă )",
+          "d": "( vriesea , busuioc , azalea )"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea lui f(2020,2) . int f(int x, int y) { if (y<1) return 0; else if (x%y==0) return 1+f(x/y,y); else return 2020; }",
+        "options": {
+          "a": "2022",
+          "b": "2020",
+          "c": "2002",
+          "d": "2000"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Indicați numărul de noduri ale unui arbore cu 16 muchii.",
+        "options": {
+          "a": "8",
+          "b": "17",
+          "c": "64",
+          "d": "136"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 20 de noduri și 9 muchii. Indicați numărul maxim de componente conexe din care poate fi format graful.",
+        "options": {
+          "a": "14",
+          "b": "15",
+          "c": "16",
+          "d": "17 Ministerul Educației Naționale Centrul Național de Evaluare și Examinare Probă scrisă la informatică Testul 11 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește valoarea 45530 . (6p.) b. Scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 1 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă cu test inițial. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . cite ş te n (număr natural) m  0 ┌dacă n=0 atunci │ m  10 │altfel │┌repetă ││ c  n%10; n  [n/10] ││┌dacă c ≥ m atunci │││ m  c │││altfel │││ m  10 ││└■ │└până când n=0 └■ scrie m",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți numărul afișat în urma executării algoritmului dacă se citește valoarea 45530 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți trei numere din intervalul [10 3 ,10 4 ) care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze 1 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, înlocuind adecvat structura repetă ... până când cu o structură repetitivă cu test inițial.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila s memorează date specifice despre o seră: numărul de specii de flori (număr natural din intervalul [3,10 2 ) ) și date despre fiecare specie (denumire științifică și denumire populară, șiruri de cel mult 20 de caractere). Expresiile C/C++ de mai jos au ca valori numărul de specii de flori, denumirea științifică, respectiv denumirea populară a celei de a patra specii. Scrieți definiția unei structuri cu eticheta sera , care permite memorarea datelor despre o seră, și declarați corespunzător variabila s . s.numar s.specie[3].denumireStiintifica s.specie[3].denumirePopulara",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i și p sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 7 linii și 7 coloane, cu elemente numere întregi din intervalul [0,10 2 ] . Fără a utiliza alte variabile decât cele menționate, scrieți o secvență de instrucțiuni astfel încât, în urma executării acesteia, să se afişeze, separate prin câte un spațiu, produsul celor 7 elemente situate pe diagonala principală a tabloului, urmat de produsul elementelor situate simultan pe diagonala principală și pe primele 6 linii ale tabloului, şi aşa mai departe, astfel încât ultimul număr afișat să fie elementul situat simultan pe diagonala principală și pe prima linie a tabloului. Exemplu: pentru tabloul alăturat se afișează 1680 840 420 84 21 7 1 1 8 3 9 6 5 5 0 7 4 2 5 5 4 8 6 3 5 1 2 3 2 4 9 4 8 3 4 2 1 7 5 5 5 6 7 4 2 4 9 2 7 0 9 6 3 1 7 2",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul patrate are doi parametri, x și y , prin care primește câte un număr natural ( 1 ≤x≤y≤10 9 ). Subprogramul afişează pe ecran o expresie aritmetică reprezentând suma numerelor din intervalul [x,y] care au proprietatea că sunt pătrate perfecte, urmate de valoarea acestei sume. Termenii sumei sunt într-o ordine oarecare și sunt separați prin câte un simbol plus ( + ), iar valoarea sumei este precedată de simbolul egal ( = ), ca în exemplu. Dacă nu există niciun astfel de termen, se afișează pe ecran mesajul nu exista . Scrieți definiția completă a subprogramului. Exemplu : dacă x=10 și y=50 se poate afișa pe ecran 16+25+36+49=126",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "nu există niciun astfel de termen,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text cu cel mult 10 2 caractere, cuvintele sunt formate din litere mici și mari ale alfabetului englez și sunt separate prin câte un spațiu. Scrieți un program C/C++ care citește de la tastatură un text de tipul precizat, pe care îl transformă, astfel încât fiecare cuvânt să aibă prima literă mare, și toate celelalte litere mici. Textul obținut se afişează pe ecran. Exemplu: dacă de la tastatură se introduce textul ABIA aSTept sa Merg lA scoala se obține textul Abia Astept Sa Merg La Scoala",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fişierul bac.txt conţine un şir crescător de cel mult 10 6 numere naturale din intervalul [0,10 9 ] , separate prin câte un spaţiu. Se cere să se afişeze pe ecran fiecare număr distinct din şir, urmat de numărul de apariţii ale acestuia în şir. Numerele afișate sunt separate prin câte un spațiu. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fişierul bac.txt conține numerele 0 0 0 5 5 5 5 7 7 11 20 20 se afișează 0 3 5 4 7 2 11 1 20 2 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fişierul bac.txt conține numerele 0 0 0 5 5 5 5 7 7 11 20 20",
+        "exampleOutput": "0",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

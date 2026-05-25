@@ -1,0 +1,172 @@
+{
+  "id": "2023-sesiunea-iunie-iulie-subiect",
+  "year": 2023,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2023/2023-sesiunea-iunie-iulie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2023/2023-sesiunea-iunie-iulie-barem.pdf",
+  "variant": 5,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i expresia C/C++ care are cea mai mare valoare, comparativ cu celelalte trei expresii.",
+        "options": {
+          "a": "20*23/(2*2)",
+          "b": "20/2*23/2",
+          "c": "(20*23)/2",
+          "d": "(20*23)/2*2"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(23); void f (int n) { if(n!=0) f(n/2); cout<<n%2; | printf(\"%d\",n%2); }",
+        "options": {
+          "a": "100111",
+          "b": "111010",
+          "c": "010111",
+          "d": "01251123"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila k este de tip întreg, iar variabila s permite memorarea unui ș ir de maximum 50 de caractere. Indica ț i valoarea variabilei k în urma execut ă rii secven ț ei al ă turate. strcpy(s,\"bac2023\"); s[s[2]-'a']='\\0'; k=strlen(s);",
+        "options": {
+          "a": "7",
+          "b": "6",
+          "c": "2",
+          "d": "1"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Indica ț i un vector de „ta ț i” corespunz ă tor unui arbore cu 7 noduri, în care cel pu ț in unul dintre noduri are trei ascenden ț i.",
+        "options": {
+          "a": "0,1,2,1,1,1,2",
+          "b": "3,0,2,1,3,2,1",
+          "c": "4,3,0,3,4,4,3",
+          "d": "5,4,3,0,2,3,4"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "O companie de colectare a fructelor are 6 depozite, numerotate de la 1 la 6 : depozitele 1 , 3 ș i 5 con ț in mere, depozitele 2 ș i 4 con ț in pere, iar depozitul 6 con ț ine piersici. Compania a construit 4 benzi de transport unidirec ț ional: de la depozitul 1 la depozitul 5 , de la depozitul 5 la depozitul 2 , de la depozitul 5 la depozitul 4 ș i de la depozitul 6 la depozitul 1 . Dac ă depozitele reprezint ă vârfurile unui graf orientat, iar benzile de transport reprezint ă arcele acestuia, indica ț i num ă rul minim de benzi de transport care pot fi ad ă ugate, astfel încât graful ob ț inut s ă aib ă trei componente tare conexe, fiecare dintre acestea având vârfuri care corespund depozitelor cu acela ș i tip de fructe.",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "2",
+          "d": "1"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ţ irii num ă rului natural a la num ă rul natural nenul b , ș i cu [c] partea întreag ă a num ă rului real c . cite ş te x ( num ă r natural ) p  1; m  -1 ┌ cât timp p ≤ x execut ă │ c  [x/p]%10 │┌ dac ă c>m atunci ││ m  c; p  p*10 ││ altfel ││ x  [x/(p*10)]*p+x%p │└■ └■ ┌ dac ă m ≥ 0 atunci scrie x │ altfel scrie \"nul\" └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ţ i valoarea afi ş at ă dac ă se cite ș te num ă rul 6907512 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ţ i dou ă valori distincte din intervalul [100,999] care pot fi citite astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, s ă se afi ș eze o valoare identic ă cu cea citit ă .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ţ i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ţ i în pseudocod un algoritm, echivalent cu cel dat, înlocuind structura cât timp...execut ă cu o structur ă repetitiv ă cu test final. Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 5 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ţ ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Utilizând metoda backtracking, se genereaz ă toate amestecurile de ap ă provenit ă din surse distincte din mul ț imea { lac , mare , ocean , ploaie , râu }, astfel încât o surs ă s ă fie de ap ă s ă rat ă ș i una sau dou ă surse s ă fie de ap ă dulce. Marea ș i oceanul sunt surse de ap ă s ă rat ă , iar lacul, ploaia ș i râul sunt surse de ap ă dulce. Dou ă amestecuri sunt distincte dac ă difer ă prin cel pu ț in o surs ă a apei. Primele patru solu ţ ii ob ţ inute sunt, în aceast ă ordine: ( lac , mare ), ( lac , mare , ploaie ), ( lac , mare , râu ) ş i ( lac , ocean ). Scrie ț i solu ț ia generat ă imediat înainte ș i solu ț ia generat ă imediat dup ă ( ocean , ploaie ).",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila f memoreaz ă , pentru fiecare dintre cele 10 soiuri de lalele care se vând într-o flor ă rie, caracteristicile acestora: denumirea ( ș ir de maximum 20 de caractere) ș i stocul, exprimat prin num ă rul de fire ș i pre ț ul unui fir, în lei (numere naturale). Ș tiind c ă expresiile de mai jos au ca valori denumirea primului soi de lalele, respectiv suma, în lei, necesar ă pentru a cump ă ra toate lalelele din acest soi, scrie ț i în limbajul C/C++ defini ț ia unei structuri cu eticheta lalea , care s ă permit ă memorarea informa ț iilor men ț ionate pentru un soi de lalea, ș i declara ț i corespunz ă tor variabila f . f[0].denumire f[0].stoc.nrFire*f[0].stoc.pretFir",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un num ă r natural nenul, n , se nume ș te num ă r abundent dac ă S(n)/n>S(k)/k , pentru orice num ă r natural nenul k ( k ≤ n-1) , unde s-a notat cu S(i) suma divizorilor pozitivi ai num ă rului natural nenul i . Subprogramul abundent are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ [2,10 6 ] ). Subprogramul returneaz ă valoarea 1 , dac ă n este un num ă r abundent, sau valoarea 0 , în caz contrar. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: pentru n=6 , subprogramul returneaz ă valoarea 1 ( S(6)/6=2 , iar cel mai mare raport ob ț inut pentru valori strict mai mici decât 6 este S(4)/4=1.75 ), iar pentru n=7 sau n=8 , subprogramul returneaz ă valoarea 0 ( S(7)/7=1.14 , S(8)/8=1.87 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Pentru a identifica punctele în care se concentreaz ă apa în albia unui râu în cazul secetei, se determin ă talvegul acesteia – linia care une ș te punctele cele mai adânci ale albiei. În acest scop s-au stabilit ns sec ț iuni transversale pe cursul apei, numerotate începând de la 1 , ș i în cadrul fiec ă rei sec ț iuni s-a m ă surat adâncimea apei în np puncte, numerotate începând de la 1 . Din fiecare sec ț iune, în ordine, se include în talveg cel mai adânc punct al acesteia, iar dac ă în sec ț iune sunt mai multe puncte aflate la aceea ș i adâncime, maxim ă , se va lua în considerare doar primul dintre ele, ca în exemplu. Scrie ț i un program C/C++ care cite ș te de la tastatur ă dou ă numere naturale, ns ș i np ( ns ∈ [1,10 3 ] , np ∈ [1,50] ), ș i cele ns ∙ np elemente ale unui tablou bidimensional, valori naturale din intervalul [0,10 2 ] . Fiecare linie a tabloului corespunde câte unei sec ț iuni, în ordinea numerot ă rii acestora, iar valorile memorate pe linie reprezint ă adâncimile celor np puncte stabilite pentru acea sec ț iune, în ordinea numerot ă rii lor. Programul afi ș eaz ă pe ecran, pentru fiecare sec ț iune, o pereche format ă din num ă rul de ordine al sec ț iunii ș i num ă rul de ordine al punctului s ă u care s-a inclus în talveg. Numerele din fiecare pereche sunt afi ș ate separate prin câte un caracter : (dou ă puncte), iar fiecare pereche este urmat ă de un spa ț iu. Exemplu: pentru ns=6 , np=4 ș i tabloul al ă turat, se afi ș eaz ă pe ecran valorile: 1:3 2:2 3:2 4:2 5:4 6:3 2 4 5 3 2 6 6 3 1 5 2 5 1 3 3 3 3 4 3 5 0 1 2 1",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un num ă r natural x este numit prefix al unui num ă r natural y dac ă se ob ț ine din acesta prin eliminarea a cel pu ț in unei cifre de la dreapta sa, ș i este numit sufix al lui y dac ă se ob ț ine din acesta prin eliminarea a cel pu ț in unei cifre de la stânga sa. Exemplu: 15 este prefix pentru 154 sau 1521 , este sufix pentru 3415 sau 5115 , dar nu este nici prefix, nici sufix pentru 15 . Fi ș ierul bac.txt con ț ine maximum 10 6 numere naturale din intervalul [10,10 4 ) , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran num ă rul valorilor de dou ă cifre care apar de acela ș i num ă r de ori ca sufix, respectiv ca prefix al numerelor din ș irul aflat în fi ș ier. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul are con ț inutul 342 1684 2134 5434 111 98 98 3405 3412 7016 8634 1010 102 310 se afi ș eaz ă pe ecran: 4 (pentru valorile 10 , 11 , 16 , 34 ). a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

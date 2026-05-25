@@ -1,0 +1,85 @@
+{
+  "id": "2013-sesiunea-august-septembrie-subiect",
+  "year": 2013,
+  "session": "Sesiunea august-septembrie",
+  "type": "august",
+  "pdfUrl": "/subiecte-bac/2013/2013-sesiunea-august-septembrie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2013/2013-sesiunea-august-septembrie-barem.pdf",
+  "variant": 6,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Valoarea expresiei C/C++ al ă turate este: (4p.) 7+5/2",
+        "options": {
+          "a": "6",
+          "b": "9",
+          "c": "9.5",
+          "d": "10"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Se consider ă un graf neorientat conex cu 50 de noduri ş i 52 de muchii. Num ă rul minim de muchii ce pot fi eliminate astfel încât graful par ţ ial ob ţ inut s ă nu aib ă niciun ciclu este: a. 1 b. 2 c. 3 d. 4 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă arborele cu 8 noduri, numerotate de la 1 la 8 , reprezentat prin vectorul de „ta ţ i”: ( 3 , 0 , 2 , 5 , 2 , 5 , 2 , 5 ). Enumera ţ i nodurile arborelui care au acela ş i „tat ă ” cu nodul 4 . 4. În declar ă rile al ă turate: • variabila p memoreaz ă coordonatele unui punct în sistemul de coordonate xOy ; • variabila d memoreaz ă în câmpurile A ş i B coordonatele, în acela ş i sistem de coordonate, ale vârfurilor din stânga – sus, respectiv din dreapta – jos ale unui dreptunghi cu laturile paralele cu axele sistemului de coordonate. struct punct { int x,y; } p; struct dreptunghi { punct A, B; } d; Scrie ţ i o expresie C/C++ care s ă aib ă valoarea 1 dac ă punctul corespunz ă tor variabilei p se afl ă în interiorul dreptunghiului corespunz ă tor variabilei d (dar nu pe laturile acestuia) sau valoarea 0 în caz contrar. (6p.) 5. Se consider ă un text cu cel mult 100 de caractere (litere mici ale alfabetului englez ş i spa ţ ii), în care cuvintele sunt separate prin unul sau mai multe spa ţ ii. Înaintea primului cuvânt ş i dup ă ultimul cuvânt nu exist ă spa ţ iu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul men ţ ionat mai sus ş i determin ă transformarea acestuia în memorie prin eliminarea unor spa ţ ii, astfel încât între oricare dou ă cuvinte al ă turate s ă r ă mân ă exact un spa ţ iu. Programul afi ş eaz ă pe ecran textul ob ţ inut. Exemplu : pentru textul in vacanta plec la mare se ob ţ ine ş i se afi ş eaz ă in vacanta plec la mare (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 6 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Indica ţ i ce se afi ş eaz ă în urma apelului de mai jos. f(3); void f (int n) { if (n!=0) { f (n-1); cout<<n; | printf(”%d”,n); } } a. 12 b. 123 c. 321 d. 3210 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking, se genereaz ă în ordine lexicografic ă toate ş irurile de câte 5 litere distincte din mul ţ imea { A , B , C , D , E }, astfel încât în fiecare ş ir litera D precede literele A ş i B . Primele cinci solu ţ ii generate sunt, în aceast ă ordine: CDABE , CDAEB , CDBAE , CDBEA , CDEAB . Scrie ţ i cea de a ş asea ş i cea de a ş aptea solu ţ ie, în ordinea gener ă rii acestora.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Se consider ă subprogramul sub , cu trei parametri: • n , prin care prime ş te un num ă r natural ( 2<n<50 ); • v , prin care prime ş te un tablou unidimensional cu n elemente, numere naturale cu cel mult 4 cifre; • k , prin care prime ş te un num ă r natural ( 1<k ≤ n ). Subprogramul returneaz ă suma primelor k elemente cu valoare impar ă ale tabloului. Dac ă nu exist ă k elemente impare în tablou, subprogramul returneaz ă valoarea -1 . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu: dac ă n=8 , v=(2 , 7 , 6 , 8 , 3 , 7 , 5 , 1) , k=3 , atunci subprogramul returneaz ă valoarea 17 ( 7+3+7=17 ). 4. Fiind date dou ă numere a ş i b , îl numim pe a sufix al lui b dac ă a este egal cu b sau dac ă b se poate ob ţ ine din a prin alipirea la stânga a unor noi cifre. Exemplu: 12 este sufix al lui 12 , iar 15 este sufix al lui 31415 . Fi ş ierul bac.txt con ţ ine pe prima linie un num ă r natural x , cu cel mult nou ă cifre, iar pe a doua linie un ş ir de cel pu ţ in dou ă ş i cel mult 1000000 de numere naturale cu cel mult nou ă cifre. Numerele din ş ir sunt separate prin câte un spa ţ iu. Se cere s ă se afi ş eze pe ecran ultimul termen al ş irului care are ca sufix num ă rul x . Dac ă în ș ir nu exist ă o astfel de valoare, pe ecran se afi ş eaz ă mesajul Nu exista . Pentru determinarea num ă rului cerut se utilizeaz ă un algoritm eficient din punctul de vedere al memoriei ş i al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 12 3445 89312 1245 12 67120 312 1234578 atunci pe ecran se afi ş eaz ă 312 . a) Descrie ţ i în limbaj natural algoritmul utilizat, justificând eficien ţ a acestuia. (4p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (6p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

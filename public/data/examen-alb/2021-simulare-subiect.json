@@ -1,0 +1,172 @@
+{
+  "id": "2021-simulare-subiect",
+  "year": 2021,
+  "session": "Simulare",
+  "type": "simulare",
+  "pdfUrl": "/subiecte-bac/2021/2021-simulare-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2021/2021-simulare-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Expresia C/C++ !(x<2001) && !(x<2002 || x>2020) && !(x>2021) are valoarea 1 dacă și numai dacă valoarea memorată de variabila reală x aparține intervalului:",
+        "options": {
+          "a": "[2001,2002]",
+          "b": "[2001,2020]",
+          "c": "[2002,2020]",
+          "d": "[2002,2021]"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Utilizând metoda backtracking se generează toate valorile naturale formate cu cifre ale numărului 289 și care sunt strict mai mici decât acesta. Primele șase numere generate sunt, în această ordine, 2 , 22 , 222 , 228 , 229 , 28 . Indicați al câtelea număr generat este 8 .",
+        "options": {
+          "a": "al 10 -lea",
+          "b": "al 9 -lea",
+          "c": "al 8 -lea",
+          "d": "al 7 -lea"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila s este declarată alăturat. Indicați o instrucțiune de atribuire corectă din punctul de vedere sintactic. struct site { char cod; struct { int nrAccesari,nrAprecieri; }vizite; }s;",
+        "options": {
+          "c": "s.vizite.nrAccesari=2*s.vizite.nrAprecieri;",
+          "a": "s(cod,nrAccesari,nrAprecieri)=(1,10,2);",
+          "b": "s=(1,(10,2));",
+          "d": "s.site.cod=2021;"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Subprogramul f este definit alăturat. Indicați o expresie care poate înlocui punctele de suspensie, astfel încât valoarea f(50,2020) să fie egală cu cel mai mare divizor comun al numerelor 50 și 2020 . int f(int x, int y) { if(x==y) return x; else if(..........) return f(x-y,y); else return f(x,y-x); }",
+        "options": {
+          "a": "x/10!=0",
+          "b": "x%10!=0",
+          "c": "x+y>0",
+          "d": "x-y>0"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 40 de noduri și 5 componente conexe, fiecare dintre acestea fiind arbore. Indicați numărul de muchii ale grafului.",
+        "options": {
+          "a": "33",
+          "b": "35",
+          "c": "39",
+          "d": "41 Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la INFORMATICĂ Simulare Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește x (număr natural) p     1; y     0 ┌repetă │ c     x%10; x     [x/10] │┌dacă c≠0 atunci ││┌dacă x%10<c atunci y     y*10+c │││altfel y     c*p+y ││ └■ ││ p     p*10 │ └■ └până când x=0 scrie y a. Scrieți valoarea afișată dacă se citește numărul 35210579 . (6p.) b. Scrieți două numere din intervalul [10 3 ,10 4 ) care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, numărul afișat să fie 212 . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm echivalent cu cel dat, înlocuind structura repetă...până când cu o structură repetitivă cu test inițial. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b și cu [c] partea întreagă a numărului real c . citește x (număr natural) p     1; y     0 ┌repetă │ c     x%10; x     [x/10] │┌dacă c≠0 atunci ││┌dacă x%10<c atunci y     y*10+c │││altfel y     c*p+y ││ └■ ││ p     p*10 │ └■ └până când x=0 scrie y",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți valoarea afișată dacă se citește numărul 35210579 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți două numere din intervalul [10 3 ,10 4 ) care pot fi citite, astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, numărul afișat să fie 212 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, înlocuind structura repetă...până când cu o structură repetitivă cu test inițial.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf neorientat cu 6 noduri, numerotate de la 1 la 6 , este reprezentat prin listele de adiacență alăturate. Pentru acest graf scrieți un lanț care să nu fie elementar, precum și un ciclu elementar. 1: 2,6 2: 1,4,6 3: 5,6 4: 2,5 5: 3,4,6 6: 1,2,3,5",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila i este de tip întreg, iar variabila s permite memorarea unui șir de cel mult 20 de caractere. Scrieți șirul accesat prin variabila s în urma executării secvenței alăturate. strcpy(s,\"ELITIST\"); for(i=2;i<6;i++) if(i%2==0) s[i]=s[0]; else s[i]=s[1]+i/2;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul putere are un parametru, n , prin care primește un număr natural ( n     [2,10 9 ] ). Subprogramul returnează numărul prim care apare la puterea cea mai mică în descompunerea în factori primi a lui n . Dacă sunt mai multe astfel de numere, se returnează cel mai mic dintre acestea. Scrieți definiția completă a subprogramului. Exemplu : dacă n=880 , subprogramul returnează numărul 5 ( 880=2 4     5     11 ).",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "numărul",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieți un program C/C++ care citește de la tastatură numere naturale, în această ordine: n ( n     [2,20] ), apoi n∙n numere din intervalul [0,10 2 ] , elemente ale unui tablou bidimensional cu n linii și n coloane, iar la final valoarea k ( k     [2,n] ); programul transformă tabloul în memorie, prin deplasarea circulară spre dreapta, cu câte o poziție, a tuturor valorilor aflate pe linia a k -a, în stânga diagonalei principale, ca în exemplu. Elementele tabloului obținut sunt afișate pe ecran, linie cu linie, fiecare linie pe câte o linie a ecranului, cu elementele fiecărei linii separate prin câte un spațiu. Exemplu: pentru n=6 , k=5 și tabloul 0 1 4 5 3 2 0 6 0 7 5 0 4 0 0 6 0 6 2 0 0 5 0 0 3 0 6 4 0 8 0 6 9 0 0 0 se obține tabloul 0 1 4 5 3 2 0 6 0 7 5 0 4 0 0 6 0 6 2 0 0 5 0 0 4 3 0 6 0 8 0 6 9 0 0 0",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "La proiectarea unui site web se utilizează elemente grafice realizate pe baza unor modele. Fiecare model este de formă pătrată și oricare două modele distincte au dimensiuni diferite ale laturilor. Toate elementele grafice realizate pe baza unui anumit model au aceeași formă și aceleași dimensiuni ca ale acestuia. În vederea asigurării elementelor grafice necesare, pentru fiecare model dintre cele utilizate se plătește o taxă unică de proiectare, de 10 lei, iar pentru fiecare element grafic realizat pe baza acelui model se plătește o sumă în lei, egală cu valoarea suprafeței acestuia (aria pătratului), calculată în centimetri pătrați. Fișierul bac.in conține un șir de cel mult 10 6 numere naturale din intervalul [1,10] , separate prin câte un spațiu, reprezentând dimensiunile laturilor tuturor elementelor grafice utilizate, date în centimetri; fiecare termen al șirului corespunde unui element grafic distinct. Se cere să se afișeze pe ecran suma totală plătită pentru asigurarea elementelor grafice necesare. Proiectați un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dacă fișierul conține numerele 1 7 2 1 1 2 1 7 2 se afișează pe ecran valoarea 144 ( 10 lei pentru modelul de lățime 1 cm și câte 1∙1 lei pentru fiecare dintre cele patru elemente grafice care îl au la bază, 10 lei pentru modelul de lățime 2 cm și câte 2∙2 lei pentru fiecare dintre cele trei elemente grafice care îl au la bază, respectiv 10 lei pentru modelul de lățime 7 cm și câte 7∙7 lei pentru fiecare dintre cele două elemente grafice care îl au la bază). a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "fișierul conține numerele 1 7 2 1 1 2 1 7 2",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "2025-modele-de-subiecte-subiect",
+  "year": 2025,
+  "session": "Modele de subiecte",
+  "type": "model",
+  "pdfUrl": "/subiecte-bac/2025/2025-modele-de-subiecte-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2025/2025-modele-de-subiecte-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați intervalul căruia îi aparține valoarea variabilei reale x , dacă și numai dacă expresia C/C++ de mai jos are valoarea 1 . !(x<2004) && !(x<2005 || x>2024) && !(x>2025)",
+        "options": {
+          "a": "[2004,2005]",
+          "b": "[2004,2024]",
+          "c": "[2005,2024]",
+          "d": "[2005,2025]"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Indicați valoarea f(2,5) . int f(int n,int x) { if(n>0) return f(f(n-2,x)-2,x-5); return x; }",
+        "options": {
+          "a": "3",
+          "b": "0",
+          "c": "-2",
+          "d": "-5"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila s poate accesa un șir de cel mult 20 de caractere, variabila aux este de tip char , iar celelalte variabile sunt de tip întreg. Indicați șirul accesat prin intermediul variabilei s în urma executării secvenței alăturate. (6p.) strcpy(s,\"ROMANIA\"); i=strlen(s)-1; j=3; while(j>=0) { aux=s[i]; s[i]=s[i-j]; s[i-j]=aux; i=i-j; j=j-1; }",
+        "options": {
+          "a": "ARMONIA",
+          "b": "IAMARON",
+          "c": "MANIARO",
+          "d": "MARONIA"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Un graf orientat are 6 vârfuri, numerotate de la 1 la 6 , și arcele (1,2) , (1,6) , (2,3) , (3,1) , (3,4) , (4,5) , (5,3) , (5,6) . Indicați un circuit elementar al acestui graf.",
+        "options": {
+          "a": "1,2,3",
+          "b": "1,2,3,1",
+          "c": "1,2,3,4,5,3,1",
+          "d": "1,2,3,4,5,6,1"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Indicați numărul de noduri ale unui graf neorientat, complet, cu 300 de muchii.",
+        "options": {
+          "a": "25",
+          "b": "30",
+          "c": "299",
+          "d": "301"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b . cite ș te n,x,y ( numere naturale nenule, x≤n , y≤n ) nr  0 ┌pentru i  n,1,-1 execută │┌dacă i%x=0 și i%y≠0 atunci ││ nr  nr+1 ││ altfel ││┌dacă i%x≠0 și i%y=0 atunci │││ nr  nr+1 ││└■ │└■ └■ scrie nr",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți valoarea afișată în urma executării algoritmului, dacă se citesc, în această ordine, numerele 15 , 3 , 4 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți două seturi distincte de date de intrare, astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea să se afișeze valoarea 0 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, înlocuind adecvat structura pentru...execută cu o structură repetitivă cu test inițial. Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Model Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Utilizând metoda backtracking, se generează toate numerele formate din cifre distincte, cifre a căror sumă să fie 6 . Primele patru soluții generate sunt, în această ordine: 1023 , 1032 , 105 și 1203 . Scrieți cea de a cincea și cea de a șasea soluție generată.",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila m memorează date despre o mașină de epocă: anul fabricației și data (ziua și luna) ultimei prezentări în cadrul unei expoziții de profil care a avut loc în anul curent. Știind că expresiile C/C++ de mai jos memorează anul fabricației mașinii (număr natural din intervalul [1880,1950] ), ziua (număr natural din intervalul [1,31] ) și luna (șir de cel mult 15 caractere) din anul curent la care a fost prezentată aceasta la o expoziție, scrieți definiția unei structuri, cu eticheta epoca , înregistrare care să permită memorarea datelor unei mașini de epocă, și declarați variabila m , de acest tip. m.anFabricatie m.expo.zi m.expo.luna",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Două numere se numesc oglindite dacă fiecare se obține din celălalt, prin parcurgerea cifrelor acestuia de la dreapta la stânga. Două numere se numesc par-oglindite dacă numerele obținute din acestea, prin îndepărtarea tuturor cifrelor lor impare sau nule, sunt oglindite. Subprogramul pao are trei parametri: • x și y , prin care primește câte un număr natural din intervalul [0,10 9 ] ; • rez , prin care furnizează valoarea 1 , dacă x și y sunt par-oglindite, sau valoarea 0 , în caz contrar. Scrieți definiția completă a subprogramului. Exemplu: dacă x=814 și y=7003485 , sau x=14 și y=700345 , după apel rez=1 , iar dacă x=814 și y=7003465 , sau x=814 și y=7003845 , sau x=15 și y=510 , după apel rez=0 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Scrieți un program C/C++ care citește de la tastatură două numere naturale din intervalul [2,10 2 ] , k și n ( k≥n ), și construiește în memorie un tablou bidimensional cu n linii și n coloane, astfel încât parcurgând diagonala principală, de sus în jos, să se obțină un șir strict crescător format din primii n multipli naturali nenuli ai lui k , și parcurgând fiecare linie a sa, de la stânga la dreapta, să se obțină câte un șir strict descrescător de numere naturale consecutive. Programul afișează pe ecran tabloul obținut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: pentru k=5 și n=4 se obține tabloul alăturat. 5 4 3 2 11 10 9 8 17 16 15 14 23 22 21 20",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "La o expoziție auto se află, în șir, mașini de epocă, fiecare având câte un cod, format prin alipirea, în această ordine, a două numere naturale nenule: identificatorul colecționarului care deține mașina, respectiv anul fabricației acesteia. Fişierul bac.txt conţine numere naturale: pe prima linie un număr x ( x  [1880,1950] ), reprezentând un an calendaristic, iar pe a doua linie cel mult 10 5 numere din intervalul [10 4 ,10 9 ] , reprezentând codurile mașinilor, în ordinea din șirul în care sunt expuse. Numerele aflate pe aceeași linie în fișier sunt separate prin câte un spaţiu. Se cere să se afișeze pe ecran identificatorii colecționarilor care dețin ultimele două mașini, din șirul celor expuse, ambele fiind fabricate în anul x și aflate în șir pe poziții consecutive, ca în exemplu. Numerele, nu neapărat distincte, sunt afișate în ordinea în care mașinile corespunzătoare apar în șir, separate printr-un spațiu, iar dacă nu există două astfel de mașini, se afișează pe ecran mesajul nu exista . Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul conține numerele 1925 31885 21925 8931925 31925 121900 11925 31925 151925 61950 201925 121880 atunci pe ecran se afișează 3 15 a. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. b. Scrieți programul C/C++ corespunzător algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": "nu există două astfel de mașini,",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

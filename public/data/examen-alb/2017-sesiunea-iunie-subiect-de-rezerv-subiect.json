@@ -1,0 +1,85 @@
+{
+  "id": "2017-sesiunea-iunie-subiect-de-rezerv-subiect",
+  "year": 2017,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2017/2017-sesiunea-iunie-subiect-de-rezerv-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2017/2017-sesiunea-iunie-subiect-de-rezerv-barem.pdf",
+  "variant": 5,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip întreg. Num ă rul de valori întregi distincte ale lui x pentru care expresia C/C++ al ă turat ă are valoarea 0 este: (4p.) x/2017",
+        "options": {
+          "a": "2016",
+          "b": "2017",
+          "c": "2 · 2016+1",
+          "d": "2 · 2017+1"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Într-un arbore cu r ă d ă cin ă consider ă m c ă un nod se afl ă pe nivelul x dac ă lan ţ ul elementar care are o extremitate în nodul respectiv ş i cealalt ă extremitate în r ă d ă cina arborelui are lungimea x . Pe nivelul 0 se afl ă un singur nod (r ă d ă cina). Pe fiecare nivel nenul al unui arbore cu r ă d ă cin ă exist ă cel pu ț in o frunz ă . Dac ă ultimul nivel este 3 , atunci num ă rul minim de noduri din arbore este: a. 5 b. 6 c. 7 d. 8 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Se consider ă declararea al ă turat ă , în care variabila t memoreaz ă , pentru fiecare dintre cele 10 triunghiuri, lungimile laturilor. Scrie ţ i o expresie C/C++ care are valoarea 1 dac ă ş i numai dac ă primul triunghi dintre cele men ţ ionate este echilateral. struct triunghi { int x,y,z; } t[10]; 4. Scrie ţ i matricea de adiacen ţă a unui graf orientat cu 5 vârfuri ş i 3 arce, ş tiind c ă el are un num ă r maxim de vârfuri care au gradul intern egal cu gradul extern. (6p.) 5. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă dou ă numere naturale din intervalul [2,50] , m ş i n , ş i elementele unui tablou bidimensional cu m linii ş i n coloane, numere naturale distincte, din intervalul [0,10 4 ] . Programul interschimb ă valoarea minim ă din ultima coloan ă a tabloului cu valoarea minim ă din prima coloan ă a tabloului, apoi afi ş eaz ă pe ecran tabloul modificat, câte o linie a tabloului pe câte o linie a ecranului, elementele fiec ă rei linii fiind separate prin câte un spa ţ iu. Exemplu: dac ă m=4 , n=3 ş i tabloul este 7 5 19 atunci se ob ţ ine tabloul urm ă tor: 7 5 19 3 8 4 1 8 4 23 6 1 23 6 3 10 2 9 10 2 9 (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 5 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se genereaz ă toate modalit ăţ ile de a scrie num ă rul 6 ca sum ă de numere naturale impare. Termenii fiec ă rei sume sunt în ordine cresc ă toare. Cele patru solu ţ ii sunt ob ţ inute în aceast ă ordine: 1+1+1+1+1+1 ; 1+1+1+3 ; 1+5 ; 3+3 . Aplicând acela ş i algoritm, num ă rul solu ţ iilor ob ţ inute pentru scrierea lui 8 este: a. 5 b. 6 c. 8 d. 9 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consider ă subprogramul f , definit al ă turat. Scrie ţ i ce se afi ș eaz ă în urma execut ă rii instruc ț iunii: cout<<f(10)<<’ ’<<f(11); | printf(”%d %d”,f(10),f(11)); int f (int x) { if (x%2==0) return x; return f(x/2); }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul produs are doi parametri: • a , prin care prime ș te un num ă r natural ( a ∈ ∈ ∈ ∈ [1,10 6 ] ); • k , prin care furnizeaz ă cea mai mare valoare natural ă impar ă cu proprietatea c ă produsul tuturor numerelor impare din intervalul [1,k] este mai mic sau egal cu a . Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă a=200 , atunci k=7 ( 1 ⋅ ⋅ ⋅ ⋅ 3 ⋅ ⋅ ⋅ ⋅ 5 ⋅ ⋅ ⋅ ⋅ 7 ≤ 200<1 ⋅ ⋅ ⋅ ⋅ 3 ⋅ ⋅ ⋅ ⋅ 5 ⋅ ⋅ ⋅ ⋅ 7 ⋅ ⋅ ⋅ ⋅ 9 ). 4. Fi ş ierul bac.txt con ţ ine un ş ir de cel mult 10 6 numere naturale din intervalul [1,10 9 ] , ordonate cresc ă tor. Numerele din ş ir sunt separate prin câte un spa ţ iu. Se cere s ă se afi ş eze pe ecran cel mai mic num ă r din ş ir care apare în fi ş ier de un num ă r impar de ori. Dac ă în fi ş ier nu se afl ă o astfel de valoare, pe ecran se afi ş eaz ă mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al spa ț iului de memorie utilizat ş i al timpului de executare. Exemplu: dac ă fi ş ierul bac.txt con ţ ine numerele 5 5 8 8 8 8 20 20 20 34 54 54 65 65 65 atunci pe ecran se afi ş eaz ă 20 . a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

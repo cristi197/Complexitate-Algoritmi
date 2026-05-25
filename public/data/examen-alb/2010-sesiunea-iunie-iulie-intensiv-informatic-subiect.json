@@ -1,0 +1,85 @@
+{
+  "id": "2010-sesiunea-iunie-iulie-intensiv-informatic-subiect",
+  "year": 2010,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2010/2010-sesiunea-iunie-iulie-intensiv-informatic-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2010/2010-sesiunea-iunie-iulie-intensiv-informatic-barem.pdf",
+  "variant": 10,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "IndicaŃi care dintre expresiile C/C++ de mai jos are valoarea 1 dacă şi numai dacă numărul natural memorat în variabila întreagă n este divizibil cu 2 şi cu 7 . (4p.)",
+        "options": {
+          "a": "!( (n%2==1) || (n%7!=0) )",
+          "b": "(n%2==0) && (n%7!=0)",
+          "c": "(n%2==0) || !(n%7==0)",
+          "d": "(n%7==2) && (n%2==7)"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Pentru ca graful orientat cu 5 vârfuri, reprezentat în figura alăturată, să devină graf tare conex, numărul minim de arce care trebuie adăugate acestuia este: a. 1 b. 2 c. 3 d. 4 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare. În secvenŃa de instrucŃiuni de mai jos, variabilele i şi j sunt de tip întreg şi se consideră că variabila A memorează elementele, iniŃial nule, ale unui tablou bidimensional, cu 5 linii şi 5 coloane, numerotate de la 0 la 4 . Fără a utiliza şi alte variabile decât cele menŃionate mai sus, scrieŃi o instrucŃiune care poate înlocui punctele de suspensie astfel încât, în urma executării secvenŃei, tabloul memorat în variabila A să aibă elementele din figura de mai jos.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "for(i=0;i<5;i++) for(j=0;j<5;j++) ....... 1 6 11 16 21 2 7 12 17 22 3 8 13 18 23 4 9 14 19 24 5 10 15 20 25 4. Se consideră arborele cu rădăcină, având 10 noduri, numerotate de la 1 la 10 , cu vectorul de „taŃi” t=(3,3,8,0,8,9,9,4,4,9) . EnumeraŃi toate nodurile arborelui care au exact doi fii. (6p.) 5. Se consideră un text cu cel mult 100 de caractere, format din cuvinte şi numere, separate prin unul sau mai multe spaŃii. Cuvintele sunt formate numai din litere ale alfabetului englez. Toate numerele sunt reale, pozitive şi sunt formate numai din parte întreagă sau din parte întreagă şi parte fracŃionară, separate prin punctul zecimal ( . ). ScrieŃi un program C/C++ care citeşte de la tastatură textul, pe care îl transformă, eliminând din componenŃa sa toate numerele care au parte fracŃionară. Programul afişează apoi pe ecran textul obŃinut. Exemplu: dacă textul citit este Reprezentat cu 4 zecimale PI este 3.1415 si e este 2.7182 se va afişa pe ecran textul: Reprezentat cu 4 zecimale PI este si e este (10p.) Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la INFORMATICĂ Varianta 10 Specializarea matematică-informatică, intensiv informatică Limbajul C/C++ 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Se consideră subprogramul p , definit alăturat. Valoarea lui p(210, 49) este: int p(int m, int n) { if(n==0) return 1; return 1+p(n, m%n); } a. 1 b. 2 c. 3 d. 4 ScrieŃi pe foaia de examen răspunsul pentru fiecare dintre cerinŃele următoare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Având la dispoziŃie cinci flori diferite, lalea , narcisă , mac , frezie , garoafă , se utilizează metoda backtracking pentru a obŃine toate posibilităŃile de a forma un aranjament floral, ştiind că se folosesc toate cele cinci flori şi contează ordinea de aşezare a acestora. Primele patru soluŃii obŃinute sunt, în această ordine: ( lalea , narcisă , mac , frezie , garoafă ), ( lalea , narcisă , mac , garoafă , frezie ), ( lalea , narcisă , frezie , mac , garoafă ), ( lalea , narcisă , frezie , garoafă , mac ). ScrieŃi ultimele două soluŃii generate, în ordinea obŃinerii lor.",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul tablou are trei parametri: \u0002 n şi k , prin care primeşte câte un număr natural ( 3≤n≤20 , 2≤k≤10 ); \u0002 a , prin care furnizează un tablou unidimensional care memorează un şir crescător de n ⋅ ⋅ ⋅ ⋅ k termeni, din mulŃimea primelor n numere naturale nenule, fiecare astfel de număr fiind în şir de exact k ori. ScrieŃi în limbajul C/C++ definiŃia completă a subprogramului. Exemplu: dacă n=4 , k=3 atunci, după apel, a=(1,1,1,2,2,2,3,3,3,4,4,4) . Fişierul BAC.TXT conŃine, în ordine crescătoare , cel puŃin două şi cel mult 10000 de numere naturale. Numerele sunt separate prin câte un spaŃiu şi au cel mult 9 cifre fiecare. Cel puŃin un număr din fişier apare o singură dată. a) ScrieŃi un program C/C++ care citeşte toate numerele din fişier şi, printr-un algoritm eficient din punct de vedere al timpului de executare şi al memoriei utilizate, determină şi afişează pe ecran, în ordine strict crescătoare, separate prin câte un spaŃiu, numai numerele care apar o singură dată în fişier. (6p.) Exemplu: dacă fişierul are conŃinutul de mai jos 1 1 2 2 2 7 10 10 10 10 21 pe ecran se afişează, în această ordine, numerele 7 21 . 4. b) DescrieŃi în limbaj natural (3-4 rânduri) algoritmul utilizat la punctul a) şi justificaŃi eficienŃa acestuia. (4p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": "n=4 , k=3",
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "2025-sesiunea-iunie-subiect",
+  "year": 2025,
+  "session": "Sesiunea iunie-iulie",
+  "type": "iunie",
+  "pdfUrl": "/subiecte-bac/2025/2025-sesiunea-iunie-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2025/2025-sesiunea-iunie-barem.pdf",
+  "variant": 1,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ț i expresia C/C++ cu aceea ş i valoare ca a expresiei al ă turate. 2025%2019+6",
+        "options": {
+          "a": "2025/2020+5",
+          "b": "2025/2021+8",
+          "c": "2025%2020+5",
+          "d": "2025%2021+8"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(3); void f(int n) { int i; for(i=1;i<=n;i++)if(i%2==0){ cout<<i; | printf(\"%d\",i); f(i-1); } else { f(i-1); cout<<i; | printf(\"%d\",i); } }",
+        "options": {
+          "a": "1211213",
+          "b": "123121",
+          "c": "123",
+          "d": "01201012013"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Indica ț i o declarare a unui tablou bidimensional m , care poate memora maximum 100 de numere reale.",
+        "options": {
+          "a": "float m[2,50];",
+          "b": "float m[4][25];",
+          "c": "float m[10] x float m[10];",
+          "d": "int m[100];"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 4,
+        "text": "Utilizând metoda backtracking, s-au generat toate codurile posibile pentru deblocarea unor telefoane, coduri de câte 6 cifre distincte, din mul ț imea cifrelor, ordonat ă cresc ă tor. Fiecare cod are primele trei cifre impare ș i ultimele trei cifre pare. Primele patru coduri sunt 135024 , 135026 , 135028 , 135042 . Indica ț i penultimul cod generat.",
+        "options": {
+          "a": "957862",
+          "b": "957846",
+          "c": "975862",
+          "d": "975846"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf orientat f ă r ă circuite are 10 vârfuri. Indica ț i num ă rul maxim de arce ale grafului.",
+        "options": {
+          "a": "10",
+          "b": "45",
+          "c": "50",
+          "d": "90"
+        },
+        "correctAnswer": "b"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "cite ş te m,n ( numere naturale nenule, m ≤ n ) nr  0;i  m ┌ repet ă │ x  1 │┌ cât timp x*x<i execut ă ││ x  x+1 │└■ │┌ dac ă x*x=i atunci nr  i ││ altfel i  i+1 │└■ └ pân ă când i>n sau nr ≠ 0 scrie nr",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i ce se afi ș eaz ă în urma execut ă rii algoritmului dac ă se citesc, în aceast ă ordine, numerele 7 ș i 17 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă pentru variabila n se cite ș te valoarea 25 , scrie ț i dou ă numere distincte care pot fi citite pentru variabila m , astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, s ă se afi ș eze valoarea 25 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind structura cât timp...execut ă cu o structur ă repetitiv ă cu test final. Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional pentru Curriculum ș i Evaluare Prob ă scris ă la INFORMATIC Ă Varianta 1 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un graf neorientat cu 6 noduri, numerotate de la 1 la 6 , este reprezentat prin listele de adiacen ță al ă turate. Scrie ț i mul ț imea nodurilor ș i mul ț imea muchiilor unui subgraf al acestuia, f ă r ă noduri izolate, care s ă fie graf eulerian. 1: 2, 3, 4, 6 2: 1, 3, 5 3: 1, 2, 5 4: 1, 5, 6 5: 2, 3, 4, 6 6: 1, 4, 5",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila p memoreaz ă simultan, pentru un tip de pr ă jitur ă , codul (un num ă r natural de dou ă cifre), pre ț ul (num ă r real) ș i un set de trei numere naturale din intervalul [1,10 2 ] , reprezentând informa ț ii specifice, în aceast ă ordine: tipul glazurii, tipul cremei principale ș i num ă rul de blaturi. Ș tiind c ă expresiile C/C++ de mai jos au ca valori codul, pre ț ul, respectiv tipul glazurii pentru o pr ă jitur ă , scrie ț i defini ț ia unei structuri cu eticheta prajitura , care permite memorarea datelor despre o pr ă jitur ă , ș i declara ț i corespunz ă tor variabila p . p.cod p.pret p.informatii[0]",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Num ă rul natural an este ascendent al num ă rului natural n , dac ă oricare dintre cifrele lui an este mai mare sau egal ă cu cifra unit ăț ilor lui n . Exemplu : oricare dintre numerele 7 , 9 , 98 sau 7998 este ascendent al lui 827 , dar num ă rul 857 nu este ascendent al lui 827 . Subprogramul ascendent are trei parametri: • n , prin care prime ș te un num ă r natural ( n ∈ [0,10 3 ) ); • x ș i y , prin care prime ș te câte un num ă r natural din intervalul [0,10 3 ) ( x<y ). Subprogramul returneaz ă suma ascenden ț ilor lui n din intervalul [x,y] , sau valoarea 0 , dac ă nu exist ă niciun astfel de ascendent. Scrie ț i defini ț ia complet ă a subprogramului C/C++. Exemplu: dac ă n=827 , x=9 , y=800 , subprogramul returneaz ă 7893 ( 9+77+78+79+87+88+89+ 97+98+99+777+778+779+787+788+789+797+798+799=7893) .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un cuvânt semioglindit se ob ţ ine dintr-un cuvânt cu 2·k ( k ∈ [1,10 2 ] ) litere, prin interschimbarea în acesta a secven ț ei formate din primele k litere cu secven ț a format ă din ultimele k litere. Exemplu: din cuvântul platim se ob ţ ine cuvântul semioglindit timpla . Într-un text de cel mult 200 de caractere, cuvintele sunt formate din litere mici ale alfabetului englez ș i sunt separate prin câte un spa ţ iu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul precizat, pe care îl transform ă în memorie, prin înlocuirea fiec ă rui cuvânt cu num ă r par de litere, cu cel semioglindit ob ț inut din acesta, ca în exemplu. Programul afi ș eaz ă pe ecran textul ob ț inut, sau mesajul nu exista , dac ă toate cuvintele au num ă r impar de litere. Exemplu: pentru textul am facut fotografii unei flori mari se afi ş eaz ă pe ecran textul ma facut rafiifotog eiun flori rima",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Un tân ă r pasionat de c ă l ă torii are o list ă cu muzee virtuale ș i, pentru fiecare, câte un singur interval orar, în care acesta poate fi vizitat online, gratuit. Tân ă rul dispune zilnic de acela ș i interval orar pentru vizite; un muzeu este convenabil dac ă poate fi vizitat online gratuit în timpul disponibil ș i dac ă pentru vizit ă îi poate aloca cel pu ț in o or ă . Muzeele din list ă sunt numerotate cu valori naturale consecutive, începând cu 1 , ș i cel pu ț in unul este convenabil. Fi ș ierul text bac.in con ț ine cel mult 10 5 linii, iar pe fiecare linie câte o pereche de numere, reprezentând limitele câte unui interval orar: pe prima linie intervalul orar de care tân ă rul dispune zilnic, iar pe fiecare dintre urm ă toarele linii, intervalul orar de vizitare gratuit ă pentru câte un muzeu, în ordinea din list ă . Limitele intervalelor sunt ore fixe, numere naturale din intervalul [8,22] , iar cele aflate pe aceea ș i linie a fi ș ierului sunt în ordine strict cresc ă toare ș i sunt separate printr-un spa ț iu. Se cere s ă se afi ș eze pe ecran, separate printr-un spa ț iu, dou ă valori, reprezentând num ă rul de muzee convenabile, respectiv num ă rul de ordine al ultimului astfel de muzeu din lista tân ă rului. Utiliza ț i un algoritm eficient din punctul de vedere al timpului de executare ş i al memoriei utilizate. Exemplu: dac ă fi ș ierul con ț ine valorile al ă turate, atunci pe ecran se afi ș eaz ă numerele 3 4 . (pot fi vizitate trei muzee cu numerele de ordine 1 , 2 ș i 4 , în intervalele 16-18 , 17-19 , respectiv 18-19 ). 16 19 15 18 17 21 19 21 18 20 12 13 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "2017-sesiunea-special-subiect",
+  "year": 2017,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2017/2017-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2017/2017-sesiunea-special-barem.pdf",
+  "variant": 3,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indica ţ i expresia C/C++ care are valoarea 1 dac ă ş i numai dac ă num ă rul natural memorat în variabila întreag ă x are exact trei cifre. (4p.)",
+        "options": {
+          "a": "x/1000==0 && x/100!=0",
+          "b": "x/1000==0 || x/100!=0",
+          "c": "x%1000==0 && x%100!=0",
+          "d": "x%1000==0 || x%100!=0"
+        },
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Într-un graf neorientat dou ă cicluri sunt disjuncte dac ă nu au niciun nod comun. Pentru graful neorientat cu 9 noduri, reprezentat al ă turat, se construie ș te o mul ț ime format ă din cicluri elementare, cu proprietatea c ă oricare dou ă dintre acestea sunt disjuncte. Num ă rul maxim de cicluri dintr-o astfel de mul ț ime este: a. 1 b. 2 c. 3 d. 4 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabila p memoreaz ă simultan num ă rul de vârfuri ale unui poligon (num ă r natural din intervalul [3,10 2 ) ) ș i coordonatele vârfurilor acestuia (abscisa ș i ordonata) în sistemul de coordonate xOy (numere reale). Ș tiind c ă expresiile C/C++ de mai jos au ca valori num ă rul de vârfuri ale unui poligon, abscisa, respectiv ordonata primului s ă u vârf, scrie ț i defini ț ia unei structuri cu eticheta poligon , care permite memorarea datelor despre un poligon, ș i declara ț i corespunz ă tor variabila p . p.numar p.varf[0].x p.varf[0].y 4. Variabilele i ş i j sunt de tip întreg, iar variabila a memoreaz ă un tablou bidimensional cu 9 linii ş i 9 coloane, numerotate de la 0 la 8 , având ini ţ ial toate elementele egale cu caracterul *. F ă r ă a utiliza alte variabile, scrie ţ i secven ţ a de instruc ţ iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ţ ei ob ţ inute, variabila a s ă memoreze tabloul al ă turat. for(i=0;i<9;i++) for(j=0;j<9;j++) .................. (6p.) b a a a a a a a b b b a a a a a b b b b b a a a b b b b b b b a b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 5. Se consider ă un text cu cel mult 100 de caractere, în care cuvintele sunt formate din litere mari ale alfabetului englez ș i sunt separate prin câte un spa ț iu. Scrie ţ i un program C/C++ care cite ş te de la tastatur ă un text de tipul men ţ ionat mai sus ş i afi ș eaz ă pe ecran, pe câte un rând, cuvintele care cuprind cel pu ț in o not ă muzical ă . Dac ă nu exist ă astfel de cuvinte, se afi ș eaz ă pe ecran mesajul nu exista . Notele muzicale sunt DO , RE , MI , FA , SOL , LA , SI . Exemplu: pentru textul REMI DOMINO SI KHANHOO SUNT DENUMIRI DE JOCURI CE AU ASPECTE SIMILARE se afi ş eaz ă cuvintele de mai jos, nu neap ă rat în aceast ă ordine REMI DOMINO SI DENUMIRI SIMILARE (10p.) Ministerul Educa ţ iei Na ț ionale Centrul Na ţ ional de Evaluare ş i Examinare Prob ă scris ă la informatic ă Varianta 3 Limbajul C/C++ Filiera teoretic ă , profilul real, specializ ă rile: matematic ă -informatic ă , matematic ă -informatic ă intensiv informatic ă Filiera voca ţ ional ă , profilul militar, specializarea matematic ă -informatic ă 3",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se genereaz ă , în ordine cresc ă toare, toate numerele naturale pare cu trei cifre, cu proprietatea c ă nu exist ă dou ă cifre egale al ă turate ș i suma cifrelor este 10 . Primele cinci numere generate sunt, în aceast ă ordine: 136 , 154 , 172 , 190 , 208 . Al ş aselea num ă r generat este: a. 217 b. 226 c. 262 d. 280 Scrie ţ i pe foaia de examen r ă spunsul pentru fiecare dintre cerin ţ ele urm ă toare.",
+        "points": 4,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Scrie ţ i ce se afi ş eaz ă în urma apelului de mai jos. f(4); void f(int n) { int i; if(n>0) { for(i=1;i<=n;i++) cout<<i; | printf(“%d”,i); f(n-1); } }",
+        "points": 6,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Subprogramul identice are doi parametri, a ș i b , prin care prime ș te câte un num ă r natural ( 10 ≤ a ≤ b ≤ 10 6 ). Subprogramul afi ș eaz ă pe ecran toate numerele naturale din intervalul [a,b] care au toate cifrele identice. Numerele afi ș ate sunt separate prin câte un spa ț iu, iar dac ă nu exist ă astfel de numere, se afi ş eaz ă pe ecran mesajul nu exista . Scrie ţ i defini ţ ia complet ă a subprogramului. Exemplu : pentru a=700 ș i b=1500 se afi ș eaz ă pe ecran 777 888 999 1111 . 4. Numim inserare a unui ș ir A într-un ș ir B introducerea, între dou ă elemente ale ș irului B , a tuturor elementelor lui A , pe pozi ț ii consecutive, în ordinea în care apar în A . Fi ș ierul bac.in con ț ine numere naturale din intervalul [1,10 6 ] : pe prima linie numerele m ș i n , iar pe fiecare dintre urm ă toarele dou ă linii câte un ș ir de m , respectiv de n numere întregi ordonate strict cresc ă tor . Numerele aflate pe aceea ș i linie a fi ș ierului sunt separate prin câte un spa ț iu, iar numerotarea elementelor în ș iruri începe de la 1 . Se cere s ă se afi ș eze pe ecran pozi ț ia din al doilea ș ir începând de la care poate fi inserat primul ș ir, astfel încât ș irul ob ț inut s ă fie strict cresc ă tor. Dac ă nu exist ă o astfel de pozi ț ie, se afi ș eaz ă pe ecran mesajul imposibil . Proiecta ț i un algoritm eficient din punctul de vedere al spa ț iului de memorie utilizat ş i al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele 4 6 15 16 17 19 7 10 12 20 30 40 se poate ob ț ine ș irul 7 , 10 , 12 , 15 , 16 , 17 , 19 , 20 , 30 , 40 ș i se afi ș eaz ă pe ecran 4 iar dac ă fi ș ierul con ț ine numerele 4 6 15 16 17 19 7 14 18 20 30 40 sau numerele 4 6 1 2 3 4 7 15 18 20 30 40 se afi ș eaz ă pe ecran mesajul imposibil a) Descrie ţ i în limbaj natural algoritmul proiectat, justificând eficien ţ a acestuia. (2p.) b) Scrie ţ i programul C/C++ corespunz ă tor algoritmului descris. (8p.)",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

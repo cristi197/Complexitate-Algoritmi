@@ -1,0 +1,172 @@
+{
+  "id": "2025-sesiunea-special-subiect",
+  "year": 2025,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2025/2025-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2025/2025-sesiunea-special-barem.pdf",
+  "variant": 6,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele m , n , p , q ș i x sunt de tip întreg, iar m<p<q<n . Indica ț i o expresie C/C++ care are valoarea 1 dac ă ș i numai dac ă num ă rul memorat în variabila x apar ț ine intervalului [m,n] , dar NU ș i intervalului (p,q) .",
+        "options": {
+          "a": "x<=m || x>=p && x<=q || x>=n",
+          "b": "x<=m && x>=p || x<=q && x>=n",
+          "c": "x>=m || x<=p && x>=q || x<=n",
+          "d": "x>=m && x<=p || x>=q && x<=n"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i ce se afi ș eaz ă în urma apelului de mai jos. f(2050); void f(int n) { cout<<n<<' '; | printf(\"%d \",n); if(n%10!=0) { cout<<n<<' '; | printf(\"%d \",n); f(n/10); } else if(n!=0){ f(n/10); cout<<n<<' '; | printf(\"%d \",n); } }",
+        "options": {
+          "a": "2050 205 20 2 0",
+          "b": "2050 205 20 2 0 20 2050",
+          "c": "2050 205 205 20 2 2 0 20 2050",
+          "d": "2050 2050 205 205 20 20 2 2 0"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda bactracking se genereaz ă toate tipurile de propozi ț ii formate din patru unit ăț i sintactice (p ă r ț i ale propozi ț iei): un subiect , un predicat , un atribut ș i un complement , astfel încât atributul s ă fie plasat imediat înainte ori imediat dup ă subiect. Dou ă propozi ț ii difer ă prin ordinea unit ăț ilor sale sintactice. Primele patru solu ț ii generate sunt, în aceast ă ordine: ( subiect , atribut , predicat , complement ), ( subiect , atribut , complement , predicat ), ( predicat , subiect , atribut , complement ), ( predicat , atribut , subiect , complement ). Indica ț i ultima solu ț ie generat ă .",
+        "options": {
+          "a": "( complement , atribut , subiect , predicat )",
+          "b": "( complement , atribut , predicat , subiect )",
+          "c": "( complement , subiect , atribut , predicat )",
+          "d": "( complement , predicat , subiect , atribut )"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 4,
+        "text": "Variabila m memoreaz ă elementele unui tablou bidimensional cu 100 de linii ș i 100 de coloane, numerotate de la 0 la 99 . Indica ț i o expresie C/C++ prin care poate fi accesat un element aflat pe diagonala principal ă a tabloului.",
+        "options": {
+          "a": "m[1,16]",
+          "b": "m[16][16]",
+          "c": "m(16,16)",
+          "d": "m(16)(1)"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Un graf neorientat are 7 noduri ș i 21 de muchii. Indica ț i num ă rul minim de muchii care pot fi eliminate din acest graf, astfel încât graful par ț ial ob ț inut s ă aib ă dou ă componente conexe, cu cel pu ț in dou ă noduri fiecare.",
+        "options": {
+          "a": "6",
+          "b": "8",
+          "c": "10",
+          "d": "12 Ministerul Educa ț iei ș i Cercet ă rii Centrul Na ț ional pentru Curriculum ș i Evaluare Prob ă scris ă la INFORMATIC Ă Varianta 6 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împ ă r ț irii num ă rului natural a la num ă rul natural nenul b ș i cu [c] partea întreag ă a num ă rului real c . cite ș te m,n ( numere naturale nenule, m ≤ n ) ┌ pentru i  n,m,-1 execut ă │ x  i │ c  x%10 │┌ repet ă ││ x  [x/10] │└ pân ă când x%10 ≠ c │┌ dac ă x=0 atunci ││ scrie i,' ' │└■ └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i numerele afi ș ate dac ă se citesc, în aceast ă ordine, numerele 75 ș i 90 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Dac ă pentru variabila m se cite ș te valoarea 2025 , scrie ț i dou ă numere distincte care pot fi citite pentru variabila n , astfel încât, pentru fiecare dintre acestea, în urma execut ă rii algoritmului, s ă se afi ș eze o singur ă valoare.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm echivalent cu cel dat, înlocuind structura pentru...execut ă cu o structur ă repetitiv ă de tip cât timp...execut ă .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin vectorul de „ta ț i” ( 3 , 0 , 2 , 5 , 2 , 5 , 1 , 5 ). Enumera ț i dou ă noduri ale arborelui care pot fi alese drept r ă d ă cin ă (cu excep ț ia r ă d ă cinii curente), astfel încât nodul 4 s ă aib ă aceia ș i „fra ț i” ca în reprezentarea dat ă .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "În declar ă rile al ă turate variabila d memoreaz ă în câmpurile A ș i B coordonatele, în sistemul de coordonate xOy, ale vârfurilor din stânga – sus, respectiv din dreapta – jos ale unui dreptunghi cu laturile paralele cu axele sistemului de coordonate. Scrie ț i o secven ță de instruc ț iuni C/C++ în urma execut ă rii c ă reia se afi ș eaz ă pe ecran mesajul DA , dac ă figura corespunz ă toare variabilei d este p ă trat sau mesajul NU în caz contrar. struct punct { int x,y; }; struct figura { punct A, B; } d;",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul diviz are un singur parametru, n , prin care prime ș te un num ă r natural ( n ∈ [1,10 9 ] ). Subprogramul returneaz ă cel mai mare divizor al lui n care este p ă trat perfect. Scrie ț i defini ț ia complet ă a subprogramului C/C++. Exemplu: pentru n=72 subprogramul returneaz ă 36 , pentru n=16 subprogramul returneaz ă 16 , iar pentru n=15 subprogramul returneaz ă 1 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un text de cel mult 100 de caractere cuvintele sunt formate doar din litere mici ale alfabetului englez ș i sunt separate prin unul sau mai multe spa ț ii. Textul are cel pu ț in dou ă cuvinte. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un text de tipul precizat mai sus ș i îl transform ă în memorie prin eliminarea sau inserarea unor spa ț ii ș i a unor cratime (simbolul - ), astfel încât între oricare dou ă cuvinte consecutive în text s ă fie câte o cratim ă , încadrat ă la stânga ș i la dreapta de câte un spa ț iu, ca în exemplu. Programul afi ș eaz ă pe ecran textul ob ț inut. Exemplu : pentru textul anul acesta devin student se ob ț ine anul – acesta – devin - student",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fi ș ierul text bac.txt con ț ine un ș ir de cel mult 10 6 triplete de numere naturale din intervalul [1,10 2 ] , numerele din fiecare triplet reprezentând lungimile laturilor câte unui triunghi. Fiecare triplet se afl ă pe câte o linie a fi ș ierului, iar numerele care îl compun sunt separate prin câte un spa ț iu. Într-un triunghi dreptunghic p ă tratul lungimii ipotenuzei este egal cu suma p ă tratelor lungimilor celor dou ă catete. Se cere s ă se afi ș eze pe ecran num ă rul maxim de triunghiuri dreptunghice din fi ș ier care au aceea ș i lungime a ipotenuzei. Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare. Exemplu: dac ă fi ș ierul con ț ine numerele al ă turate, pe ecran se afi ș eaz ă 3 (sunt trei triunghiuri de tipul cerut cu ipotenuza 25 : dou ă au catetele 7 , respectiv 24 , ș i unul are catetele 15 , respectiv 20 ). 6 10 6 7 24 25 7 25 24 25 14 13 8 6 10 15 20 25 4 5 3 a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

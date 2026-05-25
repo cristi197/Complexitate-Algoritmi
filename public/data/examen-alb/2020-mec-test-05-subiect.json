@@ -1,0 +1,172 @@
+{
+  "id": "2020-mec-test-05-subiect",
+  "year": 2020,
+  "session": "mec-test-05",
+  "type": "test-mec",
+  "pdfUrl": "/subiecte-bac/2020/2020-mec-test-05-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2020/2020-mec-test-05-barem.pdf",
+  "variant": null,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Indicați o expresie C/C++ care are valoarea 1 dacă și numai dacă numărul natural memorat în variabila întreagă x are exact o cifră.",
+        "options": {
+          "a": "x/10==0",
+          "b": "x%10==0",
+          "c": "(x/10)/10==0",
+          "d": "(x%10)%10==0"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit alăturat. Scrieți ce se afișează în urma apelului de mai jos. f(3); (6p.) void f(int n) { int i; for(i=n;i>=1;i--) { f(n-1); cout<<i; | printf(“%d”,i); } }",
+        "options": {
+          "a": "121321",
+          "b": "121131211212111",
+          "c": "322111",
+          "d": "321112211112111"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 3,
+        "text": "Utilizând metoda backtracking, se generează toate modalitățile de a pregăti o ținută, luând, într-o anumită ordine, articolele din mulțimea { cămașă , cravată , pantaloni , pantofi , sacou , ș osete }, având în vedere următoarele restricții: cămașa va fi luată înaintea cravatei, cravata înaintea sacoului și atât șosetele, cât și pantalonii, înaintea pantofilor. Primele trei soluții generate sunt, în această ordine: ( cămașă , cravată , pantaloni , sacou , ș osete , pantofi) , ( cămașă , cravată , pantaloni , ș osete , pantofi , sacou) , ( cămașă , cravată , pantaloni , șosete , sacou , pantofi) . Indicați cea de a șasea soluție generată.",
+        "options": {
+          "a": "(cămașă , cravată , sacou , ș osete , pantaloni , pantofi)",
+          "b": "(cămașă , cravată , ș osete , pantaloni , sacou , pantofi)",
+          "c": "(cămașă , cravată , ș osete , pantaloni , pantofi , sacou)",
+          "d": "(cămașă , cravată , ș osete , sacou , pantaloni , pantofi)"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 4,
+        "text": "Un arbore cu 9 noduri, numerotate de la 1 la 9 , este reprezentat prin vectorul de „tați” ( 2 , 7 , 0 , 8 , 1 , 5 , 3 , 9,2 ). Rădăcina arborelui este:",
+        "options": {
+          "a": "1",
+          "b": "3",
+          "c": "4",
+          "d": "6"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Matricea de adiacență a unui graf neorientat cu 2020 de noduri are 200 de elemente nenule. Numărul maxim de componente conexe ale grafului este:",
+        "options": {
+          "a": "2006",
+          "b": "2000",
+          "c": "1820",
+          "d": "400 Ministerul Educaţiei și Cercetării Centrul Național de Evaluare și Examinare Probă scrisă la informatică Testul 5 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+        },
+        "correctAnswer": "a"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "citește numărul 100 . (6p.) b. Scrieți toate numerele din intervalul [1,9] care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze N . (6p.) c. Scrieți programul C/C++ corespunzător algoritmului dat. (10p.) d. Scrieți în pseudocod un algoritm echivalent cu cel dat, care să nu cuprindă nicio structură repetitivă. (6p.)",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "S-a notat cu a%b restul împărţirii numărului natural a la numărul natural nenul b şi cu [c] partea întreagă a numărului real c . cite ș te n ( număr natural nenul ) x  1; y  n; d  2 ┌ cât timp x<y execută │┌dacă n%d=0 atunci ││ x  d ││ y  [n/d] │└■ │ d  d+1 └■ ┌dacă x=y atunci │ scrie 'D',x │altfel scrie 'N' └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrieți ce se afișează dacă se citește numărul 100 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrieți toate numerele din intervalul [1,9] care pot fi citite astfel încât, pentru fiecare dintre acestea, în urma executării algoritmului, să se afișeze N .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să nu cuprindă nicio structură repetitivă.",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Variabila s memorează simultan numărul de soluții complexe ale unei ecuații (număr natural din intervalul [2,10 2 ) ) și soluțiile propriu-zise (partea reală și partea imaginară, numere reale). Știind că expresiile C/C++ de mai jos au ca valori numărul de soluții ale unui ecuații, partea reală, respectiv partea imaginară a primei sale soluții, scrieți definiția unei structuri cu eticheta ecuatie , care permite memorarea datelor despre soluțiile unei ecuații, și declarați corespunzător variabila s . s.numar s.solutie[0].pre s.solutie[0].pim",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Variabilele i și j sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu 6 linii și 6 coloane, numerotate de la 0 la 5 , având inițial toate elementele egale cu caracterul @ . Fără a utiliza alte variabile, scrieți secvența de instrucțiuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma executării secvenței obținute, variabila a să memoreze tabloul alăturat. for(i=0;i<6;i++) for(j=0;j<6;j++) .................. ( ( ( ) ) ) * ( ( ) ) * * * ( ) * * * * ( ) * * * ( ( ) ) * ( ( ( ) ) )",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Un număr este scris în baza de numerație b ( b≤10 ) dacă cifrele sale aparțin intervalului [0,b-1] . Subprogramul baza are un singur parametru, n , prin care primește un număr natural ( n  [0,10 9 ] ). Subprogramul returnează cea mai mică bază din intervalul [2,10] căreia i-ar putea corespunde scrierea lui n . Scrieți definiția completă a subprogramului. Exemplu: dacă n=50731 , subprogramul returnează numărul 8 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "cea",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un text cu cel mult 100 de caractere conține cuvinte și numere, separate prin câte un spațiu. Cuvintele sunt formate numai din litere mici ale alfabetului englez, iar numerele sunt reale, pozitive, cu partea zecimală și partea întreagă separate prin simbolul virgulă, sau numai cu partea întreagă, ca în exemplu. Scrieți un program C/C++ care citește de la tastatură un text de tipul precizat și afișează pe ecran numărul de valori întregi din text. Exemplu: pentru textul grus leucogeranus are 1,40 m inaltime si traieste intre 30 si 40 de ani se afișează pe ecran 2",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Fișierul bac.txt conține un șir de cel mult 10 6 numere întregi din intervalul [-10 3 ,10 3 ] , separate prin câte un spațiu. Se cere să se afișeze pe ecran suma maximă obținută adunând numere de pe poziții consecutive în șirul aflat în fișier. Proiectați un algoritm eficient din punctul de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul bac.txt conține valorile 4 -6 7 2 -1 4 -10 -3 9 2 -2 se afișează pe ecran numărul 12 a. Scrieți programul C/C++ corespunzător algoritmului proiectat. b. Descrieți în limbaj natural algoritmul proiectat, justificând eficiența acestuia. (2p.)",
+        "points": 8,
+        "type": "code",
+        "exampleInput": "fișierul bac.txt conține valorile 4 -6 7 2 -1 4 -10 -3 9 2 -2",
+        "exampleOutput": "pe",
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}

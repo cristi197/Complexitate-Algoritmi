@@ -1,0 +1,172 @@
+{
+  "id": "2023-sesiunea-special-subiect",
+  "year": 2023,
+  "session": "Sesiunea specială",
+  "type": "special",
+  "pdfUrl": "/subiecte-bac/2023/2023-sesiunea-special-subiect.pdf",
+  "baremUrl": "/subiecte-bac/2023/2023-sesiunea-special-barem.pdf",
+  "variant": 6,
+  "language": "C/C++",
+  "subiectI": {
+    "points": 20,
+    "questions": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi m ș i n memoreaz ă câte un num ă r natural. Indica ț i expresia C/C++ care are valoarea 1 dac ă ș i numai dac ă fiecare dintre numerele memorate în variabilele m ș i n este par.",
+        "options": {
+          "a": "(m+n)%2==0",
+          "b": "(m-n)%2==0",
+          "c": "m%2+n%2==0",
+          "d": "m%2-n%2==0"
+        },
+        "correctAnswer": "c"
+      },
+      {
+        "nr": 2,
+        "text": "Subprogramul f este definit al ă turat. Indica ț i valoarea f(35,3) . int f(int n,int k) { if(n==0 || k==0) return 0; return n%k+10*f(n/k,k); }",
+        "options": {
+          "a": "1022",
+          "b": "355",
+          "c": "102",
+          "d": "33"
+        },
+        "correctAnswer": "a"
+      },
+      {
+        "nr": 3,
+        "text": "Variabila p , declarat ă al ă turat, memoreaz ă dimensiunile unui paralelipiped dreptunghic: lungimea, l ăț imea, respectiv în ă l ț imea. struct paralelipiped { float lg,lt,h; }p; Volumul paralelipipedului este egal cu produsul celor trei dimensiuni ale sale. Indica ț i o instruc ț iune prin care i se atribuie variabilei reale v valoarea volumului paralelipipedului corespunz ă tor variabilei p .",
+        "options": {
+          "a": "v=lg*lt*h;",
+          "b": "v=lg.p*lt.p*h.p;",
+          "c": "v=p(lg*lt*h);",
+          "d": "v=p.lg*p.lt*p.h;"
+        },
+        "correctAnswer": "d"
+      },
+      {
+        "nr": 4,
+        "text": "Utilizând metoda bactracking se genereaz ă toate ș irurile de 5 litere distincte din mul ț imea { A , M , U , R , G }, astfel încât în fiecare ș ir litera R precede literele A ș i M . Primele cinci solu ț ii generate sunt, în aceast ă ordine: URAMG , URAGM , URMAG , URMGA , URGAM . Indica ț i solu ț ia generat ă imediat dup ă GURMA .",
+        "options": {
+          "a": "GARUM",
+          "b": "GRAMU",
+          "c": "GRAUM",
+          "d": "GRUAM"
+        },
+        "correctAnswer": "b"
+      },
+      {
+        "nr": 5,
+        "text": "Într-o zon ă sunt 23 de obiective turistice, numerotate de la 1 la 23 ; zona este reprezentat ă ca un graf orientat în care vârfurile corespund acestor obiective, iar arcele sunt stabilite în func ț ie de modalitatea de deplasare între dou ă obiective, astfel: de la fiecare obiectiv numerotat cu i ( i ∈ [1,23] ) se poate merge direct doar la obiectivul numerotat cu 2*i , dac ă acesta exist ă , sau doar la obiectivul numerotat cu i-1 , în caz contrar. Indica ț i num ă rul maxim de vârfuri ale unui drum elementar în acest graf, cu extremitatea ini ț ial ă 1 .",
+        "options": {
+          "a": "5",
+          "b": "11",
+          "c": "16",
+          "d": "21"
+        },
+        "correctAnswer": "c"
+      }
+    ]
+  },
+  "subiectII": {
+    "points": 40,
+    "problems": [
+      {
+        "nr": 1,
+        "type": "pseudocode",
+        "pseudocode": "",
+        "subQuestions": [
+          {
+            "id": "d",
+            "text": "cite ș te n (num ă r natural nenul) ┌ pentru i  1,n execut ă │┌ pentru j  1,n execut ă ││┌ dac ă j ≤ i atunci │││ scrie 2 │││ altfel │││ scrie 3 ││└■ │└■ └■",
+            "points": null,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "a",
+            "text": "Scrie ț i ce se afi ș eaz ă în urma execut ă rii algoritmului, dac ă se cite ș te num ă rul 3 .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "b",
+            "text": "Scrie ț i dou ă numere care pot fi citite, astfel încât, în urma execut ă rii algoritmului, pentru fiecare dintre acestea, în total, num ă rul de cifre 2 afi ș ate s ă fie în intervalul [20,50] .",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          },
+          {
+            "id": "c",
+            "text": "Scrie ț i programul C/C++ corespunz ă tor algoritmului dat.",
+            "points": 10,
+            "type": "code",
+            "correctAnswer": null
+          },
+          {
+            "id": "d",
+            "text": "Scrie ț i în pseudocod un algoritm, echivalent cu cel dat, înlocuind una dintre structurile pentru...execut ă cu o structur ă de tip cât timp...execut ă . Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 6 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2",
+            "points": 6,
+            "type": "written",
+            "correctAnswer": null
+          }
+        ],
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "type": "problem",
+        "text": "Un arbore cu 8 noduri, numerotate de la 1 la 8 , este reprezentat prin vectorul de „ta ț i\" ( 0,1,1,2,2,4,5,1 ). Enumera ț i to ț i descenden ț ii nodului numerotat cu 2 .",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "type": "problem",
+        "text": "Un ș ir de caractere a este numit prefix al unui ș ir de caractere b dac ă este identic cu b sau dac ă b se ob ț ine din a prin ad ă ugarea la dreapta a unor alte caractere. Variabila k este de tip întreg, iar variabila s permite accesul la un ș ir de cel mult 20 de caractere. Scrie ț i secven ț a de instruc ț iuni de mai jos, înlocuind punctele de suspensie astfel încât, în urma execut ă rii secven ț ei ob ț inute, s ă se afi ș eze pe ecran, în ordinea descresc ă toare a lungimii, separate prin câte un spa ț iu, toate prefixele ș irului accesat prin variabila s , fiecare încheindu-se cu prima liter ă a ș irului s , ca în exemplu. Declara ț i eventualele alte variabile utilizate. Exemplu : pentru ș irul elemente se afi ș eaz ă : elemente eleme ele e for(k=strlen(s)-1;k>=0;k--) {..................}",
+        "points": 6,
+        "type2": "written",
+        "correctAnswer": null
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "problems": [
+      {
+        "nr": 1,
+        "text": "Subprogramul Putere are trei parametri: • n , prin care prime ș te un num ă r natural ( n ∈ [2,10 9 ] ); • x ș i p , prin care furnizeaz ă dou ă numere naturale cu proprietatea c ă n=x p , iar x este cel mai mic num ă r cu aceast ă proprietate. Scrie ț i defini ț ia complet ă a subprogramului. Exemplu: dac ă n=16 atunci, dup ă apel, x=2 ș i p=4 , dac ă n=216 atunci, dup ă apel, x=6 ș i p=3 , iar dac ă n=12 atunci, dup ă apel, x=12 ș i p=1 .",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "La o expozi ț ie sunt prezentate mai multe tipuri de flori, fiecare având un anumit cod. Zona de expunere este organizat ă pe n rânduri, fiecare având câte n parcele de dimensiune egal ă . Pe primul rând sunt expuse n tipuri de flori distincte, fiecare parcel ă con ț inând flori de un anumit tip. Celelalte parcele sunt ocupate astfel: • toate parcelele aflate în dreapta diagonalei secundare a zonei de expunere sunt ocupate de gazon; • fiecare parcel ă , aflat ă pe diagonala secundar ă a zonei de expunere sau în stânga acestei diagonale, con ț ine flori cu un cod de cel mult dou ă cifre, ob ț inut din ultimele dou ă cifre ale sumei codurilor florilor aflate în dou ă parcele de pe rândul anterior, ș i anume cea de pe aceea ș i coloan ă , respectiv cea de pe coloana din dreapta sa; dac ă prima dintre cifrele codului ob ț inut este 0 , ea este ignorat ă , ca în exemplu. Scrie ț i un program C/C++ care cite ș te de la tastatur ă un num ă r natural, n ( n ∈ [2,20] ), apoi n numere naturale distincte din intervalul [0,10 2 ) , reprezentând, în aceast ă ordine, de la stânga la dreapta, codurile florilor din parcelele aflate pe primul rând al zonei de expunere; gazonul are codul - 1 . Programul construie ș te în memorie un tablou bidimensional cu n linii ș i n coloane, în care fiecare linie corespunde unui rând de parcele ș i fiecare element al liniei corespunde unei parcele, în ordinea acestora, ș i memoreaz ă codul plantelor (flori sau gazon) plasate în acea parcel ă . Programul afi ș eaz ă pe ecran tabloul ob ț inut, fiecare linie a tabloului pe câte o linie a ecranului, elementele de pe aceea ș i linie fiind separate prin câte un spa ț iu. Exemplu: dac ă se citesc numerele n=5 , apoi 90 , 10 , 4 , 27 , 30 se ob ț ine tabloul al ă turat. 90 10 4 27 30 0 14 31 57 -1 14 45 88 -1 -1 59 33 -1 -1 -1 92 -1 -1 -1 -1",
+        "points": 10,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      },
+      {
+        "nr": 3,
+        "text": "Intervalul [x,y] se nume ș te p - interval pentru un ș ir de valori întregi, dac ă oricare dintre primii p termeni ai ș irului apar ț ine intervalului, iar num ă rul de valori întregi distincte din interval este minim. Exemplu: pentru ș irul 2 , 7 , -1 , 8 , 3 , 10 exist ă [2,2] ca 1 -interval, [-1,8] ca 4 -interval ș i 5 -interval etc. Fi ș ierul bac.in con ț ine un ș ir de cel mult 10 6 numere întregi din intervalul [-10 9 ,10 9 ] , separate prin câte un spa ț iu. Se cere s ă se afi ș eze pe ecran cea mai mic ă ș i cea mai mare valoare a lui p ( p ≥ 2 ) cu proprietatea c ă (p-1)- interval este identic cu p -interval pentru ș irul aflat în fi ș ier. Valorile afi ș ate pot fi egale, iar dac ă nu exist ă nicio astfel de valoare, pe ecran se afi ș eaz ă mesajul nu exista . Proiecta ț i un algoritm eficient din punctul de vedere al timpului de executare ș i al memoriei utilizate. Exemplu: dac ă fi ș ierul con ț ine numerele 2 7 1 8 3 10 6 -3 -2 13 , se afi ș eaz ă pe ecran 5 9 (intervale conform cerin ț ei se ob ț in pentru valorile 5 , 7 ș i 9 ale lui p ), iar dac ă fi ș ierul con ț ine numerele 2 7 1 0 8 10 -3 13 , se afi ș eaz ă pe ecran nu exista a. Descrie ț i în limbaj natural algoritmul proiectat, justificând eficien ț a acestuia. b. Scrie ț i programul C/C++ corespunz ă tor algoritmului proiectat. (8p.)",
+        "points": 2,
+        "type": "code",
+        "exampleInput": null,
+        "exampleOutput": null,
+        "testCases": [],
+        "functionSignature": null,
+        "correctAnswer": null
+      }
+    ]
+  }
+}
