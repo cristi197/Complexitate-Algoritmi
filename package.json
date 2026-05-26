@@ -17,5 +17,8 @@
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "^5.7.284",
     "tailwindcss": "^4.1.6"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
