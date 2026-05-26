@@ -18,7 +18,7 @@ var SEARCH_INDEX = [
   { title: 'Teoria Grafurilor',           subtitle: 'BFS, DFS, componente conexe, formule',   url: 'grafuri',    icon: '🕸️' },
   { title: 'Exerciții & Filtrare',        subtitle: 'Quiz-uri BAC pe capitol și dificultate', url: 'exercitii', icon: '📝', isPage: true },
   { title: 'Analiză BAC cu AI',           subtitle: 'Analizează subiectul tău cu AI',        url: 'analiza-bac', icon: '🤖', isPage: true },
-  { title: 'Simulator Trasare',           subtitle: 'Urmărește pas cu pas execuția unui algoritm', url: 'trasare', icon: '🔍', isPage: true },
+  { title: 'Debug Live',                  subtitle: 'Urmărește pas cu pas execuția unui algoritm', url: 'debug-live', icon: '🔍', isPage: true },
   { title: 'Cheat Sheet',                 subtitle: 'Referință rapidă printabilă',            url: 'cheat-sheet', icon: '📄', isPage: true },
   { title: 'Editor C++ Online',           subtitle: 'Scrie și compilează C++ în browser',     url: 'editor', icon: '⌨️', isPage: true },
   { title: 'Examen Alb 3h',               subtitle: 'Simulare completă BAC la timp',          url: 'examen-alb', icon: '⏱️', isPage: true },

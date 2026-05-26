@@ -16,6 +16,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
+const normalizedBase = base.replace(/\/$/, '');
 const siteOrigin = 'https://cristi197.github.io';
 const siteBase   = `${siteOrigin}/Complexitate-Algoritmi`;
 const canonicalURL = `${siteOrigin}${Astro.url.pathname}`;
@@ -105,9 +106,9 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
 
   <slot />
 
-  <script is:inline>
+  <script is:inline define:vars={{ normalizedBase }}>
     // Expose base URL for search.js (normalized, no trailing slash)
-    window.__BASE_URL = {JSON.stringify(base.replace(/\/$/, ''))};
+    window.__BASE_URL = normalizedBase;
   </script>
   <script is:inline src={`${base}/js/search.js`}></script>
   <script is:inline src={`${base}/js/progress.js`}></script>
