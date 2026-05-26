@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-080",
+  "year": 2009,
+  "variant": 80,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 238,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele n, z și u sunt întregi, iar n memorează un număr natural cu cel puțin 2 cifre. Secvența C/C++ care determină interschimbarea ultimelor două cifre din scrierea numărului memorat de n este:",
+        "options": {
+          "a": "n=(n/100*10+n%10)*10+n%100/10;",
+          "b": "u=n%10; z=n/100%10; n=n/100+u*10+z;",
+          "c": "n=(n/100*10+n%10)*10+n/100%10;",
+          "d": "u=n%10; z=n/100%10; n=n/100*100+z*10+u;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, reprezentat în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a (număr natural) bÅ0 pÅ1 ┌cât timp a>0 execută │ cÅa%10 │ ┌dacă c%2≠0 atunci │ │ bÅb+p*c │ │ pÅp*10 │ └■ │ aÅ[a/10] └■ scrie b Varianta 80",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa dacă se citește numărul a=245903.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare care poate fi citită pentru variabila a astfel încât să se afișeze o valoare egală cu cea citită.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp…execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența de program alăturată, variabila a memorează o matrice cu 8 linii și 8 coloane (numerotate de la 1 la 8), cu elemente numere întregi, iar toate celelalte variabile sunt întregi. Ce valoare va avea elementul a[8][8] după executarea secvenței? for(i = 1; i<=8; i++) { k=i; for(j = 1; j<=8; j++) { a[i][j]=k; k=k+1; } }",
+        "options": {
+          "a": "16",
+          "b": "15",
+          "c": "64",
+          "d": "10 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră o listă simplu înlănțuită, alocată dinamic, în care fiecare nod memorează în câmpul nr o valoare întreagă și în câmpul urm adresa nodului următor sau NULL dacă este ultimul nod din listă. În listă sunt memorate, în această ordine, valorile 8, 5, 4, 6, 3, 7, 2. Variabila prim reține adresa primului element din listă, variabila p este de același tip cu variabila prim, iar variabila s este de tip întreg. Ce valoare se va afișa în urma executării secvenței de program alăturate? p=prim; s=0; while(p->urm!=NULL) { if(p->nr%2==0) s=s+p->nr; p=p->urm->urm; } printf(”%d”,s); | cout<<s;",
+        "options": {
+          "a": "18",
+          "b": "20",
+          "c": "12",
+          "d": "14"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Un graf orientat are 8 arce și fiecare nod al grafului are gradul exterior un număr nenul. Doar două dintre noduri au gradul exterior un număr impar, restul având gradele exterioare numere pare. Care este numărul maxim de noduri pe care le poate avea graful? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră graful neorientat cu 6 noduri, numerotate cu 1, 2, 3, 4, 5, 6, și 9 muchii dat prin listele de adiacență alăturate. a) Care este cel mai scurt lanț cu o extremitate în nodul 1 și cealaltă extremitate în nodul 3? (3p.) b) Care este numărul maxim de muchii ce pot fi eliminate astfel încât graful parțial obținut să rămână conex? (3p.) 1: 2,5,6 2: 1,3,4 3: 2,4,6 4: 2,3,5 5: 1,4,6 6: 1,3,5",
+        "points": 3
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un cuvânt cu cel puțin una și cel mult 20 de litere ale alfabetului englez, construiește și afișează pe ecran cuvântul obținut prin interschimbarea primei consoane cu ultima vocală din cuvânt. În cazul în care cuvântul este format numai din vocale sau numai din consoane, programul afișează pe ecran mesajul IMPOSIBIL. Se consideră vocale literele a, e, i, o, u, A, E, I, O, U. Exemplu: dacă se citește cuvântul Marmorat se va obține și afișa cuvântul aarmorMt (10p.) Varianta 80",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "O clasă de 28 de elevi este la ora de educație fizică și profesorul dorește să formeze o echipă de 4 elevi. Ordinea elevilor în cadrul echipei nu are importanță. Algoritmul de generare a tuturor posibilităților de a forma o asfel de echipă este similar cu algoritmul de generare a tuturor:",
+        "options": {
+          "a": "aranjamentelor de 28 de elemente luate câte 4",
+          "b": "combinărilor de 28 de elemente luate câte 4",
+          "c": "partițiilor unei mulțimi cu28 de elemente",
+          "d": "elementelor produsului cartezian"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului sub, ce valoare are sub(9)? Dar sub(132764)? (6p.) int sub(long n) {if (n!=0) if(n%2!=0) return n%10+sub(n/10); else return sub(n/10); else return 0; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text bac.in conține cel mult 1000 de numere naturale cu cel mult patru cifre fiecare, despărțite prin câte un spațiu. Scrieți programul C/C++ care citește numerele din fișier și afișează pe ecran, în ordine crescătoare, acele numere din fișier care au toate cifrele egale. Dacă fișierul nu conține niciun astfel de număr, se va afișa pe ecran mesajul NU EXISTA. Exemplu: dacă fișierul bac.in conține numerele: 30 44 111 7 25 5 atunci pe ecran se va afișa 5 7 44 111. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți definiția completă a unui subprogram divi cu doi parametri, care primește prin intermediul parametrului n un număr natural nenul cu cel mult 6 cifre și returnează prin intermediul parametrului d cel mai mic divizor propriu al lui n sau 0 in cazul în care n nu are niciun divizor propriu. De exemplu, pentru n=15, d va avea valoarea 3. (4p.) b) Scrieți programul C/C++ care citește de la tastatură un număr natural nenul n (1<n<1000000) și afișează pe ecran cel mai mare numar natural mai mic decât n care îl divide pe n. Se vor folosi apeluri utile ale subprogramului divi. Exemple: dacă n=120, se afișează pe ecran 60, iar dacă n=43, se afișează 1. (6p.) Varianta 80",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a unui subprogram divi cu doi parametri, care primește prin intermediul parametrului n un număr natural nenul cu cel mult 6 cifre și returnează prin intermediul parametrului d cel mai mic divizor propriu al lui n sau 0 in cazul în care n nu are niciun divizor propriu. De exemplu, pentru n=15, d va avea valoarea 3.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural nenul n (1<n<1000000) și afișează pe ecran cel mai mare numar natural mai mic decât n care îl divide pe n. Se vor folosi apeluri utile ale subprogramului divi. Exemple: dacă n=120, se afișează pe ecran 60, iar dacă n=43, se afișează 1.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "id": "2009-varianta-061",
+  "year": 2009,
+  "variant": 61,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 181,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi x și y memorează două numere naturale cu cel mult 4 cifre fiecare. Care dintre expresiile de mai jos are valoarea 1, dacă și numai dacă valoarea memorată de x aparține intervalului [10,100] și valoarea memorată de y aparține intervalului [5,30]?",
+        "options": {
+          "a": "(x<=100 && x>10) && (y>=5 || y<30)",
+          "b": "(x<=100 && x>=10) && (y<5 && y<=30)",
+          "c": "(x<=100 && x>=10)|| (y>=5 && y<=30)",
+          "d": "!((x>100 || x<10) || (y<5 || y>30))"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z], partea întreagă a numărului real z.",
+      "pseudocode": "citește a,b (numere naturale care au același număr de cifre ) nÅ0 ┌cât timp a≠b execută │ xÅa%10 │ yÅb%10 │┌dacă x<y atunci ││ nÅn*10+x ││altfel ││ nÅn*10+y │└■ │ aÅ[a/10] │ bÅ[b/10] └■ scrie n Varianta 61",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce valoare se va afișa dacă se citesc numerele a=8231 și b=3074.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți câte perechi de numere formate din câte o singură cifră pot fi citite pentru a și b (a>b), astfel încât, de fiecare dată, valoarea afișată să fie nenulă?",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care structura cât timp...execută să fie înlocuită cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul minim de muchii pe care le poate avea graful neorientat G, dacă graful din figura 1 reprezintă un subgraf al lui G, iar graful reprezentat în figura 2 este graf parțial al lui G? (Figura 1) (Figura 2)",
+        "options": {
+          "a": "8",
+          "b": "7",
+          "c": "5",
+          "d": "6 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care vor fi valorile afișate după executarea secvenței de program alăturate? char s1[20]=”algoritm”, s2[20]=”bioritm”,s3[20]=”ritm”; if (strlen(s1)< strlen(s2)) strcat(s3,s1); else strcat(s3,s2); printf(”%s %s %s”,s1,s2,s3); | cout<<s1<<’ ’<<s2<<’ ’<<s3;",
+        "options": {
+          "a": "algoritmritm bioritm ritm",
+          "b": "algoritm bioritm ritmalgoritm",
+          "c": "algoritm bioritm ritmbioritm",
+          "d": "algoritm bioritmritm ritm"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arbore cu rădăcină, cu 100 noduri, numerotate de la 1 la 100. Dacă nodul 13 are exact 14 frați și nodul 100 este tatăl nodului 13, care este numărul total de descendenți direcți (fii) ai nodului 100? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră o stivă, inițial vidă, în care s-au introdus în ordine valorile 1, 2, 3 și o coadă, inițial vidă, în care au fost introduse, în ordine, valorile 6, 5,",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Care va fi valoarea elementului din vârful stivei dacă se extrag toate elementele din coadă și se adaugă, în ordinea extragerii, în stiva dată? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n≤15) și construiește în memorie o matrice pătrată cu n linii și n coloane în care ultima linie conține, în ordine, numerele 1,2,3,..,n, elementele situate deasupra diagonalei principale sunt nule și oricare alt element este obținut prin însumarea elementelor vecine cu el, aflate pe linia imediat următoare, pe aceeași coloană cu el sau pe una din coloanele alăturate. Programul va afișa pe ecran matricea obținută pe n linii, elementele fiecărei linii fiind separate prin câte un spațiu. Exemplu: pentru n=4 pe ecran se va afișa: (10p.) 27 0 0 0 9 18 0 0 3 6 9 0 1 2 3 4 Varianta 61",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Generarea matricelor pătratice de ordinul n, cu elemente 0 și 1, cu proprietatea că pe fiecare linie și pe fiecare coloană există un singur element egal cu 1, se poate realiza utilizând metoda backtracking. Algoritmul utilizat este echivalent cu algoritmul de generare a:",
+        "options": {
+          "a": "combinărilor",
+          "b": "permutărilor",
+          "c": "aranjamentelor",
+          "d": "produsului cartezian"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră tabloul unidimensional a definit global, ce memorează elementele a1=12, a2=35, a3=2, a4=8 și subprogramul f, definit alăturat. Ce valoare are f(1)? Dar f(4)? (6p.) int f(int x) {if(x>=1) return (a[x]+f(x-1))%10; else return 0; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul cifra primește prin parametrul x un număr real nenul pozitiv și furnizează prin parametrul y valoarea cifrei unităților părții întregi a lui x. Exemplu: dacă x=34.567, după apel y=",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți definiția completă a subprogramului cifra. (6p.) b) Scrieți un program C/C++ care citește de la tastatură două numere reale cu cel mult două zecimale, numere reprezentând mediile semestriale obținute de un elev. Programul stabilește, folosind apeluri utile ale subprogramului cifra, dacă cele două medii citite se află în aceeași categorie de medii sau nu. Precizăm că orice medie, în funcție de intervalul în care se încadrează, face parte din una dintre categoriile: [3,3.99], [4,4.99], [5,5.99], [6,6.99], [7,7.99], [8,8.99] sau [9,10]. În cazul în care ambele medii fac parte din aceeași categorie, programul va afișa mesajul Da, altfel va afișa mesajul Nu. (4p.) 4. În fișierul text.in se află un text scris pe mai multe linii, pe fiecare linie fiind caractere diverse: litere mici ale alfabetului englez, cifre, spații și semne de punctuație. Găsiți o metodă eficientă din punctul de vedere al timpului de executare și al gestionării memoriei ce permite afișarea celor mai frecvente perechi de vocale alăturate din text. Menționăm că vocalele sunt: a, e, i, o și u. De exemplu, dacă text.in conține textul: Aleea ce strabate valea e-o unduire de pietris scanteietor, De-aceea nu stii daca zboara sau doar inoata in unde aurii cele mai frecvente perechi de vocale întâlnite în acest text sunt: ea și oa (ele apar de 3 ori, spre deosebire de alte perechi de vocale alăturate care apar de mai puține ori).",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului cifra.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care citește de la tastatură două numere reale cu cel mult două zecimale, numere reprezentând mediile semestriale obținute de un elev. Programul stabilește, folosind apeluri utile ale subprogramului cifra, dacă cele două medii citite se află în aceeași categorie de medii sau nu. Precizăm că orice medie, în funcție de intervalul în care se încadrează, face parte din una dintre categoriile: [3,3.99], [4,4.99], [5,5.99], [6,6.99], [7,7.99], [8,8.99] sau [9,10]. În cazul în care ambele medii fac parte din aceeași categorie, programul va afișa mesajul Da, altfel va afișa mesajul Nu. 4. În fișierul text.in se află un text scris pe mai multe linii, pe fiecare linie fiind caractere diverse: litere mici ale alfabetului englez, cifre, spații și semne de punctuație. Găsiți o metodă eficientă din punctul de vedere al timpului de executare și al gestionării memoriei ce permite afișarea celor mai frecvente perechi de vocale alăturate din text. Menționăm că vocalele sunt: a, e, i, o și u. De exemplu, dacă text.in conține textul: Aleea ce strabate valea e-o unduire de pietris scanteietor, De-aceea nu stii daca zboara sau doar inoata in unde aurii cele mai frecvente perechi de vocale întâlnite în acest text sunt: ea și oa (ele apar de 3 ori, spre deosebire de alte perechi de vocale alăturate care apar de mai puține ori).",
+            "points": 4
+          },
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare aleasă, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător metodei descrise la cerința a.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

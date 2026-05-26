@@ -1,0 +1,154 @@
+{
+  "id": "2009-varianta-036",
+  "year": 2009,
+  "variant": 36,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 106,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența de instrucțiuni alăturată, variabilele x și y sunt de tip int. Care este valoarea pe care trebuie să o aibă inițial variabila x dacă la finalul executării secvenței s-a afișat un singur caracter asterisc (*)? y=x; while(x<=3) { cout<<\"*\"; | printf(\"*\"); y=y+1; x=x+y; }",
+        "options": {
+          "a": "0",
+          "b": "2",
+          "c": "1",
+          "d": "4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "sÅ0 citește v (valoare naturală) ┌cât timp v ≠ 0 execută │ a Å v%10 │ b Å [v/10]%10 │ s Å s + a*10 + b │ citește v └■ scrie s",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce valoare se va afișa dacă se citesc, în ordine, următoarele valori : 114, 123, 517, 3312, 14, 412, 22, 0.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți ce valoare se va afișa dacă se",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că în urma executării secvenței alăturate s-a afișat succesiunea de caractere EXAMEN, care este șirul de caractere memorat de variabila s? (6p.) x=strlen(s); for (i=0;i<x/2;i++) cout<<s[i]<<s[x-i-1]; | printf(“%c%c”,s[i],s[x-i-1]); a. ENXAME b. EAENMX c. NEEXMA d. NEMAXE 2. Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul adr adresa următorului element din listă sau NULL dacă nu există un element următor, iar în câmpul info un număr întreg. Adresa primului element al listei este memorată în variabila p. Știind că lista conține exact 4 elemente, atunci expresia p->adr->info reprezintă:",
+        "options": {
+          "a": "adresa celui de al doilea element",
+          "b": "adresa celui de al treilea element",
+          "c": "valoarea memorată în al doilea element",
+          "d": "valoarea memorată"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf neorientat cu 7 noduri numerotate de la 1 la 7 și muchiile [1,2],[1,3],[2,3],[2,4],[2,5],[2,6],[4,6],[5,7],[6,7]. Care este numărul minim de muchii ce trebuie adăugate astfel încât graful să devină eulerian și care sunt aceste muchii? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Câte muchii trebuie eliminate dintr-un graf neorientat complet cu 20 de noduri, pentru ca graful parțial obținut să fie arbore? (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Se consideră o matrice cu n linii și m coloane (1≤n≤30, 1≤m≤30), ce memorează numere întregi de cel mult 4 cifre fiecare. Scrieți un program C/C++ care citește de la tastatură valorile n, m și elementele matricei și care afișează pe ecran, separate prin câte un spațiu, valorile minime de pe fiecare coloană, în ordine de la ultima la prima coloană. Exemplu: pentru n=4, m=4 și matricea alăturată se vor afișa pe ecran valorile 3 7 2",
+        "points": 10
+      },
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "(10p.) Varianta 36",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Subprogramul scif returnează suma cifrelor unui număr natural transmis ca parametru. Care este valoarea expresiei scif(scif(518)+scif(518))?",
+        "options": {
+          "a": "14",
+          "b": "10",
+          "c": "28",
+          "d": "1"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Utilizăm metoda backtracking pentru generarea tuturor modalităților de a scrie numărul 9 ca sumă a cel puțin două numere naturale nenule distincte. Termenii fiecărei sume sunt în ordine strict crescătoare. Soluțiile se generează în ordinea: 1+2+6, 1+3+5, 1+8, 2+3+4, 2+7, 3+6 și 4+5. Se aplică exact aceeași metodă pentru scrierea lui 12. Scrieți, în ordinea generării, toate soluțiile de forma 2+... (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul cifra primește prin intermediul parametrului a un număr natural cu cel mult 4 cifre și returnează ultima cifră pară a sa. Dacă numărul nu conține cifre pare, subprogramul returnează valoarea -1. De exemplu, dacă a=8345, subprogramul va returna",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Să se scrie definiția completă a subprogramului cifra. (10p.) b) Pe prima linie a fișierului bac.in se află un număr natural nenul n (n≤15000), iar pe a doua linie a fișierului se află un șir de n numere naturale, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișier și afișează pe ecran, folosind apeluri utile ale subprogramului cifra, cel mai mare număr care se poate forma cu ultimele cifre pare ale fiecărui element, dacă acestea există. Alegeți o metodă de rezolvare eficientă ca timp de executare. Dacă toate numerele de pe a doua linie a fișierului au numai cifre impare, programul va afișa mesajul NU EXISTA. Exemplu: dacă fișierul bac.in are conținutul alăturat, pe ecran se va afișa: 64220 (6p.) 7 369 113 2 0 33 1354 42 c) Descrieți succint în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 - 4 rânduri). (4p.) Varianta 36",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Să se scrie definiția completă a subprogramului cifra.",
+            "points": 10
+          },
+          {
+            "id": "b",
+            "text": "Pe prima linie a fișierului bac.in se află un număr natural nenul n (n≤15000), iar pe a doua linie a fișierului se află un șir de n numere naturale, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișier și afișează pe ecran, folosind apeluri utile ale subprogramului cifra, cel mai mare număr care se poate forma cu ultimele cifre pare ale fiecărui element, dacă acestea există. Alegeți o metodă de rezolvare eficientă ca timp de executare. Dacă toate numerele de pe a doua linie a fișierului au numai cifre impare, programul va afișa mesajul NU EXISTA. Exemplu: dacă fișierul bac.in are conținutul alăturat, pe ecran se va afișa: 64220 7 369 113 2 0 33 1354 42",
+            "points": 6
+          },
+          {
+            "id": "c",
+            "text": "Descrieți succint în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 - 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

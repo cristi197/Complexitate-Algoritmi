@@ -1,0 +1,149 @@
+{
+  "id": "2009-varianta-028",
+  "year": 2009,
+  "variant": 28,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 82,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte valori distincte, numere naturale, poate primi variabila x pentru ca valoarea expresiei x/2/2 scrisă în C/C++ să fie egală cu 1?",
+        "options": {
+          "a": "1",
+          "b": "4",
+          "c": "2",
+          "d": "0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu [x]partea întreagă a numărului real x.",
+      "pseudocode": "citeste x (număr real pozitiv) yÅ[x] xÅx-y ┌cât timp x≠[x] execută │ xÅx*10 └■ ┌dacă x=y atunci │ scrie 1 │altfel │ scrie 2 └■ Varianta 28",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea afișată dacă se citește numărul 120.12.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți un număr real, cu exact două cifre la partea întreagă, care poate fi citit pentru x, astfel încât algoritmul să afișeze valoarea 1.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul minim de muchii ce pot fi eliminate din graful alăturat astfel încât în graful parțial rezultat să existe exact un vârf de grad 0? (6p.) a. 1 b. 3 c. 2 d. 5 2. Într-un arbore cu rădăcină nivelul unui nod este egal cu lungimea lanțului format din noduri distincte care unește rădăcina cu acel nod. Rădăcina se află pe nivelul 0. Dacă toate frunzele se află pe nivelul 3 și oricare nod neterminal aflat pe un nivel k are exact k+1 descendenți direcți (fii), care este numărul de noduri din acest arbore ?",
+        "options": {
+          "a": "8",
+          "b": "9",
+          "c": "10",
+          "d": "6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Într-un tablou bidimensional A, cu n linii și n coloane, notăm cu Aij elementul aflat pe linia i și coloana j (1≤i≤n, 1≤j≤n). Care este valoarea expresiei j-i dacă elementul Aij este situat pe diagonala principală a tabloului A? (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul nr al fiecărui element câte un număr natural, iar în câmpul urm, adresa elementului următor din listă sau NULL dacă nu există un element următor. Lista memorează, în acestă ordine, doar numerele: elementele 1, 2, 3, 4,",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Știind că variabila prim memorează adresa primului element al listei și că p este o variabilă de același tip cu prim, care sunt, în ordine, numerele memorate în elementele listei după executarea secvenței de program alăturate? (6p.) p=prim; x=p->nr; while(p->urm!=NULL) {p->nr = p->urm->nr; p=p->urm; } p->nr=x;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Șirul de caractere s2 este “clona” șirului de caractere s1 dacă se poate obține din s1 prin eliminarea tuturor aparițiilor unei singure vocale. Se consideră vocală orice literă din mulțimea {a,e,i,o,u}. Scrieți programul C/C++ care citește de la tastatură un cuvânt format din cel mult 20 litere mici ale alfabetului englez și afișează pe ecran (dacă există), toate “clonele” acestui cuvânt, fiecare pe câte o linie a ecranului. Exemplu: pentru cuvântul informatica se afișează, nu neapărat în această ordine, “clonele” scrise alăturat. (10p.) nformatca infrmatica informtic Varianta 28",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Generarea tuturor cuvintelor de trei litere mici, nu neapărat distincte, ale alfabetului englez, se poate realiza cu ajutorul unui algoritm echivalent cu cel de generare a:",
+        "options": {
+          "a": "produsului cartezian",
+          "b": "combinărilor",
+          "c": "aranjamentelor",
+          "d": "permutărilor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f este definit alăturat. Ce valoare are f(8,4)? (4p.) int f (int x,int y) { if(x<y)return 1+f(x+1,y); if(y<x)return 1+f(y+1,x); return 1; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n din intervalul [2,50] și apoi n numere reale și afișează pe ecran câte dintre cele n numere reale sunt egale cu media aritmetică a celorlalte n-1 numere reale. (6p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți definiția completă a unui subprogram primul, care - primește prin singurul său parametru, a, o valoare naturală din intervalul [2,10000] - returnează o valoare naturală reprezentând cel mai mic divizor al numărului a mai mare strict decât 1. (6p.) b) Fișierul text NUMERE.IN conține pe prima linie un număr natural nenul n(1≤n≤100) și pe următoarea linie n numere naturale din intervalul [2,10000] separate prin câte un spațiu. Un număr natural n se numește „aproape prim” dacă este egal cu produsul a două numere prime distincte. De exemplu, numărul 14 este „aproape prim” pentru că este egal cu produsul numerelor prime 2 și 7. Scrieți un program C/C++ care determină, folosind apeluri utile ale suprogramului primul, cel mai mare număr „aproape prim” de pe linia a doua a fișierului NUMERE.IN. În cazul în care există un astfel de număr se afișează pe ecran mesajul DA, urmat de numărul determinat, iar în caz contrar mesajul NU. Exemplu: dacă fișierul NUMERE.IN are conținutul: 6 100 14 21 8 77 35 atunci se afișează pe ecran DA 77 pentru că numărul 77 este cel cel mai mare dintre numerele „aproape prime” din fișier (14=7*2,21=7*3,77=7*11, 35=7*5). (10p.) Varianta 28",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a unui subprogram primul, care - primește prin singurul său parametru, a, o valoare naturală din intervalul [2,10000] - returnează o valoare naturală reprezentând cel mai mic divizor al numărului a mai mare strict decât 1.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Fișierul text NUMERE.IN conține pe prima linie un număr natural nenul n(1≤n≤100) și pe următoarea linie n numere naturale din intervalul [2,10000] separate prin câte un spațiu. Un număr natural n se numește „aproape prim” dacă este egal cu produsul a două numere prime distincte. De exemplu, numărul 14 este „aproape prim” pentru că este egal cu produsul numerelor prime 2 și 7. Scrieți un program C/C++ care determină, folosind apeluri utile ale suprogramului primul, cel mai mare număr „aproape prim” de pe linia a doua a fișierului NUMERE.IN. În cazul în care există un astfel de număr se afișează pe ecran mesajul DA, urmat de numărul determinat, iar în caz contrar mesajul NU. Exemplu: dacă fișierul NUMERE.IN are conținutul: 6 100 14 21 8 77 35 atunci se afișează pe ecran DA 77 pentru că numărul 77 este cel cel mai mare dintre numerele „aproape prime” din fișier (14=7*2,21=7*3,77=7*11, 35=7*5).",
+            "points": 10
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "2009-varianta-054",
+  "year": 2009,
+  "variant": 54,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 160,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Cărui interval îi aparține valoarea memorată de variabila reală x astfel încât expresia următoare, scrisă în limbajul C/C++, să aibă valoarea 1? !((x<=1) || (x>50))",
+        "options": {
+          "a": "(1,50)",
+          "b": "(-∞,1] ∪ (50, ∞)",
+          "c": "[1,50)",
+          "d": "(1,50]"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește n (număr natural nenul) sÅ0 ┌cât timp n>0 execută │ cÅn%10 │ ┌dacă c%2=0 atunci │ │ pÅ1 │ │ ┌pentru iÅ2,c execută │ │ │ pÅp*i │ │ └■ │ │ sÅs+p │ └■ │ nÅ[n/10] └■ scrie s Varianta 54",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți care este valoarea afișată dacă se citește numărul 1234.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un număr natural, de exact 4 cifre, care poate fi citit pentru variabila n, astfel încât valoarea afișată să fie 3.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura repetitivă pentru...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră un graf neorientat complet cu 10 vârfuri. Câte lanțuri elementare distincte de lungime 3 există între vârful 2 și vârful 4? Două lanțuri sunt distincte dacă diferă prin cel puțin o muchie.",
+        "options": {
+          "a": "90",
+          "b": "28",
+          "c": "45",
+          "d": "56 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful orientat din figura alăturată. Câte dintre vârfurile grafului au gradul intern egal cu gradul extern?",
+        "options": {
+          "a": "3",
+          "b": "2",
+          "c": "1",
+          "d": "4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "În secvența alăturată, variabila x memorează un șir de caractere, iar toate celelalte variabile sunt de tip întreg. Ce valori au variabilele k1 și k2 după executarea secvenței de instrucțiuni alăturate? (6p.) strcpy(x,”bac2009”); k1=strlen(x); k2=0; for (i=0;i<strlen(x);i++) if( x[i]>=’0’ && x[i]<=’9’) k2=k2+1;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră lista liniară simplu înlănțuită, alocată dinamic, cu 6 noduri, reprezentată mai jos, în care fiecare nod conține în câmpul info un număr natural, iar în câmpul urm adresa nodului următor din listă sau NULL dacă nu există un nod următor. Dacă adresa primului nod este memorată în variabila prim, iar variabila p este de același tip cu prim, ce se afișează la executarea secvenței de mai jos? for(p=prim->urm;p->urm!=NULL;p=p->urm->urm) cout<<p->info<<” ”; | printf(”%d ”,p->info); (6p.) Scrieți un program C/C++ care citește de la tastatură un număr natural par, n (4≤n≤10), și un număr natural x, cu exact 3 cifre, și care construiește în memorie un tablou bidimensional cu n linii și n coloane, ce are elementele de pe diagonala principală egale cu prima cifră a numărului x, elementele de pe diagonala secundară egale cu ultima cifră a numărului x, iar restul elementelor egale cu cifra din mijloc a numărului x.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Tabloul bidimensional se va afișa pe ecran, câte o linie a tabloului pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. Exemplu: dacă se citesc de la tastatură n=4 și x=123 atunci se afișează tabloul alăturat. (10p.) 1 2 2 3 2 1 3 2 2 3 1 2 3 2 2 1 Varianta 54",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează în ordine lexicografică toate anagramele cuvântului caiet ( cuvinte formate din aceleași litere, eventual în altă ordine). Care este a șasea soluție?",
+        "options": {
+          "a": "catei",
+          "b": "actie",
+          "c": "actei",
+          "d": "catie"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f definit alaturat. Ce se afișează la apelul f(1)? (6p.) void f(int i) { if(i<=5){ cout<<i<<” ” ;| printf(”%d ”,i); f(i+1); cout<<i/2<<” ”;| printf(”%d ”,i/2); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Se consideră subprogramul inv, care primește prin intermediul primului parametru a un număr natural, cu minimum două cifre și maximum 8 cifre, și furnizează prin intermediul celui de-al doilea parametru, b, valoarea numărului natural format cu aceleași cifre ca și a, considerate în ordine inversă. De exemplu, pentru a=3805, după apel b va avea valoarea 5083., iar dacă a=3800, după apel b va avea valoarea 83. a) Scrieți definitia completă a subprogramului inv. (4p.) b) Scrieți un program C/C++ care citește de la tastatură un număr natural n de minimum două și maximum 8 cifre și afișează pe ecran un număr palindrom cu valoarea cea mai apropiată de valoarea lui n citită. În cazul în care există două astfel de numere, se va afișa cel mai mic dintre ele. Se vor folosi apeluri utile ale subprogramului inv. Spunem că un număr natural x este palindrom dacă numărul format din cifrele lui x considerate de la stânga către dreapta este același cu numărul format din cifrele lui x considerate de la dreapta către stânga. Exemplu: dacă n=16, atunci se afișează valoarea 11, dacă n=126, atunci se afișează 121, iar dacă a=33, atunci se afișează 33. (6p.) Fișierul text date.in conține pe prima linie un număr natural nenul n (n≤100), iar pe a doua linie un șir de n numere naturale nenule distincte, separate prin câte un spațiu, fiecare număr având maximum 8 cifre. a) Scrieți un program C/C++ care citește numerele din fișier și determină câte dintre comopnentele șirului citit pot fi scrise ca sumă a altor două numere din același șir. Rezultatul obținut se va afișa pe ecran. În cazul în care nu există niciun astfel de element, se va afișa valoarea 0. Exemplu: dacă fișierul date.in conține 6 1 10 25 2 15 3 atunci se va afișa valoarea 2 (deoarece 25=10+15, 3=1+2). (8p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "b) Descrieți pe scurt, în limbaj natural, metoda de rezolvare. (2p.) Varianta 54",
+        "subQuestions": [
+          {
+            "id": "b",
+            "text": "Descrieți pe scurt, în limbaj natural, metoda de rezolvare.",
+            "points": 2
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "id": "2009-varianta-062",
+  "year": 2009,
+  "variant": 62,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 184,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Toate variabilele din secvența de instrucțiuni C/C++ alăturată sunt întregi. Care dintre următoarele afirmații este adevarată? if (a>b) { aux=a;a=b; b=aux;} for(i=a;i<=b;i++) printf(“%d”,i); | cout<<i;",
+        "options": {
+          "a": "Secvența conține o instrucțiune repetitivă inclusă într-o instrucțiune alternativă.",
+          "b": "Secvența conține o instrucțiune alternativă urmată de o instrucțiune repetitivă.",
+          "c": "Secvența conține o instrucțiune alternativă, urmată de o instrucțiune repetitivă, urmată de o instrucțiune de afișare.",
+          "d": "Secvența conține o instrucțiune alternativă inclusă"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește x (număr natural) auxÅx tÅ1 ┌cât timp aux>9 execută │ auxÅaux/10 │ tÅt*10 └■ auxÅx ┌repetă │ cÅx%10 │ xÅ[x/10] │ xÅc*t+x │ scrie x └până când x=aux Varianta 62",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valorile care se afișează dacă se citește numărul x=1628.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare cu minimum 3 cifre ce poate fi citită pentru x, astfel încât toate numerele afișate să fie egale între ele.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care structura cât timp...execută să fie înlocuită cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele afirmații referitoare la graful neorientat G, reprezentat în figura alăturată, este adevărată?",
+        "options": {
+          "a": "Graful parțial al lui G obținut prin eliminarea muchiilor: [5,6], [2,5], [2,3], [2,10], [10,8], [1,3], este un arbore.",
+          "b": "Graful conține un singur ciclu.",
+          "c": "Cel mai lung lanț elementar are lungimea 8.",
+          "d": "Numărul nodurilor de grad par este egal cu numărul nodurilor de grad impar. 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Considerând declarările alăturate, care dintre următoarele referiri este corectă din punct de vedere sintactic ? struct complex {float re,im;}; complex x,y;",
+        "options": {
+          "a": "complex.re",
+          "b": "x.re",
+          "c": "complex.x",
+          "d": "re.x"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră graful orientat G, cu 6 vârfuri numerotate cu numerele de la 1 la 6, definit cu ajutorul listelor de adiacență alăturate. Construiți matricea de adiacență corespunzătoare grafului orientat G1, cu 6 vârfuri, în care există arc între vârfurile distincte i și j dacă și numai dacă în graful G există cel puțin un drum de la i la j. (6p.) 1: 2 6 2: 3 3: 4: 3 5: 4 6 6: 3",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră o stivă S1, inițial vidă, în care s-au introdus, în această ordine, valorile 10, 12, 3 și o altă stivă, S2, inițial vidă, în care au fost introduse, în această ordine, valorile 6, 5,",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Care va fi valoarea elementului din vârful stivei S1 și care va fi valoarea elementului din vârful stivei S2 dacă se extrag jumătate dintre elementele din stiva S2 și se adaugă, în ordinea extragerii, în stiva S1? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un text de cel mult 255 de caractere, dintre care cel puțin unul este o literă mică a alfabetului englez, și afișează pe ecran, pe o singură linie, despărțite prin câte un spațiu, toate literele mici ale alfabetului englez care apar în text. Fiecare literă va fi afișată o singură dată, în ordinea primei ei apariții în text. Exemplu: pentru textul: Calculati valoarea expresiei (10p.) Pe ecran se va afișa: a l c u t i v o r e x p s Varianta 62",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking pentru afișarea tuturor modalităților de descompunere a unui număr natural ca o sumă de numere naturale nenule, pentru n=3 se obțin, în ordine, soluțiile: 1+1+1; 1+2; 2+1; 3. Ordinea de scriere a termenilor dintr-o descompunere este semnificativă. Folosind aceeași metodă pentru n=10, care este soluția generată imediat după 1+1+3+5?",
+        "options": {
+          "a": "1+1+4+1+1+1+1",
+          "b": "1+1+7+1",
+          "c": "1+2+7",
+          "d": "1+1+4+4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Considerăm subprogramul f, definit alăturat. Care va fi valoarea variabilei globale x după apelul f(4962,x), dacă înainte de apel, x are valoarea 0? Dar dacă înainte de apel x are valoarea 52? (6p.) void f(int n,int &a) {int c; if(n!=0){ c=n%10; if(a<c) a=c; f(n/10,a); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a unui subprogram fibo cu doi parametri, n și v, care primește prin intermediul parametrului n un număr natural (1<n<30) și returnează prin intermediul parametrului v un tablou unidimensional care conține primii n termeni impari ai șirului lui Fibonacci (amintim că șirul lui Fibonacci este: 1,1,2,3,5,8,13,21,…). (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Fișierul date.in conține un șir de cel mult 10000 numere naturale (printre care cel puțin un număr par și cel puțin un număr impar), cu cel mult 2 cifre fiecare, separate prin câte un spațiu. Scrieți un program C/C++ care citește numerele din fișierul date.in și scrie în fișierul text date.out valorile distincte citite, separate prin câte un spațiu, respectându-se regula: pe prima linie vor fi scrise numerele impare în ordine crescătoare, iar pe linia a doua numerele pare, în ordine descrescătoare. Alegeți o metodă eficientă din punctul de vedere al timpului de executare. (6p.) Exemplu: dacă pe prima linie a fișierului date.in se află numerele: 75 12 3 3 18 75 1 3 atunci fișierul date.out va conține: 1 3 75 18 12 b) Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri). (4p.) Varianta 62",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Fișierul date.in conține un șir de cel mult 10000 numere naturale (printre care cel puțin un număr par și cel puțin un număr impar), cu cel mult 2 cifre fiecare, separate prin câte un spațiu. Scrieți un program C/C++ care citește numerele din fișierul date.in și scrie în fișierul text date.out valorile distincte citite, separate prin câte un spațiu, respectându-se regula: pe prima linie vor fi scrise numerele impare în ordine crescătoare, iar pe linia a doua numerele pare, în ordine descrescătoare. Alegeți o metodă eficientă din punctul de vedere al timpului de executare. Exemplu: dacă pe prima linie a fișierului date.in se află numerele: 75 12 3 3 18 75 1 3 atunci fișierul date.out va conține: 1 3 75 18 12",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

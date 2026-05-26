@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-098",
+  "year": 2009,
+  "variant": 98,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 292,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întreagă x memorează o valoare mai mare ca 1000, formată doar din cifre distincte. Care dintre următoarele instrucțiuni C/C++ afișează o singură cifră?",
+        "options": {
+          "a": "cout<<x/1; | printf(\"%d\",x/1);",
+          "b": "cout<<x/100; | printf(\"%d\",x/100);",
+          "c": "cout<<x%100; | printf(\"%d\",x%100);",
+          "d": "cout<<x%10/1;| printf(\"%d\",x%10/1);"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat reprezentat în pseudocod.",
+      "pseudocode": "citește n (număr întreg) ┌dacă n<0 atunci │ n Å -n └■ i Å 1 ┌cât timp i*i ≤ n execută │ i Å i+1 └■ scrie i-1",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce valoare se va afișa pentru n=10.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate valorile care pot fi citite pentru n astfel încât să se afișeze 4.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat care să nu utilizeze nicio structură repetitivă.",
+          "points": 4
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Fie graful orientat G cu 5 vârfuri, numerotate cu 1,2,3,4,5, și arcele (1,2), (1,3), (1,4), (2,3), (4,2), (4,5), (5,2), (2,4). Care dintre următoarele vârfuri au gradul extern egal cu gradul intern?",
+        "options": {
+          "a": "2 și 4",
+          "b": "4 și 5",
+          "c": "1 și 2",
+          "d": "3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "și 4 2. Ce se va afișa în urma executării secvenței de program alăturate, considerând că a este o variabilă de tip șir de caractere, iar i o variabilă de tip întreg? char a[10]=\"Examen\"; for (i=0;i<=2;i++) strcpy(a+i,a+i+1); cout<<a; | printf(\"%s\",a);",
+        "options": {
+          "a": "xmn",
+          "b": "Eae",
+          "c": "men",
+          "d": "Examen"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți vectorul “de tați” al unui arbore cu rădăcină, știind că: – nodurile arborelui sunt numerotate cu numerele naturale distincte 1,2,3,...; – numărul nodurilor este 4 sau 6; – nodul 1 este desemnat ca rădăcină; – numărul nodurilor de tip frunză este egal cu jumătate din numărul total de noduri din arbore; – numărul de nivele pe care sunt dispuse nodurile arborelui este egal cu numărul nodurilor de tip frunză. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Tipul de date structurat COLET permite reținerea a două numere reale, reprezentând valoarea exprimată în euro a unui colet poștal, respectiv greutatea exprimată în kilograme, și un șir de caractere reprezentând numele orașului expeditorului, format din cel mult 30 de caractere. Scrieți în limbajul C/C++ o declarare pentru tipul de date COLET și o secvență de instrucțiuni care permite citirea valorilor componentelor variabilei x de tipul COLET. Denumiți sugestiv componentele tipului de date COLET. (6p.) Scrieți un program C/C++ care citește de la tastatură un număr natural nenul n (n≤24) și construiește în memorie o matrice cu n linii și n coloane care să conțină primele n 2 numere naturale pare. Prima linie a matricei va conține, în ordine crescătoare, valorile 0, 2,.., 2n-2; a doua linie va conține, în ordine, valorile 2n, 2n+2,.., 4n-2; a treia linie va conține, în ordine, valorile 4n, 4n+2,.., 6n-2, iar ultima linie va conține, în ordine, valorile 2n 2 -2n, 2n 2 -2n+2,.., 2n 2 -2.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul afișează pe ecran matricea construită, câte o linie a matricei pe câte o linie a ecranului, elementele de pe aceeași linie fiind despărțite prin câte un spațiu. Exemplu: pentru n=3 se va afișa matricea alăturată. (10p.) 0 2 4 6 8 10 12 14 16 Varianta 98",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră subprogramul recursiv alăturat, definit incomplet. Cu ce valoare trebuie înlocuite punctele de suspensie, pentru ca funcția să returneze cifra minimă a numărului natural nenul transmis prin intermediul parametrului x? int Min(int x){ int c; if (x==0) return ...; else { c=Min(x/10); if (c < x%10) return c; else return x%10; } }",
+        "options": {
+          "a": "-1",
+          "b": "1",
+          "c": "9",
+          "d": "0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Utilizând metoda backtracking se generează toate submuțimile nevide ale mulțimii {3,6,2,5}. Primele șase submulțimi generate sunt, în ordine: {3}, {3,6}, {3,6,2}, {3,6,2,5}, {3,6,5}, {3,2}. Care sunt, în ordinea obținerii, ultimele trei submulțimi, generate după această regulă? (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți în limbajul C/C++ definiția completă a subprogramului numar, cu exact doi parametri, care primește prin intermediul parametrului x un număr natural nenul de cel mult 2 cifre, și prin intermediul parametrului y un număr natural nenul de cel mult 9 cifre. Subprogramul returnează cel mai mare număr natural z pentru care există un număr natural k astfel încât z=x k și z≤y. Exemplu: pentru y=18 și x=2 subprogramul va returna valoarea 16(=2 4 <18). (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Pe prima linie a fișierului text DATE.TXT se află două numere naturale nenule n și m (n≤3000, m≤3000), pe a doua linie un șir de n numere naturale, ordonate crescător, având fiecare cel mult 9 cifre, iar pe linia a treia un șir de m numere naturale, ordonate descrescător, având fiecare cel mult 9 cifre. Numerele sunt despărțite, în cadrul liniilor, prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți programul C/C++ care citește numerele din fișier și afișează, pe ecran, doar numerele pare din cele două șiruri, ordonate crescător. Programul nu va afișa nimic dacă nu există numere pare în cele două șiruri. Alegeți o metodă de rezolvare eficientă ca timp de executare. Exemplu: dacă fișierul are conținutul alăturat, pe ecran se va afișa: 2 4 4 32 42 42 88 88",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată, justificând eficiența acesteia. 5 8 2 4 7 37 42 88 88 67 45 42 32 4 1",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

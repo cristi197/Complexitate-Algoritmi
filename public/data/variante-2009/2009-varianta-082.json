@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-082",
+  "year": 2009,
+  "variant": 82,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 244,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi a și b memorează numere naturale. Care dintre expresiile C/C++ de mai jos este echivalentă cu expresia alăturată? (a+b)%2==0",
+        "options": {
+          "a": "(a%2==0) && (b%2==0)&& (a%2==1) && (b%2==1)",
+          "b": "(a%2!=0) && (b%2!=0) && (a%2==1) && (b%2==1)",
+          "c": "(a%2==1) || (b%2==1) || (a%2==0) && (b%2==0)",
+          "d": "(a%2==0) && (b%2==0) || (a%2==1) && (b%2==1)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește m (număr natural, m<10) citește n (număr natural, n>1) ┌ pentru iÅ1,n execută │ citește x │ (număr natural) │ auxÅx │ okÅ0 │ ┌cât timp x>0 execută │ │ ┌dacă x%10=m atunci │ │ │ okÅ1 │ │ └■ │ │ xÅ[x/10] │ └■ │ ┌dacă ok=1 atunci │ │ scrie aux │ └■ └■ Varianta 82",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valorile care se vor afișa dacă numerele citite sunt m=5, n=5, apoi, în această ordine: 25, 40, 8, 15, 133.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți care este cea mai mare valoare care poate fi citită pentru m dacă n=4, iar pentru x se citesc, în ordine, valorile 121, 781, 961, 4481 astfel încât, la finalul executării algoritmului, să se afișeze numai valoarea 781.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip. citește m (număr natural, m<10)",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful orientat cu nodurile numerotate de la 1 la 5 și arcele (1,2), (1,5), (2,1), (2,3), (2,5), (3,4), (5,2), (5,4). Care este lungimea maximă a unui drum de la nodul 1 la nodul 4, format doar din arce distincte?",
+        "options": {
+          "a": "5",
+          "b": "6",
+          "c": "4",
+          "d": "7 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un graf neorientat cu nodurile numerotate de la 1 la 4 este reprezentat prin matricea de adiacență alăturată. Care dintre afirmațiile de mai jos este adevărată pentru acest graf?",
+        "options": {
+          "a": "Graful este arbore",
+          "b": "Graful nu este conex",
+          "c": "Graful este ciclic",
+          "d": "Graful are toate gradele nodurilor numere pare"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Știind că variabila i este de tip întreg și că variabila s reține șirul de caractere barba, ce se va afișa la executarea secvenței alăturate? (6p.) for(i=0;i<strlen(s);i++) if(s[i]==’b’) s[i]=’t’; cout<<s; | printf(“%s”,s);",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul info al fiecărui element câte un număr natural nenul cu cel mult 4 cifre, iar în câmpul adr adresa elementului următor din listă sau NULL dacă nu există un element următor. Considerând că adresa primului element al listei este reținută de variabila prim, și că variabila p este de același tip cu variabila prim, să se înlocuiască punctele de suspensie din secvența de program următoare cu instrucțiunile corespunzătoare, astfel încât, executarea secvenței să determine afișarea pe ecran a tuturor numerelor, memorate în listă, care au cifra unităților egală cu 0. p=prim; while(p!=NULL) {.....} (6p.) Scrieți un program C/C++ care citește de la tastatură trei valori naturale nenule k, n, m (n≤10, m≤10, k≤32000) și apoi n*m numere întregi, fiecare având cel mult 4 cifre, reprezentând elementele unui tablou bidimensional cu liniile numerotate de la 1 la n și coloanele numerotate de la 1 la m.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul determină și afișează pe ecran produsul numerelor de ordine ale coloanelor care conțin cel puțin o dată valoarea k. Dacă nu există nicio coloană care să conțină cel puțin o dată valoarea k, programul va afișa pe ecran mesajul NU EXISTA. Exemplu: pentru k=3, n=5, m=4 și matricea alăturată se va afișa 6, deoarece coloanele 2 și 3 conțin numărul k=3. (10p.) 2 4 5 -8 5 3 7 9 6 -2 3 10 7 4 2 37 8 7 3 13 Varianta 82",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind cifrele {2,3,4} se generează, în ordinea crescătoare a valorii, toate numerele impare formate din trei cifre distincte. Astfel se obțin, în ordine, numerele: 243, 423. Folosind aceeași metodă, se generează numerele pare formate din patru cifre distincte din mulțimea {2,3,4,5}. Care va fi al 5-lea număr generat?",
+        "options": {
+          "a": "3452",
+          "b": "3524",
+          "c": "2534",
+          "d": "3542"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, stabiliți ce valoare are f(2). Dar f(123)? (6p.) int f(int x) { if(x==0)return 0; else if(x%2==0)return 1+f(x/10); else return 2+f(x/10); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți în C/C++ definiția completă a subprogramului suma care are doi parametri: - n, prin care primește un număr natural (1≤n≤100); - v, prin care primește un tablou unidimensional cu n elemente, numere întregi situate în intervalul [10,30000]. Funcția returnează suma numerelor din tabloul v care au ultimele două cifre identice. Exemplu: dacă n=4 și v=(123, 122, 423, 555) funcția va returna 677 (=122+555). (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMERE.IN conține, pe mai multe linii, cel mult 30000 de numere naturale nenule mai mici sau egale cu 500, numerele de pe fiecare linie fiind despărțite prin câte un spațiu. Fișierul conține cel puțin două numere distincte, fiecare având două cifre.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți programul C/C++ care citește toate numerele din fișierul NUMERE.IN și creează fișierul text NUMERE.OUT care să conțină pe prima linie cel mai mare număr de două cifre din fișierul NUMERE.IN, și de câte ori apare el în acest fișier, iar pe a doua linie, cel mai mic număr de două cifre din fișierul NUMERE.IN și de câte ori apare el în acest fișier. Alegeți o metodă de rezolvare eficientă din punct de vedere al memoriei utilizate și al timpului de executare.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită la punctul a), explicând în ce constă eficiența ei (3 – 4 rânduri). Exemplu: dacă fișierul NUMERE.IN are conținutul alăturat: 2 253 34 3 6 88 9 2 3 4 54 34 88 atunci fișierul NUMERE.OUT va avea următorul conținut: 88 2 34 2",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-057",
+  "year": 2009,
+  "variant": 57,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 169,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi x și y memorează numere naturale nenule. Care dintre următoarele expresii C/C++ este nenulă dacă și numai dacă numărul obținut prin însumarea valorilor variabilelor x și y are ultima cifră 0?",
+        "options": {
+          "a": "x%10+y%10==0",
+          "b": "y%10==x%10",
+          "c": "x+y%10==0",
+          "d": "(x%10+y%10)%10==0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod: S-a notat cu a%b restul împărțirii numărului întreg a la numărul întreg nenul b și cu [x] partea întreagă a numărului real x.",
+      "pseudocode": "citește n (număr natural) qÅ1 iÅ1 ┌cât timp i<[n/i] execută │┌dacă n%i=0 atunci ││ qÅq+i │└■ │ iÅi+3 └■ scrie q",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa pentru n=20.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare care poate fi citită pentru variabila n astfel încât numărul afișat să fie 9.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila t este utilizată pentru a memora valoarea și numele autorului unei cărți. Valoarea cărții este un număr natural de cel mult 3 cifre, iar numele autorului nu poate avea mai mult de 20 de litere. Care dintre următoarele declarări este corectă?",
+        "options": {
+          "a": "struct carte{ int val;char nume;} t;",
+          "b": "struct carte{int val,nume;} t;",
+          "c": "struct carte{ int val;char nume[21];} t;",
+          "d": "struct carte{ int val[21][21];char nume;} t; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care dintre următoarele afirmații este adevărată pentru orice graf neorientat G cu 5 noduri și 6 muchii?",
+        "options": {
+          "a": "G are cel puțin un ciclu",
+          "b": "G este conex",
+          "c": "G are gradele tuturor nodurilor numere pare",
+          "d": "G nu poate avea noduri cu gradul 0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Fie T un arbore cu rădăcină. Arborele are 8 noduri numerotate de la 1 la 8 și este descris prin următorul vector „de tați”:(3,5,0,3,3,5,5,5). a) Care este nodul cu cei mai mulți descendenți direcți (fii)? (3p.) b) Care sunt nodurile frunză ale acestui graf? (3p.)",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră mulțimea vocalelor {a,e,i,o,u}. Scrieți o expresie C/C++ care să fie nenulă dacă și numai dacă variabila c de tip char este o vocală. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură trei numere naturale n, a și b (2<n<25, 0<a<n, 0<b<n) și construiește în memorie o matrice cu n linii și n coloane numerotate de la 1 la n, formată numai din valori 0,1,2,3 și 4 astfel încât: elementele aflate pe linia a sau coloana b sunt egale cu 0, cele aflate deasupra liniei a și la stânga coloanei b sunt egale cu 1, cele aflate deasupra liniei a și la dreapta coloanei b sunt egale cu 2, cele aflate sub linia a și la stânga coloanei b sunt egale cu 3, iar elementele aflate sub linia a și la dreapta coloanei b sunt egale cu 4 ca în exemplul de mai jos. Programul afișează pe ecran matricea construită, fiecare linie a matricei pe o linie a ecranului și elementele de pe aceeași linie separate prin câte un singur spațiu. Exemplu: pentru n=5, a=4, b=3 se construiește în memorie și se afișează matricea alăturată: (10p.) 1 1 0 2 2 1 1 0 2 2 1 1 0 2 2 0 0 0 0 0 3 3 0 4 4 Varianta 57",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se utilizează metoda backtracking pentru a genera în ordine lexicografică toate cuvintele de câte patru litere din mulțimea {d,a,n,s}, astfel încât în niciun cuvânt să nu existe două litere alăturate identice. Știind că primele trei cuvinte generate sunt, în ordine, adad, adan și adas, care va fi ultimul cuvânt obținut?",
+        "options": {
+          "a": "snns",
+          "b": "nsns",
+          "c": "snsn",
+          "d": "dans"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce se va afișa la apelul f(38);? (6p.) void f(int x) { if(x) { if(x%3==0){ cout<<3; | printf(\"3\"); f(x/3); } else{ f(x/3); cout<<x%3; | printf(\"%d\",x%3); } } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text INTRARE.TXT conține, pe o singură linie, cel mult 100 de numere naturale nenule de cel mult patru cifre fiecare, numerele fiind separate prin câte un spațiu. Scrieți un program C/C++ care citește numerele din fișier și scrie în fișierul text IESIRE.TXT, în ordine crescătoare, toate valorile distincte obținute ca sumă de două elemente distincte aflate pe linia a doua a fișierului. Exemplu: INTRARE.TXT IESIRE.TXT 1 4 3 2 3 4 5 6 7 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul multiplu, cu doi parametri, care: – primește prin intermediul parametrilor a și k două numere întregi de cel mult 4 cifre; – returnează cel mai mic multiplu al lui k mai mare sau egal cu a.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți numai antetul subprogramului multiplu.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți declarările de date și programul principal C/C++ care citește de la tastatură trei numere naturale nenule x, y, z, de cel mult 4 cifre fiecare, (x≤y), și care, prin apeluri utile ale subprogramului multiplu, verifică dacă intervalul [x,y] conține cel puțin un multiplu al lui z. Programul va afișa pe ecran, în caz afirmativ, mesajul DA, iar în caz contrar mesajul NU.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

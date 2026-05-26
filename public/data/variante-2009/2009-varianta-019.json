@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-019",
+  "year": 2009,
+  "variant": 19,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 55,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte atribuiri se execută, în total, în secvența alăturată, dacă n și p sunt variabile de tip întreg? p=1; n=279; while (n>=100) { p=p*10; n=n-100; }",
+        "options": {
+          "a": "4",
+          "b": "6",
+          "c": "2",
+          "d": "8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a,b (numere naturale) aÅ[a/10]%10*10+a%10 bÅ[b/10]%10*10+b%10 ┌pentru iÅa,b execută │┌dacă[i/10]=i%10 atunci ││ scrie i%10 │└■ └■ Varianta 19",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numerele care se vor afișa în urma executării algoritmului dacă se citesc valorile a=312 și b=1354.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți câte o valoare care poate fi citită pentru variabila a, respectiv b, astfel încât algoritmul să afișeze exact 2 valori.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura pentru...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un graf neorientat este complet dacă oricare două noduri distincte ale sale sunt adiacente. Care este numărul de muchii care trebuie eliminate dintr-un graf neorientat, complet, cu 7 noduri, astfel încât graful parțial obținut să fie arbore?",
+        "options": {
+          "a": "15",
+          "b": "1",
+          "c": "6",
+          "d": "21 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Fiecare element al unei liste liniare, simplu înlănțuite, alocată dinamic, reține în câmpul nr un număr întreg, iar în câmpul adr adresa elementului următor din listă sau NULL dacă nu există un element următor. Dacă p reține adresa primului element, iar lista are cel puțin două elemente, care dintre următoarele secvențe de instrucțiuni copiază în câmpul nr al celui de-al doilea element al listei, conținutul câmpului nr al primului element din listă?",
+        "options": {
+          "a": "p->nr=p->adr->nr;",
+          "b": "p->adr=p->nr;",
+          "c": "p->adr->nr=p->nr;",
+          "d": "p->adr->adr->nr=p->nr;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Ce se va afișa în urma executării secvenței de program alăturate, știind că variabila x memorează un șir cu cel mult 100 de caractere, iar variabila i este de tip întreg ? (6p.) strcpy(x,”bac2009”); cout<<x<<endl; | printf(“%s\\n”,x); for(i=0;i<strlen(x);i++) if (strchr(“0123456789”,x[i])==0) cout<<x[i]; | printf(“%c”,x[i]); Fiecare dintre variabilele a și b, declarate alăturat, memorează simultan coordonatele reale ale câte unui punct în planul xOy. struct punct{ float x,y;}a,b;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Completați punctele de suspensie din secvența următoare de program, astfel încât, în urma executării ei, să se afișeze cuvântul DA dacă dreapta, determinată de punctele cu coordonatele memorate în variabilele a și b, este paralelă cu axa Ox, respectiv cuvântul NU în caz contrar. if(…) cout<<”DA”; | printf(“DA”); else cout<<”NU” | printf(“NU”); (6p.) Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<20), construiește în memorie și afișează pe ecran o matrice cu n linii și n coloane, numerotate de la 1 la n, în care fiecare element aflat pe o linie impară este egal cu suma dintre indicii liniei și coloanei pe care se află și fiecare element aflat pe o linie pară este egal cu cel mai mic dintre elementele aflate pe linia anterioară și pe aceeași coloană cu el sau pe linia anterioară și pe una dintre coloanele vecine cu cea pe care se află el.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Elementele matricei vor fi afișate pe ecran, câte o linie a matricei pe câte o linie a ecranului cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=5 se va afișa matricea alăturată. (10p.) 2 3 4 5 6 2 2 3 4 5 4 5 6 7 8 4 4 5 6 7 6 7 8 9 10 Varianta 19",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Funcția F are definiția alăturată. Ce valoare are F(18)? int F(int x){ if (x<=1) return x; else return x+F(x-2); }",
+        "options": {
+          "a": "90",
+          "b": "171",
+          "c": "91",
+          "d": "18"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare",
+      "code": "Un algoritm generează în ordine crescătoare, toate numerele de n cifre (n<9), cu cifre distincte, care nu au două cifre pare alăturate. Dacă pentru n=5, primele cinci soluții generate sunt 10325, 10327, 10329, 10345, 10347, precizați care sunt următoarele trei soluții generate, în ordinea obținerii lor. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul aranjare are doi parametri: a prin care primește un tablou unidimensional cu maximum 100 de numere reale nenule și n, numărul de elemente din tablou. Subprogramul rearanjează elementele tabloului unidimensional astfel încât toate valorile negative să se afle pe primele poziții, iar valorile pozitive în continuarea celor negative. Ordinea în cadrul secvenței de elemente pozitive, respectiv în cadrul secvenței de elemente negative, poate fi oricare. Tabloul modificat va fi furnizat tot prin intermediul parametrului a. Exemplu: dacă tabloul are 6 elemente și este de forma (12, -7.5, 6.5, -3, -8, 7.5), după apel, acesta ar putea fi: (-7.5, -3, -8, 12, 6.5, 7.5). Scrieți definiția completă a subprogramului aranjare. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul nr1.txt este memorată pe prima linie o valoare naturală n de cel mult 8 cifre, iar pe linia următoare sunt memorate n numere naturale, cu maximum 4 cifre fiecare, ordonate strict crescător și separate prin câte un spațiu. În fișierul nr2.txt este memorată pe prima linie o valoare naturală m de cel mult 8 cifre, iar pe linia următoare sunt memorate m numere naturale, cu maximum 4 cifre fiecare, ordonate strict crescător și separate prin câte un spațiu. Se cere afișarea pe ecran, separate prin câte un spațiu, în ordine strict crescătoare, a tuturor numerelor aflate pe a doua linie în cel puțin unul dintre cele două fișiere. În cazul în care un număr apare în ambele fișiere, el va fi afișat o singură dată. Alegeți un algoritm de rezolvare eficient din punct de vedere al memoriei utilizate și al timpului de executare. Exemplu: pentru următoarele fișiere: nr1.txt nr2.txt 5 6 3 6 8 9 12 2 3 5 7 9 13 se va afișa 2 3 5 6 7 8 9 12 13.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, strategia de rezolvare și justificați eficiența algoritmului ales.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului ales.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

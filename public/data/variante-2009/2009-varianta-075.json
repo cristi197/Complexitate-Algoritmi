@@ -1,0 +1,136 @@
+{
+  "id": "2009-varianta-075",
+  "year": 2009,
+  "variant": 75,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 223,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele instrucțiuni C/C++ sunt corecte sintactic dacă x și y sunt două variabile de tip întreg?",
+        "options": {
+          "a": "if (x < 2) && (x > - 5) {x=x+1; y=y-1;}",
+          "b": "if -5 < x < 2 { x=x+1; y=y-1;}",
+          "c": "if x < 2 && x >-5 { x=x+1; y=y-1;}",
+          "d": "if (x < 2 && x > -5) {x=x+1; y=y-1;}"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [a/b] câtul împărțirii întregi a numărului natural a la numărul natural nenul b.",
+      "pseudocode": "aÅ0 kÅ0 ┌repetă │citește x (număr natural) │ ┌cât timp x > 99 execută │ │ x Å [x/10] │ └■ │ ┌dacă x > 9 atunci │ │ aÅa*100 + x │ │ kÅk+1 │ └■ └pană când k = 4 scrie a",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se va afișa dacă se citesc, în această ordine, valorile: 62521, 2571, 2, 56, 614.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un set de date de intrare, format din exact șase numere, pentru care algoritmul să afișeze valoarea 12345678.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat. a",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care structura repetă...până când să fie înlocuită cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Ce se va afișa în urma executării secvenței de program alăturate știind că i este o variabilă de tip întreg, iar variabila x este de tip șir de caractere? strcpy(x, “ExAMeNe NaTiOnALe”); for(i = 0; i < strlen(x); i++) if(x[i] >= ‘A’ && x[i] <=’N’) x[i] = x[i] + ‘a’-‘A’; cout << x; | printf(“%c”, x);",
+        "options": {
+          "a": "examene nationale",
+          "b": "examene naTiOnale",
+          "c": "EXAMENE NATIONALE",
+          "d": "exAmeNe nAtIoNalE 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful neorientat cu 6 noduri, numerotate de la 1 la 6, definit prin listele de adiacentă alăturate. Câte muchii trebuie adăugate în acest graf astfel încât el să devină graf complet? 1: 3 5 2: 3 4 6 3: 1 2 5 4: 2 6 5: 1 3 6: 2 4.",
+        "options": {
+          "a": "16",
+          "b": "14",
+          "c": "6",
+          "d": "8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, cu cel puțin 3 elemente, fiecare element reține în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor. Dacă în variabila prim se reține adresa primului element din listă, iar p, q și r sunt variabile de același tip cu prim, scrieți instrucțiunile cu care trebuie înlocuite punctele de suspensie din secvența de program alăturată, astfel încât, în urma executării ei, să se inverseze sensul legăturilor în listă. (6p.) p = prim; q = prim->urm; p->urm = NULL; while(q != NULL) { r = q -> urm; ......... ......... q = r; }",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră graful orientat cu 7 vârfuri, numerotate de la 1 la 7, și arcele (1,2), (2,5), (3,2), (3,4), (3,6), (5,6), (5,7), (6,1). Care este numărul minim de arce care trebuie adăugate acestui graf astfel încât, pentru orice două noduri x și y, din mulțimea {1,2,3,4} să existe cel puțin un drum de la x la y? Enumerați arcele care trebuie adăugate. (6p.) Într-o matrice a, cu n linii și n coloane, numerotate de la 1 la n, numim “semidiagonală de indice k” mulțimea formată din elementele ai,j ale matricei pentru care relația: i+j=k+1 este adevărată (1≤k<2*n, 1≤i≤n, 1≤j≤n, i∈N,j∈N,k∈N). Scrieți programul C/C++ care citește de la tastatură o valoare naturală n (2≤n≤24), construiește în memorie și apoi afișează pe ecran o matrice a cu n linii și n coloane, numerotate de la 1 la n, în care elementele fiecărei semidiagonale de indice k sunt egale cu (k+1) 2 , ca în exemplu.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Matricea se va afișa pe ecran, câte o linie a matricei pe o linie a ecranului, elementele unei linii fiind separate între ele prin câte un spațiu. Exemplu: pentru n = 4 se va obține matricea alăturată. (10p.) 4 9 16 25 9 16 25 36 16 25 36 49 25 36 49 64 Varianta 75",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Ce valoare are F(2758), pentru funcția F definită alăturat? int F(int x) { if(x == 0) return 0; if(x%10%2 == 0) return 2 + F(x/10); return 10 – F(x/10); }",
+        "options": {
+          "a": "0",
+          "b": "20",
+          "c": "12",
+          "d": "4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Variabilele i, j și aux sunt de tip întreg, iar elementele tabloului unidimensional x sunt urmatoarele: x0=10, x1=5, x2=-6, x3=7, x4=0, x5=-2. Ce valori se vor afișa în urma executării secvenței de program alăturate? (6p.) for(int i = 0; i < 4; i++) for(int j = i + 1; j< 6; j++) if(x[i] > x[j]) { aux = x[i]; x[i] = x[j]; x[j] = aux; } for(i = 0; i < 6; i++) cout<<x[i]<<“ “; | printf(“%d “,x[i]);",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a funcției UltimaCifra care primește prin cei doi parametri a și b câte un număr natural (0<a<1000000, 0<b<1000000), calculează în mod eficient din punct de vedere al timpului de executare și returnează ultima cifră a numărului a b (a la puterea b). (6p.) b) Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri) (4p.) c) Fișierul text SIR.IN conține pe prima sa linie un număr natural n (0<n<1001), iar pe fiecare dintre următoarele n linii câte o pereche de numere naturale, xi yi (1≤i≤n, xi≤30000, yi≤30000). Scrieți programul C/C++ care citește numerele din fișierul SIR.IN și scrie în fișierul text SIR.OUT ultima cifră expresiei: n21 y n y 2 y 1 x...xx +++ ,folosind apeluri ale funcției UltimaCifra. Exemplu: dacă fișierul SIR.IN are conținutul alăturat, atunci SIR.OUT va conține cifra 0. (10p.) 3 25 6 8 10 1 4589 Varianta 75",
+        "points": 10
+      }
+    ],
+    "subprograme": []
+  }
+}

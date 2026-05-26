@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-095",
+  "year": 2009,
+  "variant": 95,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 283,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența alăturată de instrucțiuni, variabilele i, j, k, x și y sunt de tip întreg. Pentru care dintre următoarele seturi de valori ale variabilelor i, j și k variabilele x și y vor primi valori diferite între ele în urma executării acestei secvențe? if (k>0) if (i!=j) x=0; else x=1; else x=2; if (i!=j) if (k>0) y=0; else y=2; else y=1;",
+        "options": {
+          "a": "x și y primesc aceeași valoare indiferent de valorile variabilelor i,j și k",
+          "b": "k=0; i=5; j=6",
+          "c": "k=10; i=5; j=5",
+          "d": "k=0; i=5; j=5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu a%b restul împărțirii numărului natural a la numărul natural nenul b, iar cu [a/b] câtul împărțirii întregi a numărului natural a la numărul natural nenul b.",
+      "pseudocode": "x Å 0 citește n,k (numere naturale nenule) ┌cât timp n≠0 execută │ ┌dacă n%10<k atunci │ │ x Å x*10 + n%10 │ └■ │ n Å [n/10] └■ scrie x",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care se va afișa dacă se citesc pentru n valoarea 528791 și pentru k valoarea 6.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru k se",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat care să utilizeze în locul structurii cât timp...execută o structură repetitivă condiționată posterior.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte valori nule pot să apară într-un vector cu legături „de tip tată” asociat unui arbore cu rădăcină care conține 10 noduri?",
+        "options": {
+          "a": "niciuna",
+          "b": "exact una",
+          "c": "depinde de configurația arborelui",
+          "d": "exact două 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "În secvența alăturată, i, j și n sunt variabile întregi, iar a este o matrice pătratică formată din n linii și n coloane numerotate de la 0 la n-1. Care este suma elementelor de pe diagonala secundară din matricea a, în urma executării acestei secvențe, dacă n=8? for(i=0; i<n; i++) for(j=0; j<n; j++) a[i][j] = (i+j)%n;",
+        "options": {
+          "a": "8",
+          "b": "64",
+          "c": "24",
+          "d": "56"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți listele de adiacență pentru un graf neorientat, cu 5 noduri, numerotate de la 1 la 5, care are un număr maxim de muchii și nu este eulerian. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se dă graful orientat cu 5 noduri, numerotate de la 1 la 5, definit prin matricea de adiacență alăturată. Determinați un drum de lungime maximă de la nodul 1 la nodul 5 , care să fie alcătuit din arce distincte două câte două. Scrieți lungimea drumului determinat precum și arcele care îl compun (lungimea unui drum este egală cu numărul de arce care îl compun). (6p.) 0 1 0 0 0 0 0 1 1 1 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program în limbajul C/C++ care citește de la tastatură un singur șir, format din cel mult 20 de caractere, care reprezintă numele și prenumele unei persoane. Între nume și prenume se află un număr oarecare de caractere spațiu (cel puțin unul). Atât numele, cât și prenumele, sunt formate numai din litere mici ale alfabetului englez. Programul construiește în memorie și afișează pe ecran un alt șir de caractere, care să conțină inițiala prenumelui (prima literă a prenumelui), urmată de un caracter punct, de exact un spațiu și de numele din șirul citit inițial. Toate literele din șirul afișat vor fi, de asemenea, litere mici. Exemplu: dacă se citește șirul: popescu vasile se va construi și apoi se va afișa pe ecran șirul v. popescu (10p.) Varianta 95",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un program citește o valoare naturală nenulă pentru n și apoi generează și afișează, în ordine crescătoare lexicografic, toate combinațiile formate din n cifre care aparțin mulțimii {0,1}. Astfel, pentru n=2, combinațiile sunt afișate în următoarea ordine: 00, 01, 10, 11. Dacă se rulează acest program și se citește pentru n valoarea 9, imediat după combinația 011011011 va fi afișată combinația:",
+        "options": {
+          "a": "011100100",
+          "b": "011011100",
+          "c": "011011011",
+          "d": "011100000"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Funcția f are definiția alăturată. Scrieți cinci valori de apel pe care le poate avea n astfel încât, pentru cele 5 apeluri corespunzătoare acestor valori, să se obțină 5 valori ale funcției, disticte două câte două. (6p.) int f(int n) { if (n<=9) return 0; if (n%5==0) return 0; return 1+f(n-3); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Funcția f primește prin intermediul parametrului n un număr natural nenul (2≤n≤200), iar prin intermediul parametrului a un tablou unidimensional care conține n valori întregi nenule (fiecare dintre aceste valori întregi având cel mult patru cifre). Funcția returnează valoarea -1 dacă numărul de valori negative din tabloul a este strict mai mare decât numărul de valori pozitive din tablou, valoarea 0 dacă numărul de valori negative din a este egal cu numărul de valori pozitive din tablou și valoarea 1 dacă numărul de valori pozitive din tabloul a este strict mai mare decât numărul de valori negative din a. Scrieți definiția completă a funcției f. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți un program C/C++ care citește de la tastatură un număr natural nenul, S, având maximum 9 cifre, și printr-o metodă eficientă din punct de vedere al timpului de executare, determină și scrie în fișierul rez.dat trei valori naturale a căror sumă este egală cu S, și al căror produs este maxim. Cele trei valori vor fi scrise în ordine crescătoare pe prima linie a fișierului rez.dat, separate prin câte un spațiu. Exemplu: dacă se citește valoarea 5, fișierul rez.dat va avea o linie cu conținutul 1 2 2. (6p.) b) Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri). (4p.) Varianta 95",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural nenul, S, având maximum 9 cifre, și printr-o metodă eficientă din punct de vedere al timpului de executare, determină și scrie în fișierul rez.dat trei valori naturale a căror sumă este egală cu S, și al căror produs este maxim. Cele trei valori vor fi scrise în ordine crescătoare pe prima linie a fișierului rez.dat, separate prin câte un spațiu. Exemplu: dacă se citește valoarea 5, fișierul rez.dat va avea o linie cu conținutul 1 2 2.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

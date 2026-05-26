@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-094",
+  "year": 2009,
+  "variant": 94,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 280,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența alăturată de instrucțiuni, variabilele i,j,k și y sunt de tip întreg. Pentru care dintre următoarele seturi de valori ale variabilelor i,j și k variabila y va avea valoarea 1 în urma executării secvenței? y=1; if (k>0) if (i!=j) y=0; else y=2;",
+        "options": {
+          "a": "k=0; i=5; j=5",
+          "b": "k=10; i=5; j=6",
+          "c": "k=10; i=5; j=5",
+          "d": "y nu va avea valoarea 1 indiferent de valorile variabilelor i,j"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [x/y] câtul împărțirii întregi a numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește n (număr natural nenul) n1 Å 0 n2 Å 0 k1 Å 0 ┌cât timp n ≠ 0 execută │ ┌dacă (n%10)%2=0 atunci │ │ n2 Å n2 * 10 + n%10 │ │altfel │ │ n1 Å n1 * 10 + n%10 │ │ k1 Å k1+1 │ └■ │ n Å [n/10] └■ p Å 1 ┌pentru iÅ1,k1 execută │ p Å p * 10 └■ x Å n2*p + n1 scrie x Varianta 94",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce va afișa algoritmul dacă pentru n se citește valoarea 123611.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți câte valori naturale distincte, formate din patru cifre fiecare, pot fi citite pentru variabila n, astfel încât, pentru fiecare dintre acestea, valoarea afișată de algoritm să fie divizibilă cu 10.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat care să utilizeze o singură structură repetitivă.",
+          "points": 4
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre nodurile grafului neorientat cu 5 noduri, numerotate de la 1 la 5, dat prin matricea de adiacență alăturată, are gradul cel mai mare? 0 1 1 0 0 1 0 1 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 0",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "5",
+          "d": "2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Un graf neorientat cu 5 noduri, numerotate de la 1 la 5, este reprezentat prin listele de adiacență alăturate. Transformați acest graf într-un graf orientat prin înlocuirea fiecărei muchii cu exact un arc, astfel încât în graful orientat care rezultă să existe cel puțin un drum de la orice nod x până la orice nod y, (x≠y). Scrieți reprezentarea grafului orientat pe care l-ați construit, prin liste de adiacență. (6p.) 1: 2, 3 2: 1, 3, 5 3: 1, 2, 4, 5 4: 3, 5 5: 2, 3, 4",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți un program în limbajul C/C++ care citește de la tastatură un singur șir format din cel mult 20 de caractere care reprezintă numele și prenumele unei persoane. Între nume și prenume se află un număr oarecare de caractere spațiu (cel puțin unul). Atât numele cât și prenumele sunt formate numai din litere ale alfabetului englez. Programul construiește în memorie și afișează pe ecran un al doilea șir de caractere, care să conțină prenumele, urmat de exact un spațiu și apoi numele din șirul citit inițial. Exemplu: dacă se citește șirul: Popescu Vasile se va construi și apoi se va afișa pe ecran șirul Vasile Popescu (10p.)",
+        "points": 10
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "În memorie este construită o listă simplu înlănțuită, alocată dinamic, ale cărei elemente memorează în câmpul lit un caracter și în câmpul next adresa elementului următor din listă sau valoarea NULL dacă nu există un element următor. Se știe că acastă listă conține cel puțin trei elemente. Variabila prim reține adresa primului element al acestei liste, iar variabila ultim reține adresa ultimului element din această listă. Scrieți secvența de program care interschimbă valorile reținute în câmpurile lit de la al doilea, respectiv de la ultimul element al acestei liste. În cazul în care veți folosi și alte variabile decât cele date prin enunț, scrieți și declarările necesare pentru aceste variabile. Exemplu: dacă presupunem că inițial lista avea conținutul și forma următoare: prim↓ ultim↓ V → a → s → i → l → e atunci, în urma executării secvenței, ea va avea următorul conținut: prim↓ ultim↓ V → e → s → i → l → a (6p.) Varianta 94",
+        "points": 6
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un elev realizează un program care citește o valoare naturală pentru o variabilă n și apoi afișează în fișierul permut.txt, pe prima linie, valoarea lui n, apoi toate permutările mulțimii {1,2,...,n}, câte o permutare pe câte o linie a fișierului. Rulând programul pentru n=3, fișierul va conține cele 7 linii alăturate. Dacă va rula din nou programul pentru n=5, ce va conține a 8-a linie din fișier? 3 3 2 1 3 1 2 2 3 1 2 1 3 1 3 2 1 2 3",
+        "options": {
+          "a": "2134",
+          "b": "2143",
+          "c": "3421",
+          "d": "3412"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Funcția recursivă f este astfel definită încât f(1)=8, iar f(n+1)=2*f(n)-4 pentru orice n natural nenul. a) Ce valoare are f(5) ? (3p.) b) Care este cea mai mare valoare pe care o poate lua x astfel încât f(x) < 1000 ? (3p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a funcției f, care primește prin intermediul parametrului n un număr natural nenul (2≤n≤200), iar prin intermediul parametrului a un tablou unidimensional care conține n valori întregi, fiecare dintre aceste valori întregi având cel mult patru cifre. Funcția returnează valoarea 1 dacă elementele tabloului formează un șir crescător, valoarea 2 dacă elementele tabloului formează un șir descrescător, valoarea 0 dacă elementele tabloului formează un șir constant și valoarea -1 în rest. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text număr.txt conține pe prima linie o valoare naturală n cu exact 9 cifre nenule distincte. Scrieți un program eficient din punctul de vedere al timpului de executare care citește din fișier numărul n și afișează pe ecran cea mai mică valoare m formată din exact aceleași cifre ca și n, astfel încât m>n. În cazul în care nu există o astfel de valoare, programul va afișa pe ecran mesajul Nu exista. Exemplu: Dacă fișierul număr.txt conține numărul 257869431, se va afișa pe ecran numărul 257891346.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care rezolvă problema conform metodei descrise.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-076",
+  "year": 2009,
+  "variant": 76,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 226,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă valoarea reală memorată de variabila y nu aparține intervalului deschis determinat de valorile reale distincte memorate de variabilele x și z (x<z)?",
+        "options": {
+          "a": "!((z<x) || (z>y))",
+          "b": "(z>x) && (z<y)",
+          "c": "!((y>x) && (y<z))",
+          "d": "(z<x) && (z>y)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, reprezentat în pseudocod. S-a notat cu x|y relația „x divide pe y” sau „y este divizibil cu x” și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a (număr natural) xÅ2 pÅ1 ┌cât timp a>1 execută │ cÅ0 │ ┌cât timp x|a execută │ │ cÅx │ │ aÅ[a/x] │ └■ │ ┌dacă c≠0 atunci │ │ pÅp*c │ └■ │ xÅx+1 └■ scrie p Varianta 76",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa dacă se citește numărul a=245.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un număr par, de trei cifre, care poate fi citit pentru variabila a astfel încât să se afișeze o valoare egală cu cea citită.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască fiecare structură cât timp…execută cu câte o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența de program alăturată, variabila t memorează o matrice cu 5 linii și 5 coloane, numerotate de la 0 la 4, cu elemente numere întregi, iar celelalte variabile sunt întregi. Executarea acestei secvențe determină memorarea în variabila x a sumei elementelor situate: x=0; for(i=0;i<5;i++) for(j=i+1;j<5;j++) x=x+t[i][j];",
+        "options": {
+          "a": "deasupra diagonalei principale, inclusiv diagonala principală",
+          "b": "strict deasupra diagonalei principale",
+          "c": "strict sub diagonala principală",
+          "d": "strict deasupra diagonalei secundare"
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor, iar în câmpul inf un număr întreg. Adresa primului element al listei este memorată în variabila prim, variabila p este de același tip cu prim, iar variabila x este de tip întreg. Inițial, în listă sunt memorate, în această ordine, numerele de mai jos,. Care este conținutul listei în urma executării secvenței de instrucțiuni scrise alăturat? p=prim; while(p->urm!=NULL) {x=p->inf; p->inf=p->urm->inf; p->urm->inf=x; p=p->urm; } 2.",
+        "options": {
+          "a": "2 3 4 5 6 1",
+          "b": "6 5 4 3 2 1",
+          "c": "2 1 4 3 6 5",
+          "d": "1 2 3 4 5 6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Fie graful orientat cu 8 vârfuri, numerotate de la 1 la 8, și arcele (1,2), (2,3), (3,1), (4,5), (5,6), (5,7), (6,7), (7,4), (8,7). Care este numărul minim de arce ce trebuie adăugate astfel încât, pentru oricare două vârfuri x și y din graf să existe cel puțin un drum de la nodul x la nodul y? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Care este vectorul de „tați” pentru arborele cu 8 noduri, numerotate de la 1 la 8, și muchiile [1,5], [2,3], [3,6], [3,8], [4,6], [5,7], [6,7], dacă se alege ca rădăcină nodul numerotat cu 6? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un cuvânt de maximum 20 de litere și minimum o literă și afișează pe ecran toate cuvintele obținute din cuvântul citit prin eliminarea primei și a ultimei litere. Prima prelucrare se referă la cuvântul citit, iar următoarele la cuvântul rezultat din prelucrarea anterioară. Procedeul de eliminare și afișare se va repeta până când se obține cuvântul vid, ca în exemplu. Fiecare cuvânt obținut se va afișa pe câte o linie a ecranului. Exemplu: dacă se citește cuvântul bacalaureat, se va afișa: bacalaureat acalaurea calaure alaur lau a (10p.) Varianta 76",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Dacă se utilizează metoda backtracking pentru a genera toate permutările de 4 obiecte și primele 5 permutări generate sunt, în această ordine, 4 3 2 1, 4 3 1 2, 4 2 3 1, 4 2 1 3, 4 1 3 2, atunci a 6-a permutare este:",
+        "options": {
+          "a": "3 2 1 4",
+          "b": "3 4 2 1",
+          "c": "1 4 3 2",
+          "d": "4 1 2 3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului sub, scrieți ce valoare are sub(3). Dar sub(132764)? (6p.) long sub(long n) {if (n!=0) if(n%2!=0) return n%10*sub(n/10); else return sub(n/10); else return 1; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a unui subprogram s cu trei parametri care primește prin intermediul parametrului n un număr natural de maximum 9 cifre, prin intermediul parametrului c o cifră și furnizează prin intermediul parametrului k numărul de cifre ale numărului n care aparțin intervalului [c-1,c+1]. Exemplu: pentru n=1233 și c=3, k va avea valoarea 3, iar pentru n=650 și c=3, k va avea valoarea 0. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul BAC.TXT are pe prima linie două numere naturale n și m (0<n<1000, 0<m<1000) separate prin câte un spațiu, pe linia a doua n numere întregi ordonate strict crescător, iar pe linia a treia m numere naturale distincte. Numerele din fișier aflate pe linia a doua și a treia au cel mult 6 cifre fiecare și sunt despărțite în cadrul liniei prin câte un spațiu. Să se scrie un program care citește toate numerele din fișier și afișează pe ecran, despărțite prin câte un spațiu, toate numerele de pe a doua linie a fișierului care apar cel puțin o dată și pe linia a treia a acestuia. Exemplu: dacă fișierul are următorul conținut: 6 5 2 3 4 5 8 9 4 5 2 11 8 atunci se va afișa: 5 2 8, nu neapărat în această ordine.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți în limbaj natural o metodă de rezolvare eficientă ca timp de executare.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător metodei descrise la punctul a).",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

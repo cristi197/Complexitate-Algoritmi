@@ -1,0 +1,156 @@
+{
+  "id": "2009-varianta-021",
+  "year": 2009,
+  "variant": 21,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 61,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre expresiile C/C++ de mai jos are valoarea 1 după executarea secvenței de instrucțiuni C/C++ alăturată, în care toate variabilele sunt întregi? v1=0; v2=0; for(i=1;i<=3;i++) { for (j=1;j<=i;j++) v1=v1+1; for (k=i;k<=3;k++) v2=v2+1; }",
+        "options": {
+          "a": "v1>v2",
+          "b": "v1<v2",
+          "c": "v1==v2",
+          "d": "v1+v2==9"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [z] partea întreagă a numărului real z și cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y.",
+      "pseudocode": "citește a,b,n (numere naturale) ┌dacă b=0 atunci │ scrie ”greșit” │altfel │ scrie [a/b] │ ┌dacă n>0 și a%b ≠0 atunci │ │ scrie ”,” │ │ aÅa%b; iÅ0 │ │ ┌repetă │ │ │ scrie [(a*10)/b] │ │ │ aÅ(a*10)%b │ │ │ iÅi+1 │ │ └până când i=n sau a=0 │ └■ └■ Varianta 21",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valorile care se vor afișa dacă se citesc, în ordine, valorile 17, 6, 4.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura repetă...până când cu o structură repetitivă de tip cât timp...execută.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți un set de date de intrare astfel încât, la finalul executării algoritmului, valorile variabilelor n și i, să satisfacă condiția: n-i=2.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre instrucțiunile de mai jos poate înlocui punctele de suspensie din secvența de program alăturată astfel încât executarea acesteia să determine memorarea în variabila p a valorii produsului celor 40 de elemente aflate pe diagonalele matricei. p=1; for(i=1;i<=20;i++) ....",
+        "options": {
+          "a": "p=p*a[21-i][i]*a[i][21-i];",
+          "b": "p=p*a[i][i]*a[i][20-i];",
+          "c": "p=p*a[i][i]*a[21-i][21-i];",
+          "d": "p=p*a[21-i][21-i]*a[i][21-i]; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-un graf orientat cu 7 noduri suma gradelor interioare ale tuturor nodurilor este egală cu 10. Care este valoarea sumei gradelor exterioare ale tuturor nodurilor?",
+        "options": {
+          "a": "5",
+          "b": "20",
+          "c": "10",
+          "d": "17"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "struct data{ int zi; int luna; int an; }; struct elev { char nume[30]; struct data data_nasterii; float media; }ev;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Stiva S și coada C memorează numere întregi. În ambele se introduc, în ordine, numerele 1, 2, 3,",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se notează cu SÆC operația de extragere a unui element din stiva S și adăugarea acestuia în coada C, iar cu CÆS operația de eliminare a unui element din coada C și introducerea acestuia în stiva S. Care este ultima valoare introdusă în stiva S și care este ultima valoare care a fost adăugată în coada C la executarea următoarei secvențe de operații: CÆS; CÆS; SÆC; CÆS; SÆC; SÆC; CÆS; (6p.) Se consideră un text alcătuit din cel mult 250 de caractere, în care cuvintele sunt formate doar din litere mici ale alfabetului englez și sunt separate prin unul sau mai multe caractere *. Scrieți un program C/C++ care citește de la tastatură textul și afișează pe ecran, pe câte o linie, toate secvențele formate din câte două litere identice, ca în exemplu.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: dacă textul citit este: se afișează perechile alăturate. (10p.) ii ii oo Varianta 21",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Următoarele probleme se referă la mulțimea de numere reale M={x1, x2, …, xn} (n>1000). Care dintre acestea, comparativ cu celelalte, admite un algoritm care se încheie după un număr minim de pași?",
+        "options": {
+          "a": "sortarea elementelor mulțimii M",
+          "b": "generarea elementelor produsului cartezian M x M",
+          "c": "determinarea elementului minim al mulțimii M",
+          "d": "generarea tuturor permutărilor mulțimii"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul, f, definit alăturat. • Ce valoare are f(100)? • Scrieți o valoare pentru x astfel încât f(x)=1 (6p.) int f(int n) { if(n==0) return 0; else return n%2+f(n/2); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a unui subprogram i_prim care primește prin singurul său parametru, n, un număr natural din intervalul [2,30000] și returnează diferența minimă p2-p1 în care p1 și p2 sunt numere prime și p1≤n≤p2. Exemplu: dacă n=20 atunci i_prim(n)=4, valoare obținută pentru p1=19 și p2=23. (10p.) Fișierul text BAC.TXT conține pe prima linie două numere naturale n și k separate de un spațiu (3≤n≤10000, 2≤k≤n/2), iar pe a doua linie un șir de n numere naturale x1, x2, ..., xn separate prin câte un spațiu, fiecare număr din acest șir având cel mult patru cifre. a) Scrieți un program C/C++ care citește numerele din fișier și determină, utilizând o metodă eficientă din punct de vedere al timpului de executare, cel mai mic indice i (1≤i≤n- k+1) pentru care media aritmetică a numerelor xi, xi+1, ..., xi+k-1 este maximă. Programul afișează valoarea lui i pe ecran. Exemplu: pentru fișierul alăturat se afișează 2, deoarece media maximă se obține pentru 9, 4, 7. (6p.) 8 3 2 9 4 7 5 2 9 9",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "b) Explicați succint, în limbaj natural, metoda utilizată la punctul a, justificând eficiența acesteia. (4p.) Varianta 21",
+        "subQuestions": [
+          {
+            "id": "b",
+            "text": "Explicați succint, în limbaj natural, metoda utilizată la punctul a, justificând eficiența acesteia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

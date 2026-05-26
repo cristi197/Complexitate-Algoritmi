@@ -1,0 +1,142 @@
+{
+  "id": "2009-varianta-064",
+  "year": 2009,
+  "variant": 64,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 190,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întreagă a memorează un număr natural format din exact trei cifre, toate cifrele fiind nenule și distincte. Care dintre următoarele instrucțiuni C/C++ atribuie variabilei e suma cifrelor lui a?",
+        "options": {
+          "a": "e=a%10/10+a/100%10+a%10;",
+          "b": "e=a/10+a/100+a/1000;",
+          "c": "e=a*10/1000+a/10%10+a%10;",
+          "d": "e=a*10/1000+a%100%10+a%10;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește n (număr natural nenul) kÅ0 ┌pentru iÅ1,n execută │┌pentru jÅ1,i execută ││ scrie i+j ││ kÅk+1 │└■ └■ scrie k Varianta 64",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează pentru n=4.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare care poate fi citită pentru variabila n astfel încât, în urma executării algoritmului, valoarea 20 să fie afișată de exact 6 ori.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți un algoritm pseudocod echivalent cu cel dat în care fiecare structură de tip pentru...execută să fie înlocuită cu câte o structură repetitivă de tip cât timp...execută.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Considerând declarările alăturate, care dintre următoarele referiri este corectă din punct de vedere sintactic ? struct datan{int zi,ln,an;}; struct elev {char nume[30]; datan dn,da;} e;",
+        "options": {
+          "a": "e.datan.ln",
+          "b": "nume.e",
+          "c": "e.dn.an[2]",
+          "d": "e.dn.zi 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin 1000 de elemente identificate prin adrese, fiecare element reține în câmpul adr adresa elementului următor din listă sau NULL dacă nu există un nod următor. Dacă q este adresa unui element din listă și p o variabilă de același tip cu q, ce reține adresa unui alt element care nu face parte din listă, atunci inserarea elementului de la adresa p, în listă, imediat după elementul de la adresa q se realizează cu ajutorul secvenței de instrucțiuni:",
+        "options": {
+          "a": "p->adr=q->adr; q->adr=p;",
+          "b": "p=q; q->adr= p->adr;",
+          "c": "q->adr=p; p->adr=q;",
+          "d": "q=p->adr; p->adr= q->adr;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf neorientat dat prin listele de adiacență alăturate. Care este numărul maxim de muchii care pot fi eliminate din graf astfel încât graful parțial rezultat să fie conex ? (6p.) 1: 2 3 2: 1 3 4 3: 1 2 4 5 4: 2 3 5 5: 3 4",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Într-un graf orientat G cu 6 vârfuri numerotate cu numere distincte de la 1 la 6, există arc de la vârful i la vârful j dacă și numai dacă i<j și j-i>1. Care sunt vârfurile din graf ce au gradul interior mai mare decât gradul exterior? (6p.) Scrieți un program C/C++ care citește de la tastatură un text format din cel mult 200 de litere ale alfabetului englez, în care cuvintele sunt separate printr-un singur spațiu și afișează pe ecran numărul de cuvinte din textul citit, care au prima respectiv ultima literă vocală. În cazul în care în text nu există un astfel de cuvânt, se va afișa pe ecran mesajul NU EXISTA. Se consideră vocală orice literă din mulțimea {a,A,e,E,i,I,o,O,u,U}.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: dacă textul introdus este: Eratostene a sugerat ca anii bisecti se repeta la fiecare patru ani pe ecran se va afișa: 4 (10p.) Varianta 64",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce se va afișa în urma apelului f(5,0);? (6p.) void f(int i,int j) { if(j<=9) f(i,j+1); printf(”%d*%d=%d\\n”,i,j,i*j);/ cout<<i<<’*’<<j<<’=’<<i*j<<endl; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul diviz primește prin intermediul parametrului n un număr natural nenul (2≤n≤200), iar prin intermediul parametrului a, un tablou unidimensional care conține n valori naturale nenule, fiecare dintre acestea având cel mult patru cifre. Elementele tabloului sunt numerotate de la 1 la n. Subprogramul returnează o valoare egală cu numărul de perechi (ai,aj), 1≤i<j≤n, în care ai este divizor al lui aj , sau aj este divizor al lui ai. Scrieți definiția completă a subprogramului diviz, în limbajul C/C++. Exemplu: pentru n=5 și a=(4,8,3,9,4) subprogramul returnează valoarea",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "(10p.) 4. Fișierul text date.in conține pe prima linie , separate prin câte un spațiu, cel mult 1000 de numere naturale, fiecare dintre ele având maximum 9 cifre.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește numerele din fișierul date.txt și determină cea mai lungă secvență ordonată strict descrescător, formată din valori citite consecutiv din fișier. Numerele din secvența găsită vor fi afișate pe ecran, pe o linie, separate prin câte un spațiu. Dacă sunt mai multe secvențe care respectă condiția impusă, se va afișa doar prima dintre acestea. Alegeți o metodă de rezolvare eficientă din punctul de vedere al timpului de executare. Exemplu: dacă fișierul date.in conține 5 2 19 4 3 6 3 2 1 0 8 pe ecran se afișează: 6 3 2 1 0",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

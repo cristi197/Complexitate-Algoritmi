@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-042",
+  "year": 2009,
+  "variant": 42,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 124,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că variabilele x și y sunt de tip întreg, care este instrucțiunea prin care variabilei x i se atribuie cifra zecilor numărului natural cu cel puțin două cifre memorat de variabila y?",
+        "options": {
+          "a": "x=y%10/10;",
+          "b": "x=y/10%10;",
+          "c": "x=y%10;",
+          "d": "x=x/100;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește x,y (numere naturale) ┌cât timp y>0 execută │ zÅx%y │ xÅ2*y │ yÅ2*z └■ scrie x",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa la finalul executării algoritmului dacă se citesc valorile x=15 și y=25.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru y se citește valoarea 3, scrieți toate numerele formate dintr-o singură cifră care pot fi citite pentru variabila x astfel încât, pentru fiecare dintre acestea, la finalul executării algoritmului să se afișeze o valoare de forma 2 p , unde p este un număr natural.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care structura cât timp...execută să fie înlocuită cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte dintre vârfurile grafului neorientat G, reprezentat prin matricea de adiacență alăturată, au gradul 0? 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0",
+        "options": {
+          "a": "2",
+          "b": "1",
+          "c": "3",
+          "d": "0 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită alocată dinamic, cu cel puțin două noduri, fiecare nod reține în câmpul urm adresa nodului următor din listă sau NULL dacă nu are un nod următor. Știind că variabila p reține adresa primului nod din listă, iar variabila q este de același tip cu p, care este secvența ce realizează eliminarea celui de-al doilea nod din listă?",
+        "options": {
+          "a": "q=p->urm; q->urm=p->urm->urm; delete q; | free(q);",
+          "b": "p->urm=p->urm->urm; delete p; | free(p);",
+          "c": "q=p->urm; p->urm=p->urm->urm; delete q; | free(q);",
+          "d": "p=q->urm; q->urm=p->urm->urm; delete q; | free(q);"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Pentru reprezentarea unui arbore cu rădăcină, cu 9 noduri, etichetate cu numerele naturale de la 1 la 9, se utilizează vectorul de “tați”: T=(5,0,2,7,3,3,2,4,7). Din câte muchii este format un lanț elementar de lungime maximă, în arborele dat? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Variabila a memorează un tablou bidimensional cu 5 linii si 5 coloane, numerotate de la 1 la 5, ale cărui elemente sunt numere întregi. Care este cea mai mare valoare, memorată în tablou, deasupra diagonalei principale a tabloului construit în urma executării secvenței de program alăturate ? (6p.) for(i=1;i<=5;i++) for(j=1;j<=5;j++) a[i][j]=j%i+i%j;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un șir de cel mult 40 de caractere, format doar din litere mici ale alfabetului englez, și care afișează pe ecran, pe o singură linie, toate vocalele ce apar în șirul citit. Vocalele vor fi afișate în ordinea apariției lor în șir, separate prin câte un spațiu, ca în exemplu. Se consideră ca fiind vocale următoarele litere: a, e, i, o, u. Dacă șirul citit nu conține nicio vocală, se va afișa pe ecran mesajul fara vocale. Exemplu: dacă se citește șirul calculator atunci pe ecran se va afișa: a u a o (10p.) Varianta 42",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează toate permutările mulțimii {1,2,3,4}. Dacă primele trei permutări generate sunt, în acestă ordine: 1234, 1243, 1324 precizați care este permutarea generată imediat după 3412.",
+        "options": {
+          "a": "3214",
+          "b": "3413",
+          "c": "4123",
+          "d": "3421"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f are definiția alăturată. Ce valoare are f(7)? Dar f(100)? (6p.) int f(int x) {if(x%6==0)return x; else return f(x-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a unui subprogram P, cu trei parametri, care primește prin intermediul primului parametru, a, un tablou unidimensional de cel mult 100 de numere întregi, cu cel mult 4 cifre fiecare, prin intermediul celui de-al doilea parametru, n, numărul efectiv de elemente ale tabloului, iar prin parametrul k, un număr natural (k<101) și returnează cea mai mare sumă cu k termeni care se poate obține adunând k elemente ale tabloului. Exemplu: dacă n=6 și k=4, iar șirul este format din elementele (5, 2, 5, 4, 1, 3), atunci la apel se va returna 17. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text numere.txt conține pe prima linie un număr natural n (0<n<100000) iar pe doua linie, separate prin câte un spațiu, n numere naturale formate din cel mult două cifre fiecare.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care determină în mod eficient, din punct de vedere al timpului de executare, numerele ce apar o singură dată în a doua linie a fișierului. Aceste numere vor fi afișate pe ecran în ordine crescătoare, separate prin câte un spațiu. Exemplu: dacă fișierul numere.txt are următorul conținut: 7 3 5 2 1 5 23 1 atunci pe ecran se va afișa: 2 3 23.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

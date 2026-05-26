@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-089",
+  "year": 2009,
+  "variant": 89,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 265,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întregă n memorează un număr natural format din exact două cifre nenule. Care dintre următoarele instrucțiuni C/C++ determină memorarea în variabila întreagă t a numărului care are aceleași cifre ca și n, dar în ordine inversă?",
+        "options": {
+          "a": "t=n%10*10+n/10;",
+          "b": "t=n/10*10+n%10;",
+          "c": "t=n%10+n/10;",
+          "d": "t=n%10*10+t/10;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural) tÅn; rÅ0 ┌cât timp t>0 execută │┌dacă (t%10)%2=1 atunci ││ rÅr*10+1 ││altfel ││ rÅr*10+t%10 │└■ │ tÅ[t/10] └■ nÅ0 ┌cât timp r>0 execută │ nÅn*10+r%10 │ rÅ[r/10] └■ scrie n Varianta 89",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care se va afișa dacă se citește numărul n=3072941.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un număr format din exact 5 cifre, ele fiind în ordine strict crescătoare, care poate fi citit astfel încât executarea algoritmului să determine afișarea unui număr egal cu cel citit.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască fiecare structură cât timp… execută cu câte o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În declararea alăturată, variabila p memorează în câmpul x abscisa, iar în câmpul y ordonata unui punct din planul xOy. Dacă punctul se află în interiorul suprafeței dreptunghiulare determinate de punctele A(1,1), B(4,1), C(4,3), D(1,3), care dintre expresiile de mai jos are valoarea 1? struct {float x; float y;}p;",
+        "options": {
+          "a": "(p.x>1)&&(p.x<4)&&(p.y>1)&&(p.y<3)",
+          "b": "(x.p>1)&&(x.p<4)&&(y.p>1)&&(y.p<3)",
+          "c": "(p.x>1)&&(p.x<4)||(p.y>1)&&(p.y<3)",
+          "d": "(p(x)>1)&&(p(x)<4)||(p(y)>1)&&(p(y)<3) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Ce valoare are variabila s de tip șir de caractere după executarea instrucțiunilor de mai jos? strncpy(s,strstr(\"informatica\",\"form\"),strlen(\"BAC009\")); s[6]='\\0';",
+        "options": {
+          "a": "format",
+          "b": "informat",
+          "c": "inform",
+          "d": "informBAC"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Determinați ultima valoare (notată cu „?”) din vectorului „de tați” (0, 1, 1, 2, 3, 3, ?) astfel încât arborele cu rădăcină, cu 7 noduri, numerotate de la 1 la 7, descris de acest vector, să aibă pe fiecare nivel n exact 2 n noduri, nodul rădăcină fiind pe nivelul n=0, și fiecare nod să aibă cel mult doi descendenți. Scrieți matricea de adiacență a unui arbore astfel definit. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fiecare element al unei liste simplu înlănțuite, alocată dinamic, reține în câmpul nr un număr întreg, iar în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor. Ce valori au variabilele întregi a și b după executarea secvenței alăturate, dacă variabila p reține adresa primului element al listei de mai jos, iar variabila q este de același tip cu p? (6p.) q=p; a=p->urm->nr; while (q->urm!=NULL) { q->urm->nr=2*q->nr+1; q=q->urm; } b=q->nr; Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤6) apoi construiește în memorie o matrice cu n linii și n coloane, astfel încât parcurgând liniile matricei de sus în jos și de la stânga la dreapta se obțin, în prima linie primele n numere ale șirului Fibonacci în ordine crescătoare, în linia a doua următoarele n numere ale șirului Fibonacci în ordine descrescătoare, în linia a treia următoarele n numere ale acestui șir în ordine crescătoare, și așa mai departe, ca în exemplu. Elementele șirului Fibonacci se obțin astfel: primul element este 0, al doilea este 1, iar elementele următoare se obțin însumând cele două elemente care preced elementul curent. Astfel, primele 16 elemente ale acestui șir sunt: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul afișează pe ecran matricea obținută, câte o linie a matricei pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. Exemplu: pentru n=4 se obține matricea alăturată. (10p.) 0 1 1 2 13 8 5 3 21 34 55 89 610 377 233 144 Varianta 89",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "O clasă formată din 28 de elevi dorește să trimită la consfătuirea reprezentanților claselor școlii o delegație formată din 3 elevi. Algoritmul de generare a tuturor posibilităților de a forma o delegație este similar cu algoritmul de generare a:",
+        "options": {
+          "a": "permutărilor",
+          "b": "aranjamentelor",
+          "c": "combinărilor",
+          "d": "submulțimilor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce valoare are f(0)? Dar f(4)? (6p.) long f(int n) { if (n==0) return 0; else return n*n+f(n-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului numar, cu trei parametri, care primește prin intermediul parametrului n un număr natural format din cel mult 9 cifre, iar prin intermediul parametrilor c1 și c2 câte o cifră nenulă. Subprogramul caută prima apariție (de la stânga spre dreapta) a cifrei c1 în n, și dacă aceasta apare, o înlocuiește cu c2, iar următoarele cifre, dacă există, sunt înlocuite cu câte o cifră 0. Subprogramul furnizează tot prin n numărul astfel obținut. Dacă cifra c1 nu apare în n, atunci valoarea lui n rămâne nemodificată. Exemplu: pentru n=162448, c1=4 și c2=7 valoarea furnizată prin n va fi 162700. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text bac.txt conține pe mai multe rânduri cel mult 50000 de numere naturale din intervalul închis [0, 99], numerele de pe același rând fiind separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care afișează pe ecran, în ordine descrescătoare, acele numere din fișier care sunt mai mari decât un număr natural k, citit de la tastatură, utilizând un algoritm eficient din punct de vedere al timpului de executare. Dacă un număr apare de mai multe ori, și este mai mare decât k, se va afișa o singură dată. Numerele vor fi afișate câte 20 pe fiecare linie (cu excepția ultimei linii care poate să conțină mai puține valori), separate prin câte un spațiu. Exemplu: dacă fișierul conține numerele: 15 8 99 15 1 37 1 24 2, iar pentru k se citește valoarea 7, se vor afișa numerele 99 37 24 15 8.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, algoritmul utilizat, justificând eficiența acestuia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "2009-varianta-100",
+  "year": 2009,
+  "variant": 100,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 298,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că inițial variabilele întregi x, y și z au valorile x=1, y=2 respectiv z=3, în ce ordine trebuie scrise atribuirile următoare astfel încât, în final, expresia x+y+z să aibă valoarea maximă? I) x=x+y-z; II) y=x-y+z; III) z=z-x+y;",
+        "options": {
+          "a": "III II I",
+          "b": "I II III",
+          "c": "III I II",
+          "d": "I"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a (număr natural, a<10 9 ) ┌repetă │ b←0 │┌cât timp a≠0 execută ││ b←b+a%10 ││ a←[a/10] │└■ │ a←b └până când a<10 scrie b Varianta 100",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți care este valoarea afișată în urma executării algoritmului dacă se citește numărul 199.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cel mai mic și cel mai mare număr, fiecare având exact 3 cifre, care pot fi citite astfel încât, în ambele cazuri, să se afișeze valoarea 7.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, care să utilizeze cel mult o singură structură repetitivă.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul minim de muchii care trebuie eliminate dintr-un graf neorientat complet cu 100 de noduri astfel încât graful parțial obținut să fie eulerian?",
+        "options": {
+          "a": "4851",
+          "b": "0",
+          "c": "100",
+          "d": "50"
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Fiecare element al unei liste simplu înlănțuite, alocată dinamic, memorează în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor în listă, iar variabilele k1, k2 și k3 rețin adresele a 3 elemente succesive în listă, ca în figură. Cu ce instrucțiune se pot înlocui punctele de suspensie din secvența de mai jos astfel încât aceasta să determine interschimbarea corectă a pozițiilor în listă a elementelor de la adresele k2 și k3? 2. k1->urm=k3; ... k3->urm=k2;",
+        "options": {
+          "a": "k2->urm=k3->urm;",
+          "b": "k2->urm=k3;",
+          "c": "k2->urm=k1->urm;",
+          "d": "k2=k3->urm;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră arborele cu 6 noduri, numerotate de la 1 la 6, cu muchiile [2,1], [2,4], [4,5], [6,2], [6,3]. Scrieți toate nodurile desemnate ca rădăcină astfel încât fiecare arbore cu rădacină obținut să aibă exact 3 frunze. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră declararea char e[20]=”51+73”; Care este șirul memorat de variabila e după executarea instrucțiunii de mai jos? strcpy(e,strchr(e,’+’)+2); (6p.) Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤100)și apoi elementele unui tablou bidimensional cu n linii și n coloane, care memorează numere naturale cu cel mult 9 cifre fiecare; programul afișează pe ecran acele valori din tablou care sunt strict mai mici decât toate elementele cu care se învecinează direct (aflate pe aceeași linie dar pe o coloană alăturată sau pe aceeași coloană dar pe o linie alăturată), ca în exemplu. Numerele afișate vor fi separate prin câte un spațiu.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru n=4 și tabloul alăturat se afișează numerele: 2 0 (2 se învecinează direct cu 4, 3, 6 și 9, și este mai mic decât acestea, iar 0 se învecinează direct cu 6, 9 și 1 și este mai mic decât acestea). (10p.) 5 4 7 9 6 2 3 4 0 9 8 5 1 3 8 6 Varianta 100",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Aplicând metoda backtracking pentru a genera toate permutările celor n elemente ale unei mulțimi, o soluție se memorează sub forma unui tablou unidimensional x1,x2,…,xn. Dacă sunt deja generate valori pentru componentele x1,x2,…,xk-1, iar pentru componenta curentă, xk (1<k<n), a fost găsită o valoare convenabilă, atunci se încearcă alegerea",
+        "options": {
+          "a": "unei noi valori pentru componenta xk-1",
+          "b": "unei valori pentru componenta xk+1",
+          "c": "unei noi valori pentru componenta xk",
+          "d": "unei noi valori pentru componenta x1"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Ce afișează subprogramul F, descris alăturat, la apelul F(5);? (6p.) void F(int x) { cout<<x; | printf(“%d”,x); if(x>=3) F(x-2); cout<<x-1; | printf(“%d”,x-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului divizor, cu trei parametri, prin care primește 3 numere naturale nenule cu cel mult 9 cifre fiecare și returnează numărul divizorilor comuni tuturor celor 3 numere. Exemplu: dacă numerele primite ca parametri sunt 24, 20 și 12, subprogramul returnează valoarea 3 (divizorii comuni sunt 1, 2 și 4). (10p.) Se consideră un șir s format după regula alăturată, unde s-a notat cu aӨb numărul obținut prin concatenarea cifrelor lui a și b, în această ordine. Exemplu: pentru x=2 se obține șirul: 2, 3, 32, 323, 32332,.... Fișierul text SIR.TXT conține pe prima linie două numere, x (1≤x≤20) și k (1≤k≤5000), separate printr-un spațiu, iar pe a doua linie un număr format din exact k cifre, reprezentând un termen al șirului s (diferit de x). Cifrele numărului nu sunt separate prin spații. a) Scrieți un program C/C++ care, utilizând un algoritm eficient din punct de vedere al timpului de executare și al memoriei utilizate, afișează pe ecran acel termen din șir care îl precede pe cel citit din fișier. Exemplu: dacă fișierul conține valorile alăturate, se va afișa pe ecran numărul 323. (6p.) 2 5 32332",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "b) Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei. (4p.) Varianta 100",
+        "subQuestions": [
+          {
+            "id": "b",
+            "text": "Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

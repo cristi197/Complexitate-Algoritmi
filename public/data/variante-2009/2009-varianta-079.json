@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-079",
+  "year": 2009,
+  "variant": 79,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 235,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Stabiliți ce se afișează în urma executării secvenței de instrucțiuni C/C++ alăturate, dacă y este o variabilă reală, iar x o variabilă întreagă. y=10.1234; x=(int)(y*100)/100; printf(”%d”,x); | cout<<x;",
+        "options": {
+          "a": "1012.34",
+          "b": "10.12",
+          "c": "0.12",
+          "d": "10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, reprezentat în pseudocod. S-a notat cu x|y relația „x divide pe y” sau „y este divizibil cu x” și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a (număr natural) xÅ2 kÅ0 ┌cât timp a>1 execută │ cÅ0 │┌cât timp x|a execută ││ cÅx ││ aÅ[a/x] │└■ │┌dacă c≠0 atunci ││ kÅk+x │└■ │ xÅx+1 └■ scrie k Varianta 79",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa dacă se citește numărul 245.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți două numere naturale care pot fi citite pentru variabila a astfel încât valoarea afișată în fiecare caz să fie 10.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, algoritm în care să se înlocuiască fiecare structură cât timp...execută cu câte o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru o matrice t cu 8 linii și 8 coloane, numerotate de la 0 la 7, cu elemente numere întregi, secvența de program alăturată, în care variabilele z, i, și j sunt de tip întreg, determină, în urma executării ei, memorarea în z a sumei tuturor elementelor situate: z=0; for(i=0;i<8;i++) for(j=7-i;j<8;j++) z=z+t[i][j];",
+        "options": {
+          "a": "sub diagonala secundară, inclusiv diagonala secundară",
+          "b": "deasupra diagonalei principale, inclusiv diagonala principală",
+          "c": "strict sub diagonala principală",
+          "d": "strict deasupra diagonalei secundare 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră lista simplu înlănțuită, alocată dinamic, în care fiecare nod memorează în câmpul nr o valoare întreagă și în câmpul urm adresa nodului următor sau NULL dacă este ultimul nod din listă. În listă sunt memorate, în această ordine, valorile 4, 3, 2, 5, 7, 9, 6, 1, 8. Variabila prim reține adresa primului element din listă, variabila p este de același tip cu prim., iar variabila k este de tip întreg. Care este valoarea ce se va afișa în urma executării secvenței alăturate ? p=prim; k=0; while(p->urm!=NULL && k>=0) {if(p->nr%2==0) k=k+1; else k=k-1; p=p->urm; } printf(“%d”,p->nr); | cout<<p->nr;",
+        "options": {
+          "a": "9",
+          "b": "4",
+          "c": "3",
+          "d": "8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră arborele cu 13 noduri, numerotate de la 1 la 13, și mulțimea muchiilor {[1,4], [2,5], [3,8], [4,7], [4,9], [4,11], [6,3], [6,10], [6,12], [5,6], [13,2], [2,9]}. Dacă se alege nodul numerotat cu 2 drept rădăcină, care este vectorul de „tați” pentru acest arbore? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fie graful neorientat cu 6 noduri, numerotate de la 1 la 6, și muchiile [1,2], [1,3], [1,4], [2,3], [2,4], [3,4], [3,5], [4,5], [4,6], [5,6]. Care este numărul maxim de muchii ce pot fi eliminate astfel încât graful parțial obținut să-și păstreze proprietatea de graf hamiltonian? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un text cu cel mult 100 de caractere (doar litere ale alfabetului englez și spații), construiește în memorie și apoi afișează pe ecran șirul de caractere obținut din șirul inițial, în care se inserează după fiecare vocală caracterul *. Se consideră vocale literele a, e, i, o, u, A, E, I, O, U. Dacă textul citit nu conține vocale, se va afișa mesajul FARA VOCALE. Exemplu: dacă se citește de la tastatură textul Examenul de bacalaureat se va obține și afișa: E*xa*me*nu*l de* ba*ca*la*u*re*a*t. (10p.) Varianta 79",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Problema generării tuturor codurilor formate din exact 4 cifre nenule, cu toate cifrele distincte două câte două, este similară cu generarea tuturor:",
+        "options": {
+          "a": "aranjamentelor de 9 elemente luate câte 4",
+          "b": "permutărilor elementelor unei mulțimi cu 4 elemente",
+          "c": "elementelor produsului cartezian AxAxAxA unde A este o mulțime cu 9 elemente",
+          "d": "submulțimilor cu 4 elemente ale mulțimii {1,2,3,4,5,6,7,8,9}"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, scrieți ce valoare are f(8). Dar f(1209986)? (6p.) int f(long x) { int y,z; if (x==0) return x; else {y=x%10; z=f(x/10); if(y>z) return y; else return z; } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogram max, cu trei parametri, a, b, c, care primește prin intermediul parametrilor a și b două numere reale cu exact două cifre la partea întreagă și exact două zecimale fiecare. Subprogramul determină cel mai mare număr real dintre următoarele patru valori: a, b și numerele reale obținute din a și b prin interschimbarea părții întregi cu partea fracționară în cadrul aceluiași număr. Această valoare este furnizată prin intermediul parametrului real c. Exemplu: dacă a=33.17 și b=15.40, c va avea valoarea 40.15 (cea mai mare valoare dintre 33.17, 15.40, 17.33 și 40.15) (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se citește de pe prima linie a fișierului numere.in un număr natural n (0<n<10000) și, de pe a doua linie a fișierului, n numere naturale din intervalul [1,100] și se cere să se afișeze pe ecran, despărțite prin câte un spațiu, numărul sau numerele întregi din intervalul [1,100] care nu apar printre numerele citite. Dacă pe a doua linie a fișierului apar toate numerele din intervalul precizat, se va afișa mesajul NU LIPSESTE NICIUN NUMAR. Alegeți un algoritm de rezolvare eficient din punctul de vedere al timpului de executare. Exemplu: pentru fișierul numere.in cu următorul conținut 12 4 2 3 1 6 5 7 8 9 11 10 100 se vor afișa valorile 12 13 … 99.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Explicați în limbaj natural metoda utilizată, justificând eficiența acesteia (4-6 rânduri).",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ ce rezolvă problema enunțată, corespunzător metodei descrise la punctul a).",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

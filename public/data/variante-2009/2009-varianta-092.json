@@ -1,0 +1,132 @@
+{
+  "id": "2009-varianta-092",
+  "year": 2009,
+  "variant": 92,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 274,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Stabiliți care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă numărul întreg x, nu aparține intervalului A=(-10,-2)∪[50,100]?",
+        "options": {
+          "a": "(x<=-10) || (x<50 && x>=-2) || (x>100)",
+          "b": "(x<=-10) || (x<=50 && x>=-2) || (x>=100)",
+          "c": "(x<-10) || (x<50 && x>-2) || (x>100)",
+          "d": "(x<=-10) || (x<=50 || x>=-2) || (x>100)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [x] partea întreagă a numărului real x.",
+      "pseudocode": "citește n (număr natural nenul) nrÅ0 yÅ0 ┌pentru iÅ1,n execută │┌repetă ││ citește x (număr real) ││ nrÅnr+1 │└până când x>=1 și x<=10 │ yÅy+x └■ scrie [y/n] scrie nr Varianta 92",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează dacă se citesc, în această ordine, valorile: 5, 8, 12, 15, 10, 25, 9, 8, 30, 10.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru n se citește valoarea 3 scrieți un șir de date de intrare astfel încât ultima valoare care se afișează să fie 3.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți un algoritm pseudocod echivalent cu cel dat în care structura repetă...până când să fie înlocuită cu o structură repetitivă cu test inițial.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care din următoarele arce aparține grafului orientat cu 4 vârfuri, având gradele din tabelul alăturat (x,y∈N)?",
+        "options": {
+          "a": "(2,3)",
+          "b": "(1,2)",
+          "c": "(1,4)",
+          "d": "(4,1) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți vectorul de ”tați” corespunzător arborelui cu rădăcină, cu 8 noduri, numerotate de la 1 la 8, dat prin lista alăturată a descendenților direcți (fiilor)? (6p.) 1: 4,6,7 2: - 3: 1,8 4: - 5: - 6: 2 7: - 8: 5",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți o expresie logică C/C++ care să codifice condiția ca variabila v din declarațiile alăturate să reprezinte segmentul nul (segmentul care are originea identică cu extremitatea). (4p.) struct punct {float x; float y;}; struct segment { struct punct origine; struct punct extremitate;} v; Scrieți un program C/C++ care citește de la tastatură numerele întregi m și n (1≤m≤24, 1≤n≤24) și elementele unui tablou bidimensional cu m linii și n coloane, numere întregi distincte de cel mult 4 cifre fiecare, și elimină din tablou, la nivelul memoriei, linia și coloana corespunzătoare elementului de valoare minimă. Programul va afișa tabloul obținut pe ecran pe m-1 linii, elementele fiecărei linii fiind separate prin câte un spațiu. (10p.)",
+        "points": 4
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru m=3 și n=4 și tabloul de mai jos 2 7 1 4 14 6 12 3 9 22 8 5 Pe ecran se va afișa: 14 6 3 9 22 5 Varianta 92",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Având la dispoziție cifrele 0, 1 și 2 se pot genera, în ordine crescătoare, numere care au suma cifrelor egală cu 2. Astfel, primele 6 soluții sunt 2, 11, 20, 101, 110, 200. Folosind același algoritm, se generează numere cu cifrele 0, 1, 2 și 3 care au suma cifrelor egală cu 4. Care va fi al 7-lea număr din această generare?",
+        "options": {
+          "a": "130",
+          "b": "301",
+          "c": "220",
+          "d": "103"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f definit alăturat. Ce se va afișa în urma apelului f(14);? (6p.) void f(int x) { if (x<=10) cout<<0<<” ”;|printf(\"%d \",0); else {f(x-2); cout<<x<<” ”;|printf(\"%d \",x); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul ordonare primește prin parametrul x un tablou unidimensional cu cel mult 100 de elemente numere reale, iar prin parametrul n un număr întreg ce reprezintă numărul efectiv de elemente ale tabloului x. Subprogramul ordonează crescător elementele tabloului și furnizează, tot prin intermediul parametrului x, tabloul ordonat. a) Scrieți numai antetul acestui subprogram. (4p.) b) Scrieți un program C/C++ care citește de la tastatură două numere naturale, n și m (1≤n≤100 și m≤n), și apoi un șir de n numere reale distincte. Folosind apeluri utile ale subprogramului ordonare, programul afișează pe prima linie a ecranului, cele mai mari m elemente din șirul citit (în ordine crescătoare a valorilor lor), iar pe a doua linie de ecran, cele mai mici m elemente din șir (în ordine descrescătoare a valorilor lor). Numerele afișate pe aceeași linie vor fi separate prin câte un spațiu. (10p.) Exemplu : dacă n=9, m=3, iar șirul este (14.2, 60, -7.5, -22, 33.8, 80, 4, 10, 3) se va afișa pe ecran: 33.8 60 80 3 -7.5 -22",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Scrieți un program C/C++ care creează fișierul text SIR.TXT și scrie în el toate șirurile formate din două caractere distincte, litere mari ale alfabetului englez, astfel încât niciun șir să nu fie format din două vocale alăturate. Fiecare șir va fi scris pe câte o linie a fișierului. (6p.) Varianta 92",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

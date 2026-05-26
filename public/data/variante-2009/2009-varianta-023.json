@@ -1,0 +1,124 @@
+{
+  "id": "2009-varianta-023",
+  "year": 2009,
+  "variant": 23,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 67,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre expresiile C/C++ de mai jos este echivalentă cu cea alăturată? !((a<=b && a>=c) || a<=d)",
+        "options": {
+          "a": "a<=b || a>=c && a<=d",
+          "b": "a>b || a<c && a>d",
+          "c": "a>b || a<c || a>d",
+          "d": "(a>b || a<c) && a>d"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a,b (numere naturale nenule) cÅ0 ┌repetă │ iÅa%2 │ jÅb%2 │ ┌dacă i+j=0 atunci │ │ cÅc+1 │ └■ │ aÅa*i+(1-i)*[a/2] │ bÅb*j+(1-j)*[b/2] └până când i*j=1 scrie c Varianta 23",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa dacă se citesc, în ordine, valorile 24 și 36.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți două valori care trebuie citite (una pentru variabila a și una pentru variabila",
+          "points": null
+        },
+        {
+          "id": "b",
+          "text": "astfel încât, în urma executării algoritmului, să se afișeze valoarea 0.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura repetă...până când cu o structură repetitivă cu test inițial.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care din următoarele expresii are valoarea 1 dacă și numai dacă șirul de caractere s, format din exact 10 caractere, este obținut prin concatenarea a două șiruri identice? (6p.) a. strcmp(s,s+5)==0 b. s==strstr(s,s+5) c. s==s+5 d. strcmp(s,strcat(s,s+5))==0 2. Care dintre următoarele arce trebuie adăugat unui graf orientat cu 5 noduri și cu matricea de adiacență alăturată astfel încât în acest graf să existe cel puțin un drum între oricare două vârfuri? 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0",
+        "options": {
+          "a": "(3 , 5)",
+          "b": "(4 , 1)",
+          "c": "(5 , 3)",
+          "d": "(3 , 2)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care sunt nodurile care au exact 2 descendenți pentru un arbore cu rădăcină, cu 7 noduri, numerotate de la 1 la 7, dat de vectorul de ”tați”: (3,3,0,1,2,2,4)? (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Pentru declarațiile alăturate, care este numărul maxim de numere întregi ce pot fi memorate în variabila a? (6p.) struct punct3D { int x; int y; int z;}; struct punct3D a[10][10];",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Un tablou bidimensional A cu m linii și n coloane (1≤m≤100, 1≤n≤100) conține pe prima linie numerele 1,2,...,n, iar pe prima coloană numerele 1,2,...,m. Celelalte elemente ale tabloului sunt date de relația: Ai,j=Ai-1,j+Ai,j-1. Scrieți un program C/C++ care citește de la tastatură numerele m și n și afișează pe ecran ultima cifră a elementului de pe ultima linie și ultima coloană a tabloului. Exemplu: pentru m=3 și n=4 se va afișa 5 deoarece elementele tabloului A sunt: (10p.) 1 2 3 4 2 4 7 11 3 7 14 25 Varianta 23",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru subprogramul suma definit alăturat, scrieți valoarea expresiei suma(5,4). (4p.) int suma (int a,int b) { if (a==0 && b==0) return 0; else if (a==0) return 1+suma(a,b-1); else return 1+suma(a-1,b); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a subprogramului shift care primește prin intermediul parametrului n o valoare naturală nenulă (n≤100), iar prin intermediul parametrului x, un tablou unidimensional cu maximum 100 de componente. Fiecare componentă a acestui tablou este un număr întreg care are cel mult 4 cifre. Subprogramul permută circular cu o poziție spre stânga primele n elemente ale tabloului x și furnizează tabloul modificat tot prin parametrul x. Exemplu: dacă înainte de apel n=4 și x=(1,2,3,4), după apel x=(2,3,4,1). (4p.) b) Scrieți un program C/C++ care citește de la tastatură o valoare naturală nenulă n (n≤100), apoi cele n elemente ale unui tablou unidimensional x. Programul va inversa ordinea elementelor tabloului x folosind apeluri utile ale subprogramului shift și va afișa pe ecran, separate prin câte un spațiu, elementele tabloului rezultat în urma acestei prelucrări. Exemplu: dacă se citesc pentru n valoarea 5, iar tabloul x este (1,2,3,4,5) programul va determina ca x să devină (5,4,3,2,1). (6p.) Fișierul text BAC.TXT conține pe prima linie un număr natural nenul n (1≤n≤1000), iar pe fiecare dintre următoarele n linii, câte două numere întregi a și b (1≤a≤b≤32000), fiecare pereche reprezentând un interval închis de forma [a,b]. Scrieți un program C/C++ care determină intervalele care au proprietatea că intersecția cu oricare dintre celelalte n-1 intervale este vidă și afișează pe câte o linie a ecranului, separate printr-un spațiu, numerele care reprezintă capetele intervalelor determinate. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Exemplu: dacă fișierul BAC.TXT are conținutulalăturat, pe ecran se va afișa: 2 6 sau 17 20 17 20 2 6 4 17 20 2 6 10 15 8 16 Varianta 23",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

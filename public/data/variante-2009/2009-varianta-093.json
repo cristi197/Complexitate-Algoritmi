@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-093",
+  "year": 2009,
+  "variant": 93,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 277,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabile întregi x și y memorează câte un număr natural, cu exact două cifre. Care este valoarea expresiei x-y știind că fiecare dintre expresiile C/C++ alăturate are valoarea 1? x/10==y%10 y/10==x%10 x/10==x%10+1",
+        "options": {
+          "a": "0",
+          "b": "9",
+          "c": "1",
+          "d": "11"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod.",
+      "pseudocode": "citește n,m (numere naturale, n≤m) sÅ0 ┌cât timp n<m execută │ sÅs+n │ nÅn+3 └■ ┌dacă n=m atunci │ scrie s+n │altfel │ scrie 0 └■ Varianta 93",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează dacă se citesc numerele n=2 și m=11.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "c",
+          "text": "Dacă pentru n se citește valoarea 1 scrieți numărul de valori naturale nenule de exact o cifră, care pot fi citite pentru variabila m, astfel încât să se afișeze valoarea 0.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să NU folosească structuri repetitive sau recursive.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul minim de noduri ce trebuie eliminate din graful alăturat astfel încât subgraful obținut să nu fie conex?",
+        "options": {
+          "a": "3",
+          "b": "0",
+          "c": "2",
+          "d": "1 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră arborele din figura alăturată. a) Care este nodul ce trebuie ales ca rădăcină astfel încât aceasta să aibă 4 descendenți direcți (fii)? (3p.) b) Care sunt cei patru fii ai nodului ales ca rădăcină în acest caz? (3p.)",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară simplu înlănțuită cu 99 de elemente, reține în câmpul nr al fiecărui element câte un număr natural, iar în câmpul urm, adresa elementului următor din listă sau NULL dacă nu există un element următor. Știind că prim păstrează adresa primului element al listei și că p și q sunt două variabile de același tip cu prim, câte elemente are lista după executarea secvenței alăturate? (4p.) p=prim; while(p->urm!=NULL) {q=p->urm; p->urm=q->urm; delete q; | free(q); p=p->urm;}",
+        "points": 4
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Un șir de caractere s se numește “șablon” pentru un alt șir de caractere x, dacă este format din caractere din mulțimea {*, ?,#}, are aceeași lungime cu x și pe fiecare poziție din s în care apare * în x se găsește o vocală, pe fiecare poziție din s în care apare # în x se găsește o consoană și pe fiecare poziție din s în care apare ? putem avea orice caracter în x. Se consideră vocală orice literă din mulțimea {a,e,i,o,u}. Scrieți programul C/C++ care citește de la tastatură două șiruri de caractere, de aceeași lungime, formate din cel mult 200 de litere mici ale alfabetului englez, și afișează pe ecran, un șablon comun celor două șiruri citite, care conține un număr minim de caractere ?. Exemplu: pentru șirurile diamant și pierdut se afișează #**#??# (10p.) Varianta 93",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În câte dintre permutările elementelor mulțimii {‘I’,’N’,’F’,’O’} vocala ‘I’ apare pe prima poziție?",
+        "options": {
+          "a": "1",
+          "b": "24",
+          "c": "6",
+          "d": "12"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f este definit alăturat. Ce se afișează ca urmare a apelului f(1,3); ? (6p.) void f (int x,int y) { if (x<y){x=x+1;f(x,y); y=y-1;f(x,y); } else cout<<x<<y; printf(“%d%d”,x,y); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (1≤n≤99), impar, și construiește în memorie un tablou unidimensional A=(A1, A2,…, An) cu elementele mulțimii {1,2,...,n} astfel încât elementele de pe poziții impare formează șirul crescător 1,2,...,[(n+1)/2], iar elementele de pe poziții pare șirul descrescător n,n-1,..., [(n+1)/2]+1. Exemplu: pentru n=11 se va construi tabloul A : Programul va crea un fișier text TABLOU.TXT. Elementele tabloului se vor scrie, în ordine, pe prima linie a fișierului, cu câte un spațiu între ele. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți definiția completă a subprogramului dcm, cu doi parametri, care: - primește prin parametrii a și b două valori naturale din intervalul [1,30000] - returnează o valoare naturală reprezentând cel mai mare număr care este atât divizor al lui a cât și divizor al lui b. Exemplu: dacă a=100 și b=120, subprogramul returnează valoarea 20. (6p.) b) Scrieți un program C/C++ care citește de la tastatură două numere naturale a și b, numere din intervalul [1,30000] și determină, folosind apeluri utile ale subprogramului dcm, cel mai mare număr care este divizor al fiecăruia dintre numerele a și b și are proprietatea că este un produs de două sau mai multe numere prime distincte. Programul afișează pe ecran numărul cu proprietatea cerută, iar dacă nu există un astfel de număr, afișează mesajul nu exista. Exemplu: dacă a=60 și b=72, atunci se afișează 6 iar dacă a=100 și b=75, atunci se afișează nu exista. (4p.) Varianta 93",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului dcm, cu doi parametri, care: - primește prin parametrii a și b două valori naturale din intervalul [1,30000] - returnează o valoare naturală reprezentând cel mai mare număr care este atât divizor al lui a cât și divizor al lui b. Exemplu: dacă a=100 și b=120, subprogramul returnează valoarea 20.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care citește de la tastatură două numere naturale a și b, numere din intervalul [1,30000] și determină, folosind apeluri utile ale subprogramului dcm, cel mai mare număr care este divizor al fiecăruia dintre numerele a și b și are proprietatea că este un produs de două sau mai multe numere prime distincte. Programul afișează pe ecran numărul cu proprietatea cerută, iar dacă nu există un astfel de număr, afișează mesajul nu exista. Exemplu: dacă a=60 și b=72, atunci se afișează 6 iar dacă a=100 și b=75, atunci se afișează nu exista.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

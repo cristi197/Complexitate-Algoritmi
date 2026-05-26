@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-068",
+  "year": 2009,
+  "variant": 68,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 202,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele x, y și z memorează valori reale, iar x<y. Care dintre expresiile de mai jos, scrise în limbajul C/C++, are valoarea 1 dacă valoarea variabilei z este situată în intervalul închis determinat de valorile memorate în variabilele x și y?",
+        "options": {
+          "a": "(z>=x) && (z<=y)",
+          "b": "(z<=x) && (z<=y)",
+          "c": "(y<x) || (z<=x)",
+          "d": "(z<x) || (z>y)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește x (număr natural nenul) nr Å0 ┌pentru iÅ1,x execută │ citește n (număr întreg) │┌dacă n%x=0 atunci ││ nrÅnr+1 │└■ └■ scrie nr Varianta 68",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea afișată în urma executării algoritmului dacă se citesc, în ordine, valorile: 5, 14, 6, 15, 16, 90.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Știind că valoarea citită pentru x este 7, scrieți un șir de numere distincte care pot fi citite în continuare astfel încât valoarea afișată să fie 0.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura pentru...execută cu o structură repetitivă cât timp...execută.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Cum se poate accesa prima literă a denumirii unui material ale cărui caracteristici sunt memorate în variabila m, declarată alăturat? struct material{ char denumire[20]; int pret;} m;",
+        "options": {
+          "a": "denumire.m[0]",
+          "b": "m->denumire[0]",
+          "c": "material.denumire[0]",
+          "d": "m.denumire[0] 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful orientat cu vârfurile numerotate cu numere distincte 1,2,3, ... . Graful este reprezentat printr-o matrice de adiacență A. Precizați care este semnificația sumei valorilor de pe o linie oarecare x a matricei A.",
+        "options": {
+          "a": "reprezintă numărul arcelor care au ca extremitate inițială vârful x",
+          "b": "reprezintă numărul drumurilor care conțin vârful x",
+          "c": "reprezintă numărul arcelor care au ca extremitate finală x",
+          "d": "reprezintă numărul drumurilor care pornesc din vârful x"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care este vectorul de ”tați” asociat arborelui cu rădăcină din figura alăturată în care nodul 5 este nodul rădăcină? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fie o listă liniară simplu înlănțuită, alocată dinamic, ale cărei noduri rețin in câmpul next adresa nodului următor sau NULL dacă nu există un element următor în listă. Lista are cel puțin două elemente. Variabila x reține adresa primului nod din listă, variabila y reține adresa celui de al doilea nod din listă, , iar variabila z, de același tip cu x și y, reține adresa unui nod ce nu aparține listei. Scrieți o secvență de instrucțiuni în limbajul C/C++ prin executarea căreia se inserează în listă nodul referit de z între cele două noduri referite de x și y. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură două numere naturale m și n (1≤m≤50, 1≤n≤50) și m* n numere naturale de cel mult 5 cifre ce reprezintă elementele unui tablou bidimensional, și afișează pe ecran ultima cifră a produsului elementelor pozitive aflate pe linii cu numere de ordine pare și coloane cu numere de ordine impare. Numerotarea liniilor, respectiv a coloanelor, se va face începând cu valoarea 1. Dacă nu există elemente pozitive aflate pe linii cu numere de ordine pare și coloane cu numere de ordine impare, se va afișa mesajul NU EXISTA. (10p.) Exemplu: pentru m=4, n=4 și matricea alăturată se va afișa 5 (care reprezintă ultima cifră a valorii 355=5*71). 11 -21 31 41 5 -61 71 -81 91 11 21 31 -11 31 -41 0 Varianta 68",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se utilizează metoda backtracking pentru a genera toate submulțimile cu 4 elemente ale mulțimii {1,2,3,4,5,6}. Numărul de submulțimi generate este:",
+        "options": {
+          "a": "30",
+          "b": "35",
+          "c": "5",
+          "d": "15"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul recursiv definit alăturat. Ce valori vor fi afișate pe ecran în urma apelului gama(6);? (6p.) void gama(int n) {int i; if(n>=3) {for(i=3;i<=n;i++) printf(”%d ”,n); | cout<<n<<” ”; gama(n-3); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Să se scrie definiția completă a subprogramului calcul, care primește prin intermediul celor doi parametri ai săi două numere întregi, n și k (1≤n≤100000000 și 1≤k≤9), și returnează cifra de rang k a numărului n. Rangul unei cifre este numărul său de ordine, numerotând cifrele de la dreapta la stânga; cifra unităților având rangul 1. Dacă numărul k este mai mare decât numărul de cifre ale lui n, atunci funcția returnează valoarea -1. Exemplu: dacă n=9243 și k=3, în urma apelului se va returna 2. (5p.) b) Scrieți un program C/C++ care citește de la tastatură un număr natural n cu cel mult 8 cifre. Programul va verifica, utilizând apeluri ale subprogramului calcul, dacă orice cifră a lui n are rangul cifrei mai mare sau egal cu valoarea cifrei respective și va afișa mesajul Da în caz afirmativ și mesajul Nu în caz contrar. Exemplu : pentru n=4160 se va afișa Nu. (5p.) rang 4 3 2 1 cifră 4 1 6 0",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text SIR.TXT conține pe prima linie un număr natural n (1≤n≤10000) și pe a doua linie, separate prin spații, un șir crescător de n numere naturale cu cel mult 9 cifre fiecare. Numim platou într-un șir de valori o secvență de elemente identice situate pe poziții alăturate. Lungimea unui platou este egală cu numărul de elemente care îl formează.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește valorile din fișier și, printr-o metodă eficientă din punct de vedere al timpului de executare și al spațiului de memorie utilizat afișează pe ecran, separate printr-un spațiu, lungimea maximă a unui platou, precum și valoarea care formează platoul. În cazul în care sunt mai multe platouri de aceeași lungime se va afișa valoarea cea mai mare care formează unul dintre aceste platouri. Exemplu: dacă fișierul SIR.TXT are conținutul alăturat, 10 11 211 211 211 328 400 400 1201 1201 1201 atunci programul va afișa pe ecran 3 1201.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată la punctul a, justificând eficiența acesteia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "id": "2009-varianta-038",
+  "year": 2009,
+  "variant": 38,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 112,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre expresiile următoare, scrise în limbajul C/C++, are valoarea 1 dacă și numai dacă valorile variabilelor întregi x și y sunt numere pare?",
+        "options": {
+          "a": "x-y==0",
+          "b": "(x+y)%2==0",
+          "c": "(x%2==0) || (y%2==0)",
+          "d": "(x%2==0) && (y%2==0)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural) ┌pentru i←1,n execută │ p←1 │┌pentru j←i,2,-1 execută ││ p←p*j │└■ │scrie [p/(i*2)] └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valorile afișate în urma executării algoritmului, dacă se citește numărul n=3.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mică valoare care poate fi citită pentru n astfel încât, în urma executării algoritmului, în șirul valorilor afișate să existe cel puțin 3 numere care au ultima cifră 0 și care să se afle pe poziții consecutive.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se utilizeze o singură structură repetitivă.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare nod reține în câmpul adr adresa următorului nod din listă sau NULL dacă nu există un nod următor, iar în câmpul info un număr întreg. Considerăm că o astfel de listă memorează, în ordine, doar valorile 7, 5, 4, 9, 3. Variabila d reține adresa nodului la care este memorată valoarea 4. Care este secvența de instrucțiuni care trebuie executată pentru ca lista să conțină, în ordine, doar valorile 7, 5, 9, 3?",
+        "options": {
+          "a": "d->adr=d->adr; d->info=d->adr->info;",
+          "b": "d->adr=d->adr->adr;",
+          "c": "d->info=d->adr->info; d->adr=d->adr->adr;",
+          "d": "d->adr->adr=d->adr; d->adr->info=d->info; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Considerăm că variabila s memorează șirul de caractere examen. Care va fi valoarea lui s după executarea instrucțiunilor scrise alăturat? s[0]= ‘E’; s[strlen(s)-1]= ‘A’; s[strlen(s)/2-1]= ‘N’; s[strlen(s)/2]= ‘M’;",
+        "options": {
+          "a": "ExameN",
+          "b": "exAMen",
+          "c": "ExNMeA",
+          "d": "ExAMeN"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf neorientat cu 7 noduri, numerotate de la 1 la 7 și muchiile [1,5], [2,3], [2,4], [2,5], [3,4], [4,5], [4,7], [5,6], [5,7]. a) Câte cicluri elementare distincte există în graf? Două cicluri sunt distincte dacă diferă prin cel puțin o muchie. (3p.) b) Care este lungimea maximă a unui ciclu elementar din acest graf? (3p.) c) Care este numărul minim de muchii care trebuie eliminate astfel încât graful parțial obținut să aibă 3 componente conexe? (6p.)",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră o matrice pătratică cu n linii și n coloane (1≤n≤30), ce memorează numere întregi nenule de cel mult două cifre fiecare. Scrieți un program C/C++ care citește de la tastatură valoarea n și elementele matricei și care afișează pe ecran, ultima cifră a produsului acelor elemente de pe diagonala secundară ce au proprietatea că sunt valori minime pe coloanele lor. Dacă nu există astfel de elemente în matrice, se va afișa mesajul NU EXISTA. Exemplu: pentru n=4 și matricea alăturată se va afișa pe ecran valoarea 1 (3*7=21). (10p.) Varianta 38",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizăm metoda backtracking pentru generarea tuturor modalităților de a scrie numărul 9 ca sumă a cel puțin două numere naturale nenule distincte. Termenii fiecărei sume sunt în ordine strict crescătoare. Soluțiile se generează în ordinea: 1+2+6, 1+3+5, 1+8, 2+3+4, 2+7, 3+6 și 4+5. Se aplică exact aceeași metodă pentru scrierea lui 8. Câte soluții vor fi generate?",
+        "options": {
+          "a": "3",
+          "b": "4",
+          "c": "6",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului sc, stabiliți ce valoare are sc(10). Dar sc(901324)? (6p.) int sc(long x) { if(x<10) return x; return sc(x/10)+x%10; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți în limbajul C/C++ definiția completă a subprogramul Del care are doi parametri: x, un număr întreg de cel mult 9 cifre, și y, un număr natural nenul de o cifră. Subprogramul determină eliminarea tuturor cifrelor lui x mai mari strict decât y și furnizează numărul obținut tot prin intermediul parametrului x. Dacă toate cifrele lui x sunt mai mari strict decât y, atunci x va primi valoarea -1. Exemplu: dacă x=37659 și y=6, după apel x=365, iar y=6. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul inter, cu doi parametri: x și y (numere întregi formate din cel mult patru cifre fiecare); subprogramul interschimbă valorile a două variabile transmise prin intermediul parametrilor x și y.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți în limbajul C/C++ definiția completă a subprogramului inter.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Pe prima linie a fișierului bac.in se află un număr natural nenul n≤1000, iar pe a doua linie a fișierului se află un șir de n numere naturale nenule, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care afișează pe ecran, în ordine crescătoare, numerele aflate pe a doua linie a fișierului. Numerele vor fi afișate pe o singură linie, iar între două numere se va lăsa un spațiu. Se vor folosi apeluri utile ale subprogramului inter.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

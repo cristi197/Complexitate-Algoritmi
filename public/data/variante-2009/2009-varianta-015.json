@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-015",
+  "year": 2009,
+  "variant": 15,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 43,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele x și y sunt de tip întreg, x memorând valoarea 4, iar y valoarea 2. Care dintre expresiile C/C++ de mai jos are valoarea 0?",
+        "options": {
+          "a": "x-y!=0",
+          "b": "x+y>x%y+1",
+          "c": "x-2*y==0",
+          "d": "!(x==2*y)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește a,n (numere naturale) ┌pentru iÅ1,n execută │ ┌dacă i%2=0 atunci │ │ aÅa-i*i │ │altfel │ │ aÅa+i*i │ └■ └■ scrie a",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează dacă pentru a se citește valoarea 25, iar pentru n se citește valoarea 6.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "c",
+          "text": "Dacă pentru variabila a se citește valoarea 18, scrieți valoarea care trebuie citită pentru variabila n, astfel încât să se afișeze numărul 8.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Dacă se",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Adresa primului element al listei este reținută în variabila prim, iar p este o variabilă de același tip cu prim. Ce va afișa pe ecran în urma executării secvenței de program alăturate? (6p.) p=prim; while ((p->inf%2==0) && (p!=NULL)) p=p->ref; if (p!=NULL) cout<<(p->inf); | printf(\"%d\",p->inf); else cout<<\"NU\"; | printf(\"NU\"); a. Prima valoare impară din listă, dacă aceasta există și NU în caz contrar. b. Prima valoare pară din listă, dacă aceasta există și NU în caz contrar. c. Toate valorile impare din listă dacă astfel de valori există și NU în caz contrar. d. Toate valorile pare din listă dacă astfel de valori există și NU în caz contrar. 2. Câți frați are nodul 1 din arborele cu rădăcină, cu 7 noduri, numerotate de la 1 la 7, având următorul vector ”de tați”: (5,1,5,1,0,7,5)?",
+        "options": {
+          "a": "3",
+          "b": "1",
+          "c": "0",
+          "d": "2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Ce se va afișa pe ecran în urma executării secvenței de program alăturate, în care variabila s memorează un șir cu cel mult 10 caractere, iar variabila i este de tip întreg? (4p.) i=0; char s[11]=\"abaemeiut\"; cout<<strlen(s); | printf(\"%d\",strlen(s)); while (i<strlen(s)) if (strchr(\"aeiou\",s[i])!=NULL)) { strcpy(s+i,s+i+1); i=i+1; } else i=i+2; cout<<\" \"<<s; | printf(\" %s\",s);",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră graful neorientat cu 8 noduri, numerotate de la 1 la 8, și muchiile [1,2], [1,6], [1,7], [2,3], [2,6], [3,6], [3,4], [4,5], [4,8], [5,6], [7,8]. Care este gradul minim al unui nod din acest graf? Care sunt nodurile care au acest grad minim? (6p.) Scrieți un program C/C++ care citește de la tastatură un număr natural cu exact 5 cifre și construiește în memorie o matrice cu 6 linii și 6 coloane, numerotate de la 1 la 6, formată astfel: - elementele aflate pe diagonala principală sunt toate nule; - elementele de pe linia 1, aflate deasupra diagonalei principale precum și elementele de pe coloana 1, aflate sub diagonala principală au toate valoarea egală cu cifra unităților numărului citit; - elementele de pe linia 2, aflate deasupra diagonalei principale precum și elementele de pe coloana 2, aflate sub diagonala principală au toate valoarea egală cu cifra zecilor numărului citit, și așa mai departe, ca în exemplu.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Matricea astfel construită va fi afișată pe ecran, câte o linie a matricei pe câte o linie a ecranului, elementele de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: dacă se citește numărul 28731 matricea construită va fi cea scrisă alăturat. (10p.) 0 1 1 1 1 1 1 0 3 3 3 3 1 3 0 7 7 7 1 3 7 0 8 8 1 3 7 8 0 2 1 3 7 8 2 0 Varianta 15",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte numere cu exact două cifre pot fi construite folosind doar cifre pare distincte?",
+        "options": {
+          "a": "12",
+          "b": "16",
+          "c": "20",
+          "d": "25"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare. Pentru funcțiile f și g definite mai jos, scrieți care este rezultatul returnat la apelul g(11). Dar rezultatul returnat la apelul f(6)? (6p.)",
+      "code": "long g(long x) { if (x>9) return (x/10 + x%10); else return x; } long f(int c) { if (c<1) return 1; else return g(c+f(c-1)); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (n≤32000) și afișează pe ecran numărul natural din intervalul închis [1,n] care are cei mai mulți divizori. Dacă există mai multe numere cu această proprietate se va afișa cel mai mic dintre ele. Exemplu: pentru n=20 se va afișa valoarea 12 (12, 18 și 20 au câte 6 divizori, iar 12 este cel mai mic dintre ele). (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul text BAC.IN se găsesc, pe o singură linie, separate prin câte un spațiu, mai multe numere naturale de cel mult 6 cifre fiecare. Se cere să se determine și să se afișeze pe ecran, separate printr-un spațiu, ultimele două numere impare (nu neapărat distincte) din fișierul BAC.IN. Dacă în fișier se găsește un singur număr impar sau niciun număr impar se va scrie pe ecran mesajul Numere insuficiente. Exemplu: dacă fișierul BAC.IN conține valorile: 12 15 68 13 17 90 31 42 se va afișa 17 31.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți în limbaj natural un algoritm eficient din punct de vedere al spațiului de memorie și al timpului de executare, pentru rezolvarea acestei probleme, explicând în ce constă eficiența acestuia.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului descris.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

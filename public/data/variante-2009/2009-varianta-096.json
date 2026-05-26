@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-096",
+  "year": 2009,
+  "variant": 96,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 286,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența alăturată, variabilele i, j, k și y sunt de tip întreg. Pentru care dintre următoarele seturi de valori ale variabilelor i, j și k variabila y va avea valoarea 1 în urma executării secvenței? if (k>0) if (i!=j) y=0; else y=1; else y=2;",
+        "options": {
+          "a": "k=0; i=5; j=5",
+          "b": "k=10; i=5; j=6",
+          "c": "k=10; i=5; j=5",
+          "d": "k=0; i=5; j=6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește n (număr natural nenul) ┌pentru iÅ1,n execută │┌pentru jÅ1,n execută ││┌pentru kÅ1,n execută │││┌dacă i<j<k atunci ││││┌dacă i+j+k=n atunci │││││ scrie i,' ',j,' ',k │││││ salt la rând nou ││││└■ │││└■ ││└■ │└■ └■ Varianta 96",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Dacă se citește pentru n valoarea 10, scrieți valorile care se afișează, în forma rezultată în urma executării algoritmului,",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare formată din exact două cifre care, dacă se citește pentru n, determină ca printre tripletele de valori afișate să existe unul alcătuit din trei numere consecutive.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat care să utilizeze numai două structuri repetitive.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul maxim de valori egale care pot să apară într-un vector cu legături „de tip tată” asociat unui arbore cu rădăcină care conține 10 noduri?",
+        "options": {
+          "a": "cel mult 2",
+          "b": "10",
+          "c": "nu pot să apară valori egale într-un vector cu legături de tip tată",
+          "d": "9 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "În secvența alăturată, i, j și n sunt variabile întregi, iar a este o matrice pătratică formată din n linii și n coloane, numerotate de la 0 la n-1. Care este suma elementelor de pe diagonala principală din matricea a, în urma executării acestei secvențe, dacă n=8? for(i=0; i<n; i++) for(j=0; j<n; j++) a[i][j] = (i+j)%n;",
+        "options": {
+          "a": "24",
+          "b": "64",
+          "c": "56",
+          "d": "8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți listele de adiacență pentru un graf neorientat cu 5 noduri, numerotate de la 1 la 5, care este hamiltonian dar NU este eulerian. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se dă graful orientat cu 5 noduri, numerotate de la 1 la 5, definit prin matricea de adiacență alăturată. Scrieți arcele din care este alcătuit un drum de la nodul 1 la nodul 5, care trece prin cel puțin patru noduri. (6p.) 0 1 0 0 0 0 0 1 1 1 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program în limbajul C/C++ care citește de la tastatură două șiruri, formate fiecare din cel mult 20 de caractere. Primul șir reprezintă numele unei persoane, iar al doilea șir reprezintă prenumele aceleiași persoane. Atât numele cât și prenumele sunt formate numai din litere ale alfabetului englez și fiecare conține cel puțin o consoană. Programul construiește în memorie și afișează pe ecran un al treilea șir de caractere, care conține consoanele din prenumele citit dispuse în ordinea în care apar în prenume urmate de exact un spațiu și de numele citit. Exemplu: dacă primul șir citit este Popescu, iar al doilea este Vasile se va construi și apoi se va afișa pe ecran șirul Vsl Popescu (10p.) Varianta 96",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un program citește o valoare naturală nenulă pentru n și apoi generează și afișează, în ordine descrescătoare lexicografic, toate combinațiile de n cifre care aparțin mulțimii {0,1}. Astfel, pentru n=2, combinațiile sunt afișate în următoarea ordine: 11, 10, 01, 00. Dacă se rulează acest program și se citește pentru n valoarea 8, imediat după combinația 10101000 va fi afișată combinația:",
+        "options": {
+          "a": "01010111",
+          "b": "10100111",
+          "c": "10101001",
+          "d": "10100100"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Funcția f are definiția alăturată. Scrieți 4 valori de apel pe care le poate avea n astfel încât, pentru cele 4 apeluri, corespunzătoare acestor valori, să se obțină 4 valori, distincte două câte două. (6p.) int f(int n) {if (n<=9) return 0; if (n%4==0) return 0; return 1+f(n-3); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Funcția verif primește prin intermediul a trei parametri, notați a, b și c, trei valori naturale nenule, fiecare de maximum patru cifre. Funcția returnează valoarea 1 dacă cele trei valori pot constitui laturile unui triunghi și valoarea 0 în caz contrar. a) Scrieți definiția completă a funcției verif. (5p.) b) Scrieți un program C/C++ care citește de la tastatură șase valori naturale nenule, fiecare de maximum patru cifre, apoi verifică, utilizând apeluri utile ale funcției verif, dacă primele trei numere citite pot constitui laturile unui triunghi și dacă ultimele trei numere citite pot constitui laturile unui triunghi; în caz afirmativ, programul afișează pe ecran mesajul congruente dacă cele două triunghiuri sunt congruente sau mesajul necongruente dacă cele două triunghiuri nu sunt congruente; dacă cel puțin unul dintre cele două triplete de valori nu pot constitui laturile unui triunghi, programul va afișa pe ecran mesajul nu. (5p.) Fișierul BAC.DAT conține pe prima linie, separate printr-un spațiu, două valori naturale n și m (2≤n≤1000, 2≤m≤1000), pe a doua linie n valori întregi și pe a treia linie m valori întregi. Valorile de pe a doua și de pe a treia linie apar în fișier în ordine strict crescătoare, sunt separate prin câte un spațiu și au cel mult 4 cifre fiecare. Se cere afișarea pe ecran a două valori, dintre cele aflate în poziții consecutive pe a treia linie a fișierului, care determină intervalul închis în care se află un număr maxim de valori de pe a doua linie a fișierului. Se va utiliza o metodă eficientă din punct de vedere al timpului de executare și al spațiului de memorie utilizat. Se garantează că cel puțin un număr aflat pe a doua linie a fișierului aparține unuia dintre intervalele determinate de numerele de pe a treia linie a fișierului. Exemplu: dacă fișierul BAC.DAT are conținutul alăturat, programul va afișa: 1 9 10 4 -1 1 3 4 5 6 10 15 16 117 0 1 9 20 Explicație: cele patru numere de pe a treia linie a fișierului determină trei intervale: [0,1], [1,9], [9,20]; în intervalul [1,9] se află 5 valori de pe a doua linie a fișierului, acesta fiind numărul maxim de valori aflate în unul dintre cele trei intervale.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri). (4p.) b) Scrieți un program C/C++ care să rezolve problema conform metodei descrise. (6p.) Varianta 96",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care să rezolve problema conform metodei descrise.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

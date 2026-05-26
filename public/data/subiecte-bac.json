@@ -798,5 +798,21 @@
         ]
       }
     ]
+  },
+  {
+    "year": 2009,
+    "sessions": [
+      {
+        "name": "Variante BAC 2009 (100 variante)",
+        "date": "2009",
+        "type": "varianta",
+        "subjects": [
+          {
+            "subiect": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+            "label": "100 variante C/C++ \u2014 intensiv informatic\u0103"
+          }
+        ]
+      }
+    ]
   }
 ]

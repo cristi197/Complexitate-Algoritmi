@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-013",
+  "year": 2009,
+  "variant": 13,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 37,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre expresiile C/C++ de mai jos este echivalentă cu expresia alăturată? !((a<5)&&(b>7))",
+        "options": {
+          "a": "(a>=5)&&(b<=7)",
+          "b": "!(a<5) || !(b>7)",
+          "c": "!(a<5) && !(b>7)",
+          "d": "!(a>=5) && !(b<=7)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a,b (numere naturale, a≤b) kÅ0 ┌pentru iÅa,b execută │ nÅi; cÅ0 │ ┌cât timp n>0 execută │ │ ┌dacă n%2=1 atunci │ │ │ cÅc+1 │ │ └■ │ │ nÅ[n/10] │ └■ │ ┌dacă c>0 atunci │ │ kÅk+1 │ └■ └■ scrie k Varianta 13",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul ce se va afișa dacă pentru a se citește valoarea 404, iar pentru b se citește valoarea 413.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru variabila a se citește valoarea 58 scrieți toate valorile care, citite pentru variabila b, determină afișarea numărului 3.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu algoritmul dat în care să se înlocuiască structura repetitivă pentru...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este vectorul \"de tați\" pentru arborele cu rădăcină din figura alăturată?",
+        "options": {
+          "a": "0 0 5 7 6 5 1",
+          "b": "1 0 0 7 6 5 0",
+          "c": "7 4 5 0 4 5 4",
+          "d": "7 4 5 0 4 5 7 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți listele de adiacență prin care este reprezentat un exemplu de graf neorientat conex, cu 6 noduri, numerotate de la 1 la 6, care este eulerian, dar NU este hamiltonian. (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți ce se afișează pe ecran în urma executării secvenței de program alăturate, în care variabila s memorează un șir de cel mult 12 caractere, iar variabila i este de tip întreg. (6p.) char s[13]=\"abcdefghoid\"; i=0; cout<<strlen(s); | printf(\"%d\",strlen(s)); while (i<strlen(s)) if (strchr(\"aeiou\",s[i])!=NULL) strcpy(s+i,s+i+1); else i++; cout<<\" \"<<s; | printf(\" %s\",s); Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<25) și apoi construiește în memorie o matrice cu n linii și n coloane, numerotate de la 1 la n, ale cărei elemente primesc valori după cum urmează: - elementele aflate pe diagonala secundară sunt toate nule; - elementele de pe coloana i (1≤i≤n), aflate deasupra diagonalei secundare, au valoarea egală cu i; - elementele de pe linia n-i+1 (1≤i≤n), aflate sub diagonala secundară, au valoarea egală cu i.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul afișează pe ecran matricea construită, câte o linie a matricei pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. Exemplu: pentru n=4 se va afișa matricea alăturată. (10p.) 1 2 3 0 1 2 0 3 1 0 2 2 0 1 1 1 Varianta 13",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Fie subprogramul fct definit alăturat, parțial. Inițial, variabile întregi a, b și c au valorile a=8, b=31 și c=9, iar după apelul fct(a,b,c), valorile celor trei variabile sunt a=9, b=31 și c=39. Care poate fi antetul subprogramului fct? void fct(....) { x=x+1; y=y-1; z=x+y; }",
+        "options": {
+          "a": "void fct(int &x,int &y,int &z)",
+          "b": "void fct(int x,int &y,int &z)",
+          "c": "void fct(int x,int y,int z)",
+          "d": "void fct(int &x,int y,int &z)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Trei băieți, Alin, Bogdan și Ciprian, și trei fete, Delia, Elena și Felicia, trebuie să formeze o echipă de 3 copii, care să participe la un concurs. Echipa trebuie să fie mixtă (adică să conțină cel puțin o fată și cel puțin un băiat). Ordinea copiilor în echipă este importantă deoarece aceasta va fi ordinea de intrare a copiilor în concurs (de exemplu echipa Alin, Bogdan, Delia este diferită de echipa Bogdan, Alin, Delia). • Câte echipe se pot forma, astfel încât din ele să facă parte simultan Alin și Bogdan? • Dați exemplu de o echipă corect formată din care să nu facă parte nici Alin și nici Bogdan. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Se consideră șirul 1, 2,1, 3,2,1, 4,3,2,1, ... construit astfel: prima grupă este formată din numărul 1, a doua grupă este formată din numerele 2 și 1, iar grupa a k-a, este formată din numerele k, k-1,..., 1. Se cere să se citescă de la tastatură un număr natural n (n≤1000) și să se afișeze pe ecran cel de al n-lea termen al șirului dat. a) Descrieți un algoritm de rezolvare a acestei probleme, eficient din punct de vedere al timpului de executare și al spațiului de memorie, explicând în ce constă eficiența acestuia. (4p.) b) Scrieți programul C/C++ corespunzător algoritmului descris (6p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul P care are doi parametri: – n, prin intermediul căruia primește un număr natural de cel mult 9 cifre – c, prin intermediul căruia primește o cifră. Subprogramul va furniza tot prin intermediul parametrului n numărul obținut din n prin eliminarea tuturor aprițiilor cifrei c. Dacă, după eliminare, numărul nu mai conține nicio cifră sau conține doar cifre 0, rezultatul returnat va fi 0.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți doar antetul subprogramului P.",
+            "points": 2
+          },
+          {
+            "id": "b",
+            "text": "Pe prima linie a fișierului text BAC.IN se găsesc, separate prin câte un spațiu, mai multe numere naturale de cel mult 9 cifre fiecare. Scrieți programul C/C++ care citește numerele din acest fișier, utilizând apeluri ale subprogramului P elimină toate cifrele impare din fiecare dintre aceste numere și apoi scrie în fișierul text BAC.OUT numerele astfel obținute, separate prin câte un spațiu. Dacă un număr din fișierul BAC.IN nu conține nicio cifră pară nenulă, acesta nu va mai apărea deloc în fișierul de ieșire. Exemplu: dacă fișierul BAC.IN conține numerele 25 7 38 1030 45127 0 35 60 15, atunci BAC.OUT va avea conținutul: 2 8 42 60.",
+            "points": 8
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

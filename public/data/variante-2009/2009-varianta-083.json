@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-083",
+  "year": 2009,
+  "variant": 83,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 247,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi a și b memorează numere naturale. Care dintre expresiile C/C++ de mai jos este echivalentă cu expresia alăturată? (a+b)%2==1",
+        "options": {
+          "a": "(a%2==0) && (b%2==1)|| (a%2==1) && (b%2==0)",
+          "b": "(a%2!=0) && (b%2!=0) && (a%2==1) && (b%2==1)",
+          "c": "(a%2==1) || (b%2==1) || (a%2==0) && (b%2==0)",
+          "d": "(a%2==0) && (b%2==0) && (a%2==1) && (b%2==1)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește x (număr natural, x>1) auxÅx ok1Å1 ┌cât timp x≥10 execută │┌dacă x%10>[x/10]%10 atunci ││ ok1Å0 │└■ │ xÅ[x/10] └■ ┌dacă ok1=1 atunci │ scrie aux │ altfel │ scrie ”nu” └■ Varianta 83",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează la executarea algoritmului dacă se citește valoarea x=125.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mare valoare cu exact 3 cifre care poate fi citită pentru x astfel încât să se afișeze mesajul nu.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că variabila i este de tip întreg și variabila s reține un șir de caractere, ce se va afișa la executarea secvenței alăturate? strcpy(s,”bac2009”); for(i=0;i<strlen(s);i++) if(s[i]<’0’||s[i]>’9’) cout<<s[i];",
+        "options": {
+          "a": "bac2009",
+          "b": "2009",
+          "c": "bac",
+          "d": "2009bac 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful orientat cu nodurile numerotate de la 1 la 5 și arcele (2,1), (5,1), (1,2), (3,2), (5,2), (4,3), (2,5), (4,5). Care este lungimea maximă a unui drum de la nodul 4 la nodul 1, format doar din arce distincte?",
+        "options": {
+          "a": "6",
+          "b": "5",
+          "c": "4",
+          "d": "7"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți matricea de adiacență a unui graf neorientat cu 6 noduri în care toate nodurile au gradul 2 și care are două componente conexe. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră variabilele întregi m, n și k (1≤n≤10, 1≤m≤10 și 1≤k≤n) și variabila a care memorează un tablou bidimensional cu n linii, numerotate de la 1 la n, și m coloane, numerotate de la 1 la m, având n*m numere întregi. Scrieți secvența de program C/C++ care să determine și să afișeze pe ecran elementele impare de pe linia k ale tabloului a. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "O listă liniară dublu înlănțuită, alocată dinamic, reține în câmpul info al fiecărui element câte o literă din alfabetul englez. Considerând că lista este creată și conține un număr par de elemente și că adresa primului element este reținută în variabila prim, iar adresa ultimului element este reținută în variabila ultim să se scrie declarările de tipuri și date necesare și secvența de program C/C++ care inversează ordinea valorilor reținute în listă. Exemplu: dacă lista conține inițial valorile prim ultim i n f o se va afișa următoarea listă: prim ultim o f n i (10p.) Varianta 83",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind cifrele {1,2,3} se generează, în ordinea crescătoare a valorii, toate numerele formate din exact trei cifre, în care cifrele alăturate au valori consecutive. Astfel se obțin în ordine, numerele: 121, 123, 212, 232, 321 și 323. Folosind aceeași metodă se generează numere de patru cifre din mulțimea {1,2,3,4} care îndeplinesc aceeași condiție. Care va fi al 5-lea număr generat ?",
+        "options": {
+          "a": "2121",
+          "b": "2123",
+          "c": "3121",
+          "d": "2323"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, stabiliți ce valoare are f(2). Dar f(123)? (6p.) int f(int x) { if(x==0)return 0; else if(x%2==0)return 3+f(x/10); else return 4+f(x/10); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți în C/C++ definiția completă a subprogramului suma care are doi parametri: - n, prin care primește un număr natural (1≤n≤100); - v, prin care primește un tablou unidimensional cu n elemente, numere întregi, fiecare având exact trei cifre. Funcția returnează suma elementelor din tablou care au prima cifră egală cu ultima cifră. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMERE.IN conține mai multe linii, pe fiecare linie existând câte un șir de numere naturale nenule mai mici sau egale decât 30000, despărțite prin câte un spațiu; fiecare linie se termină cu numarul 0 (care se consideră că nu face parte din șirul aflat pe linia respectivă) și conține cel puțin două valori.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți programul C/C++ care afișează pe ecran valoarea maximă din șirul care conține cele mai puține numere. În cazul în care există mai multe șiruri cu același număr minim de numere, se va afișa cea mai mare valoare care apare în unul dintre aceste șiruri. Alegeți o metodă de rezolvare eficientă din punct de vedere al memoriei utilizate și al timpului de executare.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită la punctul a), explicând în ce constă eficiența ei (3 – 4 rânduri). Exemplu: dacă fișierul NUMERE.IN are conținutul alăturat, atunci pe ecran se va afișa numărul 253. 2 253 34 3 0 6 88 9 3 0 4 54 88 12345 98 234 546 0",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

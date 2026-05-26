@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-017",
+  "year": 2009,
+  "variant": 17,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 49,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este valoarea pe care poate să o aibă inițial variabila întreagă x dacă, la sfârșitul executării secvenței alăturate, variabila întreagă y are valoarea 2? y=0; do { x=x/10; y=y+1; } while(x%100==0);",
+        "options": {
+          "a": "300",
+          "b": "5000",
+          "c": "120",
+          "d": "0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește x,y (numere naturale) ┌dacă x<y atunci │ xÅx-y │ yÅx+y │ xÅy-x └■ ┌cât timp x≥y execută │ scrie ’A’ │ xÅx-y │ scrie ’B’ └■ Varianta 17",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți succesiunea de caractere pe care le va afișa algoritmul dacă se citesc, în aceasta ordine, valorile 2, respectiv 9.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți numărul de perechi de valori aparținând intervalului [1,20], care pot fi citite pentru variabilele x și y, astfel încât rezultatul afișat să fie format din exact 12 caractere ?",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura repetitivă cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare element memorează în câmpul nr un număr întreg, iar în câmpul urm adresa elementului următor din listă sau valoarea NULL dacă nu există un element următor. Lista conține exact trei elemente ale căror adrese sunt memorate în variabilele p, q și r. Știind că p->nr==1, q->nr==2, r->nr==3, p->urm!=NULL și r->urm==q, care este ordinea numerelor din listă?",
+        "options": {
+          "a": "1 3 2",
+          "b": "1 2 3",
+          "c": "2 1 3",
+          "d": "3 2 1 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care dintre următoarele variante reprezintă o declarare corectă pentru o variabilă x care memorează simultan codul de identificare al unui candidat la un examen, exprimat printr-un număr natural de cel mult 4 cifre și media obținută de acesta la examen, exprimată printr-un număr real?",
+        "options": {
+          "a": "struct x { int cod; float media;};",
+          "b": "struct {int cod; float media;} x;",
+          "c": "int x.cod ; float x.media;",
+          "d": "struct candidat {int x.cod; float x.media;};"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care este gradul maxim posibil și care este gradul minim posibil pentru un nod dintr-un arbore cu n noduri (n>1)? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce se va afișa în urma executării secvenței de program alăturate știind că variabila a memorează un șir cu cel mult 100 de caractere, iar variabila i este de tip întreg ? (6p.) strcpy(a,”bacalaureat”); cout<<strlen(a)<<endl; | printf(”%d\\n”,strlen(a)); for(i=0;i<strlen(a);i++) if(strchr(”aeiou”,a[i])!=0) cout<<’*’; | printf(’*’); Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<20), construiește în memorie și afișează pe ecran o matrice cu n linii și n coloane, în care fiecare element de pe diagonala secundară are valoarea n, fiecare element aflat deasupra diagonalei secundare este mai mic cu o unitate decât vecinul aflat pe aceeași linie în dreapta lui și fiecare element aflat sub diagonala secundară este mai mare cu o unitate decât vecinul aflat pe aceeași linie în stânga lui.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Elementele matricei vor fi afișate pe ecran, câte o linie a matricei pe câte o linie a ecranului cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=5 se va afișa matricea alăturată. (10p.) 1 2 3 4 5 2 3 4 5 6 3 4 5 6 7 4 5 6 7 8 5 6 7 8 9 Varianta 17",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Subprogramul f are definiția alăturată. Ce se va afișa în urma apelului f(12345);? void f(long n) {if (n>9) {cout<<n/100; | printf(“%d”,n/100); f(n/10); } }",
+        "options": {
+          "a": "1231210",
+          "b": "123121",
+          "c": "1234123121",
+          "d": "123"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare",
+      "code": "Un algoritm generează în ordine descrescătoare toate numerele de 5 cifre, fiecare dintre ele având cifrele în ordine strict crescătoare. Știind că primele cinci soluții generate sunt 56789, 46789, 45789, 45689, 45679, precizați care sunt ultimele trei soluții generate, în ordinea generării. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului interval care are doi parametri a și n, prin care primește un tablou unidimensional cu maximum 100 de numere naturale mai mici decât 1000 și respectiv numărul efectiv de elemente din tabloul unidimensional. Subprogramul returnează numărul de elemente din tabloul unidimensional care aparțin intervalului închis determinat de primul și respectiv ultimul element al tabloului. Exemplu: dacă tabloul are 6 elemente și este de forma (12,27,6,8,9,2), subprogramul va returna valoarea 5. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul numere.txt pe prima linie este memorat un număr natural n (n≤10000), iar pe linia următoare un șir de n numere naturale distincte două câte două, separate prin câte un spațiu, cu maximum 4 cifre fiecare. Se cere afișarea pe ecran a poziției pe care s-ar găsi primul element din șirul aflat pe linia a doua a fișierului, în cazul în care șirul ar fi ordonat crescător. Numerotarea pozițiilor elementelor în cadrul șirului este de la 1 la n. Alegeți un algoritm de rezolvare eficient din punct de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul numere.txt conține: 6 267 13 45 628 7 79 se va afișa 5, deoarece primul element din șirul inițial, 267, s-ar găsi pe poziția a cincea în șirul ordonat crescător (7 13 45 79 267 628).",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, strategia de rezolvare și justificați eficiența algoritmului ales.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului ales.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

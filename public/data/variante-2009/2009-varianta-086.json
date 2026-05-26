@@ -1,0 +1,134 @@
+{
+  "id": "2009-varianta-086",
+  "year": 2009,
+  "variant": 86,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 256,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întreagă n memorează un număr natural, cu cel puțin două cifre. Care dintre instrucțiunile C/C++ de mai jos determină înlocuirea cu 0 a ultimei cifre a numărului memorat în variabila n?",
+        "options": {
+          "a": "n=n*(n%10);",
+          "b": "n=n/10;",
+          "c": "n=n-n%10;",
+          "d": "n=n-n/10; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "",
+      "pseudocode": "",
+      "subQuestions": []
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În declararea alăturată, variabila p memorează în câmpul x abscisa, iar în câmpul y ordonata unui punct din planul xOy. Dacă punctul se află chiar în originea axelor, care dintre expresiile de mai jos are valoarea true? struct {float x; float y;} p;",
+        "options": {
+          "a": "(p.x==0)&&(p.y==0)",
+          "b": "(x.p==0)&&(y.p==0)",
+          "c": "p==0",
+          "d": "(p(x)==0)&&(p(y)==0) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Ce valoare are variabila s de tip șir de caractere după executarea instrucțiunilor de mai jos? strncpy(s,strstr(″examen″,″am″),4); s[4]='\\0';",
+        "options": {
+          "a": "amen",
+          "b": "exam",
+          "c": "menn",
+          "d": "men"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți matricea de adiacență a arborelui cu rădăcină, cu 6 noduri, numerotate de la 1 la 6, definit prin următorul vector \"de tați\": (0, 1, 1, 1, 3, 3). (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fiecare element al unei liste simplu înlănțuite, alocată dinamic, reține în câmpul nr un număr întreg, iar în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor. Ce valori au variabilele întregi a și b după executarea secvenței alăturate, dacă variabila p reține adresa primului element al listei de mai jos, iar variabila q este de același tip cu p? (6p.) q=p; a=p->urm->nr; while (q->urm->urm!=NULL) { q=q->urm; q->urm->nr=q->nr+q->urm->nr; } b=q->nr;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤10) apoi construiește în memorie o matrice cu 2*n linii și 2*n coloane, numerotate de la 1 la 2*n, astfel încât parcurgând doar liniile impare ale matricei de sus în jos și fiecare linie impară de la stânga la dreapta se obțin în ordine strict crescătoare toate numerele impare cuprinse în intervalul [1,4*n 2 ], iar parcurgând doar liniile pare ale matricei de sus în jos și fiecare linie pară de la dreapta la stânga se obțin în ordine strict crescătoare toate numerele pare cuprinse în intervalul [1,4*n 2 ], ca în exemplu. Programul afișează pe ecran matricea obținută, câte o linie a matricei pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. Exemplu: pentru n=2 se obține matricea alăturată. (10p.) 1 3 5 7 8 6 4 2 9 11 13 15 16 14 12 10 Varianta 86",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "La examenul de bacalaureat, un elev primește un test format dintr-un subiect de tip I, unul de tip II și unul de tip III. Stiind că pentru fiecare tip de subiect sunt elaborate exact 100 de variante, algoritmul de generare a tuturor posibilităților de a forma un test este similar cu algoritmul de generare a:",
+        "options": {
+          "a": "elementelor produsului cartezian",
+          "b": "aranjamentelor",
+          "c": "permutărilor",
+          "d": "submulțimilor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce se afișează la apelul f(4);? (6p.) void f(int n) { cout<<\"*\"; | printf(\"*\"); if(n>2) { f(n-1); cout<<\"#\"; | printf(\"#\"); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului numar, cu trei parametri, care primește prin intermediul parametrului n un număr natural format din cel mult 9 cifre, iar prin intermediul parametrilor c1 și c2 câte o cifră nenulă; subprogramul retunează numărul obținut prin înlocuirea în numărul primit prin parametrul n a fiecărei apariții a cifrei c1 cu cifra c2. Dacă c1 nu apare în n, subprogramul returnează valoarea n. Exemplu: pentru n=12445, c1=4 și c2=7 valoarea returnată va fi 12775. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text bac.txt conține cel puțin două și cel mult 1000 de numere naturale distincte, dintre care cel puțin două sunt pare. Numerele sunt separate prin câte un spațiu și fiecare dintre ele are cel mult 9 cifre.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care determină cele mai mari două numere pare din fișier, utilizând un algoritm eficient din punct de vedere al timpului de executare și al spațiului de memorie utilizat. Cele două numere vor fi afișate pe ecran, în ordine descrescătoare, separate printr-un spațiu. Exemplu: dacă fișierul conține numerele: 5123 8 6 12 3 se va afișa: 12 8",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, algoritmul utilizat, justificând eficiența acestuia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

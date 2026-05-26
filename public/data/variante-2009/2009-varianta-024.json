@@ -1,0 +1,144 @@
+{
+  "id": "2009-varianta-024",
+  "year": 2009,
+  "variant": 24,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 70,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care din următoarele afirmații despre operatorii din C/C++ este falsă?",
+        "options": {
+          "a": "> este operator relațional",
+          "b": "% este operator aritmetic",
+          "c": "&& este operator logic",
+          "d": "<= este operator logic"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește a,b (numere naturale) pÅa; qÅb ┌dacă p=0 sau q=0 atunci │ pÅp*q; qÅp*q └■ ┌cât timp p≠q execută │ ┌dacă p<q atunci │ │ pÅp+a │ │altfel │ │ qÅq+b │ └■ └■ scrie p Varianta 24",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa pentru a=15 și b=25.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate valorile care, citite pentru b, determină afișarea valorii 60, dacă pentru a s-a citit valoarea 10.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți un algoritm echivalent în care să se înlocuiască structura cât timp...execută cu o structură repetitivă cu test final.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin patru elemente, fiecare element reține în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. Dacă variabilele p, q și r memorează adresele a trei noduri din listă astfel încât p -> urm = = q -> urm -> urm și r-> urm = = q atunci ordinea logică a nodurilor în listă (noduri identificate prin adrese) este:",
+        "options": {
+          "a": "r, q, p",
+          "b": "p, r, q",
+          "c": "p, q, r",
+          "d": "q, r, p 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Stiva S și coada C memorează numere întregi.În ambele se introduc, în ordine, numerele 1, 2, 3,",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se notează cu SÆC operația de extragere a unui element din stiva S și adăugarea acestuia în coada C, iar cu CÆS operația de eliminare a unui element din coada C și introducerea acestuia în stiva S. Care este ultima valoare introdusă în stiva S și care este ultima valoare care a fost adăugată în coada C la executarea următoarei secvențe de operații: SÆC; CÆS; CÆS; SÆC; CÆS ? (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți o secvență de instrucțiuni C/C++ care să inițializeze elementele unui tablou bidimensional A, cu n linii și n coloane, 1<n≤100, cu numerele naturale 1,2,...,n, astfel încât pe fiecare linie sau coloană să existe toate numerele din mulțimea {1,2,...,n}. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură două șiruri de caractere formate din maximum 100 litere mici ale alfabetului englez și afișează pe ecran cel mai lung sufix comun al celor două șiruri de caractere. Dacă cele două șiruri nu au niciun sufix comun, atunci programul va afișa pe ecran mesajul NU EXISTĂ. Exemplu: pentru șirurile marina și elena se va afișa na (10p.) Varianta 24",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Generând șirurile de maximum 3 caractere distincte din mulțimea {A,B,C,D,E}, ordonate lexicografic, obținem succesiv: A, AB, ABC, ABD, ... . Ce șir va fi generat imediat după BAE?",
+        "options": {
+          "a": "BCA",
+          "b": "CAB",
+          "c": "BC",
+          "d": "BEA"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Funcția f are definiția alăturată. a) Ce valoarea are f(17)? (3p.) b) Ce valoare are f(22)? (3p.) int f(int n) {if (n<=9) return 0; if (n%4==0) return 0; return 1+f(n-3); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a subprogramului p care primește prin intermediul parametrului n un număr natural nenul (n≤100), iar prin intermediul parametrului x un tablou unidimensional cu n componente întregi, de maximum patru cifre fiecare. Subprogramul furnizează prin intermediul parametrului mini valoarea minimă din tabloul x, prin intermediul parametrului maxi valoarea maximă din x, iar prin intermediul parametrului sum suma elementelor din tabloul x. (6p.) b) Scrieți un program C/C++ care citește de la tastatură o valoare naturală nenulă n, (3≤n≤100), apoi cele n elemente distincte ale unui tablou unidimensional x. Fiecare dintre aceste elemente este un număr natural având cel mult patru cifre. Folosind apeluri utile ale subprogramului p, programul calculează și afișează pe ecran media aritmetică a elementelor care ar rămâne în tabloul x dacă s-ar elimina valoarea minimă și valoarea maximă din tablou. Valoarea afișată va avea cel mult 3 cifre după virgulă. Exemplu: dacă se citesc pentru n valoarea 5, iar pentru tabloul x valorile (1,9,4,8,5), programul va afișa una dintre valorile 5.667 sau 5.666. (4p.) Fișierul text bac.txt conține pe prima linie numărul natural n, 1≤n≤30000, pe următoarele n linii un șir de n numere întregi, ordonate crescător, iar pe ultima linie două numere întregi a și b (a≤b) separate de un spațiu. Fiecare dintre cele n numere, precum și valorile a și b, au cel mult patru cifre. a) Scrieți un program C/C++, eficient din punct de vedere al timpului de executare, care afișează pe ecran cel mai mic număr întreg din intervalul închis [a,b] care se găsește în șirul dat. Dacă nu există un astfel de număr, programul afișează textul NU.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Exemplu: dacă fișierul bac.txt are conținutul alăturat, programul afișează valoarea 11 (6p.) b) Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei. (4p.) 4 -2 7 11 35 8 15 Varianta 24",
+        "subQuestions": [
+          {
+            "id": "b",
+            "text": "Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei. 4 -2 7 11 35 8 15",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "id": "2009-varianta-066",
+  "year": 2009,
+  "variant": 66,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 196,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele x, y și z sunt întregi, x memorează valoarea 7, y memorează valoarea 20, iar z memorează valoarea 5. Care este rezultatul evaluării expresiei aritmetice C/C++ alăturate? x+y+x*z/y",
+        "options": {
+          "a": "28.75",
+          "b": "28",
+          "c": "29",
+          "d": "27"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu a%b restul împărțirii numărului întreg a la numărul întreg nenul b.",
+      "pseudocode": "nÅ0 ┌repetă │ citește x (număr natural) │┌dacă x≠0 atunci ││┌dacă x%5=0 atunci │││ nÅn+1 │││altfel │││ nÅn-1 ││└■ │└■ └până când x=0 ┌dacă n=0 atunci │ scrie „DA” │altfel │ scrie „NU” └■ Varianta 66",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează în urma executării algoritmului dacă se citesc, în această ordine, valorile 10, 13, 46, 70, 35, 0.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un șir de valori care pot fi citite pentru variabila x astfel încât programul să afișeze, în urma executării, mesajul DA.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura repetă...până când cu o structură repetitivă cu test inițial. n",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Cum se poate accesa prima literă a denumirii unui produs ale cărui caracteristici sunt memorate în variabila p, declarată alăturat? struct produs{ char denumire[15]; int pret;}p;",
+        "options": {
+          "a": "produs.denumire[0]",
+          "b": "denumire.p[0]",
+          "c": "p.denumire[0]",
+          "d": "p->denumire[0] 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful neorientat definit prin mulțimea nodurilor {1,2,3,4,5,6} și muchiile [1,2],[1,3],[2,3],[6,5],[3,4],[4,5],[4,6]. Care este numărul maxim de muchii care pot fi eliminate din graf pentru a se obține un graf parțial al său care să fie conex?",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "0",
+          "d": "3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Un arbore cu rădăcină având 9 noduri, numerotate de la 1 la 9, este memorat cu ajutorul vectorului de ”tați” t=(2,5,5,3,0,2,4,1,1). Scrieți toți ascendenții nodului",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "(6p.) Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin 2 elemente, fiecare element memorează în câmpul info un număr întreg, iar în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. p=primul; while (p->urm!=NULL) p=p->urm; printf(“%d”,p->info); | cout<<p->info;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Știind că primul reprezintă adresa primului element din listă, iar variabila p este de același tip cu primul, ce realizează secvența alăturată de program? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un cuvânt format din cel mult 50 de caractere, doar litere mari ale alfabetului englez, și afișează pe ecran, fiecare pe câte o linie, toate prefixele acestuia, în ordine crescătoare a lungimilor. Un prefix de lungime k al unui cuvânt este un subșir format din primele k caractere ale acestuia. (10p.) Exemplu: dacă se citește cuvântul BACALAUREAT se vor afișa prefixele: B BA BAC BACA BACAL BACALA BACALAU BACALAUR BACALAURE BACALAUREA BACALAUREAT Varianta 66",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se generează în ordine crescătoare, toate numerele naturale de 5 cifre distincte, care se pot forma cu cifrele 2,3,4,5 și 6. Să se precizeze numărul generat imediat înaintea și numărul generat imediat după secvența următoare : 34256, 34265, 34526, 34562",
+        "options": {
+          "a": "32645 și 34625",
+          "b": "32654 și 34655",
+          "c": "32654 și 34625",
+          "d": "32645"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul recursiv definit alăturat. Ce valoare are functie(1)? Dar functie(4)? (6p.) int functie(int x) { if (x<=0) return 3 ; else return functie(x-3)*4 ; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Să se scrie în limbajul C/C++ definiția completă a subprogramului calcul, care primește prin intermediul parametrului n un număr natural nenul (1≤n≤10000), iar prin intermediul parametrului a, un tablou unidimensional care conține n valori naturale, fiecare dintre aceste valori având cel mult 9 cifre. Subprogramul returnează cel mai mare divizor comun al elementelor tabloului a. (10p.) Exemplu: în urma apelului, pentru n=5 și tabloul unidimensional (12,36,48,6,60) se va returna 6.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierele text A.TXT și B.TXT conțin cel mult 10000 de numere naturale cu cel mult 9 cifre fiecare, scrise fiecare pe câte o linie.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește numerele din cele două fișiere și, printr-o metodă eficientă din punct de vedere al timpului de executare și al spațiului de memorie utilizat, afișează pe ecran câte dintre numerele din fișierul A.TXT sunt strict mai mici decât toate numerele memorate în fișierul B.TXT. Exemplu: dacă fișierul A.TXT are conținutul alăturat, 41111 81111 11111 91111 51111 111111 31111 431111 61111 201111 iar fișierul B.TXT are conținutul alăturat: 91111 91111 61111 91111 91111 81111 61111 91111 atunci programul va afișa valoarea 4, deoarece 41111, 11111, 51111, 31111 sunt mai mici decât toate elementele din fișierul B.TXT.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată la punctul a, justificând eficiența acesteia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

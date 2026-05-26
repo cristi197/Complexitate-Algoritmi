@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-041",
+  "year": 2009,
+  "variant": 41,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 121,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că variabilele x și y sunt de tip întreg, care este instrucțiunea prin care variabilei x i se atribuie ultima cifră a numărului natural memorat în variabila y?",
+        "options": {
+          "a": "x=y%10;",
+          "b": "y=x%10;",
+          "c": "y=x/10;",
+          "d": "x=x/10;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [x] partea întreagă numărului real x, iar cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y.",
+      "pseudocode": "citește x (număr natural) dÅ2 scrie x ┌cât timp x≥d execută │┌cât timp x%d=0 execută ││ xÅ[x/d] ││ scrie x │└■ │ dÅd+1 └■ Varianta 41",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care se afișează dacă se citește valoarea 100.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cel mai mare număr natural de două cifre care trebuie citit pentru variabila x, astfel încât algoritmul să afișeze exact două valori.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să conțină o singură structură repetitivă.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte dintre vârfurile grafului neorientat G, reprezentat prin matricea de adiacență alăturată, au gradul un număr par? 0 1 0 0 1 1 0 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 1 1 0",
+        "options": {
+          "a": "3",
+          "b": "1",
+          "c": "2",
+          "d": "5 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Fiecare nod al unei liste simplu înlănțuite, alocată dinamic, cu cel puțin 4 noduri, reține in câmpul urm adresa nodului următor din listă sau NULL dacă nu are un nod următor. Știind că variabila p reține adresa primului nod din listă, variabila q reține adresa celui de-al doilea nod din listă, iar variabila r reține adresa celui de-al treilea nod din listă, care este secvența prin care se interschimbă al doilea cu al treilea element din lista inițială?",
+        "options": {
+          "a": "p->urm=r; q->urm=r->urm; r->urm=q;",
+          "b": "p->urm=r; r->urm=q->urm; q->urm=r->urm;",
+          "c": "r->urm=q->urm; q->urm=r->urm; p->urm=r;",
+          "d": "q->urm=r->urm; p->urm=r; r->urm=q->urm;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Pentru reprezentarea unui arbore cu rădăcină, cu 10 noduri, etichetate cu numerele naturale de la 1 la 10, se utilizează vectorul de “tați”: TATA=(4, 8, 8, 0, 10, 4, 8, 6, 2, 6). Care sunt frunzele arborelui? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce se afișează pe ecran în urma executării secvenței de program scrisă alăturat, în care i este o variabilă de tip char? (6p.) for (i='a';i<='z';i++) if (strchr(\"info\",i)) cout<<i; | printf(\"%c\",i);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤23) și apoi construiește în memorie o matrice cu n linii și n coloane, numerotate de la 1 la n, astfel încât fiecare element situat pe o linie i (1≤i≤n) și pe o coloană j (1≤j≤n) va fi egal cu suma dintre i și j. Programul va afișa matricea pe ecran, câte o linie a matricei pe o linie a ecranului, elementele de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: dacă n=4, se va afișa matricea alăturată. (10p.) 2 3 4 5 3 4 5 6 4 5 6 7 5 6 7 8 Varianta 41",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Cea mai mare dintre valorile strict negative memorate într-un tablou unidimensional NU există dacă:",
+        "options": {
+          "a": "în tablou sunt memorate numai valori strict negative",
+          "b": "în tablou există cel puțin o valoare negativă",
+          "c": "în tablou sunt memorate valori nenule pozitive și negative",
+          "d": "în tablou sunt memorate numai valori strict pozitive"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Știind că p este un vector cu 3 componente întregi (vector declarat global), stabiliți cu ce trebuie înlocuite α și β în definiția subprogramului G alăturat astfel încât în urma apelului G(0) să se afișeze toate numerele de 3 cifre nenule, fiecare număr fiind afișat o singură dată. (6p.) void G(int k) {int i; for(i=1;i<=α;i++) { p[k]=i; if(β)G(k+1); else cout<<p[0]<<p[1]<<p[2]<<endl; | printf(\"%d%d%d\\n\",p[0],p[1],p[2]); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți un subprogram DIST, cu doi parametri, care primește prin intermediul parametrului a un tablou unidimensional cu cel mult 100 de elemente, numere naturale de cel mult 4 cifre fiecare, și prin intermediul parametrului n un număr natural nenul, n<100, ce reprezintă numărul de elemente din tablou. Subprogramul returnează valoarea 1 dacă toate elementele tabloului a sunt distincte și dacă diferența absolută a oricăror două elemente vecine din tablou este diferită de 1, altfel returnând valoarea 0. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text numere.txt conține pe prima linie un număr natural n (0<n<100000), iar pe a doua linie un șir format din n cifre, separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care determină în mod eficient din punct de vedere al timpului de executare, cea mai mare cifră dintre cele situate pe a doua linie a fișierului, precum și numărul de apariții ale acesteia. Cele două numere vor fi afișate pe o singură linie a ecranului, separate printr-un spațiu. Exemplu: daca fișierul numere.txt are următorul conținut: 7 3 5 2 1 5 3 1 atunci pe ecran se va afișa: 5 2.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

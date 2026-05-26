@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-043",
+  "year": 2009,
+  "variant": 43,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 127,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este instrucțiunea prin care variabilei x i se atribuie valoarea sumei cifrelor numărului natural format din exact trei cifre, memorat de variabila întreagă y?",
+        "options": {
+          "a": "x=y/100+y/10%10+y%10;",
+          "b": "x=y+y/10+y/100;",
+          "c": "x=y%10+y%10/10+y/100;",
+          "d": "x=y%10+y%100+y%1000;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește x,y (numere naturale) ┌cât timp x*y≠0 executã │┌daca x>y atunci ││ xÅx%y ││altfel ││ yÅy%x │└■ └■ scrie x+y Varianta 43",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea pe care o va afișa algoritmul dacă se citesc, în această ordine, numerele 30 și 25.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă se citește pentru variabila y valoarea 26, scrieți toate numerele naturale de cel mult două cifre care pot fi citite pentru variabila x, astfel încât la finalul executării algoritmului să se afișeze valoarea 13.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm care să fie echivalent cu cel dat în care structura cât timp...execută să fie înlocuită cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un graf neorientat este reprezentat prin matricea de adiacență alăturată. Câte grafuri parțiale distincte, formate doar din noduri cu gradul egal cu 2, se pot obține din graful dat? Două grafuri sunt distincte dacă matricele lor de adiacență diferă. 0 1 0 0 1 1 0 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 1 1 0",
+        "options": {
+          "a": "3",
+          "b": "1",
+          "c": "2",
+          "d": "0 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul urm adresa elementului următor din listă sau NULL dacă nu are un element următor. Lista are cel puțin două elemente, variabila p reține adresa primului element, iar q reține adresa ultimului element din listă. Care este numărul de elemente din listă dacă expresia de mai jos are valoarea 1? p->urm->urm==q",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "4",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Pentru reprezentarea unui arbore cu rădăcină, cu 10 noduri, etichetate cu numerele naturale de la 1 la 10, se utilizează vectorul de “tați”: TATA=(4, 8, 8, 0, 10, 4, 8, 6, 2, 6). Care este rădăcina arborelui și câte frunze are acesta? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce se afișează pe ecran în urma executării secvenței de program alăturate, unde a este o variabilă de tip șir de caractere? (6p.) strcpy(a,\"informatica\"); strcpy(a+2,a+5); cout<<a; | printf(\"%s\",a); Scrieți un program C/C++ care citește de la tastatură un număr natural n (0<n≤23) și apoi construiește în memorie o matrice cu n linii și n coloane astfel încât elementele situate pe diagonala principală să fie egale cu 2, cele situate deasupra diagonalei principale să fie egale cu 1, iar cele situate sub diagonala principală să fie egale",
+        "points": 6
+      },
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "5. Programul va afișa matricea pe ecran, câte o linie a matricei pe o linie a ecranului, cu câte un spațiu între elementele fiecărei linii. Exemplu: dacă n este 4 atunci programul va construi și va afișa matricea alăturată. (10p.) 2 1 1 1 3 2 1 1 3 3 2 1 3 3 3 2 Varianta 43",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează numerele formate din câte 3 cifre distincte din mulțimea {1,3,5,7}. Dacă primele trei numere generate sunt, în acestă ordine: 135, 137, 153 care este cel de-al patrulea număr generat?",
+        "options": {
+          "a": "315",
+          "b": "173",
+          "c": "157",
+          "d": "357"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f are definiția alăturată. Ce valoare are f(3)? Dar f(10)? (6p.) int f(int x) {if(x==0)return 0; else return f(x-1)+2; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a unui subprogram P cu doi parametri, care primește prin intermediul primului parametru, n, un număr natural nenul (1≤n≤100) și prin intermediul celui de-al doilea parametru, a, un tablou unidimensional cu elementele numerotate de la 1 la n, numere întregi de cel mult 4 cifre fiecare. Subprogramul returnează suma tuturor numerelor impare aflate pe poziții pare din tablou. Exemplu: dacă n=6, iar șirul a este format din elementele (3,12,7,1,4,3), atunci la apel se va returna",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "(10p.) 4. Fișierul text numere.txt conține pe prima linie un număr natural n (0<n<100000) iar pe a a doua linie n cifre, separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care determină în mod eficient, din punct de vedere al timpului de executare, cel mai mare număr ce se poate forma cu toate cifrele conținute de a doua linie a fișierului numere.txt. Numărul determinat se va afișa pe ecran. Exemplu: daca fișierul numere.txt are următorul conținut: 7 2 5 3 1 5 8 9 atunci pe ecran se va afișa: 9855321.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

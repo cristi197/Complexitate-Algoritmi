@@ -1,0 +1,142 @@
+{
+  "id": "2009-varianta-072",
+  "year": 2009,
+  "variant": 72,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 214,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ are valoarea 1 dacă numărul natural memorat de variabila n este divizibil cu 12?",
+        "options": {
+          "a": "(n%4 == 0) || (n%3 == 0)",
+          "b": "(n/4 == 0) && !(n%3)",
+          "c": "(n%4 != 0) && n%3",
+          "d": "(n%4 == 0) && (n%3 == 0)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește n (număr natural nenul) ┌pentru iÅ1,2*n-1 execută │ b Å 0 │ ┌dacă n-i < 0 atunci │ │ jÅi-n │ │ altfel │ │ jÅn-i │ └■ │ ┌cât timp j ≥ 0 execută │ │ scrie „*” │ │ jÅj-1 │ │ bÅ1 │ └■ │ ┌dacă b ≠ 0 atunci │ │ salt la rând nou (sfârșit de rând) │ └■ └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se va afișa dacă pentru n se citește valoarea 5.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Se înlocuiește prima structură dacă...atunci cu atribuirea j",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască prima structură dacă...atunci cu o operație de atribuire.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Fie un arborele cu rădăcină, cu 9 noduri, numerotate de la 1 la 9. Care este vectorul „de tați” al acestui arbore știind că nodurile 1, 2, 3, 4 ,5, 6, 7, 8 au exact câte un descendent direct (fiu)?",
+        "options": {
+          "a": "(1,2,3,4,5,6,7,8)",
+          "b": "(1,2,3,4,5,6,7,8,9)",
+          "c": "(0,1,2,3,4,5,6,7,8)",
+          "d": "(0,1,2,3,4,5,6,7,8,9) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "În secvența alăturată, fiecare dintre variabilele x și s sunt de tipul șir de caracter, iar i este de tip întreg. Dacă variabilele x și s memorează inițial șirul absolvent, ce se va memora în variabila x în urma executării secvenței alăturate? for(i=0; i<strlen(s); i++) if(strcmp(x, s+i)<0) strcpy(x,s+i);",
+        "options": {
+          "a": "nt",
+          "b": "absolvent",
+          "c": "solvent",
+          "d": "vent"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf neorientat cu 8 noduri, numerotate de la 1 la 8, și muchiile: [1,4], [1,8], [2,1], [2,3], [3,1], [4,5], [4,7], [5,7], [6,5]. Scrieți câte componente conexe are graful dat și care este nodul ce trebuie eliminat astfel încât subgraful obținut să aibă un număr maxim de componente conexe. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră lista simplu înlănțuită, alocată dinamic, în care fiecare nod memorează în câmpul info un număr întreg, iar în câmpul urm adresa nodului următor sau NULL dacă nu există un nod următor. În listă sunt memorate, în această ordine, numai valorile 1, 2,",
+        "points": 6
+      },
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Dacă variabila p reține adresa primului nod din listă, iar variabila u adresa ultimului nod din listă, scrieți instrucțiunile care pot înlocui zona punctată din secvența alăturată, astfel încât, în urma executării acesteia, să se afișeze 3 2 1. (6p.) ........ ........ while(u != NULL) { printf(”%d ”, u->info); | cout<<u->info<<” “; u = u->urm; } Scrieți programul C/C++ care citește de la tastatură o valoare naturală n (2≤n≤24), construiește în memorie și apoi afișează pe ecran o matrice a, cu n linii și n coloane, simetrică față de diagonala secundară. Elemente matricei situate deasupra diagonalei secundare, inclusiv diagonala secundară, sunt toate numerele naturale de la 1 la 2 1)n(n + .",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Elementele fiecărei linii, de la stânga la dreapta și ale fiecărei coloane, de sus în jos, situate deasupra diagonalei secundare, inclusiv cele de pe diagonala secundară, sunt în ordine strict crescătoare, ca în exemplu. Matricea se va afișa pe ecran, câte o linie a matricei pe o linie a ecranului, elementele fiecărei linii fiind separate între ele prin câte un spațiu. Exemplu: pentru n = 4 se va afișa matricea alăturată. (10p.) 1 3 6 10 2 5 9 6 4 8 5 3 7 4 2 1 Varianta 72",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se generează în ordine crescătoare toate numerele de 4 cifre, cu cifre distincte, astfel încât diferența în valoare absolută dintre prima și ultima, respectiv a doua și a treia cifră este egală cu 2. Primele 11 soluții generate sunt, în ordine: 1023, 1203, 1243, 1423, 1463, 1573, 1643, 1683, 1753, 1793, 1863. Care dintre următoarele numere se va genera imediat înaintea numărului 9317?",
+        "options": {
+          "a": "9247",
+          "b": "9357",
+          "c": "9207",
+          "d": "8976"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Scrieți ce se va afișa în urma executării subprogramului alăturat, la apelul F(57);. (6p.) void F(int x) { if(x != 0) { F(x/2); cout << x%2; | printf(“%d”, x%2); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a subprogramului Ecuatie care primește prin parametrii a, b și c trei numere întregi, a ≠ 0, de cel mult patru cifre fiecare, reprezentând coeficienții ecuației de gradul al II-lea: ax 2 +bx+c=0. În funcție de soluțiile ecuației subprogramul va returna: • cea mai mare dintre soluții dacă ecuația are două soluții reale distincte, dintre care cel puțin una pozitivă. • una dintre soluții dacă ecuația are două soluții egale și pozitive. • -32000 în celelalte cazuri. (10p.) b) Se consideră șirul s: 1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 1, 2,... . Pentru un număr natural k, 0<k≤10000, se cere să se determine valoarea elementului ce se află pe poziția k în șirul s. Exemplu: pentru k=5 numărul cerut este 2. Scrieți un program C/C++ care citește de la tastatură valoarea numărului natural k și, prin apeluri utile ale funcției Ecuatie, determină valoarea elementului ce se află pe poziția k în șirul s, folosind un algoritm eficient din punctul de vedere al spațiului de memorie alocat și al timpului de executare. Valoarea astfel determinată se va scrie în fișierul text sir.out. (6p.) c) Descrieți succint, în limbaj natural, metoda de rezolvare folosită la punctul b, explicând în ce constă eficiența ei (3 – 4 rânduri) (4p.) Varianta 72",
+        "points": 10
+      }
+    ],
+    "subprograme": []
+  }
+}

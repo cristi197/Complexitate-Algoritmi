@@ -1,0 +1,144 @@
+{
+  "id": "2009-varianta-050",
+  "year": 2009,
+  "variant": 50,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 148,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele a și b sunt de tip int, iar variabilele c și d sunt de tip double. Care dintre următoarele instrucțiuni de atribuire nu este corectă din punct de vedere sintactic?",
+        "options": {
+          "a": "c=d+2*c;",
+          "b": "c=2-d%2*a;",
+          "c": "c=sqrt(b*b);",
+          "d": "b=(d<=c);"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește n (număr natural nenul) kÅ9 ┌pentru iÅ1,n execută │ citește x │ (număr. natural) │ cÅ[x/10]%10 │ ┌dacă c<k atunci │ │ kÅc │ └■ └■ scrie k Varianta 50",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care va fi afișat dacă pentru n se citește valoarea 3, iar pentru x se citesc în ordine următoarele valori: 90, 965, 727.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Știind că valoarea citită pentru n este 4, scrieți un set de valori care pot fi citite pentru variabila x astfel încât la finalul executării algoritmului să se afișeze numărul 9.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura pentru...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul de circuite distincte ale grafului orientat dat prin matricea de adiacență alăturată? Două circuite sunt distincte dacă diferă prin cel puțin un arc. 0 0 1 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0",
+        "options": {
+          "a": "0",
+          "b": "1",
+          "c": "2",
+          "d": "3 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin 2 elemente, fiecare element reține în câmpul inf un număr natural, iar în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. Variabila p reține adresa primului element din listă. Dacă se prelucrează lista de mai jos, care este valoarea memorată de variabila întreagă k, la finalul executării următoarei secvențe de instrucțiuni? k=3; while(p->urm!=NULL && p->inf > p->urm->inf) p = p->urm; k = k + p->urm->inf;",
+        "options": {
+          "a": "8",
+          "b": "10",
+          "c": "12",
+          "d": "13"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care dintre nodurile arborelui din figura alăturată pot fi considerate ca fiind rădăcină astfel încât în arborele cu rădăcină rezultat fiecare nod să aibă cel mult doi descendenți direcți? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Elementele tabloului bidimensional din figura alăturată, cu 5 linii și 5 coloane, sunt toate numerele naturale cuprinse între 1 și 25 așezate în spirală, începând cu primul element al primei linii și continuând în sens invers trigonometric ca în figura alăturată. Care este ultima cifră a produsului numerelor impare aflate sub diagonala secundară (exclusiv diagonala secundară), în cazul unui tablou bidimensional cu 4 linii și 4 coloane generat după aceeași regulă? (6p.) 1 2 3 4 5 16 17 18 19 6 15 24 25 20 7 14 23 22 21 8 13 12 11 10 9",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un cuvânt s de cel mult 20 litere mici ale alfabetului englez, construiește în memorie și afișează pe ecran cuvântul s după eliminarea primei și a ultimei vocale. Cuvântul s conține cel puțin două vocale și cel puțin o consoană. Se consideră vocale literele: a, e, i, o, u. Exemplu: dacă se citește cuvântul bacalaureat, pe ecran se afișează: bcalauret (10p.) Varianta 50",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Valorile memorate de componentele tabloului v, cu indicii de la 0 la 5, sunt, în această ordine: 973, 51, 75, 350, 350, 15. Se consideră subprogramul t cu definiția alăturată. Care dintre următoarele expresii are valoarea 2 ? int t (int i, int v[]) { if(i==0) return 0; if(v[i]!=v[i-1]) return t(i-1,v); return 1; }",
+        "options": {
+          "a": "tablou(0,v)+tablou(3,v)",
+          "b": "tablou(1,v)+tablou(4,v)",
+          "c": "tablou(4,v)+tablou(5,v)",
+          "d": "tablou(3,v)+tablou(4,v)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se generează în ordine strict crescătoare toate numerele de câte șase cifre care conțin: cifra 1 o singură dată, cifra 2 de două ori și cifra 3 de trei ori. Se obțin, în această ordine, numerele: 122333, 123233, 123323, …, 333221. Ce număr se află imediat înaintea și ce număr se află imediat după numărul 332312 în șirul numerelor generate? (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Se consideră subprogramul divxy care primește prin parametrii x și y două valori întregi pozitive (0<x<1000 și 0<y<1000) și returnează valoarea 1 dacă y este divizor al lui x sau x este divizor al lui y și returnează valoarea 0 în caz contrar. a) Scrieți definiția completă a subprogramului divxy. (4p.) b) Scrieți un program C/C++ care citește de la tastatură trei numere naturale nenule a, b și n, cu cel mult 3 cifre fiecare și care afișează pe ecran toți divizorii lui n din intervalul închis determinat de a și b folosind apeluri utile ale subprogramului divxy. Intervalul închis determinat de a și b este [a,b] dacă a<b sau [b,a] dacă b≤a. Numerele afișate sunt separate prin câte un spațiu. Dacă nu există niciun astfel de număr se afișează mesajul NU EXISTA. Exemplu: pentru a=85, b=10 și n=40 se afișează: 10 20 40 (nu neapărat în această ordine). (6p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul bac.in conține pe prima linie un număr natural n (0<n<5000), iar pe a doua linie, separate prin câte un spațiu, n numere naturale, formate din cel mult 4 cifre fiecare. Scrieți un program C/C++ care determină și scrie în fișierul bac.out, toate numerele, citite de pe a doua linie a fișierului bac.in, care apar de cel puțin două ori. Numerele determinate se vor scrie în ordine crescătoare, pe aceeași linie, separate prin câte un spațiu. Exemplu: dacă fișierul bac.in conține pe prima linie numărul 11, iar pe linia a doua valorile 23 12 54 12 78 345 67 23 78 934 23 atunci fișierul bac.out va conține: 12 23 78 (10p.) Varianta 50",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

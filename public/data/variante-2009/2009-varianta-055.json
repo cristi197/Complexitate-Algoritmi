@@ -1,0 +1,144 @@
+{
+  "id": "2009-varianta-055",
+  "year": 2009,
+  "variant": 55,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 163,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ este echivalentă cu cea scrisă alăturat? !((x>=5)&&(x<10))",
+        "options": {
+          "a": "(x<5) || (x>=10)",
+          "b": "(x<5) || (x>10)",
+          "c": "(!(x>=5)) && (!(x>10))",
+          "d": "(x>=5) || (x<10)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y.",
+      "pseudocode": "citește n (număr natural nenul) citește a (număr natural) kÅ0 ┌pentru iÅ2,n execută │ citește b │ (număr natural) │┌dacă a%10=b%10 atunci ││ kÅk+1 ││altfel ││ kÅk-1 │└■ │ aÅb └■ scrie k Varianta 55",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți care este valoarea afișată dacă se citesc, în această ordine, valorile: 5, 12, 22, 1232, 3, 563.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Pentru n=7, scrieți un set de valori ce trebuie citite în continuare, astfel încât valoarea afișată să fie 4.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu algoritmul dat, în care să se înlocuiască structura repetitivă pentru...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat. citește n (număr natural nenul)",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Considerăm declararea alăturată. Care dintre următoarele instrucțiuni este corectă din punct de vedere sintactic? struct punct{ int x,y; } p;",
+        "options": {
+          "a": "p->y=p->y+1;",
+          "b": "p=9;",
+          "c": "p.x=7;",
+          "d": "p=p+1; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Variabila n memorează un număr natural nenul. Care este numărul total de grafuri orientate distincte cu n noduri? Două grafuri orientate sunt distincte dacă matricele lor de adiacență sunt diferite.",
+        "options": {
+          "a": "4 n*(n-1)/2",
+          "b": "3 n*(n-1)/2",
+          "c": "4 n*(n-1)",
+          "d": "2 n*(n-1)/2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Considerăm următoarele declarări: int i,aux,a[10][10]; Ce valori se afișează în urma executării secvenței alăturate dacă liniile și coloanele tabloului bidimensional sunt numerotate de la 0 la 9 și inițial fiecare linie a tabloului conține, de la stânga la dreapta, în ordine descrescătoare, toate numerele naturale, de la 10 la 1? (6p.) for (i=0;i<=8;i++) if( a[i][9-i]<a[i+1][8-i]) {aux=a[i][9-i]; a[i][9-i]=a[i+1][8-i]; a[i+1][8-i]=aux;} cout<<a[0][9]<<” ”<<a[9][0]; | printf(”%d %d”,a[0][9],a[9][0]); Se consideră o listă liniară simplu înlănțuită, alocată dinamic, cu cel puțin 5 noduri, în care fiecare nod al listei conține în câmpul urm adresa nodului următor din listă sau NULL dacă nu există un nod următor..",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Dacă adresa primului nod este memorată în variabila prim, iar variabila p este de același tip cu prim, ce prelucrare realizează următoarea secvență de instrucțiuni? (6p.) p=prim->urm; prim->urm=p->urm; delete(p); | free(p);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un șir de caractere format din maximum 10 caractere, reprezentând un număr real în care partea întreagă este separată de partea zecimală prin caracterul punct. Programul afișează pe ecran valoarea obținută prin adunarea numărului corespunzător părții întregi și a numărului corespunzător părții zecimale ale datei citite. Exemplu: dacă se citește de la tastatură șirul de caractere 120.456 atunci se va afișa 576, iar dacă se citește de la tastatură șirul de caractere 121.090 atunci se va afișa 130. (10p.) Varianta 55",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Primele 4 soluții generate sunt, în această ordine: 1. 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 0 1 1 0 0 0 0 0 1 0 0 0 0 1 0 1 0 0 Care este a opta soluție?",
+        "options": {
+          "a": "0 1 0 0 1 0 0 0 0 0 0 1 0 0 1 0",
+          "b": "0 1 0 0 1 0 0 0 0 0 1 0 0 0 0 1",
+          "c": "0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 1",
+          "d": "0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 1"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. a) Ce valoare are f(25)? b) Dar expresia f(1)+f(5)+f(15)? (6p.) int f(int n) { if (n>20) return 0; else return 5+f(n+5); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Se consideră subprogramul cifre, care primește prin intermediul primului parametru, a, un număr natural cu maximum 8 cifre nenule și returnează, prin intermediul celui de-al doilea parametrul b, cel mai mic număr care se poate forma cu toate cifrele distincte ale lui a. a) Scrieți definiția completă a subprogramului cifre. (4p.) b) Se consideră fișierul text date.in ce conține pe prima linie un număr natural nenul n (n≤100), iar pe a doua linie n numere naturale, separate prin câte un spațiu, fiecare număr având maximum 8 cifre nenule. Scrieți un program C/C++ care citește toate numerele din fișierul text date.in și afișează pe ecran, despărțite prin câte un spațiu, numerele situate pe a doua linie a fișierului, formate numai din cifre distincte ordonate strict crescător, folosind apeluri utile ale subprogramului cifre. În cazul în care nu există niciun astfel de număr se va afișa valoarea 0. Exemplu: dacă fișierul date.in are conținutul alăturat, atunci se vor afișa numerele: 16 269 (6p.) 6 16 175 333 242477 321 269",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Scrieți un program C/C++ care citește de la tastatură un număr natural nenul n (n≤100) și 2*n numere naturale de maximum 3 cifre; primele n reprezintă elementele tabloului unidimensional a, iar următoarele n elementele tabloului unidimensional b; fiecare tablou are elementele numerotate începând de la 1. Programul construieste în memorie și afișează pe ecran, cu spații între ele, cele n elemente ale unui tablou unidimensional c, în care orice element ci (1≤i≤n) se obține conform definiției următoare: ci = ┌ ai concatenat cu bi, dacă ai<bi └ bi concatenat cu ai, altfel Exemplu: dacă se citesc n=3, a=(12,123,345) și b=(1,234,15), atunci se afișează elementele tabloului c astfel: 112 123234 15345 (10p.) Varianta 55",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

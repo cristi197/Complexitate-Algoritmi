@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-097",
+  "year": 2009,
+  "variant": 97,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 289,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre variabilele întregi x, y și z vor avea la finalul executării secvenței alăturate de instrucțiuni, aceeași valoare ca înainte de executare? x = y + z; z = x – z; y = z; z = x - y;",
+        "options": {
+          "a": "numai x și z",
+          "b": "numai y și z",
+          "c": "numai x și y",
+          "d": "x, y"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat reprezentat în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y.",
+      "pseudocode": "┌pentru iÅ 1,3 execută │ citește x (număr natural) │ s Å 0 │ ┌pentru jÅ 1,i execută │ │ s Å s + x % 10 │ └■ │ scrie s └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce valori se vor afișa dacă se citesc, în ordine, valorile 123, 25, 218.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un de set de date de intrare pentru care se vor afișa trei valori consecutive.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să nu utilizeze nicio structură repetitivă.",
+          "points": 4
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră un graf neorientat 5 noduri și 3 muchii. Care este numărul maxim de noduri cu grad 1 care pot exista în graf? (6p.) a. 2 b. 3 c. 4 d. 5 2. Se consideră un arbore cu rădăcină memorat cu ajutorul vectorului de ”tați” T=(2,0,1,1,1,2). Stabiliți care dintre nodurile arborelui sunt situate pe nivelul 3, dacă rădăcina este situată pe nivelul 1?",
+        "options": {
+          "a": "3 4 5",
+          "b": "1",
+          "c": "2 6",
+          "d": "1 2 6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră variabila s care memorează șirul de caractere CARACATITA. Ce valoare va avea s după executarea instrucțiunii de mai jos? strcpy(s,strstr(s,\"TI\")); (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul info al fiecărui element câte un număr întreg de cel mult 4 cifre, iar în câmpul adr, adresa elementului următor din listă sau NULL dacă nu există un element următor în listă. Lista are cel puțin trei noduri, iar variabila p reține adresa primului nod al listei. Scrieți, în limbajul C/C++, declarările ce definesc lista și o secvență de instrucțiuni prin a cărei executare se afișează pe ecran valoarea memorată în cel de-al treilea nod al listei. (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Se consideră un tablou bidimensional cu n linii și m coloane (1≤n≤24, 1≤m≤24) ce memorează numere întregi cu cel mult două cifre fiecare. Scrieți un program în limbajul C/C++ care citește de la tastatură valorile n, m și elementele tabloului, și care inversează ordinea elementelor în cadrul fiecărei coloane, ca în exemplu. Programul va afișa pe ecran, pe n linii, matricea obținută după inversare, elementele fiecărei linii fiind separate prin câte un spațiu. (10p.) Exemplu: pentru n=4, m=3 și matricea: 1 7 3 4 5 6 7 8 9 3 4 5 Pe ecran se va afișa: 3 4 5 7 8 9 4 5 6 1 7 3 Varianta 97",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Subprogramul recursiv alăturat este definit incomplet. Care dintre următoarele expresii poate înlocui punctele de suspensie astfel încât, în urma apelului, subprogramul f să returneze suma primelor două cifre ale numărului primit prin intermediul parametrului x? Exemplu: în urma apelului f(2318) valoarea returnată este 5. int f(int x){ if (...) return x%10 + x/10; else return f(x/10); }",
+        "options": {
+          "a": "x<=100",
+          "b": "x<=99",
+          "c": "x==99",
+          "d": "x!=0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se generează, utilizând metoda bactracking, cuvintele cu exact 3 litere din mulțimea {a,x,c,f,g}. Dacă primele patru cuvinte generate sunt, în ordine, aaa, aax, aac, aaf, scrieți ultimele trei cuvinte care încep cu litera a, în ordinea în care vor fi generate. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Tabloul unidimensional V, declarat global, memorează exact 50 de numere întregi: V1, V2,...,V50. Subprogramul Calcul primește prin intermediul parametrului k un număr natural nenul (k≤50) și furnizează prin intermediul parametrului S suma tuturor elementelor pozitive, din tabloul V, cu indici mai mari sau egali cu k sau 0 dacă toate elementele menționate sunt negative. a) Scrieți doar antetul subprogramului Calcul. (2p.) b) Scrieți un program în limbajul C/C++ care citește de la tastatură cele 50 de componente întregi ale tabloului V și două numere naturale nenule x și y (x<y≤50). Programul afișează suma elementelor pozitive din tablou, cu indici cuprinși între x și y inclusiv, sau 0 dacă toate elementele menționate sunt negative, folosind apeluri utile la subprogramul Calcul. (8p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Pe prima linie a fișierului text DATE.TXT se găsește o valoare naturală k (k≤1000000).",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește din fișierul DATE.TXT valoarea k și afișează, pe ecran, toate perechile de numere naturale nenule x, y (x≤y) cu proprietatea că x 2 +y 2 =k. Fiecare pereche va fi afișată pe câte o linie, numerele fiind despărțite printr-un spațiu. Alegeți o metodă de rezolvare eficientă din punctul de vedere al timpului de executare. Exemplu: dacă fișierul DATE.TXT conține numărul 1000000, pe ecran se vor afișa, nu neapărat în această ordine, perechile alăturate. 280 960 352 936 600 800",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată, justificând eficiența acesteia",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

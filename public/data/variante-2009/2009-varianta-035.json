@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-035",
+  "year": 2009,
+  "variant": 35,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 103,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Stabiliți care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă numărul întreg memorat în variabila x nu aparține intervalului (-35,-20].",
+        "options": {
+          "a": "(x<-35) || (x>-20)",
+          "b": "(x<=-35) || (x>=-20)",
+          "c": "(x<=-35) || (x>-20)",
+          "d": "(x<=-35) && (x>20)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [z] partea întreagă a numărului real z, iar cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește x (număr natural) sÅ0 fÅ2 ┌cât timp x>1 execută │ pÅ0 │┌cât timp x%f=0 execută ││ xÅ[x/f] ││ pÅp+1 │└■ │ sÅs+p │ fÅf+1 └■ scrie s Varianta 35",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care va fi afișată dacă se citește numărul x=140.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare de 3 cifre care poate fi citită pentru x, astfel încât valoarea afișată să fie 6.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți valorile naturale din intervalul [7,28] care pot fi introduse pentru variabila x, astfel încât, după executarea programului, valoarea afișată să fie 1.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful neorientat cu mulțimea nodurilor {1,2,3,4,5,6,7,8} și mulțimea muchiilor {[1,2], [2,3], [2,4], [4,7], [2,6], [1,5], [5,6], [6,8], [7,8]}. Pentru a trasforma graful într-un arbore, putem elimina:",
+        "options": {
+          "a": "muchiile [1,5] și [1,2]",
+          "b": "muchia [5,6]",
+          "c": "nodul 3",
+          "d": "muchiile [2,6]"
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "și [4,7] 2. Se consideră o listă alocată dinamic care are cel puțin 10 elemente și fiecare element al listei memorează în câmpul info un număr întreg, iar în câmpul next adresa elementului următor în listă sau NULL dacă nu există un element următor. Variabila p memorează adresa de început a listei, iar variabila aux este de același tip cu p. Dacă în urma executării secvenței alăturate de program, variabila p are valoarea NULL, atunci: while (p!=NULL && p->info%5!=0) { aux=p; p=aux->next; delete p; | free(p); }",
+        "options": {
+          "a": "toate numerele din listă sunt divizibile cu 5",
+          "b": "doar primul element din listă este divizibil cu 5",
+          "c": "în listă nu s-a memorat niciun număr divizibil cu 5",
+          "d": "doar ultimul element memorat"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Ce se va afișa în urma executării secvenței alăturate, în care variabila c memorează un șir cu cel mult 20 de caractere, iar variabila i este de tip întreg? (6p.) char c[]=\"tamara\"; for(i=0;i<3;i++) c[i]=c[i+1]; cout<<c; | printf(\"%s\",c)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Un graf neorientat cu 10 noduri, numerotate de la 1 la 10, este reprezentat cu ajutorul listelor de adiacență alăturate. Câte componente conexe are graful și care este numărul minim de muchii ce trebuie adăugate pentru ca graful să fie conex? (6p.) 1:3,5 2:4 3:1,5 4:2,8 5:1,3 6: 7:10 8:4 9: 10:7",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (n≤50) și construiește în memorie o matrice cu n linii și n coloane, ale cărei elemente sunt numere întregi citite de la tastatură. Pentru fiecare coloană a matricei, în ordine, programul afișează pe ecran cel mai mic număr de pe respectiva coloană. Numerele afișate vor fi separate prin câte un spațiu. (10p.) Exemplu: pentru n=4 și matricea alăturată, se vor afișa pe ecran valorile: -7 18 -10 2. 122 103 5 10 -7 18 -10 2 107 999 59 4 1 200 100 7 Varianta 35",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru generarea tuturor mulțimilor de câte 5 cifre, având la dispoziție cifrele de la 1 la 9, se poate utilza un algoritm echivalent cu algoritmul de generare a:",
+        "options": {
+          "a": "permutărilor de 5 elemente",
+          "b": "submulțimilor mulțimii {1,2,3,4,5,6,7,8,9}",
+          "c": "combinărilor de 9 elemente luate câte 5",
+          "d": "aranjamentelor de 9 elemente luate câte 5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f este definit alăturat. Ce se va afișa în urma executării secvenței de mai jos, în care variabilele a și b sunt de tip întreg? a=3; b=9; f(b,a);f(b,b); (6p.) void f(int &a,int b) { a=a-5;b=a-2; cout<<a<<b; | printf(\"%d%d\",a,b); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text numere.in conține pe prima linie un număr natural n (0<n<1000), iar pe a doua linie n numere naturale cu cel mult 9 cifre fiecare, despărțite prin câte un spațiu. Scrieți un program C/C++ care citește toate numerele din fișier și afișează pe ecran, separate prin câte un spațiu, numerele de pe a doua linie a fișierului, care încep și se termină cu aceeași cifră. (10p.) Exemplu: dacă fișierul numere.in are conținutul alăturat, se numerele ce se vor afișa sunt: 55 3 101 7 2782 9 55 107 3 101 92 7 208 2782 80",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți definiția completă a unui subprogram sum care primește prin parametrul x un număr natural de cel mult 4 cifre și returnează suma divizorilor numărului x, diferiți de 1 și de el însuși. Exemplu: dacă x=10 se va returna valoarea 7 (7=2+5). (4p.) b) Scrieți programul C/C++ care citește de la tastatură un număr natural n (0<n<100), apoi n numere naturale (cu cel mult 4 cifre fiecare). Programul determină, folosind apeluri utile ale subprogramului sum, pentru fiecare număr natural citit, suma divizorilor săi proprii și afișează pe ecran sumele determinate, în ordinea crescătoare a valorilor lor, separate prin câte un spațiu. (6p.) Exemplu: dacă n=5 și numerele citite sunt 10 2 33 6 11 valorile afișate pe ecran vor fi: 0 0 5 7 14 deoarece suma divizorilor lui 10 este 7, suma divizorilor lui 2 este 0, suma divizorilor lui 33 este 14, suma divizorilor lui 6 este 5, suma divizorilor lui 11 este 0. Varianta 35",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a unui subprogram sum care primește prin parametrul x un număr natural de cel mult 4 cifre și returnează suma divizorilor numărului x, diferiți de 1 și de el însuși. Exemplu: dacă x=10 se va returna valoarea 7 (7=2+5).",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (0<n<100), apoi n numere naturale (cu cel mult 4 cifre fiecare). Programul determină, folosind apeluri utile ale subprogramului sum, pentru fiecare număr natural citit, suma divizorilor săi proprii și afișează pe ecran sumele determinate, în ordinea crescătoare a valorilor lor, separate prin câte un spațiu. Exemplu: dacă n=5 și numerele citite sunt 10 2 33 6 11 valorile afișate pe ecran vor fi: 0 0 5 7 14 deoarece suma divizorilor lui 10 este 7, suma divizorilor lui 2 este 0, suma divizorilor lui 33 este 14, suma divizorilor lui 6 este 5, suma divizorilor lui 11 este 0.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

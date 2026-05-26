@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-033",
+  "year": 2009,
+  "variant": 33,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 97,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila a memorează un număr natural care are exact 3 cifre. Care dintre expresiile C/C++ de mai jos are ca valoare numărul format din prima și ultima cifră a numărului memorat de a?",
+        "options": {
+          "a": "a/10+a%100",
+          "b": "a/100+a%10",
+          "c": "a/100*10+a%10",
+          "d": "a-a/10%10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris in pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește a,n (numere naturale) jÅ3 ┌pentru i=1,n execută │┌dacă i%2=0 atunci ││ aÅa-j ││altfel ││ aÅa+j │└■ │ jÅ7-j └■ scrie a Varianta 33",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți care este valoarea afișată dacă pentru a și n se citesc numerele a=12 și n=10.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru a se citește valoarea 32, scrieți un număr natural care poate fi citit pentru variabila n, astfel încât, în urma executării algoritmului, să se afișeze 34.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod, un algoritm echivalent cu cel dat, în care să nu se utilizeze structuri repetitive sau subprograme recursive.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful neorientat cu 6 noduri, definit cu ajutorul listelor de adiacență alăturate. Care dintre mulțimile următoare de noduri are toate elementele extremități ale unor lanțuri elementare de lungime 2 cu cealaltă extremitate în nodul 5? 1: 4,5,6 2: 5 3: 4 4: 1,3 5: 1,2,6 6: 1,5",
+        "options": {
+          "a": "{1,4,6}",
+          "b": "{2}",
+          "c": "{3}",
+          "d": "{2,6} 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un arbore cu rădăcină are nodurile numerotate de la 1 la 18 și este reprezentat prin vectorul de „tați” t=(8,8,0,3,4,3,4,7,1,2,3,3,7,8,3,5,6,8). Numărul tuturor descendenților nodului 3 este egal cu:",
+        "options": {
+          "a": "3",
+          "b": "6",
+          "c": "17",
+          "d": "18"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți definiția corectă a unui tip de date necesar pentru a memora simultan într-o singură variabilă de acest tip, următoarele caracteristici ale unui cerc: abscisa și ordonata centrului cercului (numere întregi cu cel mult 4 cifre) și raza acestuia (număr real), astfel încât expresia de mai jos să calculeze diametrul cercului ale cărui caracteristici sunt memorate în variabila x. 2*x.raza (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "În secvența alăturată, variabilele i, j și x sunt de tip întreg, iar variabila a memorează o matrice în care prima linie și prima coloană sunt numerotate cu 1. Toate elementele matricei primesc valori în urma executării secvenței. Scrieți în ordine, începând cu prima coloană, elementele situate pe fiecare linie a matricei care se va construi în urma executării secvenței alăturate. (6p.) x=2; for(j=1;j<=5;j++) for(i=1;i<=3;i++) { a[j][i]=x; x=x+1; }",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "O listă dublu înlănțuită, alocată dinamic, memorează în câmpul info al fiecărui nod un număr real, iar în câmpurile urm și prec adresa nodului următor, respectiv precedent din listă sau NULL dacă nu există un element următor, respectiv precedent. Adresa primului nod este memorată în variabila prim. Considerându-se creată lista dublu înlănțuită, scrieți declarările de date necesare definirii listei precum și secvența de program C/C++ care modifică lista, inserând în listă după fiecare nod ce memorează în câmpul info o valoare negativă, un nou nod ce va memora în câmpul info valoarea 0, și afișează toate informațiile din nodurile listei după efectuarea acestei operații. (10p.) Varianta 33",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind un algoritm de generare putem obține numere naturale de k cifre care au suma cifrelor egală cu un număr natural s. Astfel, pentru valorile k=2 și s=6 se generează, în ordine, numerele: 15, 24, 33, 42, 51, 60. Care va fi al treilea număr generat pentru k=4 și s=5?",
+        "options": {
+          "a": "1301",
+          "b": "1022",
+          "c": "2201",
+          "d": "1031"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul re este definit alăturat. Ce valoarea are re(1)? Dar re(14)? (6p.) int re(int i) { if (i<9) return 3+re(i+2); else if (i==9) return -2; else return 1+re(i-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul sum3 primește prin parametrul x un tablou unidimensional, cu cel mult 100 de elemente, numere întregi cu cel mult 4 cifre fiecare, iar prin parametrul n un număr natural ce reprezintă numărul efectiv de elemente ale tabloului x (n≤100). Scrieți definiția completă a subprogramului sum3 care returnează suma elementelor tabloului care sunt divizibile cu 3. Dacă tabloul nu conține nicio valoare divizibilă cu 3, subprogramul va returna 0. (6p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Pe prima linie a fișierului numere.txt se află un număr natural n (n≤100), iar pe următoarele n linii, câte n numere naturale despărțite prin câte un spațiu, fiecare având cel mult 9 cifre. Printre aceste numere se află cel puțin unul cu 3 cifre și cel puțin unul cu 4 cifre.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți în limbajul C/C++, un algoritm eficient din punct de vedere al gestionării memoriei care citește din fișier datele existente și determină și afișează pe ecran, separate printr-un spațiu, două numere din fișier, x și y, unde x este cel mai mare număr de trei cifre, iar y este acel număr pentru care |x-y| are valoare minimă. Dacă sunt mai multe valori pentru y care respectă condiția impusă se va afișa numai una dintre ele.",
+            "points": 10
+          },
+          {
+            "id": "b",
+            "text": "Explicați în limbaj natural metoda utilizată justificând eficiența acesteia. Exemplu: dacă fișierul numere.txt are conținutul alăturat, se va afișa: 800 1100 5 112 333 1 500 1100 1 95 7 97 12 45 800 0 7 89 1 5 17 197 102 45 86 0 7 9",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

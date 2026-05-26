@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-088",
+  "year": 2009,
+  "variant": 88,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 262,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "In secvențele C/C++ următoare toate variabilele sunt de tip întreg și memorează numere cu cel mult 3 cifre. Care dintre variantele de mai jos determină interschimbarea valorilor memorate de variabilele a și b?",
+        "options": {
+          "a": "aux=b; a=b; b=aux;",
+          "b": "a=a+b; b=a-b; a=a-b;",
+          "c": "a=b; b=a;",
+          "d": "a=a+b; b=a-b; a=b-a;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește a (număr natural) pÅ1 bÅ0 ┌cât timp a≠0 execută │ cÅa%10 │ ┌dacă a%2=0 atunci │ │ bÅb+c*p │ │altfel │ │ bÅb*10+c │ └■ │ aÅ[a/10] │ pÅp*10 └■ scrie b Varianta 88",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care se va afișa dacă se citește valoarea 123456.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare cu exact 5 cifre care poate fi citită pentru variabila a astfel încât numărul afișat să fie format din toate cifrele lui a, scrise în ordine inversă.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp ... execută cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În declararea alăturată, variabila p memorează în câmpul x abscisa, iar în câmpul y ordonata unui punct din planul xOy. Dacă punctul se află pe cel puțin una dintre axe, care dintre expresiile de mai jos are valoarea 1? struct {float x; float y;}p;",
+        "options": {
+          "a": "p.x*p.y==0",
+          "b": "(p.x==0)&&(p.y==0)",
+          "c": "x.p==y.p",
+          "d": "p(x)==0 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Ce valoare are variabila s de tip șir de caractere după executarea instrucțiunii de mai jos? s=strcat(strstr(\"bacalaureat\", \"bac\")+ strlen(\"2009\"),\"09\");",
+        "options": {
+          "a": "BAC2009",
+          "b": "laureat09",
+          "c": "Bac200909",
+          "d": "aur2009"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arbore cu 6 noduri, numerotate de la 1 la 6, reprezentat prin matricea de adiacență dată alăturat. Scrieți toate nodurile care pot fi alese ca rădăcină a arborelui astfel încât acesta să aibă un număr minim de frunze. (6p.) 0 1 0 0 0 1 1 0 1 1 1 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fiecare element al unei liste simplu înlănțuite, alocată dinamic, reține în câmpul nr un număr întreg, iar în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor. Ce valori au variabilele întregi a și b după executarea secvenței alăturate, dacă variabila p reține adresa primului element al listei de mai jos, iar variabila q este de același tip cu p? (6p.) q=p; a=p->urm->nr; while (q->urm!=NULL) { q->urm->nr=q->nr*p->nr; q=q->urm; } b=q->nr; Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤20), elementele unei matrice cu n linii și n coloane, numere întregi din intervalul [-100,100] și afișează pe ecran media aritmetică a elementelor strict pozitive ale matricei, care sunt situate deasupra diagonalei principale, ca în exemplu. Dacă nu există elemente strict pozitive situate deasupra diagonalei principale, programul va afișa mesajul „NU EXISTA”.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru n=4 și matricea alăturată se afișează valoarea 2.75 (sunt luate în considerare doar elementele marcate). (10p.) -1 2 -4 5 0 6 3 1 2 4 2 0 3 -5 1 -3 Varianta 88",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Ionel dorește să ofere cadouri membrilor familiei sale, formată din cei doi părinți și o soră. Decide să le ofere stilouri de diferite culori. La magazin există stilouri de 5 culori diferite. Algoritmul de generare a tuturor posibilităților de a atribui câte un stilou fiecăruia dintre cei trei membri ai familiei, fără să se repete vreo culoare, este similar cu algoritmul de generare a",
+        "options": {
+          "a": "aranjamentelor",
+          "b": "elementelor produsului cartezian",
+          "c": "permutărilor",
+          "d": "submulțimilor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce valoare are f(1)? Dar f(4)? (6p.) int f(int n) { if (n==0) return 1; else if (n==1) return 2; else return f(n-1)-f(n-2); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului numar, cu patru parametri, care primește prin intermediul parametrului n un număr natural format din cel mult 9 cifre, iar prin intermediul parametrilor c1 și c2 câte o cifră cu proprietatea c1<c2; subprogramul furnizează prin intermediul celui de al patrulea parametru, x, o valoare obținută prin eliminarea din numărul primit prin parametrul n a fiecărei cifre cuprinse în intervalul închis [c1, c2]. Dacă toate cifrele lui n aparțin acestui interval, valoarea furnizată prin x va fi 0. Exemplu: pentru n=162448, c1=4 și c2=7, valoarea furnizată prin x va fi 128. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text bac.txt conține cel mult 10000 de numere naturale din intervalul închis [0,9], dintre care cel puțin unul este prim. Numerele se află pe mai multe rânduri, cele de pe același rând fiind separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care determină și afișează pe ecran cel mai mare număr prim care apare în fișier și numărul de apariții ale acestuia, utilizând un algoritm eficient din punct de vedere al timpului de executare și al spațiului de memorie utilizat. Programul afișează pe ecran cele două valori determinate, separate printr-un spațiu. Exemplu: dacă fișierul conține numerele: 5 8 9 1 9 5 1 1 2 2 se va afișa 5 2.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, algoritmul utilizat, justificând eficiența acestuia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

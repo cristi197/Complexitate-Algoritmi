@@ -1,0 +1,802 @@
+[
+  {
+    "id": "2009-varianta-001",
+    "year": 2009,
+    "variant": 1,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 1
+  },
+  {
+    "id": "2009-varianta-002",
+    "year": 2009,
+    "variant": 2,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 4
+  },
+  {
+    "id": "2009-varianta-003",
+    "year": 2009,
+    "variant": 3,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 7
+  },
+  {
+    "id": "2009-varianta-004",
+    "year": 2009,
+    "variant": 4,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 10
+  },
+  {
+    "id": "2009-varianta-005",
+    "year": 2009,
+    "variant": 5,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 13
+  },
+  {
+    "id": "2009-varianta-006",
+    "year": 2009,
+    "variant": 6,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 16
+  },
+  {
+    "id": "2009-varianta-007",
+    "year": 2009,
+    "variant": 7,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 19
+  },
+  {
+    "id": "2009-varianta-008",
+    "year": 2009,
+    "variant": 8,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 22
+  },
+  {
+    "id": "2009-varianta-009",
+    "year": 2009,
+    "variant": 9,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 25
+  },
+  {
+    "id": "2009-varianta-010",
+    "year": 2009,
+    "variant": 10,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 28
+  },
+  {
+    "id": "2009-varianta-011",
+    "year": 2009,
+    "variant": 11,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 31
+  },
+  {
+    "id": "2009-varianta-012",
+    "year": 2009,
+    "variant": 12,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 34
+  },
+  {
+    "id": "2009-varianta-013",
+    "year": 2009,
+    "variant": 13,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 37
+  },
+  {
+    "id": "2009-varianta-014",
+    "year": 2009,
+    "variant": 14,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 40
+  },
+  {
+    "id": "2009-varianta-015",
+    "year": 2009,
+    "variant": 15,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 43
+  },
+  {
+    "id": "2009-varianta-016",
+    "year": 2009,
+    "variant": 16,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 46
+  },
+  {
+    "id": "2009-varianta-017",
+    "year": 2009,
+    "variant": 17,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 49
+  },
+  {
+    "id": "2009-varianta-018",
+    "year": 2009,
+    "variant": 18,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 52
+  },
+  {
+    "id": "2009-varianta-019",
+    "year": 2009,
+    "variant": 19,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 55
+  },
+  {
+    "id": "2009-varianta-020",
+    "year": 2009,
+    "variant": 20,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 58
+  },
+  {
+    "id": "2009-varianta-021",
+    "year": 2009,
+    "variant": 21,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 61
+  },
+  {
+    "id": "2009-varianta-022",
+    "year": 2009,
+    "variant": 22,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 64
+  },
+  {
+    "id": "2009-varianta-023",
+    "year": 2009,
+    "variant": 23,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 67
+  },
+  {
+    "id": "2009-varianta-024",
+    "year": 2009,
+    "variant": 24,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 70
+  },
+  {
+    "id": "2009-varianta-025",
+    "year": 2009,
+    "variant": 25,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 73
+  },
+  {
+    "id": "2009-varianta-026",
+    "year": 2009,
+    "variant": 26,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 76
+  },
+  {
+    "id": "2009-varianta-027",
+    "year": 2009,
+    "variant": 27,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 79
+  },
+  {
+    "id": "2009-varianta-028",
+    "year": 2009,
+    "variant": 28,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 82
+  },
+  {
+    "id": "2009-varianta-029",
+    "year": 2009,
+    "variant": 29,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 85
+  },
+  {
+    "id": "2009-varianta-030",
+    "year": 2009,
+    "variant": 30,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 88
+  },
+  {
+    "id": "2009-varianta-031",
+    "year": 2009,
+    "variant": 31,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 91
+  },
+  {
+    "id": "2009-varianta-032",
+    "year": 2009,
+    "variant": 32,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 94
+  },
+  {
+    "id": "2009-varianta-033",
+    "year": 2009,
+    "variant": 33,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 97
+  },
+  {
+    "id": "2009-varianta-034",
+    "year": 2009,
+    "variant": 34,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 100
+  },
+  {
+    "id": "2009-varianta-035",
+    "year": 2009,
+    "variant": 35,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 103
+  },
+  {
+    "id": "2009-varianta-036",
+    "year": 2009,
+    "variant": 36,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 106
+  },
+  {
+    "id": "2009-varianta-037",
+    "year": 2009,
+    "variant": 37,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 109
+  },
+  {
+    "id": "2009-varianta-038",
+    "year": 2009,
+    "variant": 38,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 112
+  },
+  {
+    "id": "2009-varianta-039",
+    "year": 2009,
+    "variant": 39,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 115
+  },
+  {
+    "id": "2009-varianta-040",
+    "year": 2009,
+    "variant": 40,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 118
+  },
+  {
+    "id": "2009-varianta-041",
+    "year": 2009,
+    "variant": 41,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 121
+  },
+  {
+    "id": "2009-varianta-042",
+    "year": 2009,
+    "variant": 42,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 124
+  },
+  {
+    "id": "2009-varianta-043",
+    "year": 2009,
+    "variant": 43,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 127
+  },
+  {
+    "id": "2009-varianta-044",
+    "year": 2009,
+    "variant": 44,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 130
+  },
+  {
+    "id": "2009-varianta-045",
+    "year": 2009,
+    "variant": 45,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 133
+  },
+  {
+    "id": "2009-varianta-046",
+    "year": 2009,
+    "variant": 46,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 136
+  },
+  {
+    "id": "2009-varianta-047",
+    "year": 2009,
+    "variant": 47,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 139
+  },
+  {
+    "id": "2009-varianta-048",
+    "year": 2009,
+    "variant": 48,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 142
+  },
+  {
+    "id": "2009-varianta-049",
+    "year": 2009,
+    "variant": 49,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 145
+  },
+  {
+    "id": "2009-varianta-050",
+    "year": 2009,
+    "variant": 50,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 148
+  },
+  {
+    "id": "2009-varianta-051",
+    "year": 2009,
+    "variant": 51,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 151
+  },
+  {
+    "id": "2009-varianta-052",
+    "year": 2009,
+    "variant": 52,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 154
+  },
+  {
+    "id": "2009-varianta-053",
+    "year": 2009,
+    "variant": 53,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 157
+  },
+  {
+    "id": "2009-varianta-054",
+    "year": 2009,
+    "variant": 54,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 160
+  },
+  {
+    "id": "2009-varianta-055",
+    "year": 2009,
+    "variant": 55,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 163
+  },
+  {
+    "id": "2009-varianta-056",
+    "year": 2009,
+    "variant": 56,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 166
+  },
+  {
+    "id": "2009-varianta-057",
+    "year": 2009,
+    "variant": 57,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 169
+  },
+  {
+    "id": "2009-varianta-058",
+    "year": 2009,
+    "variant": 58,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 172
+  },
+  {
+    "id": "2009-varianta-059",
+    "year": 2009,
+    "variant": 59,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 175
+  },
+  {
+    "id": "2009-varianta-060",
+    "year": 2009,
+    "variant": 60,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 178
+  },
+  {
+    "id": "2009-varianta-061",
+    "year": 2009,
+    "variant": 61,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 181
+  },
+  {
+    "id": "2009-varianta-062",
+    "year": 2009,
+    "variant": 62,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 184
+  },
+  {
+    "id": "2009-varianta-063",
+    "year": 2009,
+    "variant": 63,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 187
+  },
+  {
+    "id": "2009-varianta-064",
+    "year": 2009,
+    "variant": 64,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 190
+  },
+  {
+    "id": "2009-varianta-065",
+    "year": 2009,
+    "variant": 65,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 193
+  },
+  {
+    "id": "2009-varianta-066",
+    "year": 2009,
+    "variant": 66,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 196
+  },
+  {
+    "id": "2009-varianta-067",
+    "year": 2009,
+    "variant": 67,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 199
+  },
+  {
+    "id": "2009-varianta-068",
+    "year": 2009,
+    "variant": 68,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 202
+  },
+  {
+    "id": "2009-varianta-069",
+    "year": 2009,
+    "variant": 69,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 205
+  },
+  {
+    "id": "2009-varianta-070",
+    "year": 2009,
+    "variant": 70,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 208
+  },
+  {
+    "id": "2009-varianta-071",
+    "year": 2009,
+    "variant": 71,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 211
+  },
+  {
+    "id": "2009-varianta-072",
+    "year": 2009,
+    "variant": 72,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 214
+  },
+  {
+    "id": "2009-varianta-073",
+    "year": 2009,
+    "variant": 73,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 217
+  },
+  {
+    "id": "2009-varianta-074",
+    "year": 2009,
+    "variant": 74,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 220
+  },
+  {
+    "id": "2009-varianta-075",
+    "year": 2009,
+    "variant": 75,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 223
+  },
+  {
+    "id": "2009-varianta-076",
+    "year": 2009,
+    "variant": 76,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 226
+  },
+  {
+    "id": "2009-varianta-077",
+    "year": 2009,
+    "variant": 77,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 229
+  },
+  {
+    "id": "2009-varianta-078",
+    "year": 2009,
+    "variant": 78,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 232
+  },
+  {
+    "id": "2009-varianta-079",
+    "year": 2009,
+    "variant": 79,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 235
+  },
+  {
+    "id": "2009-varianta-080",
+    "year": 2009,
+    "variant": 80,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 238
+  },
+  {
+    "id": "2009-varianta-081",
+    "year": 2009,
+    "variant": 81,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 241
+  },
+  {
+    "id": "2009-varianta-082",
+    "year": 2009,
+    "variant": 82,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 244
+  },
+  {
+    "id": "2009-varianta-083",
+    "year": 2009,
+    "variant": 83,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 247
+  },
+  {
+    "id": "2009-varianta-084",
+    "year": 2009,
+    "variant": 84,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 250
+  },
+  {
+    "id": "2009-varianta-085",
+    "year": 2009,
+    "variant": 85,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 253
+  },
+  {
+    "id": "2009-varianta-086",
+    "year": 2009,
+    "variant": 86,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 256
+  },
+  {
+    "id": "2009-varianta-087",
+    "year": 2009,
+    "variant": 87,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 259
+  },
+  {
+    "id": "2009-varianta-088",
+    "year": 2009,
+    "variant": 88,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 262
+  },
+  {
+    "id": "2009-varianta-089",
+    "year": 2009,
+    "variant": 89,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 265
+  },
+  {
+    "id": "2009-varianta-090",
+    "year": 2009,
+    "variant": 90,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 268
+  },
+  {
+    "id": "2009-varianta-091",
+    "year": 2009,
+    "variant": 91,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 271
+  },
+  {
+    "id": "2009-varianta-092",
+    "year": 2009,
+    "variant": 92,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 274
+  },
+  {
+    "id": "2009-varianta-093",
+    "year": 2009,
+    "variant": 93,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 277
+  },
+  {
+    "id": "2009-varianta-094",
+    "year": 2009,
+    "variant": 94,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 280
+  },
+  {
+    "id": "2009-varianta-095",
+    "year": 2009,
+    "variant": 95,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 283
+  },
+  {
+    "id": "2009-varianta-096",
+    "year": 2009,
+    "variant": 96,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 286
+  },
+  {
+    "id": "2009-varianta-097",
+    "year": 2009,
+    "variant": 97,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 289
+  },
+  {
+    "id": "2009-varianta-098",
+    "year": 2009,
+    "variant": 98,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 292
+  },
+  {
+    "id": "2009-varianta-099",
+    "year": 2009,
+    "variant": 99,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 295
+  },
+  {
+    "id": "2009-varianta-100",
+    "year": 2009,
+    "variant": 100,
+    "type": "varianta",
+    "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+    "pdfPage": 298
+  }
+]

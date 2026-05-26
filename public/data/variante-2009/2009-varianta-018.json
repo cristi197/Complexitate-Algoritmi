@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-018",
+  "year": 2009,
+  "variant": 18,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 52,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele instrucțiuni C/C++ determină eliminarea cifrei din mijloc a unui număr natural, cu exact 5 cifre, memorat în variabila x?",
+        "options": {
+          "a": "x=x/1000*100+x%100;",
+          "b": "x=x%1000*100+x/100;",
+          "c": "x=x/100*100+x%100;",
+          "d": "x=x/1000+x%100;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu a%b restul împărțirii numărului natural a la numărul natural, nenul, b și cu aÅÆb interschimbarea valorilor reținute de variabilele a și b.",
+      "pseudocode": "2. Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu a%b restul împărțirii numărului natural a la numărul natural, nenul, b și cu aÅÆb interschimbarea valorilor reținute de variabilele a și b.",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți succesiunea de caractere care se vor afișa în urma executării algoritmului dacă se citesc, în acestă ordine, valorile 2 și 9.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Știind că pentru variabila y se citește valoarea 79, scrieți două valori distincte care pot fi citite pentru variabila x, astfel încât să fie afișat de exact 40 de ori caracterul *.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura repetitivă cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Fiecare element al unei liste circulare, simplu înlănțuită, nevidă, alocată dinamic, memorează în câmpul val o valoare întreagă, iar în câmpul adr adresa elementului următor din listă. Știind că variabila p reține adresa unui element oarecare din listă, iar variabila q este de același tip cu p, precizați care dintre următoarele secvențe de program afișează, în urma executării, toate valorile memorate de elementele listei?",
+        "options": {
+          "a": "q=p; while(q!=p) {cout<<q->val; q=q->adr;} q=p; while(q!=p) { printf(”%d”,q->val); q=q->adr; }",
+          "b": "q=p; while(q->adr!=p){cout<<q->val; q=q->adr;} q=p; while(q->adr!=p){ printf(”%d”,q->val); q=q->adr; }",
+          "c": "q=p; do{ cout<<q->val; q=q->adr; }while(q!=p); q=p; do{ printf(”%d”,q->val); q=q->adr; }while(q!=p);",
+          "d": "q=p->adr; while(q!=p) {cout<<q->val; q=q->adr;} q=p->adr; while(q!=p) { printf(”%d”,q->val); q=q->adr; } 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care dintre următoarele variante reprezintă o declarare corectă pentru o variabilă x care memorează simultan coordonatele reale (abscisa și ordonata) ale unui punct în planul xOy?",
+        "options": {
+          "a": "struct punct{float ox,oy;} x;",
+          "b": "char x[2];",
+          "c": "struct x{float ox,oy;};",
+          "d": "float x;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Un arbore binar este un arbore cu rădăcină în care fiecare nod are cel mult 2 descendenți direcți (fii). Înălțimea unui arbore este reprezentată de numărul maxim de muchii ale unui lanț elementar ce unește rădăcina cu un vârf terminal (frunză). Pentru un arbore binar cu exact 8 noduri, care este înălțimea minimă posibilă și care poate fi numărul maxim de noduri terminale (frunze) ale arborelui în acest caz? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "În secvența de program alăturată, variabila a memorează un șir cu cel mult 100 de caractere, iar variabila i este de tip întreg. Completați punctele de suspensie din secvență astfel încât, în urma executării secvenței, aceasta să afișeze șirul de caractere *nf*rm*t*c*. (6p.) strcpy(a,”informatica”); for(i=0;i<strlen(a);i++) if(...) cout<<...; | printf(...); else cout<<...; | printf(...); Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<20), construiește în memorie și afișează pe ecran o matrice cu n linii și n coloane, numerotate de la 1 la n în care fiecare element din matrice aflat pe o linie impară va fi egal cu numărul liniei pe care se află și fiecare element aflat pe o linie pară va fi egal cu numărul coloanei pe care se află.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Elementele matricei vor fi afișate pe ecran, câte o linie a matricei pe câte o linie a ecranului cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=5 se va afișa matricea alăturată. (10p.) 1 1 1 1 1 1 2 3 4 5 3 3 3 3 3 1 2 3 4 5 5 5 5 5 5 Varianta 18",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Funcția f are definiția alăturată. Ce se va afișa în urma apelului f(12345,0);? void f(long n, int i) {if (i<n%10) {cout<<n%10; | printf(“%d”,n%10); f(n/10,i+1); } }",
+        "options": {
+          "a": "54321",
+          "b": "543",
+          "c": "54",
+          "d": "5432"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare",
+      "code": "Un algoritm generează, în ordine lexicografică, toate șirurile alcătuite din câte n cifre binare (0 și 1). Știind că pentru n=5, primele patru soluții generate sunt 00000, 00001, 00010, 00011, precizați care sunt ultimele trei soluții generate, în ordinea obținerii lor. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului count care are doi parametri, a și n, prin care primește un tablou unidimensional cu maximum 100 de numere reale și respectiv numărul efectiv de elemente din tablou. Subprogramul returnează numărul de elemente din tabloul a care sunt mai mari sau cel puțin egale cu media aritmetică a tuturor elementelor din tablou. Exemplu: dacă tabloul are 6 elemente și este de forma (12, 7.5, 6.5, 3, 8.5, 7.5), subprogramul va returna valoarea 4 (deoarece media tuturor elementelor este 7.5 și numerele subliniate sunt cel puțin egale cu această medie). (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul numere.txt este memorat un șir de maximum 10000 numere naturale, distincte două câte două, cu maximum 4 cifre fiecare, separate prin câte un spațiu. Pentru un număr k citit de la tastatură, se cere afișarea pe ecran a poziției pe care se va găsi acesta în șirul de numere din fișier, dacă șirul ar fi ordonat descrescător, sau mesajul nu există, dacă numărul k nu se află printre numerele din fișier. Alegeți un algoritm eficient de rezolvare din punct de vedere al memoriei utilizate și al timpului de executare. Exemplu: dacă fișierul numere.txt conține numerele 26 2 5 30 13 45 62 7 79, iar k are valoarea 13, se va afișa 6 deoarece 13 s-ar găsi pe poziția a șasea în șirul ordonat descrescător (79 62 45 30 26 13 7 5 2).",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, strategia de rezolvare și justificați eficiența algoritmului ales.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului ales.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

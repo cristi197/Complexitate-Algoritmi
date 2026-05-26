@@ -1,0 +1,144 @@
+{
+  "id": "2009-varianta-012",
+  "year": 2009,
+  "variant": 12,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 34,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă variabilele x și y memorează două numere naturale pare consecutive?",
+        "options": {
+          "a": "(x-y==2) && (y-x==2)",
+          "b": "(x==2) && (y==4)",
+          "c": "x-y==2",
+          "d": "((x-y==2) || (y-x==2)) && (x%2==0)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [c] partea întreagă a numărului real c.",
+      "pseudocode": "citește x (număr natural) yÅ0 ┌cât timp x≠0 execută │ ┌cât timp x>9 execută │ │ xÅ[x/10] │ └■ │ yÅy*10+x │ citește x └■ scrie y",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care va fi afișată dacă se citesc, în această ordine, numerele 12, 7, 354, 9, 630, 0.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un șir de numere ce pot fi citite astfel încât valoarea afișată să fie 321.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască fiecare dintre cele două structuri cât timp...execută, cu câte o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6, este reprezentat prin matricea de adiacență alăturată. Care dintre vârfurile grafului au gradul exterior un număr impar? 0 1 1 0 0 0 0 0 1 1 0 1 1 1 0 1 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 0 1 0",
+        "options": {
+          "a": "1, 3, 4, 5",
+          "b": "2, 3, 4, 5",
+          "c": "1, 4, 5, 6",
+          "d": "2, 3, 5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul inf un număr întreg, iar în câmpul urm adresa următorului nod din listă sau NULL în cazul ultimului nod al listei. Adresa primului element al listei este reținută în variabila prim, iar p este o variabilă de același tip cu prim. Dacă în listă sunt memorate, în această ordine, numerele 1, 2, 3, 4 ca în figura de mai jos, care va fi conținutul listei în urma executării secvenței de instrucțiuni alăturate? 2. p=prim; prim=p->urm; p->urm=NULL; prim->urm->urm->urm=p;",
+        "options": {
+          "a": "1 3 2 4",
+          "b": "2 3 4 1",
+          "c": "4 1 2 3",
+          "d": "1 4 3 2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Pentru arborele cu rădăcină, cu 9 noduri, numerotate de la 1 la 9, având următorul vector de „tați” tata=(8,7,6,6,7,7,8,0,8), care este rădăcina arborelui și care sunt descendenții nodului 7? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți ce se afișează pe ecran în urma executării secvenței de program alăturate, în care variabila s memorează un șir de cel mult 12 caractere, iar variabila i este de tip întreg. (6p.) char s[13]=\"informatica\"; cout<<strlen(s); | printf(\"%d\",strlen(s)); for (i=0;i<strlen(s);i++) if (strchr(\"aeiou\",s[i])!=NULL) s[i]= '*'; cout<<\" \"<<s; | printf(\" %s\",s); Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<25) și apoi construiește în memorie o matrice cu n linii și n coloane, numerotate de la 1 la n, ale cărei elemente primesc valori după cum urmează: elementul din linia i și coloana j primește ca valoare ultima cifră a produsului i*j (1≤i≤n și 1≤j≤n).",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul va afișa matricea astfel construită pe ecran, câte o linie a matricei pe o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. Exemplu: pentru n=4 se va afișa matricea alăturată. (10p.) 1 2 3 4 2 4 6 8 3 6 9 2 4 8 2 6 Varianta 12",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră subprogramul P, definit alăturat. Știind că valoarea variabilei întregi a este înainte de apel 4, care este valoarea ei imediat după apelul P(a)? void P(int &x) { x=x+5; }",
+        "options": {
+          "a": "10",
+          "b": "4",
+          "c": "9",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru a scrie valoarea 10 ca sumă de numere prime se folosește metoda backtracking și se generează, în această ordine, sumele distincte: 2+2+2+2+2, 2+2+3+3, 2+3+5, 3+7, 5+5. Folosind exact aceeași metodă, se scrie valoarea 9 ca sumă de numere prime. Care sunt primele trei soluții, în ordinea generării lor? (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierele text NR1.TXT și NR2.TXT conțin, separate prin câte un spațiu, mai multe numere întregi de cel mult 9 cifre fiecare. Fiecare dintre fișiere conține cel mult 100 de valori și numerele din fiecare fișier sunt ordonate strict crescător. Se cere să se afișeze pe ecran, în ordine crescătoare, numerele divizibile cu 5 care se găsesc doar în unul din cele două fișiere. Exemplu: dacă fișierul NR1.TXT conține numerele 1 2 3 4 7 20 60, iar fișierul NR2.TXT conține numerele 3 5 7 8 9 10 12 20 24, atunci se vor afișa pe ecran valorile 5 10 60. a) Descrieți un algoritm de rezolvare a acestei probleme, eficient din punct de vedere al timpului de executare și al spațiului de memorie utilizat, explicând în ce constă eficiența acestuia. (4p.) b) Scrieți programul C/C++ corespunzător algoritmului descris. (6p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Scrieți un program C/C++ care citește de la tastatură o valoare naturală nenulă n (n≤20), apoi un șir de n numere naturale, având fiecare exact 5 cifre. Dintre cele n numere citite, programul determină pe acelea care au toate cifrele egale și le afișează pe ecran, în ordine crescătoare, separate prin câte un spațiu. Exemplu: pentru n=5 și numerele 11111 33333 12423 59824 11111 33443 se va afișa: 11111 11111 33333. (10p.) Varianta 12",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

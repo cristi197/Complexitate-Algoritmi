@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-004",
+  "year": 2009,
+  "variant": 4,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 10,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este rezultatul evaluării expresiei C/C++ alăturate? 11*3/2*2/3",
+        "options": {
+          "a": "2",
+          "b": "10",
+          "c": "2.75",
+          "d": "11"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu x↔y operația de interschimbare a valorilor variabilelor x și y.",
+      "pseudocode": "citește a,b (numere întregi) ┌dacă a<b atunci │ a↔b └■ ┌pentru xÅa,b,-1 execută │ ┌dacă x%2≠0 atunci │ │ scrie x,’ ’ │ └■ └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează pentru a=5 și b=17.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate perechile de valori care pot fi citite pentru variabilele a și b, astfel încât să se afișeze, în acestă ordine, numerele: 1 -1.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura pentru...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră un graf orientat cu 6 noduri numerotate de la 1 la 6 și cu mulțimea arcelor formată doar din arcele: - de la fiecare nod numerotat cu un număr neprim i (i>1) la toate nodurile numerotate cu numere ce aparțin mulțimii divizorilor proprii ai lui i (divizori diferiți de 1 și de i) - de la nodul numerotat cu 1 la nodul numerotat cu 6 - de la fiecare nod numerotat cu un număr prim i la nodul numerotat cu i-1 Pentru graful dat, care este lungimea celui mai mare drum, format doar din noduri distincte, ce unește nodul 6 cu nodul 1?",
+        "options": {
+          "a": "1",
+          "b": "3",
+          "c": "4",
+          "d": "6 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Câte frunze are arborele cu rădăcină, cu 8 noduri, numerotate de la 1 la 8, descris prin următorul vector ”de tați”: (6,5,5,2,0,3,3,3)?",
+        "options": {
+          "a": "4",
+          "b": "6",
+          "c": "5",
+          "d": "3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră o stivă în care inițial au fost introduse, în această ordine, elementele cu valorile 1, 2 și 3, ca în figura alăturată. Se notează cu AD(x) operația prin care se adaugă elementul cu valoarea x în vârful stivei și cu EL operația prin care se elimină elementul din vârful stivei. Reprezentați, după modelul alăturat, conținutul stivei, rezultat în urma executării secvenței de operații: AD(4);EL;EL;AD(5);EL. (6p.) 1 2 3 vârf",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fie s o variabilă ce memorează un șir de caractere, format doar din litere ale alfabetului englez, și i o variabilă de tip int. Scrieți instrucțiunile ce pot înlocui punctele de suspensie din secvența de program alăturată astfel încât executarea ei să determine eliminarea tuturor literelor mici din șirul s și apoi afișarea șirului obținut. (6p.) i=0; while (i<strlen(s)) ............... printf(\"%s\",s); | cout<<s;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (2≤n≤24) și construiește în memorie o matrice cu n linii și n coloane ale cărei elemente vor primi valori după cum urmează: - elementele aflate pe diagonala secundară a matricei vor primi valoarea 0 - elementele de pe prima linie, cu excepția celui aflat pe diagonala secundară vor primi valoarea n - elementele de pe a doua linie, cu excepția celui aflat pe diagonala secundară vor primi valoarea n-1 ... - elementele de pe ultima linie, cu excepția celui aflat pe diagonala secundară vor primi valoarea 1 Programul va afișa matricea astfel construită pe ecran, câte o linie a matricei pe câte o linie a ecranului, cu câte un spațiu între elementele fiecărei linii (ca în exemplu). Exemplu: pentru n=4 se va afișa matricea alăturată. (10p.) 4 4 4 0 3 3 0 3 2 0 2 2 0 1 1 1 Varianta 4",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează în ordine lexicografică cuvintele de câte patru litere din mulțimea A={a,b,c,d,e}, cuvinte care nu conțin două vocale alăturate. Primele opt cuvinte generate sunt, în ordine: abab, abac, abad, abba, abbb, abbc, abbd, abbe. Care este antepenultimul cuvânt generat?",
+        "options": {
+          "a": "edde",
+          "b": "eddb",
+          "c": "edeb",
+          "d": "edcb"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, ce se afișează ca urmare a apelului f(15,2);? (6p.) void f (int n, int x) { if(x>n) cout<<0; | printf(”%d”,0); else if(x%4<=1) f(n,x+1); else { f(n,x+3); cout<<1; | printf(”%d”,1); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text NR.TXT conține pe o singură linie, separate prin câte un singur spațiu, cel mult 100 de numere naturale, fiecare număr având cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișierul NR.TXT și afișează pe ecran, separate prin câte un spațiu, în ordine descrescătoare, toate numerele din fișier care au cel mult 2 cifre. Dacă fișierul nu conține astfel de numere se va afișa pe ecran mesajul NU EXISTA. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Subprogramul cif, cu doi parametri, primește prin intermediul parametrului a un număr natural cu cel mult 8 cifre și prin intermediul parametrului b o cifră; subprogramul returnează numărul de apariții ale cifrei b în scrierea numărului a. Exemplu: pentru a=125854 și b=5, subprogramul va returna valoarea 2.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului cif.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n cu exact 8 cifre, fiecare cifră fiind nenulă, și care determină și afișează pe ecran, folosind apeluri utile ale subprogramului cif, cel mai mic număr palindrom ce poate fi obținut prin rearanjarea tuturor cifrelor numărului n. Dacă nu se poate obține un palindrom din toate cifrele numărului n, programul va afișa pe ecran numărul 0. Un număr natural este palindrom dacă este egal cu numărul obținut prin scrierea cifrelor sale în ordine inversă. Exemplu: dacă n=21523531 atunci se va afișa pe ecran numărul 12355321, iar dacă n=12272351 atunci se va afișa pe ecran numărul 0.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-074",
+  "year": 2009,
+  "variant": 74,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 220,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ are valoarea 1 dacă variabila x memorează un număr natural pătrat perfect?",
+        "options": {
+          "a": "sqrt(x) == floor(sqrt(x))",
+          "b": "sqrt(x) != floor(sqrt(x))",
+          "c": "floor(sqrt(x))!=ceil(sqrt(x))",
+          "d": "x-floor(x)==ceil(x)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [x/y] câtul împărțirii întregi a numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește a,b (numere naturale nenule) c Å0 p Å 0 ┌cât timp a + b > 0 execută │┌dacă a%10 = b%10 și a%2=0 ││ atunci c Å c*10 + b%10 ││ altfel p Å p*10 + a%10 │└■ │ a Å [a/10] │ b Å [b/10] └■ scrie c, p",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se va afișa dacă se citesc pentru a valorea 625231, iar pentru b valoarea 425271.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă a=12345 scrieți o valoare de cinci cifre care poate fi citită pentru b, astfel încât să se afișeze pentru p valoarea 42.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Efectuați un număr minim de modificări asupra algoritmului dat astfel încât prin executarea algoritmul obținut să se calculeze în variabila c numărul de cifre pare, comune și aflate pe poziții identice, pe care le au cele două valori citite.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, cu cel puțin 3 elemente, fiecare element reține în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor, iar în câmpul info informația utilă de tip întreg. Dacă variabila p reține adresa primului element din listă atunci care dintre secvențele de mai jos atribuie câmpului info al celui de al treilea element informația utilă din primul element al listei?",
+        "options": {
+          "a": "p->urm->urm->info=p->info;",
+          "b": "p->urm->urm->info=p->urm->info;",
+          "c": "p->info->info->info = p->info;",
+          "d": "p->urm->urm = p->info; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Ce se va afișa în urma executării secvenței de program de mai jos dacă variabila x memorează cuvântul bacalaureat, iar variabila y memorează cuvântul banal? if(strcmp(x, y) > 0) cout << x; | printf(”%s”, x); else if(strcmp(x,y) < 0) cout << y; | printf(”%s”, y); else cout << “imposibil”; | printf(”imposibil”);",
+        "options": {
+          "a": "imposibil",
+          "b": "bacalaureat",
+          "c": "banal",
+          "d": "bacalaureatimposibil"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arbore cu rădăcină, cu 9 noduri, numerotate de la 1 la 9, și cu vectorul “de tați” următor: (8, 8, 8, 2, 6, 2, 9, 0, 2). a) Enumerați descendenții nodului 2. (3p.) b) Câte noduri de tip frunză are acest arbore? (3p.)",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră graful neorientat cu 6 noduri, numerotate de la 1 la 6 și următoarele muchii: [1,3] [1,5] [2,3] [2,4] [2,6] [5,3] [6,4]. a) Care este numărul minim de muchii ce trebuie eliminate din acest graf, astfel încât graful parțial obținut să nu conțină niciun ciclu? (3p.) b) Care este numărul minim de muchii ce trebuie eliminate din graful inițial dat, astfel încât graful parțial obținut să aibă exact două componente conexe? (3p.)",
+        "points": 3
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Se consideră șirul lui Fibonacci, definit astfel: f0 = 0, f1 = 1, fn = fn-1 + fn-2, dacă n>1. Scrieți un program C/C++ care citește de la tastatură o valoare naturală n (2≤n≤24), construiește în memorie și afișează pe ecran o matrice a cu n linii și n coloane ale cărei elemente sunt numere naturale, fiecare reprezentând ultima cifră a câte unui termen al șirului lui Fibonacci, începând de la termenul de indice 1 și până la termenul de indice n 2 , în ordine, linie cu linie de sus în jos, și în cadrul fiecărei linii de la stânga la dreapta, ca în exemplu. Matricea se va afișa pe ecran, câte o linie a matricei pe câte o linie a ecranului, elementele de pe aceeași linie fiind separate între ele prin câte un spațiu. Exemplu: pentru n = 4 se va obține matricea alăturată. (10p.) 1 1 2 3 5 8 3 1 4 5 9 4 3 7 0 7 Varianta 74",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Prin metoda backtracking se generează toate anagramele (cuvintele obținute prin permutarea literelor) unui cuvânt dat. Știind că se aplică această metodă pentru cuvântul solar, precizați câte cuvinte se vor genera astfel încât prima și ultima literă din fiecare cuvânt generat să fie vocală (sunt considerate vocale caracterele a, e, i , o, u)?",
+        "options": {
+          "a": "24",
+          "b": "6",
+          "c": "10",
+          "d": "12"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră funcția Suma, definită alăturat. Ce valoare are Suma(3)? Dar Suma(8)? (6p. ) int Suma(int x) { if(x == 1 ) return 0; if(x%2==0) return Suma(x-1)+(x- 1)*x; return Suma(x-1)-(x-1)*x; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a subprogramului Cifra, cu doi parametri, n și x, care primește prin intermediul parametrului n un număr natural de cel mult nouă cifre și furnizează prin parametrul x cea mai mare cifră a numărului transmis prin parametrul n. (6p.) b) Scrieți un program C/C++ care citește de la tastatură un număr natural n, n<1000000000, și afișează pe ecran mesajul Da în cazul în care numărul citit este format doar din cifre aparținând mulțimii {0,1,2,3,4} și afișează mesajul Nu în caz contrar. (4p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se numește “număr mare” orice număr natural care are mai mult de nouă cifre.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește de pe prima linie a fișierului text NUMERE.IN un număr natural n (10<n<1000), iar de pe a doua linie n cifre despărțite prin câte un spațiu, dintre care cel puțin una nenulă, și afișează pe ecran cel mai mic “număr mare” format cu toate cele n cifre din fișier. Alegeți o metodă eficientă din punct de vedere al utilizării memoriei.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint în limbaj natural metoda de rezolvare folosită explicând în ce constă eficiența ei (3 – 4 rânduri). Exemplu: dacă fișierul NUMERE.IN conține 10 7 9 4 0 9 0 1 1 8 8 atunci se va afișa pe ecran ”numărul mare” : 1001478899",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

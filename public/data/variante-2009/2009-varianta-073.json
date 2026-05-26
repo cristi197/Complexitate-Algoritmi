@@ -1,0 +1,141 @@
+{
+  "id": "2009-varianta-073",
+  "year": 2009,
+  "variant": 73,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 217,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele numerice a, b și aux sunt de același tip. Care dintre următoarele secvențe interschimbă corect valorile variabilelor a și b?",
+        "options": {
+          "a": "aux = b; b = a; a = aux;",
+          "b": "aux = a; b = a; b = aux;",
+          "c": "aux = b; aux = a; a = b;",
+          "d": "b = aux; aux = a; a = b;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar prin [x/y] câtul împărțirii întregi a numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește a, b, p (numere naturale nenule, a < b) nrÅ0 ┌ pentru iÅa,b execută │ x Å i │┌cât timp x≠0 și x%p≠0 execută ││ xÅ[x/10] │└■ │┌dacă x ≠ 0 atunci ││ nrÅnr+1 │└■ └■ scrie nr",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se va afișa dacă se citesc pentru a valoarea 260, pentru b valoarea 288 și pentru p valoarea 9.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă a=110, iar p=18, scrieți cel mai mare număr care poate fi citit pentru b, astfel încât să se afișeze valoarea 0. citește a, b, p (numere naturale nenule, a <",
+          "points": 4
+        },
+        {
+          "id": "b",
+          "text": "nr",
+          "points": null
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră arborele cu 12 noduri, numerotate de la 1 la 12, definit prin următorul vector „de tați”: (4, 8, 0, 3, 10, 1, 8, 3, 2, 4, 7, 10). Care dintre nodurile arborelui au exact un descendent direct (fiu)?",
+        "options": {
+          "a": "6, 9, 11",
+          "b": "1, 2, 7",
+          "c": "5, 12, 6, 9, 11",
+          "d": "10, 1, 2, 7 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră declarările alăturate. Care este tipul expresiei x.x.y ? struct A { int x; char y; }; struct B { float x; long y; }; struct C { struct A x; struct B y; } x, y;.",
+        "options": {
+          "a": "long",
+          "b": "int",
+          "c": "char",
+          "d": "float"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră graful orientat cu 6 noduri, numerotate de la 1 la 6, și arcele (1,2), (1,5), (1,6), (2,3), (4,3), (4,5), (6,5). Care este numărul minim de arce ce trebuie adăugate grafului astfel încât acesta să conțină cel puțin un circuit elementar de lungime 4? Pentru graful rezultat, dați un exemplu de astfel de circuit. (6p.) Variabilele n, i, p și q sunt de tip întreg, iar variabila a memorează un tablou bidimensional cu n linii și n coloane numerotate de la 0 la n-1 (0<n<50), cu elemente numere reale.",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Înlocuiți punctele de suspensie din secvența de program alăturată cu instrucțiunile corespunzătoare, astfel încât, în urma executării acesteia, să se interschimbe elementele liniei q cu elementele liniei p ale tabloului a (0≤q≤n-1, 0≤p≤n-1). Dacă sunt necesare și alte variabile, scrieți declarările acestora. (6p.) for(i = 0; i < n; i++) {........}",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (0<n<101) și apoi n propoziții. Fiecare propoziție este formată din maximum 255 de caractere care sunt numai litere mici ale alfabetului englez și spații. Știind că fiecare propoziție se termină cu caracterul Enter, să se afișeze pe ecran propoziția care are cele mai puține vocale (sunt considerate vocale caracterele a, e, i, o, u). Dacă două sau mai multe propoziții au același număr de vocale, se va afișa ultima propoziție, în ordinea citirii, care îndeplinește condiția. Exemplu: pentru n = 4 și următoarele propoziții: azi a plouat tare a fost innorat peste tot maine va fi soare acum nu mai vreau sa ploua se va afișa: maine va fi soare (10p.) Varianta 73",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se generează în ordine crescătoare toate numerele de 4 cifre, cu cifre distincte, astfel încât diferența în valoare absolută dintre ultimele două cifre ale fiecărui număr generat este egală cu 2. Primele opt soluții generate sunt, în ordine: 1024, 1035, 1042, 1046, 1053, 1057, 1064, 1068. Care dintre următoarele numere se va genera imediat după numărul 8975?",
+        "options": {
+          "a": "8979",
+          "b": "9013",
+          "c": "8957",
+          "d": "9024"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Ce se va afișa în urma executării subprogramului alăturat, la apelul F(56);? (6p.) void F(int x) { if(x) { F(x/2); cout << x%10; | printf(“%d”,x%10); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a subprogramului Cautare, cu trei parametri, n, x și v, care primește prin parametrul n un număr natural (1≤n≤1000), prin parametrul x un tablou unidimensional format din n componente (numere întregi de cel mult patru cifre fiecare: x1, x2, …, xn) memorate în ordine crescătoare și prin parametrul v un număr întreg de cel mult patru cifre, diferit de oricare dintre elementele tabloului unidimensional x. Subprogramul va căuta, în mod eficient din punct de vedere al timpului de executare, poziția pe care ar trebui inserată valoarea v în șirul x astfel încât să se obțină tot un șir ordonat și returnează această poziție. (6p.) b) Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri). (4p.) c) Fișierul text sir.in conține cel mult 1000 numere naturale de maximum patru cifre fiecare, numerele fiind diferite două câte două și despărțite prin câte un spațiu. Scrieți un program C/C++ care citește numerele din fișierul sir.in și, folosind apeluri utile ale subprogramului Cautare, construiește în memorie un tablou unidimensional care va conține toate numerele din fișierul sir.in ordonate crescător. Programul scrie în fișierul text sir.out șirul obținut, câte 10 elemente pe un rând, elementele de pe același rând fiind despărțite printr-un singur spațiu. Exemplu: dacă fișierul sir.in conține numerele: 7 -5 635 -456 0 8 587 -98 65 3 -8 atunci după executarea programului fișierul sir.out va conține: -456 -98 -8 -5 0 3 7 8 65 587 635 (10p.) Varianta 73",
+        "points": 10
+      }
+    ],
+    "subprograme": []
+  }
+}

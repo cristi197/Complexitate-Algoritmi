@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-067",
+  "year": 2009,
+  "variant": 67,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 199,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele x, y, z și w sunt întregi, x memorează valoarea 2, y memorează valoarea 3, z memorează valoarea 5, iar w memorează valoarea 7. Care dintre următoarele expresii, scrise în limbajul C/C++, are valoarea 1?",
+        "options": {
+          "a": "(y>z) || (x>3)",
+          "b": "(x==z) && ((y==3)||(w==7))",
+          "c": "(z<=w) && (x>0) || (y>=x)",
+          "d": "(y>=3) && (w<7)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural) zÅ0 ┌cât timp n>0 execută │ cÅn%10 │ nÅ[n/10] │┌dacă c<5 atunci ││ zÅz*10+2*c │└■ └■ scrie z Varianta 67",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea afișată dacă pentru n se citește valoarea 52381.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare de 3 cifre care poate fi citită pentru variabila n astfel încât să se afișeze numărul 0.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Cum se poate accesa prima literă a numelui unei persoane ale cărei date de identificare sunt memorate în variabila p, declarată alăturat? struct persoana{ char nume[20],prenume[20]; int varsta;} p;",
+        "options": {
+          "a": "p.nume[0]",
+          "b": "persoana.nume[0]",
+          "c": "p->nume[0]",
+          "d": "nume.p[0] 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful orientat definit prin mulțimea vârfurilor {1,2,3,4,5,6} și arcele (1,2), (1,6), (1,5), (2,3), (3,6), (4,1), (6,4). Care este vârful accesibil din toate celelalte vârfuri ale grafului prin intermediul unor drumuri elementare?",
+        "options": {
+          "a": "4",
+          "b": "1",
+          "c": "5",
+          "d": "6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Un arbore cu rădăcină având 8 noduri, numerotate de la 1 la 8, este memorat cu ajutorul vectorului de ”tați” t=(8,8,0,3,4,3,4,6). Care sunt descendenții nodului 4? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră o listă liniară simplu înlănțuită, alocată dinamic, ale cărei noduri rețin în câmpul data o valoare numerică întreagă. Știind că variabilele x, y și z rețin adresele unor elemente din listă, ce se va afișa după executarea secvenței alăturate de program? (6p.) x->data=2; z=x; y->data=5; y=z; cout<<x->data<<y->data<<z->data; | printf(\"%d%d%d\",x->data,y->data,z->data);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un cuvânt format din cel mult 50 caractere, doar litere mari ale alfabetului englez, și afișează pe ecran, fiecare pe câte o linie, toate sufixele acestuia, în ordine crescătoare a lungimilor. Un sufix de lungime k al unui cuvânt este un subșir format din ultimele k caractere ale acestuia. (10p.) Exemplu: dacă se citește cuvântul EXAMEN se vor afișa sufixele : N EN MEN AMEN XAMEN EXAMEN Varianta 67",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se generează în ordine crescătoare, toate numerele naturale de 5 cifre distincte, care se pot forma cu cifrele 5,6,7,8 și 9. Să se precizeze numărul generat imediat înaintea și numărul generat imediat după secvența următoare : 67589,67598,67859,67895.",
+        "options": {
+          "a": "65987 și 67958",
+          "b": "65978 și 67988",
+          "c": "65978 și 67958",
+          "d": "65987"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul recursiv definit alăturat. Ce valoare are alfa(6)? Pentru ce valoare a parametrului u, alfa(u) are valoarea 25 ? (6p.) int alfa(int u) {if (u==0) return 3; else return alfa(u-1)+3*u-2; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Să se scrie în limbajul C/C++ definiția completă a subprogramului calcul, care primește prin intermediul parametrului n un număr natural nenul (1≤n≤10000), iar prin intermediul parametrului a, un tablou unidimensional care conține n valori naturale, fiecare dintre aceste valori având cel mult 9 cifre. Subprogramul returnează numărul de numere prime din tablou. (10p.) Exemplu: pentru n=5 și tabloul unidimensional (12,37,43,6,71) în urma apelului se va returna 3.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMERE.TXT conține pe prima linie un număr natural n (1≤n≤10000) și pe a doua linie un șir crescător de n numere naturale, fiecare având cel mult 9 cifre. Numerele de pe a doua linie sunt separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care, utilizând o metodă eficientă din punct de vedere al timpului de executare și al spațiului de memorie, afișează pe ecran elementele distincte ale șirului aflat pe a doua linie a fișierului. Exemplu: dacă fișierul NUMERE.TXT are conținutul alăturat 7 111 111 111 2111 4111 71111 71111 atunci programul va afișa pe ecran 111 2111 4111 71111.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată la punctul a), justificând eficiența acesteia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

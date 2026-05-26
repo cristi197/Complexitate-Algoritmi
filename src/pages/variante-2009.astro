@@ -1,0 +1,729 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout
+  title="Variante BAC 2009 Informatică C/C++ — InfoLiceu"
+  description="100 variante de bacalaureat informatică C/C++ din 2009 — grile interactive, pseudocod, probleme cu fișiere și subprograme."
+  bodyClass="has-sidebar"
+>
+  <Header />
+  <Sidebar />
+
+  <div class="app-shell">
+    <div class="app-content" id="main-content">
+
+      <!-- Hero -->
+      <div class="v09-hero">
+        <a href={`${base}/`} class="v09-back">← Înapoi acasă</a>
+        <div class="v09-hero-tag">BAC 2009</div>
+        <h1>Variante BAC 2009</h1>
+        <p class="v09-hero-sub">
+          100 variante de bacalaureat informatică C/C++, intensiv informatică.
+          Grile interactive, pseudocod cu formatare, probleme cu fișiere și subprograme.
+        </p>
+        <div class="v09-stats">
+          <div class="v09-stat"><span>📋</span> 100 variante</div>
+          <div class="v09-stat"><span>🎯</span> ~380 grile</div>
+          <div class="v09-stat"><span>🧮</span> Pseudocod</div>
+          <div class="v09-stat"><span>💡</span> C/C++</div>
+        </div>
+      </div>
+
+      <!-- Grid selector -->
+      <div id="gridView" class="v09-section">
+        <div class="v09-section-header">
+          <h2>Alege varianta</h2>
+          <div class="v09-search-wrap">
+            <input id="varSearch" type="number" min="1" max="100"
+              placeholder="Număr variantă…" class="v09-input" />
+            <button id="btnGoVar" class="v09-btn v09-btn--primary">Deschide</button>
+          </div>
+        </div>
+        <p class="v09-grid-hint">
+          <span id="progressLabel">0 / 100 variante deschise</span>
+          &nbsp;·&nbsp;
+          <button class="v09-link-btn" id="btnClearProgress">Resetează progresul</button>
+        </p>
+        <div class="v09-grid" id="varGrid"></div>
+      </div>
+
+      <!-- Variant viewer -->
+      <div id="variantView" style="display:none" class="v09-section">
+        <div class="v09-nav-bar">
+          <button id="btnBackGrid" class="v09-btn v09-btn--ghost">← Listă</button>
+          <div class="v09-nav-center">
+            <span id="varLabel" class="v09-nav-title"></span>
+            <span id="varScore" class="v09-score-badge"></span>
+          </div>
+          <div class="v09-nav-arrows">
+            <button id="btnPrev" class="v09-btn v09-btn--ghost" disabled>&#8249;</button>
+            <button id="btnNext" class="v09-btn v09-btn--ghost">&#8250;</button>
+          </div>
+        </div>
+        <div id="variantContent" class="v09-variant-content">
+          <div class="v09-loading"><div class="v09-spinner"></div><p>Se încarcă…</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <Footer />
+
+  <style is:inline>
+    /* ===== Hero ===== */
+    .v09-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1d4ed8 100%);
+      padding: 36px 24px 40px;
+      border-radius: 0 0 28px 28px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .v09-back {
+      position: absolute; top: 16px; left: 20px;
+      color: rgba(255,255,255,.55); font-size: .82rem; font-weight: 600;
+      text-decoration: none; transition: color .2s;
+    }
+    .v09-back:hover { color: #fff; }
+    .v09-hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 20px;
+      padding: 3px 14px; font-size: .75rem; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .v09-hero h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 800; margin: 0 0 10px; line-height: 1.15;
+    }
+    .v09-hero-sub {
+      color: rgba(255,255,255,.7); font-size: .9rem;
+      max-width: 540px; margin: 0 auto 20px; line-height: 1.55;
+    }
+    .v09-stats { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .v09-stat {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: .82rem; font-weight: 600;
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    /* ===== Layout ===== */
+    .v09-section { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+    .v09-section-header {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px; margin-bottom: 10px;
+    }
+    .v09-section-header h2 {
+      font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 0;
+    }
+    .v09-grid-hint { font-size: .8rem; color: var(--color-text-muted); margin: 0 0 14px; }
+    .v09-link-btn {
+      background: none; border: none; cursor: pointer;
+      color: #3b82f6; font-size: inherit; padding: 0; text-decoration: underline;
+    }
+    .v09-search-wrap { display: flex; gap: 8px; }
+    .v09-input {
+      padding: 7px 12px; border-radius: 8px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-surface); color: var(--color-text);
+      font-size: .9rem; width: 180px;
+    }
+    .v09-input:focus { outline: 2px solid #3b82f6; border-color: #3b82f6; }
+
+    /* ===== Buttons ===== */
+    .v09-btn {
+      padding: 8px 15px; border-radius: 9px; font-size: .87rem; font-weight: 600;
+      cursor: pointer; border: none; transition: background .15s, opacity .15s; line-height: 1;
+    }
+    .v09-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .v09-btn--primary { background: #3b82f6; color: #fff; }
+    .v09-btn--primary:hover:not(:disabled) { background: #2563eb; }
+    .v09-btn--ghost { background: transparent; color: var(--color-text); border: 1.5px solid var(--color-border); }
+    .v09-btn--ghost:hover:not(:disabled) { background: var(--color-surface); }
+
+    /* ===== Grid ===== */
+    .v09-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+      gap: 7px;
+    }
+    .v09-card {
+      aspect-ratio: 1; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .88rem; font-weight: 700; cursor: pointer;
+      border: 2px solid var(--color-border);
+      background: var(--color-surface); color: var(--color-text);
+      transition: transform .12s, border-color .12s, background .12s;
+      user-select: none; position: relative;
+    }
+    .v09-card:hover { transform: scale(1.07); border-color: #3b82f6; background: rgba(59,130,246,.08); }
+    .v09-card--active { background: #3b82f6 !important; color: #fff !important; border-color: #3b82f6 !important; }
+    .v09-card--visited { border-color: rgba(34,197,94,.55); color: #16a34a; }
+    .v09-card--visited::after {
+      content: ''; position: absolute; top: 4px; right: 4px;
+      width: 6px; height: 6px; border-radius: 50%; background: #22c55e;
+    }
+    .v09-card--active::after { display: none; }
+
+    /* ===== Nav bar ===== */
+    .v09-nav-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin-bottom: 20px; flex-wrap: wrap; padding: 10px 14px;
+      background: var(--color-surface); border: 1.5px solid var(--color-border); border-radius: 12px;
+    }
+    .v09-nav-center { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center; }
+    .v09-nav-title { font-weight: 700; font-size: 1.05rem; color: var(--color-text); }
+    .v09-nav-arrows { display: flex; gap: 6px; }
+    .v09-score-badge {
+      font-size: .78rem; font-weight: 600;
+      background: rgba(245,158,11,.15); color: #d97706; padding: 2px 9px; border-radius: 12px;
+    }
+
+    /* ===== PDF bar ===== */
+    .v09-pdf-bar {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      padding: 10px 14px; background: var(--color-surface);
+      border: 1.5px solid var(--color-border); border-radius: 10px; margin-bottom: 16px;
+      font-size: .85rem;
+    }
+    .v09-pdf-bar a { color: #3b82f6; font-weight: 600; text-decoration: none; }
+    .v09-pdf-bar a:hover { text-decoration: underline; }
+    .v09-pdf-pages { margin-left: auto; color: var(--color-text-muted); font-size: .8rem; }
+
+    /* ===== Subject blocks ===== */
+    .v09-subject {
+      background: var(--color-surface); border: 1.5px solid var(--color-border);
+      border-radius: 16px; margin-bottom: 16px; overflow: hidden;
+    }
+    .v09-subject-hdr {
+      display: flex; align-items: center; gap: 12px; padding: 13px 18px;
+      border-bottom: 1.5px solid var(--color-border); cursor: pointer; user-select: none;
+      transition: background .15s;
+    }
+    .v09-subject-hdr:hover { background: rgba(99,102,241,.04); }
+    .v09-subject-hdr h3 { margin: 0; font-size: .97rem; font-weight: 700; color: var(--color-text); flex: 1; }
+    .v09-subj-sub { font-weight: 400; color: var(--color-text-muted); font-size: .82rem; }
+    .v09-subj-pts {
+      font-size: .75rem; font-weight: 700;
+      background: rgba(59,130,246,.13); color: #3b82f6; padding: 3px 9px; border-radius: 12px;
+    }
+    .v09-subj-score {
+      font-size: .75rem; font-weight: 700;
+      background: rgba(34,197,94,.13); color: #16a34a;
+      padding: 3px 9px; border-radius: 12px; display: none;
+    }
+    .v09-toggle-icon { color: var(--color-text-muted); font-size: .9rem; transition: transform .2s; }
+    .v09-toggle-icon.rotated { transform: rotate(-90deg); }
+    .v09-subject-body { padding: 16px 18px; }
+    .v09-body-collapsed { display: none; }
+
+    /* ===== Grile ===== */
+    .v09-grila {
+      border: 1.5px solid var(--color-border); border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 12px;
+    }
+    .v09-grila-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .v09-grila-nr {
+      font-size: .72rem; font-weight: 700;
+      background: rgba(245,158,11,.13); color: #d97706; padding: 2px 8px; border-radius: 10px;
+    }
+    .v09-grila-q { font-size: .88rem; line-height: 1.6; color: var(--color-text); margin-bottom: 11px; }
+    .v09-options { display: flex; flex-direction: column; gap: 6px; }
+    .v09-option {
+      display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px;
+      border: 1.5px solid var(--color-border); cursor: pointer;
+      transition: background .12s, border-color .12s;
+      font-size: .86rem; line-height: 1.45; color: var(--color-text);
+      background: transparent; user-select: none; text-align: left; width: 100%;
+    }
+    .v09-option:hover { border-color: rgba(59,130,246,.55); background: rgba(59,130,246,.07); }
+    .v09-option.v09-sel { border-color: #3b82f6; background: rgba(219,234,254,.3); color: #1e40af; }
+    .v09-opt-lbl { font-weight: 700; color: #3b82f6; min-width: 16px; font-size: .82rem; flex-shrink: 0; }
+    .v09-option.v09-sel .v09-opt-lbl { color: #1e40af; }
+    .v09-grila-footer { margin-top: 9px; font-size: .78rem; color: var(--color-text-muted); }
+
+    /* ===== Problems ===== */
+    .v09-problem {
+      border: 1.5px solid var(--color-border); border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 12px;
+    }
+    .v09-prob-hdr { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .v09-prob-nr { font-weight: 800; font-size: .97rem; color: var(--color-text); }
+    .v09-prob-type { font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .v09-prob-type--pseudo { background: rgba(124,58,237,.13); color: #7c3aed; }
+    .v09-prob-type--recurs { background: rgba(14,165,233,.13); color: #0284c7; }
+    .v09-prob-type--fisier { background: rgba(16,185,129,.13); color: #059669; }
+    .v09-prob-type--prog   { background: rgba(249,115,22,.13); color: #c2410c; }
+    .v09-prob-type--subprog{ background: rgba(132,204,22,.13); color: #4d7c0f; }
+    .v09-prob-type--written{ background: rgba(148,163,184,.13); color: #475569; }
+    .v09-prob-pts {
+      margin-left: auto; font-size: .72rem; font-weight: 700;
+      background: rgba(245,158,11,.13); color: #d97706; padding: 2px 8px; border-radius: 10px;
+    }
+    .v09-prob-text { font-size: .87rem; line-height: 1.65; color: var(--color-text); white-space: pre-wrap; word-break: break-word; }
+    .v09-prob-intro { font-size: .87rem; line-height: 1.65; color: var(--color-text); margin-bottom: 10px; }
+
+    /* ===== Pseudocode block ===== */
+    .v09-pseudo-wrap {
+      background: #0f172a; border: 1.5px solid #334155; border-radius: 10px; margin: 10px 0; overflow: hidden;
+    }
+    .v09-pseudo-hdr {
+      background: #1e293b; padding: 7px 14px; border-bottom: 1px solid #334155;
+      font-size: .72rem; font-weight: 600; color: #94a3b8; letter-spacing: .05em;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .v09-pseudo-code {
+      display: block; padding: 12px 16px;
+      font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+      font-size: .82rem; line-height: 1.8; color: #e2e8f0;
+      white-space: pre; overflow-x: auto; tab-size: 2;
+    }
+    .v09-pc-kw  { color: #c084fc; }
+    .v09-pc-op  { color: #fb923c; }
+    .v09-pc-str { color: #34d399; }
+    .v09-pc-box { color: #60a5fa; }
+
+    /* ===== Code tabs (C / C++) ===== */
+    .v09-code-wrap {
+      background: #0f172a; border: 1.5px solid #334155; border-radius: 10px; overflow: hidden; margin: 10px 0;
+    }
+    .v09-code-tabs { display: flex; background: #1e293b; border-bottom: 1px solid #334155; }
+    .v09-code-tab {
+      padding: 6px 16px; font-size: .75rem; font-weight: 600; cursor: pointer;
+      background: transparent; color: #64748b; border: none; border-right: 1px solid #334155;
+      transition: background .15s, color .15s;
+    }
+    .v09-code-tab.active { background: #0f172a; color: #e2e8f0; }
+    .v09-code-pane {
+      display: none; padding: 12px 16px;
+      font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+      font-size: .82rem; line-height: 1.7; color: #e2e8f0; white-space: pre-wrap; overflow-x: auto;
+    }
+    .v09-code-pane.active { display: block; }
+
+    /* ===== Sub-questions ===== */
+    .v09-sub-qs { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .v09-sub-q {
+      display: flex; gap: 10px; align-items: flex-start; padding: 9px 12px;
+      border-radius: 9px; border: 1.5px solid var(--color-border);
+      font-size: .86rem; line-height: 1.55;
+    }
+    .v09-sub-lbl { font-weight: 800; color: #7c3aed; min-width: 18px; flex-shrink: 0; }
+    .v09-sub-pts { font-size: .75rem; font-weight: 600; color: var(--color-text-muted); white-space: nowrap; margin-left: auto; flex-shrink: 0; }
+
+    /* ===== Loading ===== */
+    .v09-loading {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 14px; padding: 48px; color: var(--color-text-muted);
+    }
+    .v09-spinner {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 3px solid var(--color-border); border-top-color: #3b82f6;
+      animation: v09spin .65s linear infinite;
+    }
+    @keyframes v09spin { to { transform: rotate(360deg); } }
+    .v09-empty { text-align: center; padding: 32px; color: var(--color-text-muted); font-size: .9rem; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .v09-grid { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 5px; }
+      .v09-subject-body { padding: 12px 13px; }
+      .v09-pseudo-code { font-size: .77rem; }
+      .v09-nav-bar { gap: 8px; padding: 8px 10px; }
+    }
+  </style>
+
+  <script define:vars={{ base }}>
+    const DATA_BASE = base + '/data/variante-2009/';
+    const VISITED_KEY = 'v09_visited';
+    let currentVariant = null;
+    let selectedAnswers = {};
+    let totalGrile = 0;
+
+    // ── Progress ─────────────────────────────────────────────────
+    function getVisited() {
+      try { return JSON.parse(localStorage.getItem(VISITED_KEY) || '{}'); } catch { return {}; }
+    }
+    function markVisited(nr) {
+      const v = getVisited(); v[nr] = 1;
+      try { localStorage.setItem(VISITED_KEY, JSON.stringify(v)); } catch {}
+    }
+
+    // ── Build grid ───────────────────────────────────────────────
+    const grid = document.getElementById('varGrid');
+    function buildGrid() {
+      const visited = getVisited();
+      const count = Object.keys(visited).length;
+      document.getElementById('progressLabel').textContent = count + ' / 100 variante deschise';
+      grid.innerHTML = '';
+      for (let i = 1; i <= 100; i++) {
+        const card = document.createElement('button');
+        card.className = 'v09-card' + (visited[i] ? ' v09-card--visited' : '');
+        card.textContent = i;
+        card.dataset.nr = i;
+        card.addEventListener('click', () => openVariant(i));
+        grid.appendChild(card);
+      }
+    }
+    buildGrid();
+
+    document.getElementById('btnClearProgress').addEventListener('click', () => {
+      if (confirm('Resetezi progresul? Toate variantele vor fi marcate ca nevăzute.')) {
+        try { localStorage.removeItem(VISITED_KEY); } catch {}
+        buildGrid();
+      }
+    });
+
+    // ── Format pseudocode ────────────────────────────────────────
+    // Å (U+00C5) = assignment arrow  ┌│└■ = block structure chars
+    function formatPseudocode(raw) {
+      if (!raw) return '';
+      let s = raw.replace(/\u00C5/g, '\u2190'); // Å → ←
+      s = s.replace(/\s+/g, ' ');
+      // newline before each structural block character
+      s = s.replace(/\s*([\u250C\u2502\u2514\u25A0])/g, '\n$1');
+      s = s.replace(/\n+/g, '\n');
+      return s.trim();
+    }
+
+    // ── Pseudocode syntax highlight ──────────────────────────────
+    var PC_KW = ['cat timp','c\u00e2t timp','executa','execut\u0103','daca','dac\u0103',
+      'atunci','altfel','pentru','repeta','repet\u0103','pana c\u00e2nd','p\u00e2n\u0103 c\u00e2nd','pana cand'];
+    var PC_CMD = ['citeste','cite\u015fte','cite\u0219te','scrie'];
+
+    function highlightPseudocode(raw) {
+      var s = escHtml(formatPseudocode(raw));
+      // assignment arrow
+      s = s.replace(/\u2190/g, '<span class="v09-pc-op">\u2190<\/span>');
+      // block chars
+      s = s.replace(/([\u250C\u2502\u2514\u25A0])/g, '<span class="v09-pc-box">$1<\/span>');
+      // keywords
+      PC_KW.forEach(function(kw) {
+        var re = new RegExp('\\b' + kw.replace(/\s+/, '\\s+') + '\\b', 'gi');
+        s = s.replace(re, function(m) { return '<span class="v09-pc-kw">' + m + '<\/span>'; });
+      });
+      // commands
+      PC_CMD.forEach(function(cmd) {
+        var re = new RegExp('\\b' + cmd + '\\b', 'gi');
+        s = s.replace(re, function(m) { return '<span class="v09-pc-str">' + m + '<\/span>'; });
+      });
+      return s;
+    }
+
+    // ── Open variant ─────────────────────────────────────────────
+    async function openVariant(nr) {
+      currentVariant = nr;
+      selectedAnswers = {};
+      totalGrile = 0;
+      document.getElementById('gridView').style.display = 'none';
+      document.getElementById('variantView').style.display = '';
+      document.getElementById('varLabel').textContent = 'Varianta ' + nr;
+      document.getElementById('varScore').textContent = '';
+      document.getElementById('btnPrev').disabled = nr <= 1;
+      document.getElementById('btnNext').disabled = nr >= 100;
+      document.getElementById('variantContent').innerHTML =
+        '<div class="v09-loading"><div class="v09-spinner"><\/div><p>Se \u00EEncarc\u0103 varianta\u2026<\/p><\/div>';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      markVisited(nr);
+      grid.querySelectorAll('.v09-card').forEach(function(c) {
+        var n = +c.dataset.nr;
+        c.classList.toggle('v09-card--active', n === nr);
+        if (n === nr) c.classList.add('v09-card--visited');
+      });
+      try {
+        var id = String(nr).padStart(3, '0');
+        var res = await fetch(DATA_BASE + '2009-varianta-' + id + '.json');
+        if (!res.ok) throw new Error('Not found');
+        var data = await res.json();
+        renderVariant(data);
+      } catch(e) {
+        document.getElementById('variantContent').innerHTML =
+          '<div class="v09-empty">\u26A0\uFE0F Nu s-au putut \u00EEnc\u0103rca datele pentru aceast\u0103 variant\u0103.<\/div>';
+      }
+    }
+
+    // ── Render variant ───────────────────────────────────────────
+    function renderVariant(d) {
+      var el = document.getElementById('variantContent');
+      var pdfPage = d.pdfPage || (d.variant - 1) * 3 + 1;
+      var pdfUrl  = d.pdfUrl || '/subiecte-bac/2009/variante-2009-subiect.pdf';
+      totalGrile = 0;
+      var htmlS1 = renderSubiectI(d.subiectI);
+      var htmlS2 = renderSubiectII(d.subiectII);
+      var htmlS3 = renderSubiectIII(d.subiectIII);
+      el.innerHTML =
+        '<div class="v09-pdf-bar">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink:0">' +
+            '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"\/>' +
+            '<polyline points="14 2 14 8 20 8"\/>' +
+          '<\/svg>' +
+          '<a href="' + base + pdfUrl + '#page=' + pdfPage + '" target="_blank" rel="noopener">' +
+            'Varianta ' + d.variant + ' \u2014 PDF original (pag. ' + pdfPage + '\u2013' + (pdfPage + 2) + ')' +
+          '<\/a>' +
+          '<span class="v09-pdf-pages">3 pagini<\/span>' +
+        '<\/div>' +
+        htmlS1 + htmlS2 + htmlS3;
+      bindGrileInteraction(el);
+      bindCodeTabs(el);
+      document.getElementById('varScore').textContent = totalGrile + ' grile \u00B7 90 p. total';
+      document.getElementById('progressLabel').textContent =
+        Object.keys(getVisited()).length + ' / 100 variante deschise';
+    }
+
+    // ── Subject wrappers ─────────────────────────────────────────
+    function renderSubiectI(s) {
+      if (!s) return '';
+      var body = '';
+      (s.grile || []).forEach(function(g) { body += renderGrila(g, 'S1'); });
+      if (s.pseudocode) body += renderPseudocodeProblem(s.pseudocode);
+      return wrapSubject('I', 'Grile &amp; Pseudocod', s.points || 30, body, 's1-body');
+    }
+    function renderSubiectII(s) {
+      if (!s) return '';
+      var body = '';
+      (s.grile || []).forEach(function(g) { body += renderGrila(g, 'S2'); });
+      (s.probleme || []).forEach(function(p) { body += renderProblem(p); });
+      return wrapSubject('II', 'Structuri de date &amp; Grafuri', s.points || 30, body, 's2-body');
+    }
+    function renderSubiectIII(s) {
+      if (!s) return '';
+      var body = '';
+      (s.grile || []).forEach(function(g) { body += renderGrila(g, 'S3'); });
+      if (s.subprogram_recursiv) body += renderRecursivProblem(s.subprogram_recursiv);
+      (s.fisiere || []).forEach(function(p) { body += renderProblem(p); });
+      (s.subprograme || []).forEach(function(p) { body += renderSubprogramProblem(p); });
+      return wrapSubject('III', 'Backtracking, Recursivitate &amp; Fi\u015Fiere', s.points || 30, body, 's3-body');
+    }
+    function wrapSubject(nr, label, pts, body, bodyId) {
+      return '<div class="v09-subject">' +
+        '<div class="v09-subject-hdr" onclick="v09Toggle(this)">' +
+          '<h3>Subiectul ' + nr + ' <span class="v09-subj-sub">\u2014 ' + label + '<\/span><\/h3>' +
+          '<span class="v09-subj-pts">' + pts + ' p.<\/span>' +
+          '<span class="v09-subj-score" id="score-' + bodyId + '"><\/span>' +
+          '<span class="v09-toggle-icon">\u25BE<\/span>' +
+        '<\/div>' +
+        '<div class="v09-subject-body" id="' + bodyId + '">' + body + '<\/div>' +
+      '<\/div>';
+    }
+
+    // ── Grila ────────────────────────────────────────────────────
+    function renderGrila(g, subj) {
+      totalGrile++;
+      var gId = subj + '-g' + g.nr;
+      var opts = ['a','b','c','d'].map(function(k) {
+        return '<button class="v09-option" data-opt="' + k + '" data-gid="' + gId + '">' +
+          '<span class="v09-opt-lbl">' + k + '.<\/span>' +
+          '<span>' + escHtml(g.options && g.options[k] ? g.options[k] : '\u2014') + '<\/span>' +
+        '<\/button>';
+      }).join('');
+      return '<div class="v09-grila" id="' + gId + '">' +
+        '<div class="v09-grila-meta">' +
+          '<span class="v09-grila-nr">Grila ' + g.nr + ' \u00B7 ' + (g.points || 4) + 'p.<\/span>' +
+        '<\/div>' +
+        '<div class="v09-grila-q">' + escHtml(g.text || '') + '<\/div>' +
+        '<div class="v09-options">' + opts + '<\/div>' +
+        '<div class="v09-grila-footer" id="' + gId + '-footer">Selecteaz\u0103 varianta corect\u0103<\/div>' +
+      '<\/div>';
+    }
+
+    // ── Pseudocode problem ────────────────────────────────────────
+    function renderPseudocodeProblem(p) {
+      var subQ = (p.subQuestions || []).map(function(q) {
+        return '<div class="v09-sub-q">' +
+          '<span class="v09-sub-lbl">' + q.id + ')<\/span>' +
+          '<span>' + escHtml(q.text || '') + '<\/span>' +
+          (q.points ? '<span class="v09-sub-pts">' + q.points + 'p.<\/span>' : '') +
+        '<\/div>';
+      }).join('');
+      var pcHl = highlightPseudocode(p.pseudocode || '');
+      return '<div class="v09-problem">' +
+        '<div class="v09-prob-hdr">' +
+          '<span class="v09-prob-nr">Nr. ' + p.nr + '<\/span>' +
+          '<span class="v09-prob-type v09-prob-type--pseudo">Pseudocod<\/span>' +
+          '<span class="v09-prob-pts">' + (p.points || 26) + 'p.<\/span>' +
+        '<\/div>' +
+        (p.intro ? '<div class="v09-prob-intro">' + escHtml(p.intro) + '<\/div>' : '') +
+        (pcHl ?
+          '<div class="v09-pseudo-wrap">' +
+            '<div class="v09-pseudo-hdr">' +
+              '<span>PSEUDOCOD<\/span>' +
+              '<span style="color:#60a5fa;font-size:.7rem">\u00C5\u00A0=\u00A0\u2190 (atribuire) \u00B7 \u250C\u2502\u2514 = blocuri<\/span>' +
+            '<\/div>' +
+            '<code class="v09-pseudo-code">' + pcHl + '<\/code>' +
+          '<\/div>'
+        : '') +
+        (subQ ? '<div class="v09-sub-qs">' + subQ + '<\/div>' : '') +
+      '<\/div>';
+    }
+
+    // ── Recursiv problem ──────────────────────────────────────────
+    function renderRecursivProblem(p) {
+      var code = p.code || '';
+      var parts = code.split(/\/\/C\+\+/i);
+      var cCode   = parts[0].replace(/^\/\/C\s*/i, '').trim();
+      var cppCode = (parts[1] || '').trim();
+      var uid = 'rp' + p.nr;
+      var codeHtml = '';
+      if (cCode && cppCode) {
+        codeHtml = '<div class="v09-code-wrap">' +
+          '<div class="v09-code-tabs">' +
+            '<button class="v09-code-tab active" data-pane="c-' + uid + '">C<\/button>' +
+            '<button class="v09-code-tab" data-pane="cpp-' + uid + '">C++<\/button>' +
+          '<\/div>' +
+          '<div class="v09-code-pane active" id="c-' + uid + '">' + escHtml(cCode) + '<\/div>' +
+          '<div class="v09-code-pane" id="cpp-' + uid + '">' + escHtml(cppCode) + '<\/div>' +
+        '<\/div>';
+      } else if (cCode) {
+        codeHtml = '<div class="v09-code-wrap"><div class="v09-code-pane active">' + escHtml(cCode) + '<\/div><\/div>';
+      }
+      return '<div class="v09-problem">' +
+        '<div class="v09-prob-hdr">' +
+          '<span class="v09-prob-nr">Nr. ' + p.nr + '<\/span>' +
+          '<span class="v09-prob-type v09-prob-type--recurs">Recursivitate<\/span>' +
+          '<span class="v09-prob-pts">' + (p.points || 6) + 'p.<\/span>' +
+        '<\/div>' +
+        (p.intro ? '<div class="v09-prob-intro">' + escHtml(p.intro) + '<\/div>' : '') +
+        codeHtml +
+      '<\/div>';
+    }
+
+    // ── Generic problem ───────────────────────────────────────────
+    function renderProblem(p) {
+      var TYPES = {
+        fisier:  ['Fi\u015Fiere', 'v09-prob-type--fisier'],
+        program: ['Program C/C++', 'v09-prob-type--prog'],
+        written: ['Problem\u0103', 'v09-prob-type--written']
+      };
+      var t = TYPES[p.type] || ['Problem\u0103', 'v09-prob-type--written'];
+      return '<div class="v09-problem">' +
+        '<div class="v09-prob-hdr">' +
+          '<span class="v09-prob-nr">Nr. ' + p.nr + '<\/span>' +
+          '<span class="v09-prob-type ' + t[1] + '">' + t[0] + '<\/span>' +
+          '<span class="v09-prob-pts">' + (p.points || 10) + 'p.<\/span>' +
+        '<\/div>' +
+        '<div class="v09-prob-text">' + escHtml(p.text || '') + '<\/div>' +
+      '<\/div>';
+    }
+
+    // ── Subprogram problem ────────────────────────────────────────
+    function renderSubprogramProblem(p) {
+      var subQ = (p.subQuestions || []).map(function(q) {
+        return '<div class="v09-sub-q">' +
+          '<span class="v09-sub-lbl">' + q.id + ')<\/span>' +
+          '<span>' + escHtml(q.text || '') + '<\/span>' +
+          (q.points ? '<span class="v09-sub-pts">' + q.points + 'p.<\/span>' : '') +
+        '<\/div>';
+      }).join('');
+      return '<div class="v09-problem">' +
+        '<div class="v09-prob-hdr">' +
+          '<span class="v09-prob-nr">Nr. ' + p.nr + '<\/span>' +
+          '<span class="v09-prob-type v09-prob-type--subprog">Subprogram<\/span>' +
+          '<span class="v09-prob-pts">' + (p.points || 10) + 'p.<\/span>' +
+        '<\/div>' +
+        (p.intro ? '<div class="v09-prob-intro">' + escHtml(p.intro) + '<\/div>' : '') +
+        (subQ ? '<div class="v09-sub-qs">' + subQ + '<\/div>' : '') +
+      '<\/div>';
+    }
+
+    // ── Grile interaction ─────────────────────────────────────────
+    function bindGrileInteraction(container) {
+      container.querySelectorAll('.v09-grila').forEach(function(gEl) {
+        var gId = gEl.id;
+        var opts = gEl.querySelectorAll('.v09-option');
+        var footer = document.getElementById(gId + '-footer');
+        opts.forEach(function(opt) {
+          opt.addEventListener('click', function() {
+            opts.forEach(function(o) { o.classList.remove('v09-sel'); });
+            opt.classList.add('v09-sel');
+            selectedAnswers[gId] = opt.dataset.opt;
+            if (footer) footer.textContent = 'R\u0103spuns selectat: ' + opt.dataset.opt + '.';
+            updateSubjectScore(gEl);
+          });
+        });
+      });
+    }
+
+    function updateSubjectScore(gEl) {
+      var body = gEl.closest('.v09-subject-body');
+      if (!body) return;
+      var grile = body.querySelectorAll('.v09-grila');
+      var sel = body.querySelectorAll('.v09-option.v09-sel').length;
+      var scoreEl = document.getElementById('score-' + body.id);
+      if (scoreEl && sel > 0) {
+        scoreEl.style.display = 'inline-block';
+        scoreEl.textContent = sel + '/' + grile.length + ' selectate';
+      }
+    }
+
+    // ── Code tabs ─────────────────────────────────────────────────
+    function bindCodeTabs(container) {
+      container.querySelectorAll('.v09-code-tabs').forEach(function(tabsEl) {
+        var wrap = tabsEl.parentElement;
+        tabsEl.querySelectorAll('.v09-code-tab').forEach(function(tab) {
+          tab.addEventListener('click', function() {
+            tabsEl.querySelectorAll('.v09-code-tab').forEach(function(t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+            var paneId = tab.dataset.pane;
+            wrap.querySelectorAll('.v09-code-pane').forEach(function(pane) {
+              pane.classList.toggle('active', pane.id === paneId);
+            });
+          });
+        });
+      });
+    }
+
+    // ── Toggle subject body ───────────────────────────────────────
+    window.v09Toggle = function(hdr) {
+      var body = hdr.nextElementSibling;
+      var icon = hdr.querySelector('.v09-toggle-icon');
+      if (body) body.classList.toggle('v09-body-collapsed');
+      if (icon) icon.classList.toggle('rotated');
+    };
+
+    // ── Navigation ────────────────────────────────────────────────
+    document.getElementById('btnBackGrid').addEventListener('click', function() {
+      document.getElementById('variantView').style.display = 'none';
+      document.getElementById('gridView').style.display = '';
+      buildGrid();
+    });
+    document.getElementById('btnPrev').addEventListener('click', function() {
+      if (currentVariant > 1) openVariant(currentVariant - 1);
+    });
+    document.getElementById('btnNext').addEventListener('click', function() {
+      if (currentVariant < 100) openVariant(currentVariant + 1);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('variantView').style.display === 'none') return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowLeft') { if (currentVariant > 1) openVariant(currentVariant - 1); }
+      else if (e.key === 'ArrowRight') { if (currentVariant < 100) openVariant(currentVariant + 1); }
+      else if (e.key === 'Escape') { document.getElementById('btnBackGrid').click(); }
+    });
+    document.getElementById('btnGoVar').addEventListener('click', function() {
+      var v = parseInt(document.getElementById('varSearch').value);
+      if (v >= 1 && v <= 100) openVariant(v);
+    });
+    document.getElementById('varSearch').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') document.getElementById('btnGoVar').click();
+    });
+
+    // ── Helpers ───────────────────────────────────────────────────
+    function escHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+  </script>
+</BaseLayout>

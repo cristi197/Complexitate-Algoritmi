@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-069",
+  "year": 2009,
+  "variant": 69,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 205,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența de instrucțiuni C/C++ alăturată, variabilele x și y sunt întregi. Ce valoare va reține variabila x după executarea acesteia? x=20; y=5; x=x+y; y=x-2*y; x=y+x;",
+        "options": {
+          "a": "-10",
+          "b": "25",
+          "c": "15",
+          "d": "40"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește x,y (numere naturale nenule) tÅ0 uÅ1 ┌repetă │┌dacă x%10 > y%10 ││atunci ││ z Å x%10 ││altfel ││ z Å y%10 │└■ │tÅt+z*u │uÅu*10 │xÅ[x/10] │yÅ[y/10] └până când x=0 și y=0 scrie t Varianta 69",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea afișată dacă pentru x se citește valoarea 4589 și pentru y se citește valoarea 723.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate perechile de valori care pot fi citite pentru x și y astfel încât valoarea afișată să fie 200.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura repetă...până când cu o structură repetitivă cu test inițial.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Cum se poate accesa prima literă a numelui unui elev ale cărui date de identificare sunt memorate în variabila e, declarată alăturat? struct elev{ char nume[20],prenume[20]; int varsta;}e;",
+        "options": {
+          "a": "e->nume[0]",
+          "b": "e.nume[0]",
+          "c": "elev.nume[0]",
+          "d": "nume.e[0] 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră graful orientat dat prin matricea de adiacență alăturată. Care este numărul de vârfuri ale grafului care au gradul interior (intern) egal cu gradul exterior (extern)? 0 0 0 0 0 1 0 1 1 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0",
+        "options": {
+          "a": "0",
+          "b": "3",
+          "c": "2",
+          "d": "1"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care este vectorul de ”tați” asociat arborelui cu rădăcină din figura alăturată în care nodul 1 este nodul rădăcină? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră o listă liniară simplu înlănțuită, alocată dinamic, ale cărei noduri rețin în câmpul next adresa nodului următor sau NULL dacă nu există un element următor în listă. Lista are cel puțin un element. Știind că variabila u reține adresa ultimului nod din listă, scrieți o secvență de instrucțiuni în limbajul C/C++ prin care se inserează în listă după ultimul nod, cu adresa reținută de u, un nou nod a cărui adresă este reținută de variabila v, de același tip cu u? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (1≤n≤50) și n* n numere naturale de cel mult 5 cifre ce reprezintă elementele unui tablou bidimensional a, cu n linii și n coloane, și verifică dacă matricea este triunghiulară superior. Programul va afișa pe ecran mesajul corespunzător: „Este triunghiulară superior” respectiv „Nu este triunghiulară superior”. O matrice se numește triunghiulară superior dacă toate elementele aflate sub diagonala principală a ei sunt nule. (10p.) Exemplu: pentru n=3 și matricea alăturată se va afișa mesajul: Este triunghiulară superior 1 2 3 0 5 6 0 0 9 Varianta 69",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Construim anagramele unui cuvânt c1c2c3c4 prin generarea în ordine lexicografică a permutărilor indicilor literelor cuvântului și obținem c1c2c3c4 c1c2c4c3 c1c3c2c4 … c4c3c1c2 c4c3c2c1. Pentru anagramele cuvântului pateu, după șirul paetu, paeut, paute cuvintele imediat următoare sunt:",
+        "options": {
+          "a": "pauet și ptaeu",
+          "b": "ptaeu și ptaue",
+          "c": "pauet și ptaue",
+          "d": "ptaeu"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul recursiv definit alăturat. Ce valori vor fi afișate pe ecran în urma apelului beta(15);? (6p.) void beta(int n) {if (n!=1) {printf(”%d ”,n); | cout<<n<<” ”; if (n%3==0) beta(n/3); else beta(2*n-1);} else printf(”%d”,1); | cout<<1; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Să se scrie definiția completă a subprogramului calcul, care primește prin intermediul parametrului întreg n un număr natural de cel mult 9 cifre și returnează valoarea absolută a diferenței dintre numărul de cifre pare și numărul de cifre impare conținute de n. Exemplu: dacă n=92465, în urma apelului se va returna valoarea 1 (2 cifre impare, 3 cifre pare). (5p.) b) Să se scrie în limbajul C/C++ un program care citește de la tastatură un număr natural n de cel mult 7 cifre și, utilizând apeluri ale subprogramului calcul, determină și afișează pe ecran cel mai mic număr natural m, m≥n, care are tot atâtea cifre pare câte cifre impare. Exemple: dacă se citește n=5513, atunci se afișează m=5520, iar dacă se citește n=311, atunci se afișează m=1001. (5p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMERE.TXT conține pe prima linie un număr natural n (1≤n≤10000) și pe a doua linie, n numere naturale cu cel mult 9 cifre fiecare. Aceste numere sunt dispuse în ordine crescătoare și separate între ele prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește valorile din fișier și, printr-o metodă eficientă din punct de vedere al timpului de executare, afișează pe ecran, separate prin câte un spațiu, în ordine crescătoare, numerele pare de pe a doua linie a fișierului, urmate de cele impare în ordine descrescătoare. Exemplu: dacă fișierul NUMERE.TXT are conținutul alăturat 6 212 412 5111 71113 81112 101112 atunci programul va afișa pe ecran 212 412 81112 101112 71113 5111",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată la punctul a, justificând eficiența acesteia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

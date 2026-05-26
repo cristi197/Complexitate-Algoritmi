@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-049",
+  "year": 2009,
+  "variant": 49,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 145,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila a, de tip int, memorează un număr natural impar, iar variabila b, de tip int, memorează un număr natural par. Care dintre următoarele expresii C/C++ are valoarea 1?",
+        "options": {
+          "a": "a%2 && b%2",
+          "b": "!(!(a%2) || b%2)",
+          "c": "(a+b+1)%2",
+          "d": "!(a%2) || b%2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește x (număr natural nenul) kÅ0 ┌cât timp x≠0 execută │ kÅk*10+x%10 │ xÅ[x/10] └■ ┌cât timp k≠0 execută │ xÅx*10+k%10 │ kÅ[k/100] └■ scrie x Varianta 49",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea afișată dacă pentru x se citește numărul 210345.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mare valoare formată din cifre distincte care poate fi citită astfel încât numărul afișat să fie 987.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască fiecare structură cât timp...execută cu câte o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele propoziții NU este adevărată pentru graful orientat cu 6 vârfuri, numerotate de la 1 la 6 și ale cărui arce sunt: (2,1), (3,6), (4,1), (4,3), (4,5), (5,2), (6,4)?",
+        "options": {
+          "a": "vârful numerotat cu 6 aparține unui circuit",
+          "b": "vârful numerotat cu 1 are gradul extern 0",
+          "c": "gradul intern al vârfului numerotat cu 4 este 1",
+          "d": "graful nu are circuite 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Fiind dat un tablou bidimensional cu 20 linii și 20 coloane, câte elemente se găsesc strict deasupra diagonalei secundare a tabloului?",
+        "options": {
+          "a": "180",
+          "b": "200",
+          "c": "190",
+          "d": "210"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Variabila x, declarată alăturat, memorează în câmpurile med1 și med2 mediile semestriale ale unui elev. Scrieți o expresie a cărei valoare va fi media anuală a acestui elev. (6p.) struct elev { int matricol; float med1,med2; }x;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin 2 elemente, fiecare element reține în câmpul inf un număr natural, iar în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. Variabila p reține adresa primului element din listă, iar variabila q este de același tip cu p. Dacă se prelucrează lista de mai jos, care va fi conținutul listei după executarea următoarei secvențe de instrucțiuni? q=p; while(q->urm!=NULL && q->inf<=q->urm->inf) q=q->urm; q->inf=q->urm->inf+1; (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Un cuvânt s, de cel mult 20 caractere, format doar din litere mici ale alfabetului englez, conține cel puțin o consoană și cel puțin o vocală. Scrieți programul C/C++ care citește de la tastatură cuvântul s, construiește în memorie și afișează pe ecran cuvântul obținut prin eliminarea tuturor consoanelor din cuvântul s. Se consideră consoană oricare literă care nu se află în mulțimea {a, e, i, o, u}. Exemplu: dacă se citește cuvântul bacalaureat, pe ecran se afișează: aaauea (10p.) Varianta 49",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se generează în ordine strict crescătoare numerele de câte șase cifre care conțin: cifra 1 o singură dată, cifra 2 de două ori și cifra 3 de trei ori. Se obțin, în această ordine, numerele: 122333, 123233, 123323, …, 333221. Câte numere generate prin această metodă au prima cifră 1 și ultima cifră 2?",
+        "options": {
+          "a": "1",
+          "b": "3",
+          "c": "4",
+          "d": "8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru o valoare naturală mai mare decât 1 memorată în variabila globală n, subprogramul recursiv alăturat afișează cel mai mare divizor al lui n, mai mic decât n, la apelul divi(n). Cu ce trebuie înlocuite α și β ? (6p.) void divi(long i) { if(α==0) cout<< β; | printf(”%ld”, β); else divi(i-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n ( 1≤n≤50) și apoi un șir de n numere naturale cu cel mult 4 cifre fiecare și care verifică dacă elementele șirului pot fi rearanjate astfel încât să respecte regula: al doilea element este cu 1 mai mare decât primul, al treilea cu 2 mai mare decât al doilea, ... , ultimul este cu n-1 mai mare decât penultimul. Programul afișează pe ecran mesajul DA în caz afirmativ și mesajul NU în caz contrar. Exemplu: pentru n=4 și șirul 8,5,11,6 se afișează DA (elementele pot fi rearajate astfel încât să respecte regula dată: 5, 6, 8, 11) (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul cmax care prin parametrul a primește un număr natural nenul mai mic decât 30000, iar prin parametrul b furnizează cifra maximă din numărul a.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți, folosind limbajul C/C++, doar antetul subprogramului cmax.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Fișierul bac.txt conține cel mult 1000 numere naturale nenule, mai mici decât 30000 fiecare, separate prin câte un spațiu. Scrieți programul C/C++ care citește din fișierul bac.txt toate numerele și care determină cea mai mare cifră din scrierea lor și cel mai mic dintre numerele care conțin această cifră, folosind apeluri utile ale subprogramului cmax. Cifra și numărul determinate se vor afișa pe ecran, separate printr-un spațiu. Exemplu: dacă fișierul bac.txt conține valorile: 23 12 64 12 72 345 67 23 71 634 atunci pe ecran se afișează 7 67.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

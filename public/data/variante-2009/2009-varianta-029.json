@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-029",
+  "year": 2009,
+  "variant": 29,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 85,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă numărul natural nenul memorat în variabila x, de tip int, este divizibil cu 100?",
+        "options": {
+          "a": "x%10+x/10%10==0",
+          "b": "x/100==0",
+          "c": "x%10+x/10==0",
+          "d": "x%10+x%10/10==0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod.",
+      "pseudocode": "citeste n,m (numere naturale) ┌cât timp n≤m execută │ nÅn+1 │ mÅm-1 └■ ┌cât timp m<n execută │ mÅm+1 │ nÅn-1 └■ scrie n Varianta 29",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează dacă se citesc numerele n=6 și m=12.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "c",
+          "text": "Scrieți două perechi distincte de numere ce pot fi introduse pentru n și m astfel încât să se afișeze valoarea 10, în urma executării algoritmului, pentru fiecare dintre perechi. (6",
+          "points": null
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să NU folosească structuri repetitive sau recursive.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul maxim de noduri de grad 3 într-un graf neorientat cu 5 noduri?",
+        "options": {
+          "a": "4",
+          "b": "5",
+          "c": "3",
+          "d": "2 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care va fi șirul de caractere afișat pe ecran după executarea secvenței de program alăturate în care variabila s memorează un șir cu cel mult 4 caractere iar variabila t un caracter? (4p.) char s[]=”arac”; t=s[1]; s[1]=s[3]; s[3]=’t’; cout<<s; | printf(”%s”,s);",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară dublu înlănțuită, alocată dinamic, reține în câmpul nr al fiecărui element câte un număr natural, în câmpul urm, adresa elementului următor din listă sau NULL dacă nu există un element următor, iar în câmpul prec, adresa elementului precedent din listă sau NULL dacă nu există un element precedent. Variabilele p și q memorează adresa primului, respectiv ultimului element al listei. Care este numărul maxim de elemente pe care le poate avea lista astfel încât, după executarea secvenței alăturate, valoarea variabilei n să fie 3? (6p.) n=0; while(p!=q && q->urm!=p) { p=p->urm; q=q->prec; n=n+1; } Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤6) și elementele unui tablou bidimensional A cu n linii și n coloane, care memorează numere naturale nenule mai mici decât 100, și afișează pe ecran produsul numerelor “pivot” pentru matricea A dacă există astfel de numere, altfel va afișa mesajul NU EXISTA. Un număr natural x este “pivot” pentru matricea A dacă înmulțind fiecare element de pe prima coloană cu numărul x, se obțin, în aceeași ordine, elementele unei alte coloane din matrice.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru matricea din figura alăturată se afișează 8. (10p.) Varianta 29",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În câte dintre permutările elementelor mulțimii {‘I’,’N’,’F’,’O’} vocalele apar pe poziții consecutive?",
+        "options": {
+          "a": "24",
+          "b": "6",
+          "c": "12",
+          "d": "4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Ce se afișează ca urmare a apelului p(123); dacă subprogramul p are definiția alăturată? (6p.) void p (int x) {cout<<x; | printf(“%d”,x); if(x!=0){p(x/10); cout<<x%10; | printf(“%d”,x%10);}}",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului multipli, cu trei parametri a,b,c (a≤b), numere naturale din intervalul [1,10000] ce returnează numărul numărul multiplilor lui c din intervalul [a;b]. Exemplu: pentru a=10, b=27,c=5 subprogramul returnează valoarea",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "(10p.) 4. Se consideră două tablouri unidimensionale A și B cu elemente numere naturale din intervalul [1,10000]. Spunem că tabloul A “se poate reduce” la tabloul B dacă există o împărțire a tabloului A în secvențe disjuncte de elemente aflate pe poziții consecutive în tabloul A astfel încât prin înlocuirea secvențelor cu suma elementelor din secvență să se obțină, în ordine, elementele tabloului B. De exemplu tabloul se poate reduce la tabloul Fișierul text NUMERE.IN conține pe prima linie două numere naturale nenule n și m (1≤m≤n≤100), pe linia a doua n numere naturale din intervalul [1;10000] și pe linia a treia alte m numere naturale din intervalul [1;10000]. Pe fiecare linie numerele sunt separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește toate numerele din fișierul NUMERE.IN și verifică, utilizând un algoritm eficient din punctul de vedere al timpului de executare, dacă tabloul construit cu cele n numere aflate pe linia a doua în fișier se poate reduce la tabloul construit cu cele m numere aflate pe linia a treia în fișier. Programul afișează pe ecran mesajul DA în caz afirmativ și mesajul NU în caz negativ.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-010",
+  "year": 2009,
+  "variant": 10,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 28,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este valoarea expresiei C/C++ alăturate? 9/2*2-5",
+        "options": {
+          "a": "3",
+          "b": "4",
+          "c": "-3",
+          "d": "-3.75"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod S-a notat cu [c] partea întreagă a numărului real c, iar cu a%b restul împărțirii numărului întreg a la numărul întreg nenul b.",
+      "pseudocode": "citește n,k (numere naturale nenule) nrÅ0 pÅ1 ┌cât timp n≠0 și k≠0 execută │┌dacă n%2≠0 atunci ││ nrÅnr + [n/10]%10*p ││ pÅp*10 ││altfel ││ kÅk-1 │└■ │ nÅ[n/10] └■ scrie nr",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează, în urma executării algoritmului, dacă se citește pentru n valoarea 23456 și pentru k valoarea 3.",
+          "points": 4
+        },
+        {
+          "id": "b",
+          "text": "Scrieți două seturi distincte de date de intrare, astfel încât, pentru fiecare dintre ele, în urma executării algoritmului, să se afișeze valoarea 234.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp ... execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Considerând declararea alăturată, care dintre următoarele secvențe de instrucțiuni afișează valorile memorate în cele două câmpuri ale variabilei x, separate printr-un spațiu? struct { int a, b; }x;",
+        "options": {
+          "a": "cout<<x.a<<” ”<<x.b; | printf(”%d %d”, x.a, x.b);",
+          "b": "cout<<a.x<<” ”<<b.x; | printf(”%d %d”, a.x, b.x);",
+          "c": "cout<<x; | printf(”%d”, x);",
+          "d": "cout<<a->x<<” ”<<b->x; | printf(”%d %d”, a->x, b->x); 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul info o valoare întreagă, iar în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. Variabila p reține adresa primului element din listă. Lista conține, începând de la primul element, în această ordine, valorile: 2, 3, 4, 5, 6, 7, 8. Ce se va afișa în urma executării secvenței de instrucțiuni alăturate? while((p->urm!=NULL)&&(p!=NULL)) { p->urm=p->urm->urm; p=p->urm; cout<<p->info<<’ ’; | printf(”%d ”,p->info); }",
+        "options": {
+          "a": "2 5 8",
+          "b": "2 4 8",
+          "c": "2 4 6 8",
+          "d": "4 6 8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf neorientat cu 80 de noduri și 3160 muchii. Care este numărul de muchii ce pot fi eliminate astfel astfel încât graful parțial obținut să fie arbore? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce se va afișa în urma executării secvenței de instrucțiuni alăturate dacă variabila s memorează șirul de caractere abbacdde, iar variabila i este de tip întreg? (6p.) i=0; while (i<strlen(s)-1) if (s[i]==s[i+1]) strcpy(s+i,s+i+1); else i=i+1; cout<<s; | printf(”%s”,s);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură două numere naturale n și p (2≤n≤20, 1≤p≤20) și construiește în memorie un tablou bidimensional cu n linii și p coloane. Tabloul va fi construit astfel încât, parcurgând matricea linie cu linie de sus în jos și fiecare linie de la stânga la dreapta, să se obțină șirul primelor n*p pătrate perfecte pare, ordonat strict crescător, ca în exemplu. Tabloul astfel construit va fi afișat pe ecran, fiecare linie a tabloului pe câte o linie a ecranului, cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=2, p=3 programul va afișa tabloul alăturat: (10p.) 0 4 16 36 64 100 Varianta 10",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră subprogramul cu definiția alăturată. Ce valoare are f(3,1)? int f(int n,int y) { if(n!=0) { y=y+1; return y+f(n-1,y); } else return 0; }",
+        "options": {
+          "a": "9",
+          "b": "6",
+          "c": "7",
+          "d": "8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Un elev a scris un program care, folosind metoda backtracking, generează toate numerele de câte 5 cifre, cifrele fiind în ordine strict crescătoare. Scrieți toate numerele generate de program care au prima cifră 5. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului sub cu trei parametri: n (număr natural, 5<n≤30000), a și b; subprogramul furnizează prin intermediul parametrilor a și b cele mai mari două numere prime distincte mai mici decât n. Exemplu: dacă n= 28 la apelul subprogramului se va furniza prin parametrul a valoarea 23 și prin parametrul b valoarea 19. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Evidența produselor vândute de o societate comercială este păstrată în fișierul PRODUSE.TXT. Pentru fiecare vânzare se cunosc: tipul produsului (un număr natural de cel mult 4 cifre), cantitatea vândută exprimată in kilograme (un număr natural mai mic sau egal cu 100) și prețul unui kilogram (un număr natural mai mic sau egal cu 100). Fișierul PRODUSE.TXT are cel mult 200000 de linii și fiecare linie conține trei numere naturale, separate prin câte un spațiu, ce reprezintă, în această ordine tipul, cantitatea și prețul de vânzare al unui produs la momentul vânzării respective.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Să se scrie un program C/C++ care, utilizând un algoritm eficient din punct de vedere al timpului de executare, determină pentru fiecare tip de produs vândut suma totală obținută în urma vânzărilor. Programul va afișa pe câte o linie a ecranului tipul produsului și suma totală obținută, separate prin câte un spațiu, ca în exemplu. Exemplu: dacă fișierul PRODUSE.TXT are conținutul alăturat, programul va afișa perechile următoare, nu neapărat în această ordine: 1 150 2 30 3 5 3 1 5 1 20 5 2 10 3 1 10 5",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența (3 - 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

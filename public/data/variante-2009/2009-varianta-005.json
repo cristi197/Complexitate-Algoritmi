@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-005",
+  "year": 2009,
+  "variant": 5,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 13,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip real. Care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă numărul real memorat în variabila x nu aparține intervalului (2,9]?",
+        "options": {
+          "a": "(x>2) && (x<=9)",
+          "b": "(x<=2) && (x>9)",
+          "c": "(x<=2) || (x>9)",
+          "d": "(x<2) || (x>9)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește x,z (numere naturale) yÅ0 ┌repetă │ yÅy*10+x%10 │ xÅ[x/100] └până când x=0 ┌cât timp y*z>0 și y%10=z%10 execută │ yÅ[y/10] │ zÅ[z/10] └■ ┌dacă y+z=0 atunci │ scrie 1 │altfel │ scrie 0 └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se va afișa dacă se citesc, în această ordine, valorile 729385 și 532.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru z se citește valoarea 99, scrieți câte numere naturale, cu exact 3 cifre fiecare, pot fi citite pentru x astfel încât să se afișeze valoarea 0 în fiecare dintre aceste cazuri.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se folosească o singură structură repetitivă.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-un graf neorientat cu 20 muchii, fiecare nod al grafului are gradul un număr nenul. Doar patru dintre noduri au gradul un număr par, restul nodurilor având gradele numere impare. Care este numărul maxim de noduri pe care poate să le aibă graful?",
+        "options": {
+          "a": "32",
+          "b": "36",
+          "c": "10",
+          "d": "16 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Variabila d, declarată alăturat, memorează în câmpurile a și b lățimea și, respectiv, lungimea unui dreptunghi. Care dintre următoarele instrucțiuni atribuie câmpului aria al variabilei d valoarea ariei dreptunghiului respectiv? struct dreptunghi { float a,b,aria; }d;",
+        "options": {
+          "a": "d.aria==d.a*d.b;",
+          "b": "aria.d=a.d*b.d;",
+          "c": "aria.d=d.a*d.b;",
+          "d": "d.aria=d.a*d.b;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arbore cu rădăcină în care doar 13 dintre nodurile arborelui au exact 2 descendenți direcți (fii), restul nodurilor având cel mult un descendent direct (fiu). Care este numărul frunzelor arborelui? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fie s o variabilă ce memorează un șir de caractere, c o variabilă de tip char, iar i și j două variabile de tip int. Scrieți instrucțiunile ce pot înlocui punctele de suspensie din secvența de program alăturată astfel încât executarea ei să determine modificarea conținutul șirului s prin interschimbarea caracterelor aflate pe poziții simetrice față de mijlocul șirului (primului caracter cu ultimul, al doilea cu penultimul, etc). (6p.) i=0; j=strlen(s)-1; while (i<j) { ......... } Scrieți un program C/C++ care citește de la tastatură două numere naturale n și m (2≤m≤10, 2≤n≤10) și care construiește în memorie și apoi afișează o matrice A cu n linii (numerotate de la 1 la n) și m coloane (numerotate de la 1 la m) cu proprietatea că fiecare element Aij memorează cea mai mare dintre valorile indicilor i și j (1≤i≤n, 1≤j≤m). Matricea se va afișa pe ecran, câte o linie a matricei pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. (10p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru n=4 și m=5 se va afișa matricea alăturată. 1 2 3 4 5 2 2 3 4 5 3 3 3 4 5 4 4 4 4 5 Varianta 5",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind modelul combinărilor se generează numerele naturale cu câte trei cifre distincte din mulțimea {1,2,3,7}, numere cu cifrele în ordine strict crescătoare, obținându-se, în ordine: 123, 127, 137, 237. Dacă se utilizează exact aceeași metodă pentru a genera numerele naturale cu patru cifre distincte din mulțimea {1,2,3,4,5,6,7,8}, câte dintre numerele generate au prima cifră 2 și ultima cifră 7?",
+        "options": {
+          "a": "8",
+          "b": "3",
+          "c": "4",
+          "d": "6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare. Pentru subprogramul f definit mai jos, ce se afișează ca urmare a apelului f(3,17)?(6p.)",
+      "code": "//C void f ( int a, int b) { if(a<=b) {f(a+1,b-2); printf(”%c”,’*’);} else printf(”%d”,b); } //C++ void f ( int a, int b) { if(a<=b) { f(a+1,b-2); cout<<’*’;} else cout<<b; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți un program C/C++ care citește de la tastură un număr natural n cu cel mult 8 cifre (n≥10) și care creează fișierul text NR.TXT ce conține numărul n și toate prefixele nenule ale acestuia, pe o singură linie, separate prin câte un spațiu, în ordine descrescătoare a valorii lor. Exemplu: pentru n=10305 fișierul NR.TXT va conține numerele: 10305 1030 103 10 1 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Subprogramul f, cu un parametru: - primește prin intermediul parametrului a un număr natural cu cel mult 8 cifre (a>1) - returnează cel mai mic divizor prim al valorii parametrului a. Exemplu: pentru valoarea 45 a parametrului a, subprogramul va returna valoarea 3 deoarece a=3 2 *5, iar cel mai mic divizor prim al său este 3.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului f.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care să citească de la tastatură un număr natural nenul n (n≤100) și apoi un șir de n numere naturale de cel mult 8 cifre fiecare, toate numerele din șir fiind strict mai mari decât 1. Folosind apeluri utile ale subprogramului f, programul va determina și va afișa pe ecran toate numerele prime din șirul citit. Numerele determinate se vor afișa pe ecran, separate prin câte un spațiu, în ordine crescătoare a valorii lor. Dacă nu există astfel de numere se va afișa pe ecran mesajul NU EXISTA. Exemplu: pentru n=7, șirul: 1125, 2, 314, 101, 37, 225, 12 pe ecran se va afișa: 2 37 101",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

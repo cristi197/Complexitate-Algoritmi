@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-008",
+  "year": 2009,
+  "variant": 8,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 22,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele expresii C/C++ are ca valoare cel mai mare dintre numerele naturale nenule, cu cel mult 4 cifre fiecare, memorate în variabilele întregi a și b?",
+        "options": {
+          "a": "(a+b+abs(a-b))/2",
+          "b": "a+b+abs(a-b)/2",
+          "c": "(a+b-abs(a-b))/2",
+          "d": "(a+b-abs(a+b))/2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod: S-a notat cu [c] partea întreagă a numărului real c, iar cu a%b restul împărțirii numărului întreg a la numărul întreg b.",
+      "pseudocode": "citește n,k (numere naturale nenule) nrÅ0 pÅ1 ┌cât timp n≠0 și k≠0 execută │┌dacă n%2=0 atunci ││ nrÅnr+ n%10*p ││ pÅp*10 ││altfel ││ kÅk-1 │└■ │ nÅ[n/10] └■ scrie nr",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează, în urma executării algoritmului, dacă se citește pentru n valoarea 932125 și pentru k valoarea 3.",
+          "points": 4
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un set de date de intrare astfel încât, în urma executării algoritmului, să se afișeze valoarea 0.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp ... execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful orientat reprezentat prin listele de adiacență alăturate. Câte noduri au gradul extern mai mare decât gradul intern?",
+        "options": {
+          "a": "3",
+          "b": "2",
+          "c": "1",
+          "d": "4 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră un graf neorientat cu 50 noduri și 32 muchii. Care este numărul maxim de vârfuri cu gradul 0 pe care le poate avea graful?",
+        "options": {
+          "a": "45",
+          "b": "40",
+          "c": "41",
+          "d": "50"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Ce se afișează în urma executării secvenței de program alăturate dacă variabila s memorează șirul de caractere abcdefgh? (6p.) strcpy(s+2,s+4); cout<<s<<” ”<<strlen(s); | printf(”%s %d”,s,strlen(s));",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, cu cel puțin 4 elemente, fiecare element reține în câmpul urm adresa elementului următor sau NULL dacă nu există un element următor, iar în câmpul info o valoare întreagă. Știind că variabila p reține adresa primului element din listă, înlocuiți punctele de suspensie cu expresiile corespunzătoare, astfel încât secvența alăturată să calculeze în variabila s suma tuturor valorilor elementelor listei. (6p.) s=...; while ( ... ) { p=p->urm; s=s+p->info; } cout<<s; | printf(”%d”,s);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură două numere naturale n și p (2≤n≤20, 1≤p≤20) și construiește în memorie un tablou bidimensional cu n linii și p coloane. Tabloul va fi construit astfel încât, parcurgând tabloul linie cu linie de sus în jos și fiecare linie de la stânga la dreapta, să se obțină șirul primelor n*p pătrate perfecte impare, ordonat strict crescător, ca în exemplu. Tabloul astfel construit va fi afișat pe ecran, fiecare linie a tabloului pe câte o linie a ecranului, cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=2, p=3 se va afișa tabloul alăturat: (10p.) 1 9 25 49 81 121 Varianta 8",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking sunt generate numerele de 3 cifre care au cifrele în ordine crescătoare, iar cifrele aflate pe poziții consecutive sunt de paritate diferită. Știind că primele cinci soluții generate sunt, în această ordine, 123, 125, 127, 129, 145, care este cel de al 8-lea număr generat?",
+        "options": {
+          "a": "169",
+          "b": "149",
+          "c": "167",
+          "d": "147"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, descris alăturat. Ce se va afișa în urma apelului f(3);? (6p.) void f(int n) { if (n!=0) { if (n%2==0) cout<<n<<’ ’; | printf(\"%d \",n); f(n-1); cout<<n<<’ ’; | printf(\"%d \",n); } else cout<<endl; | printf(\"\\n\"); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Pe prima linie a fișierului text BAC.TXT se află o valoare naturală n (1<n≤50), iar pe a doua linie n numere naturale cu maximum 4 cifre fiecare, despărțite prin câte un spațiu. În șirul numerelor de pe a doua linie a fișierului există cel pzâin două numere pătrate perfecte. Scrieți un program C/C++ care citește toate numerele din fișier și afișează pe ecran expresia aritmetică reprezentând suma numerelor de pe a doua linie a fișierului care au proprietatea că sunt pătrate perfecte, cu simbolul + între ele și, după un semn =, valoarea acestei sume, ca în exemplu. Termenii sumei afișate se pot afla în orice ordine. Exemplu: dacă fișierul BAC.TXT are următorul conținut 5 9 5 36 9 8 atunci pe ecran se poate afișa: 9+9+36=54 sau 9+36+9=54 sau 36+9+9=54 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Subprogramul sub primește prin intermediul parametrilor: – n și m două numere naturale (1<n<100, 1<m<100) – a și b două tablouri unidimensionale, fiecare având componente numere naturale de maximum patru cifre, ordonate crescător; tabloul a conține n numere pare, iar tabloul b conține m numere impare. Subprogramul va afișa pe ecran, în ordine crescătoare, separate prin câte un spațiu, un șir format dintr-un număr maxim de elemente care aparțin cel puțin unuia dintre tablouri, astfel încât orice două elemente aflate pe poziții consecutive să fie de paritate diferită. Exemplu: pentru n=5, m=3 și tablourile a=(2,4,8,10,14) și b=(3,5,11), subprogramul va afișa 2 3 4 5 8 11 14 sau 2 3 4 5 10 11 14.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului sub, alegând pentru rezolvare un algoritm eficient din punctul de vedere al timpului de executare.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, algoritmul pe baza căruia a fost scris subprogramul de la punctul a), explicând în ce constă eficiența metodei utilizate.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

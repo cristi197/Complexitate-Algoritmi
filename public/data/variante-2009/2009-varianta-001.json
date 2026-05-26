@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-001",
+  "year": 2009,
+  "variant": 1,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 1,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila x este de tip real. Care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă numărul real memorat în variabila x aparține intervalului (5,8]?",
+        "options": {
+          "a": "(x<8) && (x>=5)",
+          "b": "(x<=8) || (x>5)",
+          "c": "(x>8) || (x<=5)",
+          "d": "(x<=8) && (x>5)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește n (număr natural) zÅ0 pÅ1 ┌cât timp n>0 execută │ cÅn%10 │ nÅ[n/10] │┌dacă c%3=0 atunci ││ zÅz+p*(9-c) ││ pÅp*10 │└■ └■ scrie z",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa dacă se citește n=103456.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate numere naturale impare, distincte, fiecare având exact două cifre, care pot fi citite pentru variabila n astfel încât să se afișeze valoarea 3.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră o coadă în care inițial au fost introduse, în această ordine, elementele cu valorile 1 și 2: 1 2 . Se notează cu AD(x) operația prin care se adaugă elementul cu valoarea x în coadă și cu EL operația prin care se elimină un element din coadă. Câte elemente va conține coada în urma executării secvenței de operații: AD(4);EL;EL;AD(5);EL;AD(3)?",
+        "options": {
+          "a": "3",
+          "b": "1",
+          "c": "2",
+          "d": "5 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Câte grafuri neorientate, distincte, cu 4 vârfuri, se pot construi? Două grafuri se consideră distincte dacă matricele lor de adiacență sunt diferite.",
+        "options": {
+          "a": "24",
+          "b": "4",
+          "c": "4 6",
+          "d": "2 6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "În declararea alăturată, câmpurile x și y ale înregistrării pot memora coordonatele carteziene ale unui punct din planul xOy. Scrieți o secvență de instrucțiuni prin executarea căreia se memorează în variabila C coordonatele mijlocului segmentului cu capetele în punctele ale căror coordonate sunt memorate în variabilele A și B. (6p.) struct punct { float x,y; }A,B,C;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Prin înălțimea unui arbore cu rădăcină înțelegem numărul de muchii ale celui mai lung lanț format din noduri distincte care are una dintre extremități în rădăcina arborelui. Scrieți care este înălțimea și care sunt frunzele arborelui descris prin următorul vector ”de tați”: (6,6,5,0,6,4,4,7). (6p.) Scrieți un program C/C++ care citește de la tastatură două numere naturale nenule n și m (2≤m≤10, 2≤n≤10) și care construiește în memorie și apoi afișează o matrice A cu n linii (numerotate de la 1 la n) și m coloane (numerotate de la 1 la m) cu proprietatea că fiecare element Aij memorează cea mai mică dintre valorile indicilor i și j (1≤i≤n, 1≤j≤m). Matricea se va afișa pe ecran, câte o linie a matricei pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru n=4 și m=5 se va afișa matricea alăturată. (10p.) 1 1 1 1 1 1 2 2 2 2 1 2 3 3 3 1 2 3 4 4 Varianta 1",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează în ordine lexicografică cuvintele de câte patru litere din mulțimea A={a,b,c,d,e}, cuvinte care nu conțin două vocale alăturate. Primele opt cuvinte generate sunt, în ordine: abab, abac, abad, abba, abbb, abbc, abbd, abbe. Câte dintre cuvintele generate încep cu litera b și se termină cu litera e?",
+        "options": {
+          "a": "9",
+          "b": "15",
+          "c": "12",
+          "d": "20"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare. Pentru definiția de mai jos a subprogramului f, ce se afișează ca urmare a apelului f(121,1);? (6p.)",
+      "code": "//C void f(long n, int i) { if(n!=0) if(n%3>0) { printf(\"%d\",i); f(n/3,i+1); } } //C++ void f(long n, int i) { if(n!=0) if(n%3>0) { cout<<i; f(n/3,i+1); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text bac.txt conține, pe o singură linie, cel mult 1000 de numere naturale nenule cu cel mult 4 cifre fiecare, numerele fiind separate prin câte un spațiu. Scrieți un program C/C++ care citește de la tastatură un număr natural nenul n (n≤999) și numerele din fișierul bac.txt și care afișează pe ecran, separate prin câte un spațiu, toate numerele din fișier care sunt divizibile cu n. Dacă fișierul nu conține niciun astfel de număr, atunci se va afișa pe ecran mesajul NU EXISTA. Exemplu: dacă fișierul bac.txt conține numerele: 3 100 40 70 25 5 80 6 3798, pentru n=10 atunci pe ecran se va afișa: 100 40 70 80 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Subprogramul sub, cu trei parametri, primește prin intermediul parametrilor: – v un tablou unidimensional cu cel mult 100 de componente ce memorează numere întregi de cel mult 4 cifre fiecare; – n un număr natural nenul mai mic sau egal cu 100 ce reprezintă numărul efectiv de componente ale tabloului primit prin intermediul parametrului v; – a un număr întreg cu cel mult 4 cifre. Subprogramul sub returnează numărul componentelor tabloului primit prin intermediul parametrului v ale căror valori sunt strict mai mici decât valoarea parametrului a. Exemplu: pentru valorile n=5, v=(1,21,9,21,403), a=20 ale parametrilor, în urma apelului, subprogramului sub va returna valoarea 2.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului sub.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Să se scrie un program C/C++ care să citească de la tastatură un număr natural nenul n (n≤100) și n numere întregi, fiecare având cel mult 4 cifre, și care, folosind apeluri utile ale subprogramului sub, să afișeze pe ecran mesajul DA dacă oricare două dintre cele n numere întregi citite sunt distincte două câte două, sau mesajul NU în caz contrar. Exemplu: pentru n=6 și cele n numere citite de la tastatură: 47 183 69 8 134 -56 se va afișa pe ecran mesajul DA",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

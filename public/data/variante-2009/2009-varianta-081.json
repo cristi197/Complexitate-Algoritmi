@@ -1,0 +1,150 @@
+{
+  "id": "2009-varianta-081",
+  "year": 2009,
+  "variant": 81,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 241,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Precizați valoarea expresiei: 8/4/2*2*4*8",
+        "options": {
+          "a": "64",
+          "b": "1",
+          "c": "16",
+          "d": "0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește a,n (numere naturale) ┌pentru i=1,n execută │┌dacă i%2=0 atunci ││ aÅa-i ││altfel ││ aÅa+i │└■ └■ scrie a Varianta 81",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se vor afișa dacă se citesc numerele a=12 și n=10.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru a se citește numărul 32, scrieți o valoare care poate fi citită pentru n astfel încât să se afișeze 34.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să nu conțină nicio structură repetitivă.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un șir de caractere se numește palindrom dacă șirul citit de la stânga la dreapta este identic cu șirul citit de la dreapta spre stânga. Care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă șirul de caractere memorat în variabila s, având exact 3 caractere, este palindrom?",
+        "options": {
+          "a": "s[0]==s[1]",
+          "b": "s[1]==s[2]",
+          "c": "s[0]==s[2]",
+          "d": "s[1]==s[3] 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care dintre următoarele afirmații este adevărată pentru graful neorientat având mulțimea nodurilor X={1,2,3,4,5} și mulțimea muchiilor U={[1,2], [1,5], [2,3], [2,4], [3,4], [4,5]}?",
+        "options": {
+          "a": "Este graf hamiltonian, dar nu este eulerian.",
+          "b": "Este graf eulerian, dar nu este hamiltonian.",
+          "c": "Este și graf hamiltonian și graf eulerian.",
+          "d": "Nu este graf hamiltonian,"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arborele cu rădăcină, cu 11 vârfuri numerotate de la 1 la 11, descris prin următorul vector de „tați”: (6,5,5,2,0,3,3,3,8,7,7). Care sunt descendenții direcți ai rădăcinii și câte frunze are arborele dat? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul info al fiecărui element câte un număr natural nenul cu cel mult 4 cifre, iar în câmpul adr adresa elementului următor din listă sau NULL dacă nu există un element următor. Se consideră că adresa primului element al listei este reținută de variabila prim, și că variabila p este de același tip cu variabila prim. Să se înlocuiască punctele de suspensie din secvența de program următoare cu instrucțiunile corespunzătoare, astfel încât, în urma executării, aceasta să determine afișarea tuturor numerelor memorate în listă, care sunt divizibile cu 7. p=prim; while(p!=NULL) {......} (6p.) Scrieți un program C/C++ care citește de la tastatură trei valori naturale nenule k, n, m (n≤10, m≤10, k≤32000) și apoi n*m numere întregi, fiecare având cel mult 4 cifre, reprezentând elementele unui tablou bidimensional cu liniile numerotate de la 1 la n și coloanele numerotate de la 1 la m.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul determină și afișează pe ecran suma numerelor de ordine ale coloanelor care conțin cel puțin o dată valoarea k. Dacă nu există nicio coloană care să conțină cel puțin o dată valoarea k, programul va afișa pe ecran mesajul NU EXISTA. Exemplu:pentru k=3,n=5,m=4 și matricea alăturată se va afișa 5, deoarece coloanele 2 și 3 conțin numărul k=3. (10p.) 2 4 5 -8 1 3 7 9 4 -2 3 10 5 4 2 37 6 7 3 13 Varianta 81",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind cifrele {1,2,3} se generează, în ordinea crescătoare a valorii, toate numerele pare formate din trei cifre distincte. Astfel, se obțin în ordine, numerele: 132, 312. Folosind aceeași metodă, se generează numerele pare formate din patru cifre distincte din mulțimea {1,2,3,4}. Care va fi al 4-lea număr generat ?",
+        "options": {
+          "a": "2134",
+          "b": "1432",
+          "c": "2314",
+          "d": "1423"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, scrieți ce valoare are f(0,0). Dar f(525,5)? (6p.) int f(int x,int y) { if(x==0)return 0; else if(x%10==y) return f(x/10,y)+1; else return f(x/10,y); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți în C/C++ definiția completă a subprogramului medie care are doi parametri: - n, prin care primește un număr natural (1≤n≤100) ; - v, prin care primește un tablou unidimensional cu n elemente, numere naturale, fiecare element având cel mult patru cifre. Subprogramul returnează media aritmetică a elementelor din tablou. (10p.) Fișierul text NUMERE.IN conține, pe mai multe linii, cel mult 30000 de numere naturale nenule mai mici sau egale cu 500, despărțite prin câte un spațiu. a) Scrieți programul C/C++ care, utilizând un algoritm eficient din punct de vedere al timpului de executare, afișează pe ecran, în ordine crescătoare, toate numerele care au apărut o singură dată din fișierul NUMERE.IN, despărțite prin câte un spațiu.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Exemplu: dacă fișierul NUMERE.IN conține numerele scrise alăturat, se vor afișa valorile următoare: 3 4 5 6 34 (6p.) b) Descrieți succint, în limbaj natural, metoda de rezolvare folosită la punctul a), explicând în ce constă eficiența ei (3 – 4 rânduri). (4p.) 2 23 34 3 8 9 9 23 6 8 9 2 4 5 23 9 Varianta 81",
+        "subQuestions": [
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită la punctul a), explicând în ce constă eficiența ei (3 – 4 rânduri). 2 23 34 3 8 9 9 23 6 8 9 2 4 5 23 9",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

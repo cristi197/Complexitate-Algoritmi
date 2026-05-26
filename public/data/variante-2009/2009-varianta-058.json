@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-058",
+  "year": 2009,
+  "variant": 58,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 172,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că variabila întreagă n memorează un număr natural cu cel puțin 3 cifre, care dintre următoarele expresii C/C++ are ca valoare numărul obținut după eliminarea ultimelor 2 cifre ale lui n?",
+        "options": {
+          "a": "n%10/10",
+          "b": "n%10",
+          "c": "n/100",
+          "d": "n/10%10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod: S-a notat cu [x] partea întreagă a numărului real x și cu a%b restul împărțirii numărului întreg a la numărul întreg nenul b.",
+      "pseudocode": "citește n (număr natural) qÅ1 ┌cât timp n>0 execută │┌dacă n%5=0 atunci ││ qÅq*10 ││altfel ││ qÅq*10+1 │└■ │ nÅ[n/5] └■ scrie q Varianta 58",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa pentru n=53.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare care poate fi citită pentru variabila n astfel încât numărul afișat să fie 1001.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm, echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila t este utilizată pentru a memora numărul de exemplare disponibile într-o bibliotecă și titlul unei cărți. Numărul de exemplare este un număr natural de cel mult 2 cifre, iar titlul nu poate avea mai mult de 20 de litere. Care dintre următoarele declarări este corectă?",
+        "options": {
+          "a": "struct carte{float nr,titlu;} t;",
+          "b": "struct carte{int nr; char titlu[21];} t;",
+          "c": "struct carte{char nr; int titlu ;} t;",
+          "d": "struct carte{long nr,titlu;} t; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Dacă G este un graf neorientat cu 11 noduri și 13 muchii, fără noduri cu gradul 0, atunci numărul maxim de componente conexe pe care le poate avea graful este:",
+        "options": {
+          "a": "2",
+          "b": "4",
+          "c": "3",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră o stivă inițial vidă în care se introduc, în această ordine, numerele 1,2,3,4,5, apoi se fac două extrageri, se introduc, în această ordine, numerele 6,7 și 8 și apoi se mai fac 4 extrageri. a) Ce număr se va afla în vârful stivei după efectuarea acestor operații? (3p.) b) Care este suma elementelor aflate în stivă după efectuarea acestor operații? (3p.)",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Variabila a memorează o matrice cu 10 linii și 10 coloane, numerotate de la 1 la 10, iar i și j sunt variabile întregi cu valori cuprinse între 1 și 10. Scrieți o expresie C/C++ care să fie nenulă dacă și numai dacă elementul a[i][j] nu se află pe niciuna dintre diagonalele acestei matrice. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un șir de cel mult 50 de caractere (cifre, litere ale alfabetului englez și spații; șirul conține cel puțin o literă), apoi construiește în memorie și afișează pe ecran șirul de caractere obținut din șirul citit prin eliminarea tuturor caracterelor care nu sunt litere. Exemplu: dacă se citește șirul: Voi lua 10 la informatica atunci se va afișa: Voilualainformatica (10p.) Varianta 58",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se utilizează metoda backtracking pentru a genera în ordine lexicografică toate cuvintele de câte trei litere distincte din mulțimea {d,a,n,s}. Care este cel de-al treilea cuvânt obținut?",
+        "options": {
+          "a": "ads",
+          "b": "ans",
+          "c": "dan",
+          "d": "and"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce valoare are f(88,1)? Dar f(3713,3)? (6p.) int f(int n,int c){ if(n==0) return 0; if(n%10==c) return f(n/10,c)*10+c; return f(n/10,c); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text BAC.TXT conține, pe o singură linie, cel puțin 3 și cel mult 100 de numere naturale nenule distincte de cel mult 4 cifre fiecare, numerele fiind separate prin câte un spațiu. Scrieți un program C/C++ care citește toate numerele din fișierul BAC.TXT și scrie pe ecran, în ordine descrescătoare, cele mai mici 3 numere citite. Exemplu: dacă fișierul BAC.TXT conține numerele 1017 48 310 5710 162, atunci se va afișa: 310 162 48 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul divizor, care: – primește prin intermediul parametrului a un număr natural strict mai mare decât 1, de cel mult 4 cifre; – furnizează prin intermediul parametrului d cel mai mare divizor al lui a strict mai mic decât a.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți numai antetul subprogramului divizor.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți declarările de date și programul principal C/C++ care citește de la tastatură un număr natural nenul x, de cel mult 4 cifre și, prin apeluri utile ale subprogramului divizor, verifică dacă x este număr prim. Programul va afișa pe ecran în caz afirmativ mesajul DA, iar în caz contrar mesajul NU.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-031",
+  "year": 2009,
+  "variant": 31,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 91,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră variabila a care memorează un număr cu exact 6 cifre. Care dintre expresiile C/C++ de mai jos are ca valoare numărul format din cele două cifre din mijloc ale valorii memorate în a?",
+        "options": {
+          "a": "(a%100)/100",
+          "b": "a/100%100",
+          "c": "a/1000+a%1000",
+          "d": "a/100%10+a/1000%10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod: S-a notat cu [x], partea întreagă a numărului real x.",
+      "pseudocode": "citește a (număr natural, a>0) kÅ0 bÅ[(a+1)*(a+2)/2] ┌cât timp b≥a execută │ bÅb-a │ kÅk+1 └■ scrie b,k Varianta 31",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valorile care se vor afișa pentru a=9.",
+          "points": 4
+        },
+        {
+          "id": "b",
+          "text": "Scrieți numărul valorilor din intervalul [1,5] care, citite pentru variabila a, determină, după executarea algoritmului alăturat, memorarea valorii 1 în variabila b.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să nu se utilizeze structuri repetitive sau subprograme recursive.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful neorientat cu 7 noduri, numerotate de la 1 la 7, și muchiile[1,3], [2,3], [3,4], [3,5], [5,4], [1,2], [2,5], [2,4], [6,7], [3,6]. Care dintre următoarele succesiuni de noduri reprezintă un lanț care trece o singură dată prin toate nodurile grafului?",
+        "options": {
+          "a": "(1, 2, 3, 4, 5, 6, 7)",
+          "b": "(4, 5, 3, 6, 7)",
+          "c": "(7, 6, 3, 5, 4, 2, 1)",
+          "d": "(1, 3, 5, 4, 2, 3, 6) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un arbore cu 11 noduri, numerotate de la 1 la 11, este memorat cu ajutorul vectorului de „tați” t=(2,5,5,3,0,2,4,6,6,2,3). Mulțimea tuturor ascendenților nodului 8 este:",
+        "options": {
+          "a": "{1, 2, 5, 6, 10}",
+          "b": "{6, 2, 5}",
+          "c": "{6}",
+          "d": "{5, 2}"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Scrieți definiția corectă a unui tip de date necesar pentru a memora simultan, într-o singură variabilă de acest tip, următoarele caracteristici ale unui autoturism: marca (cuvânt de maximum 20 caractere) și anul fabricației (număr natural format din exact 4 cifre), astfel încât expresia C/C++ de mai jos să aibă ca valoare vechimea mașinii ale cărei caracteristici sunt memorate în variabila x. 2008-x.anul_fabricatiei (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "În secvența alăturată, variabilele i și j sunt de tip întreg, iar variabila a memorează o matrice în care prima linie și prima coloană sunt numerotate cu 1. Toate elementele matricei primesc valori în urma executării secvenței. Scrieți în ordine, începând cu prima linie, doar elementele situate pe cea de-a treia coloană a matricei. (6p.) for(j=1;j<=6;j++) for(i=1;i<=4;i++) a[i][j]=2*i+j;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Se consideră o listă liniară simplu înlănțuită alocată dinamic în care fiecare nod memorează în câmpul info un cuvânt format din cel mult 20 de caractere, doar litere mari ale alfabetului englez, iar în câmpul urm, adresa următorului nod al listei sau NULL dacă nu există un element următor. Scrieți un program C/C++ care citește de la tastatură un număr natural n (n≤100) și apoi n cuvinte distincte, fiecare cuvânt fiind format din cel mult 20 de caractere, doar litere mari ale alfabetului englez, și construiește o listă simplu înlănțuită, cu acele cuvinte citite, care încep și se termină cu aceeași literă. Cuvintele se vor memora în listă în ordine inversă citirii lor. Exemplu: pentru n=9 și cuvintele citite: URSUZU IRI E SUPARAT POP DORIS SI ANA CITESC lista va fi: (10p.) Varianta 31",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Având la dispoziție cifrele 0, 1 și 2 putem genera, în ordine crescătoare, numere care au suma cifrelor egală cu 2 astfel încât primele 6 numere generate sunt, în această ordine: 2, 11, 20, 101, 110, 200. Folosind același algoritm se generează numere cu cifrele 0, 1, 2 și 3 care au suma cifrelor egală cu 4. Care va fi al 7-lea număr din această generare ?",
+        "options": {
+          "a": "103",
+          "b": "301",
+          "c": "220",
+          "d": "130"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul recursiv f1 definit alăturat. Ce se va afișa în urma apelului f1(5);? (6p.) void f1(int x) { if (x<=9) { cout<<x+1; | printf(\"%d\",x+1); f1(x+2); cout<<x+3; | printf(\"%d\",x+3); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului suma care primește ca parametru un tablou unidimensional x cu cel mult 100 de elemente, numere reale, un număr natural n ce reprezintă numărul efectiv de elemente ale tabloului x (n≤100), și un număr natural m (n≥m). Subprogramul returnează suma obținută din cele mai mici m elemente ale tabloului x. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul numere.txt se află memorate, pe prima linie un număr natural n (1≤n≤100), iar pe fiecare dintre următoarele n linii, câte două numere întregi x,y (-100≤x≤y≤100), reprezentând capetele câte unui segment [x,y] desenat pe axa Ox de coordonate.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți în limbajul C/C++ un program eficient din punct de vedere al timpului de executare și al spațiului de memorare, care citește din fișier datele existente, determină segmentul rezultat în urma intersecției tuturor celor n segmente date și afișează pe ecran două numere despărție printr-un spațiu ce reprezintă capetele segmentului cerut. Dacă segmentele nu au nici un punct comun se va afișa pe ecran valoarea 0.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți în limbaj natural algoritmul utilizat, justificând eficiența acestuia. Exemplu: dacă fișierul numere.txt are conținutul alăturat, se va afișa pe ecran 3 5 5 -7 10 3 20 -5 5 0 12 -8 30",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-016",
+  "year": 2009,
+  "variant": 16,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 46,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele instrucțiuni C/C++ determină inserarea cifrei 7 în fața ultimei cifre a unui număr natural, cu mai mult de 2 cifre, memorat în variabila x?",
+        "options": {
+          "a": "x=(x/10*10+7)*10+x%10;",
+          "b": "x=x/10+7+x%10;",
+          "c": "x=(x%10*10+7)*10+x/10;",
+          "d": "x=(x/10+7)*10+x%10;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu cu x%y restul împărțirii numărului natural x la numărul natural, nenul, y.",
+      "pseudocode": "citește n (număr natural nenul) ┌pentru iÅ1,n-1 execută │┌dacă i%2=0 atunci ││ scrie ’#’ │└■ │┌pentru jÅi+1,n execută ││ scrie ’*’ │└■ └■ Varianta 16",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți caracterele care se vor afișa în urma executării algoritmului dacă se citește valoarea 4.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare care poate fi citită pentru variabila n, astfel încât caracterul * să fie afișat de exact 66 de ori.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască fiecare structură repetitivă pentru...execută cu câte o structură repetitivă cât timp...execută.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Dacă n este un număr natural impar mai mare decât 2, atunci un graf neorientat cu n noduri, în care fiecare nod este adiacent cu exact n-1 noduri, este întotdeauna :",
+        "options": {
+          "a": "arbore",
+          "b": "graf eulerian",
+          "c": "graf neconex",
+          "d": "graf aciclic (graf care nu conține niciun ciclu) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care dintre următoarele variante reprezintă o declarare corectă pentru o variabilă x care memorează simultan vârsta în ani împliniți și media la bacalaureat a unui elev?",
+        "options": {
+          "a": "struct {float media; int varsta;} x;",
+          "b": "struct x {float media; int varsta;};",
+          "c": "float x.media; int x.varsta;",
+          "d": "struct elev {float x.media; int x.varsta};"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Într-o listă liniară simplu înlanțuită, alocată dinamic, fiecare element conține în câmpul nr un număr real, iar în câmpul urm adresa elementului următor sau NULL dacă nu există un element următor. Lista are cel puțin două elemente, iar variabila x memorează adresa primului element din listă. Cu ce pot fi completate punctele de suspensie din secvența următoare, astfel încât, în urma executării, să afișeze cuvântul ADEVARAT dacă media aritmetică dintre valorile câmpului nr ale primelor două elemente din listă este mai mică sau cel puțin egală cu 4.75, respectiv cuvântul FALS în caz contrar? if (.....)cout << ”ADEVARAT”; | printf(”ADEVARAT”); else cout << ”FALS”; | printf(”FALS”); (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce se va afișa în urma executării secvenței de program alăturate știind că variabila a memorează un șir cu cel mult 100 de caractere, iar variabilele i și k sunt de tip întreg? (6p.) k=’a’-’A’; strcpy(a,”clasa a-XII-a A”); cout<<a<<endl; | printf(“%s\\n”,a); for(i=0;i<strlen(a);i++) if(a[i]>=’a’&& a[i]<=’z’) a[i]=a[i]-k; cout<<a; | printf(“%s”,a); Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<16), construiește în memorie și afișează pe ecran o matrice cu n linii și n coloane în care elementele de pe cele două diagonale sunt egale cu 0, elementele care se află deasupra ambelor diagonale sunt egale cu 1, elementele care se află sub ambele diagonale sunt egale cu 2, iar restul elementelor sunt egale cu",
+        "points": 6
+      },
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "5. Elementele matricei vor fi afișate pe ecran, câte o linie a matricei pe câte o linie a ecranului cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=5 se va afișa matricea alăturată. (10p.) 0 1 1 1 0 3 0 1 0 3 3 3 0 3 3 3 0 2 0 3 0 2 2 2 0 Varianta 16",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Funcția F are definiția alăturată. Ce valoare are F(3)? int F(int n) {if(n==0 || n==1) return 1; else return 2*F(n-1)+2*F(n-2);}",
+        "options": {
+          "a": "1",
+          "b": "12",
+          "c": "6",
+          "d": "10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare",
+      "code": "Un algoritm generează în ordine crescătoare toate numerele de n cifre, folosind doar cifrele 3, 5 și 7. Dacă pentru n=5, primele cinci soluții generate sunt 33333, 33335, 33337, 33353, 33355, precizați care sunt ultimele trei soluții generate, în ordinea generării.(6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului multiplu care are 3 parametri: a, prin care primește un tablou unidimensional cu maximum 100 de numere naturale mai mici decât 1000, n, numărul efectiv de elemente ale tabloului și k, un număr natural (k≤9). Subprogramul returnează numărul de elemente din tablou care sunt multipli ai numărului k și au ultima cifră egală cu k. Exemplu: dacă n=6, a=(9,273,63,83,93,123), iar k=3, subprogramul va returna valoarea",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "(10p.) 4. În fișierul numere.txt sunt memorate maximum 10000 de numere naturale cu cel mult 9 cifre fiecare. Fiecare linie a fișierului conține câte un număr. Se cere afișarea pe ecran, în ordine descrescătoare, a tuturor cifrelor care apar în numerele din fișier. Alegeți un algoritm de rezolvare eficient din punct de vedere al timpului de executare. Exemplu: dacă fișierul numere.txt conține: 267 39628 79 se va tipări 9987766322.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, strategia de rezolvare și justificați eficiența algoritmului ales.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului ales.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

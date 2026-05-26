@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-070",
+  "year": 2009,
+  "variant": 70,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 208,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre expresiile C/C++ de mai jos, are valoarea 1 dacă valoarea variabilei întregi x este un număr întreg par și strict pozitiv ?",
+        "options": {
+          "a": "!((x%2!=0)||(x<=0))",
+          "b": "(x%2!=0)||(x<0)",
+          "c": "!((x%2==0)||(x>0))",
+          "d": "((x+1)%2==0)&&(x>=2)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu a↔b operația de interschimbare a valorilor variabilelor a și b.",
+      "pseudocode": "citește x,y (numere naturale nenule) ┌dacă x<y atunci │ x↔y └■ nÅ0 ┌cât timp x>=y execută │ xÅx-y │ nÅn+1 └■ scrie n, x",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce valori se vor afișa dacă pentru x se citește valoarea 19, iar pentru y se citește valoarea 4.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate perechile de valori, fiecare valoare fiind un număr de o cifră, care pot fi citite pentru variabilele x și respectiv y, astfel încât valorile afișate în urma executării algoritmului să fie 2 1, în această ordine.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că fiecare dintre variabilele var1, var2 memorează numele și nota câte unui elev în forma dată de declararea alăturată, indicați care dintre următoarele instrucțiuni determină, în urma executării, memorarea în variabila reală m a mediei aritmetice a notelor celor doi elevi. struct elev { char nume[30]; float nota; }var1,var2;",
+        "options": {
+          "a": "m=(var1.nota+var2.nota)/2;",
+          "b": "m=var1.nota+var2.nota/2;",
+          "c": "m=(var1+var2).nota/2;",
+          "d": "m=nota(var1+var2)/2; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră un graf orientat dat prin matricea de adiacență alăturată. Câte vârfuri ale grafului au proprietatea că diferența absolută a gradelor (intern și extern) este egală cu 2? 0 1 1 0 1 0 0 1 1 0 1 1 0 0 0 0 1 1 0 1 0 1 0 1 0",
+        "options": {
+          "a": "5",
+          "b": "3",
+          "c": "4",
+          "d": "2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Care este vectorul de ”tați” asociat arborelui cu rădăcină din figura alăturată în care nodul 5 este nodul rădăcină? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră o listă liniară simplu înlănțuită, alocată dinamic, ale cărei noduri rețin în câmpul next adresa nodului următor sau NULL dacă nu există un element următor. Lista are cel puțin două elemente. Știind că variabila p1 reține adresa primului nod din listă, iar variabila u1 adresa ultimului nod, scrieți o secvență de instrucțiuni în limbajul C/C++, prin executarea căreia lista liniară se transformă într-o listă circulară? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură două numere naturale m și n (1≤m≤24, 1≤n≤24), un număr natural x (1≤x≤m) și apoi m*n numere naturale de cel mult 5 cifre ce reprezintă elementele unui tablou bidimensional a, cu m linii, numerotate de la 1 la m, și n coloane, numerotate de la 1 la n. Programul va determina eliminarea liniei cu numărul de ordine x din matrice, modificarea corespunzătoare a numărului de linii din matrice și afișarea matricei obținute în următorul format: câte o linie a matricei pe câte o linie a ecranului, elementele fiecărei linii fiind separate prin câte un spațiu. (10p.) Exemplu: pentru m=3, n=4, x=2 și matricea alăturată 11 21 31 41 se va afișa matricea 51 61 71 81 91 11 21 31 11 21 31 41 91 11 21 31 Varianta 70",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru rezolvarea cărei probleme dintre cele enumerate mai jos se poate utiliza metoda backtracking ?",
+        "options": {
+          "a": "determinarea reuniunii a 3 mulțimi",
+          "b": "determinarea tuturor divizorilor unui număr din 3 cifre",
+          "c": "determinarea tuturor elementelor mai mici decât 30000 din șirul lui Fibonacci",
+          "d": "determinarea tuturor variantelor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul recursiv definit alăturat. Ce valoare are expresia bac(10,4)? Care este cea mai mică valoare de 2 cifre a lui u pentru care funcția bac(u,2) are valoarea 1? (6p.) int bac(int u, int x) {if (u<x)return 0; if (x==u)return 1; if (u%x==0)return 0; return bac(u,x+1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Să se scrie în limbajul C/C++ definiția completă a subprogramului calcul, care primește prin parametrul n un număr natural nenul de cel mult 9 cifre și furnizează prin parametrul x numărul obținut prin alăturarea cifrelor pare ale lui n considerate de la dreapta către stânga. Dacă n nu conține nicio cifră pară, x primește valoarea 0. (10p.) Exemplu: în urma apelului calcul(9278,x), x primește valoarea 82.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMERE.TXT conține pe prima linie un număr natural n (1≤n≤10000) și pe a doua linie, n numere naturale cu cel mult 9 cifre fiecare, numere nu neapărat distincte. Aceste numere sunt dispuse în ordine crescătoare și separate între ele prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește valorile din fișier și, printr-o metodă eficientă din punct de vedere al timpului de executare și al spațiului de memorie utilizat, afișează pe ecran, cu un spațiu între ele, valoarea care apare de cele mai multe ori în fișier și de câte ori apare ea. Dacă există mai multe valori care apar de un număr maxim de ori, se va afișa cea mai mică dintre ele. Exemplu: dacă fișierul NUMERE.TXT are conținutul alăturat, 8 711 711 711 11111 11111 11111 191111 231111 atunci programul va afișa pe ecran 711 3.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată la punctul a, justificând eficiența acesteia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

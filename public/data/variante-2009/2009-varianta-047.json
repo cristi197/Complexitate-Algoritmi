@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-047",
+  "year": 2009,
+  "variant": 47,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 139,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele variabile nu își modifică valoarea în urma executării secvenței de instrucțiuni alăturate, oricare ar fi valorile lor inițiale? (a,b,c sunt variabile de tip int). c=2*a-b; a=a-b; a=c-a; b=2*a-c;",
+        "options": {
+          "a": "niciuna",
+          "b": "doar c",
+          "c": "doar a și c",
+          "d": "doar a"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește n (număr natural nenul) maxÅ0 ┌repetă │ nÅ[n/10] │ ┌dacă max<n%10 atunci │ │ maxÅn%10 │ └■ └până când n=0 scrie max Varianta 47",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea afișată dacă se citește numărul 27349.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți câte numere naturale de trei cifre pot fi citite pentru variabila n, astfel încât valoarea afișată să fie 3.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura repetă...până când cu o structură repetitivă cu test inițial.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următorii vectori NU poate reprezenta vectorul „de tați” al unui arbore cu rădăcină, cu 5 noduri, numerotate de la 1 la 5?",
+        "options": {
+          "a": "3 1 0 1 2",
+          "b": "2 0 1 1 2",
+          "c": "3 4 0 2 3",
+          "d": "4 1 1 0 2 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Variabila s reține șirul de caractere bacalaureat. Ce se afișează la executarea instrucțiunii de mai jos? cout<<strchr(s,’a’); | printf(“%s”,strchr(s,’a’));",
+        "options": {
+          "a": "2",
+          "b": "acalaureat",
+          "c": "4",
+          "d": "bcluret"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin 2 elemente, fiecare element reține în câmpul inf un număr natural, iar în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. Variabila p reține adresa primului element din listă. Dacă se prelucrează lista de mai jos, care este valoarea memorată de variabila întreagă k, la finalul executării următoarei secvențe de instrucțiuni? k=0; while((p->urm!=NULL) && (p->inf*p->urm->inf%10!=0)) { p = p->urm; k ++; } (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "În declararea alăturată, câmpurile a și b ale înregistrării reprezintă numărătorul, respectiv numitorul unei fracții. Care este expresia cu care se pot înlocui punctele de suspensie în secvența de mai jos astfel încât dacă fracția memorată în variabila f se simplifică prin numărul natural nenul k se afișează mesajul DA? if ( … ) cout<<” DA”; | printf(”DA”); (6p.) struct rap { int a, b; } f; int k;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură două numere naturale m și n (0<m≤10, 0<n≤10) și elementele unui tablou bidimensional cu m linii și n coloane care reține numere naturale mai mici decât 100; programul va construi și va afișa pe ecran un nou tablou bidimensional cu n linii și m coloane, obținut din primul prin rotirea acestuia în sens trigonometric cu 90 o , ca în exemplu. (10p.) Exemplu: pentru m=4, n=5 și tabloul: 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 se va afișa: 25 30 35 40 24 29 34 39 23 28 33 38 22 27 32 37 21 26 31 36 Varianta 47",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-un penar sunt opt creioane: trei sunt roșii, două albastre și trei negre. Dacă scoatem din penar cinci creioane, câte posibilități există ca cel puțin două dintre ele să fie roșii?",
+        "options": {
+          "a": "6",
+          "b": "12",
+          "c": "15",
+          "d": "3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f definit alăturat. Ce valoare are f(5)? Dar f(100)? (6p.) long f(int n) { if(n<0) return 0; else return f(n-2)+n; } Fișierul text bac.txt conține pe prima linie un număr natural n (n<100), iar pe a doua linie, separate prin câte un spațiu, n numere naturale de cel mult 8 cifre fiecare. Scrieți un program C/C++ care citește de la tastatură un număr natural k (k<50) precum și numerele din fișierul bac.txt și afișează pe ecran, cu câte un spațiu între ele, toate numerele de pe a doua linie a fișierului care sunt puteri ale lui k. Un număr natural x este putere a lui k dacă există un număr natural y astfel încât x=k y . Dacă nu există un asemenea număr pe a doua linie a fișierului, se afișează pe ecran mesajul NU.",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Exemplu: dacă se citește de la tastatură k=2, iar fișierul are conținutul alăturat, atunci pe ecran se afișează numerele: 32 256 2 1 (10p.) 8 32 56 317 809 256 2 1 60",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "a) Scrieți în limbajul C/C++ doar antetul unui subprogram cif, care primește prin intermediul primului parametru, nr, un număr natural cu cel mult 9 cifre și furnizează prin intermediul celui de-al doilea parametru, s, suma cifrelor din scrierea lui nr. (4p.) b) Scrieți programul C/C++ care citește de la tastatură un număr natural n (0<n<25), apoi un șir de n numere naturale nenule cu cel mult 9 cifre fiecare și care afișează pe ecran, separate prin câte un spațiu, numerele din șir care au suma cifrelor maximă, folosind apeluri utile ale subprogramului cif. Exemplu: dacă pentru n=8 se citește șirul de numere 274 56018 354 8219 293 287 932 634 atunci, pe ecran, se afișează numerele 56018 8219. (6p.) Varianta 47",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți în limbajul C/C++ doar antetul unui subprogram cif, care primește prin intermediul primului parametru, nr, un număr natural cu cel mult 9 cifre și furnizează prin intermediul celui de-al doilea parametru, s, suma cifrelor din scrierea lui nr.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (0<n<25), apoi un șir de n numere naturale nenule cu cel mult 9 cifre fiecare și care afișează pe ecran, separate prin câte un spațiu, numerele din șir care au suma cifrelor maximă, folosind apeluri utile ale subprogramului cif. Exemplu: dacă pentru n=8 se citește șirul de numere 274 56018 354 8219 293 287 932 634 atunci, pe ecran, se afișează numerele 56018 8219.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

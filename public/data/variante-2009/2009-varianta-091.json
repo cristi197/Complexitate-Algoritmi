@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-091",
+  "year": 2009,
+  "variant": 91,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 271,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Știind că variabila întreagă nr memorează valoarea 5, stabiliți ce mesaj se va afișa în urma executării secvenței următoare. //C++ if (nr<7) if (nr>3) cout<<”Bine”; else cout<<”Foarte bine”; else cout<<”Rau”; //C if (nr<7) if (nr>3) printf(”Bine”); else printf(”Foarte bine”); else printf(”Rau”);",
+        "options": {
+          "a": "BineRau",
+          "b": "Foarte bine",
+          "c": "Rau",
+          "d": "Bine"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu [a] partea întreagă a numărului real a și cu |b| valoarea absolută a numărului întreg b.",
+      "pseudocode": "citește z, x (numere întregi nenule) zÅ|z| xÅ|x| ┌repetă │ yÅx │ xÅ[(x+z/x)/2] └până când x=y scrie x Varianta 91",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa pentru z=50 și x=1.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura repetă...până când cu o structură repetitivă cu test inițial.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Dacă pentru z se",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră un graf neorientat G cu 101 noduri și 101 muchii. Numărul maxim de vârfuri izolate ale grafului poate fi:",
+        "options": {
+          "a": "0",
+          "b": "10",
+          "c": "50",
+          "d": "86 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un arbore cu rădăcină, cu 11 noduri, numerotate de la 1 la 11, este memorat cu ajutorul vectorului de tați t=(2,5,5,3,0,2,4,6,6,2,3). Descendenții direcți (fiii) ai nodului 2 sunt:",
+        "options": {
+          "a": "1, 6 și 10",
+          "b": "5",
+          "c": "6, 8 și 9",
+          "d": "3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră definită matricea A care are 10 linii, numerotate de la 1 la 10, și 8 coloane, numerotate de la 1 la 8, ale cărei elemente sunt numere întregi. Rescrieți secvența alăturată astfel încât toate elementele de pe cea de-a treia coloană a matricei să fie inițializate cu valoarea 100. (6p.) for(j=1;j<=10;j++) A[j][8]=0;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce se va afișa în urma executării secvenței alăturate de program, în care variabila c memorează un șir cu cel mult 20 de caractere, iar variabila i este de tip întreg? (6p.) char c[]=\"abracadabra\"; i=6; cout<<c[i]<<c[i+1] <<endl; | printf(”%c%c\\n”, c[i],c[i+1]); while (i>=0) {cout<<c[i]; | printf(”%c”,c[i]); i=i-1;}",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "O listă dublu înlănțuită, alocată dinamic, memorează în fiecare nod al său, în câmpul info un caracter, iar în câmpurile prec și urm adresa nodului precedent, respectiv următor din listă sau NULL dacă nu există un nod precedent, respectiv următor în listă. Scrieți programul C/C++ care citește de la tastatură un cuvânt (având maximum 20 de litere), creează lista dublu înlănțuită care va conține în ordine, de la stânga la dreapta, caracterele cuvântului citit (câte o literă în fiecare nod al listei) și afișează pe ecran caracterele din listă, în ordinea inversă a memorării lor. Exemplu: dacă s-a citit de la tastatură cuvântul IRINA se crează lista de mai jos, apoi se va afișa ANIRI. (10p.) Varianta 91",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru a planifica în orarul unei școli, la clasa a XII-a, 4 ore de informatică în zile lucrătoare diferite din săptămână, câte o singură oră pe zi, se poate utiliza un algoritm echivalent cu algoritmul de generare a:",
+        "options": {
+          "a": "permutărilor de 4 elemente",
+          "b": "aranjamentelor de 4 elemente luate câte 5",
+          "c": "aranjamentelor de 5 elemente luate câte 4",
+          "d": "combinărilor de 5 elemente luate câte 4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul recursiv alăturat este definit incomplet. Scrieți expresia care poate înlocui punctele de suspensie astfel încât, în urma apelului, f(12) să se afișeze șirul de valori: 12 6 3 1 1 3 6 12. (6p.) void f(int i) { if (. . .) { printf(”%d ”,i); | cout<<i<<’ ’; f(i/2); printf(”%d ”,i); | cout<<i<<’ ’; } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul par primește prin singurul său parametru, n, un număr natural nenul cu cel mult 8 cifre și returnează valoarea 1 dacă n conține cel puțin o cifră pară, sau returnează valoarea 0 în caz contrar. Exemplu: pentru n=723 subprogramul va returna valoarea 1. a) Scrieți numai antetul subprogramului par. (2p.) b) Scrieți un program C/C++ care citește de la tastatură un număr natural nenul n cu cel mult trei cifre, apoi un șir de n numere naturale, cu cel puțin două și cel mult 8 cifre fiecare, și afișează pe ecran numărul de valori din șirul citit care au numai cifra unităților pară, celelalte cifre fiind impare. Se vor utiliza apeluri utile ale subprogramului par. Exemplu: dacă n=4, iar șirul citit este 7354, 123864, 51731, 570 se va afișa 2 (numerele 7354 și 570 respectă condiția cerută). (8p.) Fișierul numere.in conține cel mult 5000 de numere reale, câte unul pe fiecare linie. Se cere să se scrie un program care să citescă toate numerele din fișier și să afișeze pe ecran numărul de ordine al primei, respectiv al ultimei linii pe care se află cel mai mare număr din fișier. Cele două numere vor fi separate printr-un spațiu. Alegeți o metodă de rezolvare eficientă din punct de vedere al spațiului de memorare și al timpului de executare.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Exemplu: dacă fișierul are conținutul alăturat, pe ecran se vor afișa numerele 2 6.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare aleasă, explicând în ce constă eficiența ei.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător metodei descrise. 3.5 7 -4 7 2 7 6.3 5",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "2009-varianta-025",
+  "year": 2009,
+  "variant": 25,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 73,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În secvența pseudocod alăturată, toate variabilele memorează numere naturale. Cu ce valori pot fi înlocuite punctele de suspensie din secvență astfel încât, la finalul executării secvenței să se afișeze, în acestă ordine, valorile 16 și 41? aÅ... bÅ... ┌pentru iÅ3,7 execută │ cÅa+b; xÅa; aÅb; bÅc └■ scrie x,c",
+        "options": {
+          "a": "1 și 1",
+          "b": "3 și 4",
+          "c": "5 și 2",
+          "d": "2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu y|x faptul că x este divizibil cu y.",
+      "pseudocode": "citește a,b,c (numere naturale nenule) ┌dacă a>b atunci │ tÅa; aÅb; bÅt └■ ┌cât timp a≤b execută │ ┌dacă c|a atunci │ │ scrie a │ └■ │ aÅa+1 └■ Varianta 25",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți care sunt valorile ce se vor afișa pentru a=10, b=20 și c=6.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp...execută cu o structură pentru...execută.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți o formulă care să calculeze câte numere se afișează dacă a≤b.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Structura de date la care se aplică principiul „primul venit, primul ieșit”: (first in, first out) este:",
+        "options": {
+          "a": "lista înlănțuită",
+          "b": "stiva",
+          "c": "coada",
+          "d": "graf orientat 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră graful orientat din figura alăturată. Care este numărul minim de arce ce trebuie adăugate grafului și care sunt aceste arce, astfel încât oricare două vârfuri din graf să fie unite prin drumuri elementare? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți o secvență de instrucțiuni C/C++ care determină, în urma executării ei, afișarea pe ecran a mesajului Corect dacă un șir de maximum 100 caractere, memorat de variabila s, este palindrom sau mesajul Incorect în caz contrar. Un șir de caractere este palindrom dacă citit de la început la sfârșit este identic cu șirul citit de la sfârșit la început. Exemplu: șirul de caractere cojoc este palindrom (4p.) Se consideră un tablou bidimensional cu m linii și n coloane (1≤m≤100, 1≤n≤100), ale cărui elemente aparțin mulțimii {0,1,2}. Scrieți un program C/C++ citește de la tastatură valorile m, n și elementele tabloului și care afișează pe ecran numerele de ordine ale coloanelor pentru care produsul elementelor situate pe ele, este maxim. Liniile și coloanele tabloului se numerotează de la 1 la m, respectiv de la 1 la n. Numerele se vor afișa separate prin câte un spațiu.",
+        "points": 4
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru m=4 și n=4 și tabloul alăturat se va afișa: 1 2 (10p.) 2 1 1 0 1 1 1 1 2 2 2 1 1 2 1 1 Varianta 25",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un program citește o valoare naturală nenulă impară pentru n și apoi generează și afișează în ordine crescătoare lexicografic toate combinațiile formate din n cifre care îndeplinesc următoarele proprietăți: - încep și se termină cu 0; - modulul diferenței între oricare două cifre alăturate dintr-o combinație este 1. Astfel, pentru n=5, combinațiile afișate sunt, în ordine, următoarele: 01010, 01210. Dacă se rulează acest program și se citește pentru n valoarea 7, imediat după combinația 0101210 va fi afișată combinația:",
+        "options": {
+          "a": "0121210",
+          "b": "0123210",
+          "c": "0111210",
+          "d": "0121010"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Funcția f are definiția alăturată: a) Ce valoare are f(16)? (3p.) b) Scrieți cea mai mare valoare de două cifre pe care o poate avea n astfel încât f(n) să fie egal cu 2. (3p.) int f(int n) { if (n<=0) return -1; if (n%2==0) return 0; if (n%3==0) return 0; return 1+f(n-10); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul f primește prin intermediul parametrului n un număr natural nenul (1≤n≤9), iar prin intermediul parametrului a, un tablou unidimensional care conține n valori naturale, fiecare dintre acestea reprezentând câte o cifră a unui număr. Astfel, a0 reprezintă cifra unităților numărului, a1 cifra zecilor etc. Subprogramul furnizează prin parametrul k o valoare naturală egală cu numărul obținut din cifrele pare reținute în tabloul a sau valoarea -1 dacă în tablou nu există nicio cifră pară. Scrieți definiția completă a subprogramului f. Exemple: dacă subprogramul se apelează pentru n=6 și pentru taboul a având valorile (2,3,5,6,4,1), parametrul k va furniza valoarea 462. Dacă subprogramul se apelează pentru n=4 și pentru a reținând valorile (0,0,1,1), k va furniza valoarea 0. Dacă subprogramul se apelează pentru n=3 și pentru a reținând valorile (3,7,1), k va furniza valoarea -1. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMAR.TXT conține pe prima linie un număr real pozitiv x care are cel mult două cifre la partea întreagă și cel mult șapte cifre după punctul zecimal..",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care, utilizând un algoritm eficient din punct de vedere al timpului de executare și al memoriei utilizate, afișează pe ecran, separate printr-un spațiu, două numere naturale al căror raport este egal cu x și a căror diferență absolută este minimă. Exemplu: dacă fișierul conține valoarea alăturată, se vor afișa pe ecran numerele 3 8. 0.375",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

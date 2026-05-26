@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-020",
+  "year": 2009,
+  "variant": 20,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 58,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este valoarea tipărită de secvența de program C/C++ alăturată, știind că x și y sunt variabile întregi, iar z este o variabilă reală? x=30; y=5; z=(x+y)/6.0; z=floor(z*100); z=z/100; cout<<z; | printf(“%0.2f”,z);",
+        "options": {
+          "a": "5",
+          "b": "5.833333",
+          "c": "5.83",
+          "d": "583"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural) aÅn%10 mÅa ┌cât timp n>9 execută │ nÅ[n/10] │ bÅn%10 │┌dacă a>b atunci ││ mÅm*10+b ││ aÅb │└■ └■ scrie m Varianta 20",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea pe care o va afișa algoritmul dacă se citește numărul 16389.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mică valoare de patru cifre distincte care poate fi citită pentru variabila n, astfel încât să se afișeze valoarea 0.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Matricea de adiacență a unui graf neorientat G are numărul valorilor de 1 egal cu jumătate din numărul valorilor de 0. Care dintre numerele de mai jos poate fi numărul de noduri ale grafului G?",
+        "options": {
+          "a": "12",
+          "b": "14",
+          "c": "11",
+          "d": "13 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care dintre următoarele variante reprezintă o declarare corectă pentru o variabilă x care memorează simultan numărătorul și numitorul unei fracții ireductibile:",
+        "options": {
+          "a": "float x;",
+          "b": "char x[2];",
+          "c": "struct x{int n1,n2;};",
+          "d": "struct fractie {int n1,n2;} x;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Știind că în listă sunt memorate, în ordine, numerele de la 1 la 9, și variabila p reține adresa elementului cu valoarea 4, iar variabila q este de același tip cu p, precizați ce se va afișa în urma executării secvenței de program alăturate? (6p.) q=p; cout<<q->adr->val<<endl; | printf(“%d”,q->adr->val); while(q->adr!=p) q=q->adr; cout<<q->adr->val; | printf(“%d”,q->adr->val);",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "In secvența de program alăturată, variabila a memorează un șir cu cel mult 100 de caractere, iar variabila i este de tip întreg. Completați punctele de suspensie, astfel încât, în urma executării secvenței, să se afișeze doar literele mici și literele mari din șirul de caractere memorat în variabila a. (6p.) strcpy(a,”Bac 2009 iulie”); for(i=0;i<strlen(a);i++) if(...) cout<<a[i]; Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<20) și construiește în memorie o matrice cu n linii și n coloane, numerotate de la 1 la n, în care fiecare element aflat pe chenarul exterior al matricei este egal cu suma dintre indicele liniei și indicele coloanei pe care se află, iar fiecare dintre celelalte elemente este egal cu suma celor trei “vecini” situați în matrice pe linia anterioară. Două elemente din matrice se numesc vecine dacă se găsesc alături pe linie, coloană sau diagonală. Chenarul exterior al unei matrice este format din prima linie, ultima linie, prima coloană și ultima coloană.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Elementele matricei vor fi afișate pe ecran, câte o linie a matricei pe câte o linie a ecranului cu câte un spațiu între elementele fiecărei linii. Exemplu: pentru n=5 se va obține matricea alăturată. (10p.) 2 3 4 5 6 3 9 12 15 7 4 24 36 34 8 5 64 94 78 9 6 7 8 9 10 Varianta 20",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Funcția F are definiția alăturată. Ce valoare are F(5)? int F(int x) {if(x!=0) return x+F(x-1); else return x; }",
+        "options": {
+          "a": "5",
+          "b": "10",
+          "c": "15",
+          "d": "6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare",
+      "code": "Un algoritm generează în ordine descrescătoare, toate numerele de n cifre (n<9), cu cifrele în ordine strict crescătoare, care nu au două cifre pare alăturate. Dacă pentru n=5, primele cinci soluții generate sunt 56789, 45789, 45679, 45678, 36789, precizați care sunt următoarele trei soluții generate, în ordinea obținerii lor. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Subprogramul nule are doi parametri: a, prin care primește un tablou unidimensional cu maximum 100 de numere întregi, cu cel mult 4 cifre fiecare și n, numărul de elemente din tablou. Subprogramul rearanjează elementele tabloului unidimensional astfel încât toate valorile nule să se afle la sfârșitul tabloului. Ordinea în cadrul secvenței de elemente nenule poate fi oricare. Tabloul modificat este furnizat tot prin parametrul a. Exemplu: dacă n=6, a=(12,0,0,-3,-8,0), după apel, acesta ar putea fi: a=(12,-3,-8,0,0,0). Scrieți definiția completă a subprogramului nule. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul nr1.txt este memorată pe prima linie o valoare naturală n de cel mult 8 cifre, iar pe linia următoare sunt memorate n numere naturale, cu maximum 4 cifre fiecare, ordonate strict crescător și separate prin câte un spațiu. În fișierul nr2.txt este memorată pe prima linie o valoare naturală m de cel mult 8 cifre, iar pe linia următoare sunt memorate m numere naturale, cu maximum 4 cifre fiecare, ordonate strict crescător și separate prin câte un spațiu. Se cere afișarea pe ecran, separate prin câte un spațiu, în ordine strict crescătoare, a tuturor numerelor aflate pe a doua linie atât în primul cât și în al doilea fișier. Alegeți un algoritm de rezolvare eficient din punct de vedere al memoriei utilizate și al timpului de executare. Exemplu: pentru următoarele fișiere: nr1.txt nr2.txt 5 6 3 6 8 9 12 2 3 5 7 9 13 se va afișa 3 9.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți succint, în limbaj natural, strategia de rezolvare și justificați eficiența algoritmului ales.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător algoritmului ales.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "id": "2009-varianta-027",
+  "year": 2009,
+  "variant": 27,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 79,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În expresia C/C++ alăturată variabila x este de tip întreg. Această expresie: x%2+(x+1)%2",
+        "options": {
+          "a": "are valoarea 1 pentru orice număr natural x.",
+          "b": "are valoarea 1 dacă și numai dacă x este un număr par.",
+          "c": "are valoarea 1 dacă și numai dacă x este un număr impar.",
+          "d": "are o valoare strict mai mare decât 1 pentru orice număr natural x."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [x] partea întreagă a numărului real x.",
+      "pseudocode": "citeste a,b (numere naturale) cÅ0 dÅ0 pÅ1 ┌cât timp a+b+c>0 execută │ cÅa%10+b%10+c │ dÅd+(c%10)*p │ pÅp*10 │ aÅ[a/10] │ bÅ[b/10] │ cÅ[c/10] └■ scrie d Varianta 27",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează dacă se citesc numerele a=493 și b=1836.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, care să NU folosească structuri repetitive sau recursive.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul minim de arce ce trebuie adăugate în graful orientat din figura alăturată astfel încât fiecare vârf să aparțină unui circuit?",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "4 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "În declararea alăturată, câmpurile x și y ale înregistrării reprezintă numărătorul, respectiv numitorul unei fracții de forma y x . Scrieți instrucțiunile prin executarea cărora se memorează în variabila H fracția obținută prin adunarea fracțiilor reținute în F și G. (6p.) struct fractie { int x,y; } F,G,H;",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul nr al fiecărui element câte un număr natural, iar în câmpul urm, adresa elementului următor din listă sau NULL dacă nu există un astfel de element. Lista memorează, în acestă ordine, doar numerele: 1, 2, 3, 4,",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "p=prim; while(p->urm!=NULL) {p->urm->nr=p->nr*p->urm->nr; p=p->urm; } Știind că variabila prim memorează adresa primului element al listei și că p este o variabilă de același tip cu prim, care va fi valoarea reținută în ultimul element al listei după executarea secvenței de program de mai sus? (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (2<n<=10) și construiește în memorie o matrice A cu n linii și n coloane în care toate elementele de pe prima linie, prima și ultima coloană au valoarea 1 și oricare alt element Aij din matrice este egal cu suma a 3 elemente situate pe linia i-1: primul aflat pe coloana j-1, al doilea pe coloana j, iar al treilea pe coloana j+1, ca în exemplu. Matricea va fi afișată pe ecran, linie cu linie, numerele de pe aceeași linie fiind separate prin câte un spațiu. Exemplu: pentru n=5 , se afișează matricea alăturată. (10p.) Varianta 27",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru generarea în ordine crescătoare a numerelor cu n cifre formate cu elementele mulțimii {0,2,8} se utilizează un algoritm backtracking care, pentru n=2, generează, în ordine, numerele 20,22,28,80,82,88. Dacă n=4 și se utilizează același algoritm, precizați câte numere generate sunt divizibile cu 100?",
+        "options": {
+          "a": "8",
+          "b": "90",
+          "c": "6",
+          "d": "10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul scrie este definit alăturat. Ce se afișează ca urmare a apelului scrie(2,6); ? (6p.) void scrie (int x,int y) { cout<<x<<y; | printf(“%d%d”,x,y); if(x<y) { scrie(x+1,y-1); cout<<(x+y)/2;|printf(“%d”,(x+y)/2); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definița completă a subprogramului nreal cu doi parametri x și y, numere naturale din intervalul [1;1000] ce returnează un număr real cu proprietatea că partea sa întreagă este egală cu x, iar numărul format din zecimalele sale, în aceeași ordine, este egal cu y. Exemplu: pentru x=12 și y=543, subprogramul returnează valoarea 12.543. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text NUMERE.IN conține pe prima linie un număr natural nenul n (2≤n≤100) și pe următoarea linie n numere reale pozitive, în ordine strict crescătoare, separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care, utilizând un algoritm eficient din punct de vedere al memoriei utilizate, determină și afișează pe ecran cel mai mare număr natural x cu proprietatea că în orice interval deschis având drept capete oricare două dintre cele n numere aflate pe linia a doua în fișierul NUMERE.IN se găsesc cel puțin x numere întregi. Exemplu: dacă fișierul NUMERE.IN are conținutul: 6 3.5 5.1 9.2 16 20.33 100 atunci se afișează 2 Explicație: în oricare dintre intervalele (3.5,5.1), (3.5,9.2), (3.5,16), (3.5,20.33), (3.5,100), (5.1,9.2), (5.1,16), (5.1,20.33), (5.1,100), (9.2,16), (9.2,20.33), (9.2,100), (16,20.33), (16,100), (20,33,100) există cel puțin două numere întregi.",
+            "points": null
+          },
+          {
+            "id": "b",
+            "text": "Descrieți în limbaj natural metoda utilizată și explicați în ce constă eficiența ei.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

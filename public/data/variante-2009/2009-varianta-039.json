@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-039",
+  "year": 2009,
+  "variant": 39,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 115,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este numărul total de atribuiri efectuate la executarea secvenței de instrucțiuni alăturate? x=4; y=6; while (y==6) y=y+1; if (x==y) x=x+1;",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "2",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural) nrÅ0 pÅ1 ┌cât timp n≠0 execută │ c Å n%10 │┌dacă c>0 și c < 9 atunci ││ cÅc+1 │└■ │ nr Å nr+c*p │ p Å p*10 │ n Å [n/10] └■ scrie nr",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul afișat dacă se citește valoarea n=12939.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate valorile care pot fi citite pentru variabila n astfel încât, în urma executării algoritmului, valoarea afișată să fie 2009.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Stabiliți care dintre următorii vectori este vector de ”tați” pentru arborele cu 7 noduri, numerotate de la 1 la 7, cu rădăcina 1, reprezentat prin matricea de adiacență alăturată: 0 1 0 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0",
+        "options": {
+          "a": "(1, 0, 2, 2, 1, 5, 5)",
+          "b": "(0, 1, 2, 2, 1, 5, 5)",
+          "c": "(3, 1, 0, 2, 1, 5, 6)",
+          "d": "(2, 1, 0, 2, 1, 5, 2) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un graf neorientat cu 7 noduri, numerotate de la 1 la 7 are muchiile [1,5], [2,3], [2,4], [2,5], [3,4], [4,5], [4,7], [5,6], [5,7]. Câte cicluri elementare distincte există în graf? Două cicluri sunt distincte dacă diferă prin cel puțin o muchie.",
+        "options": {
+          "a": "7",
+          "b": "4",
+          "c": "5",
+          "d": "6"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul info un număr întreg, iar în câmpul leg adresa următorului nod din listă sau NULL dacă nu există un nod următor. Adresa primului element al listei este memorată în variabila p. Ce valoare se va afișa, în urma executării secvenței alăturate, dacă lista memorează, în ordine, doar valorile 5, 4, 3, 2, 6 ? (6p.) x=1; while (p->leg!=NULL) { x=x * p->leg->info; p=p->leg; } cout<<x;|printf(“%d“,x);",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Considerăm declarațiile: int i,j,a[10][10]; Ce se va afișa după executarea secvenței de instrucțiuni alăturate? (6p.) for(i=1;i<=3;i++) for(j=1;j<=3;j++) a[i][j]=i+j; for(i=1;i<=3;i++){ for(j=1;j<=3;j++) cout<<a[i][j]; | printf(“%d“,a[i][j]); cout<<endl; | printf(“\\n“); }",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Un șir cu maximum 255 de caractere conține cuvinte separate prin câte un spațiu. Cuvintele sunt formate numai din litere mici ale alfabetului englez. Scrieți un program C/C++ care citește de la tastatură un astfel de șir și îl afișează pe ecran modificat, inversând prin oglindire doar cuvintele care încep cu vocală, ca în exemplu. Se consideră ca fiind vocale următoarele litere: a, e, i, o, u. Exemplu: pentru șirul: maine este proba la informatica se va afișa: maine etse proba la acitamrofni (10p.) Varianta 39",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizăm metoda backtracking pentru generarea tuturor modalităților de a scrie numărul 6 ca sumă a cel puțin două numere naturale nenule. Termenii fiecărei sume sunt în ordine crescătoare. Soluțiile se generează în ordinea: 1+1+1+1+1+1, 1+1+1+1+2, 1+1+1+3, 1+1+4, 1+5, 2+2+2, 2+4 și 3+3. Se aplică exact aceeași metodă pentru scrierea lui 9. Care este penultima soluție?",
+        "options": {
+          "a": "3+3+3",
+          "b": "3+6",
+          "c": "4+5",
+          "d": "2+7"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, ce valoare are f(3)? Dar f(8)? (6p.) int f(int x) { if(x<=4) return x*x-3; return f(x-3)+4; } Pe prima linie a fișierului bac.in se află un număr natural nenul n (n≤1000), iar pe a doua linie a fișierului se află un șir format din n numere naturale, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care citește valorile din fișier și care afișează pe ecran mesajul DA dacă toate elementele pare din șir sunt în ordine crescătoare și mesajul NU în caz contrar.",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Exemplu: dacă fișierul bac.in are conținutul alăturat, pe ecran se va afișa: DA (10p.) 7 10 113 12 33 42 1354 421",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul pr, care primește prin intermediul parametrului a un număr natural nenul cu cel mult 9 cifre și returnează 1 dacă numărul este prim și 0 în caz contrar.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți numai antetul subprogramului pr.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Considerăm un număr natural nenul n>99 cu cel mult 9 cifre. Din n se obține un șir de valori prin eliminarea succesivă a ultimei cifre, apoi a ultimelor două cifre, apoi a ultimelor trei cifre etc., până ce se obține un număr de două cifre, ca în exemplu. Să se realizeze un program C/C++ care citește de la tastatură numărul n și care, folosind apeluri utile ale subprogramul pr, afișează pe ecran, separate prin câte un spațiu, doar valorile prime din șirul numerelor obținute din n, prin procedeul descris mai sus. Exemplu: pentru n=193124 se obține șirul de valori 19312,1931, 193, 19. din care se vor afișa pe ecran doar valorile 1931 193 19 (nu neapărat în această ordine).",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

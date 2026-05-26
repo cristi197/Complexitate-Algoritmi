@@ -1,0 +1,144 @@
+{
+  "id": "2009-varianta-051",
+  "year": 2009,
+  "variant": 51,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 151,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întreagă x memorează un număr natural cu exact 4 cifre. Care dintre următoarele instrucțiuni C/C++ determină, în urma executării, eliminarea cifrei sutelor numărului memorat de variabila x?",
+        "options": {
+          "a": "x=x%10+x/10+x/1000;",
+          "b": "x=x%1000*100+x/100;",
+          "c": "x=x%1000+x%100+x%10;",
+          "d": "x=x/1000*100+x%100;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y și cu [a] partea întreagă a numărului real a.",
+      "pseudocode": "citește x (număr natural nenul) z Å 0 ┌repetă │ c Å x%10 │ ┌dacă c%2≠0 atunci │ │ zÅz*10+c-1 │ │altfel │ │ zÅz*10+c │ └■ │ x Å [x/10] └până când x = 0 scrie z Varianta 51",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce valoare se va afișa dacă pentru x se citește numărul 1234.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mare valoare formată din exact 4 cifre distincte, care poate fi citită pentru variabila x, astfel încât algoritmul să afișeze un număr format din toate cifrele lui x, dar în ordine inversă.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura repetitivă cu test final cu o structură repetitivă cu test inițial.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Considerăm declararea alăturată folosită pentru a memora numele, prenumele și media unui elev. Care dintre expresiile de mai jos are ca valoare prima literă a numelui unui elev ale cărui informații sunt memorate în variabila p? struct elev{ char nume[10],prenume[20]; float medie; }p;",
+        "options": {
+          "a": "p.nume[1]",
+          "b": "p.nume[0]",
+          "c": "p.nume",
+          "d": "nume[1] 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră un graf neorientat cu 5 noduri și 9 muchii. Care dintre următoarele șiruri de numere poate fi șirul gradelor nodurilor grafului?",
+        "options": {
+          "a": "4, 2, 6, 4, 2",
+          "b": "2, 2, 1, 2, 2",
+          "c": "1, 1, 1, 1, 1",
+          "d": "4, 3, 3, 4, 4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "În secvența alăturată, variabila a memorează elementele unui tablou bidimensional cu 4 linii (numerotate de la 0 la 3) și 4 coloane (numerotate de la 0 la 3), iar toate celelalte variabile sunt de tip întreg. După executarea secvenței de instrucțiuni scrisă alăturat a) ce valoare va avea elementul a[1][3]? (3p.) b) care este suma elementelor de pe diagonala principală a acestui tablou? (3p.) x=1; for (i=0;i<=3;i++) for (j=0;j<=3;j++) { if (i==j) a[i][j]=2*x; else a[i][j]=x; x=x+1; }",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Care este numărul maxim de muchii pe care îl poate avea un graf neorientat cu 6 noduri și 3 componente conexe? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Se consideră un șir s având maximum 52 de caractere, șir ce conține numai litere mici ale alfabetului englez și cifre. Primul caracter al șirului este o literă mică, ultimul caracter al șirului este o cifră și fiecare literă mică din șir este urmată de o cifră nenulă. Scrieți un program C/C++ care citește de la tastatură șirul s, apoi construiește și afișează pe ecran un nou șir de caractere, format numai din litere mici ale alfabetului englez, șir construit după următoarea regulă: fiecare literă mică se va repeta de atâtea ori de câte ori o indică cifra situată pe poziția imediat următoare în șirul inițial, ca în exemplu. Exemplu: dacă se citește de la tastatură șirul a2b1f2 atunci șirul cerut este aabff (10p.) Varianta 51",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este antetul corect al subprogramului cifre, care primește prin intermediul primului parametru, x, un număr natural și furnizează prin intermediul celui de-al doilea parametru, y, suma cifrelor numărului natural x?",
+        "options": {
+          "a": "void cifre(int x, int &y)",
+          "b": "int cifre(int x)",
+          "c": "void cifre(int x, int y)",
+          "d": "void cifre(int &x, int y)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră numărul x=21034085. Permutând cifrele lui x se obțin alte numere naturale. a) Dați exemplu de un astfel de număr care să fie divizibil cu 25. b) Câte dintre numerele obținute au exact 7 cifre? (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Se consideră subprogramul dist2, care primește prin intermediul parametrilor xa, ya și respectiv xb, yb, coordonatele carteziene întregi (abscisă, ordonată) pentru două puncte din plan, A și respectiv B. Subprogramul returnează pătratul distanței dintre cele două puncte. a) Scrieți în limbajul C/C++ definiția completă a subprogramului dist2. (4p.) b) Scrieți un program C/C++ care citește de la tastatură 8 valori întregi reprezentând coordonatele carteziene pentru patru puncte din plan și afișează mesajul Da dacă cele patru puncte pot fi vârfurile unui pătrat, iar în caz contrar afișează mesajul Nu,folosind apeluri utile ale subprogramului dist2. Exemplu: dacă coordonatele punctelor sunt cele alăturate atunci se va afișa mesajul Da (6p.) 0 0 3 0 3 3 0 3 Fișierul text date.in conține pe prima linie un număr natural nenul n (n≤100), iar pe a doua linie n numere naturale nenule, separate prin câte un spațiu, fiecare număr având maximum 4 cifre. Scrieți un program C/C++ care citește toate numerele din fișierul text date.in, construiește în memorie un tablou unidimensional a, cu cele n elemente din fișier și afișează pe ecran perechile (ai, aj) , 1≤i<j≤n, cu proprietatea că elementele fiecăreia dintre aceste perechi au aceeași paritate. Fiecare pereche se va afișa pe câte o linie a ecranului, elementele perechii fiind separate prin câte un spațiu. În cazul în care nu există nicio pereche, se va afișa valoarea 0.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Exemplu: dacă fișierul date.in are conținutul alăturat, se vor afișa: 16 22 16 6 22 6 3 1 (10p.) 5 16 22 3 6 1 Varianta 51",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

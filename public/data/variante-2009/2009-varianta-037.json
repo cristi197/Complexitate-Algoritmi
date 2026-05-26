@@ -1,0 +1,138 @@
+{
+  "id": "2009-varianta-037",
+  "year": 2009,
+  "variant": 37,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 109,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este valoarea pe care trebuie să o aibă inițial variabila întreagă x pentru ca, în urma executării secvenței alăturate, să se afișeze șirul de mai jos? HHHHHH while (x!=3){ x=x-1; cout<<\"HH\"; | printf(”HH”); }",
+        "options": {
+          "a": "0",
+          "b": "4",
+          "c": "6",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n,k (numere naturale, k≤9) nrÅ0; pÅ1 ┌cât timp n≠ 0 execută │ c Å n%10 │ nr Å nr+c*p │ p Å p*10 │ ┌dacă c=k atunci │ │ nr Ånr+c*p │ │ pÅp*10 │ └■ │ n Å [n/10] └■ nÅnr scrie n Varianta 37",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul afișat dacă se citesc valorile n=1232 și k=2.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți toate perechile de valori care pot fi citite pentru n și k, cu n<100, astfel încât în urma executării algoritmului valoarea afișată să aibă 4 cifre.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de un alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Fie declarările alăturate. Dacă variabila x reține informații despre un elev, precizați care este varianta corectă ce afișează prima literă din numele acestuia? struct elev{ char nume[30]; float nota;}; elev x;",
+        "options": {
+          "a": "cout<<nume; | printf(“%c“,nume);",
+          "b": "cout<<x; | printf(“%c“,x);",
+          "c": "cout<<x.nume; | printf(“%c“,x.nume);",
+          "d": "cout<<x.nume[0]; | printf(“%c“,x.nume[0]); 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare nod reține în câmpul adr adresa următorului nod din listă sau NULL dacă nu există un nod următor, iar în câmpul info un număr întreg. Variabilele d și q rețin adresele câte unui nod (nodul referit de d este inclus în listă, iar cel referit de q nu aparține listei). Să se identifice secvența de instrucțiuni care realizează inserarea corectă, în listă, a nodului referit de variabila q, ca succesor al nodului referit de variabila d.",
+        "options": {
+          "a": "d->adr=q; q->adr=d;",
+          "b": "q->adr=d->adr; d->adr=q;",
+          "c": "d->adr=q; q->adr=d->adr;",
+          "d": "d=q; q->adr=d->adr;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf orientat cu 5 vârfuri reprezentat în figura alăturată. a) Care este matricea de adiacență corespunzătoare grafului? (6p.) b) Scrieți vârfurile care au gradul intern maxim. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Un șir cu maximum 255 de caractere conține cuvinte separate prin unul sau mai multe spații. Cuvintele sunt formate numai din litere mici ale alfabetului englez. Scrieți un program C/C++ care citește un astfel de șir și îl afișează modificat, prima și ultima literă a fiecărui cuvânt fiind afișată ca literă mare. Exemplu: pentru șirul: maine este proba la informatica se va afișa: MainE EstE ProbA LA InformaticA (10p.) Varianta 37",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se utilizează un algoritm pentru a genera în ordine lexicografică inversă toate permutările mulțimii {1,2,3,4,5}. Primele patru permutări generate sunt: 54321, 54312, 54231, 54213. A cincea permutare este:",
+        "options": {
+          "a": "53421",
+          "b": "54321",
+          "c": "54132",
+          "d": "54123"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Considerăm subprogramul f definit alăturat. Ce valoare are f(7,11)? Dar f(11,7)? (6p.) int f(int x,int y) { if(x<=y) return x-y; return f(y-x,x-1)+3; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți un program C/C++ care citește numerele naturale nenule n și k (k≤n≤100) și un tablou unidimensional cu n elemente numere întregi, fiecare având cel mult 4 cifre. Programul modifică tabloul, permutând circular, cu k poziții spre stânga, elementele acestuia și afișează pe ecran, separate prin câte un spațiu, elementele tabloului obținut. Exemplu: dacă n=4, k=3 și tabloul v=(1,2,3,4), atunci se vor afișa în ordine elementele: 4 1 2 3. (10p.) a) Scrieți doar antetul subprogramului nrdiv, care primește prin intermediul parametrului x un număr natural nenul cu cel mult 4 cifre, și returnează numărul de divizori primi ai lui x. (4p.) b) Pe prima linie a fișierului bac.in se află un număr natural nenul n (n≤1000), iar pe a doua linie a fișierului se află un șir format din n numere naturale nenule, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișier și care afișează pe ecran, folosind apeluri utile ale subprogramului nrdiv, prima și ultima valoare din șirul celor n numere citite, care au un număr par de divizori primi. Numerele afișate vor fi separate printr-un spațiu.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Exemplu: dacă fișierul bac.in are conținutul alăturat, pe ecran se va afișa: 20 10 (6p.) 7 30 105 20 140 7 10 5 Varianta 37",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

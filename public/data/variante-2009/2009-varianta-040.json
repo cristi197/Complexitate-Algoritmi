@@ -1,0 +1,158 @@
+{
+  "id": "2009-varianta-040",
+  "year": 2009,
+  "variant": 40,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 118,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este valoarea expresiei C/C++ alăturate? 50-(100–300/2/(2+3))",
+        "options": {
+          "a": "-30",
+          "b": "70",
+          "c": "-20",
+          "d": "60"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește x (număr natural nenul) dÅ2; yÅ0; zÅ0 ┌cât timp x≠ 1 execută │ p Å 0 │ ┌cât timp x%d=0 execută │ │ p Åp+1 │ │ x Å [x/d] │ └■ │ ┌dacă p≠0 atunci │ │ ┌dacă y=0 atunci yÅd │ │ └■ │ │ zÅd │ └■ │ d Å d+1 └■ scrie y scrie z Varianta 40",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numerele afișate dacă se citește valoarea x=168.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mare valoare din intervalul închis [1,50] care poate fi citită pentru variabila x astfel încât, în urma executării algoritmului, să se afișeze două valori egale.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască fiecare structură cât timp...execută cu câte o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră vectorul de ”tați\" al unui arbore cu rădăcină t=(3,4,0,3,3,5) ale cărui noduri sunt numerotate de la 1 la 6. Alegeți afirmatia corectă:",
+        "options": {
+          "a": "nodurile 4 și 6 sunt noduri de tip frunză",
+          "b": "nodul 3 are un singur descendent direct (fiu)",
+          "c": "nodul 6 este tatăl nodului 5",
+          "d": "nodurile 1, 2, 6 sunt noduri de tip frunză 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Se consideră o coadă, în care au fost introduse inițial, în această ordine, două numere: 2 și 1. Conținutul cozii este reprezentat în figura alăturată. Notăm cu AD X operația prin care se adaugă informația X în coadă și cu EL operația prin care se elimină un element din coadă. Asupra cozii se efectuează, exact în această ordine, operațiile AD 10; AD 15; EL; AD 4; EL; AD 20; EL. Care este conținutul cozii după executarea operațiilor de mai sus?",
+        "options": {
+          "a": "15 4",
+          "b": "15 4 20",
+          "c": "4 20",
+          "d": "20"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf neorientat cu 8 noduri, numerotate de la 1 la 8, și muchiile [1,5], [1,6], [2,6], [3,4], [3,6], [3,7], [4,6], [6,8], [7,8]. Dacă se elimină nodul 6 și toate muchiile incidente cu acesta câte componente conexe va avea subgraful rezultat?(6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Considerăm declarațiile: int i,j,a[10][10]; Ce se va afișa după executarea secvenței de instrucțiuni alăturate? (6p.) for(i=1;i<=3;i++) for(j=1;j<=3;j++) if(i<j)a[i][j]=i; else a[i][j]=j; for(i=1;i<=3;i++){ for(j=1;j<=3;j++) cout<<a[i][j]; | printf(“%d“,a[i][j]); cout<<endl; | printf(“\\n“); }",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Un șir cu maximum 255 de caractere conține cuvinte cuvinte formate numai din litere mici ale alfabetului englez. Fiecare cuvânt este urmat de un caracter *. Scrieți un program C/C++ care citește un astfel de șir și afișează pe ecran șirul obținut prin eliminarea tuturor aparițiilor primului cuvânt, ca în exemplu. Exemplu: pentru șirul: bine*albine*foarte*bine* se va afișa: *albine*foarte** (10p.) Varianta 40",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizăm metoda backtracking pentru generarea tuturor modalităților de a scrie numărul 6 ca sumă a cel puțin două numere naturale nenule. Termenii fiecărei sume sunt în ordine crescătoare. Soluțiile se generează în ordinea: 1+1+1+1+1+1, 1+1+1+1+2, 1+1+1+3, 1+1+4, 1+5, 2+2+2, 2+4 și 3+3. Se aplică exact aceeași metodă pentru scrierea lui 9. Câte soluții de forma 2+... vor fi generate?",
+        "options": {
+          "a": "2",
+          "b": "3",
+          "c": "4",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "În secvența alăturată variabilele i, j și aux sunt întregi, iar v memorează un tablou unidimensional ale cărui elemente au următoarele valori: v[1]=2, v[2]=13, v[3]=1, v[4]=5, v[5]=-4. Care este numărul de interschimbări care se efectuează în urma executării secvenței alăturate? Dați un exemplu de alte 5 valori pentru elementele tabloului astfel încât, în urma executării secvenței alăturate, să nu se efectueze nicio interschimbare. (6p.) for(i=1;i<5;i++) for(j=5;j>i;j--) if(v[i]<v[j]) { aux=v[i]; v[i]=v[j]; v[j]=aux; } a) Pe prima linie a fișierului bac.in se află un număr natural nenul n (n≤1000), iar pe a doua linie a fișierului se află un șir format din n numere naturale, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișier și care afișează pe ecran mesajul DA dacă elementele pare în șir sunt în ordine crescătoare, iar cele impare sunt în ordine descrescătoare și mesajul NU în caz contrar. Alegeți un algoritm eficient ca timp de executare și spațiu de memorie utilizat. (6p.) b) Descrieți succint, în limbaj natural, metoda utilizată, justificând eficiența acesteia. (4p.)",
+      "points": 6
+    },
+    "fisiere": [],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Care este numărul de interschimbări care se efectuează în urma executării secvenței alăturate? Dați un exemplu de alte 5 valori pentru elementele tabloului astfel încât, în urma executării secvenței alăturate, să nu se efectueze nicio interschimbare. (6p.) for(i=1;i<5;i++) for(j=5;j>i;j--) if(v[i]<v[j]) { aux=v[i]; v[i]=v[j]; v[j]=aux; }",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Pe prima linie a fișierului bac.in se află un număr natural nenul n (n≤1000), iar pe a doua linie a fișierului se află un șir format din n numere naturale, despărțite prin câte un spațiu, fiecare număr fiind format din cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișier și care afișează pe ecran mesajul DA dacă elementele pare în șir sunt în ordine crescătoare, iar cele impare sunt în ordine descrescătoare și mesajul NU în caz contrar. Alegeți un algoritm eficient ca timp de executare și spațiu de memorie utilizat.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda utilizată, justificând eficiența acesteia. 3. Exemplu: dacă fișierul bac.in are conținutul alăturat, pe ecran se va afișa: DA 8 10 1133 12 331 42 1354 221 13 4.",
+            "points": 4
+          },
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a subprogramului sdiv care primește prin intermediul parametrului y un număr natural cu cel mult 6 cifre și returnează suma tuturor divizorilor numărului y.",
+            "points": 5
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (n<10000) și care, folosind apeluri ale subprogramului sdiv verifică dacă suma divizorilor lui n este un număr prim. În caz afirmativ, programul va afișa pe ecran mesajul Da și în caz contrar va afișa mesajul NU. Exemplu: dacă n=206, atunci programul va afișa: NU (1+2+103+206=312, iar 312 nu este un număr prim).",
+            "points": 5
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

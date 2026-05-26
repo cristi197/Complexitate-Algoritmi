@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-087",
+  "year": 2009,
+  "variant": 87,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 259,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre variantele de mai jos declară constanta x astfel încât aceasta să memoreze corect numărul real 3,14?",
+        "options": {
+          "a": "const int x=314/100;",
+          "b": "const char x=3.14;",
+          "c": "const unsigned int x=3.14;",
+          "d": "const float x=3.14;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește a,b,c (numere naturale nenule) ┌cât timp a≠b sau a≠c execută │ xÅa │ ┌dacă x>b atunci │ │ xÅb │ └■ │ ┌dacă x>c atunci │ │ xÅc │ └■ │ ┌dacă x≠a atunci │ │ aÅa-x │ └■ │ ┌dacă x≠b atunci │ │ bÅb-x │ └■ │ ┌dacă x≠c atunci │ │ cÅc-x │ └■ └■ scrie a Varianta 87",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care se va afișa dacă se citesc, în ordine, valorile 6, 4 și 10.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cele mai mari trei numere naturale nenule, distincte, cu cel mult două cifre fiecare, care pot fi citite pentru a, b respectiv c, astfel încât să se afișeze valoarea 7 la finalul executării algoritmului.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura repetitivă cât timp...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În declararea alăturată, variabila p memorează în câmpul x abscisa, iar în câmpul y ordonata unui punct din planul xOy. Dacă punctul se află pe cel puțin una dintre axele de coordonate, care dintre expresiile de mai jos are valoarea 1? struct {float x; float y;}p;",
+        "options": {
+          "a": "p.x*p.y==0",
+          "b": "(p.x==0)&&(p.y==0)",
+          "c": "x.p+y.p==0",
+          "d": "(p(x)==0)||(p(y)==0) 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Ce valoare are variabila s de tip șir de caractere după executarea instrucțiunilor de mai jos? strncpy(s,strstr(\"Informatica\",\"form\"),strlen(\"BAC08\")); s[5]='\\0';",
+        "options": {
+          "a": "form",
+          "b": "forma",
+          "c": "InfoBAC",
+          "d": "Infor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arbore cu 6 noduri, numerotate de la 1 la 6, reprezentat prin matricea de adiacență dată alăturat. Scrieți toate nodurile care pot fi alese ca rădăcină a arborelui astfel încât acesta să aibă un număr maxim de frunze. (6p.) 0 1 0 0 0 1 1 0 1 1 1 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fiecare element al unei liste simplu înlănțuite, alocată dinamic, reține în câmpul nr un număr întreg, iar în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor. Ce valori au variabilele întregi a și b după executarea secvenței alăturate, dacă variabila p reține adresa primului element al listei de mai jos, iar variabila q este de același tip cu p? (6p.) q=p; a=p->urm->nr; while (q->nr>=0) { q->urm->nr=q->nr-p->nr; q=q->urm; } b=q->nr; Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤20), elementele unei matrice cu n linii și n coloane, numere întregi din intervalul [-100,100] și afișează pe ecran media aritmetică a elementelor strict pozitive ale matricei, care sunt situate sub diagonala principală, ca în exemplu. Dacă nu există elemente strict pozitive situate sub diagonala principală, programul va afișa mesajul „NU EXISTA”.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru n=4 și matricea alăturată se afișează valoarea 2.5 (sunt luate în considerare doar elementele marcate). (10p.) -1 2 4 5 0 6 3 1 2 4 2 0 3 -5 1 -3 Varianta 87",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Trei elevi vor să înființeze o trupă de rock formată dintr-un chitarist solo, un basist și un baterist. Toți trei știu să cânte atât la chitară solo, cât și la chitară bas, și se pricep cu toții și la baterie. Algoritmul de generare a tuturor posibilităților de a forma trupa este similar cu algoritmul de generare a:",
+        "options": {
+          "a": "aranjamentelor",
+          "b": "permutărilor",
+          "c": "elementelor produsului cartezian",
+          "d": "submulțimilor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce se afișează la apelul f(4);? (6p.) void f(int n) { if(n>0) { cout<<n; | printf(″%d″,n); f(n-1); cout<<n; | printf(″%d″,n); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului reduce, cu doi parametri, care primește prin intermediul parametrilor a și b două numere naturale formate din cel mult 9 cifre fiecare. Funcția returnează o valoare obținută din numărul a prin însumarea acelor cifre diferite de 0 ale numărului a care NU divid numărul b. Dacă nu există asemenea cifre, se va returna valoarea 0. Exemplu: pentru a=184465709 și b=18, cifrele corespunzătoare cerinței sunt 8, 4, 4, 5 și 7, deci valoarea returnată va fi 28 (28=8+4+4+5+7). Dacă a=2402804 și b=8000, valoarea returnată va fi 0. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text bac.txt conține un șir de cel mult 2009 numere naturale, cu cel mult nouă cifre fiecare, pe mai multe rânduri, numerele de pe același rând fiind separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care afișează pe ecran cel mai mic număr din fișier pentru care suma cifrelor pare este egală cu suma cifrelor impare, precum și numărul de apariții în fișier ale acestui număr, folosind o metodă eficientă din punctul de vedere al timpului de executare. Cele două valori vor fi afișate pe o linie a ecranului, separate printr-un spațiu. Exemplu: dacă în fișier avem numerele 22031 9021 22031 1021 2011 10012 1021 457008 99882 atunci pe ecran se vor afișa numerele: 1021 2.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, algoritmul utilizat, justificând eficiența acestuia.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

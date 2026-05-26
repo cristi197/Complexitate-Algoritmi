@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-085",
+  "year": 2009,
+  "variant": 85,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 253,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi n și m memorează numere naturale nenule pare, iar n<m. Care dintre expresiile C/C++ de mai jos are valoarea egală cu numărul de valori impare din intervalul închis [n,m] ?",
+        "options": {
+          "a": "(m-n)/2+1",
+          "b": "m/2-n/2",
+          "c": "(m-n)/2-1",
+          "d": "m%2-n%2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural, n>1) okÅ0 ┌cât timp n>0 execută │ cÅn%10 │┌dacă c%2=1 atunci ││ ok1Å1 ││altfel ││ ok1Å0 │└■ │┌dacă ok1=1 atunci ││ scrie c,’ ’ ││ okÅ1 │└■ │ nÅ[n/10] └■ ┌dacă ok=0 atunci │ scrie ”nu” └■ Varianta 85",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează dacă numărul citit este n=9458.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mare valoare cu exact 3 cifre, care poate fi citită pentru n astfel încât să se afișeze, în această ordine, numerele 9 7.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent celui dat în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful orientat cu vârfurile numerotate de la 1 la 7 și arcele (1,2), (1,7), (2,3), (3,2), (3,4), (4,3), (5,4), (5,6), (6,4), (7,6). Câte vârfuri din graful dat au gradul extern impar?",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "1",
+          "d": "2 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un arbore cu rădăcină, cu 9 noduri, numerotate de la 1 la 9, este memorat cu ajutorul vectorului „de tați” t=(9,3,4,7,3,9,0,7,2). Care este numărul minim de noduri ce trebuie eliminate pentru ca lungimea celui mai lung lanț elementar, cu o extremitate în rădăcină, să fie 3 și subgraful obținut să fie tot arbore?",
+        "options": {
+          "a": "4",
+          "b": "3",
+          "c": "2",
+          "d": "5"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Variabila s reține un șir de caractere format din cel puțin 2 și cel mult 30 de litere mici ale alfabetului englez. Scrieți secvența de program C/C++ care afișează pe ecran primul și ultimul caracter al șirului s. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Variabila a memorează un tablou bidimensional, cu 4 linii și 4 coloane, numerotate de la 1 la 4, cu elemente numere naturale de cel mult 2 cifre fiecare. Scrieți secvența de program C/C++ care afișează pe ecran produsul numerelor de pe diagonala principală a tabloului. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul info al fiecărui element câte un număr natural din intervalul [1,10000], iar în câmpul adr, adresa elementului următor din listă sau NULL dacă nu există un element următor. Considerând lista creată și că adresa primului element este reținută în variabila prim, să se scrie declarările de tipuri și date necesare și secvența de program C/C++ care afișează pe ecran numerele memorate în listă, care sunt pătrate perfecte. Exemplu: pentru lista 34 25 20 16 prim se vor afișa numerele 25 și 16. (10p.) Varianta 85",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind cifrele {1,2,3} se generează, în ordinea crescătoare a valorii, toate numerele impare formate din trei cifre distincte. Astfel se obțin, în ordine, numerele: 123, 213, 231, 321. Folosind aceeași metodă, se generează numerele impare formate din patru cifre distincte din mulțimea {1,2,3,4}. Care va fi al 5-lea număr generat ?",
+        "options": {
+          "a": "2413",
+          "b": "1423",
+          "c": "2431",
+          "d": "3241"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, scrieți ce valoare are f(51). Dar f(100)? (6p.) int f(int x) { if(x==50)return 1; else return 2+f(x-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (1≤n≤100), apoi un șir de n numere întregi, cu cel mult 2 cifre fiecare, notat a1,a2,a3,…an, apoi un al doilea șir de n numere întregi, cu cel mult 2 cifre fiecare, notat b1,b2,b3,…bn. Fiecare șir conține atât valori pare, cât și impare. Programul afișează pe ecran suma acelor numere din șirul b care sunt strict mai mici decât media aritmetică a tuturor numerelor pare din șirul a. Exemplu: pentru n=4 și numerele 2,3,7,8 respectiv 44,3,1,8 se afișează valoarea 4 pentru că numerele 3 și 1 sunt mai mici decât media aritmetică a numerelor pare din șirul a, care este 5. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul CMMDC care primește prin cei doi parametri, x și y, două numere naturale (1≤x≤10000, 1≤y≤10000) și returnează cel mai mare divizor comun al lor.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți numai antetul subprogramului CMMDC.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Fișierul text NUMERE.IN conține, pe fiecare linie, câte două numere naturale nenule mai mici sau egale decât 10000, despărțite printr-un spațiu, reprezentând numitorul și numărătorul câte unei fracții. Scrieți un program C/C++ care, pentru fiecare linie k din fișierul NUMERE.IN, citește numitorul și numărătorul fracției de pe această linie și scrie în fișierul text NUMERE.OUT , tot pe linia k, numitorul și numărătorul acestei fracții, adusă la forma ireductibilă, ca în exemplu. Se vor utiliza apeluri apeluri utile ale subprogramului CMMDC. Exemplu: dacă fișierul NUMERE.IN are conținutul alăturat: 12 14 11 12 2 2 4 8 atunci fișierul NUMERE.OUT va avea următorul conținut: 6 7 11 12 1 1 1 2",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

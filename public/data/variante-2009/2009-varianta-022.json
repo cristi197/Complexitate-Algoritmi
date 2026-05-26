@@ -1,0 +1,119 @@
+{
+  "id": "2009-varianta-022",
+  "year": 2009,
+  "variant": 22,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 64,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este valoarea expresiei C/C++ alăturate dacă variabilele întregi a, b, c au valorile a=20, b=3, c=5? (a/b%c<=b)||!(b==a)",
+        "options": {
+          "a": "0",
+          "b": "1",
+          "c": "2",
+          "d": "true"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [a] partea întreagă a numărului real a și cu y|x faptul că numărul întreg x este divizibil cu numărul întreg nenul y.",
+      "pseudocode": "citește n (număr întreg) ┌dacă n < 0 atunci │ nÅ-n └■ dÅ1 ┌pentru iÅ2,[n/2] execută │┌dacă i|n atunci ││ dÅi │└■ └■ scrie d",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa pentru n=45.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura pentru...execută cu o structură repetitivă de tip cât timp...execută.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți o valoare pentru n astfel încât în urma executării algoritmului obținut prin înlocuirea structurii",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Într-o stivă ce memorează numere întregi se introduc, în ordine, următoarele numere: 1,2,3,4,5,6,7. Câte numere trebuie să eliminăm din stivă astfel ca în vârful stivei să se găsească numărul 5",
+        "options": {
+          "a": "5",
+          "b": "2",
+          "c": "3",
+          "d": "4 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Ce valoare are expresia de mai jos dacă variabila s memorează șirul de caractere alfabet? strlen(strcpy(s,s+2)) (4p.)",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Într-un graf neorientat cu 10 noduri, numerotate de la 1 la 10, există câte o muchie între oricare două noduri numerotate cu numere consecutive și câte o muchie între nodul numerotat cu 10 și fiecare dintre celelalte noduri. Câte subgrafuri cu exact 3 noduri, toate adiacente două câte două, are graful dat? Scrieți pentru fiecare dintre aceste subgrafuri nodurile din care este format. (6p.) Scrieți un program C/C++ care citește de la tastatură numerele naturale m și n din intervalul [1,24], apoi construiește în memorie și afișează pe ecran un tablou bidimensional cu m linii și n coloane astfel încât prin parcurgerea acestuia linie cu linie de sus în jos și fiecare linie de la stânga la dreapta, se obțin în ordine descrescătoare toate numerele naturale de la 1 la m*n, ca în exemplu.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Fiecare linie a tabloului este afișată pe câte o linie a ecranului, elementele aceleiași linii fiind separate prin câte un spațiu. Exemplu: pentru m=4 și n=3 se va construi și afișa tabloul alăturat. (10p.) 12 11 10 9 8 7 6 5 4 3 2 1 Varianta 22",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Considerăm subprogramul recursiv definit alăturat. Ce se va afișa în urma apelului de mai jos? f(’C’); (4p.) void f(char c) { if (c>’A’) f(c-1); cout<<c; | printf(”%c”,c); if (c>’A’) f(c-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "a) Scrieți definiția completă a unui subprogram, nz, cu un parametru întreg n (0<n≤32000), care returnează numărul zerourilor de la sfârșitul numărului n!. (6p.) b) Scrieți programul C/C++ care citește de la tastatură un număr natural k (0<k≤3) și determină, folosind apeluri ale subprogramului nz, cel mai mic număr natural n pentru care n! are cel puțin k zerouri la sfârșit. Numărul determinat se afișează pe ecran. (4p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Scrieți programul C/C++ care citește din fișierul text BAC.TXT numărul întreg n (1≤n≤10000) și un șir de n perechi de numere întregi a b (1≤a≤b≤32000), fiecare pereche fiind scrisă pe o linie nouă a fișierului, cu un spațiu între cele două numere. Programul afișează pe ecran pentru fiecare pereche a,b cel mai mare număr natural din intervalul închis [a,b]care este o putere a lui 2 sau numărul 0 dacă nu există nicio putere a lui 2 în intervalul respectiv. Numerele afișate pe ecran se scriu în linie, separate prin câte un spașiu. Un număr p este putere a lui 2 dacă există un număr natural k astfel încât p=2 k . Exemplu: dacă fișierul BAC.TXT conține numerele 3 2 69 10 20 19 25 se va afișa: 64 16 0. (10p.) Varianta 22",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-045",
+  "year": 2009,
+  "variant": 45,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 133,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este instrucțiunea prin care variabilei x i se atribuie numărul obținut prin inversarea ordinii cifrelor numărului natural format din exact 2 cifre, memorat în variabila întreagă y?",
+        "options": {
+          "a": "x=y/10*10+y%10;",
+          "b": "x=y%10*10+y/10;",
+          "c": "x=y%10+y/10*10;",
+          "d": "x=y%10+y/10;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod: S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește x,y (numere naturale) zÅ1 tÅ0 ┌cât timp x≥z execută │┌dacă x%z=y atunci ││ tÅz │└■ │ zÅz+1 └■ scrie t Varianta 45",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care va fi afișată de algoritm dacă se citesc, în această ordine, valorile 12 și 3.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă valoarea citită pentru variabila y este 7, scrieți care este cea mai mare valoare care trebuie citită pentru x, astfel încât algoritmul să afișeze numărul 0.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Graful neorientat G este dat prin matricea de adiacență alăturată. Câte vârfuri ale grafului G au gradul 1? 0 0 0 0 1 0 0 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 1 1 0",
+        "options": {
+          "a": "1",
+          "b": "2",
+          "c": "3",
+          "d": "0 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită nevidă, alocată dinamic, fiecare element reține în câmpul urm adresa elementului următor din listă sau NULL dacă nu are un nod următor. Știind că variabila p reține adresa primului element din listă, variabila q reține adresa ultimului element din listă, iar lista este formată din exact 3 elemente, care dintre următoarele secvențe de instrucțiuni determină, în urma executării, eliminarea celui de-al doilea element din listă?",
+        "options": {
+          "a": "p->urm=q; delete q; | free(p->urm);",
+          "b": "p->urm=q; delete p->urm; | free(p->urm);",
+          "c": "p=q; delete p->urm; | free(p->urm);",
+          "d": "delete p->urm; | free(p->urm); p->urm=q;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Pentru reprezentarea unui arbore cu rădăcină, cu 9 noduri, etichetate cu numerele naturale de la 1 la 9, se utilizează vectorul de „tați”: T=(2,0,1,7,3,1,2,4,1). Care sunt descendenții direcți ai rădăcinii și câte frunze are arborele dat? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Variabila a memorează elementele unui tablou bidimensional cu 5 linii și 5 coloane(numerotate de la 1 la n), numere întregi. Care este suma elementelor aflate pe diagonala secundară a tabloului construit în urma executării secvenței de program alăturate? (6p.) for(i=1;i<=5;i++) for(j=1;j<=5;j++) a[i][j]=i-j;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un șir de cel mult 40 de caractere, format doar din litere ale alfabetului englez, și care afișează pe ecran toate șirurile obținute prin eliminarea succesivă a câte unei singure litere din șirul citit, ca în exemplu. Șirurile se vor afișa câte unul pe câte o linie a ecranului. Exemplu: dacă se citește șirul abbc atunci pe ecran se va afișa: bbc abc abc abb (10p.) Varianta 45",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează toate cuvintele de câte 3 litere din mulțimea {a,b,c}. Dacă primele patru cuvinte generate sunt, în acestă ordine: aaa, aab, aac, aba, care este cel de-al optulea cuvânt generat?",
+        "options": {
+          "a": "acb",
+          "b": "acc",
+          "c": "aca",
+          "d": "bca"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f are definiția alăturată. Ce valoare are f(4)? Dar f(11)? (6p.) int f(int x) {if(x<1)return 1; else return f(x-3)+1; }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți programul C/C++ care citește de la tastatură numărul natural n (0<n<100) și un șir format din n numere reale. Aceste numere au atât partea întreagă cât și partea fracționară formate din cel mult trei cifre. Programul determină și afișează pe ecran toate numerele din șir care apar o singură dată în acesta. Exemplu: dacă n=7, iar șirul este format din elementele (3.4, -151, 0.291, 3.4, 4.09, 3.4, 0.291), atunci pe ecran se va afișa -151 4.09. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text numere.txt conține pe prima linie un număr natural n (0<n<100000), iar pe a doua linie n numere naturale, formate din cel mult două cifre, separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++, eficient atât din punct de vedere al timpului de executare, care afișează pe ecran toate numerele situate pe a doua linie a fișierului, în ordinea crescătoare a valorilor lor, separate prin câte un spațiu. Exemplu: dacă fișierul numere.txt are următorul conținut: 7 12 21 22 11 9 12 3 atunci pe ecran se va afișa: 3 9 11 12 12 21 22",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

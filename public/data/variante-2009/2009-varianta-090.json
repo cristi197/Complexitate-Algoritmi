@@ -1,0 +1,123 @@
+{
+  "id": "2009-varianta-090",
+  "year": 2009,
+  "variant": 90,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 268,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele instrucțiuni C/C++ atribuie variabilei întregi t valoarea -1 dacă și numai dacă variabilele întregi a și b sunt nenule și au semne diferite?",
+        "options": {
+          "a": "if ((a>0)||(b<0)) t=-1;",
+          "b": "if ((a>0)&&(b<0)) t=-1;",
+          "c": "if (a*b<0) t=-1;",
+          "d": "if (a*b>0) t=-1;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește a, b, k (numere naturale) t Å a p Å 0 ┌cât timp t≤b execută │┌dacă k=t%10 atunci ││ scrie t ││ pÅ1 │└■ │ tÅt+1 └■ ┌dacă p=0 atunci │ scrie -1 └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valorile care se vor afișa în urma executării algoritmului dacă se citesc numerele a=105, b=118 și k=7.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru k se citește valoarea 7, iar pentru a valoarea 2009, scrieți cea mai mare valoare care se poate citi pentru variabila b, astfel încât numărul afișat să fie -1.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp...execută cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În declararea alăturată, variabila p memorează în câmpul x abscisa, iar în câmpul y ordonata unui punct din planul xOy. Dacă punctul se află în semiplanul din dreapta axei Oy (dar nu pe această axă), care dintre expresiile de mai jos are valoarea 1? struct { float x; float y; }p;",
+        "options": {
+          "a": "p.x>0",
+          "b": "p.y>0",
+          "c": "x.p+y.p>0",
+          "d": "p(x)+p(y)>0 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Ce memorează variabila s, de tip șir de caractere, după executarea instrucțiunilor de mai jos? strncpy(s,\"informatica\",strlen(\"2009\")); s[strlen(\"2009\")]='\\0'; strcat(s,\"BAC\");",
+        "options": {
+          "a": "info",
+          "b": "infoBAC",
+          "c": "BACinfo",
+          "d": "InformaticaBAC"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un arbore cu 6 noduri, numerotate de la 1 la 6, reprezentat prin matricea de adiacență dată alăturat. Scrieți toate nodurile care pot fi alese ca rădăcină a arborelui astfel încât acesta să aibă un număr par de frunze. (6p.) 0 1 0 0 0 1 1 0 1 1 1 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fiecare element al unei liste simplu înlănțuite, alocată dinamic, reține în câmpul nr un număr întreg, iar în câmpul urm adresa următorului element din listă sau NULL dacă nu există un element următor. Ce valori au variabilele întregi a și b după executarea secvenței alăturate, dacă variabila p reține adresa primului element al listei de mai jos, iar variabila q este de același tip cu p? (6p.) q=p; a=p->urm->nr; while (q->urm!=NULL) { q->urm->nr=q->nr*a; q=q->urm; } b=q->nr; Scrieți un program C/C++ care citește de la tastatură un număr natural n (1≤n≤20), elementele unei matrice cu n linii și n coloane, numere întregi din intervalul [-100, 100] și afișează pe ecran diferența m1-m2, unde m1 este media aritmetică a elementelor strict pozitive ale matricei, situate deasupra diagonalei principale, iar m2 este media aritmetică a elementelor strict pozitive ale matricei, situate sub diagonala principală, ca în exemplu. Cele două medii se consideră egale cu 0 dacă nu există valori strict pozitive în zonele corespunzătoare.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Exemplu: pentru n=4 și matricea alăturată se afișează valoarea 0.25 (m1=2.75, calculată din elementele aflate deasupra diagonalei principale, marcate cu chenar, și m2=2.5, calculată din elementele subliniate). (10p.) -1 2 -4 5 0 6 3 1 2 4 2 0 3 -5 1 -3 Varianta 90",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "La un bal mascat, magazia școlii pune la dispoziția elevilor 10 pelerine, 10 măști și 10 pălării divers colorate. Algoritmul de generare a tuturor posibilităților de a obține un costum format dintr-o pălărie, o mască și o pelerină este similar cu algoritmul de generare a :",
+        "options": {
+          "a": "elementelor produsului cartezian",
+          "b": "aranjamentelor",
+          "c": "permutărilor",
+          "d": "submulțimilor"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": null,
+    "fisiere": [],
+    "subprograme": []
+  }
+}

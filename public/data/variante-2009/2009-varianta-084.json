@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-084",
+  "year": 2009,
+  "variant": 84,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 250,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întreagă n memorează un număr natural cu exact 4 cifre. Care dintre expresiile C/C++ de mai jos este echivalentă cu cea alăturată? n/100%10%2==0",
+        "options": {
+          "a": "n%100/10%2!=1",
+          "b": "n%1000%2==0",
+          "c": "n/100%2==0",
+          "d": "n/10%10!=1"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y, iar cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește n (număr natural, n>1) okÅ0 ┌cât timp n>0 execută │ cÅn%10 │┌dacă c>5 și c%2=0 atunci ││ ok1Å1 ││altfel ││ ok1Å0 │└■ │┌dacă ok1=1 atunci ││ scrie c,’ ’ ││ okÅ1 │└■ │ nÅ[n/10] └■ ┌dacă ok=0 atunci │ scrie ”nu” └■ Varianta 84",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se afișează dacă numărul citit este n=4576.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mare valoare cu exact 3 cifre, care poate fi citită pentru n astfel încât să se afișeze, în această ordine, numerele 8 6.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat care să utilizeze o structură repetitivă de alt tip în locul structurii cât timp...execută.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră graful neorientat cu nodurile numerotate de la 1 la 6 și având muchiile [1,2], [2,3], [2,5], [2,6], [3,4], [4,5], [4,6], [5,6]. Câte lanțuri elementare, distincte și de lungime 3 există de la nodul 1 la nodul 4 în graful dat? Două lanțuri sunt distincte dacă diferă prin cel puțin o muchie.",
+        "options": {
+          "a": "2",
+          "b": "0",
+          "c": "4",
+          "d": "3 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Un arbore cu rădăcină, cu 9 noduri, numerotate de la 1 la 9, este memorat cu ajutorul vectorului „de tați” t=(9,3,4,7,3,9,0,7,2). Mulțimea tuturor nodurilor de tip frunză este:",
+        "options": {
+          "a": "{8, 6, 1, 5}",
+          "b": "{1, 6}",
+          "c": "{8}",
+          "d": "{1, 6, 8}"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră variabila c, de tip char, care memorează o literă a alfabetului englez, diferită de z sau Z. Scrieți secvența de program C/C++ care afișează pe ecran litera care îi urmează în alfabet. Exemplu: dacă litera memorată este g se va afișa h. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Variabila a memorează un tablou bidimensional, cu 4 linii și 4 coloane, numerotate de la 1 la 4, ce memorează numere naturale de cel mult 2 cifre fiecare. Scrieți secvența de program C/C++ care afișează pe ecran produsul numerelor de pe diagonala secundară a tabloului. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "O listă liniară simplu înlănțuită, alocată dinamic, reține în câmpul info al fiecărui element câte un număr natural din intervalul [1,10000], iar în câmpul adr, adresa elementului următor din listă sau NULL dacă nu există un element următor în listă. Considerând că lista este creată (are cel puțin două elemente) și că adresa primului element este reținută de variabila prim să se scrie declarările de tipuri și date necesare și secvența C/C++ care afișează pe ecran produsul numerelor memorate în primul și ultimul element al listei. Exemplu: pentru lista prim 34 5 19 22 123 se va afișa numărul 4182. (10p.) Varianta 84",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Folosind cifrele {3,4,5} se generează, în ordinea crescătoare a valorii, toate numerele impare formate din trei cifre distincte. Astfel se obțin, în ordine, numerele: 345, 435, 453, 543. Folosind aceeași metodă, se generează numerele impare formate din patru cifre distincte din mulțimea {2,3,4,5}. Care va fi al 5-lea număr generat?",
+        "options": {
+          "a": "3425",
+          "b": "2534",
+          "c": "4235",
+          "d": "3245"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția alăturată a subprogramului f, stabiliți ce valoare are f(1)? Dar f(100)? (6p.) int f(int x) { if(x==0)return 1; else return 1+f(x-1); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți programul C/C++ care citește de la tastatură un număr natural n (1≤n≤100), apoi un șir de n numere întregi, cu cel mult 2 cifre fiecare, notat a1,a2,a3,…an, apoi un al doilea șir de n numere întregi, cu cel mult 2 cifre fiecare, notat b1,b2,b3,…bn. Fiecare șir conține atât valori pare, cât și impare. Programul afișează pe ecran suma acelor numere impare din șirul b care sunt mai mici decât suma tuturor numerelor pare din șirul a. Exemplu: pentru n=4 și numerele 2,3,7,8 respectiv 44,3,1,8 se afișează valoarea 4 pentru că numerele 3 și 1 sunt mai mici decât suma numerelor pare din șirul a, care este 10. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramul CMMMC care primește prin cei doi parametri, x și y, două numere naturale (1≤x≤10000, 1≤y≤10000) și returnează cel mai mic multiplu comun al lor.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți numai antetul subprogramului CMMMC.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Fișierul text NUMERE.IN conține, pe fiecare linie, câte două numere naturale nenule mai mici sau egale decât 10000, despărțite printr-un spațiu. Scrieți un program C/C++ care, pentru fiecare linie k din fișierul NUMERE.IN, citește cele două numere de pe această linie și scrie în fișierul text NUMERE.OUT , tot pe linia k, cel mai mic multiplu comun al acestora, ca în exemplu. Se vor utiliza apeluri utile ale subprogramului CMMMC. Exemplu: dacă fișierul NUMERE.IN are conținutul alăturat: 12 14 11 12 4 8 atunci fișierul NUMERE.OUT va avea următorul conținut: 84 132 8",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

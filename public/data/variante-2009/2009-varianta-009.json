@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-009",
+  "year": 2009,
+  "variant": 9,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 25,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre expresiile C/C++ de mai jos este echivalentă cu expresia alăturată? ((a>3) && (a<15)) || (a!=b)",
+        "options": {
+          "a": "((a>3) || (a<15)) && (a==b)",
+          "b": "!((a<=3) || (a>=15)) || (a!=b)",
+          "c": "((a>3) || (a<15)) && (a!=b)",
+          "d": "!(a<3 || a>15) && (a!=b)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod: S-a notat cu [c] partea întreagă a numărului real c, iar cu a%b restul împărțirii numărului întreg a la numărul întreg nenul b.",
+      "pseudocode": "citește n (număr natural) sÅ10 ┌cât timp n>0 execută │┌dacă n%10<s atunci ││ sÅn%10 ││altfel ││ sÅ-1 │└■ │ nÅ[n/10] └■ scrie s Varianta 9",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se afișează, în urma executării algoritmului, dacă se citește pentru n valoarea 1239.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți cea mai mică valoare de 4 cifre distincte care poate fi citită pentru n astfel încât să se afișeze valoarea -1.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care să se înlocuiască structura cât timp ... execută cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Considerând declararea alăturată, care dintre următoarele secvențe realizează în mod corect citirea de la tastatură a valorilor celor două câmpuri ale variabilei x? struct { int a; int b;} x;",
+        "options": {
+          "a": "cin>>x.a>>x.b; | scanf(”%d%d”, &x.a, &x.b);",
+          "b": "cin>>a.x>>b.x; | scanf(”%d%d”, &a.x, &b.x);",
+          "c": "cin>>x; | scanf(”%d”, &x);",
+          "d": "cin>>a->x>>b->x; | scanf(”%d%d”, &a->x, &b->x); 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, fiecare element reține în câmpul info o valoare întreagă, iar în câmpul urm adresa elementului următor din listă sau NULL dacă nu există un element următor. Variabila p reține adresa primului element din listă. Lista conține, în această ordine, pornind de la primul element, valorile: 2, 3, 4, 5, 6, 7, 8. Ce se va afișa în urma executării secvenței de instrucțiuni alăturată? while(p!=NULL && p->urm!=NULL) { cout<<p->info; | printf(“%d”,p->info); p->urm=p->urm->urm; p=p->urm; }",
+        "options": {
+          "a": "2 4 6",
+          "b": "2 4 6 8",
+          "c": "2 4 8",
+          "d": "2 5 8"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră un graf orientat cu 6 noduri care are următoarele proprietăti: - suma gradelor externe ale tuturor vârfurilor grafului este egală cu 6 - sunt numai 3 vârfuri care au gradul intern egal cu 1 Care este valoarea maximă pe care o poate avea gradul extern al unui vârf din graful dat? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Se consideră declararea de mai jos: char s[50], x[50]; Ce se afișează în urma executării secvenței de program scrisă alăturat dacă variabila s memorează șirul abcdefg? (6p.) strcpy(x,s+4); strcpy(s+4,”123”); strcat(s,x); cout<<s; | printf(”%s”,s);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Se consideră tabloul bidimensional cu n linii și n coloane ce conține numere naturale cu cel mult patru cifre fiecare. Scrieți programul C/C++ care citește de la tastatură numărul natural n (2≤n≤23) și cele n*n elemente ale tabloului și apoi afișează pe ecran elementele primului pătrat concentric, separate prin câte un spațiu. Pătratul este parcurs în sensul acelor de ceasornic începând din colțul său stânga-sus, ca în exemplu. Primul pătrat concentric este format din prima și ultima linie, prima și ultima coloană a tabloului. Exemplu: pentru n=5 și tabloul alăturat, se va afișa: 1 2 3 4 5 1 6 2 7 6 5 4 3 7 2 6 (10p.) 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 Varianta 9",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră subprogramul f cu definiția alăturată. Ce valoare are f(1213111,1)? int f (long n, int k){ if (n!=0) if(n%10==k) return 1+f(n/10,k); else return 0; else return 0;}",
+        "options": {
+          "a": "5",
+          "b": "3",
+          "c": "2",
+          "d": "1"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Utilizând metoda backtracking, sunt generate n ordine crescătoare toate numerele de 3 cifre, astfel încât cifrele sunt în ordine crescătoare, iar cifrele aflate pe poziții consecutive sunt de paritate diferită. Știind că primele trei soluții generate sunt, în această ordine, 123, 125, 127, scrieți toate numerele generate care au suma cifrelor egală cu 12. (6p.)",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului sub cu doi parametri: n (număr natural, 0<n≤50) și k (număr natural, 0<k≤20). Subprogramul determină afișarea pe o linie nouă a ecranului, în ordine descrescătoare, a primelor n numere naturale nenule divizibile cu k. Numerele vor fi separate prin câte spațiu. Exemplu: dacă n=3 și k=5 la apelul subprogramului se va afișa pe ecran: 15 10 5 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră fișierul BAC.TXT ce conține cel mult un milion de numere naturale separate prin spatii, fiecare număr având cel mult nouă cifre.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care citește toate numerele din fișierul BAC.TXT și determină, folosind un algoritm eficient din punct de vedere timpului de executare, cele mai mari două numere de trei cifre care nu se află în fișier. Cele două numere vor fi afișate pe ecran în ordine descrescătoare, cu un spațiu între ele. Dacă nu pot fi determinate două astfel de numere, programul va afișa pe ecran valoarea 0. Exemplu: dacă fișierul BAC.TXT conține numerele: 12 2345 123 67 989 6 999 123 67 989 999 atunci programul va afișa 998 997",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

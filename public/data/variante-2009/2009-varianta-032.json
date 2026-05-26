@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-032",
+  "year": 2009,
+  "variant": 32,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 94,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Stabiliți care dintre următoarele expresii C/C++ are valoarea 1 dacă și numai dacă numărul întreg memorat în variabila x nu aparține intervalului (-35,-20)∪[17,100].",
+        "options": {
+          "a": "(x<=-35) || ((x<=16)|| (x>=-20)) || (x>100)",
+          "b": "(x<=-35) || ((x<=17) && (x>=-20)) || (x>=100)",
+          "c": "(x<-35) || ((x<16) && (x>-20)) || (x>100)",
+          "d": "(x<=-35) || ((x<=16) && (x>=-20)) || (x>100)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod.",
+      "pseudocode": "citește a,b (numere naturale) ┌dacă a>b atunci │ cÅb │ bÅa │ aÅc └■ ┌cât timp a<=b execută │ scrie a │ aÅa*2 └■ scrie a Varianta 32",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numerele care sunt afișate dacă pentru a și b se citesc valorile a=150 și b=9.",
+          "points": 4
+        },
+        {
+          "id": "b",
+          "text": "Dacă pentru b se citește valoarea 150, scrieți cea mai mare valoare care se poate citi pentru a, astfel încât algoritmul să afișeze exact 4 valori.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp … execută cu o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Un graf orientat este reprezentat cu ajutorul listelor de adiacență scrise alăturat. Nodurile grafului care au gradul exterior egal cu 2 sunt: 1:(5,6) 2:(1,5,4) 3:(1,5) 4:(1,2) 5:(2) 6:(2,4,5)",
+        "options": {
+          "a": "2 și 5",
+          "b": "1,3 și 4",
+          "c": "6",
+          "d": "2"
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "și 3 2. Graful neorientat cu 8 noduri, numerotate de la 1 la 8, este reprezentat cu ajutorul matricei de adiacență alăturate. Pentru acest graf este adevărată afirmația:",
+        "options": {
+          "a": "Graful este hamiltonian",
+          "b": "Graful nu are noduri de grad 0",
+          "c": "Gradul maxim al unui nod este 3",
+          "d": "Graful are trei componente conexe"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Într-o structură de date de tip coadă au fost adăugate, în această ordine, următoarele valori: 3, 10, 2, 8 și 6. Care este ultima valoare care s-a extras din coadă dacă s-au efectuat, în această ordine, următoarele operații: extragerea unui element, adăugarea valorii 100, extragerea a trei elemente. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "În secvența alăturată, variabilele i și j sunt de tip întreg, iar variabila A memorează o matrice în care prima linie și prima coloană sunt numerotate cu 1. Toate elementele matricei primesc valori în urma executării secvenței. Scrieți în ordine, începând cu prima coloană, doar elementele situate pe a doua linie a matricei. (6p.) for(j=1;j<=6;j++) for(i=3;i>=1;i--) a[i][j]=i+j",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură două caractere c1 și c2 (litere distincte ale alfabetului englez), și un text având cel mult 250 caractere (doar spații și litere ale alfabetului englez), pe care îl modifică înlocuind toate aparițiile caracterului memorat în c1 cu cel memorat în c2 și toate aparițiile caracterului memorat în c2 cu cel memorat în c1. Programul afișează pe linii separate ale ecranului atât textul inițial cât și textul obținut după efectuarea înlocuirilor. (10p.) Exemplu: dacă pentru c1 se citește a, pentru c2 se citește o iar textul citit este: hocus pocus preparatus se va afișa : hocus pocus preparatus hacus pacus preporotus Varianta 32",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "În vederea participării la un concurs, elevii de la liceul sportiv au dat o probă de selecție, în urma căreia primii 6 au obținut punctaje egale. În câte moduri poate fi formată echipa selecționată știind că poate avea doar 4 membri, aleși dintre cei 6, și că ordinea acestora în cadrul echipei nu contează?",
+        "options": {
+          "a": "24",
+          "b": "30",
+          "c": "15",
+          "d": "4"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul afis este definit alăturat. Ce se va afișa în urma apelului afis(17);? (6p.) void afis(int x) { if (x>3) { cout<<x-1; | printf(\"%d\",x-1); afis(x/3); cout<<x+1; | printf(\"%d\",x+1); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a subprogramului nr_prim care are ca parametru un număr natural x și returnează cel mai mic număr prim, strict mai mare decât x. Exemplu: pentru x=25 subprogramul returnează numărul 29, iar pentru x=17 valoarea returnată va fi 19. (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "În fișierul numere.txt sunt memorate pe mai multe linii, numere întregi (cel mult 100), numerele de pe aceeași linie fiind despărțite prin câte un spațiu, fiecare număr având cel mult 9 cifre. Să se determine cele mai mici două valori având exact două cifre fiecare, memorate în fișier și să se afișeze pe ecran aceste valori, despărțite printr-un spațiu. Dacă în fișier nu se află două astfel de valori, pe ecran se va afișa valoarea 0.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Descrieți în limbaj natural o metodă de rezolvare eficientă din punct de vedere al gestionării memoriei și al timpului de executare.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți programul C/C++ corespunzător metodei descrise la punctul a. Exemplu: dacă fișierul numere.txt are conținutul alăturat, se va afișa pe ecran, nu neapărat în această ordine: -77 10 5 10 3 -77 20 50 5 0 12 18 30",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-044",
+  "year": 2009,
+  "variant": 44,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 130,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care este instructiunea prin care variabilei întregi x i se atribuie valoarea cifrei sutelor numărului natural cu cel puțin 4 cifre memorat în variabila întreagă y?",
+        "options": {
+          "a": "x=y%10/10;",
+          "b": "x=y/10/10;",
+          "c": "x=y%100;",
+          "d": "x=y/100%10;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împarțirii numărului natural x la numărul natural nenul y.",
+      "pseudocode": "citește x (număr natural) yÅ0 ┌cât timp x>y executã │ yÅy*10+9-x%10; └■ scrie y",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți numărul care se afișează dacă se citește valoarea 274.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un număr natural de 3 cifre care poate fi citit pentru variabila x, astfel încât, la finalul executării algoritmului să se afișeze valoarea 1111.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat în care structura cât timp...execută să fie înlocuită cu o structură repetitivă cu test final.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Graful orientat G este reprezentat prin matricea de adiacență alăturată. Câte vârfuri din graful dat au gradul interior egal cu gradul exterior? 0 1 0 0 1 1 0 1 0 0 0 0 0 1 1 0 1 0 0 1 1 0 0 0 0",
+        "options": {
+          "a": "0",
+          "b": "1",
+          "c": "3",
+          "d": "2 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă simplu înlănțuită, alocată dinamic, cu cel puțin 4 elemente, fiecare nod reține in câmpul urm adresa nodului următor din listă sau NULL dacă nu are un nod următor. Știind că inițial variabila p reține adresa primului nod din listă, care dintre secvențele de program următoare determină, în urma executării, memorarea în variabila p a adresei ultimului nod din listă?",
+        "options": {
+          "a": "while(p->urm!=NULL) p=p->urm;",
+          "b": "while(p!=NULL) p=p->urm;",
+          "c": "p=p->urm;",
+          "d": "p=p->p->urm;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Pentru reprezentarea unui arbore cu rădăcină, cu 9 noduri, etichetate cu numerele naturale de la 1 la 9, se utilizează vectorul de „tați”: T=(7,0,2,7,6,2,3,6,5). Care sunt nodurile arborelui ce au exact 2 descendenți direcți (fii)? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Ce valoare se va afișa pe ecran în urma executării secvenței de program alăturate, știind că variabila a este de tip șir de caractere, iar i este o variabilă de tip întreg? (6p.) strcpy(a,\"info\"); for(i=0;i<strlen(a);i++) a[i]=a[i]+1; cout<<a; | printf(\"%s\",a);",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n (0<n≤23) și apoi construiește în memorie o matrice cu n linii și n coloane, formată din numere naturale nenule, mai mici sau egale cu n, astfel încât să nu existe două linii cu aceeași sumă a elementelor și nici două coloane cu aceeași sumă a elementelor. Programul va afișa matricea pe ecran, câte o linie a matricei pe o linie a ecranului, cu un spațiu între elementele fiecărei linii. Exemplu: dacă n=3 atunci o soluție posibilă este următoarea matrice: 1 1 1 1 1 2 1 2 3 (10p.) Varianta 44",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Care dintre următoarele variante reprezintă antetul corect al unui subprogram care primește prin parametrii x și y două numere întregi și furnizează prin parametrul m cea mai mică dintre cele două valori x și y?",
+        "options": {
+          "a": "int minim(int x,int y,int m)",
+          "b": "void minim(int x,int y,int &m)",
+          "c": "int minim(int x,int y)",
+          "d": "void minim(int& x,int& y,int m)"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Subprogramul f are definiția alăturată. Ce valoare are f(6,5)? Dar f(5,10)? (6p.) int f(int x,int y) {if(x==y)return x; else if(x<y)return f(x+1,y-1); else return f(x-1,y); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Scrieți definiția completă a unui subprogram P, cu doi parametri, a și b, numere naturale cu cel mult 4 cifre fiecare, care afișează pe ecran, separate prin câte un spațiu, numerele aflate în intervalul închis determinat de valorile a și b, care sunt pătratele unor numere prime. Exemplu: pentru a=40 și b=1 se vor afișa valorile: 4 9 25 (nu neapărat în această ordine). (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Fișierul text numere.txt conține pe prima linie un număr natural n (0<n<100000), iar pe a doua linie n numere naturale, formate din cel mult 4 cifre, separate prin câte un spațiu.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți un program C/C++ care determină în mod eficient, din punct de vedere al timpului de executare, cifrele ce apar în scrierea numerelor situate pe a doua linie a fișierului. Programul va afișa pe ecran aceste cifre in ordine crescătoare, separate prin câte un spațiu. Exemplu: daca fișierul numere.txt are următorul conținut: 7 243 32 545 74 12 1344 90 atunci pe ecran se va afișa: 0 1 2 3 4 5 7 9",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Descrieți succint, în limbaj natural, metoda de rezolvare folosită, explicând în ce constă eficiența ei (3 – 4 rânduri).",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "2009-varianta-056",
+  "year": 2009,
+  "variant": 56,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 166,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele întregi x și y memorează câte un număr natural nenul. Cel mai mic multiplu comun al valorilor lor este egal cu numărul memorat în y dacă și numai dacă următoarea expresie C/C++ are o valoare nenulă:",
+        "options": {
+          "a": "y%x",
+          "b": "y%x==0",
+          "c": "x%y",
+          "d": "x%y==0"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod: S-a notat cu [x] partea întreagă a numărului real x și cu a%b restul împărțirii numărului întreg a la numărul întreg nenul b.",
+      "pseudocode": "citește n (număr natural) rÅ0 ┌repetă │ rÅ(r*10+n%10)*10 │ nÅ[n/100] └până când n<10 scrie r",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea care se va afișa pentru n=8291.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți o valoare de 5 cifre distincte care poate fi citită pentru variabila n astfel încât numărul afișat să fie 7080.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura repetă...până când cu o structură repetitivă de alt tip.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila x este utilizată pentru a memora numele, prenumele și salariul unei persoane. Numele și prenumele pot avea cel mult 20 de litere fiecare, iar salariul este un număr natural nenul mai mic decât 30000 . Care dintre următoarele declarări este corectă?",
+        "options": {
+          "a": "float x[3][21];",
+          "b": "int x[3][21];",
+          "c": "struct persoana{ char nume[21],prenume[21]; int sal;} x;",
+          "d": "struct x[ char nume[21],prenume[21]; int sal;] x; 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Care este numărul maxim de muchii pe care-l poate avea un graf neorientat cu 6 noduri, care nu este conex?",
+        "options": {
+          "a": "4",
+          "b": "15",
+          "c": "12",
+          "d": "10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Fie T un arbore cu rădăcină. Arborele are 8 noduri numerotate de la 1 la 8 și este descris prin următorul vector „de tați”: (4,1,6,0,1,1,4,7). Care sunt frunzele arborelui? (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Scrieți o expresie C/C++ care să fie nenulă dacă și numai dacă variabila c de tip char este o literă mică a alfabetului englez. (6p.) Scrieți un program C/C++ care citește de la tastatură două numere naturale n și k (2<n<25, 0<k<n) și construiește în memorie o matrice cu n linii și n coloane formată numai din valori 1,2,3 și 4 astfel încât: elementele aflate la intersecția primelor k linii cu primele k coloane sunt egale cu 1, elementele aflate la intersecția primelor k linii cu ultimele n-k coloane sunt egale cu 2, elementele aflate la intersecția ultimelor n-k linii cu primele k coloane sunt egale cu 3, elementele aflate la intersecția ultimelor n-k linii cu ultimele n-k coloane sunt egale cu 4 ca în exemplul de mai jos.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Programul afișează pe ecran matricea construită, fiecare linie a matricei pe o linie a ecranului și elementele de pe aceeași linie separate prin câte un singur spațiu. Exemplu: pentru n=5, k=3 se construiește în memorie și se afișează matricea alăturată. (10p.) 1 1 1 2 2 1 1 1 2 2 1 1 1 2 2 3 3 3 4 4 3 3 3 4 4 Varianta 56",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru a genera toate numerele naturale cu exact 4 cifre și care au cifrele în ordine strict descrescătoare, se poate utiliza un algoritm echivalent cu cel pentru generarea:",
+        "options": {
+          "a": "aranjamentelor de 4 obiecte luate câte 10",
+          "b": "combinărilor de 10 obiecte luate câte 4",
+          "c": "permutărilor a 10 obiecte",
+          "d": "permutărilor a 4 obiecte"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Se consideră subprogramul f, definit alăturat. Ce valoare are f(12,3)? Dar f(21114,1)? (6p.) int f(int n,int c) { if(n==0)return 0; if(n%10==c) return n%100+f(n/10,c); return f(n/10,c); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text numere.txt conține, pe o singură linie, cel mult 1000 de numere naturale nenule cu cel mult 4 cifre fiecare, numerele fiind separate prin câte un spațiu. Scrieți un program C/C++ care citește toate numerele din fișier și scrie pe ecran toate numerele pare citite, ordonate crescător. Dacă fișierul numere.txt nu conține niciun număr par, atunci se va afișa pe ecran mesajul nu exista. Exemplu: dacă fișierul numere.txt conține numerele 2 3 1 4 7 2 5 8 6, atunci pe ecran se va afișa: 2 2 4 6 8 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Se consideră subprogramele – prim, care primește prin intermediul unicului său parametrului x un număr natural nenul de cel mult 4 cifre și returnează valoarea 1 dacă x este un număr prim și 0 în caz contrar; – numar, care primește prin intermediul parametrului x un număr natural nenul de cel mult 4 cifre și furnizează prin intermediul parametrului nrp numărul de numere prime mai mici decât x.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți numai antetul subprogramului prim și definiția completă a subprogramului numar.",
+            "points": 6
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un programul C/C++ în care se citesc de la tastatură două numere naturale nenule de cel mult 4 cifre, a și b (a<b), și, prin apeluri utile ale subprogramului numar, se verifică dacă intervalul închis [a,b] conține cel puțin un număr prim. Programul va afișa pe ecran, în caz afirmativ, mesajul DA, iar în caz contrar, mesajul NU.",
+            "points": 4
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}

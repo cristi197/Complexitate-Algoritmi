@@ -1,0 +1,132 @@
+{
+  "id": "2009-varianta-014",
+  "year": 2009,
+  "variant": 14,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 40,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Pentru care dintre perechile de valori de mai jos expresia C/C++ alăturată are valoarea 1? (a%100==b%100) && (a>99) || (b>99)",
+        "options": {
+          "a": "a=1003 și b=3",
+          "b": "a=35 și b=35",
+          "c": "a=1100 și b=10",
+          "d": "a=1234"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului natural x la numărul natural nenul y și cu [z] partea întreagă a numărului real z.",
+      "pseudocode": "citește x (număr natural) nÅ0 ┌cât timp x≠0 execută │ yÅx; cÅ0 │ ┌cât timp y>0 execută │ │ ┌dacă y%10>c atunci │ │ │ cÅy%10 │ │ └■ │ │ yÅ[y/10] │ └■ │ nÅn*10+c │ citește x └■ scrie n Varianta 14",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea ce se va afișa dacă se citesc, în această ordine, numerele 12, 7, 354, 9, 1630, 0.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un set de date de intrare format din numere pare, care să determine, în urma executării algoritmului, afișarea valorii 751.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască fiecare structură cât timp...execută, cu câte o structură repetitivă cu test final.",
+          "points": 6
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se consideră un graf neorientat cu 5 noduri, etichetate cu câte o literă distinctă din mulțimea {a, b, c, d, e}, în care orice nod etichetat cu o vocală este adiacent cu toate nodurile etichetate cu consoane și numai cu acestea, iar orice nod etichetat cu o consoană este adiacent numai cu nodurile etichetate cu vocale. Câte muchii are acest graf?",
+        "options": {
+          "a": "12",
+          "b": "6",
+          "c": "4",
+          "d": "3"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Ce se afișează pe ecran în urma executării secvenței de program alăturate, în care variabila s memorează un șir cu cel mult 10 caractere, iar variabilele i și j sunt de tip întreg? (4p.) char s[11]=\"abcduecda\"; cout<<strlen(s); | printf(\"%d\",strlen(s)); i=0; j=strlen(s)-1; while (i<j) if (s[i]==s[j]) { strcpy(s+j,s+j+1); strcpy(s+i,s+i+1); j=j-2; } else { i=i+1; j=j-1; } cout<<\" \"<<s; | printf(\" %s\",s);",
+        "points": 4
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Care sunt etichetele nodurilor de tip frunză ale arborelui cu rădăcină, având 7 noduri, numerotate de la 1 la 7, și următorul vector “de tați”: (5,1,5,1,0,7,5)? (6p.) Scrieți un program C/C++ care citește de la tastatură un număr natural nenul, cu maximum 8 cifre, construiește în memorie și afișează apoi pe ecran o matrice pătratică, având numărul de linii și de coloane egal cu numărul de cifre ale numărului dat, completată cu cifrele numărului citit.",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Astfel, elementele de pe prima coloană a matricei vor fi toate egale cu cifra unităților numărului dat, elementele de pe a doua coloană a matricei vor fi toate egale cu cifra zecilor numărului dat, și așa mai departe, ca în exemplu. Exemplu: dacă se citește numărul 1359, matricea construită va fi cea alăturată. (10p.) Varianta 14",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează permutările cuvântului info. Dacă primele trei soluții generate sunt: fino, fion, fnio care este cea de-a cincea soluție?",
+        "options": {
+          "a": "foin",
+          "b": "fnoi",
+          "c": "foni",
+          "d": "ifon"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru funcțiile f1 și f2 definite alăturat, stabiliți care este valoarea lui f1(3). Dar f2(41382)? (6p.) long f1(int c) { if (c%2==1) return 1; else return 2; } long f2(long n) { if (n==0) return 0; else return f1(n%10)+f2(n/10); }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Se citește de la tastatură un număr natural n (n≤500) și apoi n cifre separate prin spații. Se cere să se afișeze pe ecran cele n cifre citite, în ordine crescătoare, separate prin câte un spațiu. Exemplu: pentru n=19 și cifrele 3 3 0 9 2 1 2 1 3 7 1 5 2 7 1 0 3 2 3 se va afișa pe ecran 0 0 1 1 1 1 2 2 2 2 3 3 3 3 3 5 7 7 9. a) Descrieți pe scurt un algoritm de rezolvare al problemei, eficient din punct de vedere al spațiului de memorie utilizat și al timpului de executare, explicând în ce constă eficiența metodei alese. (4p.) b) Scrieți programul C/C++ corespunzător algoritmului descris. (6p.) Fișierul text BAC.TXT conține mai multe numere naturale, cu cel mult 6 cifre fiecare, câte un număr pe fiecare linie a fișierului.",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Scrieți un program C/C++ care citește toate numerele din fișierul BAC.TXT și le afișează pe ecran, în aceeași ordine, câte cinci pe fiecare linie, separate prin câte un spațiu, cu excepția ultimei linii care poate conține mai puțin de cinci numere. Programul va afișa apoi pe ecran, pe o linie separată, câte numere din fișier au suma cifrelor pară. Exemplu: dacă fișierul are conținutul alăturat, pe ecran se vor afișa numerele de mai jos: 11 21 30 40 51 16 17 10 1 4 (10p.) 11 21 30 40 51 16 17 10 1 Varianta 14",
+        "subQuestions": [],
+        "points": 10
+      }
+    ]
+  }
+}

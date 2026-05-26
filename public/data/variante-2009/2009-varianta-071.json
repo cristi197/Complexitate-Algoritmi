@@ -1,0 +1,136 @@
+{
+  "id": "2009-varianta-071",
+  "year": 2009,
+  "variant": 71,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 211,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabila întreagă x reține un număr natural cu cel puțin două cifre. Care dintre următoarele expresii C/C++ are valoarea egală cu cifra zecilor numărului natural memorat în variabila x?",
+        "options": {
+          "a": "x % 10 / 10",
+          "b": "x – (x / 10) * 10",
+          "c": "x / 10 % 10",
+          "d": "x – (x / 10) % 10"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu [a/b] câtul împărțirii întregi a numărului natural a la numărul natural nenul b.",
+      "pseudocode": "s Å 0 citește n (număr natural, n<10) ┌pentru iÅ1,n execută │ citește x (număr natural) │ ┌cât timp x>9 execută │ │ x Å [x/10] │ └■ │ ┌pentru jÅ1,i-1 execută │ │ x Å x*10 │ └■ │ s Å s + x └■ scrie s",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți valoarea ce se va afișa dacă se citesc pentru n valoarea 5 și pentru x, în această ordine, valorile: 523, 4256, 324, 4, 86935.",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Dacă n = 4, scrieți un șir de valori pare care pot fi citite pentru x astfel încât să se afișeze 1234.",
+          "points": 6
+        },
+        {
+          "id": "c",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat. s",
+          "points": 10
+        },
+        {
+          "id": "d",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat care să utilizeze în locul structurii cât timp...execută o structură repetitivă condiționată posterior.",
+          "points": 4
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte noduri ale grafului orientat cu șase noduri numerotate de la 1 la 6 și următoarele arce: (1,5), (1,6), (2,1), (2,3), (3,1), (3,4), (4,3), (4,5), (5,4), (6,5) au gradul interior egal cu gradul exterior?",
+        "options": {
+          "a": "4",
+          "b": "6",
+          "c": "5",
+          "d": "3 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Într-o listă liniară simplu înlănțuită, alocată dinamic, cu cel puțin 3 noduri, fiecare nod reține în câmpul urm, adresa următorului nod din listă sau NULL dacă nu există un nod următor. Dacă în variabila p se reține adresa primului nod din listă și q este o variabilă de același tip cu p, atunci care dintre secvențele de mai jos elimină din listă al doilea nod ?",
+        "options": {
+          "a": "q=p->urm; p->urm=q->urm; delete q; | free(q);",
+          "b": "q=p->urm; delete q; | free(q); p->urm=q->urm;",
+          "c": "delete p->urm; | free(p->urm); p->urm=p->urm->urm;",
+          "d": "q=p->urm->urm; p->urm=q->urm; delete q; | free(q);"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Variabila i este de tip întreg, iar variabila a memorează o matrice cu n linii și n coloane, numerotate de la 0 la n-1, ale cărei elemente sunt numere întregi. s1 = 0; s2 = 0; for(i=0; i<n; i++) { ... } Înlocuiți punctele de suspensie din secvența de program alăturată cu instrucțiunile corespunzătoare, astfel încât, în urma executării secvenței, variabila întreagă s1 să memoreze suma elementelor de pe diagonala principală din matricea a, iar variabila întreagă s2 suma elementelor de pe diagonala secundară din matricea a. (6p.)",
+        "points": 6
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "Fiecare dintre variabilele declarate alăturat memorează numele și nota câte unui elev. Scrieți secvența de instrucțiuni prin care se citesc de la tastatură numele și nota pentru fiecare dintre variabilele e1 și e2 și apoi se afișează numele elevului cu nota cea mai mare. Dacă cele două note sunt egale, se va afișa numele elevului memorat în variabila e1. (6p.) struct elev{ char nume[20]; float nota; }; elev e1,e2;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Scrieți programul C/C++ care citește de la tastatură, separate prin Enter, două șiruri de caractere: un șir s de maximum 255 de caractere, care pot fi litere ale alfabetului englez și spații, apoi un șir c de maximum 20 de caractere. Programul va înlocui în șirul s toate aparițiile șirului c cu un șir de exact aceeași lungime efectivă cu c, format doar din caractere *, ca în exemplu. Șirul s obținut în urma acestei prelucrări va fi afișat pe ecran. În cazul în care c nu apare în s, programul va afișa mesajul NU APARE. Exemplu: dacă șirul S citit este Din departare se vede tare iar c este tare atunci pe ecran se va afișa: Din depar**** se vede **** (10p.) Varianta 71",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Se generează în ordine crescătoare toate numerele de exact 4 cifre care se pot forma cu elementele mulțimii {0,1,2,3,4}. Primele 8 soluții generate sunt, în ordine: 1000, 1001, 1002, 1003, 1004, 1010, 1011, 1012. Care sunt primele trei numere ce se vor genera imediat după numărul 3443?",
+        "options": {
+          "a": "4000,4001,4002",
+          "b": "3444,4443,4444",
+          "c": "3444,4444,4000",
+          "d": "3444,4000,4001"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Ce valoare va avea variabila întreagă x, în urma apelului F(1,x), știind că, înainte de apel, variabila x are valoarea 0, iar subprogramul F este definit alăturat? (6p.) void F(int i, int &x) { if (i <= 10) { if(i % 2) x = x + 2; else x = x – 1; F(i + 1, x); } }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Un număr natural se numește palindrom dacă numărul citit de la stânga la dreapta este egal cu numărul citit de la dreapta la stânga. a) Scrieți definiția completă a subprogramului Palindrom care primește prin intermediul parametrului n un număr natural de cel mult nouă cifre și returnează 1 dacă acesta este palindrom și 0 în caz contrar. (10p.) b) Fișierul text NUMERE.IN conține cel mult 100000 numere naturale de cel mult nouă cifre fiecare, numerele fiind despărțite prin câte un spațiu. Cel puțin unul dintre numere este palindrom. Scrieți programul C/C++ care citește numerele din fișierul NUMERE.IN și, folosind apeluri utile ale subprogramului Palindrom determină în mod eficient, din punct de vedere al memoriei utilizate și al timpului de executare, care este cel mai mare număr palindrom citit și de câte ori apare el în fișierul NUMERE.IN. Programul scrie în fișierul text NUMERE.OUT numărul astfel determinat precum și numărul de apariții ale acestuia, pe rânduri diferite. Exemplu: dacă NUMERE.IN conține numerele: 23 565 78687 7887 7865 78687 7887 23 78687 98798 atunci NUMERE.OUT va conține: 78687 3 (6p.) c) Descrieți succint, în limbaj natural, metoda de rezolvare folosită la punctul b, explicând în ce constă eficiența ei (3 – 4 rânduri). (4p.) Varianta 71",
+        "points": 10
+      }
+    ],
+    "subprograme": []
+  }
+}

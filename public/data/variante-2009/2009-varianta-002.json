@@ -1,0 +1,161 @@
+{
+  "id": "2009-varianta-002",
+  "year": 2009,
+  "variant": 2,
+  "type": "varianta",
+  "language": "C/C++",
+  "pdfUrl": "/subiecte-bac/2009/variante-2009-subiect.pdf",
+  "pdfPage": 4,
+  "subiectI": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Variabilele x și y sunt tip int. Care dintre expresiile C/C++ de mai jos are valoarea 1 dacă și numai dacă valorile întregi nenule memorate în variabilele x și y sunt egale?",
+        "options": {
+          "a": "(x%y==0) && (y%x==0) && (x*y>0)",
+          "b": "(x<=y) && (y<x)",
+          "c": "(x<=y) || (y<=x)",
+          "d": "x*x==y*y"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "pseudocode": {
+      "nr": 2,
+      "type": "pseudocode",
+      "intro": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărțirii numărului întreg x la numărul întreg nenul y.",
+      "pseudocode": "citește x (număr natural nenul) ┌cât timp x>0 execută │ citește y (număr natural) │┌dacă x>y atunci ││ scrie x%10 ││altfel ││ scrie y%10 │└■ │ xÅy └■",
+      "subQuestions": [
+        {
+          "id": "a",
+          "text": "Scrieți ce se va afișa dacă se citesc, în această ordine, numerele: 17 22 13 101 2 7 5 0. (",
+          "points": 6
+        },
+        {
+          "id": "b",
+          "text": "Scrieți un șir de date de intrare, format doar din numere naturale cu cel mult două cifre fiecare, care să determine afișarea valorii 9877.",
+          "points": 4
+        },
+        {
+          "id": "c",
+          "text": "Scrieți în pseudocod un algoritm echivalent cu cel dat, în care să se înlocuiască structura cât timp...execută cu o structură repetitivă de alt tip.",
+          "points": 6
+        },
+        {
+          "id": "d",
+          "text": "Scrieți programul C/C++ corespunzător algoritmului dat.",
+          "points": 10
+        }
+      ]
+    }
+  },
+  "subiectII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Câte grafuri neorientate, distincte, cu 8 vârfuri se pot construi? Două grafuri se consideră distincte dacă matricele lor de adiacență sunt diferite.",
+        "options": {
+          "a": "4 14",
+          "b": "2 14",
+          "c": "4 28",
+          "d": "64 2."
+        },
+        "points": 4,
+        "correctAnswer": null
+      },
+      {
+        "nr": 2,
+        "text": "Variabila t, declarată alăturat, memorează în câmpurile a, b și c lungimile laturilor unui triunghi. Care dintre următoarele instrucțiuni atribuie câmpului p al variabilei t valoarea perimetrului triunghiului respectiv? struct triunghi { float a,b,c,p; }t;",
+        "options": {
+          "a": "p.t=t.a+t.b+t.b;",
+          "b": "p.t=a.t+b.t+c.t;",
+          "c": "t.p=t.a+t.b+t.c;",
+          "d": "t.p==t.a+t.b+t.c;"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "probleme": [
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se consideră o stivă în care inițial au fost introduse, în această ordine, elementele cu valorile 1, 2 și",
+        "points": 6
+      },
+      {
+        "nr": 3,
+        "type": "written",
+        "text": "Se notează cu AD(x) operația prin care se adaugă elementul cu valoarea x în vârful stivei și cu EL operația prin care se elimină elementul din vârful stivei. Asupra acestei stive se execută următoarea secvență de operații: AD(4);EL;AD(5);EL;AD(6);EL;EL. a) Care este valoarea elementului din vârful stivei în urma executării acestei secvențe de operații? (3p.) b) Care este suma valorilor elementelor aflate în stivă în urma executării acestei secvențe de operații? (3p.)",
+        "points": 3
+      },
+      {
+        "nr": 4,
+        "type": "written",
+        "text": "În secvența de program alăturată, variabila a memorează o matrice cu n linii și n coloane (numerotate de la 0 la n-1) cu elemente numere întregi, iar toate celelalte variabile sunt întregi. Știind că n este un număr natural par, nenul, scrieți instrucțiunile care pot înlocui punctele de suspensie din secvența de program alăturată astfel încât, în urma executării acesteia, să se afișeze ultima cifră a sumei elementelor pozitive de pe linia k (0≤k<n) a matricei a. (6p.) s = 0; for(j = 0; j < n/2; j++) { ............. } printf(\"%d\",s);|cout<<s;",
+        "points": 6
+      },
+      {
+        "nr": 5,
+        "type": "program",
+        "text": "Să se scrie un program C/C++ care citește de la tastatură un cuvânt format din cel mult 20 de caractere, doar litere mici ale alfabetului englez. Programul determină transformarea cuvântului citit prin înlocuirea fiecărei vocale a cuvântului, cu un șir format din două caractere și anume vocala respectivă urmată de litera mare corespunzătoare, restul literelor nemodificându-se, ca în exemplu. Programul afișează pe ecran cuvântul obținut, pe o singură linie. Se consideră vocale literele din mulțimea {a,e,i,o,u}. Exemplu: pentru cuvântul bacalaureat se va afișa pe ecran: baAcaAlaAuUreEaAt (10p.) Varianta 2",
+        "points": 10
+      }
+    ]
+  },
+  "subiectIII": {
+    "points": 30,
+    "grile": [
+      {
+        "nr": 1,
+        "text": "Utilizând metoda backtracking se generează în ordine lexicografică cuvintele de câte patru litere din mulțimea A={a,b,c,d,e}, cuvinte care nu conțin două vocale alăturate. Primele opt cuvinte generate sunt, în ordine: abab, abac, abad, abba, abbb, abbc, abbd, abbe. Care este ultimul cuvânt generat?",
+        "options": {
+          "a": "edcb",
+          "b": "eeee",
+          "c": "edde",
+          "d": "eded"
+        },
+        "points": 4,
+        "correctAnswer": null
+      }
+    ],
+    "subprogram_recursiv": {
+      "nr": 2,
+      "type": "recursivitate",
+      "intro": "Scrieți pe foaia de examen răspunsul pentru fiecare dintre cerințele următoare.",
+      "code": "Pentru definiția de mai jos a subprogramului f, ce se afișează ca urmare a apelului f(12345);? (6p.) //C void f(long n) { printf(\"%d\",n%10); if(n!=0) { f(n/100); printf(\"%d\",n%10); } } //C++ void f(long n) { cout<<n%10; if(n!=0) { f(n/100); cout<<n%10;} }",
+      "points": 6
+    },
+    "fisiere": [
+      {
+        "nr": 3,
+        "type": "fisier",
+        "text": "Fișierul text NR.TXT conține pe o singură linie, separate prin câte un spațiu, cel mult 100 de numere întregi, fiecare număr având cel mult 4 cifre. Scrieți un program C/C++ care citește numerele din fișierul NR.TXT și afișează pe ecran, separate prin câte un spațiu, în ordine crescătoare, toate numerele naturale nenule din fișier. Dacă nu există astfel de numere se va afișa pe ecran mesajul NU EXISTA. Exemplu: dacă fișierul NR.TXT conține numerele: -3 -10 0 7 -5 7 51 -800 6 3798, atunci pe ecran se va afișa: 6 7 7 51 3798 (10p.)",
+        "points": 10
+      }
+    ],
+    "subprograme": [
+      {
+        "nr": 4,
+        "type": "subprogram",
+        "intro": "Un număr n se numește extraprim dacă atât el, cât și orice număr obținut prin permutarea cifrelor lui n, sunt numere prime. De exemplu, numărul 113 este un număr extraprim deoarece 113, 311, 131 sunt numere prime.",
+        "subQuestions": [
+          {
+            "id": "a",
+            "text": "Scrieți definiția completă a unui subprogram f, cu un parametru, subprogram care: - primește prin intermediul parametrului a un număr natural cu cel mult 3 cifre (a>1) - returnează suma tuturor exponenților din descompunerea în factori primi a valorii parametrului a. Exemplu: pentru a=90 subprogramul va returna valoarea 4, deoarece a=2*3 2 *5 și 1+2+1=4.",
+            "points": 4
+          },
+          {
+            "id": "b",
+            "text": "Scrieți un program C/C++ care citește de la tastatură un număr natural n, 2≤n≤999 și, folosind apeluri utile ale subprogramului f, verifică dacă n este un număr extraprim. În caz afirmativ, programul afișează pe ecran mesajul DA, în caz contrar afișând mesajul NU.",
+            "points": 6
+          }
+        ],
+        "points": 10
+      }
+    ]
+  }
+}
