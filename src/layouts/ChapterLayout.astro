@@ -27,7 +27,7 @@ const {
   description,
 } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const readingTime = 12; // fallback; scripts will update dynamically
 
 // Chapter order for prev/next navigation (sequential numbering)

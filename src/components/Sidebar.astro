@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { activeChapter = -1 } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // color maps to one of the semantic CSS variables
 const chapters = [

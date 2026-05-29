@@ -15,7 +15,7 @@ const {
   bodyClass = '',
 } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const normalizedBase = base.replace(/\/$/, '');
 const siteOrigin = 'https://learnbac.ro';
 const siteBase   = `${siteOrigin}${base}`.replace(/\/$/, '');
