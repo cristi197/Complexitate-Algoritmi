@@ -3,8 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://cristi197.github.io/Complexitate-Algoritmi',
-  base: '/Complexitate-Algoritmi',
+  site: 'https://learnbac.ro',
+  base: '/',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

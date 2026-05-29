@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════════════════════════ */
 
 var CACHE_NAME = 'infoLiceu-v2';
-var BASE = '/Complexitate-Algoritmi';
+var BASE = '';
 
 var PRECACHE_URLS = [
   BASE + '/',

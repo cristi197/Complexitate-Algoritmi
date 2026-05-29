@@ -17,8 +17,8 @@ const {
 
 const base = import.meta.env.BASE_URL;
 const normalizedBase = base.replace(/\/$/, '');
-const siteOrigin = 'https://cristi197.github.io';
-const siteBase   = `${siteOrigin}/Complexitate-Algoritmi`;
+const siteOrigin = 'https://learnbac.ro';
+const siteBase   = `${siteOrigin}${base}`.replace(/\/$/, '');
 const canonicalURL = `${siteOrigin}${Astro.url.pathname}`;
 const ogImageURL   = ogImage || `${siteBase}/og-default.png`;
 const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu`;
@@ -113,11 +113,13 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
   <script is:inline src={`${base}/js/search.js`}></script>
   <script is:inline src={`${base}/js/progress.js`}></script>
   <script is:inline src={`${base}/js/analytics.js`}></script>
-  <script is:inline>
+  <script is:inline define:vars={{ normalizedBase }}>
     // Register service worker for offline caching
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/Complexitate-Algoritmi/sw.js', { scope: '/Complexitate-Algoritmi/' });
+        var swPath = normalizedBase + '/sw.js';
+        var swScope = normalizedBase + '/';
+        navigator.serviceWorker.register(swPath, { scope: swScope });
       });
     }
   </script>

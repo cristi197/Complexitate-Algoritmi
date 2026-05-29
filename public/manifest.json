@@ -2,13 +2,13 @@
   "name": "InfoLiceu — Algoritmi & Structuri de Date",
   "short_name": "InfoLiceu",
   "description": "Materiale interactive de informatică pentru liceu și bacalaureat",
-  "start_url": "/Complexitate-Algoritmi/",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#6366f1",
   "background_color": "#0d1117",
   "icons": [
     {
-      "src": "/Complexitate-Algoritmi/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
