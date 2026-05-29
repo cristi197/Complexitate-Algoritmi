@@ -1,7 +1,19 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"declarare","label":"Declarare"},{"id":"parcurgere","label":"Parcurgere"},{"id":"diagonale","label":"Diagonale"},{"id":"transpusa","label":"Transpusă"},{"id":"rotire","label":"Rotire"},{"id":"speciale","label":"Matrice Speciale"},{"id":"spirala","label":"Spirală"},{"id":"matrix-demo","label":"Demo Zone"},{"id":"bac","label":"Probleme BAC"}];
+const sections = [
+  {"id":"declarare",  "label":"Declarare"},
+  {"id":"parcurgere", "label":"Parcurgere"},
+  {"id":"diagonale",  "label":"Diagonale"},
+  {"id":"transpusa",  "label":"Transpusă"},
+  {"id":"rotire",     "label":"Rotire"},
+  {"id":"speciale",   "label":"Matrice Speciale"},
+  {"id":"spirala",    "label":"Spirală"},
+  {"id":"matrix-demo","label":"Demo Zone"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"bac",        "label":"Probleme BAC"},
+  {"id":"exercitii",  "label":"Exerciții"}
+];
 ---
 <ChapterLayout
   title="Matrici"
@@ -154,7 +166,34 @@ cin >> n >> m;
       <div class="callout success">
         <strong>Proprietate:</strong> Suma totală = sumaDiagP + sumaSup + sumaInf (dacă diagonalele nu se suprapun)
       </div>
-    </div>
+      <!-- ── Interactive: highlight zones in n×n matrix ── -->
+      <div id="mtx-diag-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — Diagonale și zone</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Apasă pe un buton pentru a evidenția zona corespunzătoare. Suma elementelor evidențiate apare în dreapta.</p>
+        <div class="viz-controls">
+          <label>n:</label>
+          <input type="number" data-md="size" value="5" min="3" max="8" style="width:60px;">
+          <button class="btn btn-secondary" data-md="shuffle">🎲 Aleator</button>
+          <span style="margin-left:8px;font-size:13px;color:var(--text-muted);">Sumă: <strong data-md="sum">—</strong></span>
+        </div>
+        <div class="viz-controls" style="margin-top:8px;">
+          <button class="btn btn-primary" data-md="principala">Diagonala principală</button>
+          <button class="btn btn-primary" data-md="secundara">Diagonala secundară</button>
+          <button class="btn btn-secondary" data-md="tri-sup">Triunghi superior</button>
+          <button class="btn btn-secondary" data-md="tri-inf">Triunghi inferior</button>
+          <button class="btn btn-secondary" data-md="bord">Bordură</button>
+          <button class="btn btn-secondary" data-md="interior">Interior</button>
+        </div>
+        <div class="mtx-grid"></div>
+        <div class="viz-status"></div>
+        <div class="viz-legend">
+          <span><i style="background:#fde68a;border:1px solid #f59e0b;"></i> diag. principală</span>
+          <span><i style="background:#fce7f3;border:1px solid #ec4899;"></i> diag. secundară</span>
+          <span><i style="background:#dbeafe;border:1px solid #3b82f6;"></i> triunghi sup.</span>
+          <span><i style="background:#e0e7ff;border:1px solid #6366f1;"></i> triunghi inf.</span>
+          <span><i style="background:#fef3c7;border:1px solid #f59e0b;"></i> bordură</span>
+        </div>
+      </div>    </div>
   </div>
 </section>
 
@@ -183,6 +222,29 @@ cin >> n >> m;
         <strong>Exemplu:</strong><br>
         A = [[1,2,3],[4,5,6]] → Aᵀ = [[1,4],[2,5],[3,6]]
       </div>
+
+      <!-- ── Interactive: in-place transpose ── -->
+      <div id="mtx-trans-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — Transpusa in-place</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Pentru o matrice 4×4, executăm <code>swap(a[i][j], a[j][i])</code> pentru fiecare <strong>j &gt; i</strong>. Vor fi exact n(n−1)/2 = 6 interschimbări.</p>
+        <div class="speed-wrap" style="margin-bottom:8px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        <div class="viz-controls">
+          <button class="btn btn-primary" data-mt="go">▶ Transpune</button>
+          <button class="btn btn-secondary" data-mt="reset">↺ Reset</button>
+          <span style="margin-left:8px;font-size:13px;color:var(--text-muted);">Interschimbări: <strong data-mt="swap">0</strong></span>
+        </div>
+        <div class="mtx-grid"></div>
+        <div class="viz-status"></div>
+        <div class="viz-legend">
+          <span><i style="background:#fee2e2;border:1px solid #ef4444;"></i> a[i][j]</span>
+          <span><i style="background:#cffafe;border:1px solid #06b6d4;"></i> a[j][i]</span>
+          <span><i style="background:#dcfce7;border:1px solid #16a34a;"></i> final</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -210,6 +272,31 @@ cin >> n >> m;
 
       <div class="callout info">
         <strong>Rotire 180°</strong> = rotire 90° aplicată de două ori, sau direct: <code>b[n-i+1][n-j+1] = a[i][j]</code>
+      </div>
+
+      <!-- ── Interactive: 90° rotation side-by-side ── -->
+      <div id="mtx-rot-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — Rotire 90°</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Sursa în stânga, destinația în dreapta. Fiecare celulă din A își găsește locul în B.</p>
+        <div class="speed-wrap" style="margin-bottom:8px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        <div class="viz-controls">
+          <label>Sens:</label>
+          <select data-mr="dir">
+            <option value="cw">Orar (CW) — b[j][n-i+1] = a[i][j]</option>
+            <option value="ccw">Antiorar (CCW) — b[n-j+1][i] = a[i][j]</option>
+          </select>
+          <button class="btn btn-primary" data-mr="go">▶ Rotește</button>
+          <button class="btn btn-secondary" data-mr="reset">↺ Reset</button>
+        </div>
+        <div class="mtx-pair">
+          <div data-mr="orig"><small>A (sursa)</small><div class="mtx-grid"></div></div>
+          <div data-mr="dest"><small>B (rotită)</small><div class="mtx-grid"></div></div>
+        </div>
+        <div class="viz-status"></div>
       </div>
     </div>
   </div>
@@ -277,6 +364,25 @@ cin >> n >> m;
       <div class="callout success">
         <strong>Exemplu n=3:</strong> [[1,2,3],[4,5,6],[7,8,9]] → 1 2 3 6 9 8 7 4 5
       </div>
+
+      <!-- ── Interactive: spiral traversal ── -->
+      <div id="mtx-spiral-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — Parcurgere în spirală 5×5</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Urmărește celula curentă (galben) și ordinea de vizitare (mov). Output-ul se construiește pas cu pas.</p>
+        <div class="speed-wrap" style="margin-bottom:8px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        <div class="viz-controls">
+          <button class="btn btn-primary" data-ms="go">▶ Start spirală</button>
+          <button class="btn btn-secondary" data-ms="shuffle">🎲 Matrice nouă</button>
+        </div>
+        <div class="mtx-grid"></div>
+        <div style="margin-top:6px;font-size:12px;color:var(--text-muted);">Ieșire:</div>
+        <div class="freq-output" data-ms="out"></div>
+        <div class="viz-status"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -323,6 +429,171 @@ cin >> n >> m;
         <div class="mx-legend-item"><div class="mx-legend-color" style="background:#0f766e"></div> Triunghi superior</div>
         <div class="mx-legend-item"><div class="mx-legend-color" style="background:#b45309"></div> Triunghi inferior</div>
         <div class="mx-legend-item"><div class="mx-legend-color" style="background:#be185d"></div> Bordură</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE (pas cu pas) ──────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — matrici</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice cu enunț, exemplu și soluție comentată.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Maxim pe fiecare linie</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește o matrice <strong>n × m</strong> (1 ≤ n, m ≤ 50). Afișează maximul de pe fiecare linie, în ordinea liniilor.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3 4
+1 5 2 7
+9 3 1 4
+6 6 8 2</pre></div>
+          <div><strong>Ieșire:</strong><pre>7 9 8</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> a[<span class="nu">55</span>][<span class="nu">55</span>];
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n, m; cin >> n >> m;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= m; j++) cin >> a[i][j];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+        <span class="kw">int</span> mx = a[i][<span class="nu">1</span>];
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">2</span>; j &lt;= m; j++)
+            <span class="kw">if</span> (a[i][j] > mx) mx = a[i][j];
+        cout &lt;&lt; mx &lt;&lt; <span class="st">" "</span>;
+    &#125;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> pentru fiecare linie, inițializăm <code>mx</code> cu primul element și actualizăm pe rest. Complexitate <strong>O(n·m)</strong>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Suma triunghiului superior strict</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Pentru o matrice pătratică <strong>n × n</strong>, afișează suma elementelor <em>strict deasupra</em> diagonalei principale (j &gt; i).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3
+1 2 3
+4 5 6
+7 8 9</pre></div>
+          <div><strong>Ieșire:</strong><pre>11</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> sum = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = i + <span class="nu">1</span>; j &lt;= n; j++)  <span class="cm">// j > i ⇒ strict deasupra</span>
+        sum += a[i][j];
+cout &lt;&lt; sum;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Pe exemplu:</strong> 2 + 3 + 6 = 11. <strong>Atenție:</strong> dacă cerea „inclusiv diagonala", condiția ar fi <code>j &gt;= i</code>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Matrice simetrică?</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Verifică dacă o matrice pătratică <strong>n × n</strong> este simetrică față de diagonala principală (<code>a[i][j] == a[j][i]</code> pentru orice i, j). Afișează <code>DA</code> sau <code>NU</code>.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3
+1 2 3
+2 5 4
+3 4 9</pre></div>
+          <div><strong>Ieșire:</strong><pre>DA</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">bool</span> sim = <span class="kw">true</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n && sim; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt; i && sim; j++)   <span class="cm">// doar sub diagonală</span>
+        <span class="kw">if</span> (a[i][j] != a[j][i]) sim = <span class="kw">false</span>;
+cout &lt;&lt; (sim ? <span class="st">"DA"</span> : <span class="st">"NU"</span>);</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Optimizare:</strong> verificăm doar jumătate (j &lt; i), pentru că (i,j) și (j,i) sunt simetrice; cu break-ul prin <code>sim</code> ieșim imediat ce găsim o nepotrivire.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Coloana cu suma maximă</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește o matrice <strong>n × m</strong> și afișează indicele coloanei cu suma maximă a elementelor. Dacă sunt mai multe, afișează prima.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3 3
+1 2 3
+4 5 6
+7 8 9</pre></div>
+          <div><strong>Ieșire:</strong><pre>3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> idxMax = <span class="nu">1</span>, sumMax = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) sumMax += a[i][<span class="nu">1</span>];
+<span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">2</span>; j &lt;= m; j++) &#123;
+    <span class="kw">int</span> s = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) s += a[i][j];
+    <span class="kw">if</span> (s > sumMax) &#123; sumMax = s; idxMax = j; &#125;
+&#125;
+cout &lt;&lt; idxMax;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Pe exemplu:</strong> coloana 1: 12, coloana 2: 15, coloana 3: 18 → răspuns 3. Bucla externă pe j, internă pe i ⇒ parcurgem matricea pe coloane.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Rotire 90° in-place (4 swap-uri/strat)</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Rotește o matrice pătratică <strong>n × n</strong> cu 90° în sens orar, folosind doar O(1) memorie suplimentară (in-place).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3
+1 2 3
+4 5 6
+7 8 9</pre></div>
+          <div><strong>Ieșire:</strong><pre>7 4 1
+8 5 2
+9 6 3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="cm">// Truc: transpunere + inversare a fiecărei linii</span>
+<span class="cm">// 1) Transpunere in-place</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = i+<span class="nu">1</span>; j &lt;= n; j++) swap(a[i][j], a[j][i]);
+<span class="cm">// 2) Inversăm fiecare linie</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+    <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n/<span class="nu">2</span>; j++) swap(a[i][j], a[i][n-j+<span class="nu">1</span>]);</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>De ce funcționează:</strong> transpunerea reflectă matricea pe diagonala principală; inversarea liniilor adaugă reflexia verticală. Compunerea celor două reflexii = rotație 90° CW. Complexitate <strong>O(n²)</strong>, memorie <strong>O(1)</strong>.</p>
+          <p style="margin-top:4px;font-size:13px;color:var(--text-muted);">Pentru CCW: transpunere + inversare a fiecărei <em>coloane</em>.</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💪 Vezi quiz-ul de la final și problemele BAC din secțiunea următoare pentru și mai multă practică.
       </div>
     </div>
   </div>

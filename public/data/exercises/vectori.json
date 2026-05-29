@@ -1199,6 +1199,93 @@
       "ans": 0,
       "exp": "v[0]=3, v[1]=1 < 3, deci primul run sortat crescător are un singur element (indexul 0).",
       "diff": 3
+    },
+    {
+      "q": "Care este complexitatea în timp a căutării binare într-un vector sortat cu n elemente?",
+      "opts": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+      "ans": 1,
+      "exp": "Căutarea binară înjumătățește intervalul la fiecare pas: log₂(n) iterații în cel mai rău caz.",
+      "diff": 1
+    },
+    {
+      "q": "Ce condiție OBLIGATORIE trebuie îndeplinită pentru a aplica căutarea binară?",
+      "opts": [
+        "Vectorul să aibă cel puțin 100 elemente",
+        "Vectorul să fie sortat",
+        "Elementele să fie distincte",
+        "Elementele să fie numere prime"
+      ],
+      "ans": 1,
+      "exp": "Căutarea binară se bazează pe compararea cu elementul din mijloc și eliminarea unei jumătăți — funcționează doar pe vectori sortați.",
+      "diff": 1
+    },
+    {
+      "q": "Câte interschimbări (swap) face Bubble Sort în cel mai bun caz (vector deja sortat)?",
+      "opts": ["0", "n-1", "n", "n(n-1)/2"],
+      "ans": 0,
+      "exp": "Dacă vectorul e deja sortat, nicio comparație nu declanșează swap. Cu flag de optimizare, algoritmul se oprește după o singură trecere.",
+      "diff": 2
+    },
+    {
+      "q": "Care algoritm de sortare face exact n-1 interschimbări indiferent de date?",
+      "opts": ["Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort"],
+      "ans": 1,
+      "exp": "Selection Sort găsește minimul și îl interschimbă cu poziția curentă o singură dată per pas ⇒ exact n-1 swap-uri.",
+      "diff": 2
+    },
+    {
+      "q": "Care este complexitatea spațială a Ciurului lui Eratostene pentru a calcula primele până la N?",
+      "opts": ["O(1)", "O(log N)", "O(√N)", "O(N)"],
+      "ans": 3,
+      "exp": "Avem nevoie de un vector bool de N+1 elemente ⇒ O(N) memorie suplimentară.",
+      "diff": 2
+    },
+    {
+      "q": "În Ciurul lui Eratostene, de la ce valoare începem marcarea multiplilor lui i (la pasul interior)?",
+      "opts": ["2·i", "i+1", "i²", "i+2"],
+      "ans": 2,
+      "exp": "Toți multiplii lui i mai mici decât i² au fost deja marcați de primii < i. Pornim de la i² ca optimizare.",
+      "diff": 3
+    },
+    {
+      "q": "Interclasarea a doi vectori sortați A (n elemente) și B (m elemente) are complexitatea:",
+      "opts": ["O(n·m)", "O(n + m)", "O((n+m) log(n+m))", "O(min(n,m))"],
+      "ans": 1,
+      "exp": "Folosim doi indici care avansează liniar prin A și B; fiecare element e procesat o singură dată ⇒ O(n+m).",
+      "diff": 1
+    },
+    {
+      "q": "Pentru a INSERA un element pe poziția k într-un vector cu n elemente, câte deplasări sunt necesare în cel mai rău caz?",
+      "opts": ["1", "log n", "n - k", "n"],
+      "ans": 2,
+      "exp": "Trebuie deplasate spre dreapta toate elementele de la poziția k până la n-1, adică n-k elemente. În cel mai rău caz (k=0) ⇒ n deplasări.",
+      "diff": 2
+    },
+    {
+      "q": "Care este suma maximă a unei subsecvențe nevide din vectorul [-2, 1, -3, 4, -1, 2, 1, -5, 4]?",
+      "opts": ["4", "5", "6", "7"],
+      "ans": 2,
+      "exp": "Subsecvența [4, -1, 2, 1] are suma 6 (algoritmul Kadane).",
+      "diff": 3
+    },
+    {
+      "q": "Ce afișează codul: for(i=0;i<n;i++) if(v[i]%2==0) cout<<v[i]<<' '; pentru v={3,4,7,8,2,5}?",
+      "opts": ["3 7 5", "4 8 2", "4 2 8", "3 4 7 8 2 5"],
+      "ans": 1,
+      "exp": "Se afișează elementele pare în ordinea apariției: 4, 8, 2.",
+      "diff": 1
+    },
+    {
+      "q": "Pentru a verifica eficient apartenența REPETATĂ a multor valori la un vector cu n elemente, soluția optimă este:",
+      "opts": [
+        "Căutare secvențială de fiecare dată — O(n) per cerere",
+        "Sortăm o singură dată și aplicăm căutare binară — O(n log n) preprocesare + O(log n) per cerere",
+        "Folosim doar 2 variabile",
+        "Recursivitate"
+      ],
+      "ans": 1,
+      "exp": "Preprocesare O(n log n) (sortare), apoi fiecare interogare e O(log n) prin căutare binară.",
+      "diff": 3
     }
   ]
 }

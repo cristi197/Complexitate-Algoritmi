@@ -1,7 +1,18 @@
 ﻿---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"tipuri","label":"char[] vs string"},{"id":"caractere","label":"Funcii Caractere"},{"id":"cstring","label":"Funcii cstring"},{"id":"citire","label":"Citire"},{"id":"algoritmi","label":"Algoritmi"},{"id":"conversii","label":"Conversii"},{"id":"demo","label":"Demo Interactiv"},{"id":"exercitii","label":"Exerciii"},{"id":"bac","label":"Probleme BAC"}];
+const sections = [
+  {"id":"tipuri",     "label":"char[] vs string"},
+  {"id":"caractere",  "label":"Funcții caractere"},
+  {"id":"cstring",    "label":"Funcții cstring"},
+  {"id":"citire",     "label":"Citire"},
+  {"id":"algoritmi",  "label":"Algoritmi"},
+  {"id":"conversii",  "label":"Conversii"},
+  {"id":"demo",       "label":"Demo Interactiv"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"exercitii",  "label":"Exerciții"},
+  {"id":"bac",        "label":"Probleme BAC"}
+];
 ---
 <ChapterLayout
   title="&#350;iruri de Caractere"
@@ -353,6 +364,30 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
 &#125;
 <span class="cm">// "radar" → true | "madam" → true | "bac" → false</span></pre>
 
+      <!-- ── Interactive: palindrom step-by-step ── -->
+      <div id="pal-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — palindrom cu doi pointeri</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Pointer stâng <span style="color:#3b82f6;font-weight:600;">st</span> și pointer drept <span style="color:#ec4899;font-weight:600;">dr</span> avansează unul spre celălalt comparând caracter cu caracter.</p>
+        <div class="speed-wrap" style="margin-bottom:8px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        <div class="viz-controls">
+          <input type="text" data-pal="input" value="radar" placeholder="Introdu un șir..." style="flex:1;min-width:160px;padding:6px 10px;border-radius:6px;border:1px solid var(--border);">
+          <button class="btn btn-primary" data-pal="go">▶ Verifică</button>
+          <button class="btn btn-secondary" data-pal="example">🎲 Exemplu</button>
+        </div>
+        <div class="pal-row" data-pal="row"></div>
+        <div class="viz-status"></div>
+        <div class="viz-legend">
+          <span><i style="background:#dbeafe;border:1px solid #3b82f6;"></i> st</span>
+          <span><i style="background:#fce7f3;border:1px solid #ec4899;"></i> dr</span>
+          <span><i style="background:#dcfce7;border:1px solid #16a34a;"></i> match</span>
+          <span><i style="background:#fee2e2;border:1px solid #ef4444;"></i> mismatch</span>
+        </div>
+      </div>
+
       <h3 style="margin:20px 0 10px;font-size:15px;">2. Verificare anagrama (cu tablou frecvente)</h3>
       <pre><span class="kw">bool</span> <span class="fn">esteAnagrama</span>(string a, string b) &#123;
     <span class="kw">if</span> (a.length() != b.length()) <span class="kw">return false</span>;
@@ -380,6 +415,27 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
 &#125;
 <span class="cm">// decriptare = criptCaesar(s, 26-k)</span>
 <span class="cm">// criptCaesar("abc", 3) → "def"</span></pre>
+
+      <!-- ── Interactive: Caesar cipher animation ── -->
+      <div id="caesar-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — Cifrul Caesar (shift letter-by-letter)</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Fiecare literă se rotește cu <strong>k</strong> poziții în alfabet. Roata de jos arată mapping-ul pentru caracterul curent.</p>
+        <div class="speed-wrap" style="margin-bottom:8px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        <div class="viz-controls">
+          <input type="text" data-cs="in" value="bacalaureat" style="flex:1;min-width:140px;padding:6px 10px;border-radius:6px;border:1px solid var(--border);">
+          <label>k:</label>
+          <input type="number" data-cs="k" value="3" min="1" max="25" style="width:60px;padding:6px;border-radius:6px;border:1px solid var(--border);">
+          <button class="btn btn-primary" data-cs="enc">🔐 Criptează</button>
+          <button class="btn btn-secondary" data-cs="dec">🔓 Decriptează</button>
+        </div>
+        <div data-cs="out" style="margin:10px 0;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;min-height:38px;letter-spacing:1px;"></div>
+        <div data-cs="wheel" class="cs-wheel"></div>
+        <div class="viz-status"></div>
+      </div>
 
       <h3 style="margin:20px 0 10px;font-size:15px;">4. Cel mai lung cuvant din propozitie</h3>
       <pre>string linie, cuvCurent, maxCuv;
@@ -535,6 +591,187 @@ cifre[len] = <span class="st">'\0'</span>;
           <button id="sd-rev-btn" class="str-demo-btn">Inversează</button>
         </div>
         <div id="sd-rev-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă butonul...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. EXERCITII INTERACTIVE -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — șiruri de caractere</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice, cu enunț, exemplu și soluție comentată.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Numără vocalele</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește un șir de caractere (lungime ≤ 100). Afișează câte vocale (a, e, i, o, u — mari sau mici) conține.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>Bacalaureat 2024</pre></div>
+          <div><strong>Ieșire:</strong><pre>7</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;cctype&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;cstring&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">char</span> s[<span class="nu">105</span>]; cin.getline(s, <span class="nu">105</span>);
+    <span class="kw">int</span> cnt = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; s[i]; i++) &#123;
+        <span class="kw">char</span> c = tolower(s[i]);
+        <span class="kw">if</span> (c==<span class="st">'a'</span>||c==<span class="st">'e'</span>||c==<span class="st">'i'</span>||c==<span class="st">'o'</span>||c==<span class="st">'u'</span>) cnt++;
+    &#125;
+    cout &lt;&lt; cnt;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> <code>tolower</code> tratează uniform majuscule/minuscule; bucla <code>for (...; s[i]; ...)</code> se oprește când întâlnește <code>'\0'</code>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Cel mai lung cuvânt</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește o propoziție cu cuvinte separate prin spațiu. Afișează cel mai lung cuvânt (primul, dacă există mai multe de lungime maximă).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>am dat bacalaureatul la informatica</pre></div>
+          <div><strong>Ieșire:</strong><pre>bacalaureatul</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;string&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    string s, cuv, best;
+    getline(cin, s); s += <span class="st">' '</span>;     <span class="cm">// trick: spațiu final</span>
+    <span class="kw">for</span> (<span class="kw">char</span> c : s) &#123;
+        <span class="kw">if</span> (c == <span class="st">' '</span>) &#123;
+            <span class="kw">if</span> (cuv.length() > best.length()) best = cuv;
+            cuv.clear();
+        &#125; <span class="kw">else</span> cuv += c;
+    &#125;
+    cout &lt;&lt; best;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Truc:</strong> adăugăm spațiu la final ca să procesăm și ultimul cuvânt fără cod special după buclă.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Palindrom (ignorând spații/case)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Verifică dacă o propoziție este palindrom ignorând spațiile și diferențele majuscule/minuscule. Afișează <code>DA</code> / <code>NU</code>.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>Ele fac cafele</pre></div>
+          <div><strong>Ieșire:</strong><pre>DA</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;cctype&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;string&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    string s, t;
+    getline(cin, s);
+    <span class="kw">for</span> (<span class="kw">char</span> c : s)
+        <span class="kw">if</span> (isalpha((<span class="kw">unsigned char</span>)c)) t += tolower(c);
+    <span class="kw">int</span> l = <span class="nu">0</span>, r = t.length() - <span class="nu">1</span>;
+    <span class="kw">while</span> (l &lt; r) &#123;
+        <span class="kw">if</span> (t[l] != t[r]) &#123; cout &lt;&lt; <span class="st">"NU"</span>; <span class="kw">return</span> <span class="nu">0</span>; &#125;
+        l++; r--;
+    &#125;
+    cout &lt;&lt; <span class="st">"DA"</span>;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> normalizăm întâi (păstrăm doar litere, minuscule), apoi aplicăm două-pointer. „Ele fac cafele" → "elefaccafele" → palindrom.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Frecvența literelor (a-z)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește un text și afișează, pentru fiecare literă mică, de câte ori apare (doar literele care apar cel puțin o dată).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>informatica</pre></div>
+          <div><strong>Ieșire:</strong><pre>a:2 c:1 f:1 i:3 m:1 n:1 o:1 r:1 t:1</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;string&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    string s; getline(cin, s);
+    <span class="kw">int</span> f[<span class="nu">26</span>] = &#123;<span class="nu">0</span>&#125;;
+    <span class="kw">for</span> (<span class="kw">char</span> c : s)
+        <span class="kw">if</span> (c >= <span class="st">'a'</span> && c &lt;= <span class="st">'z'</span>) f[c - <span class="st">'a'</span>]++;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; <span class="nu">26</span>; i++)
+        <span class="kw">if</span> (f[i]) cout &lt;&lt; (<span class="kw">char</span>)(<span class="st">'a'</span>+i) &lt;&lt; <span class="st">":"</span> &lt;&lt; f[i] &lt;&lt; <span class="st">" "</span>;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Cheia:</strong> <code>c - 'a'</code> convertește litera în index 0..25. Output-ul iese automat în ordine alfabetică pentru că iterăm i = 0..25.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Inversare cuvinte în propoziție</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Citește o propoziție și afișează cuvintele în ordine inversă, păstrând câte un singur spațiu între ele.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>am dat bacalaureatul la informatica</pre></div>
+          <div><strong>Ieșire:</strong><pre>informatica la bacalaureatul dat am</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;sstream&gt;</span>
+<span class="kw">#include</span> <span class="st">&lt;vector&gt;</span>
+<span class="kw">using namespace</span> std;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    string s; getline(cin, s);
+    stringstream ss(s); string w;
+    vector&lt;string&gt; v;
+    <span class="kw">while</span> (ss >> w) v.push_back(w);
+    <span class="kw">for</span> (<span class="kw">int</span> i = v.size() - <span class="nu">1</span>; i >= <span class="nu">0</span>; i--) &#123;
+        cout &lt;&lt; v[i];
+        <span class="kw">if</span> (i > <span class="nu">0</span>) cout &lt;&lt; <span class="st">' '</span>;
+    &#125;
+    <span class="kw">return</span> <span class="nu">0</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>De ce stringstream:</strong> <code>ss >> w</code> tratează automat spații multiple ca un singur separator. Stocăm cuvintele într-un vector și le afișăm invers.</p>
+          <p style="margin-top:4px;font-size:13px;color:var(--text-muted);"><strong>Alternativă în O(1) memorie:</strong> inversezi întreg șirul, apoi inversezi fiecare cuvânt (truc clasic).</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💪 Quiz-ul interactiv de la <strong>Exerciții</strong> și problemele BAC din secțiunea următoare îți consolidează aceste tehnici.
       </div>
     </div>
   </div>
