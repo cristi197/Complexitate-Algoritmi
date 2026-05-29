@@ -1575,60 +1575,1643 @@ const algorithms = [
       }
     },
 
-    // ════════════════════ 75 ALGORITMI NOI - STUBS ════════════════════
-    'inversare-recursiv': { name: 'Inversare Vector Recursiv', fileName: 'inversare_rec.cpp', codeLines: ['void inv(int v[], int st, int dr) {', '  if (st < dr) {', '    int aux = v[st];', '    v[st] = v[dr];', '    v[dr] = aux;', '    inv(v, st+1, dr-1);', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" placeholder="ex: 1 2 3" value="1 2 3">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); return { steps: [{ line: 0, vars: { v: v }, exp: 'Inversare recursivă' }], result: 'Inversat: [' + v.reverse() + ']' }; } },
-    'rotatie-vector': { name: 'Rotație Vector', fileName: 'rotatie.cpp', codeLines: ['void rotate(int v[], int n, int k) {', '  for (int i = 0; i < k; i++) {', '    int tmp = v[0];', '    for (int j = 0; j < n-1; j++)', '      v[j] = v[j+1];', '    v[n-1] = tmp;', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" placeholder="1 2 3 4 5" value="1 2 3 4 5"><input id="inp-k" type="number" value="2" style="width:60px">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number), k = parseInt(i['inp-k'])||1; return { steps: [{ line: 0, vars: { v: v, k: k }, exp: 'Rotație cu ' + k }], result: 'Rotat' }; } },
-    'eliminar-duplicat': { name: 'Eliminare Duplicat', fileName: 'dup.cpp', codeLines: ['int removeDup(int v[], int n) {', '  int j = 0;', '  for (int i = 1; i < n; i++)', '    if (v[i] != v[j])', '      v[++j] = v[i];', '  return j+1;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 1 2 2 3">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var len = 1; for (var i = 1; i < v.length; i++) if (v[i] != v[i-1]) len++; return { steps: [{ line: 0, vars: { len: len }, exp: 'Lungime nouă' }], result: 'Lungime: ' + len }; } },
-    'fusiune-vectori': { name: 'Fusiune Vectori', fileName: 'merge.cpp', codeLines: ['void merge(int a[], int b[], int c[], int n, int m) {', '  int i = 0, j = 0, k = 0;', '  while (i < n && j < m)', '    if (a[i] <= b[j]) c[k++] = a[i++];', '    else c[k++] = b[j++];', '  while (i < n) c[k++] = a[i++];', '  while (j < m) c[k++] = b[j++];', '}'], inputHTML: '<input id="inp-a" class="tracer-input" value="1 3 5"><input id="inp-b" class="tracer-input" value="2 4 6">', run: function(i) { var a = i['inp-a'].split(/\\s+/).map(Number), b = i['inp-b'].split(/\\s+/).map(Number), c = [...a, ...b].sort((x,y)=>x-y); return { steps: [{ line: 0, vars: {}, exp: 'Fuziune doi vectori' }], result: 'Fuzionat: [' + c + ']' }; } },
-    'subsecventa-suma-max': { name: 'Kadane Algorithm', fileName: 'kadane.cpp', codeLines: ['int maxSub(int v[], int n) {', '  int maxSum = v[0], curSum = v[0];', '  for (int i = 1; i < n; i++) {', '    curSum = max(v[i], curSum + v[i]);', '    maxSum = max(maxSum, curSum);', '  }', '  return maxSum;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="-2 1 -3 4 -1">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var maxSum = v[0]; for (var j = 1; j < v.length; j++) maxSum = Math.max(maxSum, maxSum + v[j]); return { steps: [{ line: 0, vars: { maxSum: maxSum }, exp: 'Suma max subsecvență' }], result: 'Max: ' + maxSum }; } },
-    'k-lea-element': { name: 'K-lea Element', fileName: 'kth.cpp', codeLines: ['int kthLargest(int v[], int n, int k) {', '  sort(v, v+n, greater<int>());', '  return v[k-1];', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="3 2 1 5 6 4"><input id="inp-k" type="number" value="2" style="width:60px">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>b-a), k = parseInt(i['inp-k'])||1; return { steps: [{ line: 0, vars: { k: k, elem: v[k-1] }, exp: k + '-lea cel mai mare' }], result: 'Element: ' + v[k-1] }; } },
-    'element-majoritar': { name: 'Element Majoritar', fileName: 'major.cpp', codeLines: ['int findMajor(int v[], int n) {', '  int cand = 0, count = 0;', '  for (int i = 0; i < n; i++) {', '    if (count == 0) cand = v[i];', '    count += (v[i] == cand) ? 1 : -1;', '  }', '  return cand;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="2 2 1 1 1">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number), cand = 0, cnt = 0; for (var j = 0; j < v.length; j++) { if (cnt == 0) cand = v[j]; cnt += v[j] == cand ? 1 : -1; } return { steps: [{ line: 0, vars: { cand: cand }, exp: 'Element majoritar' }], result: 'Majoritar: ' + cand }; } },
-    'vector-ascendent': { name: 'Vector Ascendent', fileName: 'asc.cpp', codeLines: ['bool isSorted(int v[], int n) {', '  for (int i = 1; i < n; i++)', '    if (v[i] <= v[i-1]) return false;', '  return true;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 2 3 5 8">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var ok = true; for (var j = 1; j < v.length; j++) if (v[j] <= v[j-1]) ok = false; return { steps: [{ line: 0, vars: { ok: ok }, exp: 'Verificare ascendent' }], result: ok ? 'DA, e sortat' : 'NU, nu e sortat' }; } },
-    'produsul-altor': { name: 'Produs Celorlalți', fileName: 'prod.cpp', codeLines: ['void prodAlti(int v[], int n) {', '  int left = 1, right = 1;', '  for (int i = 0; i < n; i++) {', '    v[i] = left * right;', '    left *= v[i];', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 2 3 4">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var n = v.length, left = 1, prod = new Array(n); for (var j = 0; j < n; j++) { prod[j] = left; left *= v[j]; } return { steps: [{ line: 0, vars: { prod: prod }, exp: 'Produs celorlalți' }], result: 'Produs: [' + prod + ']' }; } },
-    'frecventa-maxima': { name: 'Frecvență Maximă', fileName: 'freq.cpp', codeLines: ['int maxFreq(int v[], int n) {', '  map<int,int> m;', '  int maxF = 0, elem = v[0];', '  for (int i = 0; i < n; i++) {', '    if (++m[v[i]] > maxF) { maxF = m[v[i]]; elem = v[i]; }', '  }', '  return elem;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 1 1 2 2 3">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var f = {}; v.forEach(x => f[x] = (f[x]||0)+1); var maxF = Math.max(...Object.values(f)); var elem = Object.keys(f).find(k => f[k] == maxF); return { steps: [{ line: 0, vars: { elem: elem, freq: maxF }, exp: 'Element maxim frecvent' }], result: elem + ' apare ' + maxF + ' ori' }; } },
-    'separator-culorilor': { name: 'Sortare Olandeză', fileName: 'dutch.cpp', codeLines: ['void sort012(int v[], int n) {', '  int low = 0, mid = 0, high = n-1;', '  while (mid <= high) {', '    if (v[mid] == 0) swap(v[low++], v[mid++]);', '    else if (v[mid] == 2) swap(v[mid], v[high--]);', '    else mid++;', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="2 0 2 1 1 0">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort(); return { steps: [{ line: 0, vars: { v: v }, exp: 'Sortare olandeză' }], result: 'Sortat: [' + v + ']' }; } },
-    'subsir-crescator': { name: 'LIS - Longest Increasing', fileName: 'lis.cpp', codeLines: ['int lis(int v[], int n) {', '  vector<int> dp(n, 1);', '  for (int i = 1; i < n; i++)', '    for (int j = 0; j < i; j++)', '      if (v[j] < v[i]) dp[i] = max(dp[i], dp[j]+1);', '  return *max_element(dp.begin(), dp.end());', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="10 9 2 5 3 7 101">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var dp = new Array(v.length).fill(1); for (var j = 1; j < v.length; j++) for (var k = 0; k < j; k++) if (v[k] < v[j]) dp[j] = Math.max(dp[j], dp[k]+1); return { steps: [{ line: 0, vars: { lis_len: Math.max(...dp) }, exp: 'Lungime LIS' }], result: 'LIS: ' + Math.max(...dp) }; } },
-    'merge-sort': { name: 'Merge Sort', fileName: 'merge_sort.cpp', codeLines: ['void mergeSort(int v[], int st, int dr) {', '  if (st < dr) {', '    int mij = (st+dr)/2;', '    mergeSort(v, st, mij);', '    mergeSort(v, mij+1, dr);', '    merge(v, st, mij, dr);', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="64 25 12 22 11">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>a-b); return { steps: [{ line: 0, vars: { v: v }, exp: 'Merge sort' }], result: 'Sortat: [' + v + ']' }; } },
-    'quick-sort': { name: 'Quick Sort', fileName: 'quick_sort.cpp', codeLines: ['int partition(int v[], int st, int dr) {', '  int pivot = v[dr], i = st-1;', '  for (int j = st; j < dr; j++)', '    if (v[j] < pivot) swap(v[++i], v[j]);', '  swap(v[i+1], v[dr]); return i+1;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="3 7 2 9 1">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>a-b); return { steps: [{ line: 0, vars: { v: v }, exp: 'Quick sort' }], result: 'Sortat: [' + v + ']' }; } },
-    'heap-sort': { name: 'Heap Sort', fileName: 'heap_sort.cpp', codeLines: ['void heapify(int v[], int n, int i) {', '  int largest = i, l = 2*i+1, r = 2*i+2;', '  if (l < n && v[l] > v[largest]) largest = l;', '  if (r < n && v[r] > v[largest]) largest = r;', '  if (largest != i) { swap(v[i], v[largest]); heapify(v,n,largest); }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="12 11 13 5 6">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>a-b); return { steps: [{ line: 0, vars: { v: v }, exp: 'Heap sort' }], result: 'Sortat: [' + v + ']' }; } },
-    'count-sort': { name: 'Count Sort', fileName: 'count_sort.cpp', codeLines: ['void countSort(int v[], int n) {', '  int cnt[10] = {0};', '  for (int i = 0; i < n; i++) cnt[v[i]]++;', '  for (int i = 1; i < 10; i++) cnt[i] += cnt[i-1];', '  for (int i = n-1; i >= 0; i--) {', '    int idx = cnt[v[i]]--; out[idx] = v[i];', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 4 1 2 7 5">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>a-b); return { steps: [{ line: 0, vars: { v: v }, exp: 'Count sort' }], result: 'Sortat: [' + v + ']' }; } },
-    'radix-sort': { name: 'Radix Sort', fileName: 'radix_sort.cpp', codeLines: ['void radixSort(int v[], int n) {', '  int maxV = *max_element(v, v+n);', '  for (int exp = 1; maxV/exp > 0; exp *= 10)', '    countSortExp(v, n, exp);', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="170 45 75 90">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>a-b); return { steps: [{ line: 0, vars: { v: v }, exp: 'Radix sort' }], result: 'Sortat: [' + v + ']' }; } },
-    'gnome-sort': { name: 'Gnome Sort', fileName: 'gnome_sort.cpp', codeLines: ['void gnomeSort(int v[], int n) {', '  int i = 0;', '  while (i < n) {', '    if (i == 0 || v[i] >= v[i-1]) i++;', '    else { swap(v[i], v[i-1]); i--; }', '  }', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="5 2 8 1 9">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number).sort((a,b)=>a-b); return { steps: [{ line: 0, vars: { v: v }, exp: 'Gnome sort' }], result: 'Sortat: [' + v + ']' }; } },
-    'cautare-ternara': { name: 'Ternary Search', fileName: 'ternary.cpp', codeLines: ['int ternary(int v[], int st, int dr, int x) {', '  if (st > dr) return -1;', '  int mid1 = st + (dr-st)/3;', '  int mid2 = dr - (dr-st)/3;', '  if (v[mid1] == x) return mid1;', '  if (v[mid2] == x) return mid2;', '  if (x < v[mid1]) return ternary(v, st, mid1-1, x);', '  if (x > v[mid2]) return ternary(v, mid2+1, dr, x);', '  return ternary(v, mid1+1, mid2-1, x);', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 2 5 8 12"><input id="inp-x" type="number" value="8" style="width:60px">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number), x = parseInt(i['inp-x']); var idx = v.indexOf(x); return { steps: [{ line: 0, vars: { x: x, idx: idx }, exp: 'Ternary search' }], result: idx >= 0 ? 'Găsit la ' + idx : 'Negăsit' }; } },
-    'cautare-exponentiale': { name: 'Exponential Search', fileName: 'exp_search.cpp', codeLines: ['int expSearch(int v[], int n, int x) {', '  if (v[0] == x) return 0;', '  int i = 1;', '  while (i < n && v[i] < x) i *= 2;', '  return binarySearch(v, i/2, min(i, n), x);', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 2 3 4 5 6 7"><input id="inp-x" type="number" value="5" style="width:60px">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number), x = parseInt(i['inp-x']); var idx = v.indexOf(x); return { steps: [{ line: 0, vars: { x: x, idx: idx }, exp: 'Exponential search' }], result: idx >= 0 ? 'Găsit la ' + idx : 'Negăsit' }; } },
-    'cautare-salturi': { name: 'Jump Search', fileName: 'jump_search.cpp', codeLines: ['int jumpSearch(int v[], int n, int x) {', '  int step = sqrt(n), prev = 0;', '  while (v[min(step,n)-1] < x) { prev = step; step += sqrt(n); }', '  for (int i = prev; i < min(step,n); i++)', '    if (v[i] == x) return i;', '  return -1;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="0 1 2 3 4 5 6 7 8"><input id="inp-x" type="number" value="6" style="width:60px">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number), x = parseInt(i['inp-x']); var idx = v.indexOf(x); return { steps: [{ line: 0, vars: { x: x, idx: idx }, exp: 'Jump search' }], result: idx >= 0 ? 'Găsit la ' + idx : 'Negăsit' }; } },
-    'cautare-matrice-2d': { name: 'Căutare Matrice 2D', fileName: 'mat2d.cpp', codeLines: ['bool search(int a[][100], int m, int n, int x) {', '  int i = 0, j = n-1;', '  while (i < m && j >= 0) {', '    if (a[i][j] == x) return true;', '    if (a[i][j] > x) j--;', '    else i++;', '  }', '  return false;', '}'], inputHTML: '<textarea id="inp-a" class="tracer-input" style="height:80px">1 2 3\n4 5 6\n7 8 9</textarea><input id="inp-x" type="number" value="5">', run: function(i) { var x = parseInt(i['inp-x']); return { steps: [{ line: 0, vars: { x: x }, exp: 'Căutare matrice 2D' }], result: x + ' - demo' }; } },
-    'cautare-interpolate': { name: 'Interpolation Search', fileName: 'interp.cpp', codeLines: ['int interpSearch(int v[], int n, int x) {', '  int st = 0, dr = n-1;', '  while (st <= dr && x >= v[st] && x <= v[dr]) {', '    int pos = st + ((x-v[st])*(dr-st))/(v[dr]-v[st]);', '    if (v[pos] == x) return pos;', '    if (v[pos] < x) st = pos+1;', '    else dr = pos-1;', '  }', '  return -1;', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="10 20 30 40 50"><input id="inp-x" type="number" value="30" style="width:60px">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number), x = parseInt(i['inp-x']); var idx = v.indexOf(x); return { steps: [{ line: 0, vars: { x: x, idx: idx }, exp: 'Interpolation search' }], result: idx >= 0 ? 'Găsit la ' + idx : 'Negăsit' }; } },
-    'patrat-perfect': { name: 'Pătrat Perfect', fileName: 'sqrt.cpp', codeLines: ['bool isPerfectSq(int n) {', '  int sqrt_n = sqrt(n);', '  return sqrt_n * sqrt_n == n;', '}'], inputHTML: '<input id="inp-n" type="number" value="16">', run: function(i) { var n = parseInt(i['inp-n']); var sq = Math.sqrt(n); var ok = sq === Math.floor(sq); return { steps: [{ line: 0, vars: { n: n, ok: ok }, exp: 'Verificare pătrat perfect' }], result: ok ? n + ' = ' + Math.floor(sq) + '²' : n + ' nu e pătrat perfect' }; } },
-    'perfect-square-sum': { name: 'Suma Pătratelor', fileName: 'sum_sq.cpp', codeLines: ['int sumSq(int n) {', '  return n*(n+1)*(2*n+1)/6;', '}'], inputHTML: '<input id="inp-n" type="number" value="5">', run: function(i) { var n = parseInt(i['inp-n']); var sum = n*(n+1)*(2*n+1)/6; return { steps: [{ line: 0, vars: { n: n, sum: sum }, exp: 'Suma pătratelor 1-' + n }], result: 'Suma = ' + sum }; } },
-    'numarul-fericit': { name: 'Număr Fericit', fileName: 'happy.cpp', codeLines: ['bool isHappy(int n) {', '  set<int> seen;', '  while (n != 1 && !seen.count(n)) {', '    seen.insert(n);', '    int sum = 0;', '    while (n) { int d = n%10; sum += d*d; n /= 10; }', '    n = sum;', '  }', '  return n == 1;', '}'], inputHTML: '<input id="inp-n" type="number" value="7">', run: function(i) { var n = parseInt(i['inp-n']), seen = new Set(); while (n != 1 && !seen.has(n)) { seen.add(n); var sum = 0; var tmp = n; while (tmp) { var d = tmp % 10; sum += d * d; tmp = Math.floor(tmp / 10); } n = sum; } return { steps: [{ line: 0, vars: { ok: n == 1 }, exp: 'Număr fericit?' }], result: n == 1 ? 'Fericit!' : 'Triste' }; } },
-    'armstrong': { name: 'Număr Armstrong', fileName: 'armstrong.cpp', codeLines: ['bool isArmstrong(int n) {', '  int orig = n, sum = 0, digits = 0;', '  int tmp = n;', '  while (tmp) { digits++; tmp /= 10; }', '  tmp = n;', '  while (tmp) { int d = tmp%10; sum += pow(d,digits); tmp /= 10; }', '  return sum == orig;', '}'], inputHTML: '<input id="inp-n" type="number" value="153">', run: function(i) { var n = parseInt(i['inp-n']), orig = n, sum = 0, digits = 0; var tmp = n; while (tmp) { digits++; tmp = Math.floor(tmp / 10); } tmp = n; while (tmp) { var d = tmp % 10; sum += Math.pow(d, digits); tmp = Math.floor(tmp / 10); } return { steps: [{ line: 0, vars: { ok: sum == orig }, exp: 'Armstrong number?' }], result: sum == orig ? 'Armstrong!' : 'Nu e Armstrong' }; } },
-    'factori-primi': { name: 'Factori Primi', fileName: 'factors.cpp', codeLines: ['void primeFactors(int n) {', '  for (int i = 2; i*i <= n; i++) {', '    while (n % i == 0) { cout << i << \" \"; n /= i; }', '  }', '  if (n > 1) cout << n;', '}'], inputHTML: '<input id="inp-n" type="number" value="60">', run: function(i) { var n = parseInt(i['inp-n']), factors = []; var tmp = n; for (var j = 2; j*j <= tmp; j++) while (tmp % j == 0) { factors.push(j); tmp /= j; } if (tmp > 1) factors.push(tmp); return { steps: [{ line: 0, vars: { factors: factors }, exp: 'Factori primi' }], result: 'Factori: ' + factors.join(' × ') }; } },
-    'lcm': { name: 'LCM', fileName: 'lcm.cpp', codeLines: ['int lcm(int a, int b) {', '  return (a / gcd(a,b)) * b;', '}'], inputHTML: '<input id="inp-a" type="number" value="12"><input id="inp-b" type="number" value="18">', run: function(i) { var a = parseInt(i['inp-a']), b = parseInt(i['inp-b']), gcd_ab = (function(x,y) { return y == 0 ? x : arguments.callee(y, x % y); })(a,b); var lcm_ab = (a / gcd_ab) * b; return { steps: [{ line: 0, vars: { lcm: lcm_ab }, exp: 'LCM' }], result: 'LCM = ' + lcm_ab }; } },
-    'fibonacci-check': { name: 'Fibonacci Check', fileName: 'fib_check.cpp', codeLines: ['bool isFibonacci(int n) {', '  int a = 0, b = 1;', '  while (a < n) { int tmp = a+b; a = b; b = tmp; }', '  return a == n;', '}'], inputHTML: '<input id="inp-n" type="number" value="21">', run: function(i) { var n = parseInt(i['inp-n']), a = 0, b = 1; while (a < n) { var tmp = a+b; a = b; b = tmp; } return { steps: [{ line: 0, vars: { ok: a == n }, exp: 'Fibonacci number?' }], result: a == n ? 'Fibonacci!' : 'Nu e Fibonacci' }; } },
-    'sieve-eratostene': { name: 'Sieve of Eratosthenes', fileName: 'sieve.cpp', codeLines: ['void sieve(int n) {', '  vector<bool> prime(n+1, true);', '  for (int i = 2; i*i <= n; i++)', '    if (prime[i]) for (int j = i*i; j <= n; j += i) prime[j] = false;', '  for (int i = 2; i <= n; i++) if (prime[i]) cout << i << \" \";', '}'], inputHTML: '<input id="inp-n" type="number" value="30">', run: function(i) { var n = parseInt(i['inp-n']), prime = new Array(n+1).fill(true); for (var j = 2; j*j <= n; j++) if (prime[j]) for (var k = j*j; k <= n; k += j) prime[k] = false; var primes = []; for (var j = 2; j <= n; j++) if (prime[j]) primes.push(j); return { steps: [{ line: 0, vars: { count: primes.length }, exp: 'Prime numbers ≤ ' + n }], result: 'Primes: ' + primes.join(', ') }; } },
-    'cel-mic-factor': { name: 'Cel Mic Factor', fileName: 'small_factor.cpp', codeLines: ['int smallestFactor(int n) {', '  for (int i = 2; i*i <= n; i++)', '    if (n % i == 0) return i;', '  return n;', '}'], inputHTML: '<input id="inp-n" type="number" value="24">', run: function(i) { var n = parseInt(i['inp-n']); for (var j = 2; j*j <= n; j++) if (n % j == 0) return { steps: [{ line: 0, vars: { factor: j }, exp: 'Smallest prime factor' }], result: 'Factor: ' + j }; return { steps: [{ line: 0, vars: { factor: n }, exp: 'Is prime' }], result: n + ' is prime' }; } },
-    'putere-perfecta': { name: 'Putere Perfecta', fileName: 'power_sq.cpp', codeLines: ['bool isPowerOf(int n) {', '  for (int a = 2; a * a <= n; a++) {', '    for (int b = 2; pow(a,b) <= n; b++)', '      if (pow(a,b) == n) return true;', '  }', '  return false;', '}'], inputHTML: '<input id="inp-n" type="number" value="8">', run: function(i) { var n = parseInt(i['inp-n']); for (var a = 2; a*a <= n; a++) for (var b = 2; Math.pow(a,b) <= n; b++) if (Math.pow(a,b) == n) return { steps: [{ line: 0, vars: { ok: true }, exp: 'Power?' }], result: n + ' = ' + a + '^' + b }; return { steps: [{ line: 0, vars: { ok: false }, exp: 'Not a perfect power' }], result: n + ' is not a perfect power' }; } },
-    'abundent-deficient': { name: 'Abundent/Deficient', fileName: 'abundant.cpp', codeLines: ['void classify(int n) {', '  int sumDiv = 0;', '  for (int i = 1; i < n; i++) if (n % i == 0) sumDiv += i;', '  if (sumDiv > n) cout << \"Abundant\";', '  else if (sumDiv < n) cout << \"Deficient\";', '  else cout << \"Perfect\";', '}'], inputHTML: '<input id="inp-n" type="number" value="6">', run: function(i) { var n = parseInt(i['inp-n']), sum = 0; for (var j = 1; j < n; j++) if (n % j == 0) sum += j; var type = sum > n ? 'Abundent' : sum < n ? 'Deficient' : 'Perfect'; return { steps: [{ line: 0, vars: { sum: sum, type: type }, exp: 'Classification' }], result: type + ' (' + sum + ')' }; } },
-    'hamming-distance': { name: 'Hamming Distance', fileName: 'hamming.cpp', codeLines: ['int hammingDist(int a, int b) {', '  int xor_val = a ^ b;', '  int count = 0;', '  while (xor_val) { count += xor_val & 1; xor_val >>= 1; }', '  return count;', '}'], inputHTML: '<input id="inp-a" type="number" value="1"><input id="inp-b" type="number" value="4">', run: function(i) { var a = parseInt(i['inp-a']), b = parseInt(i['inp-b']), xor_v = a ^ b, cnt = 0; while (xor_v) { cnt += xor_v & 1; xor_v >>= 1; } return { steps: [{ line: 0, vars: { cnt: cnt }, exp: 'Hamming distance' }], result: 'Distance: ' + cnt }; } },
-    'gcd-recursiv': { name: 'GCD Recursiv', fileName: 'gcd_rec.cpp', codeLines: ['int gcd(int a, int b) {', '  if (b == 0) return a;', '  return gcd(b, a % b);', '}'], inputHTML: '<input id="inp-a" type="number" value="24"><input id="inp-b" type="number" value="36">', run: function(i) { var a = parseInt(i['inp-a']), b = parseInt(i['inp-b']); while (b) { var tmp = b; b = a % b; a = tmp; } return { steps: [{ line: 0, vars: { gcd: a }, exp: 'GCD recursive' }], result: 'GCD = ' + a }; } },
-    'suma-vector-rec': { name: 'Suma Vector Rec', fileName: 'sum_rec.cpp', codeLines: ['int sumRec(int v[], int n) {', '  if (n <= 0) return 0;', '  return v[n-1] + sumRec(v, n-1);', '}'], inputHTML: '<input id="inp-v" class="tracer-input" value="1 2 3 4 5">', run: function(i) { var v = i['inp-v'].split(/\\s+/).map(Number); var sum = v.reduce((a,b)=>a+b,0); return { steps: [{ line: 0, vars: { sum: sum }, exp: 'Suma recursivă' }], result: 'Sum = ' + sum }; } },
-    'inversare-sir-rec': { name: 'Inversare Șir Rec', fileName: 'rev_rec.cpp', codeLines: ['void revRec(char s[], int st, int dr) {', '  if (st < dr) { swap(s[st], s[dr]); revRec(s, st+1, dr-1); }', '}'], inputHTML: '<input id="inp-s" type="text" value="hello">', run: function(i) { var s = i['inp-s'].split('').reverse().join(''); return { steps: [{ line: 0, vars: { rev: s }, exp: 'Inverse recursiv' }], result: 'Reversed: ' + s }; } },
-    'hanoi': { name: 'Hanoi Tower', fileName: 'hanoi.cpp', codeLines: ['void hanoi(int n, char from, char to, char aux) {', '  if (n == 1) { cout << from << \" -> \" << to; return; }', '  hanoi(n-1, from, aux, to);', '  cout << from << \" -> \" << to;', '  hanoi(n-1, aux, to, from);', '}'], inputHTML: '<input id="inp-n" type="number" value="3">', run: function(i) { var n = parseInt(i['inp-n']); return { steps: [{ line: 0, vars: { moves: Math.pow(2,n)-1 }, exp: 'Hanoi n=' + n }], result: 'Total moves: ' + (Math.pow(2,n)-1) }; } },
-    'catalani': { name: 'Catalan Number', fileName: 'catalan.cpp', codeLines: ['int catalan(int n) {', '  if (n <= 1) return 1;', '  int res = 0;', '  for (int i = 0; i < n; i++)', '    res += catalan(i) * catalan(n-1-i);', '  return res;', '}'], inputHTML: '<input id="inp-n" type="number" value="4">', run: function(i) { var n = parseInt(i['inp-n']); var dp = new Array(n+1); dp[0] = dp[1] = 1; for (var j = 2; j <= n; j++) { dp[j] = 0; for (var k = 0; k < j; k++) dp[j] += dp[k]*dp[j-1-k]; } return { steps: [{ line: 0, vars: { catalan: dp[n] }, exp: 'Catalan(' + n + ')' }], result: 'C(' + n + ') = ' + dp[n] }; } },
-    'ackermann': { name: 'Ackermann Function', fileName: 'ackermann.cpp', codeLines: ['int ack(int m, int n) {', '  if (m == 0) return n+1;', '  if (n == 0) return ack(m-1, 1);', '  return ack(m-1, ack(m, n-1));', '}'], inputHTML: '<input id="inp-m" type="number" value="2"><input id="inp-n" type="number" value="1">', run: function(i) { var m = parseInt(i['inp-m']), n = parseInt(i['inp-n']); var result = 'A(' + m + ',' + n + ')='; if (m==0) result += n+1; else if (m==1) result += n+2; else if (m==2) result += 2*n+3; else result += '???'; return { steps: [{ line: 0, vars: { ack: result }, exp: 'Ackermann' }], result: result }; } },
-    'compar-subarray': { name: 'Compar Subarray Rec', fileName: 'cmp_rec.cpp', codeLines: ['bool cmpRec(int a[], int b[], int i, int n) {', '  if (i == n) return true;', '  if (a[i] != b[i]) return false;', '  return cmpRec(a, b, i+1, n);', '}'], inputHTML: '<input id="inp-a" value="1 2 3"><input id="inp-b" value="1 2 3">', run: function(i) { var a = i['inp-a'].split(/\\s+/).map(Number), b = i['inp-b'].split(/\\s+/).map(Number); var eq = JSON.stringify(a) === JSON.stringify(b); return { steps: [{ line: 0, vars: { eq: eq }, exp: 'Compare' }], result: eq ? 'Equal' : 'Different' }; } },
-    'produs-numeric-rec': { name: 'Produs Digits Rec', fileName: 'prod_rec.cpp', codeLines: ['int prodDigits(int n) {', '  if (n < 10) return n;', '  return (n % 10) * prodDigits(n / 10);', '}'], inputHTML: '<input id="inp-n" type="number" value="123">', run: function(i) { var n = parseInt(i['inp-n']), prod = 1; while (n) { prod *= n % 10; n = Math.floor(n / 10); } return { steps: [{ line: 0, vars: { prod: prod }, exp: 'Produs cifre' }], result: 'Product = ' + prod }; } },
+    // ════════════════════ 75 ALGORITMI NOI - COMPLET INMEMORILE DE SIMULARE ════════════════════
+    'inversare-recursiv': {
+      name: 'Inversare Vector Recursiv',
+      fileName: 'inversare_rec.cpp',
+      codeLines: [
+        'void inv(int v[], int st, int dr) {',
+        '  if (st < dr) {',
+        '    int aux = v[st];',
+        '    v[st] = v[dr];',
+        '    v[dr] = aux;',
+        '    inv(v, st+1, dr-1);',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="1 2 3 4 5"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var steps = [];
+        var maxSteps = 100;
+        function solve(st, dr) {
+          if (steps.length > maxSteps) return;
+          steps.push({ line: 1, vars: { v: v.slice(), st: st, dr: dr }, exp: 'Apel recursiv inv(v, ' + st + ', ' + dr + '). Verificăm st < dr: ' + st + ' < ' + dr, arr: v.slice(), highlight: [st, dr] });
+          if (st < dr) {
+            var aux = v[st];
+            steps.push({ line: 2, vars: { v: v.slice(), st: st, dr: dr, aux: aux }, exp: 'aux = v[' + st + '] = ' + aux, arr: v.slice(), highlight: [st] });
+            v[st] = v[dr];
+            steps.push({ line: 3, vars: { v: v.slice(), st: st, dr: dr, aux: aux }, exp: 'v[' + st + '] devine v[' + dr + '] = ' + v[dr], arr: v.slice(), highlight: [st, dr] });
+            v[dr] = aux;
+            steps.push({ line: 4, vars: { v: v.slice(), st: st, dr: dr, aux: aux }, exp: 'v[' + dr + '] devine aux = ' + aux, arr: v.slice(), highlight: [st, dr] });
+            solve(st + 1, dr - 1);
+          } else {
+            steps.push({ line: 1, vars: { v: v.slice(), st: st, dr: dr }, exp: 'Recursivitatea se oprește (st >= dr).', arr: v.slice() });
+          }
+        }
+        solve(0, v.length - 1);
+        steps.push({ line: 0, vars: { v: v.slice() }, exp: 'Vector inversat complet!', arr: v.slice(), done: true });
+        return { steps: steps, result: 'Inversat: [' + v.join(', ') + ']' };
+      }
+    },
+    'rotatie-vector': {
+      name: 'Rotație Stânga Vector',
+      fileName: 'rotatie.cpp',
+      codeLines: [
+        'void rotate(int v[], int n, int k) {',
+        '  for (int i = 0; i < k; i++) {',
+        '    int tmp = v[0];',
+        '    for (int j = 0; j < n-1; j++)',
+        '      v[j] = v[j+1];',
+        '    v[n-1] = tmp;',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="1 2 3 4 5"></label><label class="input-field-label">Poziții de rotit (k):<input id="inp-k" type="number" class="tracer-input" value="2" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var k = parseInt(inputs['inp-k']) || 1;
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v.slice(), k: k, n: n, i: '?', j: '?', tmp: '?' }, exp: 'Inițiem rotația vectorului de lungime n = ' + n + ' cu k = ' + k + ' poziții la stânga.', arr: v.slice() });
+        for (var i = 0; i < k; i++) {
+          steps.push({ line: 1, vars: { v: v.slice(), k: k, n: n, i: i, j: '?', tmp: '?' }, exp: 'Iterație i = ' + i + ' pentru rotație.', arr: v.slice() });
+          var tmp = v[0];
+          steps.push({ line: 2, vars: { v: v.slice(), k: k, n: n, i: i, j: '?', tmp: tmp }, exp: 'Salvam primul element tmp = v[0] = ' + tmp, arr: v.slice(), highlight: [0] });
+          for (var j = 0; j < n - 1; j++) {
+            v[j] = v[j+1];
+            steps.push({ line: 4, vars: { v: v.slice(), k: k, n: n, i: i, j: j, tmp: tmp }, exp: 'v[' + j + '] precăpătat din v[' + (j+1) + '] = ' + v[j], arr: v.slice(), highlight: [j, j+1] });
+          }
+          v[n-1] = tmp;
+          steps.push({ line: 5, vars: { v: v.slice(), k: k, n: n, i: i, j: n-1, tmp: tmp }, exp: 'Mutăm valoarea salvată în tmp la final: v[' + (n-1) + '] = ' + tmp, arr: v.slice(), highlight: [n-1] });
+        }
+        steps.push({ line: 7, vars: { v: v.slice() }, exp: 'Rotație finalizată cu succes!', arr: v.slice(), done: true });
+        return { steps: steps, result: 'Vector rotit: [' + v.join(', ') + ']' };
+      }
+    },
+    'eliminar-duplicat': {
+      name: 'Eliminare Duplicate (din Vector Sortat)',
+      fileName: 'dup.cpp',
+      codeLines: [
+        'int removeDup(int v[], int n) {',
+        '  int j = 0;',
+        '  for (int i = 1; i < n; i++)',
+        '    if (v[i] != v[j])',
+        '      v[++j] = v[i];',
+        '  return j+1;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector sortat:<input id="inp-v" class="tracer-input" value="1 1 2 2 3"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var j = 0;
+        steps.push({ line: 0, vars: { v: v.slice(), n: n, i: '?', j: '?' }, exp: 'Inițiem eliminarea duplicatelor.', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v.slice(), n: n, i: '?', j: j }, exp: 'Inițializăm j = 0.', arr: v.slice(), highlight: [0] });
+        for (var i = 1; i < n; i++) {
+          var diff = (v[i] !== v[j]);
+          steps.push({ line: 2, vars: { v: v.slice(), n: n, i: i, j: j }, exp: 'Iterație i = ' + i + '. Comparam v[i] (' + v[i] + ') cu v[j] (' + v[j] + '). ' + (diff ? 'Diferă!' : 'Sunt egale, trecem mai departe.'), arr: v.slice(), highlight: [i, j] });
+          if (diff) {
+            j++;
+            v[j] = v[i];
+            steps.push({ line: 4, vars: { v: v.slice(), n: n, i: i, j: j }, exp: 'Deoarece diferă, incrementăm j la ' + j + ' și setăm v[j] = v[i] = ' + v[i], arr: v.slice(), highlight: [i, j] });
+          }
+        }
+        var len = j + 1;
+        steps.push({ line: 5, vars: { v: v.slice(0, len), n: n, i: '?', j: j }, exp: 'Finalizat! Noul vector conține primele ' + len + ' elemente unice.', arr: v.slice(0, len), done: true });
+        return { steps: steps, result: 'Lungime nouă = ' + len + ' (Vector: [' + v.slice(0, len).join(', ') + '])' };
+      }
+    },
+    'fusiune-vectori': {
+      name: 'Fuziune Doi Vectori Sortați',
+      fileName: 'merge.cpp',
+      codeLines: [
+        'void merge(int a[], int b[], int c[], int n, int m) {',
+        '  int i = 0, j = 0, k = 0;',
+        '  while (i < n && j < m)',
+        '    if (a[i] <= b[j]) c[k++] = a[i++];',
+        '    else c[k++] = b[j++];',
+        '  while (i < n) c[k++] = a[i++];',
+        '  while (j < m) c[k++] = b[j++];',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vectorul A (sortat):<input id="inp-a" class="tracer-input" value="1 3 5"></label><label class="input-field-label">Vectorul B (sortat):<input id="inp-b" class="tracer-input" value="2 4 6"></label></div>',
+      run: function(inputs) {
+        var a = inputs['inp-a'].trim().split(/\s+/).map(Number);
+        var b = inputs['inp-b'].trim().split(/\s+/).map(Number);
+        var n = a.length, m = b.length;
+        var c = [];
+        var steps = [];
+        var i = 0, j = 0, k = 0;
+        steps.push({ line: 0, vars: { a: a, b: b, c: [], i: '?', j: '?', k: '?' }, exp: 'Inițiem fuziunea celor doi vectori.', arr: a.concat(b) });
+        steps.push({ line: 1, vars: { a: a, b: b, c: [], i: 0, j: 0, k: 0 }, exp: 'Inițializăm indicii i = 0, j = 0, k = 0.', arr: a.concat(b), highlight: [0, n] });
+        while(i < n && j < m) {
+          steps.push({ line: 2, vars: { a: a, b: b, c: c.slice(), i: i, j: j, k: k }, exp: 'Comparam a[' + i + '] (' + a[i] + ') cu b[' + j + '] (' + b[j] + ')', arr: a.concat(b), highlight: [i, n + j] });
+          if (a[i] <= b[j]) {
+            c[k] = a[i];
+            steps.push({ line: 3, vars: { a: a, b: b, c: c.slice(), i: i, j: j, k: k }, exp: 'a[' + i + '] <= b[' + j + '] → Adăugăm a[' + i + '] = ' + a[i] + ' în c. Avansăm i și k.', arr: c.slice() });
+            i++; k++;
+          } else {
+            c[k] = b[j];
+            steps.push({ line: 4, vars: { a: a, b: b, c: c.slice(), i: i, j: j, k: k }, exp: 'a[' + i + '] > b[' + j + '] → Adăugăm b[' + j + '] = ' + b[j] + ' în c. Avansăm j și k.', arr: c.slice() });
+            j++; k++;
+          }
+        }
+        while(i < n) {
+          steps.push({ line: 5, vars: { a: a, b: b, c: c.slice(), i: i, j: j, k: k }, exp: 'Vectorul B este epuizat. Adăugăm restul elementelor din A: a[' + i + '] = ' + a[i], arr: c.slice() });
+          c[k++] = a[i++];
+        }
+        while(j < m) {
+          steps.push({ line: 6, vars: { a: a, b: b, c: c.slice(), i: i, j: j, k: k }, exp: 'Vectorul A este epuizat. Adăugăm restul elementelor din B: b[' + j + '] = ' + b[j], arr: c.slice() });
+          c[k++] = b[j++];
+        }
+        steps.push({ line: 7, vars: { a: a, b: b, c: c.slice(), i: i, j: j, k: k }, exp: 'Fuziune completă! Vector rezultat c = [' + c.join(', ') + ']', arr: c.slice(), done: true });
+        return { steps: steps, result: 'Fuzionat: [' + c.join(', ') + ']' };
+      }
+    },
+    'subsecventa-suma-max': {
+      name: 'Subsecvență Sumă Maximă (Kadane)',
+      fileName: 'kadane.cpp',
+      codeLines: [
+        'int maxSub(int v[], int n) {',
+        '  int maxSum = v[0], curSum = v[0];',
+        '  for (int i = 1; i < n; i++) {',
+        '    curSum = max(v[i], curSum + v[i]);',
+        '    maxSum = max(maxSum, curSum);',
+        '  }',
+        '  return maxSum;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="-2 1 -3 4 -1"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var maxSum = v[0], curSum = v[0];
+        steps.push({ line: 0, vars: { v: v, n: n, i: '?', maxSum: '?', curSum: '?' }, exp: 'Inițializăm algoritmul lui Kadane pentru suma maximă.', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v, n: n, i: '?', maxSum: maxSum, curSum: curSum }, exp: 'Inițializăm curSum = v[0] = ' + v[0] + ' și maxSum = v[0] = ' + v[0] + '.', arr: v.slice(), highlight: [0] });
+        for (var i = 1; i < n; i++) {
+          var prevCur = curSum;
+          curSum = Math.max(v[i], curSum + v[i]);
+          steps.push({ line: 2, vars: { v: v, n: n, i: i, maxSum: maxSum, curSum: curSum }, exp: 'Evaluăm i = ' + i + ' (v[i] = ' + v[i] + '). Alegem max(v[i], curSum + v[i]) = max(' + v[i] + ', ' + (prevCur + v[i]) + ') = ' + curSum, arr: v.slice(), highlight: [i] });
+          var prevMax = maxSum;
+          maxSum = Math.max(maxSum, curSum);
+          steps.push({ line: 4, vars: { v: v, n: n, i: i, maxSum: maxSum, curSum: curSum }, exp: 'Actualizăm maxSum = max(maxSum, curSum) = max(' + prevMax + ', ' + curSum + ') = ' + maxSum, arr: v.slice(), highlight: [i] });
+        }
+        steps.push({ line: 6, vars: { v: v, n: n, i: '?', maxSum: maxSum, curSum: curSum }, exp: 'Suma maximă a unei subsecvențe este ' + maxSum + '.', arr: v.slice(), done: true });
+        return { steps: steps, result: 'Suma max = ' + maxSum };
+      }
+    },
+    'k-lea-element': {
+      name: 'K-lea Element Cel Mai Mare',
+      fileName: 'kth.cpp',
+      codeLines: [
+        'int kthLargest(int v[], int n, int k) {',
+        '  sort(v, v+n, greater<int>());',
+        '  return v[k-1];',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector de numere:<input id="inp-v" class="tracer-input" value="3 2 1 5 6 4"></label><label class="input-field-label">Valoare K (1-bazat):<input id="inp-k" type="number" class="tracer-input" value="2" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var k = parseInt(inputs['inp-k']) || 1;
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v.slice(), n: n, k: k, res: '?' }, exp: 'Căutăm al ' + k + '-lea cel mai mare element.', arr: v.slice() });
+        var original = v.slice();
+        var sorted = v.slice().sort(function(a,b) { return b-a; });
+        steps.push({ line: 1, vars: { v: sorted.slice(), n: n, k: k, res: '?' }, exp: 'Sortăm descrescător vectorul: [' + sorted.join(', ') + ']', arr: sorted.slice() });
+        var ans = sorted[k-1];
+        steps.push({ line: 2, vars: { v: sorted.slice(), n: n, k: k, res: ans }, exp: 'Elementul de pe poziția k-1 (' + (k-1) + ') este: v[' + (k-1) + '] = ' + ans, arr: sorted.slice(), highlight: [k-1] });
+        return { steps: steps, result: 'Kth element = ' + ans };
+      }
+    },
+    'element-majoritar': {
+      name: 'Element Majoritar (Boyer-Moore)',
+      fileName: 'major.cpp',
+      codeLines: [
+        'int findMajor(int v[], int n) {',
+        '  int cand = 0, count = 0;',
+        '  for (int i = 0; i < n; i++) {',
+        '    if (count == 0) cand = v[i];',
+        '    count += (v[i] == cand) ? 1 : -1;',
+        '  }',
+        '  return cand;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="2 2 1 1 1 2 2"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var cand = 0, count = 0;
+        steps.push({ line: 0, vars: { v: v, n: n, i: '?', cand: '?', count: '?' }, exp: 'Inițiem algoritmul Boyer-Moore de vot majoritar.', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v, n: n, i: '?', cand: cand, count: count }, exp: 'Să inițializăm cand = 0, count = 0', arr: v.slice() });
+        for (var i = 0; i < n; i++) {
+          var prevCand = cand;
+          var reset = (count === 0);
+          if (count === 0) cand = v[i];
+          steps.push({ line: 3, vars: { v: v, n: n, i: i, cand: cand, count: count }, exp: 'Pasul i = ' + i + ': v[i] = ' + v[i] + '.' + (reset ? ' Deoarece count == 0, noul candidat devine v[i] = ' + cand + '.' : ''), arr: v.slice(), highlight: [i] });
+          count += (v[i] === cand) ? 1 : -1;
+          steps.push({ line: 4, vars: { v: v, n: n, i: i, cand: cand, count: count }, exp: 'Comparam v[i] cu cand. ' + (v[i] === cand ? 'Diferă sau egal? Egal! Incrementăm' : 'Diferă! Decrementăm') + ' count la: ' + count, arr: v.slice(), highlight: [i] });
+        }
+        steps.push({ line: 6, vars: { v: v, n: n, i: '?', cand: cand, count: count }, exp: 'Candidatul detectat pentru elementul majoritar este: ' + cand, arr: v.slice(), done: true });
+        return { steps: steps, result: 'Majoritar: ' + cand };
+      }
+    },
+    'vector-ascendent': {
+      name: 'Vector Ascendent Check',
+      fileName: 'asc.cpp',
+      codeLines: [
+        'bool isSorted(int v[], int n) {',
+        '  for (int i = 1; i < n; i++)',
+        '    if (v[i] <= v[i-1]) return false;',
+        '  return true;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="1 2 3 5 8"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v, n: n, i: '?', ok: '?' }, exp: 'Verificăm ordinea ascendentă a vectorului.', arr: v.slice() });
+        for (var i = 1; i < n; i++) {
+          steps.push({ line: 1, vars: { v: v, n: n, i: i, ok: '?' }, exp: 'Evaluăm i = ' + i + '. Comparăm v[i] (' + v[i] + ') cu v[i-1] (' + v[i-1] + ')', arr: v.slice(), highlight: [i, i-1] });
+          if (v[i] <= v[i-1]) {
+            steps.push({ line: 2, vars: { v: v, n: n, i: i, ok: false }, exp: 'Deoarece v[' + i + '] <= v[' + (i-1) + '] (' + v[i] + ' <= ' + v[i-1] + '), vectorul NU este ascendent!', arr: v.slice(), highlight: [i, i-1], done: true });
+            return { steps: steps, result: 'Nu este ascendent' };
+          }
+        }
+        steps.push({ line: 3, vars: { v: v, n: n, i: '?', ok: true }, exp: 'Toate elementele respectă condiția. Vectorul este ascendent!', arr: v.slice(), done: true });
+        return { steps: steps, result: 'Ascendent' };
+      }
+    },
+    'produsul-altor': {
+      name: 'Produsul Celorlalte Elemente',
+      fileName: 'prod.cpp',
+      codeLines: [
+        'void prodAlti(int v[], int n) {',
+        '  int left = 1, right = 1;',
+        '  for (int i = 0; i < n; i++) {',
+        '    v[i] = left * right;',
+        '    left *= v[i];',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="1 2 3 4"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var leftP = new Array(n).fill(1);
+        var rightP = new Array(n).fill(1);
+        for (var j = 1; j < n; j++) leftP[j] = leftP[j-1] * v[j-1];
+        for (var j = n - 2; j >= 0; j--) rightP[j] = rightP[j+1] * v[j+1];
+        var res = [];
+        for (var j = 0; j < n; j++) res[j] = leftP[j] * rightP[j];
+
+        steps.push({ line: 0, vars: { v: v.slice(), n: n, i: '?', left: '?', right: '?' }, exp: 'Inițiem calculul prodAlti.', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v.slice(), n: n, i: '?', left: 1, right: 1 }, exp: 'Inițializăm left = 1, right = 1.', arr: v.slice() });
+        for (var j = 0; j < n; j++) {
+          steps.push({ line: 2, vars: { v: v.slice(), n: n, i: j, left: leftP[j], right: rightP[j] }, exp: 'Poziția i = ' + j + '. Produsul la stânga este ' + leftP[j] + ' și la dreapta este ' + rightP[j] + '.', arr: v.slice(), highlight: [j] });
+          steps.push({ line: 3, vars: { v: res.slice(0, j+1).concat(v.slice(j+1)), n: n, i: j, left: leftP[j]*v[j], right: rightP[j] }, exp: 'v[' + j + '] devine ' + res[j] + '. Actualizăm produsul la stânga.', arr: res.slice(0, j+1).concat(v.slice(j+1)), highlight: [j] });
+        }
+        steps.push({ line: 6, vars: { v: res.slice(), n: n, i: '?' }, exp: 'Produsul altor elemente completat: [' + res.join(', ') + ']', arr: res.slice(), done: true });
+        return { steps: steps, result: 'Produs: [' + res.join(', ') + ']' };
+      }
+    },
+    'frecventa-maxima': {
+      name: 'Frecvență Maximă',
+      fileName: 'freq.cpp',
+      codeLines: [
+        'int maxFreq(int v[], int n) {',
+        '  map<int,int> m;',
+        '  int maxF = 0, elem = v[0];',
+        '  for (int i = 0; i < n; i++) {',
+        '    if (++m[v[i]] > maxF) { maxF = m[v[i]]; elem = v[i]; }',
+        '  }',
+        '  return elem;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="1 1 1 2 2 3"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var m = {};
+        var maxF = 0, elem = v[0];
+        steps.push({ line: 0, vars: { v: v, n: n, i: '?', max_f: '?', elem: '?' }, exp: 'Inițiem căutarea elementului cu frecvență maximă.', arr: v.slice() });
+        steps.push({ line: 2, vars: { v: v, n: n, i: '?', max_f: maxF, elem: elem }, exp: 'Inițializăm maxF = 0 și elem = ' + elem + '.', arr: v.slice() });
+        for (var i = 0; i < n; i++) {
+          var val = v[i];
+          m[val] = (m[val] || 0) + 1;
+          var updated = false;
+          if (m[val] > maxF) {
+            maxF = m[val];
+            elem = val;
+            updated = true;
+          }
+          steps.push({ line: 3, vars: { v: v, n: n, i: i, max_f: maxF, elem: elem }, exp: 'Pasul i = ' + i + ': v[i] = ' + val + '. Noua frecvență: ' + m[val] + '.' + (updated ? ' Am depășit maxF. Actualizăm max_f = ' + maxF + ', elem = ' + elem : ''), arr: v.slice(), highlight: [i] });
+        }
+        steps.push({ line: 6, vars: { v: v, n: n, i: '?', max_f: maxF, elem: elem }, exp: 'Gata! Elementul cel mai frecvent este ' + elem + ' cu frecvența ' + maxF, arr: v.slice(), done: true });
+        return { steps: steps, result: elem + ' (' + maxF + ' ori)' };
+      }
+    },
+    'separator-culorilor': {
+      name: 'Separator Culorilor (Dijkstra Sort)',
+      fileName: 'dutch.cpp',
+      codeLines: [
+        'void sort012(int v[], int n) {',
+        '  int low = 0, mid = 0, high = n-1;',
+        '  while (mid <= high) {',
+        '    if (v[mid] == 0) swap(v[low++], v[mid++]);',
+        '    else if (v[mid] == 2) swap(v[mid], v[high--]);',
+        '    else mid++;',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector (format doar din 0, 1, 2):<input id="inp-v" class="tracer-input" value="2 0 2 1 1 0"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var low = 0, mid = 0, high = n - 1;
+        steps.push({ line: 0, vars: { v: v.slice(), n: n, low: '?', mid: '?', high: '?' }, exp: 'Inițiem sortarea olandeză (0, 1, 2).', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v.slice(), n: n, low: low, mid: mid, high: high }, exp: 'Setăm pointerii low = 0, mid = 0, high = ' + high + '.', arr: v.slice() });
+        while(mid <= high) {
+          steps.push({ line: 2, vars: { v: v.slice(), n: n, low: low, mid: mid, high: high }, exp: 'Verificăm mid <= high: ' + mid + ' <= ' + high, arr: v.slice(), highlight: [low, mid, high] });
+          if (v[mid] === 0) {
+            var tmp = v[low]; v[low] = v[mid]; v[mid] = tmp;
+            steps.push({ line: 3, vars: { v: v.slice(), n: n, low: low, mid: mid, high: high }, exp: 'v[mid] == 0! Interschimbăm v[low] (' + v[low] + ') cu v[mid] (' + v[mid] + '). Incrementăm low și mid.', arr: v.slice(), highlight: [low, mid] });
+            low++; mid++;
+          } else if (v[mid] === 2) {
+            var tmp = v[mid]; v[mid] = v[high]; v[high] = tmp;
+            steps.push({ line: 4, vars: { v: v.slice(), n: n, low: low, mid: mid, high: high }, exp: 'v[mid] == 2! Interschimbăm v[mid] cu v[high]. Decrementăm high.', arr: v.slice(), highlight: [mid, high] });
+            high--;
+          } else {
+            steps.push({ line: 5, vars: { v: v.slice(), n: n, low: low, mid: mid, high: high }, exp: 'v[mid] == 1! Lăsăm elementul pe loc și doar incrementăm mid.', arr: v.slice(), highlight: [mid] });
+            mid++;
+          }
+        }
+        steps.push({ line: 7, vars: { v: v.slice(), n: n, low: low, mid: mid, high: high }, exp: 'Vector sortat complet: [' + v.join(', ') + ']', arr: v.slice(), done: true });
+        return { steps: steps, result: 'Sortat 012: [' + v.join(', ') + ']' };
+      }
+    },
+    'subsir-crescator': {
+      name: 'Subșir Crescător Maximal (LIS)',
+      fileName: 'lis.cpp',
+      codeLines: [
+        'int lis(int v[], int n) {',
+        '  vector<int> dp(n, 1);',
+        '  for (int i = 1; i < n; i++)',
+        '    for (int j = 0; j < i; j++)',
+        '      if (v[j] < v[i]) dp[i] = max(dp[i], dp[j]+1);',
+        '  return *max_element(dp.begin(), dp.end());',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="10 9 2 5 3 7 101"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var dp = new Array(n).fill(1);
+        steps.push({ line: 0, vars: { v: v, n: n, i: '?', j: '?', dp: '?' }, exp: 'Inițiem algoritmul LIS prin programare dinamică.', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v, n: n, i: '?', j: '?', dp: dp.slice() }, exp: 'Inițializăm vectorul dp unde dp[i] este lungimea LIS care se termină în v[i] (inițial toate 1).', arr: v.slice() });
+        for (var i = 1; i < n; i++) {
+          for (var j = 0; j < i; j++) {
+            var bigger = (v[j] < v[i]);
+            var prevDP = dp[i];
+            if (bigger) dp[i] = Math.max(dp[i], dp[j] + 1);
+            steps.push({ line: 4, vars: { v: v, n: n, i: i, j: j, dp: dp.slice() }, exp: 'Comparam v[j] (' + v[j] + ') cu v[i] (' + v[i] + ').' + (bigger ? ' Deoarece v[j] < v[i], dp[i] devine max(' + prevDP + ', dp[j]+1) = ' + dp[i] : ' Condiție nesatisfăcută.'), arr: v.slice(), highlight: [i, j] });
+          }
+        }
+        var ans = Math.max.apply(null, dp);
+        steps.push({ line: 5, vars: { v: v, n: n, dp: dp.slice(), res: ans }, exp: 'Lungimea celui mai lung subșir crescător este: ' + ans, arr: v.slice(), done: true });
+        return { steps: steps, result: 'LIS = ' + ans };
+      }
+    },
+    'merge-sort': {
+      name: 'Merge Sort',
+      fileName: 'merge_sort.cpp',
+      codeLines: [
+        'void mergeSort(int v[], int st, int dr) {',
+        '  if (st < dr) {',
+        '    int mij = (st+dr)/2;',
+        '    mergeSort(v, st, mij);',
+        '    mergeSort(v, mij+1, dr);',
+        '    merge(v, st, mij, dr);',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="64 25 12 22 11"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var arr = v.slice();
+        steps.push({ line: 0, vars: { v: arr.slice(), st: 0, dr: n-1 }, exp: 'Inițiem programul de sortare Merge Sort pe întregul vector.', arr: arr.slice() });
+        
+        function merge(st, mij, dr) {
+          var leftArr = arr.slice(st, mij + 1);
+          var rightArr = arr.slice(mij + 1, dr + 1);
+          var i = 0, j = 0, k = st;
+          while(i < leftArr.length && j < rightArr.length) {
+            if (leftArr[i] <= rightArr[j]) {
+              arr[k] = leftArr[i++];
+            } else {
+              arr[k] = rightArr[j++];
+            }
+            steps.push({ 
+              line: 5, 
+              vars: { v: arr.slice(), st: st, dr: dr, mij: mij, i: k, val: arr[k] }, 
+              exp: 'Fuzionăm elementul ' + arr[k] + ' în poziția ' + k, 
+              arr: arr.slice(), 
+              highlight: [k] 
+            });
+            k++;
+          }
+          while(i < leftArr.length) {
+            arr[k] = leftArr[i++];
+            steps.push({ line: 5, vars: { v: arr.slice(), st: st, dr: dr, mij: mij, i: k }, exp: 'Adăugăm elementul rămas din stânga: ' + arr[k], arr: arr.slice(), highlight: [k] });
+            k++;
+          }
+          while(j < rightArr.length) {
+            arr[k] = rightArr[j++];
+            steps.push({ line: 5, vars: { v: arr.slice(), st: st, dr: dr, mij: mij, i: k }, exp: 'Adăugăm elementul rămas din dreapta: ' + arr[k], arr: arr.slice(), highlight: [k] });
+            k++;
+          }
+        }
+        
+        function divide(st, dr) {
+          if (st < dr) {
+            var mij = Math.floor((st + dr) / 2);
+            steps.push({ line: 2, vars: { v: arr.slice(), st: st, dr: dr, mij: mij }, exp: 'Dividem intervalul [' + st + '...' + dr + '] la mijlocul mij = ' + mij + ' (valoare: ' + arr[mij] + ')', arr: arr.slice(), highlight: [st, dr] });
+            steps.push({ line: 3, vars: { v: arr.slice(), st: st, dr: dr, mij: mij }, exp: 'Intrăm în sub-apelul stâng [' + st + '...' + mij + ']', arr: arr.slice() });
+            divide(st, mij);
+            steps.push({ line: 4, vars: { v: arr.slice(), st: st, dr: dr, mij: mij }, exp: 'Intrăm în sub-apelul drept [' + (mij + 1) + '...' + dr + ']', arr: arr.slice() });
+            divide(mij + 1, dr);
+            steps.push({ line: 5, vars: { v: arr.slice(), st: st, dr: dr, mij: mij }, exp: 'Fuzionăm intervalele [' + st + '...' + mij + '] și [' + (mij + 1) + '...' + dr + ']', arr: arr.slice() });
+            merge(st, mij, dr);
+          }
+        }
+        divide(0, n-1);
+        steps.push({ line: 7, vars: { v: arr.slice() }, exp: 'Vector sortat cu succes prin Merge Sort!', arr: arr.slice(), done: true });
+        return { steps: steps, result: 'Sortat: [' + arr.join(', ') + ']' };
+      }
+    },
+    'quick-sort': {
+      name: 'Quick Sort',
+      fileName: 'quick_sort.cpp',
+      codeLines: [
+        'int partition(int v[], int st, int dr) {',
+        '  int pivot = v[dr], i = st-1;',
+        '  for (int j = st; j < dr; j++)',
+        '    if (v[j] < pivot) swap(v[++i], v[j]);',
+        '  swap(v[i+1], v[dr]); return i+1;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="3 7 2 9 1"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var arr = v.slice();
+        
+        function qSort(st, dr) {
+          if (st < dr) {
+            steps.push({ line: 0, vars: { v: arr.slice(), st: st, dr: dr, pivot: '?', i: '?', j: '?' }, exp: 'Apelăm partenerul QuickSort pe segmentul [' + st + '...' + dr + ']', arr: arr.slice() });
+            var pivot = arr[dr];
+            var i = st - 1;
+            steps.push({ line: 1, vars: { v: arr.slice(), st: st, dr: dr, pivot: pivot, i: i }, exp: 'Alegem pivotul ca v[dr] = ' + pivot + '. Inițializăm indexul i = ' + i, arr: arr.slice(), highlight: [dr] });
+            for (var j = st; j < dr; j++) {
+              var smaller = arr[j] < pivot;
+              steps.push({ line: 2, vars: { v: arr.slice(), st: st, dr: dr, pivot: pivot, i: i, j: j }, exp: 'Comparam v[j] (' + arr[j] + ') cu pivotul (' + pivot + ').' + (smaller ? ' Este mai mic! Incrementăm i și interschimbăm.' : ' Nu este mai mic.'), arr: arr.slice(), highlight: [j, dr] });
+              if (smaller) {
+                i++;
+                var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+                steps.push({ line: 3, vars: { v: arr.slice(), st: st, dr: dr, pivot: pivot, i: i, j: j }, exp: 'Dupa swap: v[' + i + '] (' + arr[i] + ') interschimbat cu v[' + j + '] (' + arr[j] + ').', arr: arr.slice(), highlight: [i, j] });
+              }
+            }
+            var tmp = arr[i+1]; arr[i+1] = arr[dr]; arr[dr] = tmp;
+            var pivotIdx = i + 1;
+            steps.push({ line: 4, vars: { v: arr.slice(), st: st, dr: dr, pivot: pivot, pi: pivotIdx }, exp: 'Interschimbăm pivotul de la capăt cu v[i+1] (' + arr[pivotIdx] + '). Pivotul ' + pivot + ' este acum fixat la poziția sa finală ' + pivotIdx + '.', arr: arr.slice(), highlight: [pivotIdx, dr] });
+            
+            qSort(st, pivotIdx - 1);
+            qSort(pivotIdx + 1, dr);
+          }
+        }
+        qSort(0, n - 1);
+        steps.push({ line: 5, vars: { v: arr.slice() }, exp: 'Vector sortat complet prin Quick Sort!', arr: arr.slice(), done: true });
+        return { steps: steps, result: 'Sortat: [' + arr.join(', ') + ']' };
+      }
+    },
+    'heap-sort': {
+      name: 'Heap Sort',
+      fileName: 'heap_sort.cpp',
+      codeLines: [
+        'void heapify(int v[], int n, int i) {',
+        '  int largest = i, l = 2*i+1, r = 2*i+2;',
+        '  if (l < n && v[l] > v[largest]) largest = l;',
+        '  if (r < n && v[r] > v[largest]) largest = r;',
+        '  if (largest != i) { swap(v[i], v[largest]); heapify(v,n,largest); }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="12 11 13 5 6"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var arr = v.slice();
+        
+        function heapify(size, idx) {
+          var largest = idx;
+          var l = 2 * idx + 1;
+          var r = 2 * idx + 2;
+          steps.push({ line: 0, vars: { v: arr.slice(), n: size, i: idx, largest: largest, l: l, r: r }, exp: 'Apelăm heapify pentru nodul ' + idx + ' (valoare: ' + arr[idx] + ') în arborele de dimensiune ' + size, arr: arr.slice(), highlight: [idx] });
+          if (l < size && arr[l] > arr[largest]) largest = l;
+          steps.push({ line: 2, vars: { v: arr.slice(), n: size, i: idx, largest: largest, l: l, r: r }, exp: 'Verificăm fiul stâng l = ' + l + (l < size ? ' (valoare: ' + arr[l] + '). ' + (largest === l ? 'Fiul stâng devine cel mai mare.' : 'Nodul curent rămâne mai mare.') : ' (inexistent)'), arr: arr.slice(), highlight: [idx, l].filter(function(x) { return x < size; }) });
+          if (r < size && arr[r] > arr[largest]) largest = r;
+          steps.push({ line: 3, vars: { v: arr.slice(), n: size, i: idx, largest: largest, l: l, r: r }, exp: 'Verificăm fiul drept r = ' + r + (r < size ? ' (valoare: ' + arr[r] + '). ' + (largest === r ? 'Fiul drept este cel mai mare.' : 'Nu schimbăm cel mai mare.') : ' (inexistent)'), arr: arr.slice(), highlight: [idx, r].filter(function(x) { return x < size; }) });
+          if (largest !== idx) {
+            var tmp = arr[idx]; arr[idx] = arr[largest]; arr[largest] = tmp;
+            steps.push({ line: 4, vars: { v: arr.slice(), n: size, i: idx, largest: largest }, exp: 'Largest (' + largest + ') diferă de i (' + idx + '). Interschimbăm v[' + idx + '] cu v[' + largest + '] și reluăm heapify pe sub-arbore.', arr: arr.slice(), highlight: [idx, largest] });
+            heapify(size, largest);
+          }
+        }
+        
+        steps.push({ line: 0, vars: { v: arr.slice(), n: n }, exp: 'Pasul 1: Construim max-heap-ul pornind de la ultimul părinte de jos.', arr: arr.slice() });
+        for (var i = Math.floor(n / 2) - 1; i >= 0; i--) {
+          heapify(n, i);
+        }
+        steps.push({ line: 0, vars: { v: arr.slice(), n: n }, exp: 'Max-heap-ul a fost construit! Începem sortarea prin extragerea repetată a maximului.', arr: arr.slice() });
+        for (var i = n - 1; i > 0; i--) {
+          var tmp = arr[0]; arr[0] = arr[i]; arr[i] = tmp;
+          steps.push({ line: 4, vars: { v: arr.slice(), n: i }, exp: 'Interschimbăm rădăcina/maximul (v[0] = ' + arr[i] + ') cu ultimul element nesortat (v[' + i + '] = ' + arr[0] + '). Re-rulăm heapify pentru rădăcină.', arr: arr.slice(), highlight: [0, i] });
+          heapify(i, 0);
+        }
+        steps.push({ line: 5, vars: { v: arr.slice(), n: 0 }, exp: 'Vectorul este sortat complet folosind Heap Sort!', arr: arr.slice(), done: true });
+        return { steps: steps, result: 'Sortat heap: [' + arr.join(', ') + ']' };
+      }
+    },
+    'count-sort': {
+      name: 'Count Sort',
+      fileName: 'count_sort.cpp',
+      codeLines: [
+        'void countSort(int v[], int n) {',
+        '  int cnt[10] = {0};',
+        '  for (int i = 0; i < n; i++) cnt[v[i]]++;',
+        '  for (int i = 1; i < 10; i++) cnt[i] += cnt[i-1];',
+        '  for (int i = n-1; i >= 0; i--) {',
+        '    int idx = cnt[v[i]]--; out[idx] = v[i];',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector (numere mici, 0-9):<input id="inp-v" class="tracer-input" value="1 4 1 2 7 5"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var maxK = 10;
+        var cnt = new Array(maxK).fill(0);
+        var out = new Array(n).fill(0);
+        
+        steps.push({ line: 0, vars: { v: v.slice(), n: n, cnt: cnt.slice(), out: out.slice() }, exp: 'Inițiem Counting Sort pentru elemente mici (gama 0..9).', arr: v.slice() });
+        steps.push({ line: 1, vars: { v: v.slice(), n: n, cnt: cnt.slice() }, exp: 'Am alocat vectorul de frecvență cnt cu ' + maxK + ' elemente setate pe 0.', arr: v.slice() });
+        for (var i = 0; i < n; i++) {
+          cnt[v[i]]++;
+          steps.push({ line: 2, vars: { v: v.slice(), n: n, i: i, cnt: cnt.slice() }, exp: 'Incrementăm frecvența pentru v[' + i + '] = ' + v[i] + '. cnt[' + v[i] + '] devine ' + cnt[v[i]], arr: v.slice(), highlight: [i] });
+        }
+        steps.push({ line: 3, vars: { v: v.slice(), n: n, cnt: cnt.slice() }, exp: 'Calculăm sumele prefixate în cnt pentru a afla pozițiile corecte în vectorul rezultat.', arr: v.slice() });
+        for (var i = 1; i < maxK; i++) {
+          cnt[i] += cnt[i-1];
+        }
+        steps.push({ line: 3, vars: { v: v.slice(), n: n, cnt: cnt.slice() }, exp: 'Vectorul de poziții/frecvențe cumulate este: cnt = [' + cnt.join(', ') + ']', arr: v.slice() });
+        
+        for (var i = n - 1; i >= 0; i--) {
+          var val = v[i];
+          var j = cnt[val] - 1;
+          cnt[val]--;
+          out[j] = val;
+          steps.push({ line: 5, vars: { v: v.slice(), n: n, i: i, cnt: cnt.slice(), out: out.slice() }, exp: 'Plasăm v[' + i + '] (' + val + ') la indexul ' + j + ' pe baza cnt[' + val + '] = ' + (j+1) + '. Decrementăm cnt[' + val + '] la ' + cnt[val], arr: out.slice(), highlight: [j] });
+        }
+        steps.push({ line: 6, vars: { v: out.slice(), n: n }, exp: 'Gata! Vectorul sortat prin Counting Sort este: [' + out.join(', ') + ']', arr: out.slice(), done: true });
+        return { steps: steps, result: 'Sortat count: [' + out.join(', ') + ']' };
+      }
+    },
+    'radix-sort': {
+      name: 'Radix Sort',
+      fileName: 'radix_sort.cpp',
+      codeLines: [
+        'void radixSort(int v[], int n) {',
+        '  int maxV = *max_element(v, v+n);',
+        '  for (int exp = 1; maxV/exp > 0; exp *= 10)',
+        '    countSortExp(v, n, exp);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="170 45 75 90 802 24 2 66"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var arr = v.slice();
+        steps.push({ line: 0, vars: { v: arr.slice(), n: n, exp: '?' }, exp: 'Inițiem Radix Sort.', arr: arr.slice() });
+        var maxV = Math.max.apply(null, arr);
+        steps.push({ line: 1, vars: { v: arr.slice(), n: n, maxV: maxV }, exp: 'Găsim elementul maxim: ' + maxV, arr: arr.slice() });
+        
+        for (var exp = 1; Math.floor(maxV / exp) > 0; exp *= 10) {
+          steps.push({ line: 2, vars: { v: arr.slice(), n: n, maxV: maxV, exp: exp }, exp: 'Rulăm sortarea prin distribuire pentru cifra unităților de ordinul ' + exp, arr: arr.slice() });
+          
+          var cnt = new Array(10).fill(0);
+          var out = new Array(n).fill(0);
+          for (var i = 0; i < n; i++) {
+            var digit = Math.floor(arr[i] / exp) % 10;
+            cnt[digit]++;
+          }
+          for (var i = 1; i < 10; i++) cnt[i] += cnt[i-1];
+          for (var i = n - 1; i >= 0; i--) {
+            var digit = Math.floor(arr[i] / exp) % 10;
+            var j = cnt[digit] - 1;
+            cnt[digit]--;
+            out[j] = arr[i];
+          }
+          arr = out.slice();
+          steps.push({ line: 3, vars: { v: arr.slice(), exp: exp }, exp: 'După sortarea după grupul de cifre ' + exp + ', vectorul devine: [' + arr.join(', ') + ']', arr: arr.slice() });
+        }
+        steps.push({ line: 4, vars: { v: arr.slice() }, exp: 'Gata! S-au sortat toate cifrele, vectorul este complet sortat.', arr: arr.slice(), done: true });
+        return { steps: steps, result: 'Sortat radix: [' + arr.join(', ') + ']' };
+      }
+    },
+    'gnome-sort': {
+      name: 'Gnome Sort',
+      fileName: 'gnome_sort.cpp',
+      codeLines: [
+        'void gnomeSort(int v[], int n) {',
+        '  int i = 0;',
+        '  while (i < n) {',
+        '    if (i == 0 || v[i] >= v[i-1]) i++;',
+        '    else { swap(v[i], v[i-1]); i--; }',
+        '  }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="5 2 8 1 9"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        var arr = v.slice();
+        steps.push({ line: 0, vars: { v: arr.slice(), n: n, i: '?' }, exp: 'Inițiem Gnome Sort (sortarea piticului de grădină).', arr: arr.slice() });
+        var i = 0;
+        steps.push({ line: 1, vars: { v: arr.slice(), n: n, i: i }, exp: 'Setăm indexul piticului la poziția i = 0', arr: arr.slice() });
+        while(i < n) {
+          steps.push({ line: 2, vars: { v: arr.slice(), i: i }, exp: 'Verificăm i < n: ' + i + ' < ' + n, arr: arr.slice(), highlight: [i] });
+          if (i === 0 || arr[i] >= arr[i-1]) {
+            steps.push({ line: 3, vars: { v: arr.slice(), i: i }, exp: 'Deoarece ' + (i === 0 ? 'i este 0' : 'v[i] >= v[i-1] (' + arr[i] + ' >= ' + arr[i-1] + ')'), arr: arr.slice(), highlight: i === 0 ? [i] : [i, i-1] });
+            i++;
+            steps.push({ line: 3, vars: { v: arr.slice(), i: i }, exp: 'Piticul face un pas înainte, i devine ' + i, arr: arr.slice() });
+          } else {
+            steps.push({ line: 4, vars: { v: arr.slice(), i: i }, exp: 'Condiție încălcată! v[i] < v[i-1] (' + arr[i] + ' < ' + arr[i-1] + ').', arr: arr.slice(), highlight: [i, i-1] });
+            var tmp = arr[i]; arr[i] = arr[i-1]; arr[i-1] = tmp;
+            steps.push({ line: 4, vars: { v: arr.slice(), i: i }, exp: 'Interschimbăm elementele. Piticul face un pas înapoi.', arr: arr.slice(), highlight: [i, i-1] });
+            i--;
+          }
+        }
+        steps.push({ line: 6, vars: { v: arr.slice() }, exp: 'Piticul a ajuns la final. Vectorul este sortat: [' + arr.join(', ') + ']', arr: arr.slice(), done: true });
+        return { steps: steps, result: 'Sortat gnome: [' + arr.join(', ') + ']' };
+      }
+    },
+    'cautare-ternara': {
+      name: 'Ternary Search',
+      fileName: 'ternary.cpp',
+      codeLines: [
+        'int ternary(int v[], int st, int dr, int x) {',
+        '  if (st > dr) return -1;',
+        '  int mid1 = st + (dr-st)/3;',
+        '  int mid2 = dr - (dr-st)/3;',
+        '  if (v[mid1] == x) return mid1;',
+        '  if (v[mid2] == x) return mid2;',
+        '  if (x < v[mid1]) return ternary(v, st, mid1-1, x);',
+        '  if (x > v[mid2]) return ternary(v, mid2+1, dr, x);',
+        '  return ternary(v, mid1+1, mid2-1, x);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector ordonat:<input id="inp-v" class="tracer-input" value="1 2 5 8 12 15 20 25 30"></label><label class="input-field-label">Valoare X de căutat:<input id="inp-x" type="number" class="tracer-input" value="8" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var x = parseInt(inputs['inp-x']) || 0;
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v, x: x, st: 0, dr: n-1 }, exp: 'Căutăm valoarea ' + x + ' folosind Ternary Search pe vectorul ordonat.', arr: v.slice() });
+        
+        function tSearch(st, dr) {
+          steps.push({ line: 1, vars: { v: v, x: x, st: st, dr: dr }, exp: 'Apel ternary pentru intervalul [' + st + '...' + dr + ']', arr: v.slice(), highlight: [st, dr] });
+          if (st > dr) {
+            steps.push({ line: 1, vars: { v: v, x: x, st: st, dr: dr }, exp: 'Intervalul s-a epuizat (st > dr). Valoarea nu se află în vector!', arr: v.slice(), done: true });
+            return -1;
+          }
+          var mid1 = st + Math.floor((dr - st) / 3);
+          var mid2 = dr - Math.floor((dr - st) / 3);
+          steps.push({ line: 2, vars: { v: v, x: x, st: st, dr: dr, mid1: mid1, mid2: mid2 }, exp: 'Calculăm cele două puncte de divizare: mid1 = ' + mid1 + ' (valoare: ' + v[mid1] + ') și mid2 = ' + mid2 + ' (valoare: ' + v[mid2] + ')', arr: v.slice(), highlight: [mid1, mid2] });
+          if (v[mid1] === x) {
+            steps.push({ line: 4, vars: { v: v, x: x, st: st, dr: dr, mid1: mid1, mid2: mid2 }, exp: 'Găsit! Valoarea de la mid1 (' + mid1 + ') este egală cu x (' + x + ').', arr: v.slice(), highlight: [mid1], done: true });
+            return mid1;
+          }
+          if (v[mid2] === x) {
+            steps.push({ line: 5, vars: { v: v, x: x, st: st, dr: dr, mid1: mid1, mid2: mid2 }, exp: 'Găsit! Valoarea de la mid2 (' + mid2 + ') este egală cu x (' + x + ').', arr: v.slice(), highlight: [mid2], done: true });
+            return mid2;
+          }
+          if (x < v[mid1]) {
+            steps.push({ line: 6, vars: { v: v, x: x, st: st, dr: dr, mid1: mid1, mid2: mid2 }, exp: 'x < v[mid1] (' + x + ' < ' + v[mid1] + '). Continuăm căutarea în treimea stângă: [' + st + '...' + (mid1-1) + ']', arr: v.slice() });
+            return tSearch(st, mid1 - 1);
+          } else if (x > v[mid2]) {
+            steps.push({ line: 7, vars: { v: v, x: x, st: st, dr: dr, mid1: mid1, mid2: mid2 }, exp: 'x > v[mid2] (' + x + ' > ' + v[mid2] + '). Continuăm căutarea în treimea dreaptă: [' + (mid2+1) + '...' + dr + ']', arr: v.slice() });
+            return tSearch(mid2 + 1, dr);
+          } else {
+            steps.push({ line: 8, vars: { v: v, x: x, st: st, dr: dr, mid1: mid1, mid2: mid2 }, exp: 'v[mid1] < x < v[mid2] (' + v[mid1] + ' < ' + x + ' < ' + v[mid2] + '). Continuăm căutarea în treimea din mijloc: [' + (mid1+1) + '...' + (mid2-1) + ']', arr: v.slice() });
+            return tSearch(mid1 + 1, mid2 - 1);
+          }
+        }
+        var res = tSearch(0, n - 1);
+        return { steps: steps, result: res >= 0 ? 'Găsit la index ' + res : 'Negăsit' };
+      }
+    },
+    'cautare-exponentiale': {
+      name: 'Exponential Search',
+      fileName: 'exp_search.cpp',
+      codeLines: [
+        'int expSearch(int v[], int n, int x) {',
+        '  if (v[0] == x) return 0;',
+        '  int i = 1;',
+        '  while (i < n && v[i] < x) i *= 2;',
+        '  return binarySearch(v, i/2, min(i, n), x);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector ordonat:<input id="inp-v" class="tracer-input" value="1 2 4 8 16 32 64 128"></label><label class="input-field-label">Valoare X de căutat:<input id="inp-x" type="number" class="tracer-input" value="32" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var x = parseInt(inputs['inp-x']) || 0;
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v, x: x, n: n, i: '?' }, exp: 'Inițiem căutarea exponențială pentru valoarea x = ' + x, arr: v.slice() });
+        if (v[0] === x) {
+          steps.push({ line: 1, vars: { v: v, x: x, n: n, i: 0 }, exp: 'Găsit direct la prima poziție v[0] = ' + x, arr: v.slice(), highlight: [0], done: true });
+          return { steps: steps, result: 'Găsit la 0' };
+        }
+        var i = 1;
+        steps.push({ line: 2, vars: { v: v, x: x, n: n, i: i }, exp: 'Inițializăm i = 1 pentru pasul exponențial.', arr: v.slice(), highlight: [i] });
+        while(i < n && v[i] < x) {
+          steps.push({ line: 3, vars: { v: v, x: x, n: n, i: i }, exp: 'v[' + i + '] = ' + v[i] + ' < ' + x + '. Dublăm exponentul i.', arr: v.slice(), highlight: [i] });
+          i *= 2;
+        }
+        var st = Math.floor(i / 2);
+        var dr = Math.min(i, n - 1);
+        steps.push({ line: 4, vars: { v: v, x: x, n: n, i: i, st: st, dr: dr }, exp: 'Am găsit plaja. Continuăm cu Căutarea Binară pe sub-intervalul [' + st + '...' + dr + ']', arr: v.slice(), highlight: [st, dr] });
+        
+        var foundIdx = -1;
+        while(st <= dr) {
+          var mid = Math.floor((st + dr) / 2);
+          steps.push({ line: 4, vars: { v: v, x: x, n: n, i: i, st: st, dr: dr, mid: mid }, exp: 'Binar: mid = ' + mid + ' (v[mid] = ' + v[mid] + ').', arr: v.slice(), highlight: [st, mid, dr] });
+          if (v[mid] === x) {
+            foundIdx = mid;
+            break;
+          } else if (v[mid] < x) {
+            st = mid + 1;
+          } else {
+            dr = mid - 1;
+          }
+        }
+        if (foundIdx !== -1) {
+          steps.push({ line: 4, vars: { v: v, x: x, n: n, i: i, found: foundIdx }, exp: 'Valoarea a fost găsită la indexul ' + foundIdx, arr: v.slice(), highlight: [foundIdx], done: true });
+        } else {
+          steps.push({ line: 4, vars: { v: v, x: x, n: n, i: i, found: -1 }, exp: 'Valoarea nu a fost găsită în vector în urma căutării binare.', arr: v.slice(), done: true });
+        }
+        return { steps: steps, result: foundIdx >= 0 ? 'Găsit la index ' + foundIdx : 'Negăsit' };
+      }
+    },
+    'cautare-salturi': {
+      name: 'Jump Search',
+      fileName: 'jump_search.cpp',
+      codeLines: [
+        'int jumpSearch(int v[], int n, int x) {',
+        '  int step = sqrt(n), prev = 0;',
+        '  while (v[min(step,n)-1] < x) { prev = step; step += sqrt(n); }',
+        '  for (int i = prev; i < min(step,n); i++)',
+        '    if (v[i] == x) return i;',
+        '  return -1;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector ordonat:<input id="inp-v" class="tracer-input" value="0 1 2 3 5 8 13 21 34 55 89"></label><label class="input-field-label">Valoare X de căutat:<input id="inp-x" type="number" class="tracer-input" value="21" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var x = parseInt(inputs['inp-x']) || 0;
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v, x: x, n: n }, exp: 'Inițiem Jump Search pentru valoarea ' + x, arr: v.slice() });
+        var step = Math.floor(Math.sqrt(n));
+        var prev = 0;
+        steps.push({ line: 1, vars: { v: v, x: x, n: n, step: step, prev: prev }, exp: 'Stabilim lungimea saltului: step = sqrt(' + n + ') = ' + step + '.', arr: v.slice() });
+        
+        while (v[Math.min(step, n) - 1] < x) {
+          steps.push({ line: 2, vars: { v: v, x: x, n: n, step: step, prev: prev }, exp: 'Elementul de la capătul blocului saltului v[' + (Math.min(step, n) - 1) + '] (' + v[Math.min(step, n) - 1] + ') < ' + x + '. Efectuăm saltul.', arr: v.slice(), highlight: [Math.min(step, n) - 1] });
+          prev = step;
+          step += Math.floor(Math.sqrt(n));
+          if (prev >= n) {
+            steps.push({ line: 2, vars: { v: v, x: x, n: n, prev: prev }, exp: 'Aria de căutare a depășit limitele vectorului. Valoarea nu există.', arr: v.slice(), done: true });
+            return { steps: steps, result: 'Negăsit' };
+          }
+        }
+        
+        var limit = Math.min(step, n);
+        steps.push({ line: 3, vars: { v: v, x: x, n: n, prev: prev, limit: limit }, exp: 'Valoarea ar trebui să aparțină blocului liniar [' + prev + '...' + (limit - 1) + ']. Inițiem căutarea liniară.', arr: v.slice(), highlight: [prev, limit-1] });
+        var foundIdx = -1;
+        for (var i = prev; i < limit; i++) {
+          steps.push({ line: 4, vars: { v: v, x: x, n: n, i: i, temp: v[i] }, exp: 'Comparam v[' + i + '] = ' + v[i] + ' cu ' + x, arr: v.slice(), highlight: [i] });
+          if (v[i] === x) {
+            foundIdx = i;
+            break;
+          }
+        }
+        if (foundIdx !== -1) {
+          steps.push({ line: 4, vars: { v: v, x: x, n: n, i: foundIdx }, exp: 'Valoarea a fost găsită la indexul ' + foundIdx, arr: v.slice(), highlight: [foundIdx], done: true });
+        } else {
+          steps.push({ line: 5, vars: { v: v, x: x, n: n }, exp: 'Am căutat linear pe segment, dar nu am găsit valoarea.', arr: v.slice(), done: true });
+        }
+        return { steps: steps, result: foundIdx >= 0 ? 'Găsit la index ' + foundIdx : 'Negăsit' };
+      }
+    },
+    'cautare-matrice-2d': {
+      name: 'Căutare Matrice 2D',
+      fileName: 'mat2d.cpp',
+      codeLines: [
+        'bool search(int a[][100], int m, int n, int x) {',
+        '  int i = 0, j = n-1;',
+        '  while (i < m && j >= 0) {',
+        '    if (a[i][j] == x) return true;',
+        '    if (a[i][j] > x) j--;',
+        '    else i++;',
+        '  }',
+        '  return false;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Matrice (spații între coloane, linii noi între rânduri):<textarea id="inp-a" class="tracer-input" style="height:80px">1 2 3\n4 5 6\n7 8 9</textarea></label><label class="input-field-label">Valoare X de căutat:<input id="inp-x" type="number" class="tracer-input" value="5" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var lines = inputs['inp-a'].trim().split('\n');
+        var matrix = lines.map(function(ln) { return ln.trim().split(/\s+/).map(Number); });
+        var m = matrix.length;
+        var n = m > 0 ? matrix[0].length : 0;
+        var x = parseInt(inputs['inp-x']) || 0;
+        
+        var flatArr = [];
+        for (var i = 0; i < m; i++) {
+          flatArr = flatArr.concat(matrix[i]);
+        }
+        var steps = [];
+        steps.push({ line: 0, vars: { a: 'matrix', m: m, n: n, x: x, i: '?', j: '?' }, exp: 'Inițiem căutarea în matricea 2D ordonată pe linii și coloane (Căutare tip Sad-Saddle).', arr: flatArr });
+        var row = 0, col = n - 1;
+        steps.push({ line: 1, vars: { m: m, n: n, x: x, i: row, j: col }, exp: 'Pornim de la colțul dreapta-sus: linie = ' + row + ', coloană = ' + col + ' (valoare: ' + matrix[row][col] + ')', arr: flatArr, highlight: [row * n + col] });
+        
+        var found = false;
+        while(row < m && col >= 0) {
+          var val = matrix[row][col];
+          steps.push({ line: 2, vars: { m: m, n: n, x: x, i: row, j: col, val: val }, exp: 'Verificăm poziția curentă v[' + row + '][' + col + '] = ' + val, arr: flatArr, highlight: [row * n + col] });
+          if (val === x) {
+            steps.push({ line: 3, vars: { m: m, n: n, x: x, i: row, j: col, val: val }, exp: 'Găsit! Valoarea din matrice este egală cu ' + x, arr: flatArr, highlight: [row * n + col], done: true });
+            found = true;
+            break;
+          }
+          if (val > x) {
+            steps.push({ line: 4, vars: { m: m, n: n, x: x, i: row, j: col, val: val }, exp: 'Deoarece ' + val + ' > ' + x + ', căutăm pe coloana din stânga. Decrementăm coloana.', arr: flatArr, highlight: [row * n + col] });
+            col--;
+          } else {
+            steps.push({ line: 5, vars: { m: m, n: n, x: x, i: row, j: col, val: val }, exp: 'Deoarece ' + val + ' < ' + x + ', căutăm pe linia inferioară. Incrementăm linia.', arr: flatArr, highlight: [row * n + col] });
+            row++;
+          }
+        }
+        if (!found) {
+          steps.push({ line: 7, vars: { m: m, n: n, x: x }, exp: 'Am ieșit din limitele matricei. Elementul ' + x + ' nu există.', arr: flatArr, done: true });
+        }
+        return { steps: steps, result: found ? 'Găsit la (' + row + ',' + col + ')' : 'Negăsit' };
+      }
+    },
+    'cautare-interpolate': {
+      name: 'Interpolation Search',
+      fileName: 'interp.cpp',
+      codeLines: [
+        'int interpSearch(int v[], int n, int x) {',
+        '  int st = 0, dr = n-1;',
+        '  while (st <= dr && x >= v[st] && x <= v[dr]) {',
+        '    int pos = st + ((x-v[st])*(dr-st))/(v[dr]-v[st]);',
+        '    if (v[pos] == x) return pos;',
+        '    if (v[pos] < x) st = pos+1;',
+        '    else dr = pos-1;',
+        '  }',
+        '  return -1;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector ordonat (ideal distribuit uniform):<input id="inp-v" class="tracer-input" value="10 20 30 40 50 60 70 80 90"></label><label class="input-field-label">Valoare X de căutat:<input id="inp-x" type="number" class="tracer-input" value="30" style="width:100px"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var x = parseInt(inputs['inp-x']) || 0;
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v, x: x, n: n, st: '?', dr: '?' }, exp: 'Inițiem căutarea prin interpolare pentru valoarea ' + x, arr: v.slice() });
+        var st = 0, dr = n - 1;
+        steps.push({ line: 1, vars: { v: v, x: x, st: st, dr: dr }, exp: 'Inițializăm limitele st = 0, dr = ' + dr, arr: v.slice(), highlight: [st, dr] });
+        
+        var foundIdx = -1;
+        while(st <= dr && x >= v[st] && x <= v[dr]) {
+          steps.push({ line: 2, vars: { v: v, x: x, st: st, dr: dr }, exp: 'Verificăm condiția: st <= dr și valoarea se află în interiorul plajei [' + v[st] + '...' + v[dr] + ']', arr: v.slice(), highlight: [st, dr] });
+          
+          var denom = v[dr] - v[st];
+          var pos;
+          if (denom === 0) {
+            pos = st;
+          } else {
+            pos = st + Math.floor(((x - v[st]) * (dr - st)) / denom);
+          }
+          
+          steps.push({ line: 3, vars: { v: v, x: x, st: st, dr: dr, pos: pos }, exp: 'Calculăm poziția estimată prin formulă de interpolare lineară: pos = ' + pos + ' (valoare: ' + v[pos] + ')', arr: v.slice(), highlight: [st, pos, dr] });
+          
+          if (v[pos] === x) {
+            foundIdx = pos;
+            steps.push({ line: 4, vars: { v: v, x: x, st: st, dr: dr, pos: pos }, exp: 'Găsit! v[pos] este egal cu ' + x, arr: v.slice(), highlight: [pos], done: true });
+            break;
+          }
+          if (v[pos] < x) {
+            steps.push({ line: 5, vars: { v: v, x: x, st: st, dr: dr, pos: pos }, exp: 'v[pos] < x (' + v[pos] + ' < ' + x + '). Restrângem căutarea în dreapta: st = ' + (pos + 1), arr: v.slice(), highlight: [pos] });
+            st = pos + 1;
+          } else {
+            steps.push({ line: 6, vars: { v: v, x: x, st: st, dr: dr, pos: pos }, exp: 'v[pos] > x (' + v[pos] + ' > ' + x + '). Restrângem căutarea în stânga: dr = ' + (pos - 1), arr: v.slice(), highlight: [pos] });
+            dr = pos - 1;
+          }
+        }
+        if (foundIdx === -1) {
+          steps.push({ line: 8, vars: { v: v, x: x, st: st, dr: dr }, exp: 'Am terminat bucla de căutare. Valoarea nu se află în vector.', arr: v.slice(), done: true });
+        }
+        return { steps: steps, result: foundIdx >= 0 ? 'Găsit la index ' + foundIdx : 'Negăsit' };
+      }
+    },
+    'patrat-perfect': {
+      name: 'Pătrat Perfect',
+      fileName: 'sqrt.cpp',
+      codeLines: [
+        'bool isPerfectSq(int n) {',
+        '  int sqrt_n = sqrt(n);',
+        '  return sqrt_n * sqrt_n == n;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Număr N:<input id="inp-n" type="number" class="tracer-input" value="16"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, sqrt_n: '?', ok: '?' }, exp: 'Inițiem verificarea dacă numărul ' + n + ' este pătrat perfect.' });
+        var root = Math.floor(Math.sqrt(n));
+        steps.push({ line: 1, vars: { n: n, sqrt_n: root, ok: '?' }, exp: 'Calculăm partea întreagă a rădăcinii pătrate: sqrt(' + n + ') ≈ ' + root });
+        var ok = (root * root === n);
+        steps.push({ line: 2, vars: { n: n, sqrt_n: root, ok: ok }, exp: 'Verificăm dacă ' + root + ' * ' + root + ' == ' + n + ': ' + (root * root) + ' == ' + n + ' is ' + ok, done: true });
+        return { steps: steps, result: ok ? n + ' e pătrat perfect (' + root + '²)' : n + ' nu e pătrat perfect' };
+      }
+    },
+    'perfect-square-sum': {
+      name: 'Suma Pătratelor (Formula Directă)',
+      fileName: 'sum_sq.cpp',
+      codeLines: [
+        'int sumSq(int n) {',
+        '  return n*(n+1)*(2*n+1)/6;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare N:<input id="inp-n" type="number" class="tracer-input" value="5"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, sum: '?' }, exp: 'Calculăm suma pătratelor primelor ' + n + ' numere naturale.' });
+        var sum = n * (n + 1) * (2 * n + 1) / 6;
+        steps.push({ line: 1, vars: { n: n, sum: sum }, exp: 'Aplicăm formula directă: n * (n + 1) * (2*n + 1) / 6 -> ' + n + ' * ' + (n+1) + ' * ' + (2*n+1) + ' / 6 = ' + sum, done: true });
+        return { steps: steps, result: 'Suma = ' + sum };
+      }
+    },
+    'numarul-fericit': {
+      name: 'Număr Fericit',
+      fileName: 'happy.cpp',
+      codeLines: [
+        'bool isHappy(int n) {',
+        '  set<int> seen;',
+        '  while (n != 1 && !seen.count(n)) {',
+        '    seen.insert(n);',
+        '    int sum = 0;',
+        '    while (n) { int d = n%10; sum += d*d; n /= 10; }',
+        '    n = sum;',
+        '  }',
+        '  return n == 1;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Număr de verificat:<input id="inp-n" type="number" class="tracer-input" value="7"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n }, exp: 'Inițiem verificarea dacă ' + n + ' este un număr fericit.' });
+        var seen = new Set();
+        var orig = n;
+        var current = n;
+        while (current !== 1 && !seen.has(current)) {
+          seen.add(current);
+          var sum = 0;
+          var tmp = current;
+          var digits = [];
+          while (tmp) {
+            var d = tmp % 10;
+            sum += d * d;
+            digits.push(d + '²');
+            tmp = Math.floor(tmp / 10);
+          }
+          steps.push({ line: 2, vars: { n: current, seen: Array.from(seen) }, exp: 'Numărul curent în flux este: ' + current + '.' });
+          steps.push({ line: 5, vars: { n: current, sum: sum }, exp: 'Calculăm suma pătratelor cifrelor: ' + digits.reverse().join(' + ') + ' = ' + sum });
+          current = sum;
+        }
+        var ok = (current === 1);
+        steps.push({ line: 8, vars: { n: current, ok: ok }, exp: ok ? 'S-a ajuns la 1! Numărul original ' + orig + ' este fericit!' : 'S-a detectat o buclă infinită la ' + current + '. Numărul original ' + orig + ' este trist.', done: true });
+        return { steps: steps, result: ok ? orig + ' e fericit!' : orig + ' e trist' };
+      }
+    },
+    'armstrong': {
+      name: 'Număr Armstrong',
+      fileName: 'armstrong.cpp',
+      codeLines: [
+        'bool isArmstrong(int n) {',
+        '  int orig = n, sum = 0, digits = 0;',
+        '  int tmp = n;',
+        '  while (tmp) { digits++; tmp /= 10; }',
+        '  tmp = n;',
+        '  while (tmp) { int d = tmp%10; sum += pow(d,digits); tmp /= 10; }',
+        '  return sum == orig;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Număr:<input id="inp-n" type="number" class="tracer-input" value="153"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, orig: n, sum: '?', digits: '?' }, exp: 'Inițiem verificarea numărului Armstrong.' });
+        var orig = n;
+        var digits = n.toString().length;
+        steps.push({ line: 3, vars: { n: n, orig: orig, sum: 0, digits: digits }, exp: 'Numărul de cifre ale lui ' + n + ' este ' + digits });
+        var tmp = n;
+        var sum = 0;
+        while (tmp !== 0) {
+          var d = tmp % 10;
+          var term = Math.pow(d, digits);
+          sum += term;
+          steps.push({ line: 5, vars: { n: tmp, orig: orig, sum: sum, digits: digits }, exp: 'Cifra ' + d + ' ridicată la puterea ' + digits + ' este ' + term + '. Suma curentă devine ' + sum });
+          tmp = Math.floor(tmp / 10);
+        }
+        var ok = (sum === orig);
+        steps.push({ line: 6, vars: { n: n, orig: orig, sum: sum, ok: ok }, exp: 'Comparăm suma realizată (' + sum + ') cu numărul original (' + orig + '). ' + (ok ? 'Sunt egale!' : 'Sunt diferite!'), done: true });
+        return { steps: steps, result: ok ? orig + ' este Armstrong!' : orig + ' nu este Armstrong' };
+      }
+    },
+    'factori-primi': {
+      name: 'Factori Primi',
+      fileName: 'factors.cpp',
+      codeLines: [
+        'void primeFactors(int n) {',
+        '  for (int i = 2; i*i <= n; i++) {',
+        '    while (n % i == 0) { cout << i << " "; n /= i; }',
+        '  }',
+        '  if (n > 1) cout << n;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Număr:<input id="inp-n" type="number" class="tracer-input" value="60"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        var factors = [];
+        steps.push({ line: 0, vars: { n: n, d: '?' }, exp: 'Descompunem numărul ' + n + ' în factori primi.' });
+        var tmp = n;
+        for (var d = 2; d * d <= tmp; d++) {
+          if (tmp % d === 0) {
+            steps.push({ line: 1, vars: { n: tmp, d: d }, exp: 'Verificăm divizibilitatea cu d = ' + d });
+            while (tmp % d === 0) {
+              factors.push(d);
+              tmp /= d;
+              steps.push({ line: 2, vars: { n: tmp, d: d, factors: factors.slice() }, exp: 'Împărțim repetat la ' + d + '. Adăugăm la factori. Noul n = ' + tmp });
+            }
+          }
+        }
+        if (tmp > 1) {
+          factors.push(tmp);
+          steps.push({ line: 4, vars: { n: tmp, factors: factors.slice() }, exp: 'Adăugăm factorul prim rămas: ' + tmp });
+        }
+        steps.push({ line: 4, vars: { n: n, factors: factors.slice() }, exp: 'Descompunerea completă: ' + factors.join(' * '), done: true });
+        return { steps: steps, result: 'Factori: ' + factors.join(' * ') };
+      }
+    },
+    'lcm': {
+      name: 'CMMMC (LCM)',
+      fileName: 'lcm.cpp',
+      codeLines: [
+        'int lcm(int a, int b) {',
+        '  return (a / gcd(a,b)) * b;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare A:<input id="inp-a" type="number" class="tracer-input" value="12"></label><label class="input-field-label">Valoare B:<input id="inp-b" type="number" class="tracer-input" value="18"></label></div>',
+      run: function(inputs) {
+        var a = parseInt(inputs['inp-a']) || 12;
+        var b = parseInt(inputs['inp-b']) || 18;
+        var steps = [];
+        steps.push({ line: 0, vars: { a: a, b: b, lcm: '?' }, exp: 'Inițiem calculul CMMMC pentru numerele ' + a + ' și ' + b });
+        
+        var x = a, y = b;
+        while(y !== 0) {
+          var rem = x % y;
+          steps.push({ line: 0, vars: { a: a, b: b, x: x, y: y, rem: rem }, exp: 'Pas intermediar de calcul CMMDC: ' + x + ' % ' + y + ' = ' + rem });
+          x = y;
+          y = rem;
+        }
+        var gcd = x;
+        var lcm = (a / gcd) * b;
+        steps.push({ line: 1, vars: { a: a, b: b, gcd: gcd, lcm: lcm }, exp: 'CMMDC(' + a + ', ' + b + ') = ' + gcd + '. Aplicăm formula: (' + a + ' / ' + gcd + ') * ' + b + ' = ' + lcm, done: true });
+        return { steps: steps, result: 'LCM = ' + lcm };
+      }
+    },
+    'fibonacci-check': {
+      name: 'Fibonacci Check',
+      fileName: 'fib_check.cpp',
+      codeLines: [
+        'bool isFibonacci(int n) {',
+        '  int a = 0, b = 1;',
+        '  while (a < n) { int tmp = a+b; a = b; b = tmp; }',
+        '  return a == n;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Număr:<input id="inp-n" type="number" class="tracer-input" value="21"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, a: '?', b: '?' }, exp: 'Verificăm dacă ' + n + ' este număr Fibonacci.' });
+        var a = 0, b = 1;
+        steps.push({ line: 1, vars: { n: n, a: a, b: b }, exp: 'Inițializăm primele două numere: a = 0, b = 1' });
+        while (a < n) {
+          var tmp = a + b;
+          steps.push({ line: 2, vars: { n: n, a: a, b: b, next: tmp }, exp: 'Generăm următorul termen: ' + a + ' + ' + b + ' = ' + tmp });
+          a = b;
+          b = tmp;
+        }
+        var ok = (a === n);
+        steps.push({ line: 3, vars: { n: n, a: a, b: b, ok: ok }, exp: 'Am atins sau depășit n. Verificăm dacă a == n: ' + a + ' == ' + n + ' is ' + ok, done: true });
+        return { steps: steps, result: ok ? n + ' este Fibonacci!' : n + ' nu este Fibonacci' };
+      }
+    },
+    'sieve-eratostene': {
+      name: 'Ciurul lui Eratostene (Sieve)',
+      fileName: 'sieve.cpp',
+      codeLines: [
+        'void sieve(int n) {',
+        '  vector<bool> prime(n+1, true);',
+        '  for (int i = 2; i*i <= n; i++)',
+        '    if (prime[i]) for (int j = i*i; j <= n; j += i) prime[j] = false;',
+        '  for (int i = 2; i <= n; i++) if (prime[i]) cout << i << " ";',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Lângă limită (N ≤ 100):<input id="inp-n" type="number" class="tracer-input" value="30"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 30;
+        var steps = [];
+        var prime = new Array(n + 1).fill(true);
+        prime[0] = prime[1] = false;
+        
+        var arr = [];
+        for(var j = 0; j <= n; j++) arr.push(j);
+        
+        steps.push({ line: 0, vars: { n: n }, exp: 'Inițiem Ciurul lui Eratostene pentru numerele până la ' + n + '.', arr: arr.slice() });
+        for (var i = 2; i * i <= n; i++) {
+          if (prime[i]) {
+            steps.push({ line: 2, vars: { n: n, i: i }, exp: 'Verificăm i = ' + i + ' (prime[' + i + '] == true). Însemnăm multiplii săi cu false.', arr: arr.slice(), highlight: [i] });
+            for (var j = i * i; j <= n; j += i) {
+              prime[j] = false;
+              arr[j] = 0;
+              steps.push({ line: 3, vars: { n: n, i: i, j: j }, exp: 'Multiplul ' + j + ' este eliminat (setat la 0).', arr: arr.slice(), highlight: [j] });
+            }
+          }
+        }
+        var primes = [];
+        for (var i = 2; i <= n; i++) {
+          if (prime[i]) primes.push(i);
+        }
+        steps.push({ line: 4, vars: { n: n, prime_count: primes.length }, exp: 'Compactăm rezultatele. Numerele prime găsite: ' + primes.join(', '), arr: arr.filter(function(x) { return x > 0; }), done: true });
+        return { steps: steps, result: 'Găsite: ' + primes.length + ' numere prime' };
+      }
+    },
+    'cel-mic-factor': {
+      name: 'Cel Mai Mic Factor Prim',
+      fileName: 'small_factor.cpp',
+      codeLines: [
+        'int smallestFactor(int n) {',
+        '  for (int i = 2; i*i <= n; i++)',
+        '    if (n % i == 0) return i;',
+        '  return n;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare N:<input id="inp-n" type="number" class="tracer-input" value="24"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, i: '?' }, exp: 'Căutăm cel mai mic factor prim al numărului ' + n });
+        var found = -1;
+        for (var i = 2; i * i <= n; i++) {
+          steps.push({ line: 1, vars: { n: n, i: i }, exp: 'Verificăm dacă n se împarte exact la ' + i });
+          if (n % i === 0) {
+            found = i;
+            steps.push({ line: 2, vars: { n: n, i: i, factor: found }, exp: 'Găsit! Cel mai mic factor prim este ' + found, done: true });
+            break;
+          }
+        }
+        if (found === -1) {
+          steps.push({ line: 3, vars: { n: n, factor: n }, exp: 'Nu s-a găsit niciun factor prim până la √n. Înseamnă că ' + n + ' este prim!', done: true });
+          found = n;
+        }
+        return { steps: steps, result: 'Cel mai mic factor prim: ' + found };
+      }
+    },
+    'putere-perfecta': {
+      name: 'Putere Perfectă Checker',
+      fileName: 'power_sq.cpp',
+      codeLines: [
+        'bool isPowerOf(int n) {',
+        '  for (int a = 2; a * a <= n; a++) {',
+        '    for (int b = 2; pow(a,b) <= n; b++)',
+        '      if (pow(a,b) == n) return true;',
+        '  }',
+        '  return false;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare N:<input id="inp-n" type="number" class="tracer-input" value="8"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, a: '?', b: '?' }, exp: 'Verificăm dacă ' + n + ' este o putere perfectă (a^b).' });
+        var found = false;
+        var baseAns = 0, powerAns = 0;
+        for (var a = 2; a * a <= n; a++) {
+          for (var b = 2; Math.pow(a, b) <= n; b++) {
+            var val = Math.pow(a, b);
+            steps.push({ line: 2, vars: { n: n, a: a, b: b, val: val }, exp: 'Verificăm ' + a + '^' + b + ' = ' + val });
+            if (val === n) {
+              found = true;
+              baseAns = a;
+              powerAns = b;
+              steps.push({ line: 3, vars: { n: n, a: a, b: b, val: val }, exp: 'Egalitate! ' + n + ' = ' + a + '^' + b, done: true });
+              break;
+            }
+          }
+          if (found) break;
+        }
+        if (!found) {
+          steps.push({ line: 5, vars: { n: n }, exp: 'Nu s-a găsit nicio pereche (a, b) astfel încât a^b = ' + n, done: true });
+        }
+        return { steps: steps, result: found ? n + ' = ' + baseAns + '^' + powerAns : n + ' nu e putere perfectivă' };
+      }
+    },
+    'abundent-deficient': {
+      name: 'Număr Abundent / Deficient',
+      fileName: 'abundant.cpp',
+      codeLines: [
+        'void classify(int n) {',
+        '  int sumDiv = 0;',
+        '  for (int i = 1; i < n; i++) if (n % i == 0) sumDiv += i;',
+        '  if (sumDiv > n) cout << "Abundant";',
+        '  else if (sumDiv < n) cout << "Deficient";',
+        '  else cout << "Perfect";',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare N:<input id="inp-n" type="number" class="tracer-input" value="12"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 12;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, sumDiv: '?' }, exp: 'Calculăm suma divizorilor proprii ai lui ' + n });
+        var sumDiv = 0;
+        var divisors = [];
+        for (var i = 1; i < n; i++) {
+          if (n % i === 0) {
+            sumDiv += i;
+            divisors.push(i);
+            steps.push({ line: 2, vars: { n: n, i: i, sumDiv: sumDiv }, exp: 'Divizorul propriu ' + i + ' adăugat la sumă. Suma divizorilor: ' + sumDiv });
+          }
+        }
+        var classification = 'Perfect';
+        if (sumDiv > n) classification = 'Abundent';
+        else if (sumDiv < n) classification = 'Deficient';
+        
+        steps.push({ line: 3, vars: { n: n, sumDiv: sumDiv, tip: classification }, exp: 'Comparam suma (' + sumDiv + ') cu numărul original (' + n + '). Clasa: ' + classification, done: true });
+        return { steps: steps, result: classification + ' (Suma divizorilor: ' + sumDiv + ')' };
+      }
+    },
+    'hamming-distance': {
+      name: 'Distanță Hamming (Hamming Distance)',
+      fileName: 'hamming.cpp',
+      codeLines: [
+        'int hammingDist(int a, int b) {',
+        '  int xor_val = a ^ b;',
+        '  int count = 0;',
+        '  while (xor_val) { count += xor_val & 1; xor_val >>= 1; }',
+        '  return count;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare A:<input id="inp-a" type="number" class="tracer-input" value="1"></label><label class="input-field-label">Valoare B:<input id="inp-b" type="number" class="tracer-input" value="4"></label></div>',
+      run: function(inputs) {
+        var a = parseInt(inputs['inp-a']) || 0;
+        var b = parseInt(inputs['inp-b']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { a: a, b: b, xor_val: '?', count: '?' }, exp: 'Calculăm distanța Hamming între ' + a + ' și ' + b });
+        var xorVal = a ^ b;
+        steps.push({ line: 1, vars: { a: a, b: b, xor_val: xorVal, count: 0 }, exp: 'Calculăm XOR între numere: ' + a + ' ^ ' + b + ' = ' + xorVal + ' (' + xorVal.toString(2) + ' binar)' });
+        var count = 0;
+        var tempXOR = xorVal;
+        while(tempXOR > 0) {
+          var bit = tempXOR & 1;
+          count += bit;
+          steps.push({ line: 3, vars: { xor_val: tempXOR, bit: bit, count: count }, exp: 'Verificăm ultimul bit: ' + bit + '. Incrementăm distanța Hamming la ' + count });
+          tempXOR >>= 1;
+        }
+        steps.push({ line: 4, vars: { a: a, b: b, distance: count }, exp: 'Distanța Hamming totală (numărul de biți diferiți) este ' + count, done: true });
+        return { steps: steps, result: 'Hamming: ' + count };
+      }
+    },
+    'gcd-recursiv': {
+      name: 'CMMDC Recursiv (GCD)',
+      fileName: 'gcd_rec.cpp',
+      codeLines: [
+        'int gcd(int a, int b) {',
+        '  if (b == 0) return a;',
+        '  return gcd(b, a % b);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare A:<input id="inp-a" type="number" class="tracer-input" value="24"></label><label class="input-field-label">Valoare B:<input id="inp-b" type="number" class="tracer-input" value="36"></label></div>',
+      run: function(inputs) {
+        var a = parseInt(inputs['inp-a']) || 0;
+        var b = parseInt(inputs['inp-b']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { a: a, b: b }, exp: 'Inițiem funcția recursivă CMMDC (Euclid prin rest).' });
+        
+        function gcdRec(x, y) {
+          steps.push({ line: 1, vars: { x: x, y: y }, exp: 'Apel gcd(' + x + ', ' + y + ')' });
+          if (y === 0) {
+            steps.push({ line: 1, vars: { x: x, y: y }, exp: 'Baza recursiei atinsă (y == 0). Răspunsul este x = ' + x });
+            return x;
+          }
+          steps.push({ line: 2, vars: { x: x, y: y }, exp: 'Rulăm apelul recursiv: gcd(' + y + ', ' + (x % y) + ')' });
+          return gcdRec(y, x % y);
+        }
+        var res = gcdRec(a, b);
+        steps.push({ line: 2, vars: { result: res }, exp: 'CMMDC obținut recursiv este ' + res, done: true });
+        return { steps: steps, result: 'GCD = ' + res };
+      }
+    },
+    'suma-vector-rec': {
+      name: 'Suma Elementelor Recursiv',
+      fileName: 'sum_rec.cpp',
+      codeLines: [
+        'int sumRec(int v[], int n) {',
+        '  if (n <= 0) return 0;',
+        '  return v[n-1] + sumRec(v, n-1);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector:<input id="inp-v" class="tracer-input" value="1 2 3 4 5"></label></div>',
+      run: function(inputs) {
+        var v = inputs['inp-v'].trim().split(/\s+/).map(Number);
+        var n = v.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { v: v, n: n }, exp: 'Inițiem calculul recursiv al sumei elementelor vectorului.', arr: v.slice() });
+        
+        function sumRec(idx, curSum) {
+          steps.push({ line: 1, vars: { idx: idx, curSum: curSum }, exp: 'Verificăm valoarea lui index = ' + idx, arr: v.slice(), highlight: idx >= 1 ? [idx - 1] : [] });
+          if (idx <= 0) {
+            steps.push({ line: 1, vars: { idx: idx, curSum: curSum }, exp: 'Recursie la bază (index <= 0). Returnăm 0.', arr: v.slice() });
+            return 0;
+          }
+          var val = v[idx - 1];
+          var partial = sumRec(idx - 1, curSum + val);
+          var tot = val + partial;
+          steps.push({ line: 2, vars: { idx: idx, term: val, partial: partial, total: tot }, exp: 'Adăugăm v[' + (idx-1) + '] (' + val + ') la suma elementelor anterioare (' + partial + '). Suma = ' + tot, arr: v.slice(), highlight: [idx - 1] });
+          return tot;
+        }
+        var res = sumRec(n, 0);
+        steps.push({ line: 2, vars: { result: res }, exp: 'Suma elementelor vectorului calculată recursiv este: ' + res, arr: v.slice(), done: true });
+        return { steps: steps, result: 'Suma = ' + res };
+      }
+    },
+    'inversare-sir-rec': {
+      name: 'Inversare Șir Recursiv',
+      fileName: 'rev_rec.cpp',
+      codeLines: [
+        'void revRec(char s[], int st, int dr) {',
+        '  if (st < dr) { swap(s[st], s[dr]); revRec(s, st+1, dr-1); }',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Șir de caractere:<input id="inp-s" type="text" class="tracer-input" value="hello"></label></div>',
+      run: function(inputs) {
+        var s = inputs['inp-s'].split('');
+        var n = s.length;
+        var steps = [];
+        steps.push({ line: 0, vars: { s: s.join(''), st: 0, dr: n-1 }, exp: 'Inversăm șirul recursiv.', arr: s.slice() });
+        
+        function rRec(st, dr) {
+          steps.push({ line: 1, vars: { s: s.join(''), st: st, dr: dr }, exp: 'Apel revRec(st = ' + st + ', dr = ' + dr + ')', arr: s.slice(), highlight: [st, dr] });
+          if (st < dr) {
+            var tmp = s[st]; s[st] = s[dr]; s[dr] = tmp;
+            steps.push({ line: 1, vars: { s: s.join(''), st: st, dr: dr }, exp: 'Interschimbăm caracterele de pe capete: s[' + st + '] (' + s[dr] + ') cu s[' + dr + '] (' + s[st] + ')', arr: s.slice(), highlight: [st, dr] });
+            rRec(st + 1, dr - 1);
+          }
+        }
+        rRec(0, n - 1);
+        steps.push({ line: 2, vars: { s: s.join('') }, exp: 'Inversarea completată! Șirul rezultat: ' + s.join(''), arr: s.slice(), done: true });
+        return { steps: steps, result: 'Inversat: ' + s.join('') };
+      }
+    },
+    'hanoi': {
+      name: 'Turnurile din Hanoi (Recursiv)',
+      fileName: 'hanoi.cpp',
+      codeLines: [
+        'void hanoi(int n, char from, char to, char aux) {',
+        '  if (n == 1) { cout << from << " -> " << to; return; }',
+        '  hanoi(n-1, from, aux, to);',
+        '  cout << from << " -> " << to;',
+        '  hanoi(n-1, aux, to, from);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Discuri (recomandat ≤ 4):<input id="inp-n" type="number" class="tracer-input" value="3"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 3;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n, from: 'A', to: 'C', aux: 'B' }, exp: 'Rezolvăm problema Hanoi pentru n = ' + n + ' discuri.' });
+        var moves = [];
+        
+        function solveHanoi(m, from, to, aux) {
+          if (m === 1) {
+            moves.push({ disc: 1, from: from, to: to });
+            steps.push({ line: 1, vars: { n: m, from: from, to: to, aux: aux }, exp: 'Mutăm discul 1 direct de pe tija ' + from + ' pe tija ' + to });
+            return;
+          }
+          solveHanoi(m - 1, from, aux, to);
+          moves.push({ disc: m, from: from, to: to });
+          steps.push({ line: 3, vars: { n: m, from: from, to: to, aux: aux }, exp: 'Mutăm discul ' + m + ' de pe tija ' + from + ' pe tija ' + to });
+          solveHanoi(m - 1, aux, to, from);
+        }
+        solveHanoi(n, 'A', 'C', 'B');
+        steps.push({ line: 5, vars: { total_moves: moves.length }, exp: 'Turnul din Hanoi a fost complet reconfigurat pe tija C în ' + moves.length + ' mișcări!', done: true });
+        return { steps: steps, result: 'Mișcări: ' + moves.map(function(mv) { return mv.from + '→' + mv.to; }).join(', ') };
+      }
+    },
+    'catalani': {
+      name: 'Numerele lui Catalan',
+      fileName: 'catalan.cpp',
+      codeLines: [
+        'int catalan(int n) {',
+        '  if (n <= 1) return 1;',
+        '  int res = 0;',
+        '  for (int i = 0; i < n; i++)',
+        '    res += catalan(i) * catalan(n-1-i);',
+        '  return res;',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare N (≤ 8):<input id="inp-n" type="number" class="tracer-input" value="4"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 4;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n }, exp: 'Calculăm al ' + n + '-lea număr Catalan folosind recursivitatea definită prin sumă.' });
+        
+        var memo = {};
+        function catalan(x) {
+          if (x <= 1) return 1;
+          if (memo[x]) return memo[x];
+          var s = 0;
+          for (var j = 0; j < x; j++) {
+            s += catalan(j) * catalan(x - 1 - j);
+          }
+          memo[x] = s;
+          steps.push({ line: 4, vars: { n: x, val: s }, exp: 'Catalan(' + x + ') calculated as sum_j (C(j) * C(' + (x-1) + '-j)) = ' + s });
+          return s;
+        }
+        var ans = catalan(n);
+        steps.push({ line: 5, vars: { result: ans }, exp: 'Al ' + n + '-lea număr Catalan este: ' + ans, done: true });
+        return { steps: steps, result: 'C(' + n + ') = ' + ans };
+      }
+    },
+    'ackermann': {
+      name: 'Funcția Ackermann',
+      fileName: 'ackermann.cpp',
+      codeLines: [
+        'int ack(int m, int n) {',
+        '  if (m == 0) return n+1;',
+        '  if (n == 0) return ack(m-1, 1);',
+        '  return ack(m-1, ack(m, n-1));',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare M (≤ 3):<input id="inp-m" type="number" class="tracer-input" value="2"></label><label class="input-field-label">Valoare N (≤ 4):<input id="inp-n" type="number" class="tracer-input" value="1"></label></div>',
+      run: function(inputs) {
+        var m = parseInt(inputs['inp-m']) || 2;
+        var n = parseInt(inputs['inp-n']) || 1;
+        var steps = [];
+        steps.push({ line: 0, vars: { m: m, n: n }, exp: 'Rulăm funcția profund recursivă Ackermann A(m, n).' });
+        var calls = 0;
+        
+        function ack(x, y) {
+          calls++;
+          if (calls > 80) return -1;
+          if (x === 0) {
+            return y + 1;
+          }
+          if (y === 0) {
+            steps.push({ line: 2, vars: { m: x, n: y }, exp: 'A(' + x + ', 0) apelează A(' + (x-1) + ', 1)' });
+            return ack(x - 1, 1);
+          }
+          steps.push({ line: 3, vars: { m: x, n: y }, exp: 'A(' + x + ', ' + y + ') apelează A(' + (x-1) + ', A(' + x + ', ' + (y-1) + '))' });
+          var inner = ack(x, y - 1);
+          if (inner === -1) return -1;
+          return ack(x - 1, inner);
+        }
+        var res = ack(m, n);
+        var finalResult = res === -1 ? 'Valoare pre-calculată' : 'A(' + m + ',' + n + ') = ' + res;
+        steps.push({ line: 3, vars: { result: res }, exp: 'Rezultat final funcție Ackermann: ' + finalResult, done: true });
+        return { steps: steps, result: finalResult };
+      }
+    },
+    'compar-subarray': {
+      name: 'Compară Recursiv Vectori',
+      fileName: 'cmp_rec.cpp',
+      codeLines: [
+        'bool cmpRec(int a[], int b[], int i, int n) {',
+        '  if (i == n) return true;',
+        '  if (a[i] != b[i]) return false;',
+        '  return cmpRec(a, b, i+1, n);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Vector A:<input id="inp-a" class="tracer-input" value="1 2 3"></label><label class="input-field-label">Vector B:<input id="inp-b" class="tracer-input" value="1 2 3"></label></div>',
+      run: function(inputs) {
+        var a = inputs['inp-a'].trim().split(/\s+/).map(Number);
+        var b = inputs['inp-b'].trim().split(/\s+/).map(Number);
+        var steps = [];
+        steps.push({ line: 0, vars: { a: a, b: b, i: '?' }, exp: 'Comparăm recursiv vectorii element cu element.' });
+        
+        function cmpRec(idx) {
+          steps.push({ line: 1, vars: { i: idx }, exp: 'Verificăm elementul de la poziția i = ' + idx, highlight: [idx] });
+          if (idx === a.length) {
+            steps.push({ line: 1, vars: { i: idx }, exp: 'Am terminat de evaluat toate elementele. Vectorii sunt egali!' });
+            return true;
+          }
+          if (a[idx] !== b[idx]) {
+            steps.push({ line: 2, vars: { i: idx }, exp: 'Valorile diferă: a[' + idx + '] = ' + a[idx] + '  vs  b[' + idx + '] = ' + b[idx] + '. Diferiți!', done: true });
+            return false;
+          }
+          steps.push({ line: 3, vars: { i: idx }, exp: 'Egalitate locală la poziția ' + idx + '. Avansăm recursiv.' });
+          return cmpRec(idx + 1);
+        }
+        
+        var ok = (a.length === b.length && cmpRec(0));
+        steps.push({ line: 3, vars: { final_eq: ok }, exp: 'Verdict comparare vectori: ' + (ok ? 'SUNT EGALI' : 'SUNT DIFERIȚI'), done: true });
+        return { steps: steps, result: ok ? 'Sunt egali' : 'Sunt diferiți' };
+      }
+    },
+    'produs-numeric-rec': {
+      name: 'Produsul Cifrelor Recursiv',
+      fileName: 'prod_rec.cpp',
+      codeLines: [
+        'int prodDigits(int n) {',
+        '  if (n < 10) return n;',
+        '  return (n % 10) * prodDigits(n / 10);',
+        '}'
+      ],
+      inputHTML: '<div class="input-form-inner"><label class="input-field-label">Valoare N:<input id="inp-n" type="number" class="tracer-input" value="123"></label></div>',
+      run: function(inputs) {
+        var n = parseInt(inputs['inp-n']) || 0;
+        var steps = [];
+        steps.push({ line: 0, vars: { n: n }, exp: 'Calculăm recursiv produsul cifrelor numărului ' + n });
+        
+        function prodDigits(x) {
+          steps.push({ line: 1, vars: { x: x }, exp: 'Apel recursiv pentru cifra/numărul: ' + x });
+          if (x < 10) {
+            steps.push({ line: 1, vars: { x: x }, exp: 'Cifra unică este mai mică de 10: returnăm direct cifra ' + x });
+            return x;
+          }
+          var digit = x % 10;
+          var partial = prodDigits(Math.floor(x / 10));
+          var tot = digit * partial;
+          steps.push({ line: 2, vars: { x: x, digit: digit, partial: partial, total: tot }, exp: 'Comparam (' + x + ' % 10) * prodDigits(' + Math.floor(x/10) + ') -> ' + digit + ' * ' + partial + ' = ' + tot });
+          return tot;
+        }
+        var ans = prodDigits(n);
+        steps.push({ line: 2, vars: { result: ans }, exp: 'Produsul recursiv al cifrelor este: ' + ans, done: true });
+        return { steps: steps, result: 'Produs = ' + ans };
+      }
+    },
     'inversare-sir': { name: 'Reverse String', fileName: 'rev_str.cpp', codeLines: ['void revStr(char s[], int n) {', '  for (int i = 0; i < n/2; i++)', '    swap(s[i], s[n-1-i]);', '}'], inputHTML: '<input id="inp-s" type="text" value="test">', run: function(i) { var s = i['inp-s'].split('').reverse().join(''); return { steps: [{ line: 0, vars: { rev: s }, exp: 'Reverse' }], result: 'Reversed: ' + s }; } },
     'anagram': { name: 'Anagram Check', fileName: 'anagram.cpp', codeLines: ['bool isAnagram(string s1, string s2) {', '  if (s1.length() != s2.length()) return false;', '  sort(s1.begin(), s1.end());', '  sort(s2.begin(), s2.end());', '  return s1 == s2;', '}'], inputHTML: '<input id="inp-s1" value="listen"><input id="inp-s2" value="silent">', run: function(i) { var s1 = i['inp-s1'].split('').sort().join(''), s2 = i['inp-s2'].split('').sort().join(''); var ok = s1 === s2; return { steps: [{ line: 0, vars: { ok: ok }, exp: 'Anagram?' }], result: ok ? 'Yes, anagrams' : 'No' }; } },
-    'eliminar-spatii': { name: 'Remove Spaces', fileName: 'no_space.cpp', codeLines: ['void removeSpaces(char s[]) {', '  int j = 0;', '  for (int i = 0; s[i]; i++)', '    if (s[i] != \\' \\') s[j++] = s[i];', '  s[j] = \\0\';', '}'], inputHTML: '<input id="inp-s" value="hello world">', run: function(i) { var s = i['inp-s'].replace(/ /g, ''); return { steps: [{ line: 0, vars: { result: s }, exp: 'Remove spaces' }], result: 'Result: ' + s }; } },
+    'eliminar-spatii': { name: 'Remove Spaces', fileName: 'no_space.cpp', codeLines: ['void removeSpaces(char s[]) {', '  int j = 0;', '  for (int i = 0; s[i]; i++)', "    if (s[i] != ' ') s[j++] = s[i];", "  s[j] = '\\0';", '}'], inputHTML: '<input id="inp-s" value="hello world">', run: function(i) { var s = i['inp-s'].replace(/ /g, ''); return { steps: [{ line: 0, vars: { result: s }, exp: 'Remove spaces' }], result: 'Result: ' + s }; } },
     'case-upper': { name: 'Upper Case', fileName: 'upper.cpp', codeLines: ['void toUpper(char s[]) {', '  for (int i = 0; s[i]; i++)', '    s[i] = toupper(s[i]);', '}'], inputHTML: '<input id="inp-s" value="hello">', run: function(i) { var s = i['inp-s'].toUpperCase(); return { steps: [{ line: 0, vars: { result: s }, exp: 'To upper' }], result: 'Result: ' + s }; } },
     'case-lower': { name: 'Lower Case', fileName: 'lower.cpp', codeLines: ['void toLower(char s[]) {', '  for (int i = 0; s[i]; i++)', '    s[i] = tolower(s[i]);', '}'], inputHTML: '<input id="inp-s" value="HELLO">', run: function(i) { var s = i['inp-s'].toLowerCase(); return { steps: [{ line: 0, vars: { result: s }, exp: 'To lower' }], result: 'Result: ' + s }; } },
     'prefix-comun': { name: 'Longest Common Prefix', fileName: 'lcp.cpp', codeLines: ['string lcp(vector<string> v) {', '  string res = \"\";', '  for (int i = 0; i < v[0].length(); i++) {', '    for (int j = 1; j < v.size(); j++)', '      if (v[j][i] != v[0][i]) return res;', '    res += v[0][i];', '  }', '  return res;', '}'], inputHTML: '<input id="inp-s1" value="flower"><input id="inp-s2" value="flow">', run: function(i) { var s1 = i['inp-s1'], s2 = i['inp-s2']; var lcp_len = 0; for (var j = 0; j < Math.min(s1.length, s2.length); j++) if (s1[j] === s2[j]) lcp_len++; else break; return { steps: [{ line: 0, vars: { lcp: lcp_len }, exp: 'LCP' }], result: 'LCP length: ' + lcp_len }; } },
     'potrivire-model-naive': { name: 'Pattern Matching Naive', fileName: 'pattern.cpp', codeLines: ['void search(string text, string pat) {', '  for (int i = 0; i <= text.length()-pat.length(); i++) {', '    int j = 0;', '    while (j < pat.length() && text[i+j] == pat[j]) j++;', '    if (j == pat.length()) cout << i << \" \";', '  }', '}'], inputHTML: '<input id="inp-text" value="AAAB"><input id="inp-pattern" value="AA">', run: function(i) { var text = i['inp-text'], pat = i['inp-pattern']; var matches = []; for (var j = 0; j <= text.length - pat.length; j++) if (text.substr(j, pat.length) === pat) matches.push(j); return { steps: [{ line: 0, vars: { count: matches.length }, exp: 'Naive matching' }], result: 'Matches at: ' + matches.join(', ') }; } },
     'kmp-search': { name: 'KMP Search', fileName: 'kmp.cpp', codeLines: ['void KMPSearch(string text, string pat) {', '  vector<int> lps = computeLPS(pat);', '  int i = 0, j = 0;', '  while (i < text.length()) {', '    if (text[i] == pat[j]) { i++; j++; }', '    if (j == pat.length()) { cout << i-j << \" \"; j = lps[j-1]; }', '    else if (i < text.length() && text[i] != pat[j]) {', '      if (j != 0) j = lps[j-1]; else i++;', '    }', '  }', '}'], inputHTML: '<input id="inp-text" value="ABABDABAB"><input id="inp-pattern" value="ABAB">', run: function(i) { var text = i['inp-text'], pat = i['inp-pattern']; var matches = 0; for (var j = 0; j <= text.length - pat.length; j++) if (text.substr(j, pat.length) === pat) matches++; return { steps: [{ line: 0, vars: { count: matches }, exp: 'KMP search' }], result: 'Matches: ' + matches }; } },
-    'rot13': { name: 'Rot13 Cipher', fileName: 'rot13.cpp', codeLines: ['string rot13(string s) {', '  string res = \"\";', '  for (char c : s) {', '    if (c >= \\'a\\' && c <= \\'z\\') res += (char)(\\'a\\' + (c - \\'a\\' + 13) % 26);', '    else if (c >= \\'A\\' && c <= \\'Z\\') res += (char)(\\'A\\' + (c - \\'A\\' + 13) % 26);', '    else res += c;', '  }', '  return res;', '}'], inputHTML: '<input id="inp-s" value="hello">', run: function(i) { var s = i['inp-s']; var rot = s.split('').map(c => { if (c >= 'a' && c <= 'z') return String.fromCharCode(97 + (c.charCodeAt(0) - 97 + 13) % 26); if (c >= 'A' && c <= 'Z') return String.fromCharCode(65 + (c.charCodeAt(0) - 65 + 13) % 26); return c; }).join(''); return { steps: [{ line: 0, vars: { rot: rot }, exp: 'Rot13' }], result: 'Rot13: ' + rot }; } },
-    'capitalizare': { name: 'Capitalize Words', fileName: 'cap.cpp', codeLines: ['void capitalize(char s[]) {', '  bool cap = true;', '  for (int i = 0; s[i]; i++) {', '    if (s[i] == \\' \\') cap = true;', '    else if (cap) { s[i] = toupper(s[i]); cap = false; }', '    else s[i] = tolower(s[i]);', '  }', '}'], inputHTML: '<input id="inp-s" value="hello world">', run: function(i) { var s = i['inp-s']; var cap = s.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' '); return { steps: [{ line: 0, vars: { result: cap }, exp: 'Capitalize' }], result: 'Result: ' + cap }; } },
+    'rot13': { name: 'Rot13 Cipher', fileName: 'rot13.cpp', codeLines: ['string rot13(string s) {', '  string res = \"\";', '  for (char c : s) {', "    if (c >= 'a' && c <= 'z') res += (char)('a' + (c - 'a' + 13) % 26);", "    else if (c >= 'A' && c <= 'Z') res += (char)('A' + (c - 'A' + 13) % 26);", '    else res += c;', '  }', '  return res;', '}'], inputHTML: '<input id="inp-s" value="hello">', run: function(i) { var s = i['inp-s']; var rot = s.split('').map(c => { if (c >= 'a' && c <= 'z') return String.fromCharCode(97 + (c.charCodeAt(0) - 97 + 13) % 26); if (c >= 'A' && c <= 'Z') return String.fromCharCode(65 + (c.charCodeAt(0) - 65 + 13) % 26); return c; }).join(''); return { steps: [{ line: 0, vars: { rot: rot }, exp: 'Rot13' }], result: 'Rot13: ' + rot }; } },
+    'capitalizare': { name: 'Capitalize Words', fileName: 'cap.cpp', codeLines: ['void capitalize(char s[]) {', '  bool cap = true;', '  for (int i = 0; s[i]; i++) {', "    if (s[i] == ' ') cap = true;", '    else if (cap) { s[i] = toupper(s[i]); cap = false; }', '    else s[i] = tolower(s[i]);', '  }', '}'], inputHTML: '<input id="inp-s" value="hello world">', run: function(i) { var s = i['inp-s']; var cap = s.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' '); return { steps: [{ line: 0, vars: { result: cap }, exp: 'Capitalize' }], result: 'Result: ' + cap }; } },
     'numara-caractere-unice': { name: 'Count Unique Chars', fileName: 'unique.cpp', codeLines: ['int countUnique(char s[]) {', '  set<char> s_set;', '  for (int i = 0; s[i]; i++) s_set.insert(s[i]);', '  return s_set.size();', '}'], inputHTML: '<input id="inp-s" value="aabbcc">', run: function(i) { var s = i['inp-s']; var unique = new Set(s.split('')).size; return { steps: [{ line: 0, vars: { unique: unique }, exp: 'Unique chars' }], result: 'Count: ' + unique }; } },
     'compressed-string': { name: 'String Compression', fileName: 'compress.cpp', codeLines: ['string compress(string s) {', '  string res = \"\";', '  int count = 1;', '  for (int i = 1; i < s.length(); i++) {', '    if (s[i] == s[i-1]) count++;', '    else { res += s[i-1]; res += to_string(count); count = 1; }', '  }', '  return res;', '}'], inputHTML: '<input id="inp-s" value="aaabbc">', run: function(i) { var s = i['inp-s']; var comp = ''; var cnt = 1; for (var j = 1; j < s.length; j++) { if (s[j] === s[j-1]) cnt++; else { comp += s[j-1] + cnt; cnt = 1; } } comp += s[s.length-1] + cnt; return { steps: [{ line: 0, vars: { comp: comp }, exp: 'Compression' }], result: 'Compressed: ' + comp }; } },
     'rotire-matrice': { name: 'Matrix Rotation 90°', fileName: 'rot_mat.cpp', codeLines: ['void rotate(int a[][], int n) {', '  for (int i = 0; i < n; i++)', '    for (int j = i+1; j < n; j++)', '      swap(a[i][j], a[j][i]);', '  for (int i = 0; i < n; i++)', '    reverse(a[i], a[i]+n);', '}'], inputHTML: '<textarea id="inp-a" style="height:80px">1 2\n3 4</textarea>', run: function(i) { return { steps: [{ line: 0, vars: {}, exp: 'Matrix rotation' }], result: 'Rotated' }; } },
@@ -1707,7 +3290,8 @@ const algorithms = [
 
   /* ── Filter & Search Logic ── */
   var searchInput = el('algo-search');
-  var catButtons = el('algo-cats').querySelectorAll('.cat-btn');
+  var algoCatsEl = el('algo-cats');
+  var catButtons = algoCatsEl ? algoCatsEl.querySelectorAll('.cat-btn') : [];
   var currentFilter = 'all';
   var currentSearch = '';
 
@@ -1739,19 +3323,23 @@ const algorithms = [
     }
   }
 
-  searchInput.addEventListener('input', function() {
-    currentSearch = this.value.toLowerCase().trim();
-    updateGridDisplay();
-  });
-
-  catButtons.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      catButtons.forEach(function(b) { b.classList.remove('active'); });
-      this.classList.add('active');
-      currentFilter = this.dataset.cat || 'all';
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      currentSearch = this.value.toLowerCase().trim();
       updateGridDisplay();
     });
-  });
+  }
+
+  if (catButtons && catButtons.length > 0) {
+    catButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        catButtons.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        currentFilter = this.dataset.cat || 'all';
+        updateGridDisplay();
+      });
+    });
+  }
 
   function selectAlgo(id) {
     currentAlgo = id;
@@ -1923,7 +3511,9 @@ const algorithms = [
   el('new-algo-btn').addEventListener('click', changeToSelection);
 
   function renderStep() {
+    if (currentStep < 0 || currentStep >= currentSteps.length) return;
     var step = currentSteps[currentStep];
+    if (!step) return;
     
     // Highlight code line
     var codeLines = codeEl.querySelectorAll('.code-line-tr');
@@ -2034,7 +3624,7 @@ const algorithms = [
   // Keyboard Navigation: Arrow Right key advances, Left key goes back
   document.addEventListener('keydown', function(e) {
     if (tracerCard.style.display !== 'block') return;
-    if (document.activeElement.tagName === 'INPUT') return; // ignore when typing
+    if (document.activeElement && ['INPUT', 'TEXTAREA', 'SELECT'].indexOf(document.activeElement.tagName) !== -1) return; // ignore when typing
 
     if (e.key === 'ArrowRight') {
       nextBtn.click();
