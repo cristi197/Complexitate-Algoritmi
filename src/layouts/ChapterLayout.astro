@@ -132,14 +132,42 @@ const nextCh = currentIdx < CHAPTER_ORDER.length - 1 ? CHAPTER_ORDER[currentIdx 
   <script is:inline src={`${import.meta.env.BASE_URL}js/platform.js`}></script>
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
-      initScrollReveal();
-      initBarCharts();
-      initTreeReveal();
-      initCopyButtons();
-      initNavHighlight();
-      initSectionXP();
-      initSectionReadingTime();
-      initGlobalReadingTime();
+      var hasAnimationLib = false;
+
+      if (typeof initScrollReveal === 'function') {
+        initScrollReveal();
+        hasAnimationLib = true;
+      }
+      if (typeof initBarCharts === 'function') {
+        initBarCharts();
+        hasAnimationLib = true;
+      }
+      if (typeof initTreeReveal === 'function') {
+        initTreeReveal();
+        hasAnimationLib = true;
+      }
+      if (typeof initCopyButtons === 'function') {
+        initCopyButtons();
+        hasAnimationLib = true;
+      }
+      if (typeof initNavHighlight === 'function') {
+        initNavHighlight();
+        hasAnimationLib = true;
+      }
+
+      // If animations.js is missing, reveal content immediately to avoid hidden slides.
+      if (!hasAnimationLib) {
+        document.querySelectorAll('.slide').forEach(function(el) {
+          el.classList.add('visible');
+        });
+        document.querySelectorAll('.tree-node').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      if (typeof initSectionXP === 'function') initSectionXP();
+      if (typeof initSectionReadingTime === 'function') initSectionReadingTime();
+      if (typeof initGlobalReadingTime === 'function') initGlobalReadingTime();
       if (typeof initScrollProgress === 'function') initScrollProgress();
     });
   </script>

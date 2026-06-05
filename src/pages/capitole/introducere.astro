@@ -1,17 +1,17 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculator","label":"Calculatorul"},{"id":"algoritm","label":"Ce e un algoritm"},{"id":"primul-program","label":"Primul program"},{"id":"tipuri","label":"Tipuri de date"},{"id":"operatori","label":"Operatori"},{"id":"structuri","label":"Structuri de control"},{"id":"programa-bac","label":"Programa BAC 2026"},{"id":"greseli-frecvente","label":"Greșeli frecvente"},{"id":"exercitii","label":"Exerciții"}];
+const sections = [{"id":"ce-este","label":"Ce este informatica"},{"id":"calculator","label":"Calculatorul"},{"id":"algoritm","label":"Ce e un algoritm"},{"id":"primul-program","label":"Primul program"},{"id":"tipuri","label":"Tipuri de date"},{"id":"operatori","label":"Operatori"},{"id":"structuri","label":"Structuri de control"},{"id":"programa-bac","label":"Programa BAC 2026"},{"id":"greseli-frecvente","label":"Greșeli frecvente"},{"id":"probleme-rezolvate","label":"Probleme rezolvate"},{"id":"exercitii","label":"Exerciții"}];
 ---
 <ChapterLayout
-  title="Introducere în Informatic&#259;"
-  subtitle="Capitol 0 &mdash; Ce este informatica, cum func ioneaz  un calculator, primul program C++, tipuri de date, structuri de control  i programa BAC 2026"
+  title="Introducere în Informatică"
+  subtitle="Capitolul 0 — Ce este informatica, cum funcționează un calculator, primul program C++, tipuri de date, structuri de control și programa BAC 2026"
   icon="🖥️"
   gradient="linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1d4ed8 100%)"
   tags={["Programa BAC 2026","Ce este informatica","Primul program C++","Tipuri de date","Structuri de control"]}
   sections={sections}
   chapterNum={0}
-  description="Înv&#259;ț&#259; C++ de la zero: tipuri de date, structuri de control, algoritmi &#537;i preg&#259;tire BAC 2026. Exerci&#539;ii interactive, cod editor integrat &#537;i exemple practice."
+  description="Învață C++ de la zero: tipuri de date, structuri de control, algoritmi și pregătire BAC 2026. Exerciții interactive, editor de cod integrat și exemple practice."
 >
 <!-- 1. CE ESTE INFORMATICA -->
 <section id="ce-este">
@@ -717,6 +717,131 @@ cin >> n;
           <span style="color:#4ade80;">✅ Fix: <code>ifstream fin("date.in"); fin >> n;</code></span>
         </div>
 
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — noțiuni de bază</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme simple pentru ínceputul drumului în C++ — citire, calcule, condiții, bucle.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Suma a două numere</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește două numere întregi și afișează suma lor.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5 7</pre></div>
+          <div><strong>Ieșire:</strong><pre>12</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> a, b;
+cin >> a >> b;
+cout &lt;&lt; a + b;</pre>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Par sau impar</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește un număr și afișează <code>par</code> sau <code>impar</code>.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>7</pre></div>
+          <div><strong>Ieșire:</strong><pre>impar</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n;
+cin >> n;
+cout &lt;&lt; (n % <span class="nu">2</span> == <span class="nu">0</span> ? <span class="st">"par"</span> : <span class="st">"impar"</span>);</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Operator ternar:</strong> <code>condiție ? val1 : val2</code> este o scurtătură pentru if/else.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Maximul a trei numere</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește trei numere și afișează valoarea maximă.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>4 9 6</pre></div>
+          <div><strong>Ieșire:</strong><pre>9</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> a, b, c;
+cin >> a >> b >> c;
+cout &lt;&lt; <span class="fn">max</span>(a, <span class="fn">max</span>(b, c));</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Tip:</strong> <code>max</code> din <code>&lt;algorithm&gt;</code> ia doar 2 argumente. Pentru 3 îl apelăm îmbricat.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Suma primelor n numere</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește n și afișează 1 + 2 + 3 + … + n.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5</pre></div>
+          <div><strong>Ieșire:</strong><pre>15</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n; cin >> n;
+<span class="kw">long long</span> s = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) s += i;
+cout &lt;&lt; s;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Formulă directă:</strong> s = n*(n+1)/2 — mai rapidă (O(1) vs O(n)). Pentru exercițiu folosim bucla.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Tabla înmulțirii</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește n și afișează tabla înmulțirii pentru n (n×1, n×2, …, n×10), câte una pe linie.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3</pre></div>
+          <div><strong>Ieșire:</strong><pre>3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+...
+3 x 10 = 30</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n; cin >> n;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= <span class="nu">10</span>; i++)
+    cout &lt;&lt; n &lt;&lt; <span class="st">" x "</span> &lt;&lt; i &lt;&lt; <span class="st">" = "</span> &lt;&lt; n*i &lt;&lt; <span class="st">'\n'</span>;</pre>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💡 Treci la secțiunea <em>Exerciții</em> de mai jos pentru 10 întrebări tip quiz cu corectare instantanee.
       </div>
     </div>
   </div>

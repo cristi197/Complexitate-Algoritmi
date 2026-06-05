@@ -2732,3 +2732,22 @@ pre::-webkit-scrollbar-thumb {
 [data-theme="dark"] .cs-letter.orig { background:#7f1d1d; border-color:#fca5a5; color:#fee2e2; }
 [data-theme="dark"] .cs-letter.shift { background:#14532d; border-color:#4ade80; color:#dcfce7; }
 [data-theme="dark"] .cs-out-ch { color:#4ade80; }
+
+
+/* ── Fibonacci recursion tree ──────────────────── */
+.fib-tree { padding:12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px;
+  min-height:80px; overflow-x:auto; font-family:var(--mono,monospace); }
+.fib-node { display:inline-block; padding:4px 10px; margin:4px 2px; border-radius:6px;
+  background:#fef3c7; border:1px solid #f59e0b; color:#78350f; font-size:13px; font-weight:600;
+  animation:fib-pop .2s ease-out; }
+.fib-node.base { background:#dcfce7; border-color:#16a34a; color:#14532d; }
+.fib-node.done { background:#dbeafe; border-color:#3b82f6; color:#1e3a8a; }
+.fib-node.memo-hit { background:#f3e8ff; border-color:#a855f7; color:#581c87; }
+.fib-children { margin-left:24px; padding-left:10px; border-left:2px dashed #cbd5e1; }
+@keyframes fib-pop { from { transform:scale(.6); opacity:0 } to { transform:scale(1); opacity:1 } }
+[data-theme="dark"] .fib-tree { background:#0f172a; border-color:#334155; }
+[data-theme="dark"] .fib-node { background:#78350f; border-color:#f59e0b; color:#fef3c7; }
+[data-theme="dark"] .fib-node.base { background:#14532d; border-color:#4ade80; color:#dcfce7; }
+[data-theme="dark"] .fib-node.done { background:#1e3a8a; border-color:#60a5fa; color:#dbeafe; }
+[data-theme="dark"] .fib-node.memo-hit { background:#581c87; border-color:#c084fc; color:#f3e8ff; }
+[data-theme="dark"] .fib-children { border-left-color:#475569; }

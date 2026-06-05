@@ -311,7 +311,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- PDF.js -->
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script is:inline src={`${base}/js/animations.js`}></script>
-  <script is:inline>document.addEventListener('DOMContentLoaded', function() { if (typeof initScrollReveal === 'function') initScrollReveal(); });</script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof initScrollReveal === 'function') {
+        initScrollReveal();
+      } else {
+        // If animations.js is missing, keep cards visible instead of hidden.
+        document.querySelectorAll('.slide').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    });
+  </script>
 
   <script is:inline define:vars={{ base }}>
   (function () {
@@ -355,7 +366,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       { url: base + '/capitole/pointeri.html',     label: '🔗 Pointeri & Alocare Dinamică', keywords: ['pointer','alocare','new','delete','adresa','referinta','dinamic'] }
     ];
 
-    var SYSTEM_PROMPT = 'Ești un profesor expert de informatică pentru liceu din România.\nElevul ți-a trimis o variantă de bacalaureat la informatică (C++).\n\nSarcina ta: identifică TOATE exercițiile/subiectele din varianta de BAC și pentru fiecare generează o explicație completă.\n\nReguli:\n- Răspunde EXCLUSIV cu un JSON valid, fără niciun text în afara JSON-ului.\n- Dacă nu poți identifica exercițiile, returnează {"eroare": "Nu am putut identifica exercițiile"}.\n- Teoria trebuie să fie clară, în română, potrivită pentru un elev de liceu.\n- capitol_cheie: introducere, complexitate, vectori, matrici, siruri, recursivitate, backtracking sau fisiere.\n\nFormat JSON obligatoriu:\n{\n  "varianta": "Varianta XX / identificare",\n  "exercitii": [\n    {\n      "numar": "I.1",\n      "enunt": "Textul exact",\n      "ce_cere": "Explicație simplă",\n      "teorie": "Teoria necesară (2-4 paragrafe)",\n      "pasi_rezolvare": "Abordare pas cu pas cu cod C++",\n      "capitol_cheie": "vectori",\n      "dificultate": "Ușor"\n    }\n  ]\n}';
+    var SYSTEM_PROMPT = 'Ești un profesor expert de informatică pentru liceu din România.\nElevul ți-a trimis o variantă de bacalaureat la informatică (C++).\n\nSarcina ta: identifică TOATE exercițiile/subiectele din varianta de BAC și pentru fiecare generează o explicație completă.\n\nReguli:\n- Răspunde EXCLUSIV cu un JSON valid, fără niciun text în afara JSON-ului.\n- Dacă nu poți identifica exercițiile, returnează {"eroare": "Nu am putut identifica exercițiile"}.\n- Teoria trebuie să fie clară, în română, potrivită pentru un elev de liceu.\n- capitol_cheie trebuie ales din: introducere, functii, complexitate, vectori, matrici, siruri, recursivitate, backtracking, fisiere, programare-dinamica, structuri, pointeri, grafuri.\n\nFormat JSON obligatoriu:\n{\n  "varianta": "Varianta XX / identificare",\n  "exercitii": [\n    {\n      "numar": "I.1",\n      "enunt": "Textul exact",\n      "ce_cere": "Explicație simplă",\n      "teorie": "Teoria necesară (2-4 paragrafe)",\n      "pasi_rezolvare": "Abordare pas cu pas cu cod C++",\n      "capitol_cheie": "vectori",\n      "dificultate": "Ușor"\n    }\n  ]\n}';
 
     function formatBytes(bytes) {
       if (bytes < 1024) return bytes + ' B';

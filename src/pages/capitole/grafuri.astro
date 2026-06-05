@@ -1,7 +1,18 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"definitie","label":"Definiție"},{"id":"tipuri","label":"Tipuri de grafuri"},{"id":"formule","label":"Formule"},{"id":"reprezentare","label":"Reprezentare"},{"id":"parcurgeri","label":"Parcurgeri"},{"id":"speciale","label":"Grafuri speciale"},{"id":"demo","label":"Demo interactiv"},{"id":"bac","label":"Probleme BAC"},{"id":"exercitii","label":"Exerciții"}];
+const sections = [
+  {"id":"definitie","label":"Definiție"},
+  {"id":"tipuri","label":"Tipuri de grafuri"},
+  {"id":"formule","label":"Formule"},
+  {"id":"reprezentare","label":"Reprezentare"},
+  {"id":"parcurgeri","label":"Parcurgeri"},
+  {"id":"speciale","label":"Grafuri speciale"},
+  {"id":"demo","label":"Demo interactiv"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"bac","label":"Probleme BAC"},
+  {"id":"exercitii","label":"Exerciții"}
+];
 ---
 <ChapterLayout
   title="Teoria Grafurilor"
@@ -589,8 +600,19 @@ Muchie edges[<span class="nu">10001</span>];
         <div style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
           <button id="graph-mode-node" class="sort-btn" style="background:var(--primary);color:white;border-color:var(--primary);">+ Nod</button>
           <button id="graph-mode-edge" class="sort-btn">+ Muchie</button>
+          <button id="graph-preset" class="sort-btn">✨ Exemplu</button>
           <button id="graph-run-bfs" class="sort-btn">▶ BFS</button>
           <button id="graph-run-dfs" class="sort-btn">▶ DFS</button>
+          <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+            Start:
+            <select id="graph-start" style="padding:5px 8px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);min-width:64px;">
+              <option value="1">1</option>
+            </select>
+          </label>
+          <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+            Viteză:
+            <input id="graph-speed" type="range" min="1" max="5" value="3" style="width:92px;">
+          </label>
           <button id="graph-clear" class="sort-btn" style="margin-left:auto;">🗑️ Resetare</button>
         </div>
         <canvas id="graph-canvas" width="700" height="350" style="width:100%;cursor:crosshair;display:block;" aria-label="Canvas interactiv pentru construire graf"></canvas>
@@ -611,6 +633,347 @@ Muchie edges[<span class="nu">10001</span>];
           <li>Construiește un graf cu noduri de grad par → devine eulerian</li>
           <li>Rulează BFS/DFS pentru a vedea ordinea parcurgerii</li>
         </ul>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:16px;">
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">🎯 Demo 2 — Componente conexe random</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Generezi un graf aleator, apoi poți tăia/adăuga muchii cu click pe două noduri.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;">
+            <label style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:6px;">Noduri
+              <input id="cc-n" type="range" min="4" max="12" value="8" style="width:90px;">
+              <span id="cc-n-val" style="font-weight:700;color:var(--text);min-width:18px;display:inline-block;">8</span>
+            </label>
+            <label style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:6px;">Densitate
+              <input id="cc-density" type="range" min="10" max="70" value="30" style="width:90px;">
+              <span id="cc-density-val" style="font-weight:700;color:var(--text);min-width:30px;display:inline-block;">30%</span>
+            </label>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <button id="cc-generate" class="sort-btn">🎲 Generează</button>
+            <button id="cc-color" class="sort-btn">🖍️ Colorează componente</button>
+            <button id="cc-reset-colors" class="sort-btn">↺ Reset culori</button>
+          </div>
+          <svg id="cc-svg" viewBox="0 0 320 180" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);"></svg>
+          <div id="cc-info" style="margin-top:8px;font-size:12px;color:var(--text-muted);">Apasă „Generează”, apoi click pe 2 noduri pentru a adăuga/tăia muchie.</div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">🧮 Demo 3 — Matrice de adiacență interactivă</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Click pe celule pentru a crea/șterge muchii și vezi graful construit live.</p>
+          <div id="adj-grid" style="display:grid;grid-template-columns:repeat(6,34px);gap:4px;justify-content:start;margin-bottom:10px;"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+            <button id="adj-random" class="sort-btn">🎲 Random</button>
+            <button id="adj-clear" class="sort-btn">↺ Golește</button>
+          </div>
+          <svg id="adj-svg" viewBox="0 0 320 180" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);margin-bottom:8px;"></svg>
+          <div id="adj-info" style="font-size:12px;color:var(--text-muted);">Muchii: 0 · Grade: 0, 0, 0, 0, 0 · Conex: NU</div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">➡️ Demo 4 — Graf orientat</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Activezi arce i→j și vezi live digraful împreună cu gradele interioare/exterioare.</p>
+          <div id="digraph-grid" style="display:grid;grid-template-columns:repeat(5,34px);gap:4px;justify-content:start;margin-bottom:10px;"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+            <button id="digraph-random" class="sort-btn">🎲 Random</button>
+            <button id="digraph-clear" class="sort-btn">↺ Golește</button>
+          </div>
+          <svg id="digraph-svg" viewBox="0 0 320 180" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);margin-bottom:8px;"></svg>
+          <div id="digraph-info" style="font-size:12px;color:var(--text-muted);">Arce: 0 · d⁺: 0, 0, 0, 0 · d⁻: 0, 0, 0, 0 · max = 12</div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">🔁 Demo SCC — Componente tare conexe</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Într-un graf orientat, colorează automat componentele tare conexe (Kosaraju).</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <button id="scc-preset-a" class="sort-btn">Preset A</button>
+            <button id="scc-preset-b" class="sort-btn">Preset B</button>
+            <button id="scc-run" class="sort-btn">🖍️ Arată SCC</button>
+          </div>
+          <svg id="scc-svg" viewBox="0 0 320 190" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);"></svg>
+          <div id="scc-info" style="margin-top:8px;font-size:12px;color:var(--text-muted);">Alege un preset și apoi apasă „Arată SCC”.</div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">🌳 Demo 5 — Arbore vs ciclu</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Compari vizual un arbore, un graf cu ciclu și un graf neconex.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <button id="tree-preset-tree" class="sort-btn">Arbore</button>
+            <button id="tree-preset-cycle" class="sort-btn">Cu ciclu</button>
+            <button id="tree-preset-disconnected" class="sort-btn">Neconex</button>
+          </div>
+          <svg id="tree-svg" viewBox="0 0 320 190" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);"></svg>
+          <div id="tree-info" style="margin-top:8px;font-size:12px;color:var(--text-muted);">Un arbore trebuie să fie conex, aciclic și să aibă m = n − 1.</div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">📏 Demo 6 — Muchii minime și maxime</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Modifici n și tipul grafului, iar formulele + barele vizuale se actualizează instant.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px;">
+            <label style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:6px;">n
+              <input id="edgecalc-n" type="range" min="1" max="12" value="6" style="width:110px;">
+              <span id="edgecalc-n-val" style="font-weight:700;color:var(--text);min-width:16px;display:inline-block;">6</span>
+            </label>
+            <select id="edgecalc-type" style="padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);">
+              <option value="simple">Graf simplu neorientat</option>
+              <option value="connected">Graf simplu conex</option>
+              <option value="directed">Graf orientat simplu</option>
+            </select>
+          </div>
+          <div id="edgecalc-cards" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;"></div>
+          <div id="edgecalc-bars" style="margin-top:8px;display:grid;gap:8px;"></div>
+          <div id="edgecalc-formula" style="margin-top:8px;font-size:12px;color:var(--text-muted);"></div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">🏁 Demo 7 — Eulerian vs Hamiltonian</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Alegi un tip de graf și vezi dacă are ciclu eulerian, lanț eulerian sau ciclu hamiltonian.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <button class="sort-btn" data-eh="cycle5">Ciclu C₅</button>
+            <button class="sort-btn" data-eh="path5">Lanț P₅</button>
+            <button class="sort-btn" data-eh="k5">Complet K₅</button>
+            <button class="sort-btn" data-eh="star5">Stea S₅</button>
+          </div>
+          <svg id="eh-svg" viewBox="0 0 320 190" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);"></svg>
+          <div id="eh-badges" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"></div>
+          <div id="eh-info" style="margin-top:8px;font-size:12px;color:var(--text-muted);">Selectează un graf.</div>
+        </div>
+
+        <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:14px;">
+          <h3 style="margin:0 0 8px;font-size:15px;">🧭 Demo 8 — Traseu Euler/Hamilton pas cu pas</h3>
+          <p style="font-size:13px;color:var(--text-muted);margin:0 0 10px;">Rulezi animația și vezi cum se merge pe muchii/noduri pentru traseul găsit.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <button class="sort-btn" data-walk="cycle5">Ciclu C₅</button>
+            <button class="sort-btn" data-walk="path5">Lanț P₅</button>
+            <button class="sort-btn" data-walk="k5">Complet K₅</button>
+            <button class="sort-btn" data-walk="star5">Stea S₅</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <button id="walk-run-euler" class="sort-btn">▶ Rulează Euler</button>
+            <button id="walk-run-hamilton" class="sort-btn">▶ Rulează Hamilton</button>
+          </div>
+          <svg id="walk-svg" viewBox="0 0 320 190" style="width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface2);"></svg>
+          <div id="walk-legend" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--text-muted);"></div>
+          <div id="walk-info" style="margin-top:6px;font-size:12px;color:var(--text-muted);">Alege un graf și rulează animația dorită.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — grafuri</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice de teoria grafurilor, cu enunț, exemplu și soluție comentată.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Gradele vârfurilor</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Se dă un graf neorientat cu <strong>n</strong> vârfuri și <strong>m</strong> muchii (matrice de adiacență). Afișează gradul fiecărui vârf.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>4 4
+1 2
+1 3
+2 3
+3 4</pre></div>
+          <div><strong>Ieșire:</strong><pre>2 2 3 1</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> a[<span class="nu">105</span>][<span class="nu">105</span>], n, m;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin >> n >> m;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= m; i++) &#123;
+        <span class="kw">int</span> x, y; cin >> x >> y;
+        a[x][y] = a[y][x] = <span class="nu">1</span>;
+    &#125;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) &#123;
+        <span class="kw">int</span> g = <span class="nu">0</span>;
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n; j++) g += a[i][j];
+        cout &lt;&lt; g &lt;&lt; <span class="st">' '</span>;
+    &#125;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> gradul vârfului i = suma elementelor de pe linia i a matricei de adiacență (la grafuri neorientate). Complexitate O(n²).</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Număr de componente conexe (DFS)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Se dă un graf neorientat. Determină numărul de componente conexe.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>6 3
+1 2
+3 4
+5 6</pre></div>
+          <div><strong>Ieșire:</strong><pre>3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> a[<span class="nu">105</span>][<span class="nu">105</span>], n, m;
+<span class="kw">bool</span> viz[<span class="nu">105</span>];
+<span class="kw">void</span> <span class="fn">dfs</span>(<span class="kw">int</span> u) &#123;
+    viz[u] = <span class="kw">true</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> v = <span class="nu">1</span>; v &lt;= n; v++)
+        <span class="kw">if</span> (a[u][v] && !viz[v]) <span class="fn">dfs</span>(v);
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin >> n >> m;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= m; i++) &#123;
+        <span class="kw">int</span> x, y; cin >> x >> y;
+        a[x][y] = a[y][x] = <span class="nu">1</span>;
+    &#125;
+    <span class="kw">int</span> nc = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        <span class="kw">if</span> (!viz[i]) &#123; nc++; <span class="fn">dfs</span>(i); &#125;
+    cout &lt;&lt; nc;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> pornim DFS din fiecare vârf nevizitat. Fiecare DFS marchează toate vârfurile dintr-o componentă conexă; numărul de DFS-uri pornite = numărul de componente.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Distanța minimă în muchii (BFS)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Într-un graf neorientat (muchii fără cost), găsește distanța minimă (în număr de muchii) de la vârful <strong>s</strong> la vârful <strong>t</strong>. -1 dacă nu există drum.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5 4 1 4
+1 2
+2 3
+3 4
+1 5</pre></div>
+          <div><strong>Ieșire:</strong><pre>3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">#include</span> <span class="st">&lt;queue&gt;</span>
+<span class="kw">int</span> a[<span class="nu">105</span>][<span class="nu">105</span>], n, m, s, t, d[<span class="nu">105</span>];
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin >> n >> m >> s >> t;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= m; i++) &#123;
+        <span class="kw">int</span> x, y; cin >> x >> y;
+        a[x][y] = a[y][x] = <span class="nu">1</span>;
+    &#125;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) d[i] = -<span class="nu">1</span>;
+    queue&lt;<span class="kw">int</span>&gt; q;
+    d[s] = <span class="nu">0</span>; q.push(s);
+    <span class="kw">while</span> (!q.empty()) &#123;
+        <span class="kw">int</span> u = q.front(); q.pop();
+        <span class="kw">for</span> (<span class="kw">int</span> v = <span class="nu">1</span>; v &lt;= n; v++)
+            <span class="kw">if</span> (a[u][v] && d[v] == -<span class="nu">1</span>) &#123;
+                d[v] = d[u] + <span class="nu">1</span>;
+                q.push(v);
+            &#125;
+    &#125;
+    cout &lt;&lt; d[t];
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>De ce BFS:</strong> pe grafuri fără cost (sau cu cost uniform), BFS găsește drumul cel mai scurt în muchii pentru că vizitează vârfurile în ordinea distanței.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Componenta cu cele mai multe vârfuri</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Pentru un graf neorientat, afișează numărul de vârfuri din cea mai mare componentă conexă.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>6 4
+1 2
+2 3
+3 1
+4 5</pre></div>
+          <div><strong>Ieșire:</strong><pre>3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> a[<span class="nu">105</span>][<span class="nu">105</span>], n, m, cnt;
+<span class="kw">bool</span> viz[<span class="nu">105</span>];
+<span class="kw">void</span> <span class="fn">dfs</span>(<span class="kw">int</span> u) &#123;
+    viz[u] = <span class="kw">true</span>; cnt++;
+    <span class="kw">for</span> (<span class="kw">int</span> v = <span class="nu">1</span>; v &lt;= n; v++)
+        <span class="kw">if</span> (a[u][v] && !viz[v]) <span class="fn">dfs</span>(v);
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin >> n >> m;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= m; i++) &#123;
+        <span class="kw">int</span> x, y; cin >> x >> y;
+        a[x][y] = a[y][x] = <span class="nu">1</span>;
+    &#125;
+    <span class="kw">int</span> best = <span class="nu">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        <span class="kw">if</span> (!viz[i]) &#123;
+            cnt = <span class="nu">0</span>; <span class="fn">dfs</span>(i);
+            best = max(best, cnt);
+        &#125;
+    cout &lt;&lt; best;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Trucul:</strong> resetăm <code>cnt = 0</code> înainte de fiecare DFS pornit dintr-o nouă componentă. <code>cnt</code> incrementat în DFS dă mărimea componentei.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Detectare ciclu (graf neorientat)</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Decide dacă un graf neorientat conține un ciclu. Afișează <code>DA</code> sau <code>NU</code>.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>4 4
+1 2
+2 3
+3 4
+4 1</pre></div>
+          <div><strong>Ieșire:</strong><pre>DA</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> a[<span class="nu">105</span>][<span class="nu">105</span>], n, m;
+<span class="kw">bool</span> viz[<span class="nu">105</span>], ciclu = <span class="kw">false</span>;
+<span class="kw">void</span> <span class="fn">dfs</span>(<span class="kw">int</span> u, <span class="kw">int</span> parinte) &#123;
+    viz[u] = <span class="kw">true</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> v = <span class="nu">1</span>; v &lt;= n; v++) <span class="kw">if</span> (a[u][v]) &#123;
+        <span class="kw">if</span> (!viz[v]) <span class="fn">dfs</span>(v, u);
+        <span class="kw">else if</span> (v != parinte) ciclu = <span class="kw">true</span>;  <span class="cm">// muchie spre vizitat ≠ părinte ⇒ ciclu</span>
+    &#125;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    cin >> n >> m;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= m; i++) &#123;
+        <span class="kw">int</span> x, y; cin >> x >> y;
+        a[x][y] = a[y][x] = <span class="nu">1</span>;
+    &#125;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++)
+        <span class="kw">if</span> (!viz[i]) <span class="fn">dfs</span>(i, <span class="nu">0</span>);
+    cout &lt;&lt; (ciclu ? <span class="st">"DA"</span> : <span class="st">"NU"</span>);
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> într-un graf neorientat, dacă în DFS găsim o muchie spre un vârf deja vizitat <em>care nu e părintele direct</em>, există un ciclu. (La graf orientat se folosesc 3 culori: alb/gri/negru.)</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💪 Mai multe aplicații în secțiunea BAC și quiz.
       </div>
     </div>
   </div>
@@ -697,6 +1060,40 @@ Muchie edges[<span class="nu">10001</span>];
   var btnBFS = document.getElementById('graph-run-bfs');
   var btnDFS = document.getElementById('graph-run-dfs');
   var btnClear = document.getElementById('graph-clear');
+  var btnPreset = document.getElementById('graph-preset');
+  var speedSlider = document.getElementById('graph-speed');
+  var startSelect = document.getElementById('graph-start');
+  var traversalDelay = 520;
+
+  function rebuildStartOptions() {
+    if (!startSelect) return;
+    var old = parseInt(startSelect.value || '1', 10);
+    startSelect.innerHTML = '';
+    for (var i = 1; i <= Math.max(1, nodes.length); i++) {
+      var opt = document.createElement('option');
+      opt.value = String(i);
+      opt.textContent = String(i);
+      startSelect.appendChild(opt);
+    }
+    startSelect.value = String(Math.min(Math.max(1, old), Math.max(1, nodes.length)));
+  }
+
+  function startNodeIndex() {
+    if (!startSelect || nodes.length === 0) return 0;
+    var v = parseInt(startSelect.value || '1', 10);
+    return Math.min(nodes.length - 1, Math.max(0, v - 1));
+  }
+
+  function applySpeed() {
+    if (!speedSlider) return;
+    var level = parseInt(speedSlider.value || '3', 10);
+    var map = { 1: 1400, 2: 900, 3: 520, 4: 300, 5: 180 };
+    traversalDelay = map[level] || 520;
+  }
+  if (speedSlider) {
+    speedSlider.addEventListener('input', applySpeed);
+    applySpeed();
+  }
 
   function setMode(m) {
     mode = m;
@@ -714,6 +1111,22 @@ Muchie edges[<span class="nu">10001</span>];
   btnEdge.addEventListener('click', function() { setMode('edge'); });
   btnClear.addEventListener('click', function() {
     nodes = []; edges = []; selectedNode = null; animating = false; animOrder = [];
+    rebuildStartOptions(); updateStats(); draw();
+  });
+
+  btnPreset.addEventListener('click', function() {
+    if (animating) return;
+    nodes = [
+      { x: 120, y: 85, color: null },
+      { x: 250, y: 55, color: null },
+      { x: 380, y: 95, color: null },
+      { x: 180, y: 210, color: null },
+      { x: 320, y: 225, color: null },
+      { x: 510, y: 165, color: null }
+    ];
+    edges = [[0,1],[1,2],[0,3],[3,4],[4,2],[2,5]];
+    selectedNode = null;
+    rebuildStartOptions();
     updateStats(); draw();
   });
 
@@ -738,7 +1151,7 @@ Muchie edges[<span class="nu">10001</span>];
     if (mode === 'node') {
       if (findNode(pos.x, pos.y) === -1) {
         nodes.push({ x: pos.x, y: pos.y, color: null });
-        updateStats(); draw();
+        rebuildStartOptions(); updateStats(); draw();
       }
     } else if (mode === 'edge') {
       var idx = findNode(pos.x, pos.y);
@@ -850,7 +1263,8 @@ Muchie edges[<span class="nu">10001</span>];
     animating = true; animOrder = []; animIdx = 0;
     var adj = getAdj();
     var visited = new Array(nodes.length).fill(false);
-    var queue = [0]; visited[0] = true;
+    var start = startNodeIndex();
+    var queue = [start]; visited[start] = true;
     while (queue.length) {
       var n = queue.shift();
       animOrder.push(n);
@@ -867,7 +1281,7 @@ Muchie edges[<span class="nu">10001</span>];
     animating = true; animOrder = []; animIdx = 0;
     var adj = getAdj();
     var visited = new Array(nodes.length).fill(false);
-    var stack = [0];
+    var stack = [startNodeIndex()];
     while (stack.length) {
       var n = stack.pop();
       if (visited[n]) continue;
@@ -887,13 +1301,947 @@ Muchie edges[<span class="nu">10001</span>];
       nodes[animOrder[animIdx]].color = color;
       animIdx++;
       draw();
-      setTimeout(step, 500);
+      setTimeout(step, traversalDelay);
     }
     step();
   }
 
+  rebuildStartOptions();
   draw();
   updateStats();
+})();
+
+(function() {
+  // ─── Demo 2: Random connected components ─────────────────────
+  var svg = document.getElementById('cc-svg');
+  if (!svg) return;
+  var nRange = document.getElementById('cc-n');
+  var densityRange = document.getElementById('cc-density');
+  var nVal = document.getElementById('cc-n-val');
+  var dVal = document.getElementById('cc-density-val');
+  var btnGenerate = document.getElementById('cc-generate');
+  var btnColor = document.getElementById('cc-color');
+  var btnResetColors = document.getElementById('cc-reset-colors');
+  var info = document.getElementById('cc-info');
+  var nodes = [];
+  var edges = [];
+  var selected = -1;
+  var palette = ['#38bdf8','#f97316','#22c55e','#eab308','#a855f7','#f43f5e','#14b8a6'];
+
+  function setRangeLabels() {
+    nVal.textContent = nRange.value;
+    dVal.textContent = densityRange.value + '%';
+  }
+
+  function gen() {
+    var n = parseInt(nRange.value, 10);
+    var p = parseInt(densityRange.value, 10) / 100;
+    var cx = 160, cy = 90, r = 68;
+    nodes = [];
+    edges = [];
+    for (var i = 0; i < n; i++) {
+      var a = (Math.PI * 2 * i) / n;
+      nodes.push({ x: cx + r * Math.cos(a), y: cy + r * Math.sin(a), comp: -1 });
+    }
+    for (var i = 0; i < n; i++) {
+      for (var j = i + 1; j < n; j++) {
+        if (Math.random() < p) edges.push([i, j]);
+      }
+    }
+    nodes.forEach(function(nd) { nd.comp = -1; });
+    selected = -1;
+    draw();
+    info.textContent = 'Graf generat. Click pe 2 noduri pentru a adăuga/tăia muchie.';
+  }
+
+  function edgeIndex(u, v) {
+    for (var i = 0; i < edges.length; i++) {
+      var e = edges[i];
+      if ((e[0] === u && e[1] === v) || (e[0] === v && e[1] === u)) return i;
+    }
+    return -1;
+  }
+
+  function findNode(x, y) {
+    for (var i = 0; i < nodes.length; i++) {
+      var dx = nodes[i].x - x;
+      var dy = nodes[i].y - y;
+      if (dx * dx + dy * dy <= 15 * 15) return i;
+    }
+    return -1;
+  }
+
+  function adjacency() {
+    var adj = nodes.map(function() { return []; });
+    edges.forEach(function(e) { adj[e[0]].push(e[1]); adj[e[1]].push(e[0]); });
+    return adj;
+  }
+
+  function colorComponents() {
+    if (!nodes.length) return;
+    var adj = adjacency();
+    var vis = new Array(nodes.length).fill(false);
+    var comps = 0;
+    var sizes = [];
+    for (var i = 0; i < nodes.length; i++) {
+      if (vis[i]) continue;
+      comps++;
+      var q = [i];
+      vis[i] = true;
+      var cnt = 0;
+      while (q.length) {
+        var u = q.shift();
+        nodes[u].comp = comps - 1;
+        cnt++;
+        adj[u].forEach(function(v) {
+          if (!vis[v]) { vis[v] = true; q.push(v); }
+        });
+      }
+      sizes.push(cnt);
+    }
+    draw();
+    info.textContent = 'Componente: ' + comps + ' · mărimi: [' + sizes.join(', ') + ']';
+  }
+
+  function draw() {
+    var html = '';
+    edges.forEach(function(e) {
+      var a = nodes[e[0]], b = nodes[e[1]];
+      html += '<line x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '" stroke="#64748b" stroke-width="2" opacity="0.6"/>';
+    });
+    nodes.forEach(function(nd, i) {
+      var c = nd.comp >= 0 ? palette[nd.comp % palette.length] : '#6366f1';
+      var stroke = selected === i ? '#f59e0b' : '#fff';
+      var sw = selected === i ? 3 : 2;
+      html += '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="14" fill="' + c + '" stroke="' + stroke + '" stroke-width="' + sw + '"/>';
+      html += '<text x="' + nd.x + '" y="' + (nd.y + 1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (i+1) + '</text>';
+    });
+    svg.innerHTML = html;
+  }
+
+  svg.addEventListener('click', function(ev) {
+    if (!nodes.length) return;
+    var rect = svg.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    var x = (ev.clientX - rect.left) * (320 / rect.width);
+    var y = (ev.clientY - rect.top) * (180 / rect.height);
+    var hit = findNode(x, y);
+    if (hit < 0) return;
+    if (selected < 0) {
+      selected = hit;
+      info.textContent = 'Nod selectat: ' + (hit + 1) + '. Selectează al doilea nod.';
+      draw();
+      return;
+    }
+    if (selected !== hit) {
+      var idx = edgeIndex(selected, hit);
+      if (idx >= 0) {
+        edges.splice(idx, 1);
+        info.textContent = 'Muchia ' + (selected + 1) + '–' + (hit + 1) + ' a fost eliminată.';
+      } else {
+        edges.push([selected, hit]);
+        info.textContent = 'Muchia ' + (selected + 1) + '–' + (hit + 1) + ' a fost adăugată.';
+      }
+      nodes.forEach(function(nd) { nd.comp = -1; });
+    }
+    selected = -1;
+    draw();
+  });
+
+  nRange.addEventListener('input', setRangeLabels);
+  densityRange.addEventListener('input', setRangeLabels);
+  btnGenerate.addEventListener('click', gen);
+  btnColor.addEventListener('click', colorComponents);
+  btnResetColors.addEventListener('click', function() {
+    nodes.forEach(function(nd) { nd.comp = -1; });
+    selected = -1;
+    draw();
+    info.textContent = 'Culori resetate. Poți continua editarea muchiilor.';
+  });
+
+  setRangeLabels();
+  gen();
+})();
+
+(function() {
+  // ─── Demo 3: Interactive adjacency matrix ────────────────────
+  var grid = document.getElementById('adj-grid');
+  if (!grid) return;
+  var svg = document.getElementById('adj-svg');
+  var info = document.getElementById('adj-info');
+  var btnRnd = document.getElementById('adj-random');
+  var btnClr = document.getElementById('adj-clear');
+  var N = 5;
+  var a = Array.from({ length: N }, function() { return Array(N).fill(0); });
+  var pos = [{x:160,y:24},{x:268,y:80},{x:225,y:165},{x:95,y:165},{x:52,y:80}];
+
+  function isConnected() {
+    var start = -1;
+    for (var i = 0; i < N; i++) {
+      var deg = a[i].reduce(function(s, x) { return s + x; }, 0);
+      if (deg > 0) { start = i; break; }
+    }
+    if (start === -1) return false;
+    var vis = Array(N).fill(false);
+    var q = [start]; vis[start] = true;
+    while (q.length) {
+      var u = q.shift();
+      for (var v = 0; v < N; v++) {
+        if (a[u][v] && !vis[v]) { vis[v] = true; q.push(v); }
+      }
+    }
+    for (var i = 0; i < N; i++) {
+      var deg2 = a[i].reduce(function(s, x) { return s + x; }, 0);
+      if (deg2 > 0 && !vis[i]) return false;
+    }
+    return true;
+  }
+
+  function recalcInfo() {
+    var deg = [];
+    var m = 0;
+    for (var i = 0; i < N; i++) {
+      var g = 0;
+      for (var j = 0; j < N; j++) g += a[i][j];
+      deg.push(g);
+      m += g;
+    }
+    m = Math.floor(m / 2);
+    info.textContent = 'Muchii: ' + m + ' · Grade: ' + deg.join(', ') + ' · Conex: ' + (isConnected() ? 'DA' : 'NU');
+  }
+
+  function renderGraph() {
+    if (!svg) return;
+    var html = '';
+    for (var i = 0; i < N; i++) {
+      for (var j = i + 1; j < N; j++) {
+        if (a[i][j]) {
+          html += '<line x1="' + pos[i].x + '" y1="' + pos[i].y + '" x2="' + pos[j].x + '" y2="' + pos[j].y + '" stroke="#0ea5e9" stroke-width="3" opacity="0.75"/>';
+        }
+      }
+    }
+    for (var k = 0; k < N; k++) {
+      html += '<circle cx="' + pos[k].x + '" cy="' + pos[k].y + '" r="15" fill="#0284c7" stroke="#fff" stroke-width="2"/>';
+      html += '<text x="' + pos[k].x + '" y="' + (pos[k].y + 1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (k + 1) + '</text>';
+    }
+    svg.innerHTML = html;
+  }
+
+  function render() {
+    var html = '';
+    html += '<div></div>';
+    for (var j = 0; j < N; j++) html += '<div style="font-size:11px;color:var(--text-muted);text-align:center;align-self:end;">' + (j+1) + '</div>';
+    for (var i = 0; i < N; i++) {
+      html += '<div style="font-size:11px;color:var(--text-muted);text-align:center;line-height:28px;">' + (i+1) + '</div>';
+      for (var j = 0; j < N; j++) {
+        var diag = i === j;
+        var active = a[i][j] === 1;
+        var style = 'height:28px;border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;cursor:' + (diag ? 'not-allowed' : 'pointer') + ';';
+        style += active ? 'background:rgba(14,165,233,.2);color:#0ea5e9;font-weight:700;' : 'background:var(--surface2);color:var(--text-muted);';
+        html += '<button data-i="' + i + '" data-j="' + j + '" style="' + style + '" ' + (diag ? 'disabled' : '') + '>' + (diag ? '•' : (active ? '1' : '0')) + '</button>';
+      }
+    }
+    grid.innerHTML = html;
+    grid.querySelectorAll('button[data-i]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var i = parseInt(btn.getAttribute('data-i'), 10);
+        var j = parseInt(btn.getAttribute('data-j'), 10);
+        var next = a[i][j] ? 0 : 1;
+        a[i][j] = next;
+        a[j][i] = next;
+        render();
+      });
+    });
+    recalcInfo();
+    renderGraph();
+  }
+
+  btnClr.addEventListener('click', function() {
+    a = Array.from({ length: N }, function() { return Array(N).fill(0); });
+    render();
+  });
+  btnRnd.addEventListener('click', function() {
+    a = Array.from({ length: N }, function() { return Array(N).fill(0); });
+    for (var i = 0; i < N; i++) {
+      for (var j = i + 1; j < N; j++) {
+        if (Math.random() < 0.35) {
+          a[i][j] = 1;
+          a[j][i] = 1;
+        }
+      }
+    }
+    render();
+  });
+
+  render();
+})();
+
+(function() {
+  // ─── Demo 4: Directed graph matrix ───────────────────────────
+  var grid = document.getElementById('digraph-grid');
+  if (!grid) return;
+  var svg = document.getElementById('digraph-svg');
+  var info = document.getElementById('digraph-info');
+  var btnRnd = document.getElementById('digraph-random');
+  var btnClr = document.getElementById('digraph-clear');
+  var N = 4;
+  var a = Array.from({ length: N }, function() { return Array(N).fill(0); });
+  var pos = [{x:160,y:24},{x:280,y:95},{x:160,y:165},{x:40,y:95}];
+
+  function drawArrow(x1, y1, x2, y2, color) {
+    var dx = x2 - x1;
+    var dy = y2 - y1;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var ux = dx / len;
+    var uy = dy / len;
+    var sx = x1 + ux * 16;
+    var sy = y1 + uy * 16;
+    var ex = x2 - ux * 20;
+    var ey = y2 - uy * 20;
+    var lx = ex - ux * 8 - uy * 6;
+    var ly = ey - uy * 8 + ux * 6;
+    var rx = ex - ux * 8 + uy * 6;
+    var ry = ey - uy * 8 - ux * 6;
+    return '<line x1="' + sx + '" y1="' + sy + '" x2="' + ex + '" y2="' + ey + '" stroke="' + color + '" stroke-width="2.5" opacity="0.8"/>' +
+      '<polygon points="' + ex + ',' + ey + ' ' + lx + ',' + ly + ' ' + rx + ',' + ry + '" fill="' + color + '" opacity="0.9"/>';
+  }
+
+  function renderGraph() {
+    if (!svg) return;
+    var html = '';
+    for (var i = 0; i < N; i++) {
+      for (var j = 0; j < N; j++) {
+        if (i !== j && a[i][j]) {
+          html += drawArrow(pos[i].x, pos[i].y, pos[j].x, pos[j].y, '#16a34a');
+        }
+      }
+    }
+    for (var k = 0; k < N; k++) {
+      html += '<circle cx="' + pos[k].x + '" cy="' + pos[k].y + '" r="15" fill="#15803d" stroke="#fff" stroke-width="2"/>';
+      html += '<text x="' + pos[k].x + '" y="' + (pos[k].y + 1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (k + 1) + '</text>';
+    }
+    svg.innerHTML = html;
+  }
+
+  function render() {
+    var html = '<div></div>';
+    for (var j = 0; j < N; j++) html += '<div style="font-size:11px;color:var(--text-muted);text-align:center;align-self:end;">' + (j+1) + '</div>';
+    for (var i = 0; i < N; i++) {
+      html += '<div style="font-size:11px;color:var(--text-muted);text-align:center;line-height:28px;">' + (i+1) + '</div>';
+      for (var j = 0; j < N; j++) {
+        var diag = i === j;
+        var active = a[i][j] === 1;
+        var style = 'height:28px;border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;cursor:' + (diag ? 'not-allowed' : 'pointer') + ';';
+        style += active ? 'background:rgba(34,197,94,.18);color:#16a34a;font-weight:700;' : 'background:var(--surface2);color:var(--text-muted);';
+        html += '<button data-i="' + i + '" data-j="' + j + '" style="' + style + '" ' + (diag ? 'disabled' : '') + '>' + (diag ? '•' : (active ? '1' : '0')) + '</button>';
+      }
+    }
+    grid.innerHTML = html;
+    grid.querySelectorAll('button[data-i]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var i = parseInt(btn.getAttribute('data-i'), 10);
+        var j = parseInt(btn.getAttribute('data-j'), 10);
+        a[i][j] = a[i][j] ? 0 : 1;
+        render();
+      });
+    });
+    recalc();
+    renderGraph();
+  }
+
+  function recalc() {
+    var outDeg = [], inDeg = [], m = 0;
+    for (var i = 0; i < N; i++) {
+      var o = 0, inn = 0;
+      for (var j = 0; j < N; j++) {
+        o += a[i][j];
+        inn += a[j][i];
+      }
+      outDeg.push(o); inDeg.push(inn); m += o;
+    }
+    info.textContent = 'Arce: ' + m + ' · d⁺: ' + outDeg.join(', ') + ' · d⁻: ' + inDeg.join(', ') + ' · max = ' + (N * (N - 1));
+  }
+
+  btnClr.addEventListener('click', function() {
+    a = Array.from({ length: N }, function() { return Array(N).fill(0); });
+    render();
+  });
+  btnRnd.addEventListener('click', function() {
+    a = Array.from({ length: N }, function() { return Array(N).fill(0); });
+    for (var i = 0; i < N; i++) {
+      for (var j = 0; j < N; j++) {
+        if (i !== j && Math.random() < 0.3) a[i][j] = 1;
+      }
+    }
+    render();
+  });
+
+  render();
+})();
+
+(function() {
+  // ─── Demo SCC: Strongly connected components ────────────────
+  var svg = document.getElementById('scc-svg');
+  if (!svg) return;
+  var info = document.getElementById('scc-info');
+  var btnA = document.getElementById('scc-preset-a');
+  var btnB = document.getElementById('scc-preset-b');
+  var btnRun = document.getElementById('scc-run');
+  var nodes = [
+    { x: 45, y: 45 }, { x: 130, y: 36 }, { x: 235, y: 45 },
+    { x: 58, y: 130 }, { x: 158, y: 110 }, { x: 258, y: 134 }
+  ];
+  var edges = [];
+  var comp = [];
+  var colors = ['#38bdf8','#f97316','#22c55e','#a855f7','#f43f5e','#14b8a6'];
+
+  function arrow(x1, y1, x2, y2, color, op) {
+    var dx = x2 - x1, dy = y2 - y1;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var ux = dx / len, uy = dy / len;
+    var sx = x1 + ux * 17, sy = y1 + uy * 17;
+    var ex = x2 - ux * 17, ey = y2 - uy * 17;
+    var hx = ex - ux * 8, hy = ey - uy * 8;
+    var px = -uy, py = ux;
+    var p1x = hx + px * 4, p1y = hy + py * 4;
+    var p2x = hx - px * 4, p2y = hy - py * 4;
+    return '<line x1="' + sx + '" y1="' + sy + '" x2="' + ex + '" y2="' + ey + '" stroke="' + color + '" stroke-width="2.3" opacity="' + op + '"/>' +
+      '<polygon points="' + ex + ',' + ey + ' ' + p1x + ',' + p1y + ' ' + p2x + ',' + p2y + '" fill="' + color + '" opacity="' + op + '"/>';
+  }
+
+  function setPreset(name) {
+    if (name === 'A') {
+      edges = [
+        [0,1],[1,0],[1,2],[2,4],[4,2],[4,5],[5,4],[3,0],[0,3],[1,4],[3,4]
+      ];
+    } else {
+      edges = [
+        [0,1],[1,2],[2,0],[2,3],[3,4],[4,5],[5,3],[1,4]
+      ];
+    }
+    comp = new Array(nodes.length).fill(-1);
+    draw();
+    info.textContent = 'Preset ' + name + ' încărcat. Apasă „Arată SCC”.';
+  }
+
+  function kosaraju() {
+    var n = nodes.length;
+    var g = Array.from({ length: n }, function() { return []; });
+    var gt = Array.from({ length: n }, function() { return []; });
+    edges.forEach(function(e) {
+      g[e[0]].push(e[1]);
+      gt[e[1]].push(e[0]);
+    });
+
+    var vis = new Array(n).fill(false);
+    var order = [];
+    function dfs1(u) {
+      vis[u] = true;
+      for (var i = 0; i < g[u].length; i++) {
+        var v = g[u][i];
+        if (!vis[v]) dfs1(v);
+      }
+      order.push(u);
+    }
+    for (var i = 0; i < n; i++) if (!vis[i]) dfs1(i);
+
+    var id = 0;
+    comp = new Array(n).fill(-1);
+    function dfs2(u, c) {
+      comp[u] = c;
+      for (var i = 0; i < gt[u].length; i++) {
+        var v = gt[u][i];
+        if (comp[v] === -1) dfs2(v, c);
+      }
+    }
+    for (var k = order.length - 1; k >= 0; k--) {
+      var u = order[k];
+      if (comp[u] === -1) {
+        dfs2(u, id);
+        id++;
+      }
+    }
+
+    draw();
+    var sizes = [];
+    for (var c = 0; c < id; c++) {
+      sizes.push(comp.filter(function(x) { return x === c; }).length);
+    }
+    info.textContent = 'Componente tare conexe: ' + id + ' · mărimi: [' + sizes.join(', ') + ']';
+  }
+
+  function draw() {
+    var html = '';
+    for (var i = 0; i < edges.length; i++) {
+      var e = edges[i];
+      var col = (comp[e[0]] >= 0 && comp[e[0]] === comp[e[1]]) ? colors[comp[e[0]] % colors.length] : '#64748b';
+      html += arrow(nodes[e[0]].x, nodes[e[0]].y, nodes[e[1]].x, nodes[e[1]].y, col, 0.75);
+    }
+    for (var j = 0; j < nodes.length; j++) {
+      var nd = nodes[j];
+      var fill = comp[j] >= 0 ? colors[comp[j] % colors.length] : '#475569';
+      html += '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="15" fill="' + fill + '" stroke="#fff" stroke-width="2"/>';
+      html += '<text x="' + nd.x + '" y="' + (nd.y + 1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (j + 1) + '</text>';
+    }
+    svg.innerHTML = html;
+  }
+
+  btnA.addEventListener('click', function() { setPreset('A'); });
+  btnB.addEventListener('click', function() { setPreset('B'); });
+  btnRun.addEventListener('click', kosaraju);
+
+  setPreset('A');
+})();
+
+(function() {
+  // ─── Demo 5: Tree vs cycle vs disconnected ──────────────────
+  var svg = document.getElementById('tree-svg');
+  if (!svg) return;
+  var info = document.getElementById('tree-info');
+  var btnTree = document.getElementById('tree-preset-tree');
+  var btnCycle = document.getElementById('tree-preset-cycle');
+  var btnDisc = document.getElementById('tree-preset-disconnected');
+  var nodes = [
+    {x:160,y:28},{x:90,y:82},{x:230,y:82},{x:60,y:150},{x:120,y:150},{x:220,y:150}
+  ];
+  var edges = [];
+
+  function setPreset(type) {
+    if (type === 'tree') edges = [[0,1],[0,2],[1,3],[1,4],[2,5]];
+    else if (type === 'cycle') edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[4,5]];
+    else edges = [[0,1],[1,3],[2,5]];
+    draw();
+    updateInfo();
+  }
+
+  function connectedAndCycle() {
+    var adj = nodes.map(function(){ return []; });
+    edges.forEach(function(e){ adj[e[0]].push(e[1]); adj[e[1]].push(e[0]); });
+    var vis = Array(nodes.length).fill(false);
+    var hasCycle = false;
+    function dfs(u, p) {
+      vis[u] = true;
+      adj[u].forEach(function(v){
+        if (!vis[v]) dfs(v, u);
+        else if (v !== p) hasCycle = true;
+      });
+    }
+    dfs(0, -1);
+    var connected = vis.every(Boolean);
+    return { connected: connected, cycle: hasCycle };
+  }
+
+  function updateInfo() {
+    var state = connectedAndCycle();
+    var n = nodes.length, m = edges.length;
+    var isTree = state.connected && !state.cycle && m === n - 1;
+    info.innerHTML = 'n = ' + n + ' · m = ' + m + ' · conex: <strong>' + (state.connected ? 'DA' : 'NU') + '</strong> · ciclu: <strong>' + (state.cycle ? 'DA' : 'NU') + '</strong> · arbore: <strong>' + (isTree ? 'DA' : 'NU') + '</strong>';
+  }
+
+  function draw() {
+    var html = '';
+    edges.forEach(function(e) {
+      var a = nodes[e[0]], b = nodes[e[1]];
+      html += '<line x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '" stroke="#8b5cf6" stroke-width="3" opacity="0.8"/>';
+    });
+    nodes.forEach(function(nd, i) {
+      html += '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="15" fill="#6366f1" stroke="#fff" stroke-width="2"/>';
+      html += '<text x="' + nd.x + '" y="' + (nd.y+1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (i+1) + '</text>';
+    });
+    svg.innerHTML = html;
+  }
+
+  btnTree.addEventListener('click', function(){ setPreset('tree'); });
+  btnCycle.addEventListener('click', function(){ setPreset('cycle'); });
+  btnDisc.addEventListener('click', function(){ setPreset('disconnected'); });
+  setPreset('tree');
+})();
+
+(function() {
+  // ─── Demo 6: Edge formulas calculator ───────────────────────
+  var range = document.getElementById('edgecalc-n');
+  if (!range) return;
+  var typeSel = document.getElementById('edgecalc-type');
+  var nVal = document.getElementById('edgecalc-n-val');
+  var cards = document.getElementById('edgecalc-cards');
+  var bars = document.getElementById('edgecalc-bars');
+  var formula = document.getElementById('edgecalc-formula');
+
+  function card(title, value, accent) {
+    return '<div style="padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);">' +
+      '<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">' + title + '</div>' +
+      '<div style="font-size:22px;font-weight:800;color:' + accent + ';">' + value + '</div>' +
+      '</div>';
+  }
+
+  function render() {
+    var n = parseInt(range.value, 10);
+    var type = typeSel.value;
+    var minEdges = 0, maxEdges = 0, text = '';
+    var hardMax = n * (n - 1);
+    if (type === 'simple') {
+      minEdges = 0;
+      maxEdges = n * (n - 1) / 2;
+      text = 'Graf simplu neorientat: m ∈ [0, n(n−1)/2].';
+    } else if (type === 'connected') {
+      minEdges = Math.max(0, n - 1);
+      maxEdges = n * (n - 1) / 2;
+      text = 'Graf simplu conex: minim n−1 muchii, maxim Kₙ = n(n−1)/2.';
+    } else {
+      minEdges = 0;
+      maxEdges = n * (n - 1);
+      text = 'Graf orientat simplu: m ∈ [0, n(n−1)] deoarece fiecare arc are sens.';
+    }
+    nVal.textContent = String(n);
+    cards.innerHTML = card('Muchii minime', minEdges, '#16a34a') + card('Muchii maxime', maxEdges, '#2563eb');
+    var minPct = hardMax === 0 ? 0 : Math.round((minEdges / hardMax) * 100);
+    var maxPct = hardMax === 0 ? 0 : Math.round((maxEdges / hardMax) * 100);
+    bars.innerHTML =
+      '<div style="font-size:11px;color:var(--text-muted);">Scară vizuală din maximul orientat n(n−1) = ' + hardMax + '</div>' +
+      '<div style="font-size:11px;color:var(--text-muted);">Minim</div>' +
+      '<div style="height:11px;border-radius:999px;background:rgba(148,163,184,.22);overflow:hidden;">' +
+      '<div style="height:100%;width:' + minPct + '%;background:linear-gradient(90deg,#16a34a,#22c55e);"></div></div>' +
+      '<div style="font-size:11px;color:var(--text-muted);">Maxim</div>' +
+      '<div style="height:11px;border-radius:999px;background:rgba(148,163,184,.22);overflow:hidden;">' +
+      '<div style="height:100%;width:' + maxPct + '%;background:linear-gradient(90deg,#2563eb,#38bdf8);"></div></div>';
+    formula.textContent = text;
+  }
+
+  range.addEventListener('input', render);
+  typeSel.addEventListener('change', render);
+  render();
+})();
+
+(function() {
+  // ─── Demo 7: Eulerian / Hamiltonian explorer ────────────────
+  var svg = document.getElementById('eh-svg');
+  if (!svg) return;
+  var badgeWrap = document.getElementById('eh-badges');
+  var info = document.getElementById('eh-info');
+  var nodes = [];
+  var edges = [];
+
+  function setPreset(name) {
+    if (name === 'cycle5') {
+      nodes = [{x:160,y:25},{x:265,y:78},{x:225,y:160},{x:95,y:160},{x:55,y:78}];
+      edges = [[0,1],[1,2],[2,3],[3,4],[4,0]];
+      info.textContent = 'Ciclul C₅: toate gradele sunt 2, deci este eulerian și hamiltonian.';
+    } else if (name === 'path5') {
+      nodes = [{x:35,y:95},{x:100,y:95},{x:165,y:95},{x:230,y:95},{x:295,y:95}];
+      edges = [[0,1],[1,2],[2,3],[3,4]];
+      info.textContent = 'Lanțul P₅ are exact 2 noduri de grad impar: are lanț eulerian, dar nu ciclu eulerian și nici ciclu hamiltonian.';
+    } else if (name === 'k5') {
+      nodes = [{x:160,y:22},{x:270,y:80},{x:230,y:165},{x:90,y:165},{x:50,y:80}];
+      edges = [[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]];
+      info.textContent = 'K₅ are grad 4 în fiecare nod: este eulerian și are ciclu hamiltonian.';
+    } else {
+      nodes = [{x:160,y:30},{x:80,y:95},{x:240,y:95},{x:45,y:165},{x:115,y:165}];
+      edges = [[0,1],[0,2],[0,3],[0,4]];
+      info.textContent = 'Steaua S₅ nu este euleriană și nici hamiltoniană: are multe frunze și nu poate forma ciclu prin toate nodurile.';
+    }
+    draw();
+    updateBadges();
+  }
+
+  function adjacency() {
+    var adj = nodes.map(function(){ return []; });
+    edges.forEach(function(e){ adj[e[0]].push(e[1]); adj[e[1]].push(e[0]); });
+    return adj;
+  }
+
+  function connectedIgnoringIsolated() {
+    var adj = adjacency();
+    var start = adj.findIndex(function(v){ return v.length > 0; });
+    if (start === -1) return false;
+    var vis = Array(nodes.length).fill(false);
+    var st = [start];
+    while (st.length) {
+      var u = st.pop();
+      if (vis[u]) continue;
+      vis[u] = true;
+      adj[u].forEach(function(v){ if (!vis[v]) st.push(v); });
+    }
+    return adj.every(function(v, i){ return v.length === 0 || vis[i]; });
+  }
+
+  function hasHamiltonianCycle() {
+    var n = nodes.length;
+    if (n < 3) return false;
+    var adj = adjacency();
+    function dfs(path, used) {
+      if (path.length === n) return adj[path[path.length - 1]].includes(path[0]);
+      var last = path[path.length - 1];
+      for (var i = 0; i < adj[last].length; i++) {
+        var nxt = adj[last][i];
+        if (!used[nxt]) {
+          used[nxt] = true;
+          path.push(nxt);
+          if (dfs(path, used)) return true;
+          path.pop();
+          used[nxt] = false;
+        }
+      }
+      return false;
+    }
+    var used = Array(n).fill(false);
+    used[0] = true;
+    return dfs([0], used);
+  }
+
+  function properties() {
+    var adj = adjacency();
+    var odd = adj.filter(function(v){ return v.length % 2 === 1; }).length;
+    var connected = connectedIgnoringIsolated();
+    return {
+      eulerian: connected && odd === 0 && adj.every(function(v){ return v.length > 0; }),
+      eulerTrail: connected && odd === 2,
+      hamiltonian: hasHamiltonianCycle()
+    };
+  }
+
+  function badge(text, ok, color) {
+    return '<span style="padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;background:' + (ok ? color : 'rgba(148,163,184,.14)') + ';color:' + (ok ? '#fff' : 'var(--text-muted)') + ';">' + text + ': ' + (ok ? 'DA' : 'NU') + '</span>';
+  }
+
+  function updateBadges() {
+    var p = properties();
+    badgeWrap.innerHTML = badge('Ciclu eulerian', p.eulerian, '#16a34a') + badge('Lanț eulerian', p.eulerTrail, '#f59e0b') + badge('Ciclu hamiltonian', p.hamiltonian, '#8b5cf6');
+  }
+
+  function draw() {
+    var html = '';
+    edges.forEach(function(e) {
+      var a = nodes[e[0]], b = nodes[e[1]];
+      html += '<line x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '" stroke="#6366f1" stroke-width="3" opacity="0.75"/>';
+    });
+    nodes.forEach(function(nd, i) {
+      html += '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="15" fill="#8b5cf6" stroke="#fff" stroke-width="2"/>';
+      html += '<text x="' + nd.x + '" y="' + (nd.y+1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (i+1) + '</text>';
+    });
+    svg.innerHTML = html;
+  }
+
+  document.querySelectorAll('[data-eh]').forEach(function(btn) {
+    btn.addEventListener('click', function() { setPreset(btn.getAttribute('data-eh')); });
+  });
+
+  setPreset('cycle5');
+})();
+
+(function() {
+  // ─── Demo 8: Euler / Hamilton traversal walkthrough ─────────
+  var svg = document.getElementById('walk-svg');
+  if (!svg) return;
+  var info = document.getElementById('walk-info');
+  var legend = document.getElementById('walk-legend');
+  var btnEuler = document.getElementById('walk-run-euler');
+  var btnHamilton = document.getElementById('walk-run-hamilton');
+  var nodes = [];
+  var edges = [];
+  var timer = null;
+  var stepIndex = 0;
+  var path = [];
+  var mode = '';
+
+  function setPreset(name) {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (name === 'cycle5') {
+      nodes = [{x:160,y:25},{x:265,y:78},{x:225,y:160},{x:95,y:160},{x:55,y:78}];
+      edges = [[0,1],[1,2],[2,3],[3,4],[4,0]];
+    } else if (name === 'path5') {
+      nodes = [{x:35,y:95},{x:100,y:95},{x:165,y:95},{x:230,y:95},{x:295,y:95}];
+      edges = [[0,1],[1,2],[2,3],[3,4]];
+    } else if (name === 'k5') {
+      nodes = [{x:160,y:22},{x:270,y:80},{x:230,y:165},{x:90,y:165},{x:50,y:80}];
+      edges = [[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]];
+    } else {
+      nodes = [{x:160,y:30},{x:80,y:95},{x:240,y:95},{x:45,y:165},{x:115,y:165}];
+      edges = [[0,1],[0,2],[0,3],[0,4]];
+    }
+    stepIndex = 0;
+    path = [];
+    mode = '';
+    legend.innerHTML = '';
+    info.textContent = 'Preset încărcat. Rulează Euler sau Hamilton.';
+    draw();
+  }
+
+  function adjacencyWithEdgeIndex() {
+    var adj = Array.from({ length: nodes.length }, function() { return []; });
+    edges.forEach(function(e, idx) {
+      adj[e[0]].push({ v: e[1], id: idx });
+      adj[e[1]].push({ v: e[0], id: idx });
+    });
+    return adj;
+  }
+
+  function connectedIgnoringIsolated(adj, deg) {
+    var start = -1;
+    for (var i = 0; i < deg.length; i++) {
+      if (deg[i] > 0) { start = i; break; }
+    }
+    if (start < 0) return false;
+    var vis = Array(nodes.length).fill(false);
+    var st = [start];
+    while (st.length) {
+      var u = st.pop();
+      if (vis[u]) continue;
+      vis[u] = true;
+      adj[u].forEach(function(x) { if (!vis[x.v]) st.push(x.v); });
+    }
+    for (var j = 0; j < deg.length; j++) {
+      if (deg[j] > 0 && !vis[j]) return false;
+    }
+    return true;
+  }
+
+  function findEulerWalk() {
+    var adj = adjacencyWithEdgeIndex();
+    var deg = adj.map(function(v) { return v.length; });
+    var odd = [];
+    for (var i = 0; i < deg.length; i++) {
+      if (deg[i] % 2 === 1) odd.push(i);
+    }
+    if (!(odd.length === 0 || odd.length === 2)) return null;
+    if (!connectedIgnoringIsolated(adj, deg)) return null;
+
+    var used = Array(edges.length).fill(false);
+    var stack = [];
+    var out = [];
+    var start = odd.length === 2 ? odd[0] : deg.findIndex(function(x) { return x > 0; });
+    if (start < 0) return null;
+    stack.push(start);
+
+    while (stack.length) {
+      var u = stack[stack.length - 1];
+      var nextEdge = null;
+      for (var k = 0; k < adj[u].length; k++) {
+        if (!used[adj[u][k].id]) {
+          nextEdge = adj[u][k];
+          break;
+        }
+      }
+      if (!nextEdge) {
+        out.push(u);
+        stack.pop();
+      } else {
+        used[nextEdge.id] = true;
+        stack.push(nextEdge.v);
+      }
+    }
+    out.reverse();
+    if (out.length !== edges.length + 1) return null;
+    return out;
+  }
+
+  function hasEdge(u, v) {
+    for (var i = 0; i < edges.length; i++) {
+      if ((edges[i][0] === u && edges[i][1] === v) || (edges[i][0] === v && edges[i][1] === u)) return true;
+    }
+    return false;
+  }
+
+  function findHamiltonCycle() {
+    var n = nodes.length;
+    if (n < 3) return null;
+    var used = Array(n).fill(false);
+    var seq = [0];
+    used[0] = true;
+
+    function bt() {
+      if (seq.length === n) {
+        if (hasEdge(seq[seq.length - 1], seq[0])) {
+          seq.push(seq[0]);
+          return true;
+        }
+        return false;
+      }
+      var last = seq[seq.length - 1];
+      for (var v = 0; v < n; v++) {
+        if (!used[v] && hasEdge(last, v)) {
+          used[v] = true;
+          seq.push(v);
+          if (bt()) return true;
+          seq.pop();
+          used[v] = false;
+        }
+      }
+      return false;
+    }
+
+    return bt() ? seq.slice() : null;
+  }
+
+  function edgeInPrefix(u, v, upto) {
+    for (var i = 0; i < upto; i++) {
+      if ((path[i] === u && path[i + 1] === v) || (path[i] === v && path[i + 1] === u)) return true;
+    }
+    return false;
+  }
+
+  function draw() {
+    var html = '';
+    edges.forEach(function(e) {
+      var walked = path.length > 1 && edgeInPrefix(e[0], e[1], stepIndex);
+      html += '<line x1="' + nodes[e[0]].x + '" y1="' + nodes[e[0]].y + '" x2="' + nodes[e[1]].x + '" y2="' + nodes[e[1]].y + '" stroke="' + (walked ? '#f97316' : '#64748b') + '" stroke-width="' + (walked ? 4 : 2.5) + '" opacity="0.85"/>';
+    });
+    nodes.forEach(function(nd, i) {
+      var visited = false;
+      var current = false;
+      for (var j = 0; j <= stepIndex; j++) {
+        if (path[j] === i) visited = true;
+      }
+      if (path.length > 0 && path[Math.min(stepIndex, path.length - 1)] === i) current = true;
+      var fill = current ? '#f97316' : (visited ? '#22c55e' : '#6366f1');
+      html += '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="15" fill="' + fill + '" stroke="#fff" stroke-width="2"/>';
+      html += '<text x="' + nd.x + '" y="' + (nd.y + 1) + '" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11" font-weight="700">' + (i + 1) + '</text>';
+    });
+    svg.innerHTML = html;
+  }
+
+  function runAnimation(label, foundPath) {
+    if (!foundPath || foundPath.length < 2) {
+      info.textContent = 'Nu există ' + label + ' pentru presetul curent.';
+      return;
+    }
+    if (timer) clearInterval(timer);
+    mode = label;
+    path = foundPath;
+    stepIndex = 0;
+    legend.innerHTML =
+      '<span style="padding:4px 8px;border-radius:999px;background:rgba(34,197,94,.18);color:#166534;font-size:11px;font-weight:700;">Nod vizitat</span>' +
+      '<span style="padding:4px 8px;border-radius:999px;background:rgba(249,115,22,.18);color:#9a3412;font-size:11px;font-weight:700;">Muchie/nod curent</span>';
+    draw();
+
+    timer = setInterval(function() {
+      stepIndex++;
+      if (stepIndex >= path.length - 1) {
+        stepIndex = path.length - 1;
+        draw();
+        clearInterval(timer);
+        timer = null;
+        info.textContent = mode + ' finalizat: ' + path.map(function(v) { return v + 1; }).join(' → ');
+        return;
+      }
+      draw();
+      info.textContent = mode + ' · pas ' + (stepIndex + 1) + '/' + (path.length - 1) + ' · nod curent: ' + (path[stepIndex] + 1);
+    }, 700);
+  }
+
+  btnEuler.addEventListener('click', function() {
+    runAnimation('Traseu eulerian', findEulerWalk());
+  });
+  btnHamilton.addEventListener('click', function() {
+    runAnimation('Ciclu hamiltonian', findHamiltonCycle());
+  });
+
+  document.querySelectorAll('[data-walk]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setPreset(btn.getAttribute('data-walk'));
+    });
+  });
+
+  setPreset('cycle5');
 })();
 </script>
 

@@ -1,11 +1,20 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"declarare-functii","label":"Declarare și apel"},{"id":"parametri-valoare","label":"Parametri prin valoare"},{"id":"parametri-referinta","label":"Parametri prin referință"},{"id":"tipuri-return","label":"Tipul returnat"},{"id":"variabile","label":"Variabile locale/globale"},{"id":"subprograme-bac","label":"Subprograme predefinite"},{"id":"bac-functii","label":"Probleme BAC"}];
+const sections = [
+  {"id":"declarare-functii","label":"Declarare și apel"},
+  {"id":"parametri-valoare","label":"Parametri prin valoare"},
+  {"id":"parametri-referinta","label":"Parametri prin referință"},
+  {"id":"tipuri-return","label":"Tipul returnat"},
+  {"id":"variabile","label":"Variabile locale/globale"},
+  {"id":"subprograme-bac","label":"Subprograme predefinite"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"bac-functii","label":"Probleme BAC"}
+];
 ---
 <ChapterLayout
   title="Funcții și Subprograme"
-  subtitle="Capitol bonus — Declarare, parametri, apel și probleme BAC cu funcții"
+  subtitle="Capitolul 1 — Declarare, parametri, apel și probleme BAC cu funcții"
   icon="⚙️"
   gradient="linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 50%,#60a5fa 100%)"
   tags={["Funcții","Parametri","Valoare vs Referință","Variabile globale","Subprograme BAC"]}
@@ -313,6 +322,170 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
 
       <div class="callout success">
         <strong>La BAC este permis</strong> să folosești funcțiile din &lt;algorithm&gt; și &lt;cmath&gt; fără să le implementezi manual. Verifică mereu cerința problemei!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — funcții</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice cu funcții — separarea responsabilităților, parametri prin valoare/referință, return.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Funcție „este prim"</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Scrie o funcție <code>bool estePrim(int n)</code> care întoarce <code>true</code> dacă n este prim, <code>false</code> altfel. Apelează funcția în <code>main</code> pentru a verifica un număr citit.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>17</pre></div>
+          <div><strong>Ieșire:</strong><pre>DA</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">bool</span> <span class="fn">estePrim</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n &lt; <span class="nu">2</span>) <span class="kw">return false</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> d = <span class="nu">2</span>; (<span class="kw">long long</span>)d*d &lt;= n; d++)
+        <span class="kw">if</span> (n % d == <span class="nu">0</span>) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n; cin >> n;
+    cout &lt;&lt; (<span class="fn">estePrim</span>(n) ? <span class="st">"DA"</span> : <span class="st">"NU"</span>);
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> verificăm divizori până la √n. Folosim <code>d*d &lt;= n</code> ca să evităm <code>sqrt</code> (mai rapid). Funcția izolează logica — codul din main rămâne curat.</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Suma cifrelor cu funcție</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Scrie funcția <code>int sumCifre(int n)</code> care întoarce suma cifrelor lui n. Apoi afișează suma cifrelor pentru toate numerele dintr-un vector citit.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>4
+123 5 99 1234</pre></div>
+          <div><strong>Ieșire:</strong><pre>6 5 18 10</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> <span class="fn">sumCifre</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">int</span> s = <span class="nu">0</span>;
+    <span class="kw">while</span> (n) &#123; s += n % <span class="nu">10</span>; n /= <span class="nu">10</span>; &#125;
+    <span class="kw">return</span> s;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n; cin >> n;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>, x; i &lt; n; i++) &#123;
+        cin >> x;
+        cout &lt;&lt; <span class="fn">sumCifre</span>(x) &lt;&lt; <span class="st">' '</span>;
+    &#125;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> funcția modifică <code>n</code> local (parametru prin valoare) — n-ul din main rămâne neschimbat. Returnul oferă rezultatul.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Interschimbare cu referință (swap)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Scrie funcția <code>void interschimba(int &amp;a, int &amp;b)</code> care interschimbă valorile celor două variabile. Demonstreaz-o în main.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3 7</pre></div>
+          <div><strong>Ieșire:</strong><pre>7 3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">void</span> <span class="fn">interschimba</span>(<span class="kw">int</span> &amp;a, <span class="kw">int</span> &amp;b) &#123;
+    <span class="kw">int</span> t = a; a = b; b = t;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> x, y; cin >> x >> y;
+    <span class="fn">interschimba</span>(x, y);
+    cout &lt;&lt; x &lt;&lt; <span class="st">' '</span> &lt;&lt; y;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Cheia:</strong> <code>&amp;</code> înainte de nume = parametru prin referință. Modificările făcute în funcție afectează variabilele din main. Fără <code>&amp;</code>, modificările sunt locale și se pierd.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Min și max simultan (prin referință)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Scrie o funcție care primește un vector și întoarce <em>simultan</em> minimul și maximul prin parametri de tip referință.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5
+3 1 4 1 9</pre></div>
+          <div><strong>Ieșire:</strong><pre>min=1 max=9</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">void</span> <span class="fn">minMax</span>(<span class="kw">int</span> v[], <span class="kw">int</span> n, <span class="kw">int</span> &amp;mn, <span class="kw">int</span> &amp;mx) &#123;
+    mn = mx = v[<span class="nu">0</span>];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt; n; i++) &#123;
+        <span class="kw">if</span> (v[i] &lt; mn) mn = v[i];
+        <span class="kw">if</span> (v[i] > mx) mx = v[i];
+    &#125;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n, v[<span class="nu">105</span>]; cin >> n;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cin >> v[i];
+    <span class="kw">int</span> mn, mx;
+    <span class="fn">minMax</span>(v, n, mn, mx);
+    cout &lt;&lt; <span class="st">"min="</span> &lt;&lt; mn &lt;&lt; <span class="st">" max="</span> &lt;&lt; mx;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>De ce referință:</strong> o funcție poate returna o singură valoare prin <code>return</code>. Cu parametrii prin referință putem „returna" mai multe rezultate. Vectorul <code>v[]</code> se transmite implicit prin referință (pointer).</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Funcție recursivă cu memo (parametri)</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Scrie o funcție recursivă <code>long long fib(int n, long long memo[])</code> care folosește un tablou memo (parametru) pentru a evita recalcularea. Apel cu memo inițializat la −1.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>30</pre></div>
+          <div><strong>Ieșire:</strong><pre>832040</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">long long</span> <span class="fn">fib</span>(<span class="kw">int</span> n, <span class="kw">long long</span> memo[]) &#123;
+    <span class="kw">if</span> (n &lt;= <span class="nu">1</span>) <span class="kw">return</span> n;
+    <span class="kw">if</span> (memo[n] != -<span class="nu">1</span>) <span class="kw">return</span> memo[n];
+    <span class="kw">return</span> memo[n] = <span class="fn">fib</span>(n-<span class="nu">1</span>, memo) + <span class="fn">fib</span>(n-<span class="nu">2</span>, memo);
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">int</span> n; cin >> n;
+    <span class="kw">long long</span> memo[<span class="nu">95</span>];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; <span class="nu">95</span>; i++) memo[i] = -<span class="nu">1</span>;
+    cout &lt;&lt; <span class="fn">fib</span>(n, memo);
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>De ce parametri și nu global:</strong> funcția devine reutilizabilă și testabilă (poți o apela cu memo-uri diferite). Vectorul <code>memo[]</code> e transmis implicit prin referință — modificările persistă între apeluri.</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💪 Mai multă practică în secțiunea BAC.
       </div>
     </div>
   </div>

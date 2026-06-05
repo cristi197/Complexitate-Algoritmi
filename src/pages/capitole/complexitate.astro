@@ -1,11 +1,22 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"definitie","label":"Definiție"},{"id":"notatii","label":"Notații"},{"id":"clase","label":"Clase"},{"id":"timp","label":"Complexitate Timp"},{"id":"spatiu","label":"Complexitate Spațiu"},{"id":"sortare","label":"Sortare"},{"id":"demo","label":"Demo Bubble Sort"},{"id":"bac","label":"Probleme BAC"},{"id":"refs","label":"Referințe"}];
+const sections = [
+  {"id":"definitie","label":"Definiție"},
+  {"id":"notatii","label":"Notații"},
+  {"id":"clase","label":"Clase"},
+  {"id":"timp","label":"Complexitate Timp"},
+  {"id":"spatiu","label":"Complexitate Spațiu"},
+  {"id":"sortare","label":"Sortare"},
+  {"id":"demo","label":"Demo Bubble Sort"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"bac","label":"Probleme BAC"},
+  {"id":"refs","label":"Referințe"}
+];
 ---
 <ChapterLayout
   title="Eficiența și Complexitatea Algoritmilor"
-  subtitle="Capitolul 1 — Notații asimptotice, clase de complexitate, analiza algoritmilor de sortare"
+  subtitle="Capitolul 2 — Notații asimptotice, clase de complexitate, analiza algoritmilor de sortare"
   icon="📊"
   gradient="linear-gradient(135deg,#0c4a6e 0%,#0369a1 50%,#0ea5e9 100%)"
   tags={["Big-O","Bubble Sort","Căutare binară","Sortare","Complexitate spațiu"]}
@@ -404,6 +415,128 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"notatii","label
           </label>
         </div>
         <div class="anim-status" style="font-size:13px;color:#6b7280;min-height:22px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — analiza complexității</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 exerciții cu analiza pas cu pas a complexității timp și spațiu.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Două bucle imbricate independente</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Calculează complexitatea timp a fragmentului:</div>
+        <div class="pc-io">
+          <div><strong>Cod:</strong><pre>for (i = 1; i &lt;= n; i++)
+  for (j = 1; j &lt;= m; j++)
+    s++;</pre></div>
+          <div><strong>Răspuns:</strong><pre>O(n · m)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Explicație</summary>
+          <p style="font-size:13px;">Bucla externă rulează exact n iterații. Pentru fiecare, bucla internă rulează m iterații. Total = n × m operații elementare. Dacă n = m, e <strong>O(n²)</strong>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Bucla pe i, internă pe i</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Care este complexitatea?</div>
+        <div class="pc-io">
+          <div><strong>Cod:</strong><pre>for (i = 1; i &lt;= n; i++)
+  for (j = 1; j &lt;= i; j++)
+    op();</pre></div>
+          <div><strong>Răspuns:</strong><pre>O(n²)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Explicație</summary>
+          <p style="font-size:13px;">Numărul total de operații = 1 + 2 + 3 + ... + n = <strong>n(n+1)/2</strong>. În notație asimptotică ignoram constantele și termenii inferiori ⇒ <strong>O(n²)</strong>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Bucla cu înjumătățire</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Care este complexitatea?</div>
+        <div class="pc-io">
+          <div><strong>Cod:</strong><pre>i = n;
+while (i &gt; 0) &#123;
+  for (j = 1; j &lt;= n; j++) op();
+  i = i / 2;
+&#125;</pre></div>
+          <div><strong>Răspuns:</strong><pre>O(n log n)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Explicație</summary>
+          <p style="font-size:13px;">Bucla while rulează <strong>log₂ n</strong> iterații (i se înjumătățește). Bucla for internă rulează n operații. Total = n · log n. Acesta este și complexitatea sortărilor optime (merge sort, heap sort, quicksort mediu).</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Trei bucle imbricate</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Calculează complexitatea pentru produsul a două matrici n × n:</div>
+        <div class="pc-io">
+          <div><strong>Cod:</strong><pre>for (i = 1; i &lt;= n; i++)
+  for (j = 1; j &lt;= n; j++) &#123;
+    c[i][j] = 0;
+    for (k = 1; k &lt;= n; k++)
+      c[i][j] += a[i][k] * b[k][j];
+  &#125;</pre></div>
+          <div><strong>Răspuns:</strong><pre>O(n³)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Explicație</summary>
+          <p style="font-size:13px;">Trei bucle imbricate, fiecare cu n iterații ⇒ n × n × n = n³ operații. Pentru n = 1000 ⇒ 10⁹ operații — la limita timpului obișnuit de 1 s. Există algoritmi sub-cubici (Strassen O(n^2.81)), dar la BAC algoritmul clasic e ok.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Recurența T(n) = T(n/2) + O(1)</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Care este complexitatea unei funcții recursive cu recurența T(n) = T(n/2) + O(1)? Dă un exemplu.</div>
+        <div class="pc-io">
+          <div><strong>Recurență:</strong><pre>T(n) = T(n/2) + O(1)
+T(1) = O(1)</pre></div>
+          <div><strong>Răspuns:</strong><pre>O(log n)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Explicație</summary>
+          <p style="font-size:13px;">Desfășurăm: T(n) = T(n/2) + c = T(n/4) + 2c = T(n/8) + 3c = ... = T(1) + c·log₂n = O(log n). <strong>Exemplu:</strong> <code>cautareBinaraRec(v, st, dr, x)</code> — la fiecare apel reduce intervalul la jumătate.</p>
+          <p style="margin-top:6px;font-size:13px;color:var(--text-muted);"><strong>Comparație rapidă (Master Theorem):</strong> T(n) = 2T(n/2) + O(n) ⇒ O(n log n) (merge sort); T(n) = T(n−1) + O(1) ⇒ O(n) (factorial).</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💡 <strong>Sfat:</strong> pentru BAC focusează-te pe O(1), O(log n), O(n), O(n log n), O(n²), O(n³), O(2ⁿ), O(n!).
       </div>
     </div>
   </div>

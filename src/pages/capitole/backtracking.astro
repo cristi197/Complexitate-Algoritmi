@@ -1,11 +1,22 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"definitie","label":"Definiție"},{"id":"sablon","label":"Șablon"},{"id":"permutari","label":"Permutări"},{"id":"combinari","label":"Combinări"},{"id":"submultimi","label":"Submulțimi"},{"id":"regine","label":"Problema Reginelor"},{"id":"demo","label":"Demo N-Regine"},{"id":"labirint","label":"Labirint"},{"id":"bac","label":"Probleme BAC"}];
+const sections = [
+  {"id":"definitie","label":"Definiție"},
+  {"id":"sablon","label":"Șablon"},
+  {"id":"permutari","label":"Permutări"},
+  {"id":"combinari","label":"Combinări"},
+  {"id":"submultimi","label":"Submulțimi"},
+  {"id":"regine","label":"Problema Reginelor"},
+  {"id":"demo","label":"Demo N-Regine"},
+  {"id":"labirint","label":"Labirint"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"bac","label":"Probleme BAC"}
+];
 ---
 <ChapterLayout
   title="Backtracking"
-  subtitle="Capitolul 3 — Căutare exhaustivă cu revenire, permutări, combinări, problema reginelor"
+  subtitle="Capitolul 4 — Căutare exhaustivă cu revenire, permutări, combinări, problema reginelor"
   icon="🌳"
   gradient="linear-gradient(135deg,#2e1065 0%,#4c1d95 50%,#7c3aed 100%)"
   tags={["Backtracking","N-Regine","Permutări","Labirint","Combinări"]}
@@ -313,6 +324,216 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"sablon","label"
     &#125;
     <span class="kw">return false</span>;
 &#125;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — backtracking</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice, fiecare cu enunț, exemplu și soluție comentată.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Toate șirurile binare de lungime n</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Generează și afișează toate șirurile binare de lungime <strong>n</strong> (1 ≤ n ≤ 10), câte unul pe linie, în ordine lexicografică.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3</pre></div>
+          <div><strong>Ieșire:</strong><pre>000
+001
+010
+011
+100
+101
+110
+111</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n, x[<span class="nu">15</span>];
+<span class="kw">void</span> <span class="fn">bin</span>(<span class="kw">int</span> k) &#123;
+    <span class="kw">if</span> (k > n) &#123;
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= n; i++) cout &lt;&lt; x[i];
+        cout &lt;&lt; <span class="st">'\n'</span>;
+        <span class="kw">return</span>;
+    &#125;
+    <span class="kw">for</span> (<span class="kw">int</span> v = <span class="nu">0</span>; v &lt;= <span class="nu">1</span>; v++) &#123;
+        x[k] = v;
+        <span class="fn">bin</span>(k + <span class="nu">1</span>);
+    &#125;
+&#125;
+<span class="cm">// Apel: bin(1); Generează 2^n șiruri.</span></pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> arborele binar de decizie — la fiecare poziție alegem 0 sau 1. Cazul de bază: când k &gt; n, afișăm vectorul curent.</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Aranjamente A(n, k)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Generează toate aranjamentele de <strong>k</strong> elemente alese din mulțimea &#123;1, 2, ..., n&#125;, în ordine lexicografică.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3 2</pre></div>
+          <div><strong>Ieșire:</strong><pre>1 2
+1 3
+2 1
+2 3
+3 1
+3 2</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n, k, x[<span class="nu">20</span>];
+<span class="kw">bool</span> folosit[<span class="nu">20</span>];
+<span class="kw">void</span> <span class="fn">aranj</span>(<span class="kw">int</span> p) &#123;
+    <span class="kw">if</span> (p > k) &#123;
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= k; i++) cout &lt;&lt; x[i] &lt;&lt; <span class="st">' '</span>;
+        cout &lt;&lt; <span class="st">'\n'</span>;
+        <span class="kw">return</span>;
+    &#125;
+    <span class="kw">for</span> (<span class="kw">int</span> v = <span class="nu">1</span>; v &lt;= n; v++) &#123;
+        <span class="kw">if</span> (!folosit[v]) &#123;
+            x[p] = v;
+            folosit[v] = <span class="kw">true</span>;
+            <span class="fn">aranj</span>(p + <span class="nu">1</span>);
+            folosit[v] = <span class="kw">false</span>;   <span class="cm">// backtrack!</span>
+        &#125;
+    &#125;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Diferența față de permutări:</strong> ne oprim la k poziții (p &gt; k), nu la n. <strong>Diferența față de combinări:</strong> ordinea contează — pornim mereu de la 1.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Suma s din mulțime</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Date un vector cu n numere și o sumă s, afișează toate submulțimile care au suma egală cu s.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5 10
+3 5 2 7 4</pre></div>
+          <div><strong>Ieșire:</strong><pre>3 5 2
+3 7
+2 4
+3 5 2 (în alte ordini omise)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n, s, a[<span class="nu">25</span>];
+<span class="kw">bool</span> sel[<span class="nu">25</span>];
+<span class="kw">void</span> <span class="fn">sub</span>(<span class="kw">int</span> i, <span class="kw">int</span> sum) &#123;
+    <span class="kw">if</span> (i > n) &#123;
+        <span class="kw">if</span> (sum == s) &#123;
+            <span class="kw">for</span> (<span class="kw">int</span> j = <span class="nu">1</span>; j &lt;= n; j++)
+                <span class="kw">if</span> (sel[j]) cout &lt;&lt; a[j] &lt;&lt; <span class="st">' '</span>;
+            cout &lt;&lt; <span class="st">'\n'</span>;
+        &#125;
+        <span class="kw">return</span>;
+    &#125;
+    <span class="cm">// Decizie: includem a[i]</span>
+    sel[i] = <span class="kw">true</span>;
+    <span class="fn">sub</span>(i + <span class="nu">1</span>, sum + a[i]);
+    sel[i] = <span class="kw">false</span>;       <span class="cm">// backtrack</span>
+    <span class="cm">// Decizie: NU includem a[i]</span>
+    <span class="fn">sub</span>(i + <span class="nu">1</span>, sum);
+&#125;
+<span class="cm">// Apel: sub(1, 0);</span>
+<span class="cm">// Optimizare (pruning): if (sum > s) return;</span></pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Două variante per element:</strong> îl includ sau nu. 2<sup>n</sup> submulțimi explorate. Cu pruning (oprim când sum &gt; s, dacă elementele sunt pozitive) devine mult mai rapid în practică.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Numere strict crescătoare</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Generează toate numerele de <strong>k</strong> cifre, cu cifre strict crescătoare, în ordine lexicografică. Cifrele aparțin mulțimii &#123;1, 2, ..., 9&#125;.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3</pre></div>
+          <div><strong>Ieșire:</strong><pre>123, 124, 125, …, 789  (84 numere)</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> k, x[<span class="nu">10</span>];
+<span class="kw">void</span> <span class="fn">cresc</span>(<span class="kw">int</span> p) &#123;
+    <span class="kw">if</span> (p > k) &#123;
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">1</span>; i &lt;= k; i++) cout &lt;&lt; x[i];
+        cout &lt;&lt; <span class="st">'\n'</span>;
+        <span class="kw">return</span>;
+    &#125;
+    <span class="kw">int</span> start = (p == <span class="nu">1</span>) ? <span class="nu">1</span> : x[p - <span class="nu">1</span>] + <span class="nu">1</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> v = start; v &lt;= <span class="nu">9</span>; v++) &#123;
+        x[p] = v;
+        <span class="fn">cresc</span>(p + <span class="nu">1</span>);
+    &#125;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Restricția „strict crescător":</strong> pornim căutarea de la <code>x[p-1] + 1</code>. Nu mai e nevoie de tablou <code>folosit[]</code> — restricția se asigură automat din start.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Cod numeric pentru un cuvânt</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Pentru un șir de cifre (ex: „123"), generează toate decodificările posibile știind că 1→A, 2→B, …, 26→Z. Cifrele se pot grupa câte 1 sau câte 2 (dacă valoarea ≤ 26).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>123</pre></div>
+          <div><strong>Ieșire:</strong><pre>ABC
+AW
+LC</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre>string s, sol;
+<span class="kw">void</span> <span class="fn">decod</span>(<span class="kw">int</span> i) &#123;
+    <span class="kw">if</span> (i == (<span class="kw">int</span>)s.size()) &#123;
+        cout &lt;&lt; sol &lt;&lt; <span class="st">'\n'</span>;
+        <span class="kw">return</span>;
+    &#125;
+    <span class="cm">// 1) o singură cifră</span>
+    <span class="kw">if</span> (s[i] != <span class="st">'0'</span>) &#123;
+        sol += (<span class="kw">char</span>)(<span class="st">'A'</span> + (s[i] - <span class="st">'0'</span>) - <span class="nu">1</span>);
+        <span class="fn">decod</span>(i + <span class="nu">1</span>);
+        sol.pop_back();   <span class="cm">// backtrack</span>
+    &#125;
+    <span class="cm">// 2) două cifre (dacă valoarea ≤ 26)</span>
+    <span class="kw">if</span> (i + <span class="nu">1</span> &lt; (<span class="kw">int</span>)s.size()) &#123;
+        <span class="kw">int</span> v = (s[i] - <span class="st">'0'</span>) * <span class="nu">10</span> + (s[i+<span class="nu">1</span>] - <span class="st">'0'</span>);
+        <span class="kw">if</span> (v >= <span class="nu">10</span> && v &lt;= <span class="nu">26</span>) &#123;
+            sol += (<span class="kw">char</span>)(<span class="st">'A'</span> + v - <span class="nu">1</span>);
+            <span class="fn">decod</span>(i + <span class="nu">2</span>);
+            sol.pop_back();
+        &#125;
+    &#125;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Două decizii la fiecare pas:</strong> consumăm 1 sau 2 cifre. Restricții: nu permitem zero ca cifră singură; perechea de 2 cifre trebuie să fie între 10 și 26.</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💪 Practică suplimentară: secțiunea BAC de mai jos și quiz-ul interactiv.
+      </div>
     </div>
   </div>
 </section>

@@ -8,6 +8,7 @@ const sections = [
   { id: 'alocare', label: 'new și delete' },
   { id: 'functii', label: 'Pointeri în funcții' },
   { id: 'liste', label: 'Liste înlănțuite' },
+  { id: 'probleme-rezolvate', label: 'Probleme rezolvate' },
   { id: 'bac-pointeri', label: 'Probleme BAC' },
 ];
 ---
@@ -297,6 +298,174 @@ head = <span class="kw">nullptr</span>;</pre>
             <tr><td>Memorie</td><td class="row-green">Contiguă, cache-friendly</td><td class="row-red">Fragmentată</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — pointeri</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme practice cu pointeri, alocare dinamică și liste înlănțuite.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Suma elementelor folosind doar pointer</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește n elemente într-un vector alocat dinamic. Calculează suma folosind <strong>doar aritmetică de pointeri</strong> (fără indici <code>[i]</code>).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5
+1 2 3 4 5</pre></div>
+          <div><strong>Ieșire:</strong><pre>15</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n; cin >> n;
+<span class="kw">int</span>* v = <span class="kw">new int</span>[n];
+<span class="kw">for</span> (<span class="kw">int</span>* p = v; p &lt; v + n; p++) cin >> *p;
+<span class="kw">long long</span> s = <span class="nu">0</span>;
+<span class="kw">for</span> (<span class="kw">int</span>* p = v; p &lt; v + n; p++) s += *p;
+cout &lt;&lt; s;
+<span class="kw">delete</span>[] v;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> <code>v + i</code> e echivalent cu <code>&amp;v[i]</code>. <code>*p</code> obține valoarea. Nu uita <code>delete[]</code>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Inversare vector cu doi pointeri</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Inversează „pe loc" un vector alocat dinamic, folosind doi pointeri (stânga, dreapta) care se apropie.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5
+1 2 3 4 5</pre></div>
+          <div><strong>Ieșire:</strong><pre>5 4 3 2 1</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> n; cin >> n;
+<span class="kw">int</span>* v = <span class="kw">new int</span>[n];
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cin >> v[i];
+<span class="kw">int</span>* st = v;
+<span class="kw">int</span>* dr = v + n - <span class="nu">1</span>;
+<span class="kw">while</span> (st &lt; dr) &#123;
+    <span class="kw">int</span> t = *st; *st = *dr; *dr = t;
+    st++; dr--;
+&#125;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cout &lt;&lt; v[i] &lt;&lt; <span class="st">' '</span>;
+<span class="kw">delete</span>[] v;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Complexitate:</strong> O(n) timp, O(1) memorie suplimentară. Tehnică „two pointers" foarte folosită.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Realocare dinamică (vector care crește)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește numere până la −1. Stochează-le într-un vector alocat dinamic care își dublează capacitatea când e plin.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3 7 1 9 4 -1</pre></div>
+          <div><strong>Ieșire:</strong><pre>3 7 1 9 4</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> cap = <span class="nu">2</span>, n = <span class="nu">0</span>;
+<span class="kw">int</span>* v = <span class="kw">new int</span>[cap];
+<span class="kw">int</span> x;
+<span class="kw">while</span> (cin >> x &amp;&amp; x != -<span class="nu">1</span>) &#123;
+    <span class="kw">if</span> (n == cap) &#123;
+        cap *= <span class="nu">2</span>;
+        <span class="kw">int</span>* nou = <span class="kw">new int</span>[cap];
+        <span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) nou[i] = v[i];
+        <span class="kw">delete</span>[] v;
+        v = nou;
+    &#125;
+    v[n++] = x;
+&#125;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cout &lt;&lt; v[i] &lt;&lt; <span class="st">' '</span>;
+<span class="kw">delete</span>[] v;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> exact ce face <code>std::vector</code> intern. Dublarea garantează cost amortizat O(1) pe inserție.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Listă înlănțuită — inserare la început</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește n numere și inserează-le pe rând la <strong>începutul</strong> unei liste simplu înlănțuite. Afișează lista (va fi în ordine inversă față de citire).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5
+1 2 3 4 5</pre></div>
+          <div><strong>Ieșire:</strong><pre>5 4 3 2 1</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Nod &#123; <span class="kw">int</span> val; Nod* urm; &#125;;
+Nod* cap = <span class="kw">nullptr</span>;
+<span class="kw">int</span> n; cin >> n;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>, x; i &lt; n; i++) &#123;
+    cin >> x;
+    Nod* nou = <span class="kw">new</span> Nod&#123;x, cap&#125;;
+    cap = nou;
+&#125;
+<span class="kw">for</span> (Nod* p = cap; p; p = p->urm) cout &lt;&lt; p->val &lt;&lt; <span class="st">' '</span>;
+<span class="cm">// (opțional: eliberare memorie)</span>
+<span class="kw">while</span> (cap) &#123; Nod* t = cap; cap = cap->urm; <span class="kw">delete</span> t; &#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Cheia:</strong> noul nod pointează spre vechiul cap, apoi capul devine noul nod. Inserare la început = <strong>O(1)</strong>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Numără nodurile cu valoare pară</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Având capul unei liste simplu înlănțuite (construită din citire până la 0), parcurge lista și afișează numărul nodurilor cu valoare pară. Eliberează apoi memoria.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3 4 7 8 2 0</pre></div>
+          <div><strong>Ieșire:</strong><pre>3</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Nod &#123; <span class="kw">int</span> val; Nod* urm; &#125;;
+Nod* cap = <span class="kw">nullptr</span>;
+Nod* coada = <span class="kw">nullptr</span>;
+<span class="kw">int</span> x;
+<span class="kw">while</span> (cin >> x &amp;&amp; x != <span class="nu">0</span>) &#123;
+    Nod* nou = <span class="kw">new</span> Nod&#123;x, <span class="kw">nullptr</span>&#125;;
+    <span class="kw">if</span> (!cap) cap = coada = nou;
+    <span class="kw">else</span> &#123; coada->urm = nou; coada = nou; &#125;
+&#125;
+<span class="kw">int</span> cnt = <span class="nu">0</span>;
+<span class="kw">for</span> (Nod* p = cap; p; p = p->urm)
+    <span class="kw">if</span> (p->val % <span class="nu">2</span> == <span class="nu">0</span>) cnt++;
+cout &lt;&lt; cnt;
+<span class="kw">while</span> (cap) &#123; Nod* t = cap; cap = cap->urm; <span class="kw">delete</span> t; &#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Detaliu:</strong> ținem și un pointer <code>coada</code> ca să facem inserare la <em>sfârșit</em> în O(1). Parcurgerea cu <code>for (Nod* p = cap; p; p = p-&gt;urm)</code> este idiomatic.</p>
+        </details>
+      </div>
+
+      <div class="callout warning" style="margin-top:16px;">
+        ⚠️ <strong>Verifică totdeauna:</strong> 1) inițializează <code>urm = nullptr</code>; 2) verifică <code>!= nullptr</code> înainte să dereferenți; 3) eliberează cu <code>delete</code> ce ai alocat cu <code>new</code>.
       </div>
     </div>
   </div>

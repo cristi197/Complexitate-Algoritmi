@@ -7,6 +7,7 @@ const sections = [
   {"id":"array-struct","label":"Vector de structuri"},
   {"id":"sortare-struct","label":"Sortare după câmp"},
   {"id":"functii-struct","label":"Structuri în funcții"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
   {"id":"bac-struct","label":"Probleme BAC"}
 ];
 ---
@@ -254,6 +255,166 @@ Punct <span class="fn">mijloc</span>(Punct a, Punct b) &#123;
           <strong>Prin referință (&amp;)</strong>
           <p>Funcția modifică originalul. Potrivit pentru funcții de citire, sortare, modificare.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — struct</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice cu structuri — elev, punct, carte, produs.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Elevul cu media maximă</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește n elevi (nume + medie). Afișează numele elevului cu media cea mai mare.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3
+Ana 9.20
+Bogdan 8.50
+Carmen 9.75</pre></div>
+          <div><strong>Ieșire:</strong><pre>Carmen</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Elev &#123; <span class="kw">string</span> nume; <span class="kw">double</span> medie; &#125;;
+<span class="kw">int</span> n; cin >> n;
+Elev e[<span class="nu">105</span>], best;
+best.medie = -<span class="nu">1</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) &#123;
+    cin >> e[i].nume >> e[i].medie;
+    <span class="kw">if</span> (e[i].medie > best.medie) best = e[i];
+&#125;
+cout &lt;&lt; best.nume;</pre>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Distanța între două puncte</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Definește un struct <code>Punct &#123; double x, y; &#125;</code>. Citește două puncte și afișează distanța euclidiană (2 zecimale).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>0 0
+3 4</pre></div>
+          <div><strong>Ieșire:</strong><pre>5.00</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Punct &#123; <span class="kw">double</span> x, y; &#125;;
+Punct a, b;
+cin >> a.x >> a.y >> b.x >> b.y;
+<span class="kw">double</span> d = <span class="fn">sqrt</span>((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
+cout &lt;&lt; <span class="fn">fixed</span> &lt;&lt; <span class="fn">setprecision</span>(<span class="nu">2</span>) &lt;&lt; d;</pre>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Sortare cărți după an</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește n cărți (titlu, autor, an). Sortează crescător după an și afișează titlurile.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>3
+Baltagul Sadoveanu 1930
+Maitreyi Eliade 1933
+Ion Rebreanu 1920</pre></div>
+          <div><strong>Ieșire:</strong><pre>Ion
+Baltagul
+Maitreyi</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Carte &#123; <span class="kw">string</span> titlu, autor; <span class="kw">int</span> an; &#125;;
+Carte c[<span class="nu">105</span>];
+<span class="kw">int</span> n; cin >> n;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cin >> c[i].titlu >> c[i].autor >> c[i].an;
+<span class="fn">sort</span>(c, c+n, [](Carte a, Carte b)&#123; <span class="kw">return</span> a.an &lt; b.an; &#125;);
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cout &lt;&lt; c[i].titlu &lt;&lt; <span class="st">'\n'</span>;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> <code>sort</code> cu comparator lambda. La BAC poate apărea și ca <code>bool cmp(Carte a, Carte b) &#123; return a.an &lt; b.an; &#125;</code>.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Produs cu reducere (funcție pe struct)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Definește <code>Produs &#123; string nume; double pret; int procReducere; &#125;</code>. Scrie funcția <code>double pretFinal(Produs p)</code>. Afișează prețul final pentru fiecare din n produse citite.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>2
+Tricou 100 20
+Pantaloni 200 10</pre></div>
+          <div><strong>Ieșire:</strong><pre>Tricou 80.00
+Pantaloni 180.00</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Produs &#123; <span class="kw">string</span> nume; <span class="kw">double</span> pret; <span class="kw">int</span> procReducere; &#125;;
+<span class="kw">double</span> <span class="fn">pretFinal</span>(Produs p) &#123;
+    <span class="kw">return</span> p.pret * (<span class="nu">100</span> - p.procReducere) / <span class="nu">100.0</span>;
+&#125;
+<span class="kw">int</span> n; cin >> n;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) &#123;
+    Produs p; cin >> p.nume >> p.pret >> p.procReducere;
+    cout &lt;&lt; p.nume &lt;&lt; <span class="st">' '</span> &lt;&lt; <span class="fn">fixed</span> &lt;&lt; <span class="fn">setprecision</span>(<span class="nu">2</span>) &lt;&lt; <span class="fn">pretFinal</span>(p) &lt;&lt; <span class="st">'\n'</span>;
+&#125;</pre>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Top 3 elevi (sortare descrescătoare)</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Citește n elevi (nume + medie). Afișează primii 3 elevi în ordine descrescătoare a mediei. Dacă n &lt; 3, afișează toți elevii.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>5
+Ana 9.2
+Bogdan 8.5
+Carmen 9.75
+Dan 7.8
+Eva 9.5</pre></div>
+          <div><strong>Ieșire:</strong><pre>Carmen 9.75
+Eva 9.50
+Ana 9.20</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">struct</span> Elev &#123; <span class="kw">string</span> nume; <span class="kw">double</span> medie; &#125;;
+<span class="kw">int</span> n; cin >> n;
+Elev e[<span class="nu">105</span>];
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; n; i++) cin >> e[i].nume >> e[i].medie;
+<span class="fn">sort</span>(e, e+n, [](Elev a, Elev b)&#123; <span class="kw">return</span> a.medie > b.medie; &#125;);
+<span class="kw">int</span> k = <span class="fn">min</span>(<span class="nu">3</span>, n);
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="nu">0</span>; i &lt; k; i++)
+    cout &lt;&lt; e[i].nume &lt;&lt; <span class="st">' '</span> &lt;&lt; <span class="fn">fixed</span> &lt;&lt; <span class="fn">setprecision</span>(<span class="nu">2</span>) &lt;&lt; e[i].medie &lt;&lt; <span class="st">'\n'</span>;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Trucuri:</strong> 1) <code>return a.medie > b.medie</code> pentru descrescător; 2) <code>min(3, n)</code> evită out-of-bounds dacă sunt mai puțini elevi.</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💡 <strong>Recomandare BAC:</strong> definește struct-ul în afara funcțiilor (la nivel global) ca să fie vizibil peste tot.
       </div>
     </div>
   </div>

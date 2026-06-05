@@ -1,11 +1,23 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"definitie","label":"Definiție"},{"id":"stiva","label":"Stiva de Apeluri"},{"id":"factorial","label":"Factorial"},{"id":"fibonacci","label":"Fibonacci"},{"id":"hanoi","label":"Hanoi"},{"id":"cautare","label":"Căutare Binară"},{"id":"demo","label":"Demo Interactiv"},{"id":"recvsiter","label":"Recursiv vs Iterativ"},{"id":"memoizare","label":"Memoizare"},{"id":"bac","label":"Probleme BAC"}];
+const sections = [
+  {"id":"definitie","label":"Definiție"},
+  {"id":"stiva","label":"Stiva de Apeluri"},
+  {"id":"factorial","label":"Factorial"},
+  {"id":"fibonacci","label":"Fibonacci"},
+  {"id":"hanoi","label":"Hanoi"},
+  {"id":"cautare","label":"Căutare Binară"},
+  {"id":"demo","label":"Demo Interactiv"},
+  {"id":"recvsiter","label":"Recursiv vs Iterativ"},
+  {"id":"memoizare","label":"Memoizare"},
+  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
+  {"id":"bac","label":"Probleme BAC"}
+];
 ---
 <ChapterLayout
   title="Recursivitate"
-  subtitle="Capitolul 2 — Funcții recursive, stiva de apeluri, exemple clasice și probleme BAC"
+  subtitle="Capitolul 3 — Funcții recursive, stiva de apeluri, exemple clasice și probleme BAC"
   icon="🔄"
   gradient="linear-gradient(135deg,#064e3b 0%,#065f46 50%,#059669 100%)"
   tags={["Recursivitate","Factorial","Fibonacci","Stivă de apeluri","Memoizare"]}
@@ -156,18 +168,33 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"stiva","label":
             ├── fib(2) → ...<br>
             └── fib(1)
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ─── 5. HANOI ─────────────────────────────────────── -->
-<section id="hanoi">
-  <div class="slide">
-    <div class="slide-header">
-      <span class="slide-icon icon-red">🗼</span>
-      <h2>Turnurile din Hanoi</h2>
-    </div>
-    <div class="slide-body">
+      <!-- ── Interactive: fib recursion tree (with/without memo) ── -->
+      <div id="fib-tree-viz" class="viz-card">
+        <strong>🎮 Demo interactiv — arborele de recursie fib(n)</strong>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Bifează <strong>Memoizare</strong> și compară numărul de apeluri. Pentru n=8 fără memoizare apar peste 60 de apeluri, cu memoizare doar 15.</p>
+        <div class="speed-wrap" style="margin-bottom:8px;">
+          <label>⚡ Viteză:</label>
+          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <span class="speed-label">Normal</span>
+        </div>
+        <div class="viz-controls">
+          <label>n:</label>
+          <input type="number" data-fib="n" value="5" min="0" max="8" style="width:60px;padding:4px 8px;border-radius:6px;border:1px solid var(--border);">
+          <label style="margin-left:8px;"><input type="checkbox" data-fib="memo"> Memoizare</label>
+          <button class="btn btn-primary" data-fib="go">▶ Rulează</button>
+          <button class="btn btn-secondary" data-fib="reset">↺ Reset</button>
+          <span style="margin-left:8px;font-size:13px;color:var(--text-muted);">Apeluri: <strong data-fib="calls">0</strong></span>
+        </div>
+        <div class="fib-tree" data-fib="tree"></div>
+        <div class="viz-status"></div>
+        <div class="viz-legend">
+          <span><i style="background:#fef3c7;border:1px solid #f59e0b;"></i> în curs</span>
+          <span><i style="background:#dcfce7;border:1px solid #16a34a;"></i> caz de bază</span>
+          <span><i style="background:#dbeafe;border:1px solid #3b82f6;"></i> calculat</span>
+          <span><i style="background:#f3e8ff;border:1px solid #a855f7;"></i> memo hit ⚡</span>
+        </div>
+      </div>
       <div class="callout info">
         <strong>Problema:</strong> Mută n discuri de pe tija A pe tija C folosind tija B ca intermediar. Regulă: nu se poate pune un disc mai mare pe unul mai mic.
       </div>
@@ -337,6 +364,151 @@ const sections = [{"id":"definitie","label":"Definiție"},{"id":"stiva","label":
     <span class="kw">return</span> b;
     <span class="cm">// O(n) timp, O(1) spațiu — cel mai eficient</span>
 &#125;</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEME REZOLVATE ───────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — recursivitate</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme clasice, fiecare urmărind tiparul: <em>caz de bază + pas recursiv</em>.</p>
+
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Sumă cifre recursiv</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Scrie o funcție recursivă care calculează suma cifrelor unui număr natural <strong>n</strong>.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>1234</pre></div>
+          <div><strong>Ieșire:</strong><pre>10</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> <span class="fn">sumCifre</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n == <span class="nu">0</span>) <span class="kw">return</span> <span class="nu">0</span>;        <span class="cm">// caz de bază</span>
+    <span class="kw">return</span> n % <span class="nu">10</span> + <span class="fn">sumCifre</span>(n / <span class="nu">10</span>);
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> ultima cifră = <code>n%10</code>; restul cifrelor formează <code>n/10</code>. Recursia se oprește când n=0 (nu mai sunt cifre).</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Putere a^b recursiv</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Calculează a<sup>b</sup> folosind recursivitatea, fără a folosi <code>pow</code>.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>2 10</pre></div>
+          <div><strong>Ieșire:</strong><pre>1024</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">long long</span> <span class="fn">putere</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+    <span class="kw">if</span> (b == <span class="nu">0</span>) <span class="kw">return</span> <span class="nu">1</span>;          <span class="cm">// a^0 = 1</span>
+    <span class="kw">return</span> a * <span class="fn">putere</span>(a, b - <span class="nu">1</span>);
+&#125;
+
+<span class="cm">// Optimizat: O(log b) — exponențiere rapidă</span>
+<span class="kw">long long</span> <span class="fn">putereRapid</span>(<span class="kw">long long</span> a, <span class="kw">int</span> b) &#123;
+    <span class="kw">if</span> (b == <span class="nu">0</span>) <span class="kw">return</span> <span class="nu">1</span>;
+    <span class="kw">long long</span> h = <span class="fn">putereRapid</span>(a, b / <span class="nu">2</span>);
+    <span class="kw">return</span> (b % <span class="nu">2</span>) ? h * h * a : h * h;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Trucul O(log b):</strong> a<sup>b</sup> = (a<sup>b/2</sup>)² dacă b par, sau a·(a<sup>b/2</sup>)² dacă b impar. Reduce numărul de înmulțiri de la b la log b.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">CMMDC recursiv (Euclid)</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Calculează cel mai mare divizor comun a două numere folosind algoritmul lui Euclid, recursiv.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>48 36</pre></div>
+          <div><strong>Ieșire:</strong><pre>12</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">int</span> <span class="fn">cmmdc</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) &#123;
+    <span class="kw">if</span> (b == <span class="nu">0</span>) <span class="kw">return</span> a;
+    <span class="kw">return</span> <span class="fn">cmmdc</span>(b, a % b);
+&#125;
+<span class="cm">// cmmdc(48, 36) → cmmdc(36, 12) → cmmdc(12, 0) → 12</span></pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> CMMDC(a, b) = CMMDC(b, a mod b). Cazul de bază: când b=0, a este răspunsul. Complexitate O(log min(a,b)).</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Verifică palindrom recursiv</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Verifică dacă un șir este palindrom folosind doar recursivitate (fără bucle).</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>radar</pre></div>
+          <div><strong>Ieșire:</strong><pre>DA</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">bool</span> <span class="fn">estePalRec</span>(<span class="kw">const</span> string&amp; s, <span class="kw">int</span> l, <span class="kw">int</span> r) &#123;
+    <span class="kw">if</span> (l >= r) <span class="kw">return true</span>;              <span class="cm">// 0 sau 1 caracter rămas</span>
+    <span class="kw">if</span> (s[l] != s[r]) <span class="kw">return false</span>;        <span class="cm">// nepotrivire</span>
+    <span class="kw">return</span> <span class="fn">estePalRec</span>(s, l + <span class="nu">1</span>, r - <span class="nu">1</span>);  <span class="cm">// avansăm spre centru</span>
+&#125;
+<span class="cm">// Apel: estePalRec(s, 0, s.length()-1)</span></pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idee:</strong> doi pointeri (l, r) care converg. Cazul de bază: când se intersectează ⇒ palindrom. Adâncime stivă O(n/2).</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Inversare număr recursiv</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Inversează cifrele unui număr natural folosind recursivitate. Ex: 1234 → 4321.</div>
+        <div class="pc-io">
+          <div><strong>Intrare:</strong><pre>1234</pre></div>
+          <div><strong>Ieșire:</strong><pre>4321</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="cm">// Versiunea cu acumulator (helper)</span>
+<span class="kw">int</span> <span class="fn">invHelper</span>(<span class="kw">int</span> n, <span class="kw">int</span> acc) &#123;
+    <span class="kw">if</span> (n == <span class="nu">0</span>) <span class="kw">return</span> acc;
+    <span class="kw">return</span> <span class="fn">invHelper</span>(n / <span class="nu">10</span>, acc * <span class="nu">10</span> + n % <span class="nu">10</span>);
+&#125;
+<span class="kw">int</span> <span class="fn">inverseaza</span>(<span class="kw">int</span> n) &#123; <span class="kw">return</span> <span class="fn">invHelper</span>(n, <span class="nu">0</span>); &#125;
+
+<span class="cm">// Trace pentru n=1234:</span>
+<span class="cm">// invHelper(1234, 0)  → invHelper(123, 4)</span>
+<span class="cm">// invHelper(123, 4)   → invHelper(12, 43)</span>
+<span class="cm">// invHelper(12, 43)   → invHelper(1, 432)</span>
+<span class="cm">// invHelper(1, 432)   → invHelper(0, 4321) → 4321</span></pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>De ce un helper:</strong> avem nevoie de un al doilea parametru (acumulatorul) ca să construim cifră cu cifră noul număr. Funcția principală îl ascunde pornind de la 0.</p>
+        </details>
+      </div>
+
+      <div class="callout info" style="margin-top:16px;">
+        💪 Pentru și mai multe probleme rezolvate vezi secțiunea BAC de mai jos și quiz-ul interactiv.
+      </div>
     </div>
   </div>
 </section>

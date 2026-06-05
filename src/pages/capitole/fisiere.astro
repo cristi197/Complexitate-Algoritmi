@@ -1,11 +1,11 @@
 ---
 import ChapterLayout from '../../layouts/ChapterLayout.astro';
 
-const sections = [{"id":"deschidere","label":"Deschidere"},{"id":"citire","label":"Citire"},{"id":"scriere","label":"Scriere"},{"id":"freopen","label":"freopen"},{"id":"prelucrare","label":"Prelucrare"},{"id":"bac","label":"Probleme BAC"}];
+const sections = [{"id":"deschidere","label":"Deschidere"},{"id":"citire","label":"Citire"},{"id":"scriere","label":"Scriere"},{"id":"freopen","label":"freopen"},{"id":"prelucrare","label":"Prelucrare"},{"id":"probleme-rezolvate","label":"Probleme rezolvate"},{"id":"bac","label":"Probleme BAC"}];
 ---
 <ChapterLayout
   title="Fișiere"
-  subtitle="Capitolul 7 — ifstream, ofstream, fstream, freopen, citire/scriere, prelucrare fișiere și probleme BAC"
+  subtitle="Capitolul 8 — ifstream, ofstream, fstream, freopen, citire/scriere, prelucrare fișiere și probleme BAC"
   icon="📁"
   gradient="linear-gradient(135deg,#831843 0%,#be185d 50%,#ec4899 100%)"
   tags={["Fișiere","fstream","ifstream","ofstream","EOF"]}
@@ -223,7 +223,157 @@ string linie, cuvant;
     </div>
   </div>
 </section>
+<!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
+<section id="probleme-rezolvate">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-green">🧩</span>
+      <h2>Probleme rezolvate — fișiere</h2>
+    </div>
+    <div class="slide-body">
+      <p style="margin-bottom:14px;color:var(--text-muted);">5 probleme practice cu ifstream / ofstream / freopen.</p>
 
+      <!-- Problema 1 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">1</span>
+          <span class="pc-title">Copiere fișier</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește toate numerele din <code>date.in</code> și scrie-le în <code>date.out</code> (separate prin spațiu).</div>
+        <div class="pc-io">
+          <div><strong>date.in:</strong><pre>3 1 4 1 5 9 2 6</pre></div>
+          <div><strong>date.out:</strong><pre>3 1 4 1 5 9 2 6</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre>ifstream f(<span class="st">"date.in"</span>);
+ofstream g(<span class="st">"date.out"</span>);
+<span class="kw">int</span> x;
+<span class="kw">while</span> (f >> x) g &lt;&lt; x &lt;&lt; <span class="st">' '</span>;
+f.<span class="fn">close</span>(); g.<span class="fn">close</span>();</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Idiom esențial:</strong> <code>while (f &gt;&gt; x)</code> citește până la sfârșitul fișierului (EOF).</p>
+        </details>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">2</span>
+          <span class="pc-title">Suma și media numerelor din fișier</span>
+          <span class="pc-diff easy">Ușor</span>
+        </div>
+        <div class="pc-statement">Citește din <code>numere.in</code> oricâte numere (nu știi câte). Scrie în <code>numere.out</code> suma și media (2 zecimale).</div>
+        <div class="pc-io">
+          <div><strong>numere.in:</strong><pre>10 20 30 40</pre></div>
+          <div><strong>numere.out:</strong><pre>100 25.00</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre>ifstream f(<span class="st">"numere.in"</span>);
+ofstream g(<span class="st">"numere.out"</span>);
+<span class="kw">long long</span> s = <span class="nu">0</span>; <span class="kw">int</span> n = <span class="nu">0</span>, x;
+<span class="kw">while</span> (f >> x) &#123; s += x; n++; &#125;
+g &lt;&lt; s &lt;&lt; <span class="st">' '</span> &lt;&lt; <span class="fn">fixed</span> &lt;&lt; <span class="fn">setprecision</span>(<span class="nu">2</span>) &lt;&lt; (<span class="kw">double</span>)s / n;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Atenție:</strong> dacă fișierul poate fi gol (n = 0), trebuie tratat separat ca să eviți împărțirea la 0.</p>
+        </details>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">3</span>
+          <span class="pc-title">Numără cuvinte pe linie</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Pentru fiecare linie din <code>text.in</code>, scrie în <code>text.out</code> numărul de cuvinte de pe acea linie.</div>
+        <div class="pc-io">
+          <div><strong>text.in:</strong><pre>Salut lume
+Astazi e o zi frumoasa
+C++</pre></div>
+          <div><strong>text.out:</strong><pre>2
+5
+1</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre>ifstream f(<span class="st">"text.in"</span>);
+ofstream g(<span class="st">"text.out"</span>);
+<span class="kw">string</span> linie, cuv;
+<span class="kw">while</span> (<span class="fn">getline</span>(f, linie)) &#123;
+    stringstream ss(linie);
+    <span class="kw">int</span> cnt = <span class="nu">0</span>;
+    <span class="kw">while</span> (ss >> cuv) cnt++;
+    g &lt;&lt; cnt &lt;&lt; <span class="st">'\n'</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Cheia:</strong> <code>getline</code> citește linia, apoi <code>stringstream</code> o sparge în cuvinte pe baza spațiilor.</p>
+        </details>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">4</span>
+          <span class="pc-title">Maxim și poziție</span>
+          <span class="pc-diff medium">Mediu</span>
+        </div>
+        <div class="pc-statement">Citește numerele din <code>v.in</code>. Afișează în <code>v.out</code> valoarea maximă și poziția (indexată de la 1) primei apariții.</div>
+        <div class="pc-io">
+          <div><strong>v.in:</strong><pre>3 7 1 7 5</pre></div>
+          <div><strong>v.out:</strong><pre>7 2</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre>ifstream f(<span class="st">"v.in"</span>);
+ofstream g(<span class="st">"v.out"</span>);
+<span class="kw">int</span> x, idx = <span class="nu">0</span>, pos = <span class="nu">0</span>;
+<span class="kw">int</span> mx = INT_MIN;
+<span class="kw">while</span> (f >> x) &#123;
+    idx++;
+    <span class="kw">if</span> (x > mx) &#123; mx = x; pos = idx; &#125;
+&#125;
+g &lt;&lt; mx &lt;&lt; <span class="st">' '</span> &lt;&lt; pos;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Detaliu:</strong> folosim <code>x &gt; mx</code> (strict) ca să reținem doar <em>prima</em> apariție a maximului.</p>
+        </details>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="problem-card">
+        <div class="pc-header">
+          <span class="pc-num">5</span>
+          <span class="pc-title">Filtrare numere prime în alt fișier</span>
+          <span class="pc-diff hard">Dificil</span>
+        </div>
+        <div class="pc-statement">Citește numere din <code>in.txt</code>. Scrie în <code>prime.txt</code> doar numerele prime, separate prin spațiu.</div>
+        <div class="pc-io">
+          <div><strong>in.txt:</strong><pre>10 7 4 11 9 13 1 2</pre></div>
+          <div><strong>prime.txt:</strong><pre>7 11 13 2</pre></div>
+        </div>
+        <details>
+          <summary>💡 Vezi soluția</summary>
+<pre><span class="kw">bool</span> <span class="fn">prim</span>(<span class="kw">int</span> n) &#123;
+    <span class="kw">if</span> (n &lt; <span class="nu">2</span>) <span class="kw">return false</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> d = <span class="nu">2</span>; d*d &lt;= n; d++)
+        <span class="kw">if</span> (n % d == <span class="nu">0</span>) <span class="kw">return false</span>;
+    <span class="kw">return true</span>;
+&#125;
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    ifstream f(<span class="st">"in.txt"</span>);
+    ofstream g(<span class="st">"prime.txt"</span>);
+    <span class="kw">int</span> x;
+    <span class="kw">while</span> (f >> x)
+        <span class="kw">if</span> (<span class="fn">prim</span>(x)) g &lt;&lt; x &lt;&lt; <span class="st">' '</span>;
+&#125;</pre>
+          <p style="margin-top:8px;font-size:13px;"><strong>Pattern frecvent:</strong> citește → filtrează cu o funcție auxiliară → scrie în fișier de ieșire.</p>
+        </details>
+      </div>
+
+      <div class="callout warning" style="margin-top:16px;">
+        ⚠️ <strong>La BAC:</strong> denumirea fișierelor e specificată în enunț. Citește-o cu atenție — o tipăritură greșită înseamnă 0 puncte!
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ─── 6. PROBLEME BAC ─────────────────────────────── -->
 <section id="bac">
   <div class="slide">

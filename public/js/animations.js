@@ -2,6 +2,48 @@
    animations.js — shared animations & interactivity
 ═══════════════════════════════════════════════════════════════ */
 
+function _mapSliderToDelay(value, min, max) {
+  const v = Number(value);
+  const lo = Number(min);
+  const hi = Number(max);
+  if (!Number.isFinite(v) || !Number.isFinite(lo) || !Number.isFinite(hi) || hi <= lo) {
+    return 850;
+  }
+  const t = (v - lo) / (hi - lo); // 0..1
+  // left = slower, right = faster (child-friendly range)
+  return Math.round(1800 - t * 1650); // 1800ms .. 150ms
+}
+
+function _speedLabel(delay) {
+  if (delay >= 1400) return 'Foarte lent';
+  if (delay >= 1000) return 'Lent';
+  if (delay >= 700) return 'Normal';
+  if (delay >= 450) return 'Rapid';
+  return 'Foarte rapid';
+}
+
+function initAnimationSpeedControls() {
+  const sliders = document.querySelectorAll('[data-role="speed-slider"], [data-action="speed"]');
+  if (!sliders.length) {
+    if (typeof window.animSpeed === 'undefined') window.animSpeed = 850;
+    return;
+  }
+
+  sliders.forEach((slider) => {
+    const wrap = slider.closest('.speed-wrap') || slider.parentElement;
+    const labelEl = wrap ? wrap.querySelector('.speed-label') : null;
+
+    function syncFromSlider() {
+      const delay = _mapSliderToDelay(slider.value, slider.min || 0, slider.max || 100);
+      window.animSpeed = delay;
+      if (labelEl) labelEl.textContent = `${_speedLabel(delay)} (${delay} ms)`;
+    }
+
+    slider.addEventListener('input', syncFromSlider);
+    syncFromSlider();
+  });
+}
+
 /* ── 1. Scroll-reveal for .slide elements ────────────────────── */
 function initScrollReveal() {
   const slides = document.querySelectorAll('.slide');
@@ -89,7 +131,7 @@ function initBubbleSortDemo(containerId) {
 
   let values = [64, 34, 25, 12, 22, 11, 90, 45, 78, 55];
   let animating = false;
-  let delay = 350;
+  let delay = window.animSpeed !== undefined ? window.animSpeed : 850;
 
   function render(highlight = [], sorted = []) {
     const wrap = container.querySelector('.sort-demo');
@@ -148,7 +190,14 @@ function initBubbleSortDemo(containerId) {
   container.querySelector('[data-action="reset"]')?.addEventListener('click', reset);
   container.querySelector('[data-action="shuffle"]')?.addEventListener('click', shuffle);
   const speedSlider = container.querySelector('[data-action="speed"]');
-  if (speedSlider) { speedSlider.addEventListener('input', e => { delay = 600 - parseInt(e.target.value); }); }
+  if (speedSlider) {
+    const updateDelay = () => {
+      delay = _mapSliderToDelay(speedSlider.value, speedSlider.min || 0, speedSlider.max || 100);
+      window.animSpeed = delay;
+    };
+    speedSlider.addEventListener('input', updateDelay);
+    updateDelay();
+  }
 }
 
 /* ── 7. N-Queens backtracking animation ─────────────────────── */
@@ -300,6 +349,7 @@ function initPageTransitions() {
 /* ── 10. Init everything on DOMContentLoaded ─────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
 
+  initAnimationSpeedControls();
   initPageTransitions();
 
   // page-specific demos (check by ID)
@@ -631,7 +681,10 @@ function initSectionReadingTime() {
    PILOT WIDGETS — vectori chapter (Phase 1)
    ─────────────────────────────────────────────────────────────── */
 
-function _vizSleep(){return new Promise(r=>setTimeout(r, window.animSpeed!==undefined?window.animSpeed:350));}
+function _vizSleep(ms){
+  const wait = Number.isFinite(ms) ? ms : (window.animSpeed !== undefined ? window.animSpeed : 850);
+  return new Promise(r => setTimeout(r, wait));
+}
 function _vizSetStatus(el,html){if(el)el.innerHTML=html;}
 
 /* ── 13. Sort viz — Bubble / Selection / Insertion ───────────── */
