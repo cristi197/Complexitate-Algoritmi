@@ -8,6 +8,7 @@ const sections = [
   {"id":"tipuri-return","label":"Tipul returnat"},
   {"id":"variabile","label":"Variabile locale/globale"},
   {"id":"subprograme-bac","label":"Subprograme predefinite"},
+  {"id":"demo-interactiv","label":"Demo-uri interactive"},
   {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
   {"id":"bac-functii","label":"Probleme BAC"}
 ];
@@ -327,6 +328,81 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
   </div>
 </section>
 
+<!-- ─── 7. DEMO-URI INTERACTIVE ─────────────────────── -->
+<section id="demo-interactiv">
+  <div class="slide">
+    <div class="slide-header">
+      <span class="slide-icon icon-blue">🎮</span>
+      <h2>Demo-uri interactive — funcții și subprograme (5)</h2>
+    </div>
+    <div class="slide-body">
+      <p>Rulează demo-urile de mai jos pentru a vedea exact diferențele între <strong>valoare</strong>, <strong>referință (&amp;)</strong>, <strong>afisare</strong> și <strong>returnare</strong>.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 12px;">
+        <label style="font-size:13px;">Viteză pași</label>
+        <input id="fn-step-speed" type="range" min="1" max="10" value="4" style="width:170px;">
+        <button id="fn-step-pause" class="sort-btn">⏸ Pauză</button>
+        <button id="fn-step-reset" class="sort-btn">↺ Reset demo curent</button>
+        <span id="fn-step-status" style="font-size:12px;color:var(--text-muted);">Ready</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
+        <div class="card blue">
+          <strong>Demo 1: Valoare vs referință</strong>
+          <p style="font-size:13px;">Aceeași funcție, două variante: fără &amp; (copie) și cu &amp; (modifică originalul).</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <label>a = <input id="fn-d1-a" type="number" value="5" style="width:72px;"></label>
+            <button id="fn-d1-run" class="sort-btn">Rulează</button>
+          </div>
+          <div id="fn-d1-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
+        </div>
+
+        <div class="card teal">
+          <strong>Demo 2: Afișare vs returnare</strong>
+          <p style="font-size:13px;">Compară o funcție <code>void afiseazaSuma(a,b)</code> cu <code>int suma(a,b)</code>.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <input id="fn-d2-a" type="number" value="3" style="width:66px;">
+            <input id="fn-d2-b" type="number" value="7" style="width:66px;">
+            <button id="fn-d2-run" class="sort-btn">Compară</button>
+          </div>
+          <div id="fn-d2-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
+        </div>
+
+        <div class="card purple">
+          <strong>Demo 3: Ce înseamnă &amp; ?</strong>
+          <p style="font-size:13px;">Vezi cum „alias-ul” referinței urmărește aceeași variabilă.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <input id="fn-d3-val" type="number" value="10" style="width:72px;">
+            <button id="fn-d3-run" class="sort-btn">Explică</button>
+          </div>
+          <div id="fn-d3-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
+        </div>
+
+        <div class="card orange">
+          <strong>Demo 4: Local vs global</strong>
+          <p style="font-size:13px;">Simulare de „shadowing”: variabila locală ascunde variabila globală.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <input id="fn-d4-global" type="number" value="100" style="width:78px;">
+            <input id="fn-d4-local" type="number" value="20" style="width:78px;">
+            <button id="fn-d4-run" class="sort-btn">Simulează</button>
+          </div>
+          <div id="fn-d4-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
+        </div>
+
+        <div class="card green">
+          <strong>Demo 5: Parametru implicit</strong>
+          <p style="font-size:13px;">Model pentru <code>putere(baza, exp=2)</code>: apel cu/sau fără al doilea argument.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <input id="fn-d5-base" type="number" value="5" style="width:72px;">
+            <input id="fn-d5-exp" type="number" value="" placeholder="exp" style="width:72px;">
+            <button id="fn-d5-run" class="sort-btn">Calculează</button>
+          </div>
+          <div id="fn-d5-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── PROBLEME REZOLVATE ─────────────────────────── -->
 <section id="probleme-rezolvate">
   <div class="slide">
@@ -580,5 +656,185 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
     </div>
   </div>
 </section>
+
+<script is:inline>
+(function() {
+  function byId(id) { return document.getElementById(id); }
+  if (!byId('fn-d1-run')) return;
+  var runId = 0;
+  var paused = false;
+  var currentOut = null;
+
+  function delay() {
+    var s = parseInt((byId('fn-step-speed') && byId('fn-step-speed').value) || '4', 10);
+    return 1450 - s * 120;
+  }
+
+  async function sleepStep(ms, id) {
+    var left = ms;
+    while (left > 0) {
+      if (id !== runId) return false;
+      if (paused) {
+        await new Promise(function(r) { setTimeout(r, 60); });
+        continue;
+      }
+      var slice = Math.min(60, left);
+      await new Promise(function(r) { setTimeout(r, slice); });
+      left -= slice;
+    }
+    return id === runId;
+  }
+
+  function setStatus(txt) {
+    var el = byId('fn-step-status');
+    if (el) el.textContent = txt;
+  }
+
+  function resetOutput(el) {
+    if (!el) return;
+    el.innerHTML = '';
+  }
+
+  function addLine(el, txt) {
+    var row = document.createElement('div');
+    row.textContent = txt;
+    row.style.padding = '3px 0';
+    row.style.borderBottom = '1px dashed rgba(255,255,255,.08)';
+    el.appendChild(row);
+  }
+
+  function addMemory(el, title, vars) {
+    var box = document.createElement('div');
+    box.style.margin = '6px 0';
+    box.style.padding = '7px';
+    box.style.border = '1px solid rgba(255,255,255,.15)';
+    box.style.borderRadius = '7px';
+    box.style.background = 'rgba(255,255,255,.03)';
+    var head = document.createElement('div');
+    head.textContent = title;
+    head.style.fontWeight = '700';
+    head.style.marginBottom = '4px';
+    box.appendChild(head);
+    Object.keys(vars).forEach(function(k) {
+      var line = document.createElement('div');
+      line.textContent = k + ' = ' + vars[k];
+      box.appendChild(line);
+    });
+    el.appendChild(box);
+  }
+
+  async function play(out, steps) {
+    currentOut = out;
+    resetOutput(out);
+    var id = ++runId;
+    setStatus('Rulează pas cu pas...');
+    for (var i = 0; i < steps.length; i++) {
+      if (id !== runId) return;
+      var st = steps[i];
+      if (st.type === 'memory') addMemory(out, st.title, st.vars);
+      else addLine(out, st.text);
+      var ok = await sleepStep(delay(), id);
+      if (!ok) return;
+    }
+    setStatus('Finalizat');
+  }
+
+  byId('fn-step-pause').addEventListener('click', function() {
+    paused = !paused;
+    byId('fn-step-pause').textContent = paused ? '▶ Continuă' : '⏸ Pauză';
+    setStatus(paused ? 'Pauză' : 'Rulează pas cu pas...');
+  });
+
+  byId('fn-step-reset').addEventListener('click', function() {
+    runId++;
+    paused = false;
+    byId('fn-step-pause').textContent = '⏸ Pauză';
+    setStatus('Reset');
+    if (currentOut) currentOut.innerHTML = 'Demo resetat. Alege din nou Rulează.';
+  });
+
+  byId('fn-d1-run').addEventListener('click', async function() {
+    var a = parseInt(byId('fn-d1-a').value || '0', 10);
+    var steps = [
+      { text: '1) Main: a = ' + a },
+      { text: '2) Apel prin valoare: dublu(a) - se trimite o COPIE.' },
+      { type: 'memory', title: 'Cadru functie (valoare)', vars: { x: a } },
+      { text: '3) In functie: x = x * 2 => ' + (a * 2) },
+      { text: '4) Revenire: in main, a ramane ' + a + ' (nu s-a schimbat).' },
+      { text: '5) Apel prin referinta: dubluRef(int &x).' },
+      { type: 'memory', title: 'Cadru functie (referinta)', vars: { 'x (alias pentru a)': a } },
+      { text: '6) In functie: x = x * 2 modifica direct a.' },
+      { text: '7) Revenire: a devine ' + (a * 2) + '.' }
+    ];
+    await play(byId('fn-d1-out'), steps);
+  });
+
+  byId('fn-d2-run').addEventListener('click', async function() {
+    var a = parseInt(byId('fn-d2-a').value || '0', 10);
+    var b = parseInt(byId('fn-d2-b').value || '0', 10);
+    var sum = a + b;
+    var steps = [
+      { text: '1) void afiseazaSuma(' + a + ',' + b + ')' },
+      { text: '2) In functie calculez s=' + sum + ' si AFISEZ direct.' },
+      { text: '3) Dupa apelul void, main nu are o valoare capturata.' },
+      { text: '4) int suma(' + a + ',' + b + ')' },
+      { text: '5) Functia RETURNeaza ' + sum + ' catre apelant.' },
+      { type: 'memory', title: 'Main dupa return', vars: { rez: sum, 'rez > 5 ?': sum > 5 ? 'DA' : 'NU' } },
+      { text: 'Concluzie: afisare = efect pe ecran, returnare = valoare reutilizabila.' }
+    ];
+    await play(byId('fn-d2-out'), steps);
+  });
+
+  byId('fn-d3-run').addEventListener('click', async function() {
+    var v = parseInt(byId('fn-d3-val').value || '0', 10);
+    var steps = [
+      { text: '1) Declar: int x = ' + v },
+      { text: '2) Declar: int &ref = x  (ref este ALIAS, nu copie).' },
+      { type: 'memory', title: 'Inainte de modificare', vars: { x: v, ref: v } },
+      { text: '3) Execut: ref += 5' },
+      { type: 'memory', title: 'Dupa modificare', vars: { x: v + 5, ref: v + 5 } },
+      { text: '4) Observatie: x si ref indica aceeasi locatie logica.' }
+    ];
+    await play(byId('fn-d3-out'), steps);
+  });
+
+  byId('fn-d4-run').addEventListener('click', async function() {
+    var g = parseInt(byId('fn-d4-global').value || '0', 10);
+    var l = parseInt(byId('fn-d4-local').value || '0', 10);
+    var steps = [
+      { type: 'memory', title: 'Global', vars: { x: g } },
+      { text: '1) Intram in functie si declaram local: int x = ' + l },
+      { type: 'memory', title: 'In functie', vars: { 'x local': l, 'x global': g } },
+      { text: '2) Afisarea lui x in functie foloseste variabila LOCALA.' },
+      { text: '3) Iesim din functie: x local dispare.' },
+      { type: 'memory', title: 'Dupa revenire in main', vars: { 'x global': g } }
+    ];
+    await play(byId('fn-d4-out'), steps);
+  });
+
+  byId('fn-d5-run').addEventListener('click', async function() {
+    var base = parseInt(byId('fn-d5-base').value || '0', 10);
+    var expRaw = byId('fn-d5-exp').value.trim();
+    var exp = expRaw === '' ? 2 : parseInt(expRaw, 10);
+    if (!Number.isFinite(exp) || exp < 0) {
+      byId('fn-d5-out').textContent = 'Exponent invalid. Foloseste un numar >= 0.';
+      return;
+    }
+    var r = 1;
+    var steps = [
+      { text: '1) Apel: putere(' + base + (expRaw === '' ? ')' : ', ' + exp + ')') },
+      { text: '2) exp = ' + exp + (expRaw === '' ? ' (valoare implicita)' : ' (valoare data explicit)') },
+      { type: 'memory', title: 'Initializare', vars: { rezultat: 1 } }
+    ];
+    for (var i = 0; i < exp; i++) {
+      var before = r;
+      r *= base;
+      steps.push({ text: 'Pas ' + (i + 1) + ': rezultat = ' + before + ' * ' + base + ' = ' + r });
+    }
+    steps.push({ text: 'Final: putere = ' + r });
+    await play(byId('fn-d5-out'), steps);
+  });
+})();
+</script>
 
 </ChapterLayout>

@@ -370,13 +370,15 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
         <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Pointer stâng <span style="color:#3b82f6;font-weight:600;">st</span> și pointer drept <span style="color:#ec4899;font-weight:600;">dr</span> avansează unul spre celălalt comparând caracter cu caracter.</p>
         <div class="speed-wrap" style="margin-bottom:8px;">
           <label>⚡ Viteză:</label>
-          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <input type="range" min="50" max="600" value="120" data-role="speed-slider">
           <span class="speed-label">Normal</span>
         </div>
         <div class="viz-controls">
           <input type="text" data-pal="input" value="radar" placeholder="Introdu un șir..." style="flex:1;min-width:160px;padding:6px 10px;border-radius:6px;border:1px solid var(--border);">
           <button class="btn btn-primary" data-pal="go">▶ Verifică</button>
           <button class="btn btn-secondary" data-pal="example">🎲 Exemplu</button>
+          <button class="btn btn-secondary" data-pal="pause">⏸ Pauză</button>
+          <button class="btn btn-secondary" data-pal="reset">↺ Reset</button>
         </div>
         <div class="pal-row" data-pal="row"></div>
         <div class="viz-status"></div>
@@ -422,7 +424,7 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
         <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Fiecare literă se rotește cu <strong>k</strong> poziții în alfabet. Roata de jos arată mapping-ul pentru caracterul curent.</p>
         <div class="speed-wrap" style="margin-bottom:8px;">
           <label>⚡ Viteză:</label>
-          <input type="range" min="50" max="600" value="350" data-role="speed-slider">
+          <input type="range" min="50" max="600" value="120" data-role="speed-slider">
           <span class="speed-label">Normal</span>
         </div>
         <div class="viz-controls">
@@ -431,6 +433,8 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
           <input type="number" data-cs="k" value="3" min="1" max="25" style="width:60px;padding:6px;border-radius:6px;border:1px solid var(--border);">
           <button class="btn btn-primary" data-cs="enc">🔐 Criptează</button>
           <button class="btn btn-secondary" data-cs="dec">🔓 Decriptează</button>
+          <button class="btn btn-secondary" data-cs="pause">⏸ Pauză</button>
+          <button class="btn btn-secondary" data-cs="reset">↺ Reset</button>
         </div>
         <div data-cs="out" style="margin:10px 0;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;min-height:38px;letter-spacing:1px;"></div>
         <div data-cs="wheel" class="cs-wheel"></div>
@@ -543,6 +547,9 @@ cifre[len] = <span class="st">'\0'</span>;
         <button class="str-tab" data-tab="palindrome">🔁 Palindrom</button>
         <button class="str-tab" data-tab="stats">📊 Statistici</button>
         <button class="str-tab" data-tab="reverse">↩ Inversare</button>
+        <button class="str-tab" data-tab="strtok">✂️ strtok</button>
+        <button class="str-tab" data-tab="anagram">🧪 Anagramă</button>
+        <button class="str-tab" data-tab="find">🔎 strstr / find</button>
       </div>
 
       <div id="str-panel-caesar" class="str-panel" style="display:block;">
@@ -554,7 +561,14 @@ cifre[len] = <span class="st">'\0'</span>;
           <button id="sd-caesar-enc" class="str-demo-btn">🔐 Criptează</button>
           <button id="sd-caesar-dec" class="str-demo-btn">🔓 Decriptează</button>
         </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px;">
+          <label style="font-size:12px;color:var(--text-muted);">Viteză</label>
+          <input id="sd-caesar-speed" type="range" min="1" max="10" value="3" style="width:140px;">
+          <button id="sd-caesar-pause" class="str-demo-btn">⏸ Pauză</button>
+          <button id="sd-caesar-reset" class="str-demo-btn">↺ Reset</button>
+        </div>
         <div id="sd-caesar-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă un buton...</div>
+        <div id="sd-caesar-steps" class="str-demo-output" style="margin-top:8px;padding:12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:monospace;min-height:72px;white-space:pre-wrap;">Pașii vor apărea aici...</div>
       </div>
 
       <div id="str-panel-case" class="str-panel" style="display:none;">
@@ -565,14 +579,33 @@ cifre[len] = <span class="st">'\0'</span>;
           <button id="sd-toupper" class="str-demo-btn">MAJUSCULE</button>
           <button id="sd-tolower" class="str-demo-btn">minuscule</button>
           <button id="sd-togglecase" class="str-demo-btn">AlTeRnAt</button>
+          <select id="sd-case-mode" style="padding:8px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;">
+            <option value="upper">MAJUSCULE</option>
+            <option value="lower">minuscule</option>
+            <option value="toggle">AlTeRnAt</option>
+          </select>
+          <button id="sd-case-run" class="str-demo-btn">▶ Rulează pas cu pas</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px;">
+          <label style="font-size:12px;color:var(--text-muted);">Viteză</label>
+          <input id="sd-case-speed" type="range" min="1" max="10" value="3" style="width:140px;">
+          <button id="sd-case-pause" class="str-demo-btn">⏸ Pauză</button>
+          <button id="sd-case-reset" class="str-demo-btn">↺ Reset</button>
         </div>
         <div id="sd-case-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă un buton...</div>
+        <div id="sd-case-steps" class="str-demo-output" style="margin-top:8px;padding:12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:monospace;min-height:72px;white-space:pre-wrap;">Explicația transformării apare aici...</div>
       </div>
 
       <div id="str-panel-palindrome" class="str-panel" style="display:none;">
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
           <input type="text" id="sd-pal-in" class="str-demo-input" value="radar" style="flex:1;min-width:160px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
           <button id="sd-pal-check" class="str-demo-btn">Verifică</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;">
+          <label style="font-size:12px;color:var(--text-muted);">Viteză</label>
+          <input id="sd-pal-speed" type="range" min="1" max="10" value="3" style="width:140px;">
+          <button id="sd-pal-pause" class="str-demo-btn">⏸ Pauză</button>
+          <button id="sd-pal-reset" class="str-demo-btn">↺ Reset</button>
         </div>
         <div id="sd-pal-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă butonul...</div>
       </div>
@@ -590,7 +623,52 @@ cifre[len] = <span class="st">'\0'</span>;
           <input type="text" id="sd-rev-in" class="str-demo-input" value="informatica" style="flex:1;min-width:160px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
           <button id="sd-rev-btn" class="str-demo-btn">Inversează</button>
         </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;">
+          <label style="font-size:12px;color:var(--text-muted);">Viteză</label>
+          <input id="sd-rev-speed" type="range" min="1" max="10" value="3" style="width:140px;">
+          <button id="sd-rev-pause" class="str-demo-btn">⏸ Pauză</button>
+          <button id="sd-rev-reset" class="str-demo-btn">↺ Reset</button>
+        </div>
         <div id="sd-rev-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:36px;">Apasă butonul...</div>
+      </div>
+
+      <div id="str-panel-strtok" class="str-panel" style="display:none;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-tok-in" class="str-demo-input" value="Ana,are;mere si pere" style="flex:1;min-width:220px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <input type="text" id="sd-tok-delim" class="str-demo-input" value=" ,;" style="width:90px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <button id="sd-tok-run" class="str-demo-btn">▶ Rulează strtok</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;">
+          <label style="font-size:12px;color:var(--text-muted);">Viteză</label>
+          <input id="sd-tok-speed" type="range" min="1" max="10" value="3" style="width:140px;">
+          <button id="sd-tok-pause" class="str-demo-btn">⏸ Pauză</button>
+          <button id="sd-tok-reset" class="str-demo-btn">↺ Reset</button>
+        </div>
+        <div id="sd-tok-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:52px;white-space:pre-wrap;">Apasă butonul...</div>
+      </div>
+
+      <div id="str-panel-anagram" class="str-panel" style="display:none;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-ana-a" class="str-demo-input" value="listen" style="flex:1;min-width:130px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <input type="text" id="sd-ana-b" class="str-demo-input" value="silent" style="flex:1;min-width:130px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <button id="sd-ana-run" class="str-demo-btn">Verifică anagrama</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;">
+          <label style="font-size:12px;color:var(--text-muted);">Viteză</label>
+          <input id="sd-ana-speed" type="range" min="1" max="10" value="3" style="width:140px;">
+          <button id="sd-ana-pause" class="str-demo-btn">⏸ Pauză</button>
+          <button id="sd-ana-reset" class="str-demo-btn">↺ Reset</button>
+        </div>
+        <div id="sd-ana-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:52px;white-space:pre-wrap;">Apasă butonul...</div>
+      </div>
+
+      <div id="str-panel-find" class="str-panel" style="display:none;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+          <input type="text" id="sd-find-text" class="str-demo-input" value="informatica este fascinanta" style="flex:1;min-width:220px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <input type="text" id="sd-find-sub" class="str-demo-input" value="tica" style="width:90px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <button id="sd-find-run" class="str-demo-btn">🔎 Caută</button>
+        </div>
+        <div id="sd-find-out" class="str-demo-output" style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,.06);font-family:monospace;min-height:52px;white-space:pre-wrap;">Apasă butonul...</div>
       </div>
     </div>
   </div>
@@ -899,6 +977,401 @@ string cuvant = <span class="st">""</span>;
     </div>
   </div>
 </section>
+
+<script is:inline>
+(function() {
+  var tabs = document.querySelectorAll('#str-tabs .str-tab');
+  var panels = document.querySelectorAll('.str-panel');
+  if (!tabs.length) return;
+
+  function showTab(name) {
+    tabs.forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-tab') === name);
+    });
+    panels.forEach(function(p) {
+      p.style.display = p.id === ('str-panel-' + name) ? 'block' : 'none';
+    });
+  }
+
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showTab(btn.getAttribute('data-tab'));
+    });
+  });
+
+  function makeRunner() {
+    return { paused: false, cancel: false, timer: null };
+  }
+
+  function speedToDelay(val) {
+    var v = parseInt(val || '3', 10);
+    var map = { 1: 2200, 2: 1700, 3: 1200, 4: 900, 5: 700, 6: 550, 7: 420, 8: 300, 9: 220, 10: 160 };
+    return map[v] || 1200;
+  }
+
+  function wait(ms) {
+    return new Promise(function(resolve) { setTimeout(resolve, ms); });
+  }
+
+  async function controlledSleep(run, ms) {
+    var step = 120;
+    var left = ms;
+    while (left > 0) {
+      if (run.cancel) return false;
+      while (run.paused && !run.cancel) {
+        await wait(120);
+      }
+      if (run.cancel) return false;
+      var chunk = Math.min(step, left);
+      await wait(chunk);
+      left -= chunk;
+    }
+    return !run.cancel;
+  }
+
+  function rotChar(ch, k) {
+    var c = ch.charCodeAt(0);
+    if (c >= 97 && c <= 122) return String.fromCharCode(97 + ((c - 97 + k + 260) % 26));
+    if (c >= 65 && c <= 90) return String.fromCharCode(65 + ((c - 65 + k + 260) % 26));
+    return ch;
+  }
+
+  // Demo: Caesar tab
+  var caesarRun = makeRunner();
+  var csIn = document.getElementById('sd-caesar-in');
+  var csK = document.getElementById('sd-caesar-k');
+  var csOut = document.getElementById('sd-caesar-out');
+  var csSteps = document.getElementById('sd-caesar-steps');
+  var csSpeed = document.getElementById('sd-caesar-speed');
+  var csPause = document.getElementById('sd-caesar-pause');
+  var csReset = document.getElementById('sd-caesar-reset');
+
+  async function runCaesar(decrypt) {
+    if (!csIn || !csOut) return;
+    caesarRun.cancel = true;
+    await wait(20);
+    caesarRun = makeRunner();
+    var text = csIn.value || '';
+    var k = parseInt((csK && csK.value) || '3', 10);
+    if (!Number.isFinite(k)) k = 3;
+    if (decrypt) k = -k;
+    var delay = speedToDelay(csSpeed && csSpeed.value);
+    var out = '';
+    csOut.textContent = '';
+    if (csSteps) csSteps.textContent = '';
+    for (var i = 0; i < text.length; i++) {
+      if (caesarRun.cancel) return;
+      var ch = text[i];
+      var next = rotChar(ch, k);
+      out += next;
+      csOut.textContent = out + '▌';
+      if (csSteps) {
+        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+          csSteps.textContent += 'Pas ' + (i + 1) + ': "' + ch + '" ' + (decrypt ? '-' : '+') + ' ' + Math.abs(k) + ' -> "' + next + '"\n';
+        } else {
+          csSteps.textContent += 'Pas ' + (i + 1) + ': "' + ch + '" nu e literă, rămâne la fel\n';
+        }
+      }
+      var ok = await controlledSleep(caesarRun, delay);
+      if (!ok) return;
+    }
+    csOut.textContent = out;
+    if (csSteps) csSteps.textContent += '✅ Final: ' + out;
+  }
+
+  document.getElementById('sd-caesar-enc')?.addEventListener('click', function() { runCaesar(false); });
+  document.getElementById('sd-caesar-dec')?.addEventListener('click', function() { runCaesar(true); });
+  csPause?.addEventListener('click', function() {
+    caesarRun.paused = !caesarRun.paused;
+    csPause.textContent = caesarRun.paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  csReset?.addEventListener('click', function() {
+    caesarRun.cancel = true;
+    if (csOut) csOut.textContent = 'Resetat. Apasă un buton...';
+    if (csSteps) csSteps.textContent = 'Pașii vor apărea aici...';
+    if (csPause) { csPause.textContent = '⏸ Pauză'; }
+  });
+
+  // Demo: case tab
+  var caseRun = makeRunner();
+  var caseIn = document.getElementById('sd-case-in');
+  var caseOut = document.getElementById('sd-case-out');
+  var caseSteps = document.getElementById('sd-case-steps');
+  var caseMode = document.getElementById('sd-case-mode');
+  var caseSpeed = document.getElementById('sd-case-speed');
+  var casePause = document.getElementById('sd-case-pause');
+  var caseReset = document.getElementById('sd-case-reset');
+
+  function instantCase(mode) {
+    var s = caseIn.value || '';
+    if (mode === 'upper') return s.toUpperCase();
+    if (mode === 'lower') return s.toLowerCase();
+    var out = '';
+    for (var i = 0; i < s.length; i++) {
+      var c = s[i];
+      if (c >= 'a' && c <= 'z') out += c.toUpperCase();
+      else if (c >= 'A' && c <= 'Z') out += c.toLowerCase();
+      else out += c;
+    }
+    return out;
+  }
+
+  document.getElementById('sd-toupper')?.addEventListener('click', function() {
+    if (caseMode) caseMode.value = 'upper';
+    caseOut.textContent = instantCase('upper');
+  });
+  document.getElementById('sd-tolower')?.addEventListener('click', function() {
+    if (caseMode) caseMode.value = 'lower';
+    caseOut.textContent = instantCase('lower');
+  });
+  document.getElementById('sd-togglecase')?.addEventListener('click', function() {
+    if (caseMode) caseMode.value = 'toggle';
+    caseOut.textContent = instantCase('toggle');
+  });
+
+  document.getElementById('sd-case-run')?.addEventListener('click', async function() {
+    caseRun.cancel = true;
+    await wait(20);
+    caseRun = makeRunner();
+    var mode = (caseMode && caseMode.value) || 'upper';
+    var s = caseIn.value || '';
+    var delay = speedToDelay(caseSpeed && caseSpeed.value);
+    var out = '';
+    caseOut.textContent = '';
+    if (caseSteps) caseSteps.textContent = 'Mod: ' + mode + '\n';
+    for (var i = 0; i < s.length; i++) {
+      if (caseRun.cancel) return;
+      var c = s[i], next = c;
+      if (mode === 'upper') next = c.toUpperCase();
+      else if (mode === 'lower') next = c.toLowerCase();
+      else {
+        if (c >= 'a' && c <= 'z') next = c.toUpperCase();
+        else if (c >= 'A' && c <= 'Z') next = c.toLowerCase();
+      }
+      out += next;
+      caseOut.textContent = out + '▌';
+      if (caseSteps) caseSteps.textContent += 'Pas ' + (i + 1) + ': "' + c + '" -> "' + next + '"\n';
+      var ok = await controlledSleep(caseRun, delay);
+      if (!ok) return;
+    }
+    caseOut.textContent = out;
+    if (caseSteps) caseSteps.textContent += '✅ Final: ' + out;
+  });
+
+  casePause?.addEventListener('click', function() {
+    caseRun.paused = !caseRun.paused;
+    casePause.textContent = caseRun.paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  caseReset?.addEventListener('click', function() {
+    caseRun.cancel = true;
+    caseOut.textContent = 'Resetat. Apasă un buton...';
+    if (caseSteps) caseSteps.textContent = 'Explicația transformării apare aici...';
+    if (casePause) casePause.textContent = '⏸ Pauză';
+  });
+
+  // Demo: palindrome tab
+  var palRun = makeRunner();
+  var palIn = document.getElementById('sd-pal-in');
+  var palOut = document.getElementById('sd-pal-out');
+  var palSpeed = document.getElementById('sd-pal-speed');
+  var palPause = document.getElementById('sd-pal-pause');
+  var palReset = document.getElementById('sd-pal-reset');
+  document.getElementById('sd-pal-check')?.addEventListener('click', async function() {
+    palRun.cancel = true;
+    await wait(20);
+    palRun = makeRunner();
+    var s = (palIn.value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (!s) {
+      palOut.textContent = 'Introdu un șir valid.';
+      return;
+    }
+    var l = 0, r = s.length - 1;
+    var delay = speedToDelay(palSpeed && palSpeed.value);
+    while (l < r) {
+      palOut.textContent = 'Comparăm: s[' + l + '] = ' + s[l] + ' și s[' + r + '] = ' + s[r];
+      var ok = await controlledSleep(palRun, delay);
+      if (!ok) return;
+      if (s[l] !== s[r]) {
+        palOut.textContent = '❌ Nu este palindrom (diferență la pozițiile ' + l + ' și ' + r + ').';
+        return;
+      }
+      l++; r--;
+    }
+    palOut.textContent = '✅ Este palindrom.';
+  });
+  palPause?.addEventListener('click', function() {
+    palRun.paused = !palRun.paused;
+    palPause.textContent = palRun.paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  palReset?.addEventListener('click', function() {
+    palRun.cancel = true;
+    palOut.textContent = 'Resetat. Apasă butonul...';
+    if (palPause) palPause.textContent = '⏸ Pauză';
+  });
+
+  // Demo: stats tab
+  document.getElementById('sd-stat-btn')?.addEventListener('click', function() {
+    var s = document.getElementById('sd-stat-in').value || '';
+    var lit = 0, cif = 0, sp = 0, punct = 0;
+    for (var i = 0; i < s.length; i++) {
+      var c = s[i];
+      if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) lit++;
+      else if (c >= '0' && c <= '9') cif++;
+      else if (c === ' ' || c === '\t' || c === '\n') sp++;
+      else punct++;
+    }
+    var words = s.trim() ? s.trim().split(/\s+/).length : 0;
+    document.getElementById('sd-stat-out').textContent =
+      'Lungime totală: ' + s.length + '\n' +
+      'Litere: ' + lit + '\n' +
+      'Cifre: ' + cif + '\n' +
+      'Spații: ' + sp + '\n' +
+      'Semne/punctuație: ' + punct + '\n' +
+      'Cuvinte: ' + words;
+  });
+
+  // Demo: reverse tab
+  var revRun = makeRunner();
+  var revIn = document.getElementById('sd-rev-in');
+  var revOut = document.getElementById('sd-rev-out');
+  var revSpeed = document.getElementById('sd-rev-speed');
+  var revPause = document.getElementById('sd-rev-pause');
+  var revReset = document.getElementById('sd-rev-reset');
+  document.getElementById('sd-rev-btn')?.addEventListener('click', async function() {
+    revRun.cancel = true;
+    await wait(20);
+    revRun = makeRunner();
+    var arr = (revIn.value || '').split('');
+    var l = 0, r = arr.length - 1;
+    var delay = speedToDelay(revSpeed && revSpeed.value);
+    while (l < r) {
+      revOut.textContent = 'Swap ' + arr[l] + ' (poz ' + l + ') cu ' + arr[r] + ' (poz ' + r + ')\n' + arr.join('');
+      var ok = await controlledSleep(revRun, delay);
+      if (!ok) return;
+      var t = arr[l]; arr[l] = arr[r]; arr[r] = t;
+      l++; r--;
+    }
+    revOut.textContent = 'Rezultat: ' + arr.join('');
+  });
+  revPause?.addEventListener('click', function() {
+    revRun.paused = !revRun.paused;
+    revPause.textContent = revRun.paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  revReset?.addEventListener('click', function() {
+    revRun.cancel = true;
+    revOut.textContent = 'Resetat. Apasă butonul...';
+    if (revPause) revPause.textContent = '⏸ Pauză';
+  });
+
+  // Demo: strtok tab
+  var tokRun = makeRunner();
+  var tokIn = document.getElementById('sd-tok-in');
+  var tokDelim = document.getElementById('sd-tok-delim');
+  var tokOut = document.getElementById('sd-tok-out');
+  var tokSpeed = document.getElementById('sd-tok-speed');
+  var tokPause = document.getElementById('sd-tok-pause');
+  var tokReset = document.getElementById('sd-tok-reset');
+  document.getElementById('sd-tok-run')?.addEventListener('click', async function() {
+    tokRun.cancel = true;
+    await wait(20);
+    tokRun = makeRunner();
+    var s = tokIn.value || '';
+    var d = tokDelim.value || ' ';
+    var escaped = d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var parts = s.split(new RegExp('[' + escaped + ']+')).filter(Boolean);
+    var delay = speedToDelay(tokSpeed && tokSpeed.value);
+    if (!parts.length) {
+      tokOut.textContent = 'Nu există token-uri.';
+      return;
+    }
+    tokOut.textContent = 'strtok("' + s + '", "' + d + '")\n';
+    for (var i = 0; i < parts.length; i++) {
+      tokOut.textContent += 'token[' + i + '] = "' + parts[i] + '"\n';
+      var ok = await controlledSleep(tokRun, delay);
+      if (!ok) return;
+    }
+    tokOut.textContent += '✅ Tokenizare completă.';
+  });
+  tokPause?.addEventListener('click', function() {
+    tokRun.paused = !tokRun.paused;
+    tokPause.textContent = tokRun.paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  tokReset?.addEventListener('click', function() {
+    tokRun.cancel = true;
+    tokOut.textContent = 'Resetat. Apasă butonul...';
+    if (tokPause) tokPause.textContent = '⏸ Pauză';
+  });
+
+  // Demo: anagram tab
+  var anaRun = makeRunner();
+  var anaOut = document.getElementById('sd-ana-out');
+  var anaSpeed = document.getElementById('sd-ana-speed');
+  var anaPause = document.getElementById('sd-ana-pause');
+  var anaReset = document.getElementById('sd-ana-reset');
+  document.getElementById('sd-ana-run')?.addEventListener('click', async function() {
+    anaRun.cancel = true;
+    await wait(20);
+    anaRun = makeRunner();
+    var a = (document.getElementById('sd-ana-a').value || '').toLowerCase().replace(/[^a-z]/g, '');
+    var b = (document.getElementById('sd-ana-b').value || '').toLowerCase().replace(/[^a-z]/g, '');
+    var out = anaOut;
+    var delay = speedToDelay(anaSpeed && anaSpeed.value);
+    if (a.length !== b.length) {
+      out.textContent = '❌ Lungimi diferite => nu sunt anagrame.';
+      return;
+    }
+    var f = new Array(26).fill(0);
+    out.textContent = 'Construim frecvențele pas cu pas...\n';
+    for (var i = 0; i < a.length; i++) {
+      f[a.charCodeAt(i) - 97]++;
+      f[b.charCodeAt(i) - 97]--;
+      out.textContent +=
+        'Pas ' + (i + 1) + ': +"' + a[i] + '", -"' + b[i] + '"\n';
+      var ok = await controlledSleep(anaRun, delay);
+      if (!ok) return;
+    }
+    var dif = [];
+    for (var j = 0; j < 26; j++) {
+      if (f[j] !== 0) dif.push(String.fromCharCode(97 + j) + ':' + f[j]);
+    }
+    out.textContent += dif.length
+      ? '❌ Nu sunt anagrame. Diferențe frecvență: ' + dif.join(', ')
+      : '✅ Sunt anagrame (toate frecvențele sunt 0).';
+  });
+
+  anaPause?.addEventListener('click', function() {
+    anaRun.paused = !anaRun.paused;
+    anaPause.textContent = anaRun.paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  anaReset?.addEventListener('click', function() {
+    anaRun.cancel = true;
+    anaOut.textContent = 'Apasă butonul...';
+    if (anaPause) anaPause.textContent = '⏸ Pauză';
+  });
+
+  // Demo: find tab
+  document.getElementById('sd-find-run')?.addEventListener('click', function() {
+    var text = document.getElementById('sd-find-text').value || '';
+    var sub = document.getElementById('sd-find-sub').value || '';
+    var out = document.getElementById('sd-find-out');
+    if (!sub) {
+      out.textContent = 'Introdu un subșir.';
+      return;
+    }
+    var pos = text.indexOf(sub);
+    if (pos < 0) {
+      out.textContent = '❌ Subșirul nu apare în text.';
+      return;
+    }
+    out.textContent =
+      '✅ Găsit la poziția ' + pos + '.\n' +
+      text + '\n' +
+      ' '.repeat(pos) + '^'.repeat(sub.length);
+  });
+
+  showTab('caesar');
+})();
+</script>
 
 </ChapterLayout>
 

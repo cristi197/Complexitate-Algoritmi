@@ -11,7 +11,7 @@ function _mapSliderToDelay(value, min, max) {
   }
   const t = (v - lo) / (hi - lo); // 0..1
   // left = slower, right = faster (child-friendly range)
-  return Math.round(1800 - t * 1650); // 1800ms .. 150ms
+  return Math.round(2600 - t * 2350); // 2600ms .. 250ms
 }
 
 function _speedLabel(delay) {
@@ -1519,14 +1519,32 @@ function initPalindromViz(containerId) {
   }
 
   let busy = false;
+  let paused = false;
+  let runToken = 0;
+
+  async function sleepControlled(ms, token) {
+    let left = ms;
+    while (left > 0) {
+      if (token !== runToken) return false;
+      while (paused && token === runToken) await _vizSleep(120);
+      if (token !== runToken) return false;
+      const chunk = Math.min(120, left);
+      await _vizSleep(chunk);
+      left -= chunk;
+    }
+    return token === runToken;
+  }
+
   C.querySelector('[data-pal="go"]')?.addEventListener('click', async () => {
     if (busy) return; busy = true;
+    paused = false;
+    const token = ++runToken;
     const raw = (inputE?.value ?? 'radar').toLowerCase().replace(/[^a-z0-9]/g, '');
     if (!raw) { _vizSetStatus(statusE,'<span class="warn">Introdu un șir.</span>'); busy=false; return; }
     let l = 0, r = raw.length - 1;
     render(raw, l, r);
     _vizSetStatus(statusE, `Comparăm s[${l}]='${raw[l]}' cu s[${r}]='${raw[r]}'`);
-    await _vizSleep();
+    if (!(await sleepControlled(window.animSpeed ?? 1200, token))) { busy = false; return; }
     while (l < r) {
       if (raw[l] !== raw[r]) {
         render(raw, l, r, 'fail');
@@ -1535,12 +1553,12 @@ function initPalindromViz(containerId) {
       }
       render(raw, l, r, 'ok');
       _vizSetStatus(statusE, `✓ s[${l}]='${raw[l]}' = s[${r}]='${raw[r]}'`);
-      await _vizSleep();
+      if (!(await sleepControlled(window.animSpeed ?? 1200, token))) { busy = false; return; }
       l++; r--;
       if (l < r) {
         render(raw, l, r);
         _vizSetStatus(statusE, `Comparăm s[${l}]='${raw[l]}' cu s[${r}]='${raw[r]}'`);
-        await _vizSleep();
+        if (!(await sleepControlled(window.animSpeed ?? 1200, token))) { busy = false; return; }
       }
     }
     render(raw, -1, -1, 'done');
@@ -1556,6 +1574,22 @@ function initPalindromViz(containerId) {
     _vizSetStatus(statusE, 'Apasă <strong>Verifică</strong> pentru a începe.');
   });
 
+  C.querySelector('[data-pal="pause"]')?.addEventListener('click', (e) => {
+    if (!busy) return;
+    paused = !paused;
+    e.currentTarget.textContent = paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+
+  C.querySelector('[data-pal="reset"]')?.addEventListener('click', () => {
+    runToken++;
+    paused = false;
+    busy = false;
+    if (inputE) render((inputE.value || '').toLowerCase(), -1, -1);
+    _vizSetStatus(statusE, 'Resetat. Apasă <strong>Verifică</strong>.');
+    const pauseBtn = C.querySelector('[data-pal="pause"]');
+    if (pauseBtn) pauseBtn.textContent = '⏸ Pauză';
+  });
+
   if (inputE) render(inputE.value || 'radar', -1, -1);
   _vizSetStatus(statusE, 'Cei doi pointeri (st, dr) avansează unul spre celălalt.');
 }
@@ -1569,6 +1603,22 @@ function initCaesarViz(containerId) {
   const wheelE = C.querySelector('[data-cs="wheel"]');
   const statusE = C.querySelector('.viz-status');
   if (!inE || !outE) return;
+
+  let paused = false;
+  let runToken = 0;
+
+  async function sleepControlled(ms, token) {
+    let left = ms;
+    while (left > 0) {
+      if (token !== runToken) return false;
+      while (paused && token === runToken) await _vizSleep(120);
+      if (token !== runToken) return false;
+      const chunk = Math.min(120, left);
+      await _vizSleep(chunk);
+      left -= chunk;
+    }
+    return token === runToken;
+  }
 
   function renderWheel(ch, k) {
     if (!wheelE) return;
@@ -1589,6 +1639,8 @@ function initCaesarViz(containerId) {
   }
 
   async function run(decrypt) {
+    paused = false;
+    const token = ++runToken;
     let s = inE.value ?? '';
     let k = parseInt(kE?.value ?? '3', 10);
     if (isNaN(k)) k = 3;
@@ -1610,13 +1662,26 @@ function initCaesarViz(containerId) {
       outE.appendChild(span);
       renderWheel(ch, k);
       _vizSetStatus(statusE, `'${ch}' ${decrypt ? '−' : '+'} ${Math.abs(k)} → '${res}'`);
-      await _vizSleep(Math.max(80, (window.animSpeed ?? 350) * 0.4));
+      if (!(await sleepControlled(Math.max(160, (window.animSpeed ?? 1200) * 0.7), token))) return;
     }
     _vizSetStatus(statusE, `<span class="ok">✅ ${decrypt ? 'Decriptat' : 'Criptat'}: ${out}</span>`);
   }
 
   C.querySelector('[data-cs="enc"]')?.addEventListener('click', () => run(false));
   C.querySelector('[data-cs="dec"]')?.addEventListener('click', () => run(true));
+  C.querySelector('[data-cs="pause"]')?.addEventListener('click', (e) => {
+    paused = !paused;
+    e.currentTarget.textContent = paused ? '▶ Continuă' : '⏸ Pauză';
+  });
+  C.querySelector('[data-cs="reset"]')?.addEventListener('click', () => {
+    runToken++;
+    paused = false;
+    outE.textContent = '';
+    if (wheelE) wheelE.innerHTML = '';
+    _vizSetStatus(statusE, 'Resetat. Apasă <strong>Criptează</strong>.');
+    const pauseBtn = C.querySelector('[data-cs="pause"]');
+    if (pauseBtn) pauseBtn.textContent = '⏸ Pauză';
+  });
   _vizSetStatus(statusE, 'Apasă <strong>Criptează</strong> pentru a vedea fiecare caracter rotit cu k poziții.');
 }
 

@@ -290,6 +290,58 @@ const sections = [
           <span>♛ = Regină</span>
         </div>
       </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0 12px;">
+        <label style="font-size:13px;">Viteză pași demo</label>
+        <input id="bt-step-speed" type="range" min="1" max="10" value="4" style="width:170px;">
+        <button id="bt-step-pause" class="sort-btn">⏸ Pauză</button>
+        <button id="bt-step-reset" class="sort-btn">↺ Reset</button>
+        <span id="bt-step-status" style="font-size:12px;color:var(--text-muted);">Ready</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:14px;">
+        <div class="card blue">
+          <strong>Demo 2: Permutări 1..n</strong>
+          <p style="font-size:13px;">Generează toate permutările și numărul total.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <label>n = <input id="bt-d2-n" type="number" min="1" max="7" value="3" style="width:70px;"></label>
+            <button id="bt-d2-run" class="sort-btn">Generează</button>
+          </div>
+          <div id="bt-d2-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;max-height:190px;overflow:auto;"></div>
+        </div>
+
+        <div class="card teal">
+          <strong>Demo 3: Combinări C(n,k)</strong>
+          <p style="font-size:13px;">Alege n și k pentru a vedea toate submulțimile de mărime k.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <input id="bt-d3-n" type="number" min="1" max="12" value="5" style="width:70px;">
+            <input id="bt-d3-k" type="number" min="0" max="12" value="3" style="width:70px;">
+            <button id="bt-d3-run" class="sort-btn">Generează</button>
+          </div>
+          <div id="bt-d3-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;max-height:190px;overflow:auto;"></div>
+        </div>
+
+        <div class="card orange">
+          <strong>Demo 4: Submulțimi (2^n)</strong>
+          <p style="font-size:13px;">Afișează toate submulțimile pentru mulțimea &#123;1..n&#125;.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <label>n = <input id="bt-d4-n" type="number" min="1" max="10" value="3" style="width:70px;"></label>
+            <button id="bt-d4-run" class="sort-btn">Generează</button>
+          </div>
+          <div id="bt-d4-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;max-height:190px;overflow:auto;"></div>
+        </div>
+
+        <div class="card green">
+          <strong>Demo 5: Labirint 5x5</strong>
+          <p style="font-size:13px;">Click pe celule pentru pereți. Caută drum de la S(0,0) la F(4,4).</p>
+          <div id="bt-maze-grid" style="display:grid;grid-template-columns:repeat(5,26px);gap:4px;margin:6px 0 8px;"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button id="bt-d5-run" class="sort-btn">Caută drum</button>
+            <button id="bt-d5-reset" class="sort-btn">Reset</button>
+          </div>
+          <div id="bt-d5-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -602,5 +654,255 @@ LC</pre></div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+(function() {
+  function byId(id) { return document.getElementById(id); }
+  if (!byId('bt-d2-run')) return;
+  var runId = 0;
+  var paused = false;
+  var currentOut = null;
+
+  function stepDelay() {
+    var s = parseInt((byId('bt-step-speed') && byId('bt-step-speed').value) || '4', 10);
+    return 1400 - s * 110;
+  }
+
+  async function sleepStep(ms, id) {
+    var left = ms;
+    while (left > 0) {
+      if (id !== runId) return false;
+      if (paused) {
+        await new Promise(function(r) { setTimeout(r, 60); });
+        continue;
+      }
+      var part = Math.min(60, left);
+      await new Promise(function(r) { setTimeout(r, part); });
+      left -= part;
+    }
+    return id === runId;
+  }
+
+  function setStatus(txt) {
+    var s = byId('bt-step-status');
+    if (s) s.textContent = txt;
+  }
+
+  function clearOut(out) {
+    if (out) out.innerHTML = '';
+  }
+
+  function addLine(out, txt) {
+    var row = document.createElement('div');
+    row.textContent = txt;
+    row.style.padding = '3px 0';
+    row.style.borderBottom = '1px dashed rgba(255,255,255,.08)';
+    out.appendChild(row);
+  }
+
+  async function play(out, steps) {
+    currentOut = out;
+    clearOut(out);
+    var id = ++runId;
+    setStatus('Rulează pas cu pas...');
+    for (var i = 0; i < steps.length; i++) {
+      if (id !== runId) return;
+      addLine(out, steps[i]);
+      var ok = await sleepStep(stepDelay(), id);
+      if (!ok) return;
+    }
+    setStatus('Finalizat');
+  }
+
+  byId('bt-step-pause').addEventListener('click', function() {
+    paused = !paused;
+    byId('bt-step-pause').textContent = paused ? '▶ Continuă' : '⏸ Pauză';
+    setStatus(paused ? 'Pauză' : 'Rulează pas cu pas...');
+  });
+
+  byId('bt-step-reset').addEventListener('click', function() {
+    runId++;
+    paused = false;
+    byId('bt-step-pause').textContent = '⏸ Pauză';
+    setStatus('Reset');
+    if (currentOut) currentOut.innerHTML = 'Demo resetat.';
+  });
+
+  byId('bt-d2-run').addEventListener('click', async function() {
+    var n = parseInt(byId('bt-d2-n').value || '0', 10);
+    if (!Number.isFinite(n) || n < 1 || n > 7) {
+      byId('bt-d2-out').textContent = 'Alege n intre 1 si 7.';
+      return;
+    }
+    var used = new Array(n + 1).fill(false);
+    var cur = [];
+    var out = [];
+    var trace = [];
+    function gen() {
+      if (cur.length === n) {
+        trace.push('Soluție completă: [' + cur.join(', ') + ']');
+        out.push(cur.join(' '));
+        return;
+      }
+      for (var v = 1; v <= n; v++) {
+        if (!used[v]) {
+          trace.push('Aleg ' + v + ' pe poziția ' + (cur.length + 1));
+          used[v] = true;
+          cur.push(v);
+          gen();
+          trace.push('Backtrack: scot ' + v + ' de pe poziția ' + (cur.length));
+          cur.pop();
+          used[v] = false;
+        }
+      }
+    }
+    gen();
+    trace.push('Total permutări: ' + out.length);
+    await play(byId('bt-d2-out'), trace.slice(0, 150));
+  });
+
+  byId('bt-d3-run').addEventListener('click', async function() {
+    var n = parseInt(byId('bt-d3-n').value || '0', 10);
+    var k = parseInt(byId('bt-d3-k').value || '0', 10);
+    if (!Number.isFinite(n) || !Number.isFinite(k) || n < 1 || k < 0 || k > n || n > 12) {
+      byId('bt-d3-out').textContent = 'Conditie: 1 <= n <= 12 si 0 <= k <= n.';
+      return;
+    }
+    var cur = [];
+    var out = [];
+    var trace = [];
+    function comb(start) {
+      if (cur.length === k) {
+        trace.push('Combinare validă: (' + cur.join(',') + ')');
+        out.push('(' + cur.join(',') + ')');
+        return;
+      }
+      for (var v = start; v <= n; v++) {
+        trace.push('Aleg ' + v + ', următor start = ' + (v + 1));
+        cur.push(v);
+        comb(v + 1);
+        trace.push('Backtrack: elimin ' + v);
+        cur.pop();
+      }
+    }
+    comb(1);
+    trace.push('Total combinări: ' + out.length);
+    await play(byId('bt-d3-out'), trace.slice(0, 150));
+  });
+
+  byId('bt-d4-run').addEventListener('click', async function() {
+    var n = parseInt(byId('bt-d4-n').value || '0', 10);
+    if (!Number.isFinite(n) || n < 1 || n > 10) {
+      byId('bt-d4-out').textContent = 'Alege n intre 1 si 10.';
+      return;
+    }
+    var out = [];
+    var cur = [];
+    var trace = [];
+    function sub(i) {
+      if (i > n) {
+        trace.push('Submulțime: {' + cur.join(',') + '}');
+        out.push('{' + cur.join(',') + '}');
+        return;
+      }
+      trace.push('Decizie: includ ' + i);
+      cur.push(i);
+      sub(i + 1);
+      trace.push('Backtrack: exclud ' + i);
+      cur.pop();
+      trace.push('Decizie: NU includ ' + i);
+      sub(i + 1);
+    }
+    sub(1);
+    trace.push('Total submulțimi: ' + out.length);
+    await play(byId('bt-d4-out'), trace.slice(0, 170));
+  });
+
+  var size = 5;
+  var start = [0, 0];
+  var finish = [4, 4];
+  var maze = [];
+  for (var r = 0; r < size; r++) {
+    maze[r] = [];
+    for (var c = 0; c < size; c++) maze[r][c] = 0;
+  }
+
+  function renderMaze(path) {
+    var grid = byId('bt-maze-grid');
+    grid.innerHTML = '';
+    var set = new Set((path || []).map(function(p) { return p[0] + ',' + p[1]; }));
+    for (var r = 0; r < size; r++) {
+      for (var c = 0; c < size; c++) {
+        var cell = document.createElement('button');
+        cell.type = 'button';
+        cell.style.width = '26px';
+        cell.style.height = '26px';
+        cell.style.border = '1px solid #cbd5e1';
+        cell.style.borderRadius = '4px';
+        cell.style.padding = '0';
+        cell.style.cursor = 'pointer';
+        if (r === start[0] && c === start[1]) {
+          cell.textContent = 'S';
+          cell.style.background = '#dcfce7';
+        } else if (r === finish[0] && c === finish[1]) {
+          cell.textContent = 'F';
+          cell.style.background = '#dbeafe';
+        } else if (maze[r][c] === 1) {
+          cell.style.background = '#334155';
+        } else if (set.has(r + ',' + c)) {
+          cell.style.background = '#fde68a';
+        } else {
+          cell.style.background = '#fff';
+        }
+        (function(rr, cc) {
+          cell.addEventListener('click', function() {
+            if ((rr === start[0] && cc === start[1]) || (rr === finish[0] && cc === finish[1])) return;
+            maze[rr][cc] = maze[rr][cc] ? 0 : 1;
+            renderMaze();
+          });
+        })(r, c);
+        grid.appendChild(cell);
+      }
+    }
+  }
+
+  byId('bt-d5-run').addEventListener('click', async function() {
+    var vis = Array.from({ length: size }, function() { return Array(size).fill(false); });
+    var path = [];
+    var trace = [];
+    var dirs = [[1,0], [0,1], [-1,0], [0,-1]];
+    function dfs(x, y) {
+      if (x < 0 || y < 0 || x >= size || y >= size) return false;
+      if (maze[x][y] === 1 || vis[x][y]) return false;
+      trace.push('Vizitez (' + x + ',' + y + ')');
+      vis[x][y] = true;
+      path.push([x, y]);
+      if (x === finish[0] && y === finish[1]) return true;
+      for (var i = 0; i < dirs.length; i++) {
+        if (dfs(x + dirs[i][0], y + dirs[i][1])) return true;
+      }
+      trace.push('Backtrack din (' + x + ',' + y + ')');
+      path.pop();
+      return false;
+    }
+    var ok = dfs(start[0], start[1]);
+    renderMaze(ok ? path : []);
+    trace.push(ok
+      ? 'Drum găsit cu ' + path.length + ' pași.'
+      : 'Nu există drum cu configurația curentă.');
+    await play(byId('bt-d5-out'), trace.slice(0, 180));
+  });
+
+  byId('bt-d5-reset').addEventListener('click', function() {
+    for (var r = 0; r < size; r++) {
+      for (var c = 0; c < size; c++) maze[r][c] = 0;
+    }
+    byId('bt-d5-out').textContent = 'Labirint resetat.';
+    renderMaze();
+  });
+
+  renderMaze();
+})();
+</script>
 
 </ChapterLayout>
