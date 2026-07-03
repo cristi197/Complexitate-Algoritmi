@@ -1,0 +1,29 @@
+{
+  "name": "complexitate-algoritmi",
+  "version": "1.0.0",
+  "description": "[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?logo=astro&logoColor=white)](https://astro.build)\r [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-22c55e?logo=github)](https://cristi197.github.io/Complexitate-Algoritmi)\r [![License: MIT](https://img.shields.io/badge/License-MIT-6366f1)](LICENSE)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "css:build": "npx @tailwindcss/cli -i src/InfoLiceu.Web/wwwroot/css/app.css -o src/InfoLiceu.Web/wwwroot/css/site.css --minify",
+    "css:watch": "npx @tailwindcss/cli -i src/InfoLiceu.Web/wwwroot/css/app.css -o src/InfoLiceu.Web/wwwroot/css/site.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristi197/Complexitate-Algoritmi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristi197/Complexitate-Algoritmi/issues"
+  },
+  "homepage": "https://github.com/cristi197/Complexitate-Algoritmi#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
+}

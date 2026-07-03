@@ -1,0 +1,26 @@
+<header class="bg-[var(--color-bg-card)] border-b border-[var(--color-border)] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a asp-page="/Index" class="flex items-center gap-2 font-heading text-xl font-bold text-[var(--color-primary)] no-underline">
+            <span class="text-2xl">📚</span>
+            <span>InfoLiceu</span>
+        </a>
+
+        <!-- Nav -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a asp-page="/Index" class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">Capitole</a>
+            <a href="/exercitii" class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">Exerciții</a>
+            <a href="/bac" class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors">BAC</a>
+        </nav>
+
+        <!-- Right: Auth + Dark mode -->
+        <div class="flex items-center gap-3">
+            <button id="dark-toggle" 
+                    class="w-9 h-9 flex items-center justify-center rounded-lg bg-[var(--color-bg-sidebar)] hover:bg-[var(--color-primary-light)] transition-colors"
+                    aria-label="Comută tema întunecată">
+                🌙
+            </button>
+            <a href="/auth/login" class="text-sm font-medium text-[var(--color-primary)] hover:underline">Conectează-te</a>
+        </div>
+    </div>
+</header>

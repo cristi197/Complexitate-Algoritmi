@@ -1,0 +1,60 @@
+/* ─── Fonts (must be first) ─────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+/* ─── Theme tokens ───────────────────────────────── */
+@theme {
+  --font-sans: 'Inter', 'DM Sans', system-ui, sans-serif;
+  --font-heading: 'Syne', 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #818cf8;
+  --color-secondary: #06b6d4;
+  --color-accent: #f59e0b;
+
+  --color-bg: #fafbff;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f0f1ff;
+  --color-text: #1e1b4b;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+}
+
+/* ─── Dark mode tokens ───────────────────────────── */
+.dark {
+  --color-bg: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-bg-sidebar: #1e293b;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+}
+
+/* ─── Base styles ────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* ─── Skip link accessibility ────────────────────── */
+.skip-link {
+  @apply absolute -top-full left-4 z-[99999] px-4 py-2 bg-primary text-white font-semibold text-sm rounded-b-lg no-underline transition-[top] duration-200;
+}
+.skip-link:focus {
+  @apply top-0 outline outline-3 outline-white outline-offset-2;
+}

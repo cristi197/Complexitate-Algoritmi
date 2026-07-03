@@ -1,0 +1,148 @@
+{
+  "info": {
+    "name": "InfoLiceu v3 — MVP Testing",
+    "description": "Colecție de testare pentru API-ul și paginile InfoLiceu v3 (.NET 10 Razor Pages).\n\nRulare: dotnet run --project src/InfoLiceu.Web\nURL: https://localhost:5001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:5001"
+    }
+  ],
+  "item": [
+    {
+      "name": "🏠 Landing Page",
+      "item": [
+        {
+          "name": "GET / — Index page",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Response is HTML', () => pm.response.to.have.header('Content-Type', /text\\/html/));",
+                  "pm.test('Contains title', () => pm.expect(pm.response.text()).to.include('InfoLiceu'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/",
+            "description": "Pagina principală — afișează hero + grid de capitole."
+          }
+        }
+      ]
+    },
+    {
+      "name": "📚 Capitole",
+      "item": [
+        {
+          "name": "GET /capitole/{slug} — Detaliu capitol",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200 or 404', () => pm.expect(pm.response.code).to.be.oneOf([200, 404]));",
+                  "if (pm.response.code === 200) {",
+                  "  pm.test('Contains chapter title', () => pm.expect(pm.response.text()).to.include('Complexitate'));",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capitole/complexitate-algoritmi",
+            "description": "Pagina de detaliu pentru un capitol (ex: Complexitatea Algoritmilor)."
+          }
+        },
+        {
+          "name": "GET /capitole/{slug} — Introducere",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capitole/introducere",
+            "description": "Capitolul 'Introducere în Algoritmi'."
+          }
+        },
+        {
+          "name": "GET /capitole/{slug} — Capitol inexistent",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 404', () => pm.response.to.have.status(404));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/capitole/nu-exista",
+            "description": "Verifică că un capitol inexistent returnează 404."
+          }
+        }
+      ]
+    },
+    {
+      "name": "🏥 Health & Debug",
+      "item": [
+        {
+          "name": "GET / — Basic health check",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Server is running', () => pm.response.to.have.status(200));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/",
+            "description": "Verifică că serverul rulează."
+          }
+        }
+      ]
+    },
+    {
+      "name": "📊 Verificare Seed Data",
+      "item": [
+        {
+          "name": "Verifică capitolele seed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Has 13 chapters in seed', () => {",
+                  "  const body = pm.response.text();",
+                  "  pm.expect(body).to.include('Complexitatea');",
+                  "  pm.expect(body).to.include('Introducere');",
+                  "  pm.expect(body).to.include('Backtracking');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/",
+            "description": "Verifică că datele seed (13 capitole) sunt încărcate corect."
+          }
+        }
+      ]
+    }
+  ]
+}
