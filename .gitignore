@@ -1,8 +1,64 @@
-node_modules/
-dist/
-.astro/
-.env
-.env.*
-!.env.example
+# ===== .NET =====
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
 
-scripts/new_*.json
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.jfm
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+node_modules/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# ===== SQLite (local dev DB) =====
+*.db
+*.db-shm
+*.db-wal
+
+# ===== Logs =====
+logs/
+
+# ===== Test Results =====
+TestResults/
+*.trx
+*.coverage
+.coverage/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===== Astro legacy (nu face parte din proiectul .NET) =====
+astro-legacy/node_modules/
+astro-legacy/dist/
+astro-legacy/.astro/

@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/InfoLiceu.Application/InfoLiceu.Application.csproj" />
+    <Project Path="src/InfoLiceu.Domain/InfoLiceu.Domain.csproj" />
+    <Project Path="src/InfoLiceu.Infrastructure/InfoLiceu.Infrastructure.csproj" />
+    <Project Path="src/InfoLiceu.Web/InfoLiceu.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/InfoLiceu.Application.Tests/InfoLiceu.Application.Tests.csproj" />
+    <Project Path="tests/InfoLiceu.Domain.Tests/InfoLiceu.Domain.Tests.csproj" />
+    <Project Path="tests/InfoLiceu.Infrastructure.Tests/InfoLiceu.Infrastructure.Tests.csproj" />
+    <Project Path="tests/InfoLiceu.Web.Tests/InfoLiceu.Web.Tests.csproj" />
+  </Folder>
+</Solution>

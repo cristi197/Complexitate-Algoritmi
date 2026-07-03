@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup><PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" /><PackageReference Include="ZiggyCreatures.FusionCache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\InfoLiceu.Infrastructure\InfoLiceu.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\InfoLiceu.Application\InfoLiceu.Application.csproj" />
+  </ItemGroup>
+
+</Project>

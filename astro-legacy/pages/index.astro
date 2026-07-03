@@ -1,0 +1,373 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const categories = [
+  {
+    id: 'fundamente',
+    label: 'Fundamente',
+    desc: 'Punct de start — noțiuni esențiale pentru orice elev de informatică.',
+    chapters: [
+      { file: 'introducere',  icon: '🖥️', title: 'Introducere în Informatică', subtitle: 'C++, tipuri de date, structuri de control, BAC 2026', difficulty: 'easy',   time: '25 min' },
+      { file: 'functii',      icon: '⚙️', title: 'Funcții și Subprograme',     subtitle: 'Parametri, referințe, variabile locale/globale',     difficulty: 'easy',   time: '30 min' },
+      { file: 'complexitate', icon: '📊', title: 'Eficiența Algoritmilor',      subtitle: 'Notația Big-O, complexitate timp și spațiu',          difficulty: 'medium', time: '45 min' },
+    ],
+  },
+  {
+    id: 'structuri',
+    label: 'Structuri de Date',
+    desc: 'Organizarea și manipularea datelor — capabilități esențiale la BAC.',
+    chapters: [
+      { file: 'vectori',   icon: '📦', title: 'Vectori (Tablouri 1D)',       subtitle: 'Sortare, căutare, interclasare, algoritmi clasici',  difficulty: 'easy',   time: '35 min' },
+      { file: 'matrici',   icon: '🔲', title: 'Matrici (Tablouri 2D)',       subtitle: 'Diagonale, triunghiuri, zone, operații pe 2D',       difficulty: 'medium', time: '35 min' },
+      { file: 'siruri',    icon: '🔤', title: 'Șiruri de Caractere',         subtitle: 'char[], funcții cstring, palindrom, cifru Caesar',   difficulty: 'medium', time: '35 min' },
+      { file: 'fisiere',   icon: '📁', title: 'Fișiere',                     subtitle: 'ifstream, ofstream, citire EOF, prelucrare date',    difficulty: 'easy',   time: '30 min' },
+      { file: 'structuri', icon: '🗂️', title: 'Structuri (struct)',           subtitle: 'Tipuri definite de utilizator, sortare câmpuri',     difficulty: 'medium', time: '30 min' },
+      { file: 'pointeri',  icon: '🔗', title: 'Pointeri & Alocare Dinamică', subtitle: 'new/delete, aritmetica pointerilor, liste',           difficulty: 'hard',   time: '35 min' },
+    ],
+  },
+  {
+    id: 'algoritmi',
+    label: 'Algoritmi & Tehnici Avansate',
+    desc: 'Tehnicile de rezolvare a problemelor — miezul examenului de bacalaureat.',
+    chapters: [
+      { file: 'recursivitate',       icon: '🔄', title: 'Recursivitate',      subtitle: 'Stiva de apeluri, factorial, Fibonacci, memoizare',   difficulty: 'medium', time: '35 min' },
+      { file: 'backtracking',        icon: '🌳', title: 'Backtracking',        subtitle: 'Căutare cu revenire, N-Regine, permutări, labirint',  difficulty: 'hard',   time: '40 min' },
+      { file: 'programare-dinamica', icon: '🧮', title: 'Programare Dinamică', subtitle: 'DP tabelar, LIS, triunghi de numere, sume optime',    difficulty: 'hard',   time: '40 min' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="InfoLiceu — Algoritmi & Structuri de Date BAC 2026"
+  description="Ghid complet de informatică pentru liceu și bacalaureat: 12 capitole cu teorie, animații interactive, quiz-uri BAC și probleme rezolvate în C++."
+>
+  <Header />
+
+  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <div class="ix-hero">
+    <div class="ix-hero-inner">
+      <p class="ix-eyebrow">BAC Informatică · C++ · România 2026</p>
+      <h1 class="ix-title">Algoritmi &amp;<br>Structuri de Date</h1>
+      <p class="ix-lead">
+        Ghid complet pentru bacalaureat — 12 capitole cu teorie, animații
+        interactive, quiz-uri și probleme rezolvate pas cu pas.
+      </p>
+      <div class="ix-actions">
+        <a href="#capitole" class="ix-btn-primary">Explorează capitolele →</a>
+        <a href={`${base}/analiza-bac`} class="ix-btn-ghost">🤖 Analiză BAC cu AI</a>
+      </div>
+      <div class="ix-stats">
+        <span><strong>12</strong> capitole</span>
+        <span class="ix-stats-sep" aria-hidden="true"></span>
+        <span><strong>1100+</strong> exerciții</span>
+        <span class="ix-stats-sep" aria-hidden="true"></span>
+        <span><strong>5+</strong> animații</span>
+        <span class="ix-stats-sep" aria-hidden="true"></span>
+        <span><strong>~8h</strong> conținut</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Quick-access toolbar ────────────────────────── -->
+  <div class="ix-toolbar" aria-label="Acces rapid la instrumente">
+    <a href={`${base}/exercitii`} class="ix-toolbar-btn"><span>📝</span> Exerciții</a>
+    <a href={`${base}/analiza-bac`} class="ix-toolbar-btn"><span>🤖</span> Analiză BAC</a>
+    <a href={`${base}/examen-alb`} class="ix-toolbar-btn"><span>⏱️</span> Examen Alb</a>
+    <a href={`${base}/editor`} class="ix-toolbar-btn"><span>💻</span> Editor</a>
+    <a href={`${base}/cheat-sheet`} class="ix-toolbar-btn"><span>📄</span> Cheat Sheet</a>
+    <a href={`${base}/streak`} class="ix-toolbar-btn"><span>📅</span> Streak</a>
+    <a href={`${base}/debug-live`} class="ix-toolbar-btn"><span>🔍</span> Debug live</a>
+  </div>
+
+  <!-- ─── Quick-access tools (detailed cards) ─────────── -->
+  <div class="ix-tools" aria-label="Instrumente rapide">
+    <a href={`${base}/analiza-bac`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">🤖</span>
+      <div>
+        <strong>Analiză BAC cu AI</strong>
+        <p>Încarci subiectul, primești teorie + soluții + capitole relevante</p>
+      </div>
+    </a>
+    <a href={`${base}/exercitii`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📝</span>
+      <div>
+        <strong>Exerciții BAC</strong>
+        <p>1100+ întrebări grilă și probleme rezolvate cu explicații</p>
+      </div>
+    </a>
+    <a href={`${base}/editor`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">💻</span>
+      <div>
+        <strong>Editor C++ Online</strong>
+        <p>Compilare și rulare C++ direct în browser, fără instalare</p>
+      </div>
+    </a>
+    <a href={`${base}/examen-alb`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">⏱️</span>
+      <div>
+        <strong>Examen Alb</strong>
+        <p>Simulează condițiile reale de bacalaureat — examen complet 3h sau practică rapidă 30 min</p>
+      </div>
+    </a>
+    <a href={`${base}/cheat-sheet`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📄</span>
+      <div>
+        <strong>Cheat Sheet</strong>
+        <p>Referință rapidă printabilă cu tipuri de date, complexități și algoritmi</p>
+      </div>
+    </a>
+    <a href={`${base}/streak`} class="ix-tool-card">
+      <span class="ix-tool-icon" aria-hidden="true">📅</span>
+      <div>
+        <strong>Calendar Studiu & Streak</strong>
+        <p>Urmărește progresul zilnic și menține streak-ul de studiu</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- ─── Chapters ─────────────────────────────────────────── -->
+  <main id="capitole" class="ix-main">
+    {categories.map(cat => (
+      <section class="ix-section">
+        <header class="ix-section-head">
+          <h2 class="ix-section-title">{cat.label}</h2>
+          <p class="ix-section-desc">{cat.desc}</p>
+        </header>
+        <div class="ix-grid">
+          {cat.chapters.map(ch => (
+            <a href={`${base}/capitole/${ch.file}`} class="ix-card" data-chapter={ch.file}>
+              <div class="ix-card-top">
+                <span class="ix-card-icon" aria-hidden="true">{ch.icon}</span>
+                <span class={`ix-badge diff-${ch.difficulty}`}>{ch.difficulty === 'easy' ? 'Ușor' : ch.difficulty === 'medium' ? 'Mediu' : 'Dificil'}</span>
+              </div>
+              <h3 class="ix-card-title">{ch.title}</h3>
+              <p class="ix-card-sub">{ch.subtitle}</p>
+              <div class="ix-card-foot">
+                <span class="ix-time">⏱ {ch.time}</span>
+                <span class="ix-go" aria-hidden="true">→</span>
+              </div>
+              <div class="ix-progress-bar" aria-hidden="true">
+                <div class="ix-progress-fill" data-chapter-file={ch.file}></div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+
+  <Footer />
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      var progressData;
+      try {
+        progressData = JSON.parse(localStorage.getItem('infoLiceu_v2') || '{}');
+      } catch(e) { progressData = {}; }
+      var visited = progressData.visited || {};
+      var quizScores = progressData.quizScores || {};
+
+      document.querySelectorAll('.ix-progress-fill').forEach(function(bar) {
+        var chFile = bar.getAttribute('data-chapter-file');
+        var isVisited = !!visited[chFile];
+        var quizXP = quizScores[chFile] || 0;
+        var pct = isVisited ? (quizXP > 0 ? Math.min(100, 30 + quizXP) : 30) : 0;
+        if (pct > 0) {
+          setTimeout(function() { bar.style.width = pct + '%'; }, 300);
+        }
+      });
+    });
+  </script>
+
+  <style>
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .ix-hero {
+      padding: calc(var(--header-h) + 72px) 24px 72px;
+      text-align: center;
+      position: relative;
+      background: var(--bg);
+    }
+    [data-theme="dark"] .ix-hero {
+      background: linear-gradient(180deg, #080c14 0%, var(--bg) 100%);
+    }
+    .ix-hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(99,102,241,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 80% 80%, rgba(168,85,247,0.05) 0%, transparent 55%);
+    }
+    .ix-hero-inner { position: relative; max-width: 660px; margin: 0 auto; }
+
+    .ix-eyebrow {
+      display: inline-block;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 22px; opacity: 0.85;
+    }
+    .ix-title {
+      font-family: 'Manrope', 'Inter', sans-serif;
+      font-size: clamp(40px, 8vw, 76px);
+      font-weight: 800; line-height: 1.0; letter-spacing: -3px;
+      color: var(--text); margin-bottom: 24px;
+    }
+    [data-theme="dark"] .ix-title { color: #eef2ff; }
+    .ix-lead {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--text-muted); line-height: 1.75;
+      margin-bottom: 36px; max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .ix-actions {
+      display: flex; gap: 12px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 44px;
+    }
+    .ix-btn-primary {
+      display: inline-block; padding: 13px 30px;
+      background: var(--primary); color: white; border-radius: 10px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 18px rgba(99,102,241,0.3);
+    }
+    .ix-btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(99,102,241,0.4); }
+    .ix-btn-ghost {
+      display: inline-block; padding: 12px 26px;
+      background: transparent; border: 1.5px solid var(--border);
+      color: var(--text); border-radius: 10px;
+      font-weight: 600; font-size: 14px; text-decoration: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .ix-btn-ghost:hover { border-color: var(--primary); background: var(--primary-dim); }
+    .ix-stats {
+      display: flex; justify-content: center; align-items: center;
+      gap: 12px 24px; flex-wrap: wrap;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .ix-stats strong { color: var(--text); font-weight: 800; }
+    .ix-stats-sep { display: block; width: 1px; height: 14px; background: var(--border); flex-shrink: 0; }
+
+    /* ── Sections ──────────────────────────────────────────────── */
+    .ix-main {
+      max-width: 1080px; margin: 0 auto;
+      padding: 64px 24px 20px;
+      display: flex; flex-direction: column; gap: 56px;
+    }
+    .ix-section-head { margin-bottom: 20px; }
+    .ix-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2.5vw, 22px);
+      font-weight: 800; color: var(--text); margin-bottom: 4px;
+    }
+    .ix-section-desc { font-size: 13.5px; color: var(--text-muted); }
+
+    /* ── Cards ────────────────────────────────────────────────── */
+    .ix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 12px;
+    }
+    .ix-card {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px 14px;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+      position: relative; overflow: hidden;
+    }
+    .ix-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(99,102,241,0.11); }
+    [data-theme="dark"] .ix-card:hover { box-shadow: 0 8px 28px rgba(129,140,248,0.14); }
+    .ix-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .ix-card-icon { font-size: 20px; line-height: 1; }
+    .ix-badge {
+      font-size: 10.5px; font-weight: 700; padding: 2px 8px;
+      border-radius: 999px; letter-spacing: 0.3px; flex-shrink: 0;
+    }
+    .diff-easy   { background: rgba(22,163,74,0.1);  color: #16a34a; }
+    .diff-medium { background: rgba(234,88,12,0.1);  color: #ea580c; }
+    .diff-hard   { background: rgba(124,58,237,0.1); color: #7c3aed; }
+    [data-theme="dark"] .diff-easy   { background: rgba(74,222,128,0.12);  color: #4ade80; }
+    [data-theme="dark"] .diff-medium { background: rgba(251,146,60,0.12);  color: #fb923c; }
+    [data-theme="dark"] .diff-hard   { background: rgba(167,139,250,0.12); color: #a78bfa; }
+    .ix-card-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.3; }
+    .ix-card-sub { font-size: 12px; color: var(--text-muted); line-height: 1.5; flex: 1; margin-bottom: 12px; }
+    .ix-card-foot { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .ix-time { font-size: 11.5px; color: var(--text-faint); }
+    .ix-go { font-size: 14px; color: var(--primary); opacity: 0; transform: translateX(-4px); transition: opacity 0.18s, transform 0.18s; }
+    .ix-card:hover .ix-go { opacity: 1; transform: translateX(0); }
+    .ix-progress-bar { height: 2px; background: var(--border-faint); border-radius: 99px; overflow: hidden; }
+    .ix-progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, #a855f7 100%); border-radius: 99px; width: 0; transition: width 0.7s cubic-bezier(.4,0,.2,1); }
+
+    /* ── Quick-access toolbar ─────────────────────────────────── */
+    .ix-toolbar {
+      display: flex; justify-content: center; align-items: center;
+      gap: 6px; flex-wrap: wrap; padding: 14px 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .ix-toolbar-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      font-size: 12px; font-weight: 600;
+      transition: border-color 0.18s, background 0.18s, transform 0.18s;
+      white-space: nowrap;
+    }
+    .ix-toolbar-btn:hover { border-color: var(--primary); background: var(--primary-dim, rgba(99,102,241,0.06)); transform: translateY(-1px); }
+    .ix-toolbar-btn span { font-size: 14px; }
+
+    /* ── Tools strip ───────────────────────────────────────────── */
+    .ix-tools {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1080px;
+      margin: 8px auto 0;
+      padding: 0 24px;
+    }
+    .ix-tool-card {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 22px; text-decoration: none; color: inherit;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+    .ix-tool-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(99,102,241,0.11);
+    }
+    .ix-tool-icon { font-size: 22px; flex-shrink: 0; }
+    .ix-tool-card strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .ix-tool-card p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.45; }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .ix-hero { padding: calc(var(--header-h) + 36px) 16px 40px; }
+      .ix-title { letter-spacing: -1.5px; font-size: clamp(32px, 10vw, 48px); }
+      .ix-lead { font-size: 14px; margin-bottom: 24px; }
+      .ix-actions { margin-bottom: 28px; gap: 8px; }
+      .ix-btn-primary, .ix-btn-ghost { padding: 11px 20px; font-size: 13.5px; width: 100%; text-align: center; }
+      .ix-main { padding: 40px 14px 16px; gap: 36px; }
+      .ix-tools { grid-template-columns: 1fr; padding: 0 14px; gap: 8px; }
+      .ix-toolbar { gap: 4px; padding: 8px 14px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+      .ix-toolbar::-webkit-scrollbar { display: none; }
+      .ix-toolbar-btn { padding: 6px 10px; font-size: 11px; flex-shrink: 0; }
+      .ix-tool-card { padding: 14px 16px; gap: 12px; }
+    }
+    @media (max-width: 540px) {
+      .ix-grid { grid-template-columns: 1fr; gap: 8px; }
+      .ix-stats { gap: 6px 12px; font-size: 11.5px; }
+      .ix-stats-sep { display: none; }
+      .ix-card { padding: 14px 16px 10px; }
+      .ix-card-title { font-size: 13px; }
+      .ix-section-title { font-size: 16px; }
+      .ix-eyebrow { font-size: 9.5px; letter-spacing: 1.5px; }
+    }
+  </style>
+</BaseLayout>
