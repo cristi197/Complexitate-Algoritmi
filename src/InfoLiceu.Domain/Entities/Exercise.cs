@@ -23,17 +23,3 @@ public class Exercise
     public List<QuizAttempt> QuizAttempts { get; set; } = [];
     public List<Submission> Submissions { get; set; } = [];
 }
-
-public enum ExerciseType
-{
-    MultipleChoice = 1,
-    CodeSubmit = 2,
-    FreeText = 3
-}
-
-public enum Difficulty
-{
-    Easy = 1,
-    Medium = 2,
-    Hard = 3
-}

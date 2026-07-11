@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IExerciseService, ExerciseService>();
         services.AddSingleton<IMessageService, InMemoryMessageService>();
         services.AddScoped<IAuditService, AuditService>();
+        services.AddScoped<IQuizService, QuizService>();
 
         return services;
     }

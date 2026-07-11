@@ -20,10 +20,3 @@ public class User
     public List<Submission> Submissions { get; set; } = [];
     public List<AuditLog> AuditLogs { get; set; } = [];
 }
-
-public enum UserRole
-{
-    Student = 1,
-    Teacher = 2,
-    Admin = 3
-}

@@ -11,10 +11,3 @@ public class ExerciseDto
     public int TimesAttempted { get; set; }
     public int TimesSolved { get; set; }
 }
-
-public class ExerciseResultDto
-{
-    public bool IsCorrect { get; set; }
-    public string? Explanation { get; set; }
-    public string CorrectAnswer { get; set; } = string.Empty;
-}

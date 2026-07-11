@@ -21,6 +21,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IChapterStore, ChapterStore>();
         services.AddScoped<IExerciseStore, ExerciseStore>();
         services.AddScoped<IAuditStore, AuditStore>();
+        services.AddScoped<IQuizAttemptStore, QuizAttemptStore>();
 
         return services;
     }
