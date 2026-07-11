@@ -8,130 +8,184 @@
 {
     <div class="text-center py-16">
         <h1 class="text-2xl font-bold">Capitolul nu a fost găsit</h1>
-        <a href="/" class="text-[var(--color-primary)] mt-4 inline-block">← Înapoi la pagina principală</a>
+        <a href="/" class="text-[var(--color-primary)] mt-4 inline-block no-underline">← Înapoi la pagina principală</a>
     </div>
     return;
 }
 
-<!-- Chapter header -->
-<section class="mb-8">
-    <a href="/" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors no-underline">
-        ← Capitole
-    </a>
-    <div class="flex items-center gap-4 mt-3">
-        <span class="text-4xl">@Model.Chapter.Icon</span>
+<!-- Hero header -->
+<div class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 -mx-4 md:-mx-8 -mt-4 md:-mt-8 px-4 md:px-8 py-12 mb-8 text-white">
+    <nav class="text-sm mb-4 opacity-70">
+        <a href="/" class="text-white/70 hover:text-white no-underline">Acasă</a>
+        <span class="mx-2">›</span>
+        <span>@Model.Chapter.Title</span>
+    </nav>
+    <div class="flex items-center gap-4">
+        <span class="text-5xl">@Model.Chapter.Icon</span>
         <div>
-            <h1 class="font-heading text-3xl font-bold">@Model.Chapter.Title</h1>
+            <h1 class="font-heading text-3xl md:text-4xl font-extrabold">@Model.Chapter.Title</h1>
             @if (!string.IsNullOrEmpty(Model.Chapter.Subtitle))
             {
-                <p class="text-[var(--color-text-muted)] mt-1">@Model.Chapter.Subtitle</p>
+                <p class="text-white/70 mt-2 text-lg">@Model.Chapter.Subtitle</p>
             }
         </div>
     </div>
-</section>
+    @if (!string.IsNullOrEmpty(Model.Chapter.Tags))
+    {
+        <div class="flex flex-wrap gap-2 mt-4">
+            @foreach (var tag in Model.Chapter.Tags.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries))
+            {
+                <span class="px-3 py-1 rounded-full bg-white/10 text-xs">@tag</span>
+            }
+        </div>
+    }
+    <div class="mt-4 text-sm opacity-60">📖 ~@Model.Chapter.EstimatedMin min · @Model.TotalSlides slide-uri</div>
+</div>
 
 <div class="flex gap-8">
-    <!-- Main content area -->
+    <!-- Sticky section nav (like Astro) -->
+    @if (Model.TotalSlides > 1)
+    {
+        <nav class="hidden lg:block w-48 shrink-0" aria-label="Navigare slide-uri">
+            <div class="sticky top-20">
+                <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">
+                    Cuprins
+                </h3>
+                <div class="flex flex-col gap-1" id="toc-links">
+                    @for (int i = 0; i < Model.TotalSlides; i++)
+                    {
+                        <a href="javascript:void(0)" onclick="goToSlide(@i)"
+                           data-slide="@i"
+                           class="toc-link block px-3 py-2 rounded-lg text-sm no-underline transition-colors @(i == 0 ? "bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-semibold" : "text-[var(--color-text-muted)] hover:bg-[var(--color-bg-card)]")">
+                            @Model.Slides[i].Title
+                        </a>
+                    }
+                </div>
+            </div>
+        </nav>
+    }
+
+    <!-- Main content -->
     <div class="flex-1 min-w-0">
-        <!-- Progress bar -->
-        <div class="mb-6">
-            <div class="flex justify-between text-sm text-[var(--color-text-muted)] mb-2">
-                <span>Slide @(Model.CurrentIndex + 1) din @Model.TotalSlides</span>
-                <span>@Math.Round((Model.CurrentIndex + 1) * 100.0 / Model.TotalSlides)%</span>
+        <!-- Mobile slide selector -->
+        @if (Model.TotalSlides > 1)
+        {
+            <div class="lg:hidden mb-4 flex items-center gap-2">
+                <span class="text-sm text-[var(--color-text-muted)]" id="mobile-slide-label">Slide 1/@Model.TotalSlides</span>
+                <div class="flex-1 bg-[var(--color-border)] rounded-full h-1.5 overflow-hidden">
+                    <div id="mobile-progress" class="bg-[var(--color-primary)] h-full rounded-full transition-all" style="width:@(100.0/Model.TotalSlides)%"></div>
+                </div>
             </div>
-            <div class="w-full bg-[var(--color-border)] rounded-full h-2 overflow-hidden">
-                <div class="bg-[var(--color-primary)] h-full rounded-full transition-all duration-300"
-                     style="width: @((Model.CurrentIndex + 1) * 100.0 / Model.TotalSlides)%"></div>
-            </div>
-        </div>
+        }
 
-        <!-- Slide content (HTMX target) -->
-        <div id="slide-container"
-             class="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6 md:p-8 min-h-[300px]">
-            <partial name="_SlideContent" model="Model" />
-        </div>
+        <!-- All slides (shown/hidden via JS) -->
+        @for (int i = 0; i < Model.TotalSlides; i++)
+        {
+            var slide = Model.Slides[i];
+            <section class="chapter-slide @(i == 0 ? "" : "hidden")" data-slide="@i" id="slide-@i">
+                <div class="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-6">
+                    <!-- Slide header -->
+                    <div class="flex items-center gap-3 px-6 py-4 border-b border-[var(--color-border)] bg-[var(--color-bg-sidebar)]">
+                        <span class="w-9 h-9 rounded-lg flex items-center justify-center text-lg bg-[var(--color-primary)]/10 text-[var(--color-primary)] shrink-0">
+                            @(i + 1)
+                        </span>
+                        <h2 class="font-heading text-lg font-bold m-0">@slide.Title</h2>
+                    </div>
 
-        <!-- Navigation buttons -->
-        <div class="flex justify-between mt-6">
-            @if (Model.HasPrev)
-            {
-                <button hx-get="/capitole/@Model.Chapter.Slug?handler=Slide&index=@(Model.CurrentIndex - 1)"
-                        hx-target="#slide-container"
-                        hx-swap="innerHTML show:window:top"
-                        class="px-5 py-2.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-sm font-medium hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors cursor-pointer">
+                    <!-- Slide body -->
+                    <div class="p-6">
+                        @if (!string.IsNullOrEmpty(slide.Body))
+                        {
+                            @Html.Raw(Model.RenderBody(slide.Body))
+                        }
+
+                        @if (!string.IsNullOrEmpty(slide.Code))
+                        {
+                            <div class="mt-5 rounded-xl overflow-hidden border border-[var(--color-border)]">
+                                <div class="flex items-center justify-between px-4 py-2 bg-[#1e1e2e] text-xs text-gray-400">
+                                    <span>@(slide.Language ?? "cpp")</span>
+                                    <button class="hover:text-white transition-colors cursor-pointer"
+                                            onclick="navigator.clipboard.writeText(this.parentElement.nextElementSibling.textContent);this.textContent='✓ Copiat!';setTimeout(()=>this.textContent='📋 Copiază',1500)">
+                                        📋 Copiază
+                                    </button>
+                                </div>
+                                <pre class="p-4 m-0 overflow-x-auto text-sm leading-relaxed bg-[#1e1e2e] text-[#cdd6f4] font-mono"><code>@slide.Code</code></pre>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+        }
+
+        <!-- Navigation -->
+        @if (Model.TotalSlides > 1)
+        {
+            <div class="flex justify-between items-center mt-6 mb-12">
+                <button id="prev-btn" onclick="goToSlide(currentSlide - 1)"
+                        class="px-5 py-2.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-sm font-medium hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed">
                     ← Anterior
                 </button>
-            }
-            else
-            {
-                <div></div>
-            }
 
-            @if (Model.HasNext)
-            {
-                <button hx-get="/capitole/@Model.Chapter.Slug?handler=Slide&index=@(Model.CurrentIndex + 1)"
-                        hx-target="#slide-container"
-                        hx-swap="innerHTML show:window:top"
-                        class="px-5 py-2.5 rounded-lg bg-[var(--color-primary)] text-white text-sm font-medium hover:bg-[var(--color-primary-dark)] transition-colors cursor-pointer">
+                <span class="text-sm text-[var(--color-text-muted)]" id="slide-counter">
+                    @Model.TotalSlides slide-uri
+                </span>
+
+                <button id="next-btn" onclick="goToSlide(currentSlide + 1)"
+                        class="px-5 py-2.5 rounded-lg bg-[var(--color-primary)] text-white text-sm font-medium hover:opacity-90 transition-opacity cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed">
                     Următorul →
                 </button>
-            }
-            else
-            {
-                <div class="px-5 py-2.5 rounded-lg bg-green-600 text-white text-sm font-medium">
-                    ✓ Capitol complet!
-                </div>
-            }
-        </div>
-
-        <!-- Quick nav dots -->
-        <div class="flex justify-center gap-2 mt-6">
-            @for (int i = 0; i < Model.TotalSlides; i++)
-            {
-                <button hx-get="/capitole/@Model.Chapter.Slug?handler=Slide&index=@i"
-                        hx-target="#slide-container"
-                        hx-swap="innerHTML show:window:top"
-                        class="w-3 h-3 rounded-full transition-all cursor-pointer @(i == Model.CurrentIndex ? "bg-[var(--color-primary)] scale-125" : "bg-[var(--color-border)] hover:bg-[var(--color-primary)]/50")"
-                        title="Slide @(i + 1)"></button>
-            }
-        </div>
-
-        <!-- Keyboard shortcuts hint -->
-        <p class="text-center text-xs text-[var(--color-text-muted)] mt-4">
-            💡 Folosește tastele ← → pentru navigare
-        </p>
+            </div>
+        }
     </div>
-
-    <!-- Sidebar TOC -->
-    <aside class="hidden lg:block w-56 shrink-0">
-        <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-4">
-            Cuprins
-        </h3>
-        <nav class="flex flex-col gap-1" id="toc-nav">
-            @for (int i = 0; i < Model.TotalSlides; i++)
-            {
-                <button hx-get="/capitole/@Model.Chapter.Slug?handler=Slide&index=@i"
-                        hx-target="#slide-container"
-                        hx-swap="innerHTML show:window:top"
-                        class="text-left px-3 py-2 rounded-lg text-sm transition-colors cursor-pointer @(i == Model.CurrentIndex ? "bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-semibold" : "text-[var(--color-text-muted)] hover:bg-[var(--color-bg-card)] no-underline")">
-                    @Model.Slides[i].Title
-                </button>
-            }
-        </nav>
-    </aside>
 </div>
 
 @section Scripts {
     <script>
-        // Keyboard navigation
+        var currentSlide = 0;
+        var totalSlides = @Model.TotalSlides;
+
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            currentSlide = index;
+
+            // Hide all slides, show current
+            document.querySelectorAll('.chapter-slide').forEach(function(s, i) {
+                s.classList.toggle('hidden', i !== index);
+            });
+
+            // Update TOC links
+            document.querySelectorAll('.toc-link').forEach(function(link, i) {
+                if (i === index) {
+                    link.classList.add('bg-[var(--color-primary)]/10', 'text-[var(--color-primary)]', 'font-semibold');
+                } else {
+                    link.classList.remove('bg-[var(--color-primary)]/10', 'text-[var(--color-primary)]', 'font-semibold');
+                    link.classList.add('text-[var(--color-text-muted)]');
+                }
+            });
+
+            // Update buttons
+            var prevBtn = document.getElementById('prev-btn');
+            var nextBtn = document.getElementById('next-btn');
+            if (prevBtn) prevBtn.disabled = index === 0;
+            if (nextBtn) nextBtn.disabled = index === totalSlides - 1;
+
+            // Update mobile progress
+            var mobileLabel = document.getElementById('mobile-slide-label');
+            var mobileProgress = document.getElementById('mobile-progress');
+            if (mobileLabel) mobileLabel.textContent = 'Slide ' + (index + 1) + '/' + totalSlides;
+            if (mobileProgress) mobileProgress.style.width = ((index + 1) / totalSlides * 100) + '%';
+
+            // Scroll to slide top
+            var el = document.getElementById('slide-' + index);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Keyboard nav
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                var prev = document.querySelector('[hx-get*="index=@(Model.CurrentIndex - 1)"]');
-                if (prev && @Json.Serialize(Model.HasPrev)) prev.click();
-            } else if (e.key === 'ArrowRight') {
-                var next = document.querySelector('[hx-get*="index=@(Model.CurrentIndex + 1)"]');
-                if (next && @Json.Serialize(Model.HasNext)) next.click();
-            }
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+            if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
         });
     </script>
 }
+
