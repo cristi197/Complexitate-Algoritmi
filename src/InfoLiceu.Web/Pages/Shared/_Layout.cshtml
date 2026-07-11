@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
-<html lang="ro" class="">
+<html lang="ro">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] — InfoLiceu</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="icon" href="~/favicon.ico" />
-    <script src="https://unpkg.com/htmx.org@2.0.4" defer></script>
 </head>
 <body class="bg-[var(--color-bg)] text-[var(--color-text)] min-h-screen flex flex-col">
 
@@ -22,22 +21,6 @@
     </div>
 
     <partial name="_Footer" />
-
-    <script>
-        // Dark mode toggle
-        const toggle = document.getElementById('dark-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-            });
-        }
-        // Restore theme
-        if (localStorage.getItem('theme') === 'dark' || 
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

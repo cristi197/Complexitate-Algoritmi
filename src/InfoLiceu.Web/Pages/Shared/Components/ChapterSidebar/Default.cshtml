@@ -1,11 +1,13 @@
 @model List<InfoLiceu.Domain.DTOs.ChapterCardDto>
 
-<nav class="flex flex-col gap-1">
+<nav class="flex flex-col gap-0.5">
     @foreach (var chapter in Model)
     {
         <a href="/capitole/@chapter.Slug"
-           class="block px-3 py-2 rounded-lg text-sm font-medium text-[var(--color-text-muted)] no-underline hover:bg-[var(--color-bg-card)] hover:text-[var(--color-primary)] transition-colors">
-            @chapter.Icon @chapter.Title
+           class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium no-underline transition-all
+                  text-[var(--color-text-muted)] hover:text-white hover:bg-white/5">
+            <span class="text-base">@chapter.Icon</span>
+            <span>@chapter.Title</span>
         </a>
     }
 </nav>
