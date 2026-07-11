@@ -1,0 +1,89 @@
+@model InfoLiceu.Web.Pages.Capitole.DetailModel
+@{
+    var slide = Model.CurrentSlide;
+}
+
+@if (slide is null)
+{
+    <p class="text-[var(--color-text-muted)]">Niciun slide disponibil.</p>
+    return;
+}
+
+<!-- Slide content (replaced via HTMX) -->
+<div hx-swap-oob="true" id="progress-info">
+    Slide @(Model.CurrentIndex + 1) din @Model.TotalSlides
+    <span class="ml-2">@Math.Round((Model.CurrentIndex + 1) * 100.0 / Model.TotalSlides)%</span>
+</div>
+
+<h2 class="font-heading text-2xl font-bold mb-4">@slide.Title</h2>
+
+<div class="prose prose-lg max-w-none text-[var(--color-text)]">
+    @* Render body with basic markdown-like formatting *@
+    @foreach (var paragraph in slide.Body.Split("\n\n"))
+    {
+        var trimmed = paragraph.Trim();
+        if (string.IsNullOrEmpty(trimmed)) continue;
+
+        @if (trimmed.StartsWith("|") && trimmed.Contains("---") == false)
+        {
+            @* Simple table rendering *@
+            var rows = trimmed.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            <div class="overflow-x-auto my-4">
+                <table class="w-full text-sm border-collapse">
+                    @foreach (var row in rows)
+                    {
+                        var cells = row.Split('|', StringSplitOptions.RemoveEmptyEntries)
+                                       .Select(c => c.Trim()).ToArray();
+                        <tr class="border-b border-[var(--color-border)] @(Array.IndexOf(rows, row) == 0 ? "font-semibold bg-[var(--color-bg-sidebar)]" : "")">
+                            @foreach (var cell in cells)
+                            {
+                                <td class="px-3 py-2">@Html.Raw(FormatInline(cell))</td>
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else if (trimmed.StartsWith("- ") || trimmed.StartsWith("* "))
+        {
+            <ul class="list-disc pl-6 my-2 space-y-1">
+                @foreach (var line in trimmed.Split('\n'))
+                {
+                    var item = line.TrimStart('-', '*', ' ');
+                    <li>@Html.Raw(FormatInline(item))</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="my-2 leading-relaxed">@Html.Raw(FormatInline(paragraph.Replace("\n", "<br/>")))</p>
+        }
+    }
+</div>
+
+@if (!string.IsNullOrEmpty(slide.Code))
+{
+    <div class="mt-6 rounded-xl overflow-hidden border border-[var(--color-border)]">
+        <div class="flex items-center justify-between px-4 py-2 bg-[var(--color-bg-sidebar)] text-xs text-[var(--color-text-muted)]">
+            <span>@(slide.Language ?? "code")</span>
+            <button class="copy-btn hover:text-[var(--color-primary)] transition-colors cursor-pointer"
+                    onclick="navigator.clipboard.writeText(this.closest('.code-block-wrapper').querySelector('code').textContent)">
+                📋 Copiază
+            </button>
+        </div>
+        <div class="code-block-wrapper">
+            <pre class="p-4 m-0 overflow-x-auto text-sm leading-relaxed bg-[#1e1e2e] text-[#cdd6f4]"><code class="language-@(slide.Language ?? "cpp")">@slide.Code</code></pre>
+        </div>
+    </div>
+}
+
+@functions {
+    string FormatInline(string text)
+    {
+        // Bold: **text**
+        text = System.Text.RegularExpressions.Regex.Replace(text, @"\*\*(.+?)\*\*", "<strong>$1</strong>");
+        // Inline code: `text`
+        text = System.Text.RegularExpressions.Regex.Replace(text, @"`(.+?)`", "<code class='px-1 py-0.5 bg-[var(--color-bg-sidebar)] rounded text-sm font-mono'>$1</code>");
+        return text;
+    }
+}
