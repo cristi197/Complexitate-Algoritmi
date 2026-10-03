@@ -3,7 +3,8 @@
 ═══════════════════════════════════════════════════════════════ */
 
 var CACHE_NAME = 'infoLiceu-v2';
-var BASE = '';
+var BASE = new URL(self.registration.scope).pathname.replace(/\/$/, '');
+if (BASE === '/') BASE = '';
 
 var PRECACHE_URLS = [
   BASE + '/',

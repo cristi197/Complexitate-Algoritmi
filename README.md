@@ -38,12 +38,12 @@
 |---|---|
 | Framework | [Astro 5.x](https://astro.build) — build static, fișiere `.astro` |
 | Fonturi | Syne (display) · DM Sans (body) · JetBrains Mono (cod) via Google Fonts |
-| Stiluri | CSS custom properties — design system în `src/styles/global.css` |
+| Stiluri | CSS custom properties — design system în `astro-legacy/styles/global.css` |
 | Grafice | [Chart.js 4.4](https://www.chartjs.org) — încărcat CDN doar pe pagina Complexitate |
-| Quiz | Motor propriu (`public/js/quiz.js`) + date JSON per capitol |
-| Progres | `public/js/progress.js` — XP system cu localStorage (`infoLiceu_v2`) |
-| Căutare | `public/js/search.js` — index static client-side, modal Ctrl+K |
-| Deploy | GitHub Pages via `astro build` + `base: '/Complexitate-Algoritmi'` |
+| Quiz | Motor propriu (`astro-legacy/public/js/quiz.js`) + date JSON per capitol |
+| Progres | `astro-legacy/public/js/progress.js` — XP system cu localStorage (`infoLiceu_v2`) |
+| Căutare | `astro-legacy/public/js/search.js` — index static client-side, modal Ctrl+K |
+| Deploy | GitHub Pages din `astro-legacy/dist`, cu domeniul custom `learnbac.ro` |
 
 ---
 
@@ -54,13 +54,14 @@
 git clone https://github.com/cristi197/Complexitate-Algoritmi.git
 cd Complexitate-Algoritmi
 
-# 2. Instalează dependențele
+# 2. Instalează dependențele repo-ului și ale site-ului Astro
 npm install
+npm install --prefix astro-legacy
 
 # 3. Server de dezvoltare (localhost:4321)
 npm run dev
 
-# 4. Build de producție
+# 4. Build de producție pentru GitHub Pages
 npm run build
 
 # 5. Preview build local
@@ -72,7 +73,7 @@ npm run preview
 ## Structura proiectului
 
 ```
-src/
+astro-legacy/
 ├── layouts/
 │   ├── BaseLayout.astro       # HTML shell: fonts, dark mode, search modal, XP toast
 │   └── ChapterLayout.astro    # Layout capitol: sidebar, breadcrumbs, prev/next nav
@@ -92,7 +93,7 @@ src/
 └── styles/
     └── global.css             # Design system complet (tokens, utilities, animații)
 
-public/
+astro-legacy/public/
 ├── js/                        # JS rulat în browser (copiat și din js/)
 │   ├── platform.js
 │   ├── quiz.js
@@ -103,6 +104,12 @@ public/
 ├── data/exercises/            # JSON-uri cu întrebările de quiz per capitol
 ├── favicon.svg
 └── manifest.json
+
+src/
+├── InfoLiceu.Web/             # aplicația .NET Razor Pages
+├── InfoLiceu.Application/
+├── InfoLiceu.Infrastructure/
+└── InfoLiceu.Domain/
 ```
 
 ---

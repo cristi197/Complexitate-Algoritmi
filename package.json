@@ -8,6 +8,9 @@
     "test": "tests"
   },
   "scripts": {
+    "dev": "npm --prefix astro-legacy run dev --",
+    "build": "npm --prefix astro-legacy run build",
+    "preview": "npm --prefix astro-legacy run preview --",
     "css:build": "npx @tailwindcss/cli -i src/InfoLiceu.Web/wwwroot/css/app.css -o src/InfoLiceu.Web/wwwroot/css/site.css --minify",
     "css:watch": "npx @tailwindcss/cli -i src/InfoLiceu.Web/wwwroot/css/app.css -o src/InfoLiceu.Web/wwwroot/css/site.css --watch"
   },

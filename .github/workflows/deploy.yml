@@ -23,11 +23,15 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm run build
+          cache-dependency-path: astro-legacy/package-lock.json
+      - run: npm ci --prefix astro-legacy
+      - run: npm run build --prefix astro-legacy
+        env:
+          PUBLIC_SITE: https://learnbac.ro
+          PUBLIC_BASE: /
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: astro-legacy/dist
 
   deploy:
     needs: build

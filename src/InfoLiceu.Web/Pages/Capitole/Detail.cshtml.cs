@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using InfoLiceu.Domain.DTOs;
@@ -46,20 +47,21 @@ public class DetailModel : PageModel
         if (string.IsNullOrEmpty(body)) return string.Empty;
 
         var result = new System.Text.StringBuilder();
-        var paragraphs = body.Split("\n\n");
+        var paragraphs = body.Replace("\r\n", "\n").Split("\n\n");
 
         foreach (var paragraph in paragraphs)
         {
             var trimmed = paragraph.Trim();
             if (string.IsNullOrEmpty(trimmed)) continue;
 
-            if (trimmed.StartsWith("|") && !trimmed.Contains("---", StringComparison.Ordinal))
+            if (IsMarkdownTable(trimmed))
             {
-                // Table
                 var rows = trimmed.Split('\n', StringSplitOptions.RemoveEmptyEntries);
                 result.Append("<div class='overflow-x-auto my-4'><table class='w-full text-sm border-collapse'>");
                 for (int r = 0; r < rows.Length; r++)
                 {
+                    if (IsMarkdownSeparatorRow(rows[r])) continue;
+
                     var cells = rows[r].Split('|', StringSplitOptions.RemoveEmptyEntries)
                                       .Select(c => c.Trim()).ToArray();
                     var rowClass = r == 0 ? "font-semibold bg-[var(--color-bg-sidebar)]" : "";
@@ -72,7 +74,6 @@ public class DetailModel : PageModel
             }
             else if (trimmed.StartsWith("- ") || trimmed.StartsWith("* "))
             {
-                // Unordered list
                 result.Append("<ul class='list-disc pl-6 my-2 space-y-1'>");
                 foreach (var line in trimmed.Split('\n'))
                 {
@@ -83,7 +84,12 @@ public class DetailModel : PageModel
             }
             else
             {
-                result.Append($"<p class='my-2 leading-relaxed'>{FormatInline(paragraph.Replace("\n", "<br/>"))}</p>");
+                var lines = paragraph
+                    .Replace("\r\n", "\n")
+                    .Split('\n')
+                    .Select(FormatInline);
+
+                result.Append($"<p class='my-2 leading-relaxed'>{string.Join("<br/>", lines)}</p>");
             }
         }
 
@@ -92,9 +98,24 @@ public class DetailModel : PageModel
 
     private static string FormatInline(string text)
     {
+        text = WebUtility.HtmlEncode(text);
         text = Regex.Replace(text, @"\*\*(.+?)\*\*", "<strong>$1</strong>");
         text = Regex.Replace(text, @"`([^`]+)`", "<code class='px-1.5 py-0.5 bg-[var(--color-bg-sidebar)] rounded text-sm font-mono text-[var(--color-primary)]'>$1</code>");
         return text;
+    }
+
+    private static bool IsMarkdownTable(string text)
+    {
+        var rows = text.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        return rows.Length >= 2
+            && rows[0].TrimStart().StartsWith("|")
+            && rows.Any(IsMarkdownSeparatorRow);
+    }
+
+    private static bool IsMarkdownSeparatorRow(string row)
+    {
+        var cells = row.Split('|', StringSplitOptions.RemoveEmptyEntries);
+        return cells.Length > 0 && cells.All(c => Regex.IsMatch(c.Trim(), "^:?-{3,}:?$"));
     }
 
     private static List<SlideDto> ParseSlides(string contentJson)
