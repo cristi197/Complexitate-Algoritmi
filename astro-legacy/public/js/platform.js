@@ -109,9 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initGoToTop();
   initViewCounter();
   initLikeButton();
-  initGlobalSpeedSlider();
   initAudioPlayer();
-  initQuizModal();
   /* scroll progress handled by BaseLayout.astro inline script */
 });
 

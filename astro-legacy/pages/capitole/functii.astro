@@ -10,7 +10,8 @@ const sections = [
   {"id":"subprograme-bac","label":"Subprograme predefinite"},
   {"id":"demo-interactiv","label":"Demo-uri interactive"},
   {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
-  {"id":"bac-functii","label":"Probleme BAC"}
+  {"id":"bac-functii","label":"Probleme BAC"},
+  {"id":"exercitii","label":"Exerciții"}
 ];
 ---
 <ChapterLayout
@@ -360,8 +361,8 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
           <strong>Demo 2: Afișare vs returnare</strong>
           <p style="font-size:13px;">Compară o funcție <code>void afiseazaSuma(a,b)</code> cu <code>int suma(a,b)</code>.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="fn-d2-a" type="number" value="3" style="width:66px;">
-            <input id="fn-d2-b" type="number" value="7" style="width:66px;">
+            <input id="fn-d2-a" type="number" value="3" style="width:66px;" aria-label="Primul parametru, a">
+            <input id="fn-d2-b" type="number" value="7" style="width:66px;" aria-label="Al doilea parametru, b">
             <button id="fn-d2-run" class="sort-btn">Compară</button>
           </div>
           <div id="fn-d2-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
@@ -371,7 +372,7 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
           <strong>Demo 3: Ce înseamnă &amp; ?</strong>
           <p style="font-size:13px;">Vezi cum „alias-ul” referinței urmărește aceeași variabilă.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="fn-d3-val" type="number" value="10" style="width:72px;">
+            <input id="fn-d3-val" type="number" value="10" style="width:72px;" aria-label="Valoare transmisă funcției">
             <button id="fn-d3-run" class="sort-btn">Explică</button>
           </div>
           <div id="fn-d3-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
@@ -381,8 +382,8 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
           <strong>Demo 4: Local vs global</strong>
           <p style="font-size:13px;">Simulare de „shadowing”: variabila locală ascunde variabila globală.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="fn-d4-global" type="number" value="100" style="width:78px;">
-            <input id="fn-d4-local" type="number" value="20" style="width:78px;">
+            <input id="fn-d4-global" type="number" value="100" style="width:78px;" aria-label="Valoarea variabilei globale">
+            <input id="fn-d4-local" type="number" value="20" style="width:78px;" aria-label="Valoarea variabilei locale">
             <button id="fn-d4-run" class="sort-btn">Simulează</button>
           </div>
           <div id="fn-d4-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
@@ -392,8 +393,8 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
           <strong>Demo 5: Parametru implicit</strong>
           <p style="font-size:13px;">Model pentru <code>putere(baza, exp=2)</code>: apel cu/sau fără al doilea argument.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="fn-d5-base" type="number" value="5" style="width:72px;">
-            <input id="fn-d5-exp" type="number" value="" placeholder="exp" style="width:72px;">
+            <input id="fn-d5-base" type="number" value="5" style="width:72px;" aria-label="Baza puterii">
+            <input id="fn-d5-exp" type="number" value="" placeholder="exp" style="width:72px;" aria-label="Exponent opțional">
             <button id="fn-d5-run" class="sort-btn">Calculează</button>
           </div>
           <div id="fn-d5-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
@@ -837,4 +838,9 @@ s[<span class="nu">0</span>]              <span class="cm">// 'H' — acces cara
 })();
 </script>
 
+<section id="exercitii">
+  <div class="slide"><div class="slide-header"><h2>Exerciții interactive</h2></div>
+    <div class="slide-body"><div class="quiz-section" data-quiz="functii-quiz" data-quiz-src={import.meta.env.BASE_URL + 'data/exercises/functii.json'} data-quiz-max="10"></div></div>
+  </div>
+</section>
 </ChapterLayout>

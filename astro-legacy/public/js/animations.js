@@ -89,20 +89,33 @@ function initTreeReveal() {
 /* ── 4. Copy button for code blocks ──────────────────────────── */
 function initCopyButtons() {
   document.querySelectorAll('pre').forEach(pre => {
-    if (pre.querySelector('.copy-btn')) return; /* avoid duplicates */
+    if (pre.closest('.code-block')) return;
+    const block = document.createElement('div');
+    block.className = 'code-block';
+    const toolbar = document.createElement('div');
+    toolbar.className = 'code-toolbar';
+    const label = document.createElement('span');
+    label.textContent = 'C++';
     const btn = document.createElement('button');
-    btn.className = 'copy-btn'; btn.textContent = 'Copiază';
-    pre.style.position = 'relative';
-    pre.appendChild(btn);
+    btn.type = 'button';
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copiază';
+    btn.setAttribute('aria-label', 'Copiază codul');
+    btn.title = 'Copiază codul';
+    btn.setAttribute('aria-live', 'polite');
+    toolbar.append(label, btn);
+    pre.before(block);
+    block.append(toolbar, pre);
+    pre.tabIndex = 0;
+    pre.setAttribute('role', 'region');
+    pre.setAttribute('aria-label', 'Exemplu de cod C++');
     btn.addEventListener('click', () => {
-      const clone = pre.cloneNode(true);
-      const copyBtn = clone.querySelector('.copy-btn');
-      if (copyBtn) copyBtn.remove();
-      const code = clone.textContent.trim();
+      const code = pre.textContent.trim();
+      if (!navigator.clipboard) { btn.textContent = 'Selectează codul'; return; }
       navigator.clipboard.writeText(code).then(() => {
         btn.textContent = 'Copiat! ✓'; btn.classList.add('copied');
         setTimeout(() => { btn.textContent = 'Copiază'; btn.classList.remove('copied'); }, 1800);
-      });
+      }).catch(() => { btn.textContent = 'Selectează codul'; });
     });
   });
 }
@@ -568,6 +581,7 @@ function initScrollProgress() {
     const total    = document.documentElement.scrollHeight - window.innerHeight;
     const pct      = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
     bar.style.width = pct.toFixed(1) + '%';
+    bar.style.transform = 'none';
   }
 
   window.addEventListener('scroll', update, { passive: true });

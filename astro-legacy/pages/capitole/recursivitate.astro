@@ -12,7 +12,8 @@ const sections = [
   {"id":"recvsiter","label":"Recursiv vs Iterativ"},
   {"id":"memoizare","label":"Memoizare"},
   {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
-  {"id":"bac","label":"Probleme BAC"}
+  {"id":"bac","label":"Probleme BAC"},
+  {"id":"exercitii","label":"Exerciții"}
 ];
 ---
 <ChapterLayout
@@ -349,8 +350,8 @@ const sections = [
           <strong>Demo 3: CMMDC recursiv (Euclid)</strong>
           <p style="font-size:13px;">Vezi pașii recursivi până la cazul de bază b=0.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="rec-d3-a" type="number" value="48" style="width:74px;">
-            <input id="rec-d3-b" type="number" value="18" style="width:74px;">
+            <input id="rec-d3-a" type="number" value="48" style="width:74px;" aria-label="Primul număr pentru CMMDC">
+            <input id="rec-d3-b" type="number" value="18" style="width:74px;" aria-label="Al doilea număr pentru CMMDC">
             <button id="rec-d3-run" class="sort-btn">Rulează</button>
           </div>
           <div id="rec-d3-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
@@ -360,8 +361,8 @@ const sections = [
           <strong>Demo 4: Căutare binară recursivă</strong>
           <p style="font-size:13px;">Introduce un vector sortat și valoarea căutată.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="rec-d4-arr" value="1 3 5 7 9 11 13" style="min-width:210px;">
-            <input id="rec-d4-x" type="number" value="7" style="width:70px;">
+            <input id="rec-d4-arr" value="1 3 5 7 9 11 13" style="min-width:210px;" aria-label="Vectorul sortat">
+            <input id="rec-d4-x" type="number" value="7" style="width:70px;" aria-label="Valoarea căutată">
             <button id="rec-d4-run" class="sort-btn">Caută</button>
           </div>
           <div id="rec-d4-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>
@@ -371,7 +372,7 @@ const sections = [
           <strong>Demo 5: Sumă cifre recursiv</strong>
           <p style="font-size:13px;">Descompune n în ultima cifră + restul numărului.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="rec-d5-n" type="number" value="1234" style="width:96px;">
+            <input id="rec-d5-n" type="number" value="1234" style="width:96px;" aria-label="Numărul pentru suma cifrelor">
             <button id="rec-d5-run" class="sort-btn">Calculează</button>
           </div>
           <div id="rec-d5-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;"></div>

@@ -187,10 +187,10 @@ cout &lt;&lt; mx;</pre>
           <tr><td><code>O(log n)</code></td><td>Căutare binară</td><td>10 op.</td><td>13 op.</td><td>17 op.</td><td>20 op.</td></tr>
           <tr><td><code>O(n)</code></td><td>Parcurgere vector</td><td>1.000 op.</td><td>10.000 op.</td><td>100.000 op.</td><td>1.000.000 op.</td></tr>
           <tr><td><code>O(n log n)</code></td><td>Sortare eficientă</td><td>10.000 op.</td><td>130.000 op.</td><td>1.700.000 op.</td><td>20.000.000 op.</td></tr>
-          <tr><td><code>O(n²)</code></td><td>Sortare bulă, 2 bucle</td><td>10⁶ op.</td><td style="color:#f87171;">10⁸ op. ⚠️</td><td style="color:#ef4444;">10¹⁰ op. ❌</td><td style="color:#ef4444;">10¹² op. ❌</td></tr>
+          <tr><td><code>O(n²)</code></td><td>Sortare bulă, 2 bucle</td><td>10⁶ op.</td><td style="color:var(--red);">10⁸ op. ⚠️</td><td style="color:var(--red);">10¹⁰ op. ❌</td><td style="color:var(--red);">10¹² op. ❌</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:8px;font-size:13px;color:#94a3b8;">La BAC, limitele tipice sunt: <strong>n &le; 1.000</strong> permite O(n²), <strong>n &le; 10.000</strong> permite O(n²) cu constante mici, <strong>n &le; 100.000</strong> necesită O(n log n) sau O(n).</p>
+      <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">La BAC, limitele tipice sunt: <strong>n &le; 1.000</strong> permite O(n²), <strong>n &le; 10.000</strong> permite O(n²) cu constante mici, <strong>n &le; 100.000</strong> necesită O(n log n) sau O(n).</p>
     </div>
   </div>
 </section>
@@ -270,7 +270,7 @@ cout &lt;&lt; mx;</pre>
       </div>
 
       <h3 style="margin:20px 0 10px;font-size:15px;">▶️ Testează codul C++ direct în browser</h3>
-      <p style="font-size:13px;color:#94a3b8;margin-bottom:10px;">Editorul de mai jos îţi permite să rulezi cod C++ fără să instalezi nimic. Modifică exemplul şi apasă <strong>Run</strong>!</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px;">Editorul de mai jos îţi permite să rulezi cod C++ fără să instalezi nimic. Modifică exemplul şi apasă <strong>Run</strong>!</p>
       <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
         <iframe
           src="https://onecompiler.com/embed/cpp?theme=dark&hideTitle=true&hideNew=true&listenToEvents=true&codeChangeEvent=true"
@@ -514,45 +514,45 @@ cin >> n;
         <div class="card blue">
           <strong><a href="complexitate.html" style="color:inherit;">⏱️ Cap 1: Complexitatea algoritmilor</a></strong>
           <p>Notatie Big-O, analiza timpului de executie, compararea eficientei algoritmilor. Recursivitate vs iteratie.</p>
-          <small style="color:#4ade80;">Include: O(1), O(log n), O(n), O(n log n), O(n&sup2;)</small>
+          <small style="color:var(--green);">Include: O(1), O(log n), O(n), O(n log n), O(n&sup2;)</small>
         </div>
         <div class="card teal">
           <strong><a href="recursivitate.html" style="color:inherit;">🔄 Cap 2: Recursivitate</a></strong>
           <p>Funcţii recursive, cazuri de bază şi recursiv, stiva de apeluri. Factoria, Fibonacci, turnurile Hanoi.</p>
-          <small style="color:#4ade80;">Include: factorial, combinari, Fibonacci, Hanoi</small>
+          <small style="color:var(--green);">Include: factorial, combinari, Fibonacci, Hanoi</small>
         </div>
         <div class="card purple">
           <strong><a href="backtracking.html" style="color:inherit;">🌳 Cap 3: Backtracking</a></strong>
           <p>Generare sistematică a solutiilor, explorare şi revenire. Permutări, combinaţii, generare subset.</p>
-          <small style="color:#4ade80;">Include: permutari, dame, subsets, combinari</small>
+          <small style="color:var(--green);">Include: permutari, dame, subsets, combinari</small>
         </div>
         <div class="card orange">
           <strong><a href="vectori.html" style="color:inherit;">📐 Cap 4: Vectori</a></strong>
           <p>Array-uri 1D, sortare, căutare, algoritmi clasici pe vectori.</p>
-          <small style="color:#4ade80;">Include: sortare, cautare binara, interclasare, deduplicare</small>
+          <small style="color:var(--green);">Include: sortare, cautare binara, interclasare, deduplicare</small>
         </div>
         <div class="card red">
           <strong><a href="matrici.html" style="color:inherit;">🔲 Cap 5: Matrici</a></strong>
           <p>Array-uri 2D, parcurgeri, diagonale, rotatie, operatii pe coloane/linii.</p>
-          <small style="color:#4ade80;">Include: parcurgere, diagonale, spirala, inmultire matrici</small>
+          <small style="color:var(--green);">Include: parcurgere, diagonale, spirala, inmultire matrici</small>
         </div>
         <div class="card blue">
           <strong><a href="siruri.html" style="color:inherit;">🔤 Cap 6: Şiruri de caractere</a></strong>
           <p>Prelucrarea textelor: palindrom, anagramă, căutare, funcţii cctype şi cstring.</p>
-          <small style="color:#4ade80;">Include: strlen, toupper, palindrom, anagrama, Caesar</small>
+          <small style="color:var(--green);">Include: strlen, toupper, palindrom, anagrama, Caesar</small>
         </div>
         <div class="card teal">
           <strong><a href="fisiere.html" style="color:inherit;">📁 Cap 7: Fişiere</a></strong>
           <p>Citire/scriere fişiere text şi binare. Toate problemele BAC cer date din fişiere!</p>
-          <small style="color:#4ade80;">Include: ifstream, ofstream, getline cu fisiere</small>
+          <small style="color:var(--green);">Include: ifstream, ofstream, getline cu fisiere</small>
         </div>
       </div>
 
       <h3 style="margin:20px 0 12px;font-size:15px;">Ce trebuie să ştii înainte de BAC — checklist</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;">
         <div>
-          <p style="font-weight:700;margin-bottom:8px;color:#4ade80;">✅ Elemente de bază (obligatoriu)</p>
-          <ul style="font-size:13px;line-height:2;color:#94a3b8;list-style:none;padding:0;">
+          <p style="font-weight:700;margin-bottom:8px;color:var(--green);">✅ Elemente de bază (obligatoriu)</p>
+          <ul style="font-size:13px;line-height:2;color:var(--text-muted);list-style:none;padding:0;">
             <li>☑ Tipuri de date: int, double, char, char[], bool</li>
             <li>☑ Operatori: aritmetici, logici, relaţionali, %</li>
             <li>☑ if/else, switch, for, while, do-while</li>
@@ -564,8 +564,8 @@ cin >> n;
           </ul>
         </div>
         <div>
-          <p style="font-weight:700;margin-bottom:8px;color:#fb923c;">⚠️ Subiecte dificile (pct. 5-10)</p>
-          <ul style="font-size:13px;line-height:2;color:#94a3b8;list-style:none;padding:0;">
+          <p style="font-weight:700;margin-bottom:8px;color:var(--orange);">⚠️ Subiecte dificile (pct. 5-10)</p>
+          <ul style="font-size:13px;line-height:2;color:var(--text-muted);list-style:none;padding:0;">
             <li>☐ Recursivitate: factorial, Fibonacci, Hanoi</li>
             <li>☐ Backtracking: permutări, combinaţii</li>
             <li>☐ Complexitate: Big-O, analiza buclelor</li>
@@ -642,22 +642,22 @@ cin >> n;
         <div class="card blue">
           <strong>🏛️ edu.ro — Subiecte oficiale</strong>
           <p style="font-size:13px;">Subiecte şi bareme de la examenele de bacalaureat anterioare.</p>
-          <a href="https://www.edu.ro/bacalaureat" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#60a5fa;">→ edu.ro/bacalaureat</a>
+          <a href="https://www.edu.ro/bacalaureat" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--blue2);">→ edu.ro/bacalaureat</a>
         </div>
         <div class="card teal">
           <strong>💻 pbinfo.ro</strong>
           <p style="font-size:13px;">Mii de probleme clasificate pe capitole, cu testare automată. Ideal pentru pregătire BAC.</p>
-          <a href="https://www.pbinfo.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#2dd4bf;">→ pbinfo.ro</a>
+          <a href="https://www.pbinfo.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--teal);">→ pbinfo.ro</a>
         </div>
         <div class="card purple">
           <strong>🏆 infoarena.ro</strong>
           <p style="font-size:13px;">Arhivă de probleme de concurs şi olimpiadă. Nivel mediu—avansat.</p>
-          <a href="https://infoarena.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#c084fc;">→ infoarena.ro</a>
+          <a href="https://infoarena.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);">→ infoarena.ro</a>
         </div>
         <div class="card orange">
           <strong>📖 Manuale digitale</strong>
           <p style="font-size:13px;">Manuale aprobate de Ministerul Educaţiei, disponibile gratuit online.</p>
-          <a href="https://manual.edu.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:#fb923c;">→ manual.edu.ro</a>
+          <a href="https://manual.edu.ro" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--orange);">→ manual.edu.ro</a>
         </div>
       </div>
     </div>
@@ -678,43 +678,43 @@ cin >> n;
         <div class="callout warning">
           <strong>⚠️ int overflow — rezultat greşit fără eroare de compilare</strong><br/>
           <code>int a = 100000, b = 100000;<br/>cout &lt;&lt; a * b; // rezultat: -1794967296 (greşit!)</code><br/>
-          <span style="color:#4ade80;">✅ Fix: foloseşte <code>long long</code> când rezultatele pot depăşi ~2 miliarde.</span>
+          <span style="color:var(--green);">✅ Fix: foloseşte <code>long long</code> când rezultatele pot depăşi ~2 miliarde.</span>
         </div>
 
         <div class="callout warning">
           <strong>⚠️ = în loc de == în condiţii</strong><br/>
           <code>if (x = 5) &#123; ... &#125; // ATRIBUIRE, nu comparaţie!</code><br/>
-          <span style="color:#4ade80;">✅ Fix: <code>if (x == 5)</code> — dublu egal pentru comparaţie.</span>
+          <span style="color:var(--green);">✅ Fix: <code>if (x == 5)</code> — dublu egal pentru comparaţie.</span>
         </div>
 
         <div class="callout warning">
           <strong>⚠️ Lipsa <code>break</code> în <code>switch</code></strong><br/>
           <code>switch(x) &#123; case 1: cout &lt;&lt; "unu"; case 2: cout &lt;&lt; "doi"; &#125; // afişează "unudoi"!</code><br/>
-          <span style="color:#4ade80;">✅ Fix: adaugă <code>break;</code> după fiecare <code>case</code>.</span>
+          <span style="color:var(--green);">✅ Fix: adaugă <code>break;</code> după fiecare <code>case</code>.</span>
         </div>
 
         <div class="callout warning">
           <strong>⚠️ Citire cu <code>cin</code> după <code>getline</code></strong><br/>
           <code>cin >> n; getline(cin, s); // s va fi gol — newline-ul rămas în buffer!</code><br/>
-          <span style="color:#4ade80;">✅ Fix: adaugă <code>cin.ignore();</code> între ele.</span>
+          <span style="color:var(--green);">✅ Fix: adaugă <code>cin.ignore();</code> între ele.</span>
         </div>
 
         <div class="callout warning">
           <strong>⚠️ Array out-of-bounds — acces în afara vectorului</strong><br/>
           <code>int v[10]; v[10] = 5; // index valid: 0..9, nu 10!</code><br/>
-          <span style="color:#4ade80;">✅ Fix: indexarea porneşte de la 0 — ultimul element valid este <code>v[n-1]</code>.</span>
+          <span style="color:var(--green);">✅ Fix: indexarea porneşte de la 0 — ultimul element valid este <code>v[n-1]</code>.</span>
         </div>
 
         <div class="callout warning">
           <strong>⚠️ Împărţire întreagă în loc de reală</strong><br/>
           <code>int a = 5, b = 2; double r = a / b; // r = 2.0, nu 2.5!</code><br/>
-          <span style="color:#4ade80;">✅ Fix: <code>double r = (double)a / b;</code> sau <code>double r = 1.0 * a / b;</code></span>
+          <span style="color:var(--green);">✅ Fix: <code>double r = (double)a / b;</code> sau <code>double r = 1.0 * a / b;</code></span>
         </div>
 
         <div class="callout warning">
           <strong>⚠️ Uitarea datelor din fişier la BAC</strong><br/>
           <code>cin >> n; // GREŞIT la BAC — datele vin din fişier!</code><br/>
-          <span style="color:#4ade80;">✅ Fix: <code>ifstream fin("date.in"); fin >> n;</code></span>
+          <span style="color:var(--green);">✅ Fix: <code>ifstream fin("date.in"); fin >> n;</code></span>
         </div>
 
       </div>

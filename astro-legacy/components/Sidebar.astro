@@ -1,4 +1,6 @@
 ---
+import { chapters } from '../data/chapters';
+
 interface Props {
   activeChapter?: number;
 }
@@ -6,29 +8,13 @@ interface Props {
 const { activeChapter = -1 } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-// color maps to one of the semantic CSS variables
-const chapters = [
-  { num: 0, file: 'introducere',    title: 'Introducere în Informatică', icon: '🖥️',  colorVar: 'blue'   },
-  { num: 1, file: 'functii',         title: 'Funcții și Subprograme',     icon: '⚙️',  colorVar: 'blue'   },
-  { num: 2, file: 'complexitate',   title: 'Eficiența Algoritmilor',     icon: '📊',  colorVar: 'teal'   },
-  { num: 3, file: 'recursivitate',  title: 'Recursivitate',              icon: '🔄',  colorVar: 'green'  },
-  { num: 4, file: 'backtracking',   title: 'Backtracking',               icon: '🌳',  colorVar: 'purple' },
-  { num: 5, file: 'vectori',        title: 'Vectori',                    icon: '📦',  colorVar: 'orange' },
-  { num: 6, file: 'matrici',        title: 'Matrici',                    icon: '🔲',  colorVar: 'teal'   },
-  { num: 7, file: 'siruri',         title: 'Șiruri de Caractere',        icon: '🔤',  colorVar: 'red'    },
-  { num: 8, file: 'fisiere',        title: 'Fișiere',                    icon: '📁',  colorVar: 'pink'   },
-  { num: 9, file: 'programare-dinamica', title: 'Programare Dinamică',      icon: '🧮',  colorVar: 'teal'   },
-  { num: 10, file: 'structuri',         title: 'Structuri (struct)',          icon: '🗂️', colorVar: 'purple' },
-  { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică',  icon: '🔗', colorVar: 'green'  },
-  { num: 12, file: 'grafuri',            title: 'Teoria Grafurilor',            icon: '🕸️', colorVar: 'purple' },
-];
 ---
 <nav class="sidebar" id="sidebar" aria-label="Navigare capitole">
 
   <!-- XP Bar -->
   <div class="sidebar-xp">
     <div class="xp-label">
-      <span class="xp-label-text">⚡ Progres</span>
+      <span class="xp-label-text">Progresul tău</span>
       <span class="xp-value-text"><span id="xp-value">0</span> XP</span>
     </div>
     <div class="xp-bar" role="progressbar" aria-label="XP" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">

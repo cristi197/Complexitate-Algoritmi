@@ -11,6 +11,7 @@ const sections = [
   { id: 'demo', label: 'Demo Memorie' },
   { id: 'probleme-rezolvate', label: 'Probleme rezolvate' },
   { id: 'bac-pointeri', label: 'Probleme BAC' },
+,{"id":"exercitii","label":"Exerciții"}
 ];
 ---
 <ChapterLayout
@@ -594,7 +595,7 @@ cout &lt;&lt; *p;    <span class="cm">// 1</span>
       <h2>Exerciții interactive — testează cunoștințele</h2>
     </div>
     <div class="slide-body">
-      <div class="quiz-section" data-chapter="pointeri"></div>
+      <div class="quiz-section" data-quiz="pointeri-quiz" data-quiz-src={import.meta.env.BASE_URL + 'data/exercises/pointeri.json'} data-quiz-max="10"></div>
     </div>
   </div>
 </section>

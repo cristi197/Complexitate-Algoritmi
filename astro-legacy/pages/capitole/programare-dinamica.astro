@@ -9,7 +9,8 @@ const sections = [
   {"id":"triunghi","label":"Triunghi de numere"},
   {"id":"demo","label":"Demo interactiv Fibonacci"},
   {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
-  {"id":"bac-dp","label":"Probleme BAC"}
+  {"id":"bac-dp","label":"Probleme BAC"},
+  {"id":"exercitii","label":"Exerciții"}
 ];
 ---
 <ChapterLayout
@@ -556,7 +557,7 @@ cout &lt;&lt; dp[n];</pre>
   </div>
 
   <!-- Quiz -->
-  <div class="quiz-section" data-chapter="programare-dinamica"></div>
+  <div id="exercitii" class="quiz-section" data-quiz="programare-dinamica-quiz" data-quiz-src={import.meta.env.BASE_URL + 'data/exercises/programare-dinamica.json'} data-quiz-max="10"></div>
 </section>
 
 </ChapterLayout>

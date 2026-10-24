@@ -59,13 +59,13 @@ const sections = [
           <strong>char[] (C-style)</strong>
           <p>Vector de caractere terminat cu <code>'\0'</code>. Funcţii din <code>&lt;cstring></code>: strlen, strcpy, strcat, strcmp, strchr, strstr.</p>
           <code>char s[201] = "salut";</code><br>
-          <small style="color:#888;font-size:12px;">Accesare: s[0]='s', s[1]='a', ..., s[5]='\0'</small>
+          <small style="color:var(--text-muted);font-size:12px;">Accesare: s[0]='s', s[1]='a', ..., s[5]='\0'</small>
         </div>
         <div class="card blue">
           <strong>string (C++)</strong>
           <p>Clasă C++, dimensiune dinamică. Operatori: <code>+</code>, <code>==</code>, <code>[]</code>. Metode: .length(), .substr(), .find(), .erase().</p>
           <code>string s = "salut";</code><br>
-          <small style="color:#888;font-size:12px;">Accesare: s[0]='s', s.length()=5</small>
+          <small style="color:var(--text-muted);font-size:12px;">Accesare: s[0]='s', s.length()=5</small>
         </div>
       </div>
 
@@ -367,7 +367,7 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
       <!-- ── Interactive: palindrom step-by-step ── -->
       <div id="pal-viz" class="viz-card">
         <strong>🎮 Demo interactiv — palindrom cu doi pointeri</strong>
-        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Pointer stâng <span style="color:#3b82f6;font-weight:600;">st</span> și pointer drept <span style="color:#ec4899;font-weight:600;">dr</span> avansează unul spre celălalt comparând caracter cu caracter.</p>
+        <p style="font-size:13px;color:var(--text-muted);margin:4px 0 8px;">Pointer stâng <span style="color:var(--blue2);font-weight:600;">st</span> și pointer drept <span style="color:var(--pink);font-weight:600;">dr</span> avansează unul spre celălalt comparând caracter cu caracter.</p>
         <div class="speed-wrap" style="margin-bottom:8px;">
           <label>⚡ Viteză:</label>
           <input type="range" min="50" max="600" value="120" data-role="speed-slider">
@@ -428,7 +428,7 @@ getline(cin, str);   <span class="cm">// acum functioneaza corect</span></pre>
           <span class="speed-label">Normal</span>
         </div>
         <div class="viz-controls">
-          <input type="text" data-cs="in" value="bacalaureat" style="flex:1;min-width:140px;padding:6px 10px;border-radius:6px;border:1px solid var(--border);">
+          <input type="text" data-cs="in" value="bacalaureat" style="flex:1;min-width:140px;padding:6px 10px;border-radius:6px;border:1px solid var(--border);" aria-label="Text pentru cifrul Caesar">
           <label>k:</label>
           <input type="number" data-cs="k" value="3" min="1" max="25" style="width:60px;padding:6px;border-radius:6px;border:1px solid var(--border);">
           <button class="btn btn-primary" data-cs="enc">🔐 Criptează</button>
@@ -555,7 +555,7 @@ cifre[len] = <span class="st">'\0'</span>;
       <div id="str-panel-caesar" class="str-panel" style="display:block;">
         <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px;">
           <input type="text" id="sd-caesar-in" class="str-demo-input" placeholder="Text de criptat..." value="salut bac 2024" style="flex:1;min-width:160px;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
-          <input type="number" id="sd-caesar-k" class="str-demo-input" value="3" min="1" max="25" style="width:70px;padding:8px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" />
+          <input type="number" id="sd-caesar-k" class="str-demo-input" value="3" min="1" max="25" style="width:70px;padding:8px;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#e2e8f0;" / aria-label="Deplasarea cifrului Caesar">
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button id="sd-caesar-enc" class="str-demo-btn">🔐 Criptează</button>

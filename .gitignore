@@ -62,3 +62,5 @@ Desktop.ini
 astro-legacy/node_modules/
 astro-legacy/dist/
 astro-legacy/.astro/
+astro-legacy/test-results/
+astro-legacy/playwright-report/

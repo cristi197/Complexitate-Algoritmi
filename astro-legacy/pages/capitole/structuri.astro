@@ -8,8 +8,8 @@ const sections = [
   {"id":"sortare-struct","label":"Sortare după câmp"},
   {"id":"functii-struct","label":"Structuri în funcții"},
   {"id":"demo","label":"Demo Struct"},
-  {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
-  {"id":"bac-struct","label":"Probleme BAC"}
+  {"id":"bac-struct","label":"Probleme BAC"},
+  {"id":"exercitii","label":"Exerciții"}
 ];
 ---
 <ChapterLayout
@@ -540,7 +540,7 @@ Produs p[<span class="nu">500</span>]; <span class="kw">int</span> n;
   </div>
 
   <!-- Quiz -->
-  <div class="quiz-section" data-chapter="structuri"></div>
+  <div id="exercitii" class="quiz-section" data-quiz="structuri-quiz" data-quiz-src={import.meta.env.BASE_URL + 'data/exercises/structuri.json'} data-quiz-max="10"></div>
 </section>
 
 </ChapterLayout>

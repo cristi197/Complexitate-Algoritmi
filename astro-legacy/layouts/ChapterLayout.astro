@@ -3,11 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Footer from '../components/Footer.astro';
-
-interface Section {
-  id: string;
-  label: string;
-}
+import { ArrowLeft, ArrowRight, Clock3, List, ChevronDown, CircleCheck, BookOpen } from '@lucide/astro';
+import { chapters } from '../data/chapters';
 
 interface Props {
   title: string;
@@ -15,160 +12,74 @@ interface Props {
   icon: string;
   gradient: string;
   tags?: string[];
-  sections?: Section[];
+  sections?: { id: string; label: string }[];
   chapterNum: number;
   description?: string;
 }
-
-const {
-  title, subtitle, icon, gradient,
-  tags = [], sections = [],
-  chapterNum,
-  description,
-} = Astro.props;
-
+const { title, subtitle, tags = [], sections = [], chapterNum, description } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const readingTime = 12; // fallback; scripts will update dynamically
-
-// Chapter order for prev/next navigation (sequential numbering)
-const CHAPTER_ORDER = [
-  { num: 0,  file: 'introducere',        title: 'Introducere în Informatică' },
-  { num: 1,  file: 'functii',            title: 'Funcții și Subprograme' },
-  { num: 2,  file: 'complexitate',       title: 'Eficiența Algoritmilor' },
-  { num: 3,  file: 'recursivitate',      title: 'Recursivitate' },
-  { num: 4,  file: 'backtracking',       title: 'Backtracking' },
-  { num: 5,  file: 'vectori',            title: 'Vectori (1D)' },
-  { num: 6,  file: 'matrici',            title: 'Matrici (2D)' },
-  { num: 7,  file: 'siruri',             title: 'Șiruri de Caractere' },
-  { num: 8,  file: 'fisiere',            title: 'Fișiere' },
-  { num: 9,  file: 'programare-dinamica',title: 'Programare Dinamică' },
-  { num: 10, file: 'structuri',          title: 'Structuri (struct)' },
-  { num: 11, file: 'pointeri',           title: 'Pointeri & Alocare Dinamică' },  
-  { num: 12, file: 'grafuri',            title: 'Teoria Grafurilor' },];
-const currentIdx = CHAPTER_ORDER.findIndex(c => c.num === chapterNum);
-const prevCh = currentIdx > 0 ? CHAPTER_ORDER[currentIdx - 1] : null;
-const nextCh = currentIdx < CHAPTER_ORDER.length - 1 ? CHAPTER_ORDER[currentIdx + 1] : null;
+const currentIdx = chapters.findIndex(ch => ch.num === chapterNum);
+const chapter = chapters[currentIdx];
+const prevCh = chapters[currentIdx - 1];
+const nextCh = chapters[currentIdx + 1];
+const summary = subtitle.replace(/^Capitolul \d+\s*(?:—|&mdash;)\s*/, '');
 ---
-<BaseLayout title={`${title} — Informatică Liceu`} description={description} bodyClass="has-sidebar">
+<BaseLayout title={title + ' — Informatică Liceu'} description={description} bodyClass="has-sidebar chapter-page">
   <Header />
   <Sidebar activeChapter={chapterNum} />
-
   <div class="app-shell">
-    <div class="app-content">
-      <!-- Chapter Hero -->
-      <div class="chapter-hero" style={`--hero-gradient: ${gradient};`}>
-        <!-- Breadcrumbs -->
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href={`${base}/`}>Acasă</a>
-          <span class="breadcrumbs-sep" aria-hidden="true">›</span>
-          <span aria-current="page">{title}</span>
+    <main class="app-content" id="main-content" tabindex="-1" data-chapter-slug={chapter.file}>
+      <header class="lesson-heading">
+        <nav class="lesson-breadcrumb" aria-label="Breadcrumb">
+          <a href={base + '/'}>Bibliotecă</a><span aria-hidden="true">/</span><span aria-current="page">{title}</span>
         </nav>
-        <h1>{icon} {title}</h1>
-        <p>{subtitle}</p>
-        {tags.length > 0 && (
-          <div class="chapter-hero-tags">
-            {tags.map(t => <span class="chapter-hero-tag">{t}</span>)}
-          </div>
-        )}
-        <div class="reading-badge" id="reading-badge">
-          📖 <span id="reading-time">{readingTime}</span> min
+        <div class="lesson-kicker"><BookOpen size={15} /> Capitolul {String(chapterNum + 1).padStart(2, '0')} <span>/ 13</span></div>
+        <h1>{title}</h1>
+        <p class="lesson-summary">{summary}</p>
+        <div class="lesson-meta">
+          <span><Clock3 size={16} /><span id="reading-time">{chapter.time}</span> min de lectură</span>
+          <span class="difficulty-label">{chapter.difficulty}</span>
+          <span>{sections.length} secțiuni</span>
         </div>
-        <div class="page-stats">
-          <button id="like-btn" class="like-btn" title="Îmi place!" aria-label="Like">
-            <span class="like-icon">🤍</span>
-            <span class="like-count">0</span>
-          </button>
-          <span class="view-counter" aria-label="Vizualizări">
-            <span aria-hidden="true">👁</span>
-            <span id="view-num">0</span>
-          </span>
+        <div class="lesson-topics">{tags.map(tag => <span>{tag}</span>)}</div>
+        <div class="lesson-actions">
+          <a class="study-button" href={'#' + (sections[0]?.id ?? 'exercitii')}><BookOpen size={17} /> Începe lecția</a>
+          <a class="study-button secondary" href="#exercitii"><CircleCheck size={17} /> Testează-te</a>
         </div>
-      </div>
-
-      <!-- Section sticky nav -->
-      {sections.length > 0 && (
-        <nav class="nav-bar" aria-label="Secțiuni capitol">
-          {sections.map(s => (
-            <a href={`#${s.id}`}>{s.label}</a>
-          ))}
-        </nav>
-      )}
-
-      <!-- Chapter content (injected by page) -->
-      <div class="wrapper" id="main-content">
-        <slot />
-
-        <!-- Prev / Next chapter navigation -->
-        {(prevCh || nextCh) && (
+      </header>
+      <div class="lesson-frame">
+        <aside class="lesson-outline" aria-label="Cuprins">
+          <details open id="lesson-outline">
+            <summary><List size={17} /><span>În acest capitol</span><ChevronDown size={16} /></summary>
+            <nav class="chapter-outline" aria-label="Secțiuni capitol">
+              {sections.map((section, index) => <a href={'#' + section.id}><span>{String(index + 1).padStart(2, '0')}</span>{section.label}</a>)}
+            </nav>
+            <div class="lesson-progress"><span>Progres lectură</span><output id="lesson-progress-text">0%</output><progress id="lesson-progress" value="0" max="100" aria-label="Progres lectură"></progress></div>
+          </details>
+        </aside>
+        <article class="wrapper lesson-content">
+          <slot />
           <nav class="chapter-nav" aria-label="Capitol anterior / următor">
-            {prevCh ? (
-              <a href={`${base}/capitole/${prevCh.file}`} class="chapter-nav-btn prev">
-                <span class="nav-arrow">←</span>
-                <span>
-                  <span class="nav-label">Capitol anterior</span>
-                  <span class="nav-title">{prevCh.title}</span>
-                </span>
-              </a>
-            ) : <span />}
-            {nextCh ? (
-              <a href={`${base}/capitole/${nextCh.file}`} class="chapter-nav-btn next">
-                <span>
-                  <span class="nav-label">Capitolul următor</span>
-                  <span class="nav-title">{nextCh.title}</span>
-                </span>
-                <span class="nav-arrow">→</span>
-              </a>
-            ) : <span />}
+            {prevCh ? <a href={base + '/capitole/' + prevCh.file} class="chapter-nav-btn prev"><ArrowLeft size={20} /><span><span class="nav-label">Capitol anterior</span><span class="nav-title">{prevCh.title}</span></span></a> : <span />}
+            {nextCh ? <a href={base + '/capitole/' + nextCh.file} class="chapter-nav-btn next"><span><span class="nav-label">Capitolul următor</span><span class="nav-title">{nextCh.title}</span></span><ArrowRight size={20} /></a> : <span />}
           </nav>
-        )}
+        </article>
       </div>
-    </div>
+    </main>
   </div>
   <Footer />
-
-  <!-- Scripts -->
-  <script is:inline src={`${import.meta.env.BASE_URL}js/animations.js`}></script>
-  <script is:inline src={`${import.meta.env.BASE_URL}js/quiz.js`}></script>
-  <script is:inline src={`${import.meta.env.BASE_URL}js/platform.js`}></script>
+  <script is:inline src={base + '/js/animations.js'}></script>
+  <script is:inline src={base + '/js/quiz.js'}></script>
+  <script is:inline src={base + '/js/platform.js'}></script>
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
-      var hasAnimationLib = false;
-
-      if (typeof initScrollReveal === 'function') {
-        initScrollReveal();
-        hasAnimationLib = true;
-      }
-      if (typeof initBarCharts === 'function') {
-        initBarCharts();
-        hasAnimationLib = true;
-      }
-      if (typeof initTreeReveal === 'function') {
-        initTreeReveal();
-        hasAnimationLib = true;
-      }
-      if (typeof initCopyButtons === 'function') {
-        initCopyButtons();
-        hasAnimationLib = true;
-      }
-      if (typeof initNavHighlight === 'function') {
-        initNavHighlight();
-        hasAnimationLib = true;
-      }
-
-      // If animations.js is missing, reveal content immediately to avoid hidden slides.
-      if (!hasAnimationLib) {
-        document.querySelectorAll('.slide').forEach(function(el) {
-          el.classList.add('visible');
-        });
-        document.querySelectorAll('.tree-node').forEach(function(el) {
-          el.classList.add('visible');
-        });
-      }
-
-      if (typeof initSectionXP === 'function') initSectionXP();
-      if (typeof initSectionReadingTime === 'function') initSectionReadingTime();
-      if (typeof initGlobalReadingTime === 'function') initGlobalReadingTime();
-      if (typeof initScrollProgress === 'function') initScrollProgress();
+      initBarCharts();
+      initTreeReveal();
+      initCopyButtons();
+      initSectionXP();
+      initSectionReadingTime();
+      initGlobalReadingTime();
+      initScrollProgress();
     });
   </script>
 </BaseLayout>

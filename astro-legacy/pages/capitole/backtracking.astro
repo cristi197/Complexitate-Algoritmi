@@ -11,7 +11,8 @@ const sections = [
   {"id":"demo","label":"Demo N-Regine"},
   {"id":"labirint","label":"Labirint"},
   {"id":"probleme-rezolvate","label":"Probleme rezolvate"},
-  {"id":"bac","label":"Probleme BAC"}
+  {"id":"bac","label":"Probleme BAC"},
+  {"id":"exercitii","label":"Exerciții"}
 ];
 ---
 <ChapterLayout
@@ -314,8 +315,8 @@ const sections = [
           <strong>Demo 3: Combinări C(n,k)</strong>
           <p style="font-size:13px;">Alege n și k pentru a vedea toate submulțimile de mărime k.</p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input id="bt-d3-n" type="number" min="1" max="12" value="5" style="width:70px;">
-            <input id="bt-d3-k" type="number" min="0" max="12" value="3" style="width:70px;">
+            <input id="bt-d3-n" type="number" min="1" max="12" value="5" style="width:70px;" aria-label="Numărul total de elemente">
+            <input id="bt-d3-k" type="number" min="0" max="12" value="3" style="width:70px;" aria-label="Numărul de elemente din combinare">
             <button id="bt-d3-run" class="sort-btn">Generează</button>
           </div>
           <div id="bt-d3-out" style="margin-top:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;max-height:190px;overflow:auto;"></div>
@@ -835,8 +836,10 @@ LC</pre></div>
       for (var c = 0; c < size; c++) {
         var cell = document.createElement('button');
         cell.type = 'button';
-        cell.style.width = '26px';
-        cell.style.height = '26px';
+        cell.setAttribute('aria-label', 'Celula ' + (r + 1) + ', ' + (c + 1));
+        cell.setAttribute('aria-pressed', String(maze[r][c] === 1));
+        cell.style.width = '34px';
+        cell.style.height = '34px';
         cell.style.border = '1px solid #cbd5e1';
         cell.style.borderRadius = '4px';
         cell.style.padding = '0';

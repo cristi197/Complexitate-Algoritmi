@@ -531,17 +531,17 @@ sort(v + <span class="nu">1</span>, v + n + <span class="nu">1</span>, greater&l
       <div class="vec-status">Apasă un buton pentru a vedea operația în acțiune.</div>
       <div class="vec-controls" style="margin-top:12px;">
         <strong>Inserare:</strong> 
-        Poziție: <input type="number" data-vec="ins-pos" value="3" min="1" max="9" style="width:60px">
-        Valoare: <input type="number" data-vec="ins-val" value="99" min="0" max="999" style="width:70px">
+        Poziție: <input type="number" data-vec="ins-pos" value="3" min="1" max="9" style="width:60px" aria-label="Poziția de inserare">
+        Valoare: <input type="number" data-vec="ins-val" value="99" min="0" max="999" style="width:70px" aria-label="Valoarea de inserat">
         <button class="btn btn-primary" data-vec="insert">↓ Inserează</button>
       </div>
       <div class="vec-controls" style="margin-top:8px;">
         <strong>Ștergere:</strong> 
-        Poziție: <input type="number" data-vec="del-pos" value="2" min="1" max="8" style="width:60px">
+        Poziție: <input type="number" data-vec="del-pos" value="2" min="1" max="8" style="width:60px" aria-label="Poziția de șters">
         <button class="btn btn-danger" data-vec="delete">🗑 Șterge</button>
           
         <strong>Căutare:</strong> 
-        Valoare: <input type="number" data-vec="srch-val" value="8" min="0" max="999" style="width:70px">
+        Valoare: <input type="number" data-vec="srch-val" value="8" min="0" max="999" style="width:70px" aria-label="Valoarea căutată">
         <button class="btn btn-success" data-vec="search">🔍 Caută</button>
           
         <button class="btn btn-secondary" data-vec="reset">↺ Reset</button>
@@ -895,9 +895,9 @@ cout &lt;&lt; cnt;</pre>
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:6px 12px;border:1px solid var(--border);">1 număr, N = 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);">~1000 operații</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁶ + 1 operații</td><td style="padding:6px 12px;border:1px solid var(--border);"><span style="color:#22c55e;">Divizori ✅</span></td></tr>
-          <tr><td style="padding:6px 12px;border:1px solid var(--border);">10⁴ numere, N = 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁷ operații</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁶ + 10⁴ ≈ 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);"><span style="color:#22c55e;">Ciur ✅ (10×)</span></td></tr>
-          <tr><td style="padding:6px 12px;border:1px solid var(--border);">10⁵ numere, N = 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁸ operații (~ 1 s)</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁶ (~ 10 ms)</td><td style="padding:6px 12px;border:1px solid var(--border);"><span style="color:#22c55e;">Ciur ✅ (100×)</span></td></tr>
+          <tr><td style="padding:6px 12px;border:1px solid var(--border);">1 număr, N = 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);">~1000 operații</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁶ + 1 operații</td><td style="padding:6px 12px;border:1px solid var(--border);"><span style="color:var(--green);">Divizori ✅</span></td></tr>
+          <tr><td style="padding:6px 12px;border:1px solid var(--border);">10⁴ numere, N = 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁷ operații</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁶ + 10⁴ ≈ 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);"><span style="color:var(--green);">Ciur ✅ (10×)</span></td></tr>
+          <tr><td style="padding:6px 12px;border:1px solid var(--border);">10⁵ numere, N = 10⁶</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁸ operații (~ 1 s)</td><td style="padding:6px 12px;border:1px solid var(--border);">~10⁶ (~ 10 ms)</td><td style="padding:6px 12px;border:1px solid var(--border);"><span style="color:var(--green);">Ciur ✅ (100×)</span></td></tr>
         </tbody>
       </table>
       </div>

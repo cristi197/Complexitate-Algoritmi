@@ -25,6 +25,26 @@ function markChapterProgress(chapterId, score, total) {
 var DIFF_LABEL = ['', 'Facil', 'Mediu', 'Dificil'];
 var DIFF_CLS   = ['', 'quiz-diff-facil', 'quiz-diff-mediu', 'quiz-diff-dificil'];
 
+function escapeQuizText(value) {
+  return String(value || '').replace(/[&<>"']/g, function(character) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character];
+  });
+}
+
+function formatQuizText(value) {
+  var template = document.createElement('template');
+  // Preserve the dataset's code/line-break markup without consuming C++ template types.
+  template.innerHTML = String(value || '').replace(/<(?!\/?(?:code|br)\s*\/?>)/gi, '&lt;');
+  function serialize(node) {
+    if (node.nodeType === Node.TEXT_NODE) return escapeQuizText(node.nodeValue);
+    if (node.nodeType !== Node.ELEMENT_NODE) return '';
+    if (node.localName === 'br') return '<br>';
+    var content = Array.from(node.childNodes, serialize).join('');
+    return node.localName === 'code' ? '<code>' + content + '</code>' : content;
+  }
+  return Array.from(template.content.childNodes, serialize).join('');
+}
+
 function diffBadge(q) {
   if (!q.diff) return '';
   return '<span class="quiz-diff-badge ' + DIFF_CLS[q.diff] + '">' + DIFF_LABEL[q.diff] + '</span>';
@@ -51,9 +71,9 @@ function renderQuiz(container, questions, chapterId) {
         else if (i === chosen) cls += ' wrong';
         else                   cls += ' disabled';
       }
-      return '<button class="' + cls + '" data-i="' + i + '">' +
+      return '<button type="button" class="' + cls + '" data-i="' + i + '"' + (done ? ' disabled' : '') + '>' +
         '<span class="quiz-opt-letter">' + String.fromCharCode(65 + i) + '</span>' +
-        '<span class="quiz-opt-text">' + opt + '</span>' +
+        '<span class="quiz-opt-text">' + formatQuizText(opt) + '</span>' +
         '</button>';
     }).join('');
 
@@ -61,11 +81,11 @@ function renderQuiz(container, questions, chapterId) {
     if (done) {
       var ok = chosen === q.ans;
       expHtml =
-        '<div class="quiz-exp ' + (ok ? 'quiz-exp-ok' : 'quiz-exp-fail') + '">' +
+        '<div tabindex="-1" role="status" class="quiz-exp ' + (ok ? 'quiz-exp-ok' : 'quiz-exp-fail') + '">' +
           (ok
             ? '&#x2705; Corect! '
-            : '&#x274C; Greșit. Răspuns corect: <strong>' + q.opts[q.ans] + '</strong>. ') +
-          (q.exp || '') +
+            : '&#x274C; Greșit. Răspuns corect: <strong>' + formatQuizText(q.opts[q.ans]) + '</strong>. ') +
+          formatQuizText(q.exp || '') +
         '</div>';
     }
 
@@ -102,7 +122,7 @@ function renderQuiz(container, questions, chapterId) {
           '<span class="quiz-prog">Întrebarea ' + (idx + 1) + ' / ' + total + '</span>' +
           '<span class="quiz-sc">&#x2713; ' + score + ' / ' + total + '</span>' +
         '</div>' +
-        '<div class="quiz-q">' + diffBadge(q) + q.q + '</div>' +
+        '<div class="quiz-q" tabindex="-1">' + diffBadge(q) + formatQuizText(q.q) + '</div>' +
         '<div class="quiz-opts">' + optsHtml + '</div>' +
         expHtml +
         navHtml +
@@ -116,6 +136,7 @@ function renderQuiz(container, questions, chapterId) {
           answered[idx] = i;
           if (i === q.ans) score++;
           showQ(idx);
+          container.querySelector('.quiz-exp').focus({ preventScroll: true });
         });
       });
     }
@@ -125,7 +146,7 @@ function renderQuiz(container, questions, chapterId) {
       btn.addEventListener('click', function () {
         var g = btn.dataset.goto;
         if (g === 'finish') showFinish();
-        else showQ(parseInt(g, 10));
+        else { showQ(parseInt(g, 10)); container.querySelector('.quiz-q').focus({ preventScroll: true }); }
       });
     });
     container.querySelectorAll('[data-action="skip"]').forEach(function (btn) {
@@ -134,7 +155,7 @@ function renderQuiz(container, questions, chapterId) {
         answered[idx] = -1;
         // Find next unanswered
         var next = queue.find(function (qi) { return answered[qi] === null; });
-        if (next !== undefined) showQ(next);
+        if (next !== undefined) { showQ(next); container.querySelector('.quiz-q').focus({ preventScroll: true }); }
         else showFinish();
       });
     });
@@ -142,7 +163,7 @@ function renderQuiz(container, questions, chapterId) {
 
   function showFinish() {
     var skipped = answered.filter(function (a) { return a === -1; }).length;
-    var attempted = total - skipped;
+    var attempted = answered.filter(function(a) { return a !== null && a !== -1; }).length;
     var pct   = attempted > 0 ? Math.round((score / attempted) * 100) : 0;
     var emoji = pct >= 90 ? '&#x1F3C6;' : pct >= 70 ? '&#x1F389;' : pct >= 50 ? '&#x1F642;' : '&#x1F4DA;';
     var msg   = pct >= 90 ? 'Excelent! Ești pregătit pentru BAC!'
@@ -162,7 +183,7 @@ function renderQuiz(container, questions, chapterId) {
       : '';
 
     container.innerHTML =
-      '<div class="quiz-wrap quiz-finish">' +
+      '<div class="quiz-wrap quiz-finish" tabindex="-1" role="status">' +
         '<div class="qf-emoji">' + emoji + '</div>' +
         '<div class="qf-score">' + score + ' / ' + attempted + '</div>' +
         '<div class="qf-pct">' + pct + '%</div>' +
@@ -172,12 +193,14 @@ function renderQuiz(container, questions, chapterId) {
         '<button class="quiz-btn-nav primary qf-retry">&#x1F504; Încearcă din nou</button>' +
       '</div>';
 
+    container.querySelector('.quiz-finish').focus({ preventScroll: true });
     container.querySelector('.qf-retry').addEventListener('click', function () {
       score     = 0;
       answered  = new Array(total).fill(null);
       queue     = questions.map(function (_, i) { return i; });
       queuePos  = 0;
       showQ(0);
+      container.querySelector('.quiz-q').focus({ preventScroll: true });
     });
   }
 
@@ -193,11 +216,11 @@ function initAllQuizzes() {
     var id  = el.dataset.quiz;
     var src = el.dataset.quizSrc;
     // Extract chapter ID from quiz ID (e.g. "vectori-quiz" → "vectori")
-    var chapterId = id ? id.replace(/-quiz$/, '') : null;
+    var chapterId = window.location.pathname.split('/').pop().replace(/\.html$/, '');
 
     if (src) {
       // Load questions from external JSON file
-      el.innerHTML = '<p style="text-align:center;opacity:.6;padding:2rem">Se încarcă întrebările…</p>';
+      el.innerHTML = '<p class="quiz-loading" role="status">Se încarcă întrebările…</p>';
       fetch(src)
         .then(function (r) {
           if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -217,13 +240,17 @@ function initAllQuizzes() {
             data = data.slice(0, maxQ);
           }
           if (data.length) renderQuiz(el, data, chapterId);
-          else el.innerHTML = '<p style="text-align:center;color:#e44">Nu s-au găsit întrebări.</p>';
+          else throw new Error('Nu s-au găsit întrebări.');
         })
         .catch(function (err) {
           console.error('Quiz load error:', err);
           // Fall back to inline data if available
           var data = window.QUIZ_DATA && window.QUIZ_DATA[id];
           if (data && data.length) renderQuiz(el, data, chapterId);
+          else {
+            el.innerHTML = '<div class="quiz-load-error" role="alert"><p>Întrebările nu au putut fi încărcate.</p><button type="button" class="study-button">Reîncearcă</button></div>';
+            el.querySelector('button').addEventListener('click', initAllQuizzes);
+          }
         });
     } else {
       // Use inline window.QUIZ_DATA

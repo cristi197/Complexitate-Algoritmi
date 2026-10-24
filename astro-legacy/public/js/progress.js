@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var pathParts = window.location.pathname.split('/');
   var capitoleIdx = pathParts.indexOf('capitole');
   if (capitoleIdx !== -1 && pathParts[capitoleIdx + 1]) {
-    var chapterId = pathParts[capitoleIdx + 1];
+    var chapterId = pathParts[capitoleIdx + 1].replace(/\.html$/, '');
     // Delay slightly so page is rendered
     setTimeout(function() { markVisited(chapterId); }, 800);
   } else {

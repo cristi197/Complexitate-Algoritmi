@@ -1,0 +1,38 @@
+name: Astro UI checks
+
+on:
+  pull_request:
+    paths: ['astro-legacy/**', '.github/workflows/ui.yml']
+  push:
+    branches: [main]
+    paths: ['astro-legacy/**', '.github/workflows/ui.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: astro-legacy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: astro-legacy/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm run test:ui
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astro-ui-results
+          path: |
+            astro-legacy/playwright-report
+            astro-legacy/test-results
+          retention-days: 14
