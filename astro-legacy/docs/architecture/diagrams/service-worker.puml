@@ -1,0 +1,32 @@
+@startuml service-worker
+title Service worker (starea actuală, PR0)
+
+participant "Pagină" as Page
+participant "sw.js" as SW
+participant "Cache\ninfoLiceu-v2" as C
+participant "Rețea" as N
+
+== install ==
+SW -> C : addAll(pagini cheie, js, exerciții)
+SW -> SW : skipWaiting()
+== activate ==
+SW -> C : șterge cache-urile cu alt nume
+SW -> SW : clients.claim()
+== fetch (GET same-origin) ==
+Page -> SW : request
+SW -> N : fetch (network-first)
+alt răspuns OK
+  N --> SW : 200
+  SW -> C : put(copie)
+  SW --> Page : răspuns din rețea
+else rețea indisponibilă
+  SW -> C : match(request)
+  C --> SW : răspuns din cache (sau nimic)
+  SW --> Page : răspuns din cache
+end
+note over C
+  Numele cache-ului e fix: după un deploy nou,
+  fișierele vechi rămân până la următorul fetch reușit.
+  Se schimbă în PR3 (cache versionat pe tipuri).
+end note
+@enduml

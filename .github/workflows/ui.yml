@@ -13,7 +13,7 @@ permissions:
 jobs:
   ui:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 40
     defaults:
       run:
         working-directory: astro-legacy
@@ -25,9 +25,13 @@ jobs:
           cache: npm
           cache-dependency-path: astro-legacy/package-lock.json
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run build
-      - run: npm run test:ui
+      - name: Chromium (desktop, mobile, dark)
+        run: npx playwright test --project=desktop --project=mobile --project=dark
+      - name: Firefox + WebKit (informational until PR1 fixes the WebKit focus bug)
+        continue-on-error: true
+        run: npx playwright test --project=firefox --project=webkit-mobile --output=test-results/other-browsers
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -35,4 +39,5 @@ jobs:
           path: |
             astro-legacy/playwright-report
             astro-legacy/test-results
+            astro-legacy/tests/ui/__screenshots__
           retention-days: 14

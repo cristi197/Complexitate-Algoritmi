@@ -1,0 +1,31 @@
+@startuml bac-data
+title Subiecte BAC — de la PDF la pagină (starea actuală, PR0)
+
+|Autor|
+start
+:Descarcă manual PDF-urile (subiect + barem)
+în public/subiecte-bac/<an>/;
+:Adaugă intrarea în public/data/subiecte-bac.json;
+:node scripts/extract-exams.cjs;
+|extract-exams.cjs|
+:pdfjs-dist extrage textul fiecărui subiect;
+:Împerechează subiect cu barem;
+:Scrie public/data/examen-alb/<id>.json
++ examen-alb/index.json;
+|Site|
+fork
+  :subiecte-bac.astro
+  fetch subiecte-bac.json -> listă PDF-uri;
+fork again
+  :examen-alb.astro
+  fetch index.json -> fetch <id>.json;
+fork again
+  :variante-2009.astro
+  fetch 2009-varianta-NNN.json;
+end fork
+stop
+note right
+  Acoperire: 2010–2026 (2026 doar simulare + modele).
+  PR2 adaugă sesiunile 2026 și un workflow lunar.
+end note
+@enduml

@@ -1,0 +1,27 @@
+@startuml c4-container
+!include <C4/C4_Container>
+title InfoLiceu (astro-legacy) — containere (starea actuală, PR0)
+
+Person(elev, "Elev")
+
+System_Boundary(site, "InfoLiceu pe GitHub Pages") {
+  Container(html, "Pagini HTML statice", "Astro 6 (SSG, build.format=file)", "13 capitole + 13 pagini de unelte; layout BaseLayout/ChapterLayout")
+  Container(js, "Scripturi globale", "Vanilla JS în public/js", "site, search, progress, analytics, quiz, animations, platform, charts, audiobook")
+  Container(inline, "Scripturi de pagină", "<script is:inline> în .astro", "Demo-uri, debug-live, variante-2009, examen-alb, editor, streak")
+  ContainerDb(data, "Date JSON", "public/data", "Exerciții pe capitol, subiecte BAC, examen-alb, variante 2009")
+  Container(sw, "Service worker", "public/sw.js", "Precache + network-first, cache infoLiceu-v2")
+  ContainerDb(ls, "localStorage", "Browser", "Temă, progres, XP, zile de studiu, scoruri")
+}
+
+System_Ext(ext, "Servicii externe", "OneCompiler, OnlineGDB, Pollinations, CDN-uri")
+
+Rel(elev, html, "Navighează")
+Rel(html, js, "Încarcă")
+Rel(html, inline, "Conține")
+Rel(js, data, "fetch")
+Rel(inline, data, "fetch")
+Rel(js, ls, "Citește/scrie")
+Rel(inline, ls, "Citește/scrie")
+Rel(sw, html, "Interceptează GET same-origin")
+Rel(inline, ext, "iframe / fetch / link")
+@enduml

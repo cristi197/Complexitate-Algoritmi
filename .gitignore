@@ -64,3 +64,7 @@ astro-legacy/dist/
 astro-legacy/.astro/
 astro-legacy/test-results/
 astro-legacy/playwright-report/
+astro-legacy/.lighthouseci/
+astro-legacy/reports/perf/current/
+astro-legacy/reports/perf/.tmp/
+perf-*.log

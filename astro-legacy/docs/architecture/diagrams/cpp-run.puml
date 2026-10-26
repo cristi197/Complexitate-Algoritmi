@@ -1,0 +1,29 @@
+@startuml cpp-run
+title Rularea codului C++ (starea actuală, PR0)
+
+actor Elev
+participant "editor.astro" as Ed
+participant "OneCompiler\n(iframe)" as OC
+participant "examen-alb.astro" as EA
+participant "OnlineGDB" as GDB
+participant "variante-2009.astro" as V
+
+== Editor ==
+Elev -> Ed : scrie cod în <textarea>
+Elev -> Ed : „Copiază”
+Ed -> Ed : navigator.clipboard.writeText
+Elev -> OC : lipește manual și rulează
+note right of OC : Codul nu e sincronizat automat;\nfără erori pe linie, fără bac.txt.
+
+== Examen alb ==
+Elev -> EA : „Deschide compilator”
+EA -> EA : copiază codul
+EA -> GDB : window.open(...)
+note right of EA : Mesajul „copiat” apare\nși dacă copierea a eșuat.
+
+== Variante 2009 (sandbox „offline”) ==
+Elev -> V : „Rulează”
+V -> V : transpileCppToJs (regex)
+V -> V : new Function(...) pe thread-ul principal
+note right of V : Fără timeout (bucla infinită blochează pagina);\nteste fixe 5/10/3 pentru toate problemele.
+@enduml

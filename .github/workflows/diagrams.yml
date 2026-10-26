@@ -1,0 +1,36 @@
+name: Architecture diagrams
+
+on:
+  push:
+    branches-ignore: [main]
+    paths: ['astro-legacy/docs/architecture/**/*.puml', '.github/workflows/diagrams.yml']
+  pull_request:
+    paths: ['astro-legacy/docs/architecture/**/*.puml', '.github/workflows/diagrams.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - name: Render PlantUML to SVG (fails on any broken diagram)
+        run: |
+          docker run --rm -v "$PWD/astro-legacy/docs/architecture/diagrams:/work" -w /work \
+            plantuml/plantuml:latest -tsvg -failfast2 -nometadata "*.puml"
+      - name: Commit rendered SVGs (branch pushes only)
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet -- astro-legacy/docs/architecture/diagrams && [ -z "$(git ls-files --others --exclude-standard astro-legacy/docs/architecture/diagrams)" ]; then
+            echo "Diagrams already up to date."; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add astro-legacy/docs/architecture/diagrams/*.svg
+          git commit -m "docs: render PlantUML diagrams"
+          git push

@@ -4,10 +4,13 @@ Run from `astro-legacy` with Node.js 22.12 or newer:
 
 ```sh
 npm ci
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run build
 npm run test:ui
 ```
+
+Behind a TLS-inspecting proxy, set `NODE_OPTIONS=--use-system-ca` before
+`playwright install` so Node trusts the Windows certificate store.
 
 The runner starts the built site's preview on port 4330. On Windows it uses an
 installed Chrome when available; other environments use Playwright Chromium.
@@ -33,6 +36,14 @@ An additional narrow-screen check visits every chapter at 320 pixels wide.
 The mobile-menu test intentionally skips the two desktop profiles. Tests use a
 fresh browser context and block service workers to avoid stale cached builds.
 
+`crawl.spec.mjs` visits every sitemap page in every project and reports console
+errors, failed same-origin requests and broken images; a desktop-only test checks
+that every internal link resolves. Set `CRAWL_STRICT=0` to record findings as
+annotations instead of failures. `visual.spec.mjs` compares ten key pages
+against baselines in `__screenshots__/<platform>/<project>/` (Chromium only);
+missing baselines are created on first run, and `--update-snapshots` refreshes
+them after an intentional visual change.
+
 ## Reports And CI
 
 `npm run test:ui:report` opens the HTML report. JSON results and chapter screenshots
@@ -41,5 +52,6 @@ The `Astro UI checks` GitHub workflow runs the suite on changes to Astro sources
 and uploads the report and test artifacts.
 
 The suite does not exhaust every algorithm input or test the external C++
-compiler, audio provider, or every CDN-dependent feature. Firefox, WebKit, and
-real-device assistive technology testing remain separate follow-up work.
+compiler, audio provider, or every CDN-dependent feature. Projects `firefox`
+(desktop) and `webkit-mobile` (iPhone 13) run the same suites; CI treats them as
+informational until the PR1 fixes land.

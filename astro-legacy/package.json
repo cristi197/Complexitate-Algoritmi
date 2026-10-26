@@ -7,7 +7,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "test:ui": "playwright test",
-    "test:ui:report": "playwright show-report"
+    "test:ui:report": "playwright show-report",
+    "perf": "node scripts/perf/run.mjs",
+    "perf:baseline": "node scripts/perf/run.mjs --out=reports/perf/baseline",
+    "perf:size": "node scripts/perf/bundle-size.mjs",
+    "perf:compare": "node scripts/perf/compare.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
@@ -20,10 +24,12 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
+    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/vite": "^4.1.6",
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "^5.7.284",
+    "rollup-plugin-visualizer": "^7.1.1",
     "tailwindcss": "^4.1.6"
   },
   "overrides": {
