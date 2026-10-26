@@ -1,0 +1,28 @@
+@startuml page-load
+title Încărcarea unei pagini de capitol (starea actuală, PR0)
+
+actor Elev
+participant "Browser" as B
+participant "GitHub Pages" as P
+participant "Service worker\n(sw.js)" as SW
+database "localStorage" as LS
+
+Elev -> B : deschide /capitole/vectori
+B -> P : GET /capitole/vectori.html
+P --> B : HTML static (Astro)
+B -> LS : script inline: citește „theme”
+B -> B : setează data-theme înainte de primul paint
+B -> P : search.js, progress.js, analytics.js (sincron, blochează parsarea)
+B -> P : site.js (defer)
+B -> P : animations.js, quiz.js, platform.js (ChapterLayout)
+B -> LS : progress.js: infoLiceu_v2 (+10 XP la prima vizită)\nanimations.js: infoXP, infoVisitedSections (+5 XP/secțiune)
+note right of LS
+  Două surse de XP care se suprascriu
+  în sidebar (bug, PR1).
+end note
+Elev -> B : „Testează-te”
+B -> P : GET /data/exercises/vectori.json (quiz.js)
+P --> B : întrebări
+B -> SW : register(/sw.js) după load
+SW -> P : precache pagini cheie + exerciții
+@enduml

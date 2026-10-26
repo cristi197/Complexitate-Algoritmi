@@ -1,0 +1,20 @@
+@startuml ai-analysis
+title analiza-bac — analiză AI a lucrării (starea actuală, PR0)
+
+actor Elev
+participant "analiza-bac.astro" as Page
+participant "pdf.js\n(cdnjs)" as PDF
+participant "text.pollinations.ai" as AI
+
+Elev -> Page : încarcă PDF sau imagine
+Page -> PDF : extrage text / randează pagini
+PDF --> Page : text
+Page -> AI : POST text (fără acord explicit, fără previzualizare)
+AI --> Page : evaluare
+Page --> Elev : afișează rezultatul
+note over Page, AI
+  Lucrarea poate conține date personale.
+  PR8: acord + previzualizare + disclaimer.
+  PR9: comutator în /admin. PR11 (opțional): Worker + Gemini.
+end note
+@enduml

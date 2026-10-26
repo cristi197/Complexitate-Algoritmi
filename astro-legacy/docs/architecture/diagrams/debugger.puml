@@ -1,0 +1,30 @@
+@startuml debugger
+title debug-live — simulator de pași (starea actuală, PR0)
+
+start
+:Elevul alege un algoritm din listă;
+:Completează valorile (input-uri);
+note right
+  Se citesc doar elementele <input>;
+  valorile din <textarea> (matrice)
+  sunt ignorate (bug, PR1).
+end note
+:Apasă „Start”;
+:run(inputs) — funcție JS scrisă de mână
+pentru acel algoritm;
+:Generează sincron result.steps[];
+note right
+  Fără limită de mărime: input-uri mari
+  pot bloca pagina.
+end note
+:buildTraceTable(steps);
+repeat
+  :renderStep(i)
+  linie evidențiată, variabile, explicație;
+  note right
+    step.exp ajunge în innerHTML nefiltrat
+    (injecție HTML, bug PR1).
+  end note
+repeat while (Înainte / Înapoi / săgeți / click pe rând?) is (da)
+stop
+@enduml

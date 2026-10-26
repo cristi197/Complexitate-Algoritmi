@@ -1,0 +1,23 @@
+@startuml c4-context
+!include <C4/C4_Context>
+title InfoLiceu (astro-legacy) — context de sistem (starea actuală, PR0)
+
+Person(elev, "Elev", "Citește lecții, rezolvă quiz-uri, exersează C++ pentru BAC")
+Person(autor, "Autor / admin", "Scrie conținut, publică prin GitHub")
+
+System(site, "InfoLiceu", "Site static Astro, servit de GitHub Pages pe learnbac.ro")
+
+System_Ext(gh, "GitHub", "Repo, Actions (build, teste, perf), Pages")
+System_Ext(onecompiler, "OneCompiler", "Compilator C++ încorporat (iframe)")
+System_Ext(onlinegdb, "OnlineGDB", "Compilator C++ extern (tab nou)")
+System_Ext(pollinations, "Pollinations AI", "Analiza lucrărilor BAC (text.pollinations.ai)")
+System_Ext(cdn, "CDN-uri publice", "cdnjs (pdf.js), jsDelivr (Chart.js)")
+
+Rel(elev, site, "Folosește", "HTTPS")
+Rel(autor, gh, "Push / PR")
+Rel(gh, site, "Build + deploy", "Actions -> Pages")
+Rel(site, onecompiler, "Încarcă editor/compilator", "iframe")
+Rel(site, onlinegdb, "Deschide cod copiat", "link")
+Rel(site, pollinations, "Trimite textul lucrării", "fetch POST")
+Rel(site, cdn, "Încarcă biblioteci", "script")
+@enduml

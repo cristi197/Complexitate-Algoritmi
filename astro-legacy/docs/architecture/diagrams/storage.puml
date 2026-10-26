@@ -1,0 +1,47 @@
+@startuml storage
+title Chei localStorage (starea actuală, PR0)
+
+object "theme" as theme {
+  valoare = "light" | "dark"
+  scris de = site.js
+  citit de = BaseLayout (inline), 404
+}
+object "infoLiceu_v2" as progress {
+  { visited, quiz, xp, ... }
+  scris de = progress.js
+  citit de = site.js, sidebar
+}
+object "infoXP" as xp {
+  număr
+  scris de = animations.js
+}
+object "infoVisitedSections" as sections {
+  { capitol: [secțiuni] }
+  scris de = animations.js
+}
+object "infoStudyDays" as days {
+  [ "YYYY-MM-DD", ... ]
+  scris de = progress.js, streak, examen-alb
+}
+object "infoStudyGoals" as goals {
+  { date, goals }
+  scris de = streak
+}
+object "infoExamAlbHistory" as exam {
+  ultimele 20 simulări
+  scris de = examen-alb
+}
+object "v09_visited / v09_grile_scor / v09_coding_scor" as v09 {
+  scris de = variante-2009
+}
+object "infoLiceu_analytics" as analytics {
+  statistici locale (nu pleacă din browser)
+  scris de = analytics.js
+}
+object "pv_<path>, like-uri" as pv {
+  contoare locale de vizualizări
+  scris de = platform.js
+}
+
+progress .. xp : „XP” afișat din ambele\n(conflict)
+@enduml

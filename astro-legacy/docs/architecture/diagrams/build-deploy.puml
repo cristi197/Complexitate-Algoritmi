@@ -1,0 +1,31 @@
+@startuml build-deploy
+title De la commit la site publicat (starea actuală, PR0)
+
+|Autor|
+start
+:Commit pe branch;
+:Push + Pull Request;
+|GitHub Actions (PR)|
+fork
+  :ui.yml\nnpm ci -> build -> Playwright\n(Chromium strict, Firefox/WebKit informativ);
+fork again
+  :perf.yml\nbuild (ANALYZE) -> bundle-size\n-> Lighthouse mobil+desktop -> compare;
+  :Comentariu „Raport de performanță” pe PR;
+fork again
+  :diagrams.yml\n(doar dacă s-au schimbat .puml)\nPlantUML -> SVG;
+end fork
+|Autor|
+:Review + merge în main;
+|GitHub Actions (main)|
+:deploy.yml\nnpm ci -> astro build\nPUBLIC_SITE=https://learnbac.ro;
+:upload-pages-artifact (astro-legacy/dist);
+:deploy-pages;
+|GitHub Pages|
+:Servește learnbac.ro;
+note right
+  CNAME și .nojekyll stau în rădăcina
+  astro-legacy/, nu în public/,
+  deci NU ajung în dist (bug, PR1).
+end note
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml voice
+title Voce / audio (starea actuală, PR0)
+
+[*] --> Dezactivat
+state Dezactivat {
+  state "audiobook.js: init() face return imediat" as AB
+  state "platform.js: initAudioPlayer() face return imediat" as PL
+}
+note right of Dezactivat
+  Codul rămas ar folosi:
+  - Web Speech API (voce ro-RO din browser)
+  - StreamElements (voce „Ioana”, API neoficial)
+  - fișiere audio + timestamps din JSON (audiobook)
+  Se înlocuiește în PR10 cu OmniVoice
+  (Hugging Face Space) + Web Speech ca rezervă.
+end note
+@enduml

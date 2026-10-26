@@ -1,0 +1,1013 @@
+{
+  "generatedAt": "2026-10-26T16:41:34.170Z",
+  "jsBudget": 153600,
+  "pages": {
+    "/404": {
+      "js": {
+        "raw": 184,
+        "gzip": 164,
+        "brotli": 102
+      },
+      "css": {
+        "raw": 1733,
+        "gzip": 733,
+        "brotli": 602
+      },
+      "html": {
+        "raw": 3746,
+        "gzip": 1477,
+        "brotli": 1174
+      },
+      "total": {
+        "raw": 5663,
+        "gzip": 2374,
+        "brotli": 1878
+      },
+      "files": {
+        "js": [],
+        "css": [],
+        "inlineScripts": 1,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/analiza-bac": {
+      "js": {
+        "raw": 140297,
+        "gzip": 35317,
+        "brotli": 30502
+      },
+      "css": {
+        "raw": 154581,
+        "gzip": 43224,
+        "brotli": 38029
+      },
+      "html": {
+        "raw": 36012,
+        "gzip": 10304,
+        "brotli": 8954
+      },
+      "total": {
+        "raw": 330890,
+        "gzip": 88845,
+        "brotli": 77485
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css",
+          "/_astro/analiza-bac.CpD3SV3h.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 0,
+        "external": [
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+        ]
+      },
+      "overJsBudget": false
+    },
+    "/capitole/backtracking": {
+      "js": {
+        "raw": 162634,
+        "gzip": 41804,
+        "brotli": 35950
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 69942,
+        "gzip": 15562,
+        "brotli": 13340
+      },
+      "total": {
+        "raw": 380553,
+        "gzip": 99313,
+        "brotli": 86211
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/complexitate": {
+      "js": {
+        "raw": 161224,
+        "gzip": 41386,
+        "brotli": 35487
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 58417,
+        "gzip": 13059,
+        "brotli": 11293
+      },
+      "total": {
+        "raw": 367618,
+        "gzip": 96392,
+        "brotli": 83701
+      },
+      "files": {
+        "js": [
+          "/js/charts.js",
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 1,
+        "external": [
+          "https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"
+        ]
+      },
+      "overJsBudget": false
+    },
+    "/capitole/fisiere": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 54089,
+        "gzip": 11880,
+        "brotli": 10236
+      },
+      "total": {
+        "raw": 356934,
+        "gzip": 93354,
+        "brotli": 81115
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/functii": {
+      "js": {
+        "raw": 161453,
+        "gzip": 41646,
+        "brotli": 35841
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 71641,
+        "gzip": 15832,
+        "brotli": 13644
+      },
+      "total": {
+        "raw": 381071,
+        "gzip": 99425,
+        "brotli": 86406
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/grafuri": {
+      "js": {
+        "raw": 198277,
+        "gzip": 48940,
+        "brotli": 42219
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 131732,
+        "gzip": 27008,
+        "brotli": 23024
+      },
+      "total": {
+        "raw": 477986,
+        "gzip": 117895,
+        "brotli": 102164
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/introducere": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 73225,
+        "gzip": 17771,
+        "brotli": 15281
+      },
+      "total": {
+        "raw": 376070,
+        "gzip": 99245,
+        "brotli": 86160
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/matrici": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 63500,
+        "gzip": 13369,
+        "brotli": 11449
+      },
+      "total": {
+        "raw": 366345,
+        "gzip": 94843,
+        "brotli": 82328
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/pointeri": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 59545,
+        "gzip": 13061,
+        "brotli": 11278
+      },
+      "total": {
+        "raw": 362390,
+        "gzip": 94535,
+        "brotli": 82157
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/programare-dinamica": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 59706,
+        "gzip": 13241,
+        "brotli": 11374
+      },
+      "total": {
+        "raw": 362551,
+        "gzip": 94715,
+        "brotli": 82253
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/recursivitate": {
+      "js": {
+        "raw": 160126,
+        "gzip": 41303,
+        "brotli": 35521
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 69014,
+        "gzip": 15672,
+        "brotli": 13504
+      },
+      "total": {
+        "raw": 377117,
+        "gzip": 98922,
+        "brotli": 85946
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/siruri": {
+      "js": {
+        "raw": 169572,
+        "gzip": 43045,
+        "brotli": 36979
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 102187,
+        "gzip": 21137,
+        "brotli": 18061
+      },
+      "total": {
+        "raw": 419736,
+        "gzip": 106129,
+        "brotli": 91961
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 5,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/structuri": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 55807,
+        "gzip": 12120,
+        "brotli": 10482
+      },
+      "total": {
+        "raw": 358652,
+        "gzip": 93594,
+        "brotli": 81361
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/capitole/vectori": {
+      "js": {
+        "raw": 154868,
+        "gzip": 39527,
+        "brotli": 33958
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 84941,
+        "gzip": 17996,
+        "brotli": 15457
+      },
+      "total": {
+        "raw": 387786,
+        "gzip": 99470,
+        "brotli": 86336
+      },
+      "files": {
+        "js": [
+          "/js/animations.js",
+          "/js/quiz.js",
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/cheat-sheet": {
+      "js": {
+        "raw": 19429,
+        "gzip": 6570,
+        "brotli": 5412
+      },
+      "css": {
+        "raw": 149578,
+        "gzip": 42412,
+        "brotli": 37299
+      },
+      "html": {
+        "raw": 44012,
+        "gzip": 7906,
+        "brotli": 6852
+      },
+      "total": {
+        "raw": 213019,
+        "gzip": 56888,
+        "brotli": 49563
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css",
+          "/_astro/cheat-sheet.Bbl4z8qL.css"
+        ],
+        "inlineScripts": 3,
+        "inlineStyles": 0,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/debug-live": {
+      "js": {
+        "raw": 242345,
+        "gzip": 48493,
+        "brotli": 40791
+      },
+      "css": {
+        "raw": 160410,
+        "gzip": 44917,
+        "brotli": 39522
+      },
+      "html": {
+        "raw": 274978,
+        "gzip": 53810,
+        "brotli": 45371
+      },
+      "total": {
+        "raw": 677733,
+        "gzip": 147220,
+        "brotli": 125684
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css",
+          "/_astro/debug-live.DS3ReYrH.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/editor": {
+      "js": {
+        "raw": 21810,
+        "gzip": 7482,
+        "brotli": 6155
+      },
+      "css": {
+        "raw": 151037,
+        "gzip": 42682,
+        "brotli": 37527
+      },
+      "html": {
+        "raw": 25161,
+        "gzip": 7062,
+        "brotli": 6127
+      },
+      "total": {
+        "raw": 198008,
+        "gzip": 57226,
+        "brotli": 49809
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css",
+          "/_astro/editor.Slz8sI74.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 0,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/examen-alb": {
+      "js": {
+        "raw": 43438,
+        "gzip": 12945,
+        "brotli": 10956
+      },
+      "css": {
+        "raw": 156513,
+        "gzip": 44071,
+        "brotli": 38783
+      },
+      "html": {
+        "raw": 41282,
+        "gzip": 10754,
+        "brotli": 9370
+      },
+      "total": {
+        "raw": 241233,
+        "gzip": 67770,
+        "brotli": 59109
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css",
+          "/_astro/examen-alb.DNE2Bv7y.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 0,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/exercitii": {
+      "js": {
+        "raw": 55615,
+        "gzip": 16833,
+        "brotli": 14242
+      },
+      "css": {
+        "raw": 159093,
+        "gzip": 44608,
+        "brotli": 39212
+      },
+      "html": {
+        "raw": 60069,
+        "gzip": 13443,
+        "brotli": 11595
+      },
+      "total": {
+        "raw": 274777,
+        "gzip": 74884,
+        "brotli": 65049
+      },
+      "files": {
+        "js": [
+          "/js/platform.js",
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 2,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/greseli-bac": {
+      "js": {
+        "raw": 19429,
+        "gzip": 6570,
+        "brotli": 5412
+      },
+      "css": {
+        "raw": 148925,
+        "gzip": 42312,
+        "brotli": 37237
+      },
+      "html": {
+        "raw": 37961,
+        "gzip": 7713,
+        "brotli": 6605
+      },
+      "total": {
+        "raw": 206315,
+        "gzip": 56595,
+        "brotli": 49254
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 3,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/": {
+      "js": {
+        "raw": 19429,
+        "gzip": 6570,
+        "brotli": 5412
+      },
+      "css": {
+        "raw": 147977,
+        "gzip": 41947,
+        "brotli": 36921
+      },
+      "html": {
+        "raw": 44985,
+        "gzip": 7231,
+        "brotli": 6037
+      },
+      "total": {
+        "raw": 212391,
+        "gzip": 55748,
+        "brotli": 48370
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 3,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/streak": {
+      "js": {
+        "raw": 26419,
+        "gzip": 8694,
+        "brotli": 7230
+      },
+      "css": {
+        "raw": 151234,
+        "gzip": 42500,
+        "brotli": 37381
+      },
+      "html": {
+        "raw": 26133,
+        "gzip": 6701,
+        "brotli": 5780
+      },
+      "total": {
+        "raw": 203786,
+        "gzip": 57895,
+        "brotli": 50391
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css",
+          "/_astro/streak.CaI8HYF0.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 0,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/subiecte-bac": {
+      "js": {
+        "raw": 26774,
+        "gzip": 8631,
+        "brotli": 7181
+      },
+      "css": {
+        "raw": 159027,
+        "gzip": 44625,
+        "brotli": 39176
+      },
+      "html": {
+        "raw": 47476,
+        "gzip": 10601,
+        "brotli": 9077
+      },
+      "total": {
+        "raw": 233277,
+        "gzip": 63857,
+        "brotli": 55434
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 2,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/test-exercitii": {
+      "js": {
+        "raw": 63374,
+        "gzip": 16123,
+        "brotli": 13803
+      },
+      "css": {
+        "raw": 162965,
+        "gzip": 44950,
+        "brotli": 39463
+      },
+      "html": {
+        "raw": 77094,
+        "gzip": 17262,
+        "brotli": 14911
+      },
+      "total": {
+        "raw": 303433,
+        "gzip": 78335,
+        "brotli": 68177
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 1,
+        "external": []
+      },
+      "overJsBudget": false
+    },
+    "/variante-2009": {
+      "js": {
+        "raw": 66457,
+        "gzip": 18667,
+        "brotli": 16076
+      },
+      "css": {
+        "raw": 170349,
+        "gzip": 46453,
+        "brotli": 40814
+      },
+      "html": {
+        "raw": 101677,
+        "gzip": 23743,
+        "brotli": 20465
+      },
+      "total": {
+        "raw": 338483,
+        "gzip": 88863,
+        "brotli": 77355
+      },
+      "files": {
+        "js": [
+          "/js/search.js",
+          "/js/progress.js",
+          "/js/analytics.js",
+          "/js/site.js"
+        ],
+        "css": [
+          "/_astro/BaseLayout.BzkJSqrC.css"
+        ],
+        "inlineScripts": 4,
+        "inlineStyles": 2,
+        "external": []
+      },
+      "overJsBudget": false
+    }
+  }
+}

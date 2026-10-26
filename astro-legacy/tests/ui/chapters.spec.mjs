@@ -142,7 +142,8 @@ test('quiz shows a retry action after a data error', async ({ page }) => {
   await expect(page.locator('.quiz-q')).toBeVisible();
 });
 
-test('code copy controls stay outside the copied text', async ({ page, context }) => {
+test('code copy controls stay outside the copied text', async ({ page, context, browserName }) => {
+  test.skip(browserName !== 'chromium', 'Clipboard permissions can only be granted in Chromium.');
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
   await page.goto('/capitole/vectori');
   const code = page.locator('.code-block pre').first();

@@ -1,0 +1,28 @@
+@startuml testing
+title Testare și performanță (PR0)
+
+start
+:npm run build;
+fork
+  :Playwright — tests/ui;
+  split
+    :desktop / mobile / dark (Chromium);
+  split again
+    :firefox (desktop);
+  split again
+    :webkit-mobile (iPhone 13);
+  end split
+  :chapters, demos, quiz
+  crawl (erori consolă, cereri eșuate, imagini, linkuri)
+  visual (10 pagini, doar Chromium);
+  :playwright-report + test-results;
+fork again
+  :scripts/perf/run.mjs;
+  :build cu ANALYZE=1 -> bundle-treemap.html;
+  :bundle-size.mjs -> bundle-size.json/.md;
+  :lighthouse.mjs (LHCI, 8 pagini × mobil/desktop × 3 rulări)
+  -> lighthouse/<preset>/<pagina>.html + lighthouse-summary.json;
+  :compare.mjs -> comparison.html + summary.md;
+end fork
+stop
+@enduml
