@@ -76,11 +76,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     pre { margin: 0; font-family: 'Fira Code', 'Consolas', monospace; font-size: .78rem;
           line-height: 1.55; white-space: pre-wrap; }
     code { font-family: inherit; }
-    .kw  { color: #1d4ed8; font-weight: 600; }
-    .cm  { color: #6b7280; font-style: italic; }
-    .nu  { color: #059669; }
-    .st  { color: #b45309; }
-    .fn  { color: #7c3aed; }
+    .kw  { color: var(--code-kw); font-weight: 600; }
+    .cm  { color: var(--code-cm); font-style: italic; }
+    .nu  { color: var(--code-nu); }
+    .st  { color: var(--code-st); }
+    .fn  { color: var(--code-fn); }
 
     .section-title {
       font-size: 1.15rem; font-weight: 700; margin: 36px 0 14px;
@@ -110,7 +110,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <Header />
 
-  <div style="padding-top: var(--header-h);">
+  <div id="main-content" tabindex="-1" style="padding-top: var(--header-h);">
     <div class="page-hero">
       <div class="hero-badge">📄 Printabil A4</div>
       <h1>Cheat Sheet — Informatică BAC</h1>

@@ -1,6 +1,6 @@
 # 03 · Stocare, progres și service worker
 
-_Actualizat în: PR0_
+_Actualizat în: PR1_
 
 ## localStorage
 
@@ -9,9 +9,8 @@ _Actualizat în: PR0_
 | Cheie | Scrisă de | Conținut |
 |---|---|---|
 | `theme` | `site.js` | `light` / `dark` |
-| `infoLiceu_v2` | `progress.js` | Capitole vizitate, quiz, XP |
-| `infoXP` | `animations.js` | XP din secțiuni citite |
-| `infoVisitedSections` | `animations.js` | Secțiuni citite pe capitol |
+| `infoLiceu_v2` | `progress.js` | Capitole vizitate, quiz, XP total (singura sursă de XP din PR1) |
+| `infoVisitedSections` | `animations.js` | Secțiuni citite pe capitol; XP-ul lor merge prin `window.addXP()` din `progress.js` |
 | `infoStudyDays` | `progress.js`, `streak`, `examen-alb` | Zile de studiu (`YYYY-MM-DD`) |
 | `infoStudyGoals` | `streak` | Obiectivele zilei |
 | `infoExamAlbHistory` | `examen-alb` | Ultimele 20 de simulări |
@@ -19,7 +18,7 @@ _Actualizat în: PR0_
 | `infoLiceu_analytics` | `analytics.js` | Statistici locale (nu se trimit nicăieri) |
 | `pv_<path>` + like-uri | `platform.js` | Contoare locale |
 
-**Problemă cunoscută:** XP-ul are două surse (`infoLiceu_v2` și `infoXP`) care se suprascriu în sidebar. Se repară în PR1; în PR3 toate cheile trec la formatul versionat `infoliceu:v2:*` cu migrare automată.
+**XP (PR1):** cheia veche `infoXP` e adunată o singură dată în `infoLiceu_v2.xp` și apoi ștearsă; secțiunile citite, capitolele vizitate și quiz-urile cresc același total. În PR3 toate cheile trec la formatul versionat `infoliceu:v2:*` cu migrare automată.
 
 ## Service worker
 

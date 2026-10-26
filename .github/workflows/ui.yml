@@ -29,8 +29,7 @@ jobs:
       - run: npm run build
       - name: Chromium (desktop, mobile, dark)
         run: npx playwright test --project=desktop --project=mobile --project=dark
-      - name: Firefox + WebKit (informational until PR1 fixes the WebKit focus bug)
-        continue-on-error: true
+      - name: Firefox + WebKit
         run: npx playwright test --project=firefox --project=webkit-mobile --output=test-results/other-browsers
       - uses: actions/upload-artifact@v4
         if: always()

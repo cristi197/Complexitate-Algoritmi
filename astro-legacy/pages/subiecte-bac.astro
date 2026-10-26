@@ -69,7 +69,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <div class="sb-filter-group">
               <div class="sb-filter-label">📅 An / 🔃 Ordine</div>
               <div class="sb-inline-controls">
-                <select class="sb-select" id="year-select">
+                <select class="sb-select" id="year-select" aria-label="Alege anul">
                   <option value="all">Toți anii</option>
                 </select>
                 <button class="sb-chip active" id="sort-btn">↓ Cel mai recent</button>
@@ -173,16 +173,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
     .sb-chip:hover { border-color: var(--primary); color: var(--primary); }
     .sb-chip.active {
-      background: var(--primary); color: #fff;
+      background: var(--primary); color: var(--on-primary);
       border-color: var(--primary);
     }
-    /* Type-specific active colors */
-    .sb-chip-iunie.active   { background: #16a34a; border-color: #16a34a; }
-    .sb-chip-august.active  { background: #d97706; border-color: #d97706; }
-    .sb-chip-speciala.active { background: #6366f1; border-color: #6366f1; }
-    .sb-chip-simulare.active { background: #db2777; border-color: #db2777; }
-    .sb-chip-model.active   { background: #7c3aed; border-color: #7c3aed; }
-    .sb-chip-antrenament.active { background: #ea580c; border-color: #ea580c; }
+    /* Type-specific active colors (white text, >= 4.5:1) */
+    .sb-chip-iunie.active   { background: #15803d; border-color: #15803d; color: #fff; }
+    .sb-chip-august.active  { background: #b45309; border-color: #b45309; color: #fff; }
+    .sb-chip-speciala.active { background: #4f46e5; border-color: #4f46e5; color: #fff; }
+    .sb-chip-simulare.active { background: #be185d; border-color: #be185d; color: #fff; }
+    .sb-chip-model.active   { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+    .sb-chip-antrenament.active { background: #c2410c; border-color: #c2410c; color: #fff; }
 
     /* ─── Year dropdown ─── */
     .sb-inline-controls {

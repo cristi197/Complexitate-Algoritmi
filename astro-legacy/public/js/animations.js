@@ -605,34 +605,11 @@ function initGlobalReadingTime() {
 
 /* ── 6. Scroll-based XP for reading sections ─────────────────── */
 function initSectionXP() {
-  var XP_KEY      = 'infoXP';
   var VISITED_KEY = 'infoVisitedSections';
   var XP_PER_SECTION = 5;
 
-  function getXP() { return parseInt(localStorage.getItem(XP_KEY) || '0', 10); }
   function getVisited() {
     try { return JSON.parse(localStorage.getItem(VISITED_KEY) || '{}'); } catch (e) { return {}; }
-  }
-
-  var LEVELS = [0,100,250,500,900,1400,2000,3000,5000];
-  var LEVEL_NAMES = ['Începător','Elev','Cunoscător','Avansat','Expert','Master','Campion','Legend','Profesional'];
-  function getLevelInfo(xp) {
-    var lvl = 0;
-    for (var i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i]) lvl = i; }
-    var nextXP = LEVELS[lvl+1] || LEVELS[LEVELS.length-1];
-    var prevXP = LEVELS[lvl] || 0;
-    var pct = Math.min(100, Math.round(((xp - prevXP) / Math.max(1, nextXP - prevXP)) * 100));
-    return { level: lvl + 1, name: LEVEL_NAMES[lvl] || 'Profesional', pct: pct };
-  }
-
-  function updateSidebarXP(xp) {
-    var info = getLevelInfo(xp);
-    var valEl  = document.getElementById('xp-value');
-    var fillEl = document.getElementById('xp-fill');
-    var lvlEl  = document.getElementById('xp-level');
-    if (valEl)  valEl.textContent  = xp;
-    if (fillEl) fillEl.style.width = info.pct + '%';
-    if (lvlEl)  lvlEl.textContent  = 'Nivel ' + info.level + ' — ' + info.name;
   }
 
   function awardXP(sectionId) {
@@ -641,20 +618,8 @@ function initSectionXP() {
     if (visited[pageKey]) return; /* already rewarded */
     visited[pageKey] = 1;
     try { localStorage.setItem(VISITED_KEY, JSON.stringify(visited)); } catch (e) {}
-    var xp = getXP() + XP_PER_SECTION;
-    try { localStorage.setItem(XP_KEY, xp); } catch (e) {}
-    updateSidebarXP(xp);
-
-    /* Show a brief +XP toast */
-    var toast = document.createElement('div');
-    toast.className = 'xp-toast';
-    toast.textContent = '+' + XP_PER_SECTION + ' XP';
-    document.body.appendChild(toast);
-    setTimeout(function () { toast.classList.add('xp-toast--show'); }, 10);
-    setTimeout(function () {
-      toast.classList.remove('xp-toast--show');
-      setTimeout(function () { toast.parentNode && toast.parentNode.removeChild(toast); }, 400);
-    }, 1600);
+    /* progress.js owns the XP total, the sidebar and the toast */
+    if (typeof window.addXP === 'function') window.addXP(XP_PER_SECTION, '+' + XP_PER_SECTION + ' XP — Secțiune citită');
   }
 
   /* Observe every section except exercitii */
@@ -669,8 +634,7 @@ function initSectionXP() {
   }, { threshold: 0.3 });
   sections.forEach(function (s) { io.observe(s); });
 
-  /* Init sidebar display on page load */
-  updateSidebarXP(getXP());
+  if (typeof window.refreshProgressUI === 'function') window.refreshProgressUI();
 }
 
 /* ── 7. Per-section reading time badges ──────────────────────── */

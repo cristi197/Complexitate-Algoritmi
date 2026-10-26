@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <span class="header-course">Informatică pentru BAC</span>
     <div class="header-spacer"></div>
     <div class="header-actions">
-      <button type="button" class="search-trigger" id="search-trigger" onclick="openSearch()" aria-label="Caută capitole și instrumente" title="Caută"><Search size={18} /><span>Caută</span></button>
+      <button type="button" class="search-trigger" id="search-trigger" onclick="openSearch(this)" aria-label="Caută capitole și instrumente" title="Caută"><Search size={18} /><span>Caută</span></button>
       <a href={`${base}/exercitii`} class="btn-header" aria-label="Exerciții" title="Exerciții"><BookOpen size={18} /><span>Exerciții</span></a>
       <a href={`${base}/subiecte-bac`} class="btn-header" aria-label="Subiecte BAC" title="Subiecte BAC"><FileText size={18} /><span>Subiecte BAC</span></a>
       <a href={`${base}/editor`} class="btn-header header-editor" aria-label="Editor C++" title="Editor C++"><Code2 size={18} /><span>Editor C++</span><ArrowUpRight size={14} /></a>

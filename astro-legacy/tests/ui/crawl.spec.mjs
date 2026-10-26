@@ -5,12 +5,15 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 const strict = process.env.CRAWL_STRICT !== '0';
 const dist = new URL('../../dist/', import.meta.url);
 
+// Pages deliberately excluded from the sitemap (noindex) but still published.
+const unlisted = ['/test-exercitii'];
+
 function routes() {
   const sitemap = new URL('sitemap-0.xml', dist);
   if (existsSync(sitemap)) {
     const paths = [...readFileSync(sitemap, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)]
       .map(match => new URL(match[1]).pathname.replace(/\.html$/, '').replace(/\/index$/, '/'));
-    return [...new Set(['/', ...paths, '/404'])];
+    return [...new Set(['/', ...paths, ...unlisted, '/404'])];
   }
   const pages = readdirSync(new URL('../../pages/', import.meta.url), { recursive: true })
     .map(String).filter(file => file.endsWith('.astro'))
@@ -54,6 +57,8 @@ for (const route of allRoutes) {
     issues.brokenImages = await page.$$eval('img', images => images
       .filter(img => img.complete && img.naturalWidth === 0 && !img.loading?.includes('lazy'))
       .map(img => img.currentSrc || img.src));
+    issues.missingSkipTarget = await page.$$eval('a.skip-link[href^="#"]', links => links
+      .filter(link => !document.getElementById(link.hash.slice(1))).map(link => link.hash));
 
     // External CDN hiccups are reported but never fail the build.
     if (issues.externalFailures.length) {
@@ -72,6 +77,12 @@ test('crawl: every internal link resolves', async ({ page, request, baseURL }, t
   for (const route of allRoutes) {
     await page.goto(route, { waitUntil: 'domcontentloaded' });
     const hrefs = await page.$$eval('a[href]', anchors => anchors.map(a => a.href));
+    // Social preview images point at the production origin; resolve them against the local build.
+    const meta = await page.$$eval('meta[property="og:image"], meta[name="twitter:image"]', tags => tags.map(tag => tag.content));
+    for (const content of meta) {
+      const local = new URL(new URL(content).pathname, origin).href;
+      if (!links.has(local)) links.set(local, route + ' (og:image)');
+    }
     for (const href of hrefs) {
       const url = new URL(href);
       if (url.origin !== origin) continue;
@@ -85,4 +96,14 @@ test('crawl: every internal link resolves', async ({ page, request, baseURL }, t
     if (response.status() >= 400) broken.push(`${response.status()} ${href} (din ${from})`);
   }
   report(testInfo, { brokenLinks: broken });
+});
+
+test('crawl: unlisted pages are noindex and absent from the sitemap', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'Runs once.');
+  const sitemap = readFileSync(new URL('sitemap-0.xml', dist), 'utf8');
+  for (const route of unlisted) {
+    expect(sitemap).not.toContain(route);
+    await page.goto(route);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  }
 });

@@ -8,12 +8,23 @@ var LEVELS = [0, 100, 250, 500, 900, 1400, 2000, 3000, 5000];
 var LEVEL_NAMES = ['Începător','Elev','Cunoscător','Avansat','Expert','Master','Campion','Legend','Profesional'];
 
 function getProgress() {
+  var data;
   try {
     var raw = localStorage.getItem(PROGRESS_KEY);
-    return raw ? JSON.parse(raw) : { xp: 0, visited: {}, quizScores: {} };
+    data = raw ? JSON.parse(raw) : { xp: 0, visited: {}, quizScores: {} };
   } catch(e) {
     return { xp: 0, visited: {}, quizScores: {} };
   }
+  // Section XP used to live in a separate 'infoXP' key that overwrote the sidebar total; fold it in once.
+  try {
+    var legacy = parseInt(localStorage.getItem('infoXP') || '0', 10);
+    if (legacy > 0) {
+      data.xp = (data.xp || 0) + legacy;
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify(data));
+    }
+    localStorage.removeItem('infoXP');
+  } catch(e) {}
+  return data;
 }
 
 function saveProgress(data) {
@@ -106,6 +117,15 @@ function showXPToast(msg) {
 }
 
 /* ── API for quiz.js to award XP ── */
+function addXP(amount, message) {
+  if (!amount || amount <= 0) return;
+  var data = getProgress();
+  data.xp = (data.xp || 0) + amount;
+  saveProgress(data);
+  updateSidebarUI(data);
+  if (message) showXPToast(message);
+}
+
 function addXPFromQuiz(amount, chapterId) {
   if (!amount || amount <= 0) return;
   var data = getProgress();
@@ -120,6 +140,7 @@ function addXPFromQuiz(amount, chapterId) {
 }
 
 /* ── Expose globally for quiz.js and sidebar ── */
+window.addXP = addXP;
 window.addXPFromQuiz = addXPFromQuiz;
 window.refreshProgressUI = function() { updateSidebarUI(); };
 

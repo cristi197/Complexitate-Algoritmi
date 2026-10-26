@@ -20,7 +20,7 @@ const chapterLinks = [
 <BaseLayout title="Calendar Studiu — InfoLiceu">
   <Header />
 
-  <main class="streak-page">
+  <main class="streak-page" id="main-content" tabindex="-1">
     <!-- Hero -->
     <div class="streak-hero">
       <div class="streak-hero__inner">
@@ -126,7 +126,7 @@ const chapterLinks = [
   </main>
 
   <style>
-    .streak-page { min-height: 100vh; padding-bottom: 56px; }
+    .streak-page { min-height: 100vh; padding-top: var(--header-h); padding-bottom: 56px; }
 
     .streak-hero {
       background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 70%, #38bdf8 100%);
@@ -134,7 +134,7 @@ const chapterLinks = [
       text-align: center;
       color: #fff;
     }
-    .streak-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); margin: 0 0 10px; }
+    .streak-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); margin: 0 0 10px; color: #fff; }
     .streak-hero p { opacity: .85; max-width: 560px; margin: 0 auto; font-size: 1rem; }
 
     .streak-layout { max-width: 860px; margin: 32px auto 0; padding: 0 20px; display: flex; flex-direction: column; gap: 28px; }
@@ -156,6 +156,8 @@ const chapterLinks = [
       background: linear-gradient(135deg, #0c4a6e, #0369a1);
       border-color: #0ea5e9;
     }
+    .streak-stat-card--main .streak-stat-label,
+    .streak-stat-card--main .streak-stat-unit { color: #e0f2fe; }
     .streak-stat-value { font-size: 2.4rem; font-weight: 800; line-height: 1; margin-bottom: 6px; }
     .streak-stat-label { font-size: 13px; font-weight: 600; color: var(--color-text-muted, #94a3b8); }
     .streak-stat-unit { font-size: 11px; color: var(--color-text-muted, #64748b); margin-top: 4px; }
@@ -242,7 +244,7 @@ const chapterLinks = [
     }
     .streak-btn:active { transform: scale(.97); }
     .streak-btn--mark { background: linear-gradient(90deg,#22c55e,#16a34a); color: #fff; width: 100%; max-width: 360px; }
-    .streak-btn--danger { background: transparent; border: 1.5px solid #ef4444; color: #ef4444; font-size: 13px; }
+    .streak-btn--danger { background: transparent; border: 1.5px solid var(--c-red); color: var(--c-red); font-size: 13px; }
     .streak-btn--danger:hover { background: rgba(239,68,68,.08); }
     .streak-mark-note { font-size: 13px; color: var(--color-text-muted, #64748b); margin-top: 10px; min-height: 20px; }
 

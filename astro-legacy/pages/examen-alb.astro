@@ -23,8 +23,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="ea-selector">
         <h2>Alege examenul</h2>
         <div class="ea-filter-row">
-          <select id="filterYear" class="ea-select"><option value="">Toți anii</option></select>
-          <select id="filterType" class="ea-select">
+          <select id="filterYear" class="ea-select" aria-label="Filtrează după an"><option value="">Toți anii</option></select>
+          <select id="filterType" class="ea-select" aria-label="Filtrează după tipul sesiunii">
             <option value="">Toate sesiunile</option>
             <option value="simulare">Simulare</option>
             <option value="model">Modele oficiale</option>
@@ -112,7 +112,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </main>
 
   <style is:global>
-  .ea-page { min-height:100vh; padding-bottom:60px; background:var(--color-background,#0f172a); }
+  .ea-page { min-height:100vh; padding-top:var(--header-h); padding-bottom:60px; background:var(--color-background,#0f172a); }
 
   .ea-hero {
     background:linear-gradient(135deg,#1a1a2e 0%,#16213e 30%,#0f3460 60%,#533483 100%);
@@ -129,7 +129,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     border:1px solid rgba(255,255,255,.18); border-radius:20px;
     padding:5px 18px; font-size:.82rem; font-weight:600; margin-bottom:18px;
   }
-  .ea-hero h1 { font-size:clamp(2rem,5vw,3rem); margin:0 0 14px; font-weight:800; letter-spacing:-1px; }
+  .ea-hero h1 { font-size:clamp(2rem,5vw,3rem); margin:0 0 14px; font-weight:800; letter-spacing:-1px; color:#fff; }
   .ea-hero p  { opacity:.85; max-width:580px; margin:0 auto; line-height:1.65; }
 
   .ea-overlay { display:flex; justify-content:center; padding:36px 20px; }
@@ -150,24 +150,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     transition:border-color .2s,transform .2s,box-shadow .2s;
   }
   .ea-exam-card:hover { border-color:#3b82f6; transform:translateY(-2px); box-shadow:0 8px 24px rgba(59,130,246,.12); }
-  .ea-exam-card__year    { font-size:.75rem; color:#60a5fa; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+  .ea-exam-card__year    { font-size:.75rem; color:(--c-blue); font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
   .ea-exam-card__session { font-size:15px; font-weight:600; margin-bottom:6px; }
   .ea-exam-card__type    { font-size:12px; color:var(--color-text-muted,#64748b); }
 
   .ea-loading { display:flex; flex-direction:column; align-items:center; padding:60px; gap:16px; color:var(--color-text-muted,#64748b); }
-  .ea-spinner { width:44px; height:44px; border:4px solid #334155; border-top-color:#3b82f6; border-radius:50%; animation:ea-spin .8s linear infinite; }
+  .ea-spinner { width:44px; height:44px; border:4px solid var(--border); border-top-color:#3b82f6; border-radius:50%; animation:ea-spin .8s linear infinite; }
   @keyframes ea-spin { to { transform:rotate(360deg); } }
 
   .ea-timer-bar {
     position:sticky; top:0; z-index:100;
-    background:rgba(15,23,42,.95); backdrop-filter:blur(10px);
+    background:var(--surface2); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--color-border,#334155);
     padding:10px 24px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;
   }
   .ea-timer-left  { display:flex; align-items:center; gap:14px; flex-shrink:0; }
   .ea-exam-label  { font-size:13px; color:var(--color-text-muted,#64748b); max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .ea-timer-clock { font-size:1.4rem; font-weight:800; color:#60a5fa; font-variant-numeric:tabular-nums; }
-  .ea-timer-track { flex:1; height:6px; background:#1e293b; border-radius:99px; overflow:hidden; min-width:80px; }
+  .ea-timer-clock { font-size:1.4rem; font-weight:800; color:(--c-blue); font-variant-numeric:tabular-nums; }
+  .ea-timer-track { flex:1; height:6px; background:var(--surface2); border-radius:99px; overflow:hidden; min-width:80px; }
   .ea-timer-fill  { height:100%; width:100%; background:linear-gradient(90deg,#22c55e,#16a34a); transition:width 1s linear,background .5s; border-radius:99px; }
   .ea-timer-actions { display:flex; gap:8px; flex-shrink:0; }
 
@@ -190,8 +190,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .ea-q.correct  { border-color:#22c55e; background:rgba(34,197,94,.04); }
   .ea-q.wrong    { border-color:#ef4444; background:rgba(239,68,68,.04); }
   .ea-q__text { font-weight:600; margin-bottom:14px; line-height:1.6; font-size:15px; }
-  .ea-q__num  { color:#60a5fa; font-weight:800; margin-right:8px; }
-  .ea-q__code { background:#111827; border:1px solid #334155; border-radius:8px; padding:12px 16px; margin:10px 0; font-family:'Courier New',monospace; font-size:13px; line-height:1.6; overflow-x:auto; white-space:pre; display:block; }
+  .ea-q__num  { color:(--c-blue); font-weight:800; margin-right:8px; }
+  .ea-q__code { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin:10px 0; font-family:'Courier New',monospace; font-size:13px; line-height:1.6; overflow-x:auto; white-space:pre; display:block; }
   .ea-options { display:flex; flex-direction:column; gap:8px; }
   .ea-option {
     display:flex; align-items:flex-start; gap:12px; cursor:pointer;
@@ -231,7 +231,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .ea-textarea {
     width:100%; min-height:72px; padding:10px 14px; border-radius:8px;
-    background:#111827; border:1.5px solid #334155; color:#e2e8f0;
+    background:var(--surface2); border:1.5px solid var(--border); color:var(--text);
     font-size:13px; line-height:1.6; resize:vertical; font-family:inherit;
     transition:border-color .2s; box-sizing:border-box;
   }
@@ -251,7 +251,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .ea-testcases { display:flex; flex-direction:column; gap:10px; }
   .ea-testcase  { border:1px solid #2d3748; border-radius:8px; padding:12px 14px; display:flex; flex-direction:column; gap:8px; font-size:13px; transition:border-color .2s; }
-  .ea-testcase__label { font-weight:700; font-size:11px; color:#60a5fa; text-transform:uppercase; letter-spacing:.5px; }
+  .ea-testcase__label { font-weight:700; font-size:11px; color:(--c-blue); text-transform:uppercase; letter-spacing:.5px; }
   .ea-testcase__io    { display:flex; gap:12px; flex-wrap:wrap; }
   .ea-testcase__slot  { flex:1; min-width:180px; }
   .ea-testcase__slot h5 { font-size:11px; color:var(--color-text-muted,#64748b); margin:0 0 4px; text-transform:uppercase; letter-spacing:.4px; }
@@ -286,7 +286,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .ea-result-subject { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--color-border,#334155); }
   .ea-result-subject:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
   .ea-result-subject h4 { margin:0 0 8px; font-size:14px; font-weight:700; }
-  .ea-result-bar-bg   { height:8px; background:#1e293b; border-radius:99px; overflow:hidden; border:1px solid #334155; }
+  .ea-result-bar-bg   { height:8px; background:var(--surface2); border-radius:99px; overflow:hidden; border:1px solid var(--border); }
   .ea-result-bar-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#3b82f6,#6366f1); transition:width .6s ease; }
   .ea-score-big { font-size:3rem; font-weight:800; margin:0 0 6px; }
   .ea-score-ok  { color:#22c55e; }
@@ -632,13 +632,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     window._openCompiler = function(id) {
       const el   = document.getElementById(id);
       const code = el ? el.value : '';
-      if (code) {
-        navigator.clipboard.writeText(code).catch(()=>{});
-        window.open('https://www.onlinegdb.com/online_c++_compiler', '_blank');
-        setTimeout(() => alert('Codul a fost copiat în clipboard.\nÎn OnlineGDB: selectează tot (Ctrl+A) și lipește (Ctrl+V), apoi apasă Run.'), 300);
-      } else {
-        window.open('https://www.onlinegdb.com/online_c++_compiler', '_blank');
-      }
+      window.open('https://www.onlinegdb.com/online_c++_compiler', '_blank', 'noopener');
+      if (!code) return;
+      const copied = () => alert('Codul a fost copiat în clipboard.\nÎn OnlineGDB: selectează tot (Ctrl+A) și lipește (Ctrl+V), apoi apasă Run.');
+      const failed = () => {
+        el.focus();
+        el.select();
+        alert('Nu am putut copia automat codul. L-am selectat în pagină: apasă Ctrl+C, apoi lipește-l în OnlineGDB.');
+      };
+      if (!navigator.clipboard) { failed(); return; }
+      navigator.clipboard.writeText(code).then(copied, failed);
     };
 
     window._markTest = function(key, ti, result) {

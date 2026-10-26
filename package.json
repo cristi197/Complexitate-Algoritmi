@@ -1,7 +1,7 @@
 {
   "name": "complexitate-algoritmi",
   "version": "1.0.0",
-  "description": "[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?logo=astro&logoColor=white)](https://astro.build)\r [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-22c55e?logo=github)](https://cristi197.github.io/Complexitate-Algoritmi)\r [![License: MIT](https://img.shields.io/badge/License-MIT-6366f1)](LICENSE)",
+  "description": "InfoLiceu — site Astro 6 (astro-legacy/) pentru pregătirea BAC la informatică, plus migrarea .NET (src/)",
   "main": "index.js",
   "directories": {
     "doc": "docs",

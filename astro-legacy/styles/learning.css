@@ -1,8 +1,27 @@
 /* Shared reading surfaces. Algorithm visualizations retain their semantic colors. */
+/* Arial sized to Inter's metrics so the swap to the web font barely moves text (CLS). */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica'), local('Liberation Sans');
+  size-adjust: 107.12%;
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+}
 :root {
   color-scheme: light;
   --primary: #167568;
   --primary-hover: #105d53;
+  --on-primary: #fff;
+  /* Semantic text colors with >= 4.5:1 on --surface/--bg. */
+  --c-blue: #1d4ed8;
+  --c-green: #047857;
+  --c-red: #b91c1c;
+  --code-kw: #7136a7;
+  --code-fn: #5b21b6;
+  --code-nu: #934610;
+  --code-st: #166534;
+  --code-cm: #586970;
   --primary-light: #e8f4ef;
   --primary-dim: #e8f4ef;
   --bg: #f7f8fa;
@@ -21,7 +40,7 @@
   --header-h: 68px;
   --header-bg: #fff;
   --radius: 8px;
-  --font: 'Inter Variable', system-ui, sans-serif;
+  --font: 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
   --font-body: var(--font);
   --font-display: 'Manrope Variable', var(--font);
   --mono: 'JetBrains Mono', Consolas, monospace;
@@ -29,11 +48,26 @@
   --shadow: 0 2px 8px #172b3408;
   --shadow2: 0 12px 40px #172b341a;
   --transition: 160ms ease;
+  /* Aliases for tool pages written against a --color-* palette; without them they fall back to dark-only colors. */
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
 }
 [data-theme="dark"] {
   color-scheme: dark;
   --primary: #6dd2b9;
   --primary-hover: #a1e7d7;
+  --on-primary: #10201c;
+  --c-blue: #93c5fd;
+  --c-green: #6ee7b7;
+  --c-red: #fca5a5;
+  --code-kw: #d1b3f5;
+  --code-fn: #c4b5fd;
+  --code-nu: #f7c17b;
+  --code-st: #86dbab;
+  --code-cm: #acbac1;
   --primary-light: #203a33;
   --primary-dim: #203a33;
   --bg: #181c1e;
@@ -59,6 +93,8 @@ html { scroll-padding-top: calc(var(--header-h) + 24px); }
 body { font-family: var(--font); font-size: 16px; line-height: 1.75; }
 body, button, input, select, textarea { font-family: var(--font); }
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); text-wrap: pretty; }
+/* Headings on dark hero gradients inherit the hero's white text instead of the global var(--text). */
+:is(.chapter-hero, .page-hero, .sb-hero, .v09-hero, .setup-header, .ea-hero, .editor-hero, .streak-hero) :is(h1, h2) { color: #fff; }
 * { letter-spacing: 0 !important; }
 [hidden] { display: none !important; }
 button, input, select, textarea { font-size: 14px; }

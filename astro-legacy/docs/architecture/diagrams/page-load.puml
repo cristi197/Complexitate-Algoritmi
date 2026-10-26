@@ -1,5 +1,5 @@
 @startuml page-load
-title Încărcarea unei pagini de capitol (starea actuală, PR0)
+title Încărcarea unei pagini de capitol (PR1)
 
 actor Elev
 participant "Browser" as B
@@ -9,16 +9,16 @@ database "localStorage" as LS
 
 Elev -> B : deschide /capitole/vectori
 B -> P : GET /capitole/vectori.html
-P --> B : HTML static (Astro)
+P --> B : HTML static (Astro) + preload fonturi Inter/Manrope
 B -> LS : script inline: citește „theme”
 B -> B : setează data-theme înainte de primul paint
-B -> P : search.js, progress.js, analytics.js (sincron, blochează parsarea)
-B -> P : site.js (defer)
-B -> P : animations.js, quiz.js, platform.js (ChapterLayout)
-B -> LS : progress.js: infoLiceu_v2 (+10 XP la prima vizită)\nanimations.js: infoXP, infoVisitedSections (+5 XP/secțiune)
+B -> B : prima afișare (scripturile nu mai blochează)
+B -> P : search, progress, analytics, site,\nanimations, quiz, platform (toate defer)
+B -> B : DOMContentLoaded → inițializări
+B -> LS : progress.js: infoLiceu_v2 (+10 XP la prima vizită)\nanimations.js → window.addXP(+5/secțiune)
 note right of LS
-  Două surse de XP care se suprascriu
-  în sidebar (bug, PR1).
+  O singură sursă de XP;
+  vechea cheie infoXP e adunată o dată și ștearsă.
 end note
 Elev -> B : „Testează-te”
 B -> P : GET /data/exercises/vectori.json (quiz.js)

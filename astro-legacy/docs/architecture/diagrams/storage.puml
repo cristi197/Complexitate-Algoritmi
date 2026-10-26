@@ -1,5 +1,5 @@
 @startuml storage
-title Chei localStorage (starea actuală, PR0)
+title Chei localStorage (PR1)
 
 object "theme" as theme {
   valoare = "light" | "dark"
@@ -8,12 +8,8 @@ object "theme" as theme {
 }
 object "infoLiceu_v2" as progress {
   { visited, quiz, xp, ... }
-  scris de = progress.js
+  scris de = progress.js (singura sursă de XP)
   citit de = site.js, sidebar
-}
-object "infoXP" as xp {
-  număr
-  scris de = animations.js
 }
 object "infoVisitedSections" as sections {
   { capitol: [secțiuni] }
@@ -43,5 +39,5 @@ object "pv_<path>, like-uri" as pv {
   scris de = platform.js
 }
 
-progress .. xp : „XP” afișat din ambele\n(conflict)
+sections ..> progress : XP prin window.addXP()
 @enduml

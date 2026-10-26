@@ -23,9 +23,8 @@ end fork
 |GitHub Pages|
 :Servește learnbac.ro;
 note right
-  CNAME și .nojekyll stau în rădăcina
-  astro-legacy/, nu în public/,
-  deci NU ajung în dist (bug, PR1).
+  public/CNAME (learnbac.ro) și
+  public/.nojekyll sunt copiate în dist/.
 end note
 stop
 @enduml

@@ -3918,7 +3918,7 @@ const algorithms = [
 
     // Collect inputs
     var inputs = {};
-    inputArea.querySelectorAll('input').forEach(function(inp) {
+    inputArea.querySelectorAll('input, textarea, select').forEach(function(inp) {
       inputs[inp.id] = inp.value;
     });
 
@@ -3961,7 +3961,7 @@ const algorithms = [
     // Table Rows
     var bodyHTML = '';
     currentSteps.forEach(function(step, idx) {
-      bodyHTML += '<tr class="trace-table-row" id="t-row-' + idx + '" data-step-id="' + idx + '">';
+      bodyHTML += '<tr class="trace-table-row" id="t-row-' + idx + '" data-step-id="' + idx + '" tabindex="0" aria-label="Mergi la pasul ' + (idx + 1) + '">';
       bodyHTML += '<td>' + (idx + 1) + '</td>';
       
       var lineNo = (step.line !== undefined) ? (step.line + 1) : '-';
@@ -3972,9 +3972,9 @@ const algorithms = [
         if (val === undefined) {
           bodyHTML += '<td>-</td>';
         } else if (Array.isArray(val)) {
-          bodyHTML += '<td class="mono-font">[' + val.join(',') + ']</td>';
+          bodyHTML += '<td class="mono-font">[' + escapeHtml(val.join(',')) + ']</td>';
         } else {
-          bodyHTML += '<td class="mono-font font-semibold">' + val + '</td>';
+          bodyHTML += '<td class="mono-font font-semibold">' + escapeHtml(String(val)) + '</td>';
         }
       });
       bodyHTML += '</tr>';
@@ -3988,6 +3988,9 @@ const algorithms = [
         var sId = parseInt(this.getAttribute('data-step-id'));
         currentStep = sId;
         renderStep();
+      });
+      row.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); row.click(); }
       });
     });
   }
@@ -4089,7 +4092,7 @@ const algorithms = [
     });
 
     // Explanation explanation update
-    expEl.innerHTML = step.exp || '';
+    expEl.innerHTML = sanitizeExplanation(step.exp || '');
 
     // Array / Vector Visualization
     if (step.arr) {
@@ -4100,7 +4103,7 @@ const algorithms = [
           cls += ' v2-arr-cell--active';
         }
         return '<div class="' + cls + '">' +
-                 '<span class="v2-arr-val">' + v + '</span>' +
+                 '<span class="v2-arr-val">' + escapeHtml(String(v)) + '</span>' +
                  '<span class="v2-arr-idx">[' + i + ']</span>' +
                '</div>';
       }).join('');
@@ -4115,7 +4118,9 @@ const algorithms = [
 
     // Show Completion Card if at final step
     if (currentStep === currentSteps.length - 1) {
-      el('done-msg').textContent = 'Algoritmul "' + ALGOS[currentAlgo].name + '" s-a încheiat cu rezultatul: ' + currentSteps[currentSteps.length - 1].exp;
+      var finalExp = document.createElement('div');
+      finalExp.innerHTML = sanitizeExplanation(currentSteps[currentSteps.length - 1].exp || '');
+      el('done-msg').textContent = 'Algoritmul "' + ALGOS[currentAlgo].name + '" s-a încheiat cu rezultatul: ' + finalExp.textContent;
       doneCard.style.display = 'block';
     } else {
       doneCard.style.display = 'none';
@@ -4123,7 +4128,31 @@ const algorithms = [
   }
 
   function escapeHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // Explanations embed user input inside trusted markup, so keep only formatting tags and class attributes.
+  var EXP_TAGS = ['B', 'STRONG', 'EM', 'I', 'CODE', 'BR', 'SPAN', 'SUB', 'SUP', 'SMALL', 'MARK'];
+  function sanitizeExplanation(html) {
+    var tpl = document.createElement('template');
+    tpl.innerHTML = html;
+    (function clean(node) {
+      Array.from(node.childNodes).forEach(function(child) {
+        if (child.nodeType === 1) {
+          if (EXP_TAGS.indexOf(child.tagName) === -1) {
+            node.replaceChild(document.createTextNode(child.textContent), child);
+            return;
+          }
+          Array.from(child.attributes).forEach(function(attr) {
+            if (attr.name !== 'class') child.removeAttribute(attr.name);
+          });
+          clean(child);
+        } else if (child.nodeType !== 3) {
+          node.removeChild(child);
+        }
+      });
+    })(tpl.content);
+    return tpl.innerHTML;
   }
 
   function scrollIntoContainer(target, container) {
@@ -4263,7 +4292,7 @@ const algorithms = [
 .cat-btn.active {
   border-color: var(--primary);
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
 }
 
@@ -4474,7 +4503,7 @@ const algorithms = [
 
 .tracer-btn--primary {
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
 }
 
 .tracer-btn--primary:hover {
