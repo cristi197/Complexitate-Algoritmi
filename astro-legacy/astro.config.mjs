@@ -11,7 +11,7 @@ export default defineConfig({
   srcDir: '.',
   site,
   base,
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: page => !/\/test-exercitii(\.html)?\/?$/.test(page) })],
   vite: {
     plugins: [
       tailwindcss(),

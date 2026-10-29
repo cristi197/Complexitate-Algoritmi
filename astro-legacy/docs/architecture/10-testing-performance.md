@@ -1,6 +1,6 @@
 # 10 · Testare și performanță
 
-_Actualizat în: PR0_
+_Actualizat în: PR1_
 
 ![Testare](diagrams/testing.svg)
 
@@ -9,20 +9,23 @@ _Actualizat în: PR0_
 | Proiect | Browser | Rol |
 |---|---|---|
 | `desktop`, `mobile`, `dark` | Chromium (local: Chrome instalat) | Blocant în CI |
-| `firefox` | Firefox desktop | Informativ până la PR1 |
-| `webkit-mobile` | WebKit, iPhone 13 | Informativ până la PR1 |
+| `firefox` | Firefox desktop | Blocant în CI (din PR1) |
+| `webkit-mobile` | WebKit, iPhone 13 | Blocant în CI (din PR1) |
 
 | Suită | Ce verifică |
 |---|---|
 | `chapters.spec.mjs` | Fiecare capitol: lectură, ancore, quiz, layout responsive, axe (WCAG 2.1 AA), căutare, temă, meniu mobil |
 | `demos.spec.mjs` | Demo-urile interactive din capitole |
 | `quiz.spec.mjs` | Quiz: formatare, skip, scor, retry |
-| `crawl.spec.mjs` | Fiecare pagină din sitemap: erori în consolă, cereri eșuate, imagini stricate; o dată, pe desktop: toate linkurile interne |
+| `crawl.spec.mjs` | Fiecare pagină din sitemap + paginile `noindex`: erori în consolă, cereri eșuate, imagini stricate, ținta link-ului „Sari la conținut”; o dată, pe desktop: toate linkurile interne și imaginile `og:image`, plus `noindex`/absența din sitemap pentru `test-exercitii` |
+| `a11y.spec.mjs` | axe (WCAG 2.1 AA, serious/critical) pe toate paginile de unelte, în desktop, mobil și tema închisă |
+| `debug-live.spec.mjs` | Input-ul elevului nu devine HTML; matricea scrisă e folosită; rândurile de trasare merg din tastatură |
+| `progress.spec.mjs` | XP are o singură sursă; vechiul `infoXP` e adunat o dată și sidebar-ul arată totalul salvat |
 | `visual.spec.mjs` | Capturi pentru 10 pagini cheie, doar Chromium (`__screenshots__/<platform>/<proiect>/`) |
 
 `CRAWL_STRICT=0` transformă problemele găsite de crawler în adnotări, pentru investigații locale; implicit, crawler-ul e strict. Capturile lipsă se generează automat (`updateSnapshots: 'missing'`).
 
-Rezultatul baseline-ului (PR0): 394 de teste trec în cele 5 configurații. Crawler-ul nu găsește erori, cereri eșuate, imagini sau linkuri stricate. În WebKit, focusul nu revine pe butonul de căutare după închiderea dialogului (bug, PR1). Testul de clipboard rulează doar în Chromium, singurul browser care permite acordarea permisiunilor.
+Rezultatul baseline-ului (PR0): 394 de teste trec în cele 5 configurații; în WebKit, focusul nu revenea pe butonul de căutare (Safari nu focusează butoanele la click), reparat în PR1. Testul de clipboard rulează doar în Chromium, singurul browser care permite acordarea permisiunilor.
 
 Rulare locală (din `astro-legacy/`):
 

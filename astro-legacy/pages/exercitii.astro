@@ -207,7 +207,7 @@ const chapters = [
     .chapter-chips, .diff-chips, .count-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
       padding: 6px 14px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.06); color: #94a3b8; cursor: pointer;
+      background: rgba(255,255,255,.06); color: var(--text-muted); cursor: pointer;
       font-size: 13px; font-weight: 600; transition: all .18s; white-space: nowrap;
     }
     .chip:hover { background: rgba(255,255,255,.12); }
@@ -215,12 +215,12 @@ const chapters = [
     .chip-all.active    { background: linear-gradient(135deg,#1d4ed8,#7c3aed); }
     .chip-blue.active   { background: #1d4ed8; }
     .chip-teal.active   { background: #0d9488; }
-    .chip-green.active  { background: #16a34a; }
+    .chip-green.active  { background: #15803d; }
     .chip-purple.active { background: #7c3aed; }
     .chip-orange.active { background: #c2410c; }
     .chip-red.active    { background: #dc2626; }
     .chip-pink.active   { background: #db2777; }
-    .chip-facil.active  { background: #16a34a; }
+    .chip-facil.active  { background: #15803d; }
     .chip-mediu.active  { background: #d97706; }
     .chip-dificil.active{ background: #dc2626; }
     .chip-count.active  { background: linear-gradient(135deg,#1d4ed8,#7c3aed); }
@@ -233,9 +233,9 @@ const chapters = [
     .chip-subcat.active { background: linear-gradient(135deg,#7c3aed,#a855f7); }
     .chip-neorientate.active { background: #2563eb; }
     .chip-orientate.active { background: #dc2626; }
-    .chip-arbori.active { background: #16a34a; }
+    .chip-arbori.active { background: #15803d; }
     .chip-timer.active { background: linear-gradient(135deg,#d97706,#f59e0b); }
-    .subcat-mix-hint { margin-top: 8px; color: #64748b; font-size: 12px; }
+    .subcat-mix-hint { margin-top: 8px; color: var(--text-muted); font-size: 12px; }
 
     /* Action buttons */
     .filter-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
@@ -247,14 +247,14 @@ const chapters = [
     .btn-generate:hover { opacity: .88; }
     .btn-test {
       padding: 11px 28px; border-radius: 12px; border: none; cursor: pointer;
-      background: linear-gradient(135deg,#16a34a,#22c55e); color: #fff;
+      background: linear-gradient(135deg,#15803d,#166534); color: #fff;
       font-size: 14px; font-weight: 700; transition: opacity .2s; text-decoration: none;
       display: inline-flex; align-items: center;
     }
     .btn-test:hover { opacity: .88; }
     .btn-pdf {
       padding: 11px 22px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,.2);
-      background: rgba(255,255,255,.07); color: #e2e8f0; cursor: pointer;
+      background: rgba(255,255,255,.07); color: var(--text); cursor: pointer;
       font-size: 13px; font-weight: 600; transition: background .2s;
     }
     .btn-pdf:hover { background: rgba(255,255,255,.14); }
@@ -262,7 +262,7 @@ const chapters = [
     /* Answers toggle */
     .answers-toggle {
       display: flex; align-items: center; gap: 7px;
-      cursor: pointer; font-size: 13px; font-weight: 600; color: #94a3b8;
+      cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-muted);
       user-select: none;
     }
     .answers-toggle input[type=checkbox] {
@@ -285,7 +285,7 @@ const chapters = [
     .timer-progress { height: 100%; background: linear-gradient(90deg,#16a34a,#fbbf24,#dc2626); border-radius: 3px; transition: width .5s linear; width: 100%; }
     .timer-btn {
       width: 32px; height: 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.07); color: #e2e8f0; cursor: pointer;
+      background: rgba(255,255,255,.07); color: var(--text); cursor: pointer;
       font-size: 14px; display: flex; align-items: center; justify-content: center;
     }
     .timer-btn:hover { background: rgba(255,255,255,.15); }
@@ -295,7 +295,7 @@ const chapters = [
     /* Per-problem answer toggle */
     .ex-answer-toggle {
       margin-top: 10px; padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05); color: #94a3b8; cursor: pointer;
+      background: rgba(255,255,255,.05); color: var(--text-muted); cursor: pointer;
       font-size: 12px; font-weight: 600; transition: all .2s;
     }
     .ex-answer-toggle:hover { background: rgba(124,58,237,.15); color: #a78bfa; border-color: rgba(124,58,237,.3); }
@@ -306,7 +306,7 @@ const chapters = [
     }
     .ex-answer-section.visible { display: block; }
     .ex-answer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #16a34a; margin-bottom: 4px; }
-    .ex-answer-text { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+    .ex-answer-text { font-size: 13px; color: var(--text); line-height: 1.5; }
     .ex-answer-correct { font-weight: 700; color: #4ade80; }
 
     /* Print-only header (hidden on screen) */
@@ -318,7 +318,7 @@ const chapters = [
       padding: 5px 16px; border-radius: 999px; font-size: 13px; font-weight: 800;
       background: linear-gradient(135deg,#1d4ed8,#7c3aed); color: #fff;
     }
-    .ex-subtitle { font-size: 13px; color: #94a3b8; }
+    .ex-subtitle { font-size: 13px; color: var(--text-muted); }
 
     /* Exercise cards */
     .ex-list { display: flex; flex-direction: column; gap: 16px; }
@@ -327,22 +327,22 @@ const chapters = [
       border: 1.5px solid rgba(255,255,255,.08);
     }
     .ex-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-    .ex-num { font-size: 11px; font-weight: 800; color: #64748b; min-width: 28px; }
+    .ex-num { font-size: 11px; font-weight: 800; color: var(--text-muted); min-width: 28px; }
     .ex-chapter-badge {
       font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 6px;
       text-transform: uppercase; letter-spacing: .04em;
     }
-    .ex-q { font-size: 15px; color: #e2e8f0; line-height: 1.5; margin-bottom: 14px; font-weight: 600; }
+    .ex-q { font-size: 15px; color: var(--text); line-height: 1.5; margin-bottom: 14px; font-weight: 600; }
     .ex-opts { display: flex; flex-direction: column; gap: 7px; }
     .ex-opt {
       display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px;
       border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
-      font-size: 13px; color: #94a3b8;
+      font-size: 13px; color: var(--text-muted);
     }
     .ex-opt-letter {
       font-size: 11px; font-weight: 800; min-width: 20px; height: 20px; border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.1); color: #e2e8f0; flex-shrink: 0; margin-top: 1px;
+      background: rgba(255,255,255,.1); color: var(--text); flex-shrink: 0; margin-top: 1px;
     }
 
     /* Difficulty badges inside cards */
@@ -357,7 +357,7 @@ const chapters = [
       display: none;
       align-items: center; justify-content: center;
       width: 20px; height: 20px; border-radius: 50%;
-      background: #16a34a; color: #fff; font-size: 11px; font-weight: 800;
+      background: #15803d; color: #fff; font-size: 11px; font-weight: 800;
     }
 
     /* Chapter badge colors */
@@ -385,7 +385,7 @@ const chapters = [
       #printHeader { display: block !important; margin-bottom: 18px; }
       .ph-logo { font-size: 17pt; font-weight: 900; color: #1d4ed8; margin-bottom: 4px; }
       .ph-meta { font-size: 10pt; color: #475569; margin-bottom: 2px; }
-      .ph-date { font-size: 9pt; color: #94a3b8; margin-bottom: 10px; }
+      .ph-date { font-size: 9pt; color: var(--text-muted); margin-bottom: 10px; }
       .ph-divider { border: none; border-top: 2px solid #e2e8f0; margin-bottom: 16px; }
 
       /* Results */
@@ -647,7 +647,7 @@ const chapters = [
             '<div class="ex-answer-section" id="ans-' + idx + '">' +
               '<div class="ex-answer-label">Răspuns corect</div>' +
               '<div class="ex-answer-text"><span class="ex-answer-correct">' + correctLetter + '. ' + q.opts[q.ans] + '</span></div>' +
-              (explanation ? '<div class="ex-answer-text" style="margin-top:6px;color:#94a3b8;font-size:12px">💡 ' + explanation + '</div>' : '') +
+              (explanation ? '<div class="ex-answer-text" style="margin-top:6px;color:var(--text-muted);font-size:12px">💡 ' + explanation + '</div>' : '') +
             '</div>';
         }
 

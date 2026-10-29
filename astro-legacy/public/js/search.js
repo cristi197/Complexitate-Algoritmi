@@ -5,11 +5,14 @@ function normalizeSearch(value) {
   return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 }
 
-function openSearch() {
+function openSearch(trigger) {
   var modal = document.getElementById('searchModal');
   if (!modal || modal.open) return;
   if (window.closeChapterMenu) window.closeChapterMenu();
-  _searchReturnFocus = document.activeElement;
+  // Safari does not focus buttons on click, so activeElement can be <body>.
+  var active = document.activeElement;
+  _searchReturnFocus = trigger instanceof HTMLElement ? trigger
+    : (active && active !== document.body ? active : document.getElementById('search-trigger'));
   modal.showModal();
   document.body.classList.add('search-open');
   var input = document.getElementById('searchInput');

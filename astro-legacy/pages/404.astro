@@ -17,13 +17,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </script>
   <style>
     :root {
-      --bg: #ffffff; --text: #1e293b; --text-muted: #64748b;
-      --surface: #f8fafc; --border: #e2e8f0; --primary: #6366f1;
+      --bg: #f7f8fa; --text: #202b31; --text-muted: #59676f;
+      --surface: #fff; --border: #dde3e5; --primary: #167568; --on-primary: #fff;
+      --kw: #7136a7; --fn: #1d4ed8; --st: #166534; --nu: #934610; --cm: #586970;
     }
     [data-theme="dark"] {
-      --bg: #0d1117; --text: #e2e8f0; --text-muted: #94a3b8;
-      --surface: #161b22; --border: rgba(255,255,255,0.08); --primary: #818cf8;
+      --bg: #181c1e; --text: #e7edef; --text-muted: #b1bec4;
+      --surface: #202629; --border: #3a454a; --primary: #6dd2b9; --on-primary: #10201c;
+      --kw: #d1b3f5; --fn: #93c5fd; --st: #86dbab; --nu: #f7c17b; --cm: #acbac1;
     }
+    .kw { color: var(--kw); } .fn { color: var(--fn); } .st { color: var(--st); }
+    .nu { color: var(--nu); } .cm { color: var(--cm); font-style: italic; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -34,7 +38,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .error-code {
       font-size: clamp(6rem, 20vw, 10rem);
       font-weight: 800; line-height: 1; margin-bottom: 1rem;
-      background: linear-gradient(135deg, #6366f1, #a855f7);
+      background: linear-gradient(135deg, #167568, #2f8f80);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
@@ -49,7 +53,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .error-code-block pre { margin: 0; background: transparent; border: none; padding: 0; }
     .btn-home {
       display: inline-flex; align-items: center; gap: 8px; margin-top: 8px;
-      padding: 13px 30px; background: var(--primary); color: white;
+      padding: 13px 30px; background: var(--primary); color: var(--on-primary);
       border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none;
       transition: opacity 0.2s;
     }
@@ -63,12 +67,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p class="error-desc">Se pare că această pagină nu există sau a fost mutată. Verifică URL-ul sau întoarce-te la pagina principală.</p>
 
     <div class="error-code-block">
-      <pre><span style="color:#6b7280;">// C++ easter egg 🐞</span>
-<span style="color:#c792ea;">int</span> <span style="color:#82aaff;">main</span>() &#123;
-    <span style="color:#c792ea;">string</span> pagina = <span style="color:#c3e88d;">"pagina_cautata"</span>;
-    <span style="color:#c792ea;">if</span> (pagina.<span style="color:#82aaff;">exists</span>() == <span style="color:#f78c6c;">false</span>) &#123;
-        <span style="color:#89ddff;">cout</span> &lt;&lt; <span style="color:#c3e88d;">"Eroare 404: Nu am găsit nimic."</span>;
-        <span style="color:#c792ea;">return</span> <span style="color:#f78c6c;">404</span>;
+      <pre><span class="cm">// C++ easter egg 🐞</span>
+<span class="kw">int</span> <span class="fn">main</span>() &#123;
+    <span class="kw">string</span> pagina = <span class="st">"pagina_cautata"</span>;
+    <span class="kw">if</span> (pagina.<span class="fn">exists</span>() == <span class="nu">false</span>) &#123;
+        <span class="fn">cout</span> &lt;&lt; <span class="st">"Eroare 404: Nu am găsit nimic."</span>;
+        <span class="kw">return</span> <span class="nu">404</span>;
     &#125;
 &#125;</pre>
     </div>

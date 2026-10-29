@@ -236,7 +236,7 @@ int main() {
 <BaseLayout title="Editor C++ Online — InfoLiceu">
   <Header />
 
-  <main class="editor-page">
+  <main class="editor-page" id="main-content" tabindex="-1">
     <!-- Hero -->
     <div class="editor-hero">
       <div class="editor-hero__inner">
@@ -263,7 +263,7 @@ int main() {
           </button>
         </div>
 
-        <textarea id="codeArea" class="editor-textarea editor-textarea--code" spellcheck="false"></textarea>
+        <textarea id="codeArea" class="editor-textarea editor-textarea--code" spellcheck="false" aria-label="Cod C++"></textarea>
 
         <!-- File simulation -->
         <div class="editor-files">
@@ -305,10 +305,10 @@ int main() {
   </main>
 
   <style>
-    .editor-page { min-height: 100vh; padding-bottom: 48px; }
+    .editor-page { min-height: 100vh; padding-top: var(--header-h); padding-bottom: 48px; }
 
     .editor-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1d4ed8 70%, #0ea5e9 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1d4ed8 70%, #0369a1 100%);
       padding: 48px 24px 40px;
       text-align: center;
       color: #fff;
@@ -335,7 +335,7 @@ int main() {
       margin-bottom: 14px;
       letter-spacing: .5px;
     }
-    .editor-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); margin: 0 0 10px; }
+    .editor-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); margin: 0 0 10px; color: #fff; }
     .editor-hero h1 span { margin-right: 8px; }
     .editor-hero p { opacity: .85; max-width: 600px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
 
@@ -376,7 +376,7 @@ int main() {
       padding: 3px 10px;
       border-radius: 6px;
       background: rgba(59,130,246,.12);
-      color: #60a5fa;
+      color:(--c-blue);
       border: 1px solid rgba(59,130,246,.2);
     }
 
@@ -424,13 +424,13 @@ int main() {
     }
     .editor-btn--secondary:hover {
       border-color: #3b82f6;
-      color: #60a5fa;
+      color:(--c-blue);
     }
     .editor-btn--small {
       padding: 5px 12px;
       font-size: 12px;
       background: rgba(59,130,246,.1);
-      color: #60a5fa;
+      color:(--c-blue);
       border: 1px solid rgba(59,130,246,.2);
       border-radius: 6px;
     }
@@ -580,10 +580,17 @@ int main() {
     });
 
     btnCopy.addEventListener('click', function() {
-      navigator.clipboard.writeText(codeArea.value).then(function() {
-        btnCopy.textContent = '✅ Copiat!';
-        setTimeout(function() { btnCopy.textContent = '📋 Copiază'; }, 2000);
-      });
+      function done(label) {
+        btnCopy.textContent = label;
+        setTimeout(function() { btnCopy.textContent = '📋 Copiază'; }, 2500);
+      }
+      function fallback() {
+        codeArea.focus();
+        codeArea.select();
+        done('⚠️ Selectat — apasă Ctrl+C');
+      }
+      if (!navigator.clipboard) { fallback(); return; }
+      navigator.clipboard.writeText(codeArea.value).then(function() { done('✅ Copiat!'); }, fallback);
     });
 
     // Tab key inserts spaces
@@ -608,10 +615,12 @@ int main() {
       item.className = 'editor-file-item';
       item.innerHTML =
         '<div class="editor-file-item__header">' +
-          '<input type="text" class="editor-file-item__name" value="' + (name || 'date.in') + '" placeholder="nume_fisier.in" />' +
-          '<button class="editor-file-item__remove" title="Şterge fişier">✕</button>' +
+          '<input type="text" class="editor-file-item__name" aria-label="Nume fișier" placeholder="nume_fisier.in" />' +
+          '<button class="editor-file-item__remove" title="Şterge fişier" aria-label="Șterge fișierul">✕</button>' +
         '</div>' +
-        '<textarea class="editor-file-item__content" placeholder="Scrie conţinutul fişierului aici...">' + (content || '') + '</textarea>';
+        '<textarea class="editor-file-item__content" aria-label="Conținutul fișierului" placeholder="Scrie conţinutul fişierului aici..."></textarea>';
+      item.querySelector('.editor-file-item__name').value = name || 'date.in';
+      item.querySelector('.editor-file-item__content').value = content || '';
       item.querySelector('.editor-file-item__remove').addEventListener('click', function() {
         item.remove();
       });

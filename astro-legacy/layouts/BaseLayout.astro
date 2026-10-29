@@ -5,6 +5,8 @@ import '@fontsource-variable/manrope';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '../styles/learning.css';
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import manropeLatin from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
 import { Search, X } from '@lucide/astro';
 import { chapters } from '../data/chapters';
 
@@ -13,6 +15,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   bodyClass?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -20,6 +23,7 @@ const {
   description = 'Ghid complet de informatică pentru liceu și bacalaureat. Algoritmi, complexitate, recursivitate, backtracking, vectori, matrici, șiruri, fișiere — cu animații interactive și quiz-uri BAC.',
   ogImage,
   bodyClass = '',
+  noindex = false,
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -59,13 +63,15 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
   <meta name="twitter:image"       content={ogImageURL} />
 
   <!-- Misc -->
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
   <meta name="author" content="InfoLiceu" />
   <meta name="theme-color" content="#167568" />
   <meta name="base-url" content={base.replace(/\/$/, '')} />
 
 
   <!-- Favicon & PWA manifest -->
+  <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={manropeLatin} as="font" type="font/woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
   <link rel="manifest" href={`${base}/manifest.json`} />
 
@@ -122,9 +128,9 @@ const fullTitle    = title.includes('InfoLiceu') ? title : `${title} | InfoLiceu
     // Expose base URL for search.js (normalized, no trailing slash)
     window.__BASE_URL = normalizedBase;
   </script>
-  <script is:inline src={`${base}/js/search.js`}></script>
-  <script is:inline src={`${base}/js/progress.js`}></script>
-  <script is:inline src={`${base}/js/analytics.js`}></script>
+  <script is:inline defer src={`${base}/js/search.js`}></script>
+  <script is:inline defer src={`${base}/js/progress.js`}></script>
+  <script is:inline defer src={`${base}/js/analytics.js`}></script>
   <script is:inline defer src={`${base}/js/site.js`}></script>
   <script is:inline define:vars={{ normalizedBase }}>
     // Register service worker for offline caching

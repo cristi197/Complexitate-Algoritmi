@@ -68,9 +68,9 @@ const summary = subtitle.replace(/^Capitolul \d+\s*(?:—|&mdash;)\s*/, '');
     </main>
   </div>
   <Footer />
-  <script is:inline src={base + '/js/animations.js'}></script>
-  <script is:inline src={base + '/js/quiz.js'}></script>
-  <script is:inline src={base + '/js/platform.js'}></script>
+  <script is:inline defer src={base + '/js/animations.js'}></script>
+  <script is:inline defer src={base + '/js/quiz.js'}></script>
+  <script is:inline defer src={base + '/js/platform.js'}></script>
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
       initBarCharts();

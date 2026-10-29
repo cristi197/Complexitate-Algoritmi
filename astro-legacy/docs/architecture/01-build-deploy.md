@@ -21,6 +21,6 @@ _Actualizat în: PR0_
 | [perf.yml](../../../.github/workflows/perf.yml) | PR care ating `astro-legacy/`, manual | Bundle size + Lighthouse + comparație cu baseline, comentariu pe PR |
 | [diagrams.yml](../../../.github/workflows/diagrams.yml) | `.puml` modificate | PlantUML → SVG; commit automat pe branch, pe PR doar validează că diagramele se pot genera |
 
-## Probleme cunoscute
+## Domeniu
 
-- `CNAME` și `.nojekyll` sunt în `astro-legacy/`, nu în `public/`, deci nu ajung în `dist/`. Domeniul custom depinde doar de setarea din GitHub Pages. **Se repară în PR1.**
+- `public/CNAME` (`learnbac.ro`) și `public/.nojekyll` sunt copiate în `dist/` la build. Copiile duplicate din rădăcina `astro-legacy/` au fost șterse în PR1.

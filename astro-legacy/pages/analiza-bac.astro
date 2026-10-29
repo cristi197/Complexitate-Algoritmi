@@ -22,6 +22,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       background: var(--surface);
       border-color: var(--primary-light);
     }
+    .upload-zone:focus-within { outline: 3px solid var(--primary); outline-offset: 3px; }
     .upload-zone input[type="file"] {
       position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
     }
@@ -190,7 +191,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <Header />
 
   <!-- Hero -->
-  <div style="padding-top: var(--header-h);">
+  <div id="main-content" tabindex="-1" style="padding-top: var(--header-h);">
   <div class="chapter-hero" style="background: linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1d4ed8 100%);">
     <a href={`${base}/`} class="chapter-hero-back">← Înapoi acasă</a>
     <h1>🤖 Analiză Variantă BAC</h1>
@@ -240,8 +241,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <span>💡</span>
         <span><strong>Confidențialitate:</strong> fișierul tău <em>nu</em> este salvat pe niciun server al platformei. Este procesat local în browser și transmis direct la API-ul AI.</span>
       </div>
-      <div class="upload-zone" id="upload-zone" role="button" tabindex="0" aria-label="Zonă de upload">
-        <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" aria-label="Selectează fișier" />
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" aria-label="Selectează lucrarea (PDF sau imagine)" />
         <span class="upload-icon">📂</span>
         <h3>Trage fișierul aici sau click pentru a selecta</h3>
         <p>Varianta de BAC la informatică — PDF sau imagine</p>
@@ -309,7 +310,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </div>
 
   <!-- PDF.js -->
-  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script is:inline src={`${base}/js/animations.js`}></script>
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
@@ -394,7 +395,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     zone.addEventListener('dragover',  function (e) { e.preventDefault(); zone.classList.add('drag-over'); });
     zone.addEventListener('dragleave', function ()  { zone.classList.remove('drag-over'); });
     zone.addEventListener('drop',      function (e) { e.preventDefault(); zone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]); });
-    zone.addEventListener('keydown',   function (e) { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
     btnRemove.addEventListener('click', function () {
       currentFile = null; fileInput.value = '';
       filePreview.style.display = 'none';
