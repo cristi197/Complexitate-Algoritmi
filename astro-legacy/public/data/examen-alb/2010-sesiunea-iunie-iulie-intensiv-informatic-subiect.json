@@ -19,7 +19,7 @@
           "c": "(n%2==0) || !(n%7==0)",
           "d": "(n%7==2) && (n%2==7)"
         },
-        "correctAnswer": null
+        "correctAnswer": "a"
       }
     ]
   },

@@ -19,7 +19,7 @@
           "c": "(n%10==0) || (n%5!=0)",
           "d": "(n%10==0) && (n%2==0)"
         },
-        "correctAnswer": null
+        "correctAnswer": "a"
       }
     ]
   },

@@ -11,25 +11,15 @@
     "points": 20,
     "questions": [
       {
-        "nr": 2,
-        "text": "Se consideră algoritmul alăturat, descris în pseudocod.",
-        "options": {
-          "d": "ScrieŃi programul C/C++ corespunzător algoritmului dat. (10p.) citeşte n,k (numere naturale nenule) t \u0001 \u0001 \u0001 \u0001 0 ┌cât timp n ≥ ≥ ≥ ≥ 1 execută │┌dacă n>k atunci i \u0001 \u0001 \u0001 \u0001 k ││altfel i \u0001 \u0001 \u0001 \u0001 n │└■ │ t \u0001 \u0001 \u0001 \u0001 t+1 │ n \u0001 \u0001 \u0001 \u0001 n-i │┌cât timp i ≥ ≥ ≥ ≥ 1 execută ││ scrie t,' ' ││ i \u0001 \u0001 \u0001 \u0001 i-1 │└■ └■",
-          "b": "Dacă pentru variabila k se citeşte valoarea 5 , scrieŃi cea mai mică şi cea mai mare valoare care pot fi citite pentru variabila n astfel încât, în urma executării algoritmului, ultimul număr care se afişează, pentru fiecare dintre aceste valori, să fie 7 . (6p.)",
-          "c": "ScrieŃi în pseudocod un algoritm care să conŃină o singură structură repetitivă în loc de două şi care să fie echivalent cu cel dat. (4p.)"
-        },
-        "correctAnswer": null
-      },
-      {
         "nr": 1,
         "text": "IndicaŃi care dintre expresiile C/C++ de mai jos are valoarea 1 dacă şi numai dacă numărul memorat în variabila întreagă x aparŃine reuniunii de intervale [-3,-1] ∪ ∪ ∪ ∪ [1,3] . (4p.)",
         "options": {
           "a": "x>=-3 && x<=-1 && x>=1 && x<=3",
           "b": "!(x<-3 || x>-1) || !(x<1 || x>3)",
           "c": "x>=-3 || x<=-1 || x>=1 || x<=3",
-          "d": "!(x<-3 && x>3 && x>-1 || x<1) Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la Informatică Varianta 9 Limbajul C/C++ Filiera teoretică, profilul real, specializările matematică – informatică, matematică – informatică intensiv informatică Filiera vocaŃională, profilul militar, specializarea matematică – informatică 2"
+          "d": "!(x<-3 && x>3 && x>-1 || x<1)"
         },
-        "correctAnswer": null
+        "correctAnswer": "b"
       }
     ]
   },

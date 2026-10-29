@@ -1,15 +1,23 @@
 @startuml bac-data
-title Subiecte BAC — de la PDF la pagină (starea actuală, PR0)
+title Subiecte BAC — de la PDF la pagină (PR2)
 
-|Autor|
+|GitHub Actions (lunar)|
 start
-:Descarcă manual PDF-urile (subiect + barem)
-în public/subiecte-bac/<an>/;
+:bac-watcher.yml → check-official.mjs
+citește subiecte.edu.ro;
+if (arhive noi de informatică?) then (da)
+  :Issue „Subiecte BAC noi de importat”;
+else (nu)
+endif
+|Autor|
+:Descarcă arhivele în scripts/bac/inbox/
+pune PDF-urile C/C++ în public/subiecte-bac/<an>/;
 :Adaugă intrarea în public/data/subiecte-bac.json;
 :node scripts/extract-exams.cjs;
 |extract-exams.cjs|
-:pdfjs-dist extrage textul fiecărui subiect;
-:Împerechează subiect cu barem;
+:pdfjs-dist extrage textul, elimină antetul de pagină;
+:Împerechează subiect cu barem
+(răspunsuri doar din „SUBIECTUL I”);
 :Scrie public/data/examen-alb/<id>.json
 + examen-alb/index.json;
 |Site|
@@ -25,7 +33,7 @@ fork again
 end fork
 stop
 note right
-  Acoperire: 2010–2026 (2026 doar simulare + modele).
-  PR2 adaugă sesiunile 2026 și un workflow lunar.
+  Acoperire: 2010–2026 (2026: simulare + modele).
+  data.spec.mjs verifică grilele, răspunsurile și PDF-urile.
 end note
 @enduml

@@ -19,7 +19,7 @@
           "c": "(x/10)%10",
           "d": "(x/100)%10"
         },
-        "correctAnswer": null
+        "correctAnswer": "d"
       }
     ]
   },

@@ -58,10 +58,10 @@
         "nr": 5,
         "text": "Un graf neorientat cu 5 noduri, numerotate de la 1 la 5 , are muchiile [ 2,5] , [3,1] , [5,3] , [5,4] . Indicați numărul minim de muchii care pot fi adăugate, astfel încât în graful obținut să existe cel puțin un ciclu elementar care să conțină toate nodurile acestuia.",
         "options": {
-          "a": "a. 1",
+          "a": "1",
           "b": "2",
           "c": "3",
-          "d": "4 Ministerul Educaţiei Centrul Național de Politici și Evaluare în Educație Probă scrisă la INFORMATICĂ Testul 9 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "d": "4"
         },
         "correctAnswer": "b"
       }

@@ -1,0 +1,54 @@
+name: BAC watcher
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+    inputs:
+      years:
+        description: 'Ani de verificat (ex. 2026,2027); gol = anul curent și următorul'
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: astro-legacy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: check
+        run: node scripts/bac/check-official.mjs ${{ inputs.years && format('--years={0}', inputs.years) || '' }}
+      - name: Warn when the official site could not be read
+        if: steps.check.outputs.unreachable != '0'
+        run: echo "::warning::subiecte.edu.ro nu a putut fi citit complet; vezi log-ul pasului anterior."
+      # Never publishes anything: new official archives are imported and hand-checked against the barem in a PR.
+      - name: Open or update the "Subiecte BAC noi" issue
+        if: steps.check.outputs.count != '0'
+        uses: actions/github-script@v7
+        env:
+          LIST: ${{ steps.check.outputs.list }}
+        with:
+          script: |
+            const title = 'Subiecte BAC noi de importat';
+            const body = [
+              'Workflow-ul lunar a găsit arhive noi de informatică pe subiecte.edu.ro:',
+              '',
+              process.env.LIST,
+              '',
+              'Pași: descarcă arhivele în `astro-legacy/scripts/bac/inbox/`, extrage PDF-urile varianta C/C++ în `public/subiecte-bac/<an>/`,',
+              'adaugă sesiunea în `public/data/subiecte-bac.json`, rulează `node scripts/extract-exams.cjs`, verifică grilele după barem,',
+              'apoi `node scripts/bac/check-official.mjs --remember` ca să marchezi arhivele ca importate.',
+            ].join('\n');
+            const { data: open } = await github.rest.issues.listForRepo({ ...context.repo, state: 'open', per_page: 100 });
+            const existing = open.find(issue => issue.title === title);
+            if (existing) await github.rest.issues.update({ ...context.repo, issue_number: existing.number, body });
+            else await github.rest.issues.create({ ...context.repo, title, body });

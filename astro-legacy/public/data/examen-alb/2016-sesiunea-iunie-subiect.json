@@ -19,7 +19,7 @@
           "c": "x%1000==0 && x%100!=0",
           "d": "x/1000==0 && x/100!=0"
         },
-        "correctAnswer": null
+        "correctAnswer": "d"
       }
     ]
   },

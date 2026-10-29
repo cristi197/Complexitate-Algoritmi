@@ -36,7 +36,7 @@
         "nr": 3,
         "text": "Utilizând metoda backtracking, se generează toate posibilitățile de a expune câte trei mașini produse în România, din gama Dacia, din mulţimea { Dokker (negru), Duster (negru), Lodgy (gri), Logan (alb), Sandero (roșu)}, astfel încât să nu fie expuse simultan două mașini de aceeași culoare, Sandero să NU apară pe prima poziție, iar Logan să NU fie înainte de Dokker sau Duster. Două soluții sunt distincte dacă au cel puțin o mașină diferită sau dacă ordinea mașinilor este diferită. Primele cinci soluţii generate sunt, în această ordine ( Dokker , Lodgy , Logan ), ( Dokker , Lodgy , Sandero ), ( Dokker , Logan , Lodgy ), ( Dokker , Logan , Sandero ), ( Dokker , Sandero , Lodgy ). Indicaţi penultima soluție, în ordinea generării acestora.",
         "options": {
-          "a": "a. Logan , Lodgy , Sandero",
+          "a": "Logan , Lodgy , Sandero",
           "b": "Logan , Sandero , Lodgy",
           "c": "Lodgy , Dokker , Logan",
           "d": "Lodgy , Logan , Dokker"
@@ -61,7 +61,7 @@
           "a": "4",
           "b": "3",
           "c": "2",
-          "d": "1 Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Varianta 4 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "d": "1"
         },
         "correctAnswer": "b"
       }

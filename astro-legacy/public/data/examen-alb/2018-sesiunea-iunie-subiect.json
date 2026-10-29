@@ -19,7 +19,7 @@
           "c": "(x/y)*y==x && y>=2",
           "d": "x%y==0 || y>2"
         },
-        "correctAnswer": null
+        "correctAnswer": "c"
       }
     ]
   },
