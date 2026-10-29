@@ -19,7 +19,7 @@
           "c": "y*z>x*z && y*x>z*x",
           "d": "y*z>y*x && y*z>z*x"
         },
-        "correctAnswer": null
+        "correctAnswer": "a"
       }
     ]
   },

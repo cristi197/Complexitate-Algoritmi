@@ -19,7 +19,7 @@
           "c": "x%10==x/10",
           "d": "(x%10)/10==x"
         },
-        "correctAnswer": null
+        "correctAnswer": "a"
       }
     ]
   },

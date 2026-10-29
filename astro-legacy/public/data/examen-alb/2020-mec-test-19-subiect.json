@@ -61,7 +61,7 @@
           "a": "[4,5]",
           "b": "[1,2]",
           "c": "[1,2],[4,5]",
-          "d": "[1,2],[2,3],[4,5] Ministerul Educaţiei și Cercetării Centrul Național de Politici și Evaluare în Educație Probă scrisă la informatică Testul 19 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "d": "[1,2],[2,3],[4,5]"
         },
         "correctAnswer": "c"
       }

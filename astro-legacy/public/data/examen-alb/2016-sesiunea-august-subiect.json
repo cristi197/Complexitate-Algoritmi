@@ -19,7 +19,7 @@
           "c": "x>0 || y>0",
           "d": "!(x>0) && !(y>0)"
         },
-        "correctAnswer": null
+        "correctAnswer": "a"
       }
     ]
   },

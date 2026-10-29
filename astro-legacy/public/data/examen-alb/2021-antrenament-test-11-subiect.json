@@ -36,9 +36,9 @@
         "nr": 3,
         "text": "Variabilele x și y sunt declarate alăturat. Indicați o instrucțiune de atribuire corectă din punctul de vedere sintactic. struct masina { char model[51]; int an; }x[10 ],y ;",
         "options": {
-          "c": "x[1 ] .an.masina=y.an.masina;",
           "a": "x[1]=y;",
           "b": "x.an[1]=y.an;",
+          "c": "x[1 ] .an.masina=y.an.masina;",
           "d": "model.x[1]=model.y;"
         },
         "correctAnswer": "a"

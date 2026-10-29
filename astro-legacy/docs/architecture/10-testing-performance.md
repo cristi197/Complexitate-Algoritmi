@@ -22,6 +22,7 @@ _Actualizat în: PR1_
 | `debug-live.spec.mjs` | Input-ul elevului nu devine HTML; matricea scrisă e folosită; rândurile de trasare merg din tastatură |
 | `progress.spec.mjs` | XP are o singură sursă; vechiul `infoXP` e adunat o dată și sidebar-ul arată totalul salvat |
 | `overlap.spec.mjs` | Pe toate paginile (desktop și mobil), nicio iconiță decorativă poziționată absolut (`::before`/`::after` sau SVG) nu acoperă textul |
+| `data.spec.mjs` | Datele BAC: structura examenelor, grile `a–d` cu răspuns valid, fără antet de pagină, PDF-uri existente, date plauzibile în catalog |
 | `visual.spec.mjs` | Capturi pentru 10 pagini cheie, doar Chromium (`__screenshots__/<platform>/<proiect>/`) |
 
 `CRAWL_STRICT=0` transformă problemele găsite de crawler în adnotări, pentru investigații locale; implicit, crawler-ul e strict. Capturile lipsă se generează automat (`updateSnapshots: 'missing'`).

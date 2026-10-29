@@ -25,9 +25,9 @@
         "nr": 2,
         "text": "Variabilele x ș i valoare sunt declarate al ă turat. Indica ț i o instruc ț iune de atribuire corect ă din punctul de vedere sintactic. struct produs { char denumire[50]; float cantitate, pret; }x; float valoare;",
         "options": {
-          "c": "x.denumire[5]= \"Borsec\";",
           "a": "x=(\"apa minerala\",10,2.5);",
           "b": "x.produs.pret=2.5;",
+          "c": "x.denumire[5]= \"Borsec\";",
           "d": "valoare=2*x.cantitate*x.pret;"
         },
         "correctAnswer": "d"
@@ -47,7 +47,7 @@
         "nr": 4,
         "text": "Un graf neorientat cu 6 noduri, numerotate de la 1 la 6 , are muchiile [1,2] , [1,3] , [2,3] , [4,6] . Indica ț i num ă rul de componente conexe ale acestuia.",
         "options": {
-          "a": "a. 1",
+          "a": "1",
           "b": "3",
           "c": "5",
           "d": "6"
@@ -61,7 +61,7 @@
           "a": "x=11 y=12",
           "b": "x=8 y=3",
           "c": "x=3 y=8",
-          "d": "x=3 y=3 Ministerul Educa ț iei Centrul Na ț ional de Politici ș i Evaluare în Educa ț ie Prob ă scris ă la informatic ă Varianta 1 Limbajul C/C++ Filier ă teoretic ă , profil real, specializare matematic ă -informatic ă / matematic ă -informatic ă intensiv informatic ă Filier ă voca ț ional ă , profil militar, specializare matematic ă -informatic ă Pagina 2 din 2"
+          "d": "x=3 y=3"
         },
         "correctAnswer": "c"
       }

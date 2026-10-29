@@ -36,9 +36,9 @@
         "nr": 3,
         "text": "Variabila e este declarată alăturat. Indicați o instrucțiune de atribuire corectă din punctul de vedere sintactic. struct elev { int cod; char initiala; struct { int nota1,nota2; }note; }e;",
         "options": {
-          "c": "e.cod=e.initiala- ’A’;",
           "a": "e(initiala)=’A’;",
           "b": "e=(2020 ,’ A ’, 10,9);",
+          "c": "e.cod=e.initiala- ’A’;",
           "d": "e.elev.cod=2020;"
         },
         "correctAnswer": "c"
@@ -61,7 +61,7 @@
           "a": "1",
           "b": "2",
           "c": "3",
-          "d": "4 Ministerul Educației și Cercetării Centrul Național de Evaluare și Examinare Probă scrisă la informatică Testul 8 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "d": "4"
         },
         "correctAnswer": "b"
       }

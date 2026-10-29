@@ -58,10 +58,10 @@
         "nr": 5,
         "text": "Un graf orientat cu 6 vârfuri, numerotate de la 1 la 6 , este reprezentat prin matricea de adiacență alăturată. Indicați numărul minim de arce care pot fi adăugate astfel încât graful obținut să aibă cel puțin două circuite. Un circuit este format numai din arce distincte, iar două circuite sunt distincte dacă diferă prin cel puțin un arc. 0 0 0 0 0 1 1 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0",
         "options": {
-          "c": "3",
           "a": "1",
           "b": "2",
-          "d": "4 Ministerul Educaţiei și Cercetării Centrul Naţional de Evaluare şi Examinare Probă scrisă la informatică Testul 14 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocaţională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "c": "3",
+          "d": "4"
         },
         "correctAnswer": "a"
       }

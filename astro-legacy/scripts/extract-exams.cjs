@@ -1,11 +1,16 @@
 /**
  * extract-exams.cjs
  * Reads all BAC exam PDFs and produces structured JSON files.
- * Run: node scripts/extract-exams.cjs
+ * Run: node scripts/extract-exams.cjs              (only new exams)
+ *      node scripts/extract-exams.cjs --force      (regenerate everything)
+ *      node scripts/extract-exams.cjs --fix-answers (re-parse only Subiectul I + barem of existing JSONs)
  */
 
 const fs   = require('fs');
 const path = require('path');
+
+const FORCE       = process.argv.includes('--force');
+const FIX_ANSWERS = process.argv.includes('--fix-answers');
 
 /* ── helpers ──────────────────────────────────────────────── */
 
@@ -21,14 +26,22 @@ function clean(s) {
 async function pdfToText(filePath) {
   const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');
   const data     = new Uint8Array(fs.readFileSync(filePath));
-  const doc      = await pdfjsLib.getDocument({ data }).promise;
+  const doc      = await pdfjsLib.getDocument({ data, verbosity: 0 }).promise;
   let text = '';
   for (let i = 1; i <= doc.numPages; i++) {
     const page    = await doc.getPage(i);
     const content = await page.getTextContent();
     text += content.items.map(it => it.str).join(' ') + '\n';
   }
-  return text;
+  return stripPageChrome(text);
+}
+
+// Every page repeats a "Ministerul ... specializarea matematică-informatică [Pagina x din y]" header/footer.
+// Some PDFs split diacritics into separate glyphs ("matematic ă -informatic ă").
+function stripPageChrome(text) {
+  return text.replace(
+    /Ministerul\s+Educa[\s\S]{0,600}?profil(?:ul)?\s+militar,?\s*specializare(?:a)?\s*matematic(?:\s?\S)?\s*[–-]?\s*informatic(?:\s?\S)?(?:\s+Pagina\s+\d+\s+din\s+\d+|\s+\d+(?=\s))?/gi,
+    ' ');
 }
 
 /* ── parsers ──────────────────────────────────────────────── */
@@ -47,11 +60,11 @@ function parseSubiectI(block) {
     const num  = parseInt(numMatch[1]);
     const body = numMatch[2];
 
-    // Extract options a b c d
+    // Extract options a b c d; the letter must not end a word (e.g. the "c." in "arc.").
     const opts = {};
-    const optRe = /([abcd])\.\s+(.*?)(?=\s+[abcd]\.\s|$)/gs;
+    const optRe = /(?<![\p{L}\d])([abcd])\.\s+(.*?)(?=\s+(?<![\p{L}\d])[abcd]\.\s|$)/gsu;
     let m;
-    const beforeOpts = body.split(/\s+a\./)[0];
+    const beforeOpts = body.split(/\s+a\.\s/)[0];
     while ((m = optRe.exec(body)) !== null) {
       opts[m[1]] = clean(m[2]);
     }
@@ -155,14 +168,18 @@ function parseSubiectIII(block) {
 
 /**
  * Parse barem (answer key) to fill correct answers for Subject I.
- * Typically looks like: "1a 2d 3c 4d 5b"
+ * Formats: "1d 2c 3b 4b 5a 5x4p." (2019+) and "1. d 4p." (2010–2018, a single grid question).
+ * "2. a) Răspuns corect" is a sub-item, not an answer, so a letter only counts before points or the next answer.
  */
 function parseBarem(baremText) {
+  const start = baremText.search(/SUBIECTUL\s+I\b/i);
+  const end   = baremText.search(/SUBIECTUL\s+al\s+II/i);
+  const section = baremText.slice(start < 0 ? 0 : start, end > start ? end : undefined);
   const answers = {};
-  const re = /([1-5])([abcd])/g;
+  const re = /(?<!\d)([1-5])\s*\.?\s*([abcd])(?=\s+(?:\d+\s*x?\s*\d*\s*p|[1-5]\s*\.?\s*[abcd](?![\p{L})]))|\s*$)/gu;
   let m;
-  while ((m = re.exec(baremText)) !== null) {
-    answers[parseInt(m[1])] = m[2];
+  while ((m = re.exec(section)) !== null) {
+    answers[parseInt(m[1])] ??= m[2];
   }
   return answers;
 }
@@ -185,11 +202,14 @@ function parseExamText(fullText, baremText) {
   const q3 = parseSubiectIII(s3Text);
 
   // Apply barem answers to Subject I
+  let questions = q1;
   if (baremText) {
     const answers = parseBarem(baremText);
     q1.forEach(q => {
       if (answers[q.nr]) q.correctAnswer = answers[q.nr];
     });
+    // Before 2019 only question 1 is a grid; pseudocode sub-items (a., b., c.) look like options.
+    if (Object.keys(answers).length) questions = q1.filter(q => q.correctAnswer && q.correctAnswer in q.options);
   }
 
   // Extract variant info
@@ -199,7 +219,7 @@ function parseExamText(fullText, baremText) {
   return {
     variant:   variantMatch?.[1] ? parseInt(variantMatch[1]) : null,
     language:  langMatch?.[1] || 'C/C++',
-    subiectI:  { points: 20, questions: q1 },
+    subiectI:  { points: 20, questions },
     subiectII: { points: 40, problems: q2 },
     subiectIII:{ points: 30, problems: q3 },
   };
@@ -227,8 +247,9 @@ function sessionLabel(filename) {
 async function main() {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
+  // 2009 is one PDF with 100 variants, handled by extract-2009-variante.mjs.
   const years = fs.readdirSync(SUBIECTE_DIR)
-    .filter(d => /^\d{4}$/.test(d))
+    .filter(d => /^\d{4}$/.test(d) && d !== '2009')
     .sort();
 
   const index = []; // master index written to examen-alb/index.json
@@ -242,9 +263,18 @@ async function main() {
       const id      = subFile.replace('.pdf', '');
       const outFile = path.join(OUT_DIR, id + '.json');
 
-      if (fs.existsSync(outFile)) {
-        console.log(`  SKIP (exists): ${id}`);
+      if (fs.existsSync(outFile) && !FORCE) {
         const existing = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+        if (FIX_ANSWERS) {
+          const baremPath = path.join(yearDir, subFile.replace('-subiect.pdf', '-barem.pdf'));
+          const parsed = parseExamText(await pdfToText(path.join(yearDir, subFile)),
+            fs.existsSync(baremPath) ? await pdfToText(baremPath) : null);
+          existing.subiectI = { ...existing.subiectI, questions: parsed.subiectI.questions };
+          fs.writeFileSync(outFile, JSON.stringify(existing, null, 2), 'utf8');
+          console.log(`  FIX: ${id} → ${parsed.subiectI.questions.length} grile`);
+        } else {
+          console.log(`  SKIP (exists): ${id}`);
+        }
         index.push({ id, year: parseInt(year), session: existing.session, type: existing.type });
         continue;
       }

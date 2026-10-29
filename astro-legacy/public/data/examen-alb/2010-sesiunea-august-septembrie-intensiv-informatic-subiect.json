@@ -19,7 +19,7 @@
           "c": "x==y || x==z || y==z",
           "d": "!( x!=y && x!=z)"
         },
-        "correctAnswer": null
+        "correctAnswer": "a"
       }
     ]
   },

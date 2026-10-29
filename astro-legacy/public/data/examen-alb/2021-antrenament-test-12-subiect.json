@@ -25,9 +25,9 @@
         "nr": 2,
         "text": "Variabila x este declarată alăturat. Indicați o instrucțiune de atribuire corectă din punctul de vedere sintactic. struct masina { char serie; int rating; }x;",
         "options": {
-          "c": "x(serie)=’A’;",
           "a": "x.rating=x.serie- ’A’;",
           "b": "x.masina.rating=2021;",
+          "c": "x(serie)=’A’;",
           "d": "x=(2021,’A’,10);"
         },
         "correctAnswer": "a"
@@ -61,7 +61,7 @@
           "a": "0,1,1,1,5",
           "b": "1,1,1,1,3",
           "c": "1,1,2,2,2",
-          "d": "1,1,2,2,3 Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la INFORMATICĂ Testul 12 Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "d": "1,1,2,2,3"
         },
         "correctAnswer": "c"
       }

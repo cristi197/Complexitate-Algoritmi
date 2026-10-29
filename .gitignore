@@ -68,3 +68,5 @@ astro-legacy/.lighthouseci/
 astro-legacy/reports/perf/current/
 astro-legacy/reports/perf/.tmp/
 perf-*.log
+# Arhive BAC descărcate manual, înainte de import
+astro-legacy/scripts/bac/inbox/

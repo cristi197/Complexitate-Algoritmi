@@ -36,9 +36,9 @@
         "nr": 3,
         "text": "Variabila s este declarată alăturat. Indicați o instrucțiune de atribuire corectă din punctul de vedere sintactic. struct site { char cod; struct { int nrAccesari,nrAprecieri; }vizite; }s;",
         "options": {
-          "c": "s.vizite.nrAccesari=2*s.vizite.nrAprecieri;",
           "a": "s(cod,nrAccesari,nrAprecieri)=(1,10,2);",
           "b": "s=(1,(10,2));",
+          "c": "s.vizite.nrAccesari=2*s.vizite.nrAprecieri;",
           "d": "s.site.cod=2021;"
         },
         "correctAnswer": "c"
@@ -61,7 +61,7 @@
           "a": "33",
           "b": "35",
           "c": "39",
-          "d": "41 Ministerul Educației Centrul Național de Politici și Evaluare în Educație Probă scrisă la INFORMATICĂ Simulare Limbajul C/C++ Filieră teoretică, profil real, specializare matematică-informatică / matematică-informatică intensiv informatică Filieră vocațională, profil militar, specializare matematică-informatică Pagina 2 din 2"
+          "d": "41"
         },
         "correctAnswer": "b"
       }

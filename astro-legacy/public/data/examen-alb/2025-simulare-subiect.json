@@ -47,9 +47,10 @@
         "nr": 4,
         "text": "Un arbore cu 11 noduri, numerotate de la 1 la 11 , este reprezentat prin vectorul de „tați” (4,3,7,6,7,8,6,0,7,7,7) . Indicați numărul maxim de descendenți direcți (“fii”) ai unui nod.",
         "options": {
-          "d": "3",
+          "a": "6",
           "b": "5",
-          "c": "4"
+          "c": "4",
+          "d": "3"
         },
         "correctAnswer": "b"
       },

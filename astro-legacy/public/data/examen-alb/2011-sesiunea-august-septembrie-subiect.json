@@ -19,18 +19,7 @@
           "c": "(-20,-10) ∪ ∪ ∪ ∪ (-5,5)",
           "d": "(-20,-10] ∪ ∪ ∪ ∪ [-5,5]"
         },
-        "correctAnswer": null
-      },
-      {
-        "nr": 2,
-        "text": "Se consideră algoritmul alăturat, descris în pseudocod. S-a notat cu x%y restul împărŃirii numărului natural x la numărul natural nenul y şi cu [z] partea întreagă a numărului real z .",
-        "options": {
-          "d": "ScrieŃi programul C/C++ corespunzător algoritmului dat. (10p.) Ministerul EducaŃiei, Cercetării, Tineretului şi Sportului Centrul NaŃional de Evaluare şi Examinare Probă scrisă la Informatică Varianta 3 Limbajul C/C++ Filiera teoretică, profilul real, specializările matematică – informatică, matematică – informatică intensiv informatică Filiera vocaŃională, profilul militar, specializarea matematică – informatică 2",
-          "a": "ScrieŃi numărul care se afişează în urma executării algoritmului dacă pentru variabila n se citeşte valoarea 1034 , iar pentru variabila m valoarea 1234 . (6p.)",
-          "b": "ScrieŃi toate perechile distincte de valori naturale, de câte două cifre fiecare, valori care pot fi citite pentru variabilele n şi m astfel încât, în urma executării algoritmului, pentru fiecare dintre acestea, numărul afişat să fie 86 . (6p.) citeşte n,m (numere naturale) ┌dacă n<m atunci │ x \u0001 \u0001 \u0001 \u0001 n │ n \u0001 \u0001 \u0001 \u0001 m │ m \u0001 \u0001 \u0001 \u0001 x └■ p \u0001 \u0001 \u0001 \u0001 1 ┌cât timp m>0 execută │ c \u0001 \u0001 \u0001 \u0001 m%10 │ m \u0001 \u0001 \u0001 \u0001 [m/10] │ n \u0001 \u0001 \u0001 \u0001 n-p*c │ p \u0001 \u0001 \u0001 \u0001 p*10 └■ scrie n",
-          "c": "ScrieŃi în pseudocod un algoritm care să nu folosească structuri repetitive şi care să fie echivalent cu cel dat. (4p.)"
-        },
-        "correctAnswer": null
+        "correctAnswer": "d"
       }
     ]
   },
