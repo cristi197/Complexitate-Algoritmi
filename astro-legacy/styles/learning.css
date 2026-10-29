@@ -191,6 +191,9 @@ pre code { border: 0; background: none; font-size: inherit; padding: 0; }
 .table-scroll th, .table-scroll td { padding: 11px 13px; border-bottom: 1px solid var(--border); }
 .table-scroll tbody tr:last-child td { border-bottom: 0; }
 .callout, .beginner-box { border-radius: 6px; box-shadow: none; padding: 16px 20px; font-size: 14px; }
+/* global.css draws the callout icon absolutely at left:14px, so the text must start after it. */
+.callout { padding-left: 46px; }
+.callout::before { top: 17px; }
 .chapter-page .card-grid { gap: 12px; }
 .chapter-page .card { background: var(--surface); border-radius: 6px; box-shadow: none; padding: 16px; }
 .viz-demo, .demo-box, .interactive-demo { border-radius: 8px; box-shadow: none; max-width: 100%; min-width: 0; }
@@ -315,6 +318,8 @@ dialog.search-modal::backdrop { background: #172b3460; backdrop-filter: blur(3px
   .chapter-page .card-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .code-block pre { padding: 16px; font-size: 12px; }
   .callout, .beginner-box { padding: 14px 16px; }
+  .callout { padding-left: 42px; }
+  .callout::before { left: 12px; top: 15px; }
   .quiz-wrap { padding: 16px; }
   .quiz-opt { padding: 10px; }
   .lesson-actions .study-button { padding-inline: 12px; }

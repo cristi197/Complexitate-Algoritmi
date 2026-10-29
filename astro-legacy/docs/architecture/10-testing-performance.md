@@ -21,6 +21,7 @@ _Actualizat în: PR1_
 | `a11y.spec.mjs` | axe (WCAG 2.1 AA, serious/critical) pe toate paginile de unelte, în desktop, mobil și tema închisă |
 | `debug-live.spec.mjs` | Input-ul elevului nu devine HTML; matricea scrisă e folosită; rândurile de trasare merg din tastatură |
 | `progress.spec.mjs` | XP are o singură sursă; vechiul `infoXP` e adunat o dată și sidebar-ul arată totalul salvat |
+| `overlap.spec.mjs` | Pe toate paginile (desktop și mobil), nicio iconiță decorativă poziționată absolut (`::before`/`::after` sau SVG) nu acoperă textul |
 | `visual.spec.mjs` | Capturi pentru 10 pagini cheie, doar Chromium (`__screenshots__/<platform>/<proiect>/`) |
 
 `CRAWL_STRICT=0` transformă problemele găsite de crawler în adnotări, pentru investigații locale; implicit, crawler-ul e strict. Capturile lipsă se generează automat (`updateSnapshots: 'missing'`).
